@@ -511,6 +511,48 @@
 <h2>TritonAI Developer APIs</h2>
 <p>A governed gateway to self-hosted and approved cloud models, with starter credits, usage reporting, and recharge paths for projects that scale.</p>
 
+<h3>TritonAI Harness: Campus Agentic Development Platform</h3>
+<p>The TritonAI Harness is UC San Diego's campus agentic development platform — the execution layer that turns model inference into governed, tool-using AI workers. Based on the Hugging Face agent glossary: <em>Model &ne; Agent. Agent = Model + Scaffold + Harness.</em> The Harness is what makes it one: it calls the model, routes tool calls, manages the action-observation loop, handles errors, and controls state and memory across turns.</p>
+<p><strong>Architecture:</strong> User &rarr; Harness &rarr; LiteLLM Gateway &rarr; Hyperscaler/On-prem models + Tools/Skills (via MCP)</p>
+<p>The Harness evolved from the T3 Code fork and was formally named "TritonAI Harness" in June 2026. V1 (Mac) feature set is complete, including cron scheduling, heartbeat monitoring, job execution, and MS Graph access. It functions as UCSD's branded Codex replacement with governed gateway metering, observability, and recharge mechanics.</p>
+<p>Key capabilities include:</p>
+<ul>
+<li><strong>Agent orchestration</strong> — multi-step workflow execution with tool calls, error handling, and state management</li>
+<li><strong>MCP-based connectors</strong> — reusable skills and tools from the UCSD Skills Library, including MS Graph, Confluence, and campus data integrations</li>
+<li><strong>Governed access</strong> — every request routes through the LiteLLM gateway with usage tracking, access scopes, and model routing policies</li>
+<li><strong>Citizen developer pathway</strong> — tiered deployment model from individual experimentation to campus-wide enterprise applications</li>
+<li><strong>Recharge mechanics</strong> — usage-based cost recovery for production projects that scale beyond starter credits</li>
+</ul>
+
+<div class="jumbotron jumbotron-full-width side-image-white bubbles">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Developer API Architecture</h3>
+                <p>Campus users connect through AI Harnesses (Claude Code, Codex, TritonBuild) to the LLM Gateway, which routes to approved model providers. The gateway enforces templates, guardrails, and usage tracking. ITS owns templates, hosting, and baseline risk review; departments own app logic, accessibility, testing, and end-user support.</p>
+                <img src="../_images/api-program.png" alt="TritonAI Developer API architecture diagram showing the flow from campus users through AI harnesses to the LLM gateway and model providers, with the four-step onboarding process and responsibility model" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-callout-image-small-inset" style="background-image: url(https://cdn.ucsd.edu/cms/decorator-5/img/bg-grit-orbs-2.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>Tiered Deployment Model</h3>
+                        <p class="panel-text">From individual citizen development to campus-wide enterprise deployment — a structured escalation path with review gates at each tier.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<img src="../_images/ai-hosting.png" alt="TritonAI tiered deployment model showing four tiers from individual citizen development through campus-wide enterprise deployment with review gates" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
+
 <h3>Access Request</h3>
 <p>Submit a request via the Kuali Build form (search "TritonAI API" in the Service Portal). Default credits ($15/month) are active for experimentation.</p>
 
@@ -526,8 +568,13 @@
 <h3>Model Hub Highlights</h3>
 <p>GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, Gemini 3.1 Pro/Flash, Amazon Nova Premier, Cohere transcription, and self-hosted open-weight models inside the UC firewall.</p>
 
-<h3>Architecture</h3>
-<p>Your application &rarr; LiteLLM Gateway &rarr; On-prem models (SDSC) + Approved cloud models &rarr; Tools/Skills via MCP</p>
+<h3>UCSD Skills Library</h3>
+<p>Reusable MCP-based skills for the TritonAI ecosystem, managed by David Balderston in two repos:</p>
+<ul>
+<li><strong>UCSD-Skills-Library-Secure</strong> (private) — DSMLP skill with automated GitHub pipeline</li>
+<li><strong>UCSD-Skills-Library</strong> (public) — all other skills in <code>tritonai/</code> and <code>community/</code> folders</li>
+</ul>
+<p>Skills are designed to be consumed dynamically by the Triton Code Agent and T3 Harness for campus workflows.</p>
 
                     </section>
 				    
