@@ -529,7 +529,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Developer API Architecture</h3>
-                <p>Campus users connect through AI Harnesses (Claude Code, Codex, TritonBuild) to the LLM Gateway, which routes to approved model providers. The gateway enforces templates, guardrails, and usage tracking. ITS owns templates, hosting, and baseline risk review; departments own app logic, accessibility, testing, and end-user support.</p>
+                <p>Campus users connect through AI Harnesses (Claude Code, Codex, TritonBuild) to the LLM Gateway, which routes to both on-prem models at the San Diego Supercomputer Center and approved cloud providers. The gateway enforces templates, guardrails, and usage tracking. ITS owns templates, hosting, and baseline risk review; departments own app logic, accessibility, testing, and end-user support.</p>
                 <img src="../_images/api-program.png" alt="TritonAI Developer API architecture diagram showing the flow from campus users through AI harnesses to the LLM gateway and model providers, with the four-step onboarding process and responsibility model" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
             </div>
         </div>
@@ -560,13 +560,28 @@
 <ul>
 <li>API key for the LiteLLM gateway at <code>tritonai-api.ucsd.edu/v1</code></li>
 <li>Default credits ($15/month) for experimentation</li>
-<li>Access to 20+ models — self-hosted (SDSC) and approved cloud (OpenAI, Anthropic, Google, Cohere)</li>
+<li><strong>On-prem models</strong> — self-hosted open-weight models inside the UC firewall at SDSC, including Llama, Mistral, Gemma, and DeepSeek variants, with no per-token cost for campus users</li>
+<li><strong>Cloud models</strong> — access to 20+ approved cloud models including GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, Gemini 3.1 Pro/Flash, Amazon Nova Premier, and Cohere transcription</li>
 <li>Usage reporting and recharge mechanics for production projects</li>
 <li>MCP-based connectors and reusable skills from the UCSD Skills Library</li>
 </ul>
 
+<h3>On-Prem Model Hosting at SDSC</h3>
+<p>The San Diego Supercomputer Center hosts open-weight models inside the UC firewall, giving the campus a resilient, cost-controlled AI infrastructure that doesn't depend on external API availability or vendor rate limits. This is central to UC San Diego's strategy: <strong>own the base layer, rent the frontier.</strong></p>
+<ul>
+<li><strong>Data sovereignty</strong> — sensitive campus data never leaves the UC network when using on-prem models</li>
+<li><strong>Cost control</strong> — no per-token charges for self-hosted models; cloud usage is opt-in for frontier capabilities</li>
+<li><strong>Vendor independence</strong> — reduce lock-in to any single cloud provider; on-prem models provide a fallback if cloud access changes</li>
+<li><strong>Research access</strong> — SDSC GPU infrastructure (including DGX-class hardware) available for research and instructional workloads</li>
+<li><strong>Model flexibility</strong> — open-weight models can be fine-tuned, quantized, or swapped without vendor approval</li>
+</ul>
+
+<h3>Cloud Model Access</h3>
+<p>For workloads that need frontier capabilities, the LiteLLM gateway provides governed access to approved cloud providers with the same usage tracking, access scopes, and recharge mechanics as on-prem models. Cloud and on-prem models can be mixed within a single agent workflow — the Harness routes to whichever model the gateway policy specifies.</p>
+
 <h3>Model Hub Highlights</h3>
-<p>GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, Gemini 3.1 Pro/Flash, Amazon Nova Premier, Cohere transcription, and self-hosted open-weight models inside the UC firewall.</p>
+<p><strong>On-prem (SDSC):</strong> Llama 3.1/4, Mistral Large, Gemma 3, DeepSeek V4, Qwen 3 — with new open-weight models added as they're released and validated.</p>
+<p><strong>Cloud (via gateway):</strong> GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, Gemini 3.1 Pro/Flash, Amazon Nova Premier, Cohere transcription.</p>
 
 <h3>UCSD Skills Library</h3>
 <p>Reusable MCP-based skills for the TritonAI ecosystem, managed by David Balderston in two repos:</p>
