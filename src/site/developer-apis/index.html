@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en-US">
+	<head>
+		
+
+
+
+ 
+
+
+
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="initial-scale=1.0" name="viewport"/>
+    <meta content="7MiYjX2ZghMOWvtKRWlar--c6mD2ose5EcbQFQ6szFA" name="google-site-verification"/>
+    
+    <title>Developer APIs</title>
+    <meta content="University of California San Diego" name="ORGANIZATION"/>
+    <meta content="index,follow,noarchive" name="robots"/>
+    <meta content="TritonAI" name="SITE"/>
+    <meta content="Developer APIs" name="PAGETITLE"/>
+    <meta content="Developer APIs &amp; Resources" name="DESCRIPTION"/>
+    <meta content="06d792a70a0000951f1253b149a229a9" name="id"/>
+
+   
+    
+
+
+    
+
+		
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link href="//cdn.ucsd.edu/cms/decorator-5/styles/bootstrap.min.css" rel="stylesheet"/>
+<link href="//cdn.ucsd.edu/cms/decorator-5/styles/base.min.css" rel="stylesheet"/>
+
+
+        
+    
+
+
+
+<!-- Site-specific CSS files -->
+    
+    
+    
+<!-- Other CSS files -->
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="https://cdn.ucsd.edu/cms/decorator-5/styles/ie-support.css" />
+<![endif]-->
+
+<!-- Other JS files -->
+
+
+<script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/modernizr.min.js"></script>
+
+
+        
+    
+    
+
+
+<!-- Site-specific javascript files -->
+
+
+    
+
+<!--[if lt IE 9]>
+<script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/respond.min.js"></script>
+<link href="https://cdn.ucsd.edu/cms/decorator-5/scripts/cross-domain/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+<link href="/_resources/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+<script src="/_resources/cross-domain/respond.proxy.js"></script>
+<![endif]-->
+
+
+	</head>
+	<body>
+	    
+
+
+
+    
+
+		<header class="layout-header">
+			<a class="sr-only skip-to-main" href="#main-content">Skip to main content</a>
+			<div id="uc-emergency"></div>
+			<!-- title section -->
+			<section aria-label="Site Name" class="layout-title">
+				<div class="layout-container container">
+					
+
+
+
+
+<a class="title-header title-header-large" href="/">
+            Triton AI
+    </a>
+    
+<a class="title-header title-header-short" href="/">
+            Triton AI
+    </a>
+
+    <a class="title-logo" href="http://www.ucsd.edu">UC San Diego</a>
+
+
+
+				</div>
+			</section>
+		</header>
+		
+		<div class="navmenu navmenu-default navmenu-fixed-left offcanvas" style="">
+		
+
+
+
+
+
+
+<ul class="nav navbar-nav navbar-right msearch">
+		    <li>
+			    <div class="search">
+		            <button aria-label="search" class="search-toggle btn-default">
+		                <span class="glyphicon glyphicon-search"></span> <span class="caret"></span>
+		            </button>
+
+		            <div class="search-content" id="search-m">
+
+                        <form action="/search/index.html" method="get">
+                            <label for="search-scope" style="display:none;">Search</label>
+                            <select class="search-scope" id="search-scope-m" name="search-scope">
+                                                                    <option selected="selected" value="tritonai">This Site</option>
+                                                                <option value="default_collection">All UCSD Sites</option>
+                                <option value="faculty-staff">Faculty/Staff</option>
+                            </select>
+                        
+                            <div class="input-group">
+                                <label for="q-m" style="display:none;">Search Term</label>
+                                <input autofocus="autofocus" class="form-control search-term" id="q-m" name="search-term-m" placeholder="Search..." type="search"/>
+                            </div>
+                            <input class="sr-only" type="submit" value="Submit"/>
+                        </form>
+
+                    </div>
+        </div>
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+  
+<button aria-controls="navbar" class="navbar-toggle sr-only" data-canvas="body" data-target=".navmenu" data-toggle="offcanvas" type="button">Close Nav</button>
+
+<ul class="nav navmenu-nav">
+                       
+                                                                                          
+                                                                                                                                                           
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown open "><a href="../about/index.html">About <span class="caret"></span>          </a>
+                   
+                                                                                           <ul class="dropdown-menu navmenu-nav">
+                                                                                                                                                           <li><a href="../about/roadmap.html">Roadmap</a></li>
+                                                                                                                                                   <li><a href="../about/sustainability.html">Sustainable AI</a></li>
+                                                                                                                                                   <li><a href="../about/workgroup.html">AI Development Workgroup</a></li>
+                                                                                                                                                   <li><a href="../about/get-involved.html">Get Involved</a></li>
+                                                                                                                                                   <li><a href="../about/ai-updates.html">AI Updates</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                 
+                                                             
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                                                                                                                          
+                                                                                                                                                   
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown open "><a href="../tritongpt/index.html">TritonGPT <span class="caret"></span>          </a>
+                   
+                                                                                  <ul class="dropdown-menu navmenu-nav">
+                                                             <li><a href="https://tritonai.ucsd.edu/training-resources/tritongpt/index.html">Guides</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/instruction.html">Instructional AI Pilot</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/chatbot-widget.html">Chatbot Widget</a></li>
+                                                                                                                                                                                                                                                          <li><a href="../tritongpt/release-notes/index.html">Release Notes</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/terms.html">Terms of Use</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/privacy.html">Privacy Statement</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                          
+                                                                                                                                                           
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown open "><a href="../training-resources/index.html">Training &amp; Resources <span class="caret"></span>          </a>
+                   
+                                                                                           <ul class="dropdown-menu navmenu-nav">
+                                                                                                                                                           <li><a href="../training-resources/tritongpt/index.html">TritonGPT Guides</a></li>
+                                                                                                                                                   <li><a href="../training-resources/prompting/index.html">Prompting</a></li>
+                                                                                                                                                   <li><a href="../training-resources/webinars.html">AI Webinars</a></li>
+                                                                                                                                                   <li><a href="../training-resources/faculty-ai-symposium.html">Faculty AI Symposium</a></li>
+                                                                                                                                                   <li><a href="../training-resources/faq.html">FAQ</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                 
+                                                             
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown open "><a href="index.html">Developer APIs <span class="caret"></span>          </a>
+                   
+                                                                                  <ul class="dropdown-menu navmenu-nav">
+                                                             <li><a href="start.html">Get Started</a></li>
+                                                                                                                                                   <li><a href="faq.html">FAQs</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                                                                                                                    
+                
+        <li class=""><a href="../tools/index.html">AI Tools </a>
+          
+                   
+                                                                                                                                                                                </li>
+         </ul>
+
+		</div>
+		
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+			    
+                <div class="navbar-header">
+        			<button aria-controls="navbar" aria-expanded="false" class="navbar-toggle" data-canvas="body" data-target=".navmenu" data-toggle="offcanvas" type="button">
+          			    <span class="sr-only">Toggle navigation</span>
+    
+          					<div class="col-sm-1 mobile-nav-bars">
+          				    <span class="icon-bar"></span>
+          				    <span class="icon-bar"></span>
+          				    <span class="icon-bar"></span>
+             				</div>
+              			<div class="col-sm-1 mobile-nav-icon">
+                          MENU
+          			    </div>
+          			    
+                    </button>
+                    
+                    <div class="col-sm-4 pull-right visible-xs-block">
+                        <img alt="UC San Diego Logo" class="img-responsive header-logo" src="https://cdn.ucsd.edu/cms/decorator-5/styles/img/ucsd-footer-logo-white.png"/>
+                    </div>
+                    
+                </div>
+                
+                <div class="navbar-collapse collapse" id="navbar">
+			    
+    	            
+
+
+
+
+
+
+
+
+<ul class="nav navbar-nav navbar-nav-list">
+                       
+                                                                                          
+                                                                                                                                                           
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown "><a aria-expanded="false" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" href="../about/index.html">About <span class="caret"></span>          </a>
+                   
+                                                                                           <ul class="dropdown-menu">
+                                                                                                                                                           <li><a href="../about/roadmap.html">Roadmap</a></li>
+                                                                                                                                                   <li><a href="../about/sustainability.html">Sustainable AI</a></li>
+                                                                                                                                                   <li><a href="../about/workgroup.html">AI Development Workgroup</a></li>
+                                                                                                                                                   <li><a href="../about/get-involved.html">Get Involved</a></li>
+                                                                                                                                                   <li><a href="../about/ai-updates.html">AI Updates</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                 
+                                                             
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                                                                                                                          
+                                                                                                                                                   
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown "><a aria-expanded="false" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" href="../tritongpt/index.html">TritonGPT <span class="caret"></span>          </a>
+                   
+                                                                                  <ul class="dropdown-menu">
+                                                             <li><a href="https://tritonai.ucsd.edu/training-resources/tritongpt/index.html">Guides</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/instruction.html">Instructional AI Pilot</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/chatbot-widget.html">Chatbot Widget</a></li>
+                                                                                                                                                                                                                                                          <li><a href="../tritongpt/release-notes/index.html">Release Notes</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/terms.html">Terms of Use</a></li>
+                                                                                                                                                   <li><a href="../tritongpt/privacy.html">Privacy Statement</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                          
+                                                                                                                                                           
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown "><a aria-expanded="false" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" href="../training-resources/index.html">Training &amp; Resources <span class="caret"></span>          </a>
+                   
+                                                                                           <ul class="dropdown-menu">
+                                                                                                                                                           <li><a href="../training-resources/tritongpt/index.html">TritonGPT Guides</a></li>
+                                                                                                                                                   <li><a href="../training-resources/prompting/index.html">Prompting</a></li>
+                                                                                                                                                   <li><a href="../training-resources/webinars.html">AI Webinars</a></li>
+                                                                                                                                                   <li><a href="../training-resources/faculty-ai-symposium.html">Faculty AI Symposium</a></li>
+                                                                                                                                                   <li><a href="../training-resources/faq.html">FAQ</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                 
+                                                             
+                                                                                                                                                   
+                                 
+                                 
+                 
+          
+          <li class="dropdown "><a aria-expanded="false" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" href="index.html">Developer APIs <span class="caret"></span>          </a>
+                   
+                                                                                  <ul class="dropdown-menu">
+                                                             <li><a href="start.html">Get Started</a></li>
+                                                                                                                                                   <li><a href="faq.html">FAQs</a></li>
+                        </ul>
+       
+                             </li>
+                                
+                                                                                                                                                                                    
+                
+        <li class=""><a href="../tools/index.html">AI Tools </a>
+          
+                   
+                                                                                                                                                                                </li>
+         </ul>
+
+    	            
+    	            <div class="btn-nav"></div>
+    		
+    				
+
+
+
+
+
+<ul class="nav navbar-nav navbar-right">
+		    <li>
+			    <div class="search">
+		            <button aria-label="search" class="search-toggle btn-default">
+		                <span class="glyphicon glyphicon-search"></span> <span class="caret"></span>
+		            </button>
+
+		            <div class="search-content" id="search">
+
+                        <form action="/search/index.html" id="cse-search-box" method="get">
+                            <label class="sr-only" for="search-scope">Search Scope</label>
+                            <select class="search-scope" id="search-scope" name="search-scope">
+                                                                    <option selected="selected" value="tritonai">This Site</option>
+                                                                <option value="default_collection">All UCSD Sites</option>
+                                <option value="faculty-staff">Faculty/Staff</option>
+                            </select>
+                        
+                            <div class="input-group">
+                                <label for="q" id="search-term-label" style="display:none;">Search Term</label>
+                                <input autofocus="autofocus" class="form-control search-term" id="q" name="search-term" placeholder="Search..." type="search"/>
+                            </div>
+                            <input class="sr-only" type="submit" value="Submit"/>
+                        </form>
+
+                    </div>
+        </div>
+    </li>
+</ul>
+
+
+
+				
+				</div><!--end nav collapse -->
+
+			</div>
+		</nav>
+		<main class="layout-main" id="main-content">
+		    
+
+
+
+
+
+
+
+
+    <div alt="abstract grit orbs " class="jumbotron jumbotron-fluid intro-banner $heroBackgroundColor " style="background-image:url(../_images/ctainset-sphere-magenta-turquoise-yellow-on-blue.png);">
+              <div class="container">
+        <div class="cr-item-container hr-banner-two-col">
+            <div class="row">
+                 <div class="col-sm-12">
+                    <div class="text-indent text-indent-h1 animated fadeInUp">
+                       
+                                              
+                                                     <h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">Developer APIs &amp; Resources</h1>
+                                            
+                                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+			<div class="container">
+			    <div class="row">
+				    
+
+<div class="container">
+    <div class="row">
+        <ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">
+        
+                                                    
+                                    
+                        
+                                    
+                                   <li><a href="../index.html">TritonAI</a></li>
+                                
+                                                        
+                                    
+                        
+                                                                            
+                                        <li aria-current="page">Developer APIs</li>
+                                        
+                                            
+        </ol>
+    </div>
+</div>
+				</div>
+			</div>
+			<div class="container">
+			    <div class="row">
+				    
+
+
+
+
+
+
+
+
+
+<!-- display the main content -->
+<section aria-label="Main Content" class="col-xs-9 main-section pull-right">
+                        
+
+        
+    
+
+                            <div class="styled">
+<h2>TritonAI Developer API</h2>
+<p><strong>Access enterprise-grade large language models (LLMs) through UC San Diego's secure and centralized API gateway.</strong></p>
+</div>
+<h2>Overview</h2>
+<p>The TritonAI Developer API gives UC San Diego faculty, staff, researchers, and campus teams programmatic access to curated large language models through a secure, centralized LLM gateway powered by LiteLLM. The gateway connects approved AI development tools and application stacks to commercial cloud providers and SDSC-hosted open-source models, while preserving campus standards for data protection, authentication, logging, and responsible use.</p>
+<p>The program is designed for practical AI development: prototype with approved AI coding tools, connect to the gateway, build with reusable campus patterns, and then move completed artifacts into the right hosting lane for review, support, and long-term operation.</p>
+<h2>TritonAI API Program</h2>
+<figure class="figure" style="margin: 2rem 0;"><img alt="Diagram of the TritonAI Developer API Program showing campus users using AI development tools that connect to the LLM Gateway, which accesses cloud and SDSC-hosted model providers for chat, reasoning, vision, image generation, OCR, and coding." class="img-responsive" height="922" src="../_images/api-program.png" width="1776"/>
+<figcaption class="small text-muted">TritonAI provides a managed gateway between campus users, approved AI development tools, model providers, and governed delivery patterns.</figcaption>
+</figure>
+<h2>How the Program Works</h2>
+<p>The Developer API is more than model access. It is a campus development path for AI-enabled applications, from early experimentation through production hosting.</p>
+<ul>
+<li><strong>Request access:</strong> Describe the use case, intended audience, campus data involved, and expected model needs.</li>
+<li><strong>Receive API credentials:</strong> Approved projects receive an API key, starter credits, templates, and guidance for using approved tools and integration patterns.</li>
+<li><strong>Build with campus patterns:</strong> Use approved stacks, campus authentication, curated integrations, and documented agent or application templates.</li>
+<li><strong>Host appropriately:</strong> Move built artifacts into the right hosting lane, from individual sandboxes to department-managed applications or enterprise delivery.</li>
+</ul>
+<p>ITS owns the shared gateway, templates, baseline risk review, usage tracking, hosting infrastructure, SSO, logs, and the right to remove unsafe or unsupported applications. Departments and project teams own their application logic, dependencies, accessibility and testing, end-user support, and a named technical point of contact.</p>
+<hr/>
+<h2>Model Hosting &amp; Data Protection</h2>
+<p>The TritonAI Developer API provides access to models through multiple hosting environments, giving teams a way to choose the right model path based on data sensitivity, capability needs, and operational requirements.</p>
+<h3><strong>Cloud Provider Models</strong></h3>
+<p>We offer access to leading commercial models from major cloud providers, including <strong>Microsoft Azure</strong>, <strong>Google Cloud Platform</strong>, and <strong>Amazon Web Services</strong>, operating under UC San Diego's campus-wide enterprise agreements.</p>
+<p>These agreements provide enterprise data protection terms that meet UC system requirements, ensure prompts and responses are not used for model training, and include contractual safeguards that individual accounts cannot obtain.</p>
+<h3><strong>SDSC Self-Hosted Models</strong></h3>
+<p>For projects requiring the highest level of data control, TritonAI also provides access to locally hosted open-source and open-weight models running within UC San Diego infrastructure at the San Diego Supercomputer Center.</p>
+<p>With self-hosted models, inference processing occurs on campus infrastructure. This makes them appropriate for research involving sensitive data, projects with heightened privacy considerations, or use cases where on-premises processing is preferred or required.</p>
+<hr/>
+<h2>Built Artifacts Need a Hosting Lane</h2>
+<p>API access can support experimentation, but durable campus tools need an operating model. As projects move from individual development to shared use, they may require scope review, recurring risk review, authentication, logging, support ownership, and migration into a more formal hosting environment.</p>
+<figure class="figure" style="margin: 2rem 0;"><img alt="Tiered hosting lane diagram for TritonAI-built artifacts, showing individual users, scattered users, many users, and campus-wide usage with increasing governance and hosting requirements." class="img-responsive" height="814" src="../_images/ai-hosting.png" width="1715"/>
+<figcaption class="small text-muted">As usage grows, projects move from citizen-initiated development toward reviewed, supported, and governed hosting lanes.</figcaption>
+</figure>
+<p>Small prototypes may remain on a user desktop, laptop, or sandbox. Tools used by a department or repeated audience should move into a reviewed campus application lane. Broad or mission-critical use cases require enterprise architecture, recurring review, support planning, and a named technical owner.</p>
+<hr/>
+<h2>Available Models &amp; Pricing</h2>
+<p>We offer a curated selection of large language models to meet diverse needs and budgets. The model catalog is updated as the AI landscape evolves and includes current availability, pricing, capabilities, and hosting environment.</p>
+<p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/"><strong>View Complete Model List &amp; Pricing</strong></a></p>
+<p>The model catalog includes options across multiple providers and capabilities:</p>
+<ul>
+<li><strong>Chat and reasoning models</strong> from Anthropic, OpenAI, Google, Mistral, and others</li>
+<li><strong>Vision-enabled models</strong> for image understanding and analysis</li>
+<li><strong>Image generation models</strong> for creating visual content</li>
+<li><strong>Specialized models</strong> for coding, OCR, and advanced reasoning tasks</li>
+<li><strong>Self-hosted models</strong> for maximum data control</li>
+</ul>
+<p>Pricing is based on token usage. The model hub displays current per-token pricing, context window sizes, available features, and hosting environment.</p>
+<hr/>
+<h2>Technical Details</h2>
+<h3><strong>API Compatibility</strong></h3>
+<p>The LiteLLM gateway provides an OpenAI-compatible API interface, making it easier to integrate with existing tools, libraries, and codebases. If your application already works with the OpenAI API, it can typically work with TritonAI with minimal modifications.</p>
+<h3><strong>Authentication</strong></h3>
+<p>API access is secured through API keys issued upon approval. Keys should be stored securely and should never be committed to version control or shared publicly.</p>
+<h3><strong>Rate Limits</strong></h3>
+<p>Default rate limits are designed to support typical development and production workloads. Projects requiring higher throughput can request limit increases.</p>
+<h3><strong>Documentation &amp; Support</strong></h3>
+<p>Approved users receive access to API documentation, code examples, integration guidance, and support resources for common development patterns.</p>
+<hr/>
+<h2>Billing &amp; Recharge Rates</h2>
+<h3><strong>Free Credits</strong></h3>
+<p>All approved users receive $15 per month in free API credits for use with self-hosted models running on UC San Diego infrastructure. Free credits refresh monthly and are non-transferable.</p>
+<h3><strong>Recharge Rates</strong></h3>
+<p>Usage beyond monthly free credits for self-hosted models, as well as cloud provider model usage through Azure, Google Cloud, and AWS, is billed at pass-through cost to the designated chart string. Recharge rates reflect the actual cost of model access plus the infrastructure fee needed to sustain the service.</p>
+<h3><strong>Project &amp; Task Tracking</strong></h3>
+<p>When requesting access, you will provide project and task information that maps to your chart string. This supports cost allocation, reporting, and budgeting for grant-funded or department-funded projects.</p>
+<h3><strong>Usage Alerts</strong></h3>
+<p>Usage alerts can notify teams when spending reaches defined thresholds, helping projects stay within budget and avoid surprises.</p>
+                                    
+
+        
+    
+
+               
+       
+      
+                                      
+                                                                
+                                                            
+                                
+            
+            
+                        
+                        
+                                    
+                                  
+            <div class="jumbotron jumbotron-full-width side-image-white bubbles ">
+                <div class="container">
+                    <div class="row">
+                        
+                                                                        
+                                                                        
+                        
+                                                        <div class="col-md-6">
+                                                            <h2>Ready for next steps?</h2>
+                                                            <p><p>View the&#160;<a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Complete Model List &amp; Pricing</a>&#160;or read through <a href="faq.html">Frequently Asked Questions</a>.</p></p>
+                              <p><a class="btn btn-primary" href="start.html">Get Started</a></p>                            </div>
+                        
+                                                        <div class="col-md-6">
+                                    
+                        	                                </div>
+                        
+                    
+                                                
+
+                    </div>
+                </div>
+              </div>
+        
+
+                                
+            
+    
+                            
+
+        
+    
+
+               
+       
+      
+                                      
+                                                                
+                                                            
+                                
+            
+            
+                        
+                         
+                           
+                        
+                        
+                                  
+            <div class="jumbotron jumbotron-full-width side-image-white trident ">
+                <div class="container">
+                    <div class="row">
+                        
+                                                                        
+                                                                        
+                        
+                                                        <div class="col-md-6">
+                                                            <h2>Stay Informed</h2>
+                                                            <p>To receive the latest announcements and news, subscribe to the TritonAI mailing list.</p>
+                              <p><a class="btn btn-primary" href="https://signup.e2ma.net/signup/2010404/1972820/">Subscribe</a></p>                            </div>
+                        
+                                                        <div class="col-md-6">
+                                    
+                        	                                </div>
+                        
+                    
+                                                
+
+                    </div>
+                </div>
+              </div>
+        
+
+                                
+            
+    
+            </section>
+				    
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section aria-label="Sidebar" class="col-xs-12 col-md-3 sidebar-section" role="complementary">
+    
+                <figure aria-label="Logo" id="site-logo" role="complementary">
+            <logo/>
+        </figure>
+        
+                            <article aria-label="Sidebar Nav" class="main-content-nav" role="navigation">
+                                                                                                                            
+                    
+                                                                            
+                                
+            <h2>
+                                    <a href="../index.html">TritonAI </a>
+                    </h2>
+                    <ul class="navbar-list">
+                                                            
+            
+                                                                                                            <li class="collapsed">
+                    <a href="../about/index.html">
+                About
+            </a>
+            </li>
+                                                                                                                            
+            
+                                                                                                            <li class="collapsed">
+                    <a href="../tritongpt/index.html">
+                TritonGPT
+            </a>
+            </li>
+                                                                                                                            
+            
+                                                                                                            <li class="collapsed">
+                    <a href="../training-resources/index.html">
+                Training &amp; Resources
+            </a>
+            </li>
+                                                                                                                            
+            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="expanded active">
+                                        Developer APIs
+                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                                                                                   
+                                                                                            
+                                                                                   
+                                                                
+                    
+                                         <ul> 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                
+                                                                                                
+                                                                        <li class="">
+                    <a href="start.html">
+                Get Started
+            </a>
+            </li>
+
+                                                                                                                                                                                                                                                                     
+                                
+                                                                                                
+                                                                        <li class="">
+                    <a href="faq.html">
+                FAQs
+            </a>
+            </li>
+
+                                                                                                                                                                </ul>
+                                     </li>
+                                                                                                        
+            
+                                                                                                            <li class="collapsed">
+                    <a href="../tools/index.html">
+                AI Tools 
+            </a>
+            </li>
+                                                                                                                            
+            
+                                                                                                            </ul>
+                
+                        </article>
+            
+            
+                            <custom/>
+                </section>
+
+			    </div>
+			</div>
+		</main>
+		<footer class="footer">
+		    
+			
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+        <p>
+        <span>UC San Diego 9500 Gilman Dr. La Jolla, CA 92093 (858) 534-2230</span>
+        <br/>
+        <span>
+        Copyright © <span class="footer-copyright-year">2026</span> Regents of the University of California.
+        All rights reserved.
+        </span>
+        </p>
+            <ul class="footer-links">
+                <li><a href="https://accessibility.ucsd.edu/">Accessibility</a></li>
+                <li><a href="https://ucsd.edu/about/privacy.html">Privacy</a></li>
+                <li><a href="https://ucsd.edu/about/terms-of-use.html">Terms of Use</a></li>
+                <li>
+                        <a href="mailto:tritonai@ucsd.edu">Feedback</a>
+            </li>
+            </ul>
+        </div>
+        
+        <div class="col-sm-4">
+            <a href="https://ucsd.edu/"><img alt="UCSD homepage" class="img-responsive footer-logo" src="https://cdn.ucsd.edu/developer/decorator/5.0.2/img/ucsd-footer-logo-white.png"/></a>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/jquery.min.js"></script>
+<script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/bootstrap.min.js"></script>
+<script src="https://www.ucsd.edu/common/_emergency-broadcast/message.js"></script>
+<script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/vendor.min.js"></script>
+<script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/base.min.js"></script>
+
+
+        
+        
+    
+
+
+<!-- Site-specific javascript files -->
+
+
+
+
+                                <script src="../_resources/js/datatables.min.js" type="text/javascript"></script>
+            
+
+
+
+
+<script>
+    $(document).ready(function() {
+      $('.js-activated').dropdownHover().dropdown();
+    });
+  </script>
+
+        
+    <script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/decorator.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+            initCopyright();
+        });
+    })(jQuery);
+    </script>
+            <!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CSQGMG6EFP"></script>
+<script>// <![CDATA[
+window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CSQGMG6EFP', {'cookie_domain': 'tritonai.ucsd.edu'});
+// ]]></script>
+    
+
+
+
+
+
+ 
+
+
+
+
+  <script src="https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js" type="text/javascript"></script>
+
+
+		</footer>
+	</body>
+</html>

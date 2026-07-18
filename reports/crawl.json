@@ -1,0 +1,479 @@
+{
+  "origin": "https://tritonai.ucsd.edu",
+  "crawledAt": "2026-07-18T18:37:43.749Z",
+  "counts": {
+    "total": 53,
+    "htmlPages": 33,
+    "failures": 3
+  },
+  "records": [
+    {
+      "url": "https://tritonai.ucsd.edu/",
+      "finalUrl": "https://tritonai.ucsd.edu/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "output": "src/site/index.html",
+      "bytes": 137551
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/ai-hosting.png",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/ai-hosting.png",
+      "status": 200,
+      "contentType": "image/png",
+      "from": "https://tritonai.ucsd.edu/developer-apis/index.html",
+      "output": "src/site/_images/ai-hosting.png",
+      "bytes": 449046
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/api-program.png",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/api-program.png",
+      "status": 200,
+      "contentType": "image/png",
+      "from": "https://tritonai.ucsd.edu/developer-apis/index.html",
+      "output": "src/site/_images/api-program.png",
+      "bytes": 594293
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/assistant-pin-and-sort.gif",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/assistant-pin-and-sort.gif",
+      "status": 200,
+      "contentType": "image/gif",
+      "from": "https://tritonai.ucsd.edu/training-resources/tritongpt/assistants.html",
+      "output": "src/site/_images/assistant-pin-and-sort.gif",
+      "bytes": 785485
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/assistant-switcher.gif",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/assistant-switcher.gif",
+      "status": 200,
+      "contentType": "image/gif",
+      "from": "https://tritonai.ucsd.edu/training-resources/tritongpt/assistants.html",
+      "output": "src/site/_images/assistant-switcher.gif",
+      "bytes": 275780
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/building-branch-hero.jpg",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/building-branch-hero.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "from": "https://tritonai.ucsd.edu/about/sustainability.html",
+      "output": "src/site/_images/building-branch-hero.jpg",
+      "bytes": 9507109
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/callout-scripps-rainbow-dark.jpg",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/callout-scripps-rainbow-dark.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "from": "https://tritonai.ucsd.edu/training-resources/prompting/index.html",
+      "output": "src/site/_images/callout-scripps-rainbow-dark.jpg",
+      "bytes": 270190
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/ctainset-sphere-magenta-turquoise-yellow-on-blue.png",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/ctainset-sphere-magenta-turquoise-yellow-on-blue.png",
+      "status": 200,
+      "contentType": "image/png",
+      "from": "https://tritonai.ucsd.edu/training-resources/index.html",
+      "output": "src/site/_images/ctainset-sphere-magenta-turquoise-yellow-on-blue.png",
+      "bytes": 208746
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/homepage/rainbow-over-geisel-library.png",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/homepage/rainbow-over-geisel-library.png",
+      "status": 200,
+      "contentType": "image/png",
+      "from": "https://tritonai.ucsd.edu/",
+      "output": "src/site/_images/homepage/rainbow-over-geisel-library.png",
+      "bytes": 609031
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/homepage/TritonAI_Hero_2500.png",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/homepage/TritonAI_Hero_2500.png",
+      "status": 200,
+      "contentType": "image/png",
+      "from": "https://tritonai.ucsd.edu/",
+      "output": "src/site/_images/homepage/TritonAI_Hero_2500.png",
+      "bytes": 1106578
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/intro-banner-scripps-rainbow.jpg",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/intro-banner-scripps-rainbow.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "from": "https://tritonai.ucsd.edu/training-resources/tritongpt/index.html",
+      "output": "src/site/_images/intro-banner-scripps-rainbow.jpg",
+      "bytes": 47421
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/Model-switcher.gif",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/Model-switcher.gif",
+      "status": 200,
+      "contentType": "image/gif",
+      "from": "https://tritonai.ucsd.edu/training-resources/tritongpt/assistants.html",
+      "output": "src/site/_images/Model-switcher.gif",
+      "bytes": 266774
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/smiling-students-collaborating.png",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/smiling-students-collaborating.png",
+      "status": 200,
+      "contentType": "image/png",
+      "from": "https://tritonai.ucsd.edu/training-resources/prompting/index.html",
+      "output": "src/site/_images/smiling-students-collaborating.png",
+      "bytes": 294587
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/TritonGPT_zoom_dark.jpg",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/TritonGPT_zoom_dark.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "from": "https://tritonai.ucsd.edu/training-resources/faq.html",
+      "output": "src/site/_images/TritonGPT_zoom_dark.jpg",
+      "bytes": 142407
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_images/TritonGPT_zoom_light.jpg",
+      "finalUrl": "https://tritonai.ucsd.edu/_images/TritonGPT_zoom_light.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "from": "https://tritonai.ucsd.edu/training-resources/faq.html",
+      "output": "src/site/_images/TritonGPT_zoom_light.jpg",
+      "bytes": 147502
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_resources/css/home-specific.css",
+      "finalUrl": "https://tritonai.ucsd.edu/_resources/css/home-specific.css",
+      "status": 200,
+      "contentType": "text/css",
+      "from": "https://tritonai.ucsd.edu/",
+      "output": "src/site/_resources/css/home-specific.css",
+      "bytes": 887
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/_resources/js/datatables.min.js",
+      "finalUrl": "https://tritonai.ucsd.edu/_resources/js/datatables.min.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "from": "https://tritonai.ucsd.edu/",
+      "output": "src/site/_resources/js/datatables.min.js",
+      "bytes": 111
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/about/ai-updates.html",
+      "finalUrl": "https://tritonai.ucsd.edu/about/ai-updates.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/about/ai-updates.html",
+      "bytes": 124935
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/about/get-involved.html",
+      "finalUrl": "https://tritonai.ucsd.edu/about/get-involved.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/about/get-involved.html",
+      "bytes": 39243
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/about/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/about/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/about/index.html",
+      "bytes": 46339
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/about/roadmap.html",
+      "finalUrl": "https://tritonai.ucsd.edu/about/roadmap.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/about/roadmap.html",
+      "bytes": 41128
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/about/sustainability.html",
+      "finalUrl": "https://tritonai.ucsd.edu/about/sustainability.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/about/sustainability.html",
+      "bytes": 39289
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/about/workgroup.html",
+      "finalUrl": "https://tritonai.ucsd.edu/about/workgroup.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/about/workgroup.html",
+      "bytes": 41079
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/developer-apis/faq.html",
+      "finalUrl": "https://tritonai.ucsd.edu/developer-apis/faq.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/developer-apis/faq.html",
+      "bytes": 43789
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/developer-apis/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/developer-apis/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/",
+      "output": "src/site/developer-apis/index.html",
+      "bytes": 48774
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/developer-apis/start.html",
+      "finalUrl": "https://tritonai.ucsd.edu/developer-apis/start.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/developer-apis/start.html",
+      "bytes": 37438
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/index.html",
+      "bytes": 137551
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/robots.txt",
+      "finalUrl": "https://tritonai.ucsd.edu/robots.txt",
+      "status": 404,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/search/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/search/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/",
+      "output": "src/site/search/index.html",
+      "bytes": 30526
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/sitemap.xml",
+      "finalUrl": "https://tritonai.ucsd.edu/sitemap.xml",
+      "status": 200,
+      "contentType": "text/xml",
+      "output": "src/site/sitemap.xml",
+      "bytes": 6887
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/technology/ai/tritongpt/release-notes/11-24-2025-release",
+      "finalUrl": "https://tritonai.ucsd.edu/technology/ai/tritongpt/release-notes/11-24-2025-release",
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/tritongpt/release-notes/index.html"
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tools/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tools/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tools/index.html",
+      "bytes": 46504
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/",
+      "output": "src/site/training-resources/index.html",
+      "bytes": 53838
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/faculty-ai-symposium.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/faculty-ai-symposium.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/faculty-ai-symposium.html",
+      "bytes": 38477
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/faq.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/faq.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/faq.html",
+      "bytes": 42295
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/index.html",
+      "bytes": 53838
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/prompting/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/prompting/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/prompting/index.html",
+      "bytes": 49123
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/prompting/prompt-library.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/prompting/prompt-library.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/prompting/prompt-library.html",
+      "bytes": 49833
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/tritongpt/assistants.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/tritongpt/assistants.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/tritongpt/assistants.html",
+      "bytes": 44314
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/tritongpt/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/tritongpt/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/tritongpt/index.html",
+      "bytes": 53157
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/training-resources/webinars.html",
+      "finalUrl": "https://tritonai.ucsd.edu/training-resources/webinars.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/training-resources/webinars.html",
+      "bytes": 40869
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/chatbot-widget.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/chatbot-widget.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/chatbot-widget.html",
+      "bytes": 41421
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/index.html",
+      "bytes": 47764
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/instruction.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/instruction.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/instruction.html",
+      "bytes": 41196
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/privacy.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/privacy.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/privacy.html",
+      "bytes": 42125
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/release-notes/11-24-2025-release.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/11-24-2025-release.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/release-notes/11-24-2025-release.html",
+      "bytes": 38591
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/release-notes/4-14-2026-release.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/4-14-2026-release.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/release-notes/4-14-2026-release.html",
+      "bytes": 38318
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/release-notes/4-2-2025-release.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/4-2-2025-release.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/release-notes/4-2-2025-release.html",
+      "bytes": 38050
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/release-notes/5-1-2026-release.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/5-1-2026-release.html",
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/"
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/release-notes/8-13-24-release.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/8-13-24-release.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/release-notes/8-13-24-release.html",
+      "bytes": 39975
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/release-notes/index.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/release-notes/index.html",
+      "bytes": 55492
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/release-notes/models.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/models.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/release-notes/models.html",
+      "bytes": 39739
+    },
+    {
+      "url": "https://tritonai.ucsd.edu/tritongpt/terms.html",
+      "finalUrl": "https://tritonai.ucsd.edu/tritongpt/terms.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "from": "https://tritonai.ucsd.edu/sitemap.xml",
+      "output": "src/site/tritongpt/terms.html",
+      "bytes": 43234
+    }
+  ]
+}

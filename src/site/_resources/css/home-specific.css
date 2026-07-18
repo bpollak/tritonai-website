@@ -1,0 +1,44 @@
+.inline-flex.w-fit.items-center.rounded-full.bg-white\/10.px-4.py-2.text-sm.font-semibold.text-white.border.border-white\/15 {
+    float: right;
+    border: 1px solid #182B49;
+    border-radius: 21px;
+    padding: 5px;
+    /* background: #004268; */
+    color: #182B49;
+}
+p.text-blue-100.text-sm.mt-1 {
+    display: none;
+}
+
+article div > p:last-child:has(em) {
+    display: none;
+}
+
+.max-w-none.text-slate-700 > h2:first-of-type {
+    display: none;
+}
+
+.space-y-12 > article:first-child {
+  display: block;
+}
+
+/* Hide all other articles */
+.space-y-12 > article:not(:first-child) {
+  display: none;
+}
+
+.panel-body > .text-link {
+    color: white !important;
+}
+
+.ai-upates {
+    border: 1px solid #182b49;
+    padding: 25px;
+}
+
+a.text-link {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin: 20px 0;
+}
