@@ -43,3 +43,30 @@ Do not add new broken internal targets.
 ## Publishing
 
 Use focused pull requests. Keep generated `dist/` files out of commits; GitHub Actions builds them. A merge to `main` deploys the Pages staging site.
+
+## Edit Ownership
+
+### Agent-owned (agents may edit freely)
+- `content/newsletters/*.md` — weekly AI newsletter content
+- `src/site/tritongpt/release-notes/*.html` — release notes
+- Metrics and usage statistics on any page (clearly marked sections)
+
+### Human-owned (agents must PR, never direct commit)
+- `src/site/about/index.html` — strategic narrative
+- `src/site/about/roadmap.html` — roadmap commitments
+- `src/site/about/sustainability.html` — policy content
+
+### Shared (PR required, review by content owner)
+- `src/site/index.html` — homepage
+- `src/site/tritongpt/index.html` — TritonGPT landing
+- `src/site/tools/index.html` — tools listing
+- `src/site/developer-apis/index.html` — developer page
+
+## Conflict Prevention
+
+- Always work on a feature branch: `content/update-{page}-{date}`
+- Never edit the same section a human is editing (check open PRs first)
+- Use HTML comment markers to identify editable blocks:
+  `<!-- AGENT_SECTION: metrics -->` ... `<!-- END_AGENT_SECTION -->`
+- Run `npm test` and `npm run validate` before every PR
+- Keep generated `dist/` files out of commits; GitHub Actions builds them

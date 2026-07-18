@@ -508,173 +508,28 @@
 
 <!-- display the main content -->
 <section aria-label="Main Content" class="col-xs-9 main-section pull-right">
-                        
+<h2>TritonAI Developer APIs</h2>
+<p>A governed gateway to self-hosted and approved cloud models, with starter credits, usage reporting, and recharge paths for projects that scale.</p>
 
-        
-    
+<h3>Access Request</h3>
+<p>Submit a request via the Kuali Build form (search "TritonAI API" in the Service Portal). Default credits ($15/month) are active for experimentation.</p>
 
-                            <div class="styled">
-<h2>TritonAI Developer API</h2>
-<p><strong>Access enterprise-grade large language models (LLMs) through UC San Diego's secure and centralized API gateway.</strong></p>
-</div>
-<h2>Overview</h2>
-<p>The TritonAI Developer API gives UC San Diego faculty, staff, researchers, and campus teams programmatic access to curated large language models through a secure, centralized LLM gateway powered by LiteLLM. The gateway connects approved AI development tools and application stacks to commercial cloud providers and SDSC-hosted open-source models, while preserving campus standards for data protection, authentication, logging, and responsible use.</p>
-<p>The program is designed for practical AI development: prototype with approved AI coding tools, connect to the gateway, build with reusable campus patterns, and then move completed artifacts into the right hosting lane for review, support, and long-term operation.</p>
-<h2>TritonAI API Program</h2>
-<figure class="figure" style="margin: 2rem 0;"><img alt="Diagram of the TritonAI Developer API Program showing campus users using AI development tools that connect to the LLM Gateway, which accesses cloud and SDSC-hosted model providers for chat, reasoning, vision, image generation, OCR, and coding." class="img-responsive" height="922" src="../_images/api-program.png" width="1776"/>
-<figcaption class="small text-muted">TritonAI provides a managed gateway between campus users, approved AI development tools, model providers, and governed delivery patterns.</figcaption>
-</figure>
-<h2>How the Program Works</h2>
-<p>The Developer API is more than model access. It is a campus development path for AI-enabled applications, from early experimentation through production hosting.</p>
+<h3>What You Get</h3>
 <ul>
-<li><strong>Request access:</strong> Describe the use case, intended audience, campus data involved, and expected model needs.</li>
-<li><strong>Receive API credentials:</strong> Approved projects receive an API key, starter credits, templates, and guidance for using approved tools and integration patterns.</li>
-<li><strong>Build with campus patterns:</strong> Use approved stacks, campus authentication, curated integrations, and documented agent or application templates.</li>
-<li><strong>Host appropriately:</strong> Move built artifacts into the right hosting lane, from individual sandboxes to department-managed applications or enterprise delivery.</li>
+<li>API key for the LiteLLM gateway at <code>tritonai-api.ucsd.edu/v1</code></li>
+<li>Default credits ($15/month) for experimentation</li>
+<li>Access to 20+ models — self-hosted (SDSC) and approved cloud (OpenAI, Anthropic, Google, Cohere)</li>
+<li>Usage reporting and recharge mechanics for production projects</li>
+<li>MCP-based connectors and reusable skills from the UCSD Skills Library</li>
 </ul>
-<p>ITS owns the shared gateway, templates, baseline risk review, usage tracking, hosting infrastructure, SSO, logs, and the right to remove unsafe or unsupported applications. Departments and project teams own their application logic, dependencies, accessibility and testing, end-user support, and a named technical point of contact.</p>
-<hr/>
-<h2>Model Hosting &amp; Data Protection</h2>
-<p>The TritonAI Developer API provides access to models through multiple hosting environments, giving teams a way to choose the right model path based on data sensitivity, capability needs, and operational requirements.</p>
-<h3><strong>Cloud Provider Models</strong></h3>
-<p>We offer access to leading commercial models from major cloud providers, including <strong>Microsoft Azure</strong>, <strong>Google Cloud Platform</strong>, and <strong>Amazon Web Services</strong>, operating under UC San Diego's campus-wide enterprise agreements.</p>
-<p>These agreements provide enterprise data protection terms that meet UC system requirements, ensure prompts and responses are not used for model training, and include contractual safeguards that individual accounts cannot obtain.</p>
-<h3><strong>SDSC Self-Hosted Models</strong></h3>
-<p>For projects requiring the highest level of data control, TritonAI also provides access to locally hosted open-source and open-weight models running within UC San Diego infrastructure at the San Diego Supercomputer Center.</p>
-<p>With self-hosted models, inference processing occurs on campus infrastructure. This makes them appropriate for research involving sensitive data, projects with heightened privacy considerations, or use cases where on-premises processing is preferred or required.</p>
-<hr/>
-<h2>Built Artifacts Need a Hosting Lane</h2>
-<p>API access can support experimentation, but durable campus tools need an operating model. As projects move from individual development to shared use, they may require scope review, recurring risk review, authentication, logging, support ownership, and migration into a more formal hosting environment.</p>
-<figure class="figure" style="margin: 2rem 0;"><img alt="Tiered hosting lane diagram for TritonAI-built artifacts, showing individual users, scattered users, many users, and campus-wide usage with increasing governance and hosting requirements." class="img-responsive" height="814" src="../_images/ai-hosting.png" width="1715"/>
-<figcaption class="small text-muted">As usage grows, projects move from citizen-initiated development toward reviewed, supported, and governed hosting lanes.</figcaption>
-</figure>
-<p>Small prototypes may remain on a user desktop, laptop, or sandbox. Tools used by a department or repeated audience should move into a reviewed campus application lane. Broad or mission-critical use cases require enterprise architecture, recurring review, support planning, and a named technical owner.</p>
-<hr/>
-<h2>Available Models &amp; Pricing</h2>
-<p>We offer a curated selection of large language models to meet diverse needs and budgets. The model catalog is updated as the AI landscape evolves and includes current availability, pricing, capabilities, and hosting environment.</p>
-<p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/"><strong>View Complete Model List &amp; Pricing</strong></a></p>
-<p>The model catalog includes options across multiple providers and capabilities:</p>
-<ul>
-<li><strong>Chat and reasoning models</strong> from Anthropic, OpenAI, Google, Mistral, and others</li>
-<li><strong>Vision-enabled models</strong> for image understanding and analysis</li>
-<li><strong>Image generation models</strong> for creating visual content</li>
-<li><strong>Specialized models</strong> for coding, OCR, and advanced reasoning tasks</li>
-<li><strong>Self-hosted models</strong> for maximum data control</li>
-</ul>
-<p>Pricing is based on token usage. The model hub displays current per-token pricing, context window sizes, available features, and hosting environment.</p>
-<hr/>
-<h2>Technical Details</h2>
-<h3><strong>API Compatibility</strong></h3>
-<p>The LiteLLM gateway provides an OpenAI-compatible API interface, making it easier to integrate with existing tools, libraries, and codebases. If your application already works with the OpenAI API, it can typically work with TritonAI with minimal modifications.</p>
-<h3><strong>Authentication</strong></h3>
-<p>API access is secured through API keys issued upon approval. Keys should be stored securely and should never be committed to version control or shared publicly.</p>
-<h3><strong>Rate Limits</strong></h3>
-<p>Default rate limits are designed to support typical development and production workloads. Projects requiring higher throughput can request limit increases.</p>
-<h3><strong>Documentation &amp; Support</strong></h3>
-<p>Approved users receive access to API documentation, code examples, integration guidance, and support resources for common development patterns.</p>
-<hr/>
-<h2>Billing &amp; Recharge Rates</h2>
-<h3><strong>Free Credits</strong></h3>
-<p>All approved users receive $15 per month in free API credits for use with self-hosted models running on UC San Diego infrastructure. Free credits refresh monthly and are non-transferable.</p>
-<h3><strong>Recharge Rates</strong></h3>
-<p>Usage beyond monthly free credits for self-hosted models, as well as cloud provider model usage through Azure, Google Cloud, and AWS, is billed at pass-through cost to the designated chart string. Recharge rates reflect the actual cost of model access plus the infrastructure fee needed to sustain the service.</p>
-<h3><strong>Project &amp; Task Tracking</strong></h3>
-<p>When requesting access, you will provide project and task information that maps to your chart string. This supports cost allocation, reporting, and budgeting for grant-funded or department-funded projects.</p>
-<h3><strong>Usage Alerts</strong></h3>
-<p>Usage alerts can notify teams when spending reaches defined thresholds, helping projects stay within budget and avoid surprises.</p>
-                                    
 
-        
-    
+<h3>Model Hub Highlights</h3>
+<p>GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, Gemini 3.1 Pro/Flash, Amazon Nova Premier, Cohere transcription, and self-hosted open-weight models inside the UC firewall.</p>
 
-               
-       
-      
-                                      
-                                                                
-                                                            
-                                
-            
-            
-                        
-                        
-                                    
-                                  
-            <div class="jumbotron jumbotron-full-width side-image-white bubbles ">
-                <div class="container">
-                    <div class="row">
-                        
-                                                                        
-                                                                        
-                        
-                                                        <div class="col-md-6">
-                                                            <h2>Ready for next steps?</h2>
-                                                            <p><p>View the&#160;<a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Complete Model List &amp; Pricing</a>&#160;or read through <a href="faq.html">Frequently Asked Questions</a>.</p></p>
-                              <p><a class="btn btn-primary" href="start.html">Get Started</a></p>                            </div>
-                        
-                                                        <div class="col-md-6">
-                                    
-                        	                                </div>
-                        
-                    
-                                                
+<h3>Architecture</h3>
+<p>Your application &rarr; LiteLLM Gateway &rarr; On-prem models (SDSC) + Approved cloud models &rarr; Tools/Skills via MCP</p>
 
-                    </div>
-                </div>
-              </div>
-        
-
-                                
-            
-    
-                            
-
-        
-    
-
-               
-       
-      
-                                      
-                                                                
-                                                            
-                                
-            
-            
-                        
-                         
-                           
-                        
-                        
-                                  
-            <div class="jumbotron jumbotron-full-width side-image-white trident ">
-                <div class="container">
-                    <div class="row">
-                        
-                                                                        
-                                                                        
-                        
-                                                        <div class="col-md-6">
-                                                            <h2>Stay Informed</h2>
-                                                            <p>To receive the latest announcements and news, subscribe to the TritonAI mailing list.</p>
-                              <p><a class="btn btn-primary" href="https://signup.e2ma.net/signup/2010404/1972820/">Subscribe</a></p>                            </div>
-                        
-                                                        <div class="col-md-6">
-                                    
-                        	                                </div>
-                        
-                    
-                                                
-
-                    </div>
-                </div>
-              </div>
-        
-
-                                
-            
-    
-            </section>
+                    </section>
 				    
 
 
