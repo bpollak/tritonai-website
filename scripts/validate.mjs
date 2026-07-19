@@ -289,12 +289,23 @@ if (!(await exists(path.join(DIST_DIR, "robots.txt")))) routeFindings.push({ pat
 
 const remoteChecks = [];
 for (const url of requiredRemoteDependencies) {
-  try {
-    const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
-    remoteChecks.push({ url, status: response.status, ok: response.ok });
-  } catch (error) {
-    remoteChecks.push({ url, status: "FETCH_ERROR", ok: false, error: error.message });
+  const attempts = [];
+  for (const [attemptIndex, method] of ["HEAD", "GET", "GET"].entries()) {
+    try {
+      const response = await fetch(url, {
+        method,
+        headers: { "User-Agent": "tritonai-website-validator" },
+        signal: AbortSignal.timeout(15000),
+      });
+      attempts.push({ attempt: attemptIndex + 1, method, status: response.status, ok: response.ok });
+      if (response.ok) break;
+    } catch (error) {
+      attempts.push({ attempt: attemptIndex + 1, method, status: "FETCH_ERROR", ok: false, error: error.message });
+    }
   }
+  const successfulAttempt = attempts.find((attempt) => attempt.ok);
+  const finalAttempt = successfulAttempt || attempts.at(-1);
+  remoteChecks.push({ url, ...finalAttempt, attempts });
 }
 
 const newsletterCount = htmlFiles.includes("about/ai-updates.html")
