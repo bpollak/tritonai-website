@@ -111,7 +111,35 @@ async function loadNewsletters() {
 
 function renderNewsletter(newsletter) {
   const plural = newsletter.items === 1 ? "item" : "items";
-  return `<article class="panel panel-default agent-newsletter"><div class="panel-heading"><h2>${escapeHtml(newsletter.title)}</h2><p>Source: ${escapeHtml(newsletter.source)} · ${newsletter.items} ${plural}</p></div><div class="panel-body">${newsletter.html}</div></article>`;
+  const dateId = newsletter.date.toISOString().slice(0, 10);
+  return `<article class="panel panel-default agent-newsletter" id="${dateId}"><div class="panel-heading"><h2>${escapeHtml(newsletter.title)}</h2><p>${newsletter.items} ${plural}</p></div><div class="panel-body">${newsletter.html}</div></article>`;
+}
+
+function renderLatestNewsletters(newsletters) {
+  if (!newsletters.length) return '<div class="alert alert-info">No AI updates are available yet.</div>';
+  const [latest, ...recent] = newsletters.slice(0, 3);
+  const $latest = load(latest.html, { decodeEntities: false });
+  const topics = [];
+  $latest("h2, h3").each((_, element) => {
+    const topic = $latest(element).text().trim();
+    if (topic && !/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/i.test(topic) && !topics.includes(topic) && topics.length < 3) topics.push(topic);
+  });
+  const firstTopicHeading = $latest("h3").first();
+  const firstStory = firstTopicHeading.nextAll("p, li").first().text().trim() || $latest("li, p").first().text().trim();
+  const excerpt = firstStory
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 280)
+    .replace(/\s+\S*$/, "");
+  const dateId = latest.date.toISOString().slice(0, 10);
+  const topicBadges = topics.map((topic) => `<span class="label label-default">${escapeHtml(topic)}</span>`).join(" ");
+  const recentCards = recent
+    .map(
+      (newsletter) =>
+        `<div class="col-sm-6"><article class="panel panel-default home-update-card"><div class="panel-body"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><p class="home-kicker">Recent update</p><h3>${escapeHtml(newsletter.title)}</h3><p>${newsletter.items} ${newsletter.items === 1 ? "item" : "items"} covering campus AI tools, training, and news.</p><a href="/about/ai-updates.html#${escapeHtml(newsletter.date.toISOString().slice(0, 10))}">Read this update <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></div></article></div>`,
+    )
+    .join("");
+  return `<article class="panel panel-default home-latest-update"><div class="panel-heading"><div><p class="home-kicker">Newest briefing</p><h3>${escapeHtml(latest.title)}</h3></div><span class="home-update-count">${latest.items} ${latest.items === 1 ? "item" : "items"}</span></div><div class="panel-body"><p class="home-update-topics">${topicBadges}</p><p>${escapeHtml(excerpt)}${excerpt ? "…" : ""}</p><p><a class="btn btn-primary" href="/about/ai-updates.html#${dateId}">Read the latest update</a></p></div></article>${recentCards ? `<div class="row agent-card-grid home-recent-updates">${recentCards}</div>` : ""}`;
 }
 
 function statusClass(status) {
@@ -186,10 +214,10 @@ function renderSkillsLibrary(library) {
         .filter(([, count]) => count > 0)
         .map(([type, count]) => `${count} ${type}`);
       const searchable = `${skill.name} ${skill.description} ${skill.collectionLabel} ${skill.maintainer || ""}`.toLowerCase();
-      return `<div class="col-sm-6" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="panel panel-default agent-card skills-card"><div class="panel-heading"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h2 class="panel-title">${escapeHtml(skill.name)}</h2></div><div class="panel-body"><p>${escapeHtml(skill.description)}</p>${skill.maintainer ? `<p><strong>Maintainer:</strong> ${escapeHtml(skill.maintainer)}</p>` : ""}<p><strong>Supporting files:</strong> ${resourceParts.length ? escapeHtml(resourceParts.join(" · ")) : "None"}</p><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p><p><a class="btn btn-primary" href="${escapeHtml(skill.sourceUrl)}">View SKILL.md</a> <a class="btn btn-default" href="${escapeHtml(skill.directoryUrl)}">Browse files</a></p></div></article></div>`;
+      return `<div class="col-sm-6" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="panel panel-default agent-card skills-card"><div class="panel-heading"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h2 class="panel-title">${escapeHtml(skill.name)}</h2></div><div class="panel-body"><p>${escapeHtml(skill.description)}</p>${skill.maintainer ? `<p><strong>Maintainer:</strong> ${escapeHtml(skill.maintainer)}</p>` : ""}<p><strong>Supporting files:</strong> ${resourceParts.length ? escapeHtml(resourceParts.join(" · ")) : "None"}</p><details class="skills-details"><summary>Technical details</summary><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p></details></div><div class="panel-footer"><a class="btn btn-primary" href="${escapeHtml(skill.sourceUrl)}">View SKILL.md</a> <a class="btn btn-default" href="${escapeHtml(skill.directoryUrl)}">Browse files</a></div></article></div>`;
     })
     .join("");
-  return `<div data-skills-catalog><div class="alert alert-info"><p><strong>Automatically synchronized from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong></p><p>Showing ${library.skills.length} public skills at source commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}. The catalog refreshes hourly and can also respond to a repository dispatch event.</p></div><h2>Browse skills</h2><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-7"><label for="skills-search">Search by skill name or purpose</label><input class="form-control" id="skills-search" type="search" autocomplete="off" data-skills-search></div><div class="col-sm-5"><label for="skills-collection">Collection</label><select class="form-control" id="skills-collection" data-skills-collection><option value="">All collections (${library.skills.length})</option>${collectionOptions}</select></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row agent-card-grid skills-grid">${cards}</div><div class="panel panel-default"><div class="panel-heading"><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory—not its <code>tritonai/</code> or <code>community/</code> wrapper—into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
+  return `<div data-skills-catalog><div class="row skills-summary" aria-label="Skills Library summary"><div class="col-sm-4"><div class="skills-summary-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><strong>${library.skills.length}</strong><span>public skills</span></div></div><div class="col-sm-4"><div class="skills-summary-item"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span><strong>${library.collections.length}</strong><span>collections</span></div></div><div class="col-sm-4"><div class="skills-summary-item"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><strong>Hourly</strong><span>automatic sync</span></div></div></div><div class="alert alert-info skills-sync-notice"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span><div><p><strong>Automatically synchronized from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong></p><p>Showing ${library.skills.length} public skills at source commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}. The catalog refreshes hourly and can also respond to a repository dispatch event.</p></div></div><div class="skills-section-heading"><p class="home-kicker">Reusable agent capabilities</p><h2>Browse skills</h2></div><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-7"><label for="skills-search">Search by skill name or purpose</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="skills-search" type="search" autocomplete="off" data-skills-search></div></div><div class="col-sm-5"><label for="skills-collection">Collection</label><select class="form-control" id="skills-collection" data-skills-collection><option value="">All collections (${library.skills.length})</option>${collectionOptions}</select></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row agent-card-grid skills-grid">${cards}</div><div class="panel panel-default skills-install"><div class="panel-heading"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory—not its <code>tritonai/</code> or <code>community/</code> wrapper—into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
 mkdir -p ~/.agents/skills
 cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>Review the skill and its supporting files before installation. The public library excludes restricted operational procedures and credentials.</p><p><a class="btn btn-default" href="${escapeHtml(library.source.url)}#installing-a-skill">Read the repository instructions</a></p></div></div></div>`;
 }
@@ -231,6 +259,9 @@ function relativePathForRoute(route) {
 function breadcrumbFor(page) {
   const pieces = page.path.split("/").filter(Boolean);
   if (pieces.length <= 1) return "";
+  if (pieces.at(-1) === "index.html") {
+    return `<li><a href="/">TritonAI</a></li><li aria-current="page">${escapeHtml(page.title)}</li>`;
+  }
   const section = pieces[0];
   const sectionLabels = {
     about: "About",
@@ -250,7 +281,7 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const mainContent =
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
-      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="text-indent"><p class="text-uppercase">${escapeHtml(page.eyebrow || "TritonAI")}</p><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div><div class="container"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`;
+      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/navy-simple-grit.jpg);"><div class="container"><div class="text-indent"><p class="text-uppercase">${escapeHtml(page.eyebrow || "TritonAI")}</p><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div><div class="container"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
 }
@@ -409,7 +440,7 @@ function transformHtml(html, relativePath, context) {
   $(".navbar-nav-list").first().html(renderNavigation(context.site.navigation, route, false));
   $("ul.nav.navmenu-nav").first().html(renderNavigation(context.site.navigation, route, true));
 
-  $("[data-newsletters='latest']").html(context.newsletters.slice(0, 3).map(renderNewsletter).join(""));
+  $("[data-newsletters='latest']").html(renderLatestNewsletters(context.newsletters));
   $("[data-newsletters='all']").html(context.newsletters.map(renderNewsletter).join(""));
   const legacyNewsletterContainer = $(".space-y-12.md\\:space-y-14").first();
   if (legacyNewsletterContainer.length) legacyNewsletterContainer.html(context.newsletters.map(renderNewsletter).join(""));

@@ -116,11 +116,27 @@
     placeholders.forEach(function (placeholder) {
       sequence = sequence.then(function () {
         return new Promise(function (resolve) {
-          var script = document.createElement("script");
-          script.src = placeholder.dataset.afterRenderSrc;
-          script.onload = resolve;
-          script.onerror = resolve;
-          placeholder.replaceWith(script);
+          var source = placeholder.dataset.afterRenderSrc;
+          var mount = placeholder;
+
+          function attemptLoad(attempt) {
+            var script = document.createElement("script");
+            script.async = false;
+            script.src = attempt === 0 ? source : source + (source.indexOf("?") === -1 ? "?" : "&") + "tritonai-retry=1";
+            script.onload = resolve;
+            script.onerror = function () {
+              if (attempt === 0) {
+                mount = script;
+                attemptLoad(1);
+              } else {
+                resolve();
+              }
+            };
+            mount.replaceWith(script);
+            mount = script;
+          }
+
+          attemptLoad(0);
         });
       });
     });
