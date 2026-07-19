@@ -1,0 +1,81 @@
+{
+  "title": "TritonAI Roadmap",
+  "description": "A public, status-based view of TritonAI delivery from 2023 through 2026.",
+  "owner": "TritonAI program",
+  "lastReviewed": "2026-07-19",
+  "source": "TritonAI strategy presentation and public product pages",
+  "canonicalUrl": "/about/roadmap.html",
+  "audiences": ["students", "faculty", "staff", "developers", "leaders"],
+  "items": [
+    {
+      "period": "2023",
+      "title": "Foundation and campus beta",
+      "status": "Shipped",
+      "summary": "Established program funding, opened the campus beta, and introduced the first AI Essentials learning module.",
+      "owner": "TritonAI program",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI strategy presentation",
+      "relatedSlides": ["TritonGPT Initiative"]
+    },
+    {
+      "period": "2024",
+      "title": "Campus launch",
+      "status": "Shipped",
+      "summary": "Launched TritonGPT for the campus workforce with single sign-on, file upload, and UC-hosted model options.",
+      "owner": "TritonAI platform team",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI strategy presentation and TritonGPT release notes",
+      "relatedSlides": ["TritonGPT Initiative"]
+    },
+    {
+      "period": "2025",
+      "title": "Student access and model choice",
+      "status": "Shipped",
+      "summary": "Expanded access to students and added model choice, the website widget, AI search, and deeper research capabilities.",
+      "owner": "TritonAI platform team",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI strategy presentation and public release notes",
+      "relatedSlides": ["TritonGPT Initiative"]
+    },
+    {
+      "period": "2026 Q1",
+      "title": "Workflow pilots",
+      "status": "Pilot",
+      "summary": "Tested transcript matching, instructional AI, contract review, scheduling support, and research-alignment workflows with human oversight.",
+      "owner": "TritonAI solutions team and sponsoring units",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI 2026 roadmap",
+      "relatedSlides": ["2026 Roadmap: Q1", "Use Cases"]
+    },
+    {
+      "period": "2026 Q2",
+      "title": "Developer platform and integrations",
+      "status": "Shipped",
+      "summary": "Opened Developer APIs, advanced Agent Builder, integrated current campus data, launched mobile-assistant and scheduling experiences, and expanded observability for supported services.",
+      "owner": "TritonAI platform team",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI 2026 roadmap and public developer pages",
+      "relatedSlides": ["2026 Roadmap: Q2", "Citizen Developer Ecosystem"]
+    },
+    {
+      "period": "2026 Q3",
+      "title": "Harness, reusable agents, skills, and hosting",
+      "status": "In development",
+      "summary": "Developing the TritonAI Harness, standardizing reusable skills and connectors, expanding governed agent delivery, and piloting a campus application-hosting lane.",
+      "owner": "TritonAI platform and solutions teams",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI 2026 roadmap",
+      "relatedSlides": ["2026 Roadmap: Q3", "Campus App Hosting"]
+    },
+    {
+      "period": "Beyond Q3 2026",
+      "title": "Governed agency at campus scale",
+      "status": "Exploring",
+      "summary": "Evaluating repeatable, supervised agent workflows that can use approved tools and connectors while retaining accountable human review.",
+      "owner": "TritonAI program and campus governance partners",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI strategy presentation",
+      "relatedSlides": ["From Chat to Agents", "Strategy"]
+    }
+  ]
+}

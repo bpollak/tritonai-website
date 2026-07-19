@@ -4,12 +4,15 @@ This repository is a static, agent-maintainable migration of the public website 
 
 ## Architecture
 
-- `src/site/` contains the complete public site snapshot at its original paths.
-- `content/newsletters/` contains the weekly-update source as Markdown. The newest entry is rendered on the homepage; all entries are rendered on `/about/ai-updates.html`.
+- `src/site/` contains the complete public site snapshot at its original paths and supplies the UC San Diego Decorator shell for generated pages.
+- `content/pages/` contains high-change pages, including the homepage, strategy, impact, integrations, hosting, and learning pathways.
+- `content/use-cases/`, `content/roadmap/`, and `content/facts/` contain structured, public-safe portfolio content. The build validates their ownership, source, review, audience, status, and data-boundary fields.
+- `content/newsletters/` contains the weekly-update source as Markdown. The three newest entries are rendered on the homepage; all entries are rendered on `/about/ai-updates.html`.
 - UC San Diego Decorator styles and scripts continue to load from `cdn.ucsd.edu`, so supported upstream Decorator changes flow through without being vendored here.
 - TritonAI-owned images and small site-specific assets are stored locally so the site can eventually move away from the current domain.
 - External services—including emergency messaging, UCSD search, Today@UCSD news, Google Analytics, and the TritonGPT widget—remain linked to their existing hosted implementations.
 - `scripts/build.mjs` produces a deployable `dist/` directory and can apply a project-site base path for GitHub Pages without changing canonical source routes.
+- Each build generates `sitemap.xml`, `robots.txt`, `_data/routes.json`, and `_data/public-content.json`. The last file is the public synchronization contract for presentation decks and other approved consumers.
 
 ## Local development
 
@@ -47,6 +50,18 @@ SITE_BASE_PATH=/tritonai-website npm run validate
 5. Submit the change through a pull request. A merge to `main` deploys GitHub Pages automatically.
 
 Newsletter files are sorted by `date`, so agents do not need to edit the homepage HTML or archive page directly.
+
+## Publishing site content
+
+- Add or revise a high-change page in `content/pages/`.
+- Add a use case in `content/use-cases/` with an approved status: `Shipped`, `Pilot`, `In development`, or `Exploring`.
+- Update `content/roadmap/milestones.json` when delivery status changes.
+- Put reusable public claims in `content/facts/public-facts.json`; do not copy a quantitative claim out of a presentation without its definition, owner, source, measurement period, and review date.
+- Update `content/site.json` when a page should appear in global navigation.
+
+The validator warns after 120 days without review and fails after 365 days. Generated pages are also checked for semantic structure, metadata, JSON-LD, route registration, sitemap coverage, image alternatives, and accessible video controls/captions.
+
+See [content governance](docs/content-governance.md), [deck synchronization](docs/deck-synchronization.md), and the [search cutover plan](docs/search-cutover.md).
 
 ## Refreshing the public snapshot
 

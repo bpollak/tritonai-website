@@ -1,0 +1,41 @@
+{
+  "lastReviewed": "2026-07-19",
+  "facts": [
+    {
+      "id": "hosting-choice",
+      "claim": "TritonAI supports approved enterprise cloud models and UC-hosted open models through a common gateway.",
+      "status": "public",
+      "owner": "TritonAI platform team",
+      "lastReviewed": "2026-07-19",
+      "source": "/developer-apis/index.html",
+      "measurementPeriod": "Current service architecture",
+      "dataClassification": "Public",
+      "canonicalUrl": "/about/trust-architecture.html",
+      "relatedSlides": ["Architecture", "Model Gateway"]
+    },
+    {
+      "id": "human-oversight",
+      "claim": "Campus workflow agents are designed around accountable human review, with oversight matched to risk and maturity.",
+      "status": "public",
+      "owner": "TritonAI solutions team",
+      "lastReviewed": "2026-07-19",
+      "source": "TritonAI strategy presentation",
+      "measurementPeriod": "2026 operating model",
+      "dataClassification": "Public",
+      "canonicalUrl": "/about/strategy.html",
+      "relatedSlides": ["From Chat to Agents", "AI Principles"]
+    },
+    {
+      "id": "impact-measurement",
+      "claim": "Public quantitative impact claims require an owner, definition, source, measurement period, and review date before publication.",
+      "status": "public",
+      "owner": "TritonAI program",
+      "lastReviewed": "2026-07-19",
+      "source": "Website content governance policy",
+      "measurementPeriod": "Ongoing",
+      "dataClassification": "Public",
+      "canonicalUrl": "/about/impact.html",
+      "relatedSlides": ["Use Cases", "Roadmap"]
+    }
+  ]
+}
