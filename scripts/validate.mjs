@@ -114,6 +114,7 @@ const contentFindings = [...pageContent.findings, ...useCaseContent.findings];
 const roadmapContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "roadmap/milestones.json"), "utf8"));
 const factsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/public-facts.json"), "utf8"));
 const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/library.json"), "utf8"));
+const homeHeroContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "home/hero.json"), "utf8"));
 const roadmapRequired = ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"];
 const roadmapMissing = missingFields(roadmapContent, roadmapRequired);
 if (roadmapMissing.length) contentFindings.push({ source: "roadmap/milestones.json", issue: `Missing fields: ${roadmapMissing.join(", ")}` });
@@ -143,6 +144,16 @@ for (const [index, skill] of (skillsContent.skills || []).entries()) {
   if (skillPaths.has(skill.path)) contentFindings.push({ source: `skills/library.json#${skill.name || index + 1}`, issue: "Duplicate skill path" });
   skillNames.add(skill.name);
   skillPaths.add(skill.path);
+}
+const homeHeroMissing = missingFields(homeHeroContent, ["schemaVersion", "owner", "source", "lastReviewed", "rotationIntervalMs", "slides"]);
+if (homeHeroMissing.length) contentFindings.push({ source: "home/hero.json", issue: `Missing fields: ${homeHeroMissing.join(", ")}` });
+if ((homeHeroContent.slides || []).length < 2) contentFindings.push({ source: "home/hero.json", issue: "Hero rotator needs at least two slides" });
+const heroSlideIds = new Set();
+for (const [index, slide] of (homeHeroContent.slides || []).entries()) {
+  const slideMissing = missingFields(slide, ["id", "title", "description", "image", "imageAlt", "link", "linkLabel"]);
+  if (slideMissing.length) contentFindings.push({ source: `home/hero.json#${slide.id || index + 1}`, issue: `Missing fields: ${slideMissing.join(", ")}` });
+  if (heroSlideIds.has(slide.id)) contentFindings.push({ source: `home/hero.json#${slide.id || index + 1}`, issue: "Duplicate slide id" });
+  heroSlideIds.add(slide.id);
 }
 const generatedPaths = new Set([
   ...pageContent.entries.map((entry) => entry.path),
@@ -179,6 +190,7 @@ const freshnessEntries = [
   { filename: "roadmap/milestones.json", lastReviewed: isoDate(roadmapContent.lastReviewed) },
   ...(roadmapContent.items || []).map((item, index) => ({ filename: `roadmap/milestones.json#${index + 1}`, lastReviewed: isoDate(item.lastReviewed) })),
   ...(factsContent.facts || []).map((fact, index) => ({ filename: `facts/public-facts.json#${fact.id || index + 1}`, lastReviewed: isoDate(fact.lastReviewed) })),
+  { filename: "home/hero.json", lastReviewed: isoDate(homeHeroContent.lastReviewed) },
 ];
 for (const entry of freshnessEntries) {
   if (!entry.lastReviewed) {
@@ -208,12 +220,21 @@ for (const page of htmlFiles) {
   $("video").each((_, element) => {
     const video = $(element);
     if (video.attr("controls") === undefined) accessibility.push({ page: route, issue: "Video missing controls" });
-    if (video.attr("autoplay") !== undefined) accessibility.push({ page: route, issue: "Video must not autoplay" });
+    if (video.attr("autoplay") === undefined) accessibility.push({ page: route, issue: "Video must autoplay" });
+    if (video.attr("muted") === undefined) accessibility.push({ page: route, issue: "Autoplay video must be muted" });
+    if (video.attr("playsinline") === undefined) accessibility.push({ page: route, issue: "Autoplay video must play inline" });
     const descriptionId = video.attr("aria-describedby");
     const described = descriptionId && $(`#${descriptionId}`).length === 1;
     const silentDemo = video.attr("data-silent-demo") === "true" && video.attr("muted") !== undefined && described;
     if (!video.find("track[kind='captions']").length && !silentDemo) {
       accessibility.push({ page: route, issue: "Video needs captions or an identified silent-demo description" });
+    }
+  });
+
+  $("iframe[src*='youtube.com/embed']").each((_, element) => {
+    const iframeUrl = new URL($(element).attr("src"));
+    if (iframeUrl.searchParams.get("autoplay") !== "1" || iframeUrl.searchParams.get("mute") !== "1") {
+      accessibility.push({ page: route, issue: "YouTube video must autoplay muted" });
     }
   });
 
@@ -238,6 +259,13 @@ for (const page of htmlFiles) {
     if ($("[data-skills-search]").length !== 1 || $("[data-skills-collection]").length !== 1) {
       accessibility.push({ page: route, issue: "Skills filters are missing" });
     }
+  }
+  if (route === "/") {
+    if ($("#heroslider").length !== 1) accessibility.push({ page: route, issue: "Homepage hero rotator is missing" });
+    if ($("#heroslider .item").length !== (homeHeroContent.slides || []).length) {
+      contentFindings.push({ source: route, issue: `Rendered hero slide count does not match content (${$("#heroslider .item").length} vs ${(homeHeroContent.slides || []).length})` });
+    }
+    if ($("[data-home-hero-toggle]").length !== 1) accessibility.push({ page: route, issue: "Homepage hero pause control is missing" });
   }
 }
 

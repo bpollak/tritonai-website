@@ -28,6 +28,21 @@
   margin-top: 36px;
 }
 
+.agent-page #heroslider .home-hero-title {
+  color: #fff;
+  font-size: 48px;
+  line-height: 1.08;
+  margin: 0 0 16px;
+}
+
+.agent-page #heroslider .home-hero-title span {
+  color: #fff;
+}
+
+.agent-page .home-main-content {
+  padding-top: 36px;
+}
+
 .agent-page .agent-card-grid {
   display: flex;
   flex-wrap: wrap;
@@ -156,6 +171,32 @@
 }
 
 @media (max-width: 767px) {
+  .agent-page #heroslider,
+  .agent-page #heroslider .carousel-inner,
+  .agent-page #heroslider .item,
+  .agent-page #heroslider .first-slide {
+    height: 360px;
+    min-height: 360px;
+  }
+
+  .agent-page #heroslider .first-slide {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .agent-page #heroslider .cr-item-container {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .agent-page #heroslider .home-hero-title {
+    font-size: 32px;
+  }
+
+  .agent-page .home-main-content {
+    padding-top: 24px;
+  }
+
   .agent-page .agent-card-grid > [class*="col-"] {
     display: block;
   }

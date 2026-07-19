@@ -22,6 +22,6 @@ relatedSlides: [AI Essentials, Citizen Developer Ecosystem]
 
 ## Accessible media standard
 
-Recordings should include captions and a transcript, use a descriptive title, avoid autoplay, and provide a meaningful poster or text alternative. People who prefer reduced motion must be able to access the same information without an animated presentation.
+Recordings should include captions and a transcript, use a descriptive title, and provide a meaningful poster or text alternative. Site demonstration videos autoplay silently with visible controls so visitors can pause them; people who prefer reduced motion must be able to access the same information through the accompanying description.
 
 <p><a class="btn btn-primary" href="/training-resources/webinars.html">Browse recorded webinars</a></p>
