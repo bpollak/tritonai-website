@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "17 * * * *"
+  repository_dispatch:
+    types:
+      - skills-library-updated
   workflow_dispatch:
 
 permissions:
@@ -31,6 +36,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Refresh UCSD Skills Library catalog
+        env:
+          SKILLS_GITHUB_TOKEN: ${{ github.token }}
+        run: npm run sync:skills
 
       - name: Build project Pages site
         env:

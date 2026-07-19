@@ -9,6 +9,7 @@ const CONTENT_DIR = path.resolve("content");
 const PAGE_DIR = path.join(CONTENT_DIR, "pages");
 const USE_CASE_DIR = path.join(CONTENT_DIR, "use-cases");
 const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
+const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const OUTPUT_DIR = path.resolve("dist");
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
@@ -136,6 +137,24 @@ function renderPublicFacts(facts) {
     .join("")}</ul></div></div>`;
 }
 
+function renderSkillsLibrary(library) {
+  const collectionOptions = library.collections
+    .map((collection) => `<option value="${escapeHtml(collection.id)}">${escapeHtml(collection.label)} (${collection.count})</option>`)
+    .join("");
+  const cards = library.skills
+    .map((skill) => {
+      const resourceParts = Object.entries(skill.resources)
+        .filter(([, count]) => count > 0)
+        .map(([type, count]) => `${count} ${type}`);
+      const searchable = `${skill.name} ${skill.description} ${skill.collectionLabel} ${skill.maintainer || ""}`.toLowerCase();
+      return `<div class="col-sm-6" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="panel panel-default agent-card skills-card"><div class="panel-heading"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h2 class="panel-title">${escapeHtml(skill.name)}</h2></div><div class="panel-body"><p>${escapeHtml(skill.description)}</p>${skill.maintainer ? `<p><strong>Maintainer:</strong> ${escapeHtml(skill.maintainer)}</p>` : ""}<p><strong>Supporting files:</strong> ${resourceParts.length ? escapeHtml(resourceParts.join(" · ")) : "None"}</p><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p><p><a class="btn btn-primary" href="${escapeHtml(skill.sourceUrl)}">View SKILL.md</a> <a class="btn btn-default" href="${escapeHtml(skill.directoryUrl)}">Browse files</a></p></div></article></div>`;
+    })
+    .join("");
+  return `<div data-skills-catalog><div class="alert alert-info"><p><strong>Automatically synchronized from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong></p><p>Showing ${library.skills.length} public skills at source commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}. The catalog refreshes hourly and can also respond to a repository dispatch event.</p></div><h2>Browse skills</h2><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-7"><label for="skills-search">Search by skill name or purpose</label><input class="form-control" id="skills-search" type="search" autocomplete="off" data-skills-search></div><div class="col-sm-5"><label for="skills-collection">Collection</label><select class="form-control" id="skills-collection" data-skills-collection><option value="">All collections (${library.skills.length})</option>${collectionOptions}</select></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row agent-card-grid skills-grid">${cards}</div><div class="panel panel-default"><div class="panel-heading"><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory—not its <code>tritonai/</code> or <code>community/</code> wrapper—into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
+mkdir -p ~/.agents/skills
+cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>Review the skill and its supporting files before installation. The public library excludes restricted operational procedures and credentials.</p><p><a class="btn btn-default" href="${escapeHtml(library.source.url)}#installing-a-skill">Read the repository instructions</a></p></div></div></div>`;
+}
+
 function renderNavigation(items, route, mobile = false) {
   const section = route.split("/").filter(Boolean)[0] || "";
   return items
@@ -180,6 +199,7 @@ function breadcrumbFor(page) {
     tritongpt: "TritonGPT",
     "training-resources": "Learn",
     "use-cases": "Use Cases",
+    skills: "Skills Library",
   };
   const sectionHref = section === "use-cases" ? "/use-cases/index.html" : `/${section}/index.html`;
   return `<li><a href="/">TritonAI</a></li><li><a href="${sectionHref}">${escapeHtml(sectionLabels[section] || section)}</a></li><li aria-current="page">${escapeHtml(page.title)}</li>`;
@@ -271,6 +291,7 @@ function transformHtml(html, relativePath, context) {
   if (legacyNewsletterContainer.length) legacyNewsletterContainer.html(context.newsletters.map(renderNewsletter).join(""));
   $("[data-featured-use-cases='true']").html(renderUseCaseCards(context.useCases.filter((entry) => entry.featured)));
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
+  $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
 
   $("a[href^='/cdn-cgi/l/email-protection#']").each((_, element) => {
     const anchor = $(element);
@@ -346,6 +367,7 @@ async function writeGeneratedPage(shellHtml, page, bodyHtml, generatedByPath) {
 const site = await readJson(path.join(CONTENT_DIR, "site.json"));
 const roadmap = await readJson(path.join(CONTENT_DIR, "roadmap/milestones.json"));
 const facts = await readJson(path.join(CONTENT_DIR, "facts/public-facts.json"));
+const skills = await readJson(SKILLS_FILE);
 requireFields(roadmap, ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"], "content/roadmap/milestones.json");
 roadmap.lastReviewed = isoDate(roadmap.lastReviewed);
 for (const [index, item] of roadmap.items.entries()) {
@@ -355,6 +377,11 @@ for (const [index, item] of roadmap.items.entries()) {
 for (const fact of facts.facts) {
   requireFields(fact, ["id", "claim", "status", "owner", "lastReviewed", "source", "measurementPeriod", "dataClassification", "canonicalUrl", "relatedSlides"], `public fact ${fact.id || "unknown"}`);
   fact.lastReviewed = isoDate(fact.lastReviewed);
+}
+requireFields(skills, ["schemaVersion", "syncedAt", "source", "collections", "skills"], "content/skills/library.json");
+requireFields(skills.source, ["repository", "url", "defaultBranch", "commitSha", "commitUrl", "commitDate"], "content/skills/library.json source");
+for (const [index, skill] of skills.skills.entries()) {
+  requireFields(skill, ["name", "description", "collection", "collectionLabel", "path", "directory", "sourceUrl", "directoryUrl", "resources"], `skill ${index + 1}`);
 }
 
 const pages = await loadMarkdownDirectory(PAGE_DIR, ["title", "path", "description", "lastReviewed", "audiences", "source", "canonicalUrl", "relatedSlides"]);
@@ -403,7 +430,7 @@ await writeGeneratedPage(
 );
 
 let htmlFiles = (await listFiles(OUTPUT_DIR)).filter((file) => file.endsWith(".html"));
-const context = { site, newsletters, useCases, facts, generatedByPath };
+const context = { site, newsletters, useCases, facts, skills, generatedByPath };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));
@@ -432,6 +459,7 @@ await writeFile(
       facts: facts.facts.filter((fact) => fact.status === "public"),
       roadmap,
       useCases: useCases.map(({ html, body, filename, ...entry }) => entry),
+      skillsLibrary: skills,
     },
     null,
     2,
@@ -441,4 +469,4 @@ await writeFile(path.join(OUTPUT_DIR, "sitemap.xml"), `<?xml version="1.0" encod
 await writeFile(path.join(OUTPUT_DIR, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${OFFICIAL_ORIGIN}/sitemap.xml\n`);
 await writeFile(path.join(OUTPUT_DIR, ".nojekyll"), "");
 
-process.stdout.write(`Built ${htmlFiles.length} HTML files, ${useCases.length} structured use cases, and ${newsletters.length} newsletters for base path ${SITE_BASE_PATH || "/"}.\n`);
+process.stdout.write(`Built ${htmlFiles.length} HTML files, ${useCases.length} structured use cases, ${skills.skills.length} public skills, and ${newsletters.length} newsletters for base path ${SITE_BASE_PATH || "/"}.\n`);

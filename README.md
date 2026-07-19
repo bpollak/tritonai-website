@@ -8,6 +8,7 @@ This repository is a static, agent-maintainable migration of the public website 
 - `content/pages/` contains high-change pages, including the homepage, strategy, impact, integrations, hosting, and learning pathways.
 - `content/use-cases/`, `content/roadmap/`, and `content/facts/` contain structured, public-safe portfolio content. The build validates their ownership, source, review, audience, status, and data-boundary fields.
 - `content/newsletters/` contains the weekly-update source as Markdown. The three newest entries are rendered on the homepage; all entries are rendered on `/about/ai-updates.html`.
+- `content/skills/library.json` is the build-safe snapshot of the public [UCSD Skills Library](https://github.com/dbalders/UCSD-Skills-Library). GitHub Actions refreshes it before every build and on an hourly schedule.
 - UC San Diego Decorator styles and scripts continue to load from `cdn.ucsd.edu`, so supported upstream Decorator changes flow through without being vendored here.
 - TritonAI-owned images and small site-specific assets are stored locally so the site can eventually move away from the current domain.
 - External services—including emergency messaging, UCSD search, Today@UCSD news, Google Analytics, and the TritonGPT widget—remain linked to their existing hosted implementations.
@@ -23,6 +24,8 @@ python3 -m http.server 4173 -d dist
 ```
 
 Open `http://127.0.0.1:4173/`.
+
+Run `npm run sync:skills` when you want to refresh the Skills Library catalog locally. The committed snapshot keeps ordinary builds deterministic and available if GitHub is temporarily unreachable.
 
 To reproduce the GitHub Pages path locally:
 
@@ -61,7 +64,7 @@ Newsletter files are sorted by `date`, so agents do not need to edit the homepag
 
 The validator warns after 120 days without review and fails after 365 days. Generated pages are also checked for semantic structure, metadata, JSON-LD, route registration, sitemap coverage, image alternatives, and accessible video controls/captions.
 
-See [content governance](docs/content-governance.md), [deck synchronization](docs/deck-synchronization.md), and the [search cutover plan](docs/search-cutover.md).
+See [content governance](docs/content-governance.md), [deck synchronization](docs/deck-synchronization.md), the [Skills Library synchronization guide](docs/skills-library-sync.md), and the [search cutover plan](docs/search-cutover.md).
 
 ## Refreshing the public snapshot
 
