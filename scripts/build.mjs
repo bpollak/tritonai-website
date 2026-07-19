@@ -14,6 +14,22 @@ const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const OUTPUT_DIR = path.resolve("dist");
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
+const AFTER_RENDER_SCRIPTS = new Set([
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/modernizr.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/jquery.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/bootstrap.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/vendor.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/base.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/decorator.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.runtime.min.js",
+  "https://cdn.ucsd.edu/cms/search/js/templates.js",
+  "https://cdn.ucsd.edu/cms/search/js/search-api.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/datatables.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/datatables-loader.js",
+]);
+const EMERGENCY_BROADCAST_SCRIPT = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
+const TRITONGPT_WIDGET_SCRIPT = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
+const PRECONNECT_ORIGINS = ["https://cdn.ucsd.edu", "https://www.ucsd.edu", "https://tritongpt-deck.vercel.app"];
 
 function normalizeBasePath(value) {
   if (!value || value === "/") return "";
@@ -148,10 +164,16 @@ function renderHomeHero(hero) {
   const slides = hero.slides
     .map((slide, index) => {
       const accent = slide.accent ? `<br><span>${escapeHtml(slide.accent)}</span>` : "";
-      return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group"><img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" src="${escapeHtml(slide.image)}"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h2 class="home-hero-title rt-text-light">${escapeHtml(slide.title)}${accent}</h2><p class="rt-text-light">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
+      const imageSource = slide.optimizedImage || slide.image;
+      const imageAttributes =
+        index === 0
+          ? `src="${escapeHtml(imageSource)}" fetchpriority="high"`
+          : `src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="${escapeHtml(imageSource)}" loading="lazy"`;
+      const fallback = slide.optimizedImage ? ` data-fallback-src="${escapeHtml(slide.image)}"` : "";
+      return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group"><img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" ${imageAttributes}${fallback} decoding="async"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h2 class="home-hero-title rt-text-light">${escapeHtml(slide.title)}${accent}</h2><p class="rt-text-light">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
     })
     .join("");
-  return `<h1 class="sr-only">TritonAI</h1><div class="carousel slide jumbotron jumbotron-hero hm" data-interval="${hero.rotationIntervalMs}" data-ride="carousel" id="heroslider"><div aria-label="Rotating homepage highlights with ${hero.slides.length} slides" class="carousel-inner" role="region" tabindex="0"><div id="indicators-container"><button aria-controls="heroslider" aria-label="Carousel is playing; click to pause" aria-pressed="false" data-home-hero-toggle type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span><span class="sr-only">Pause carousel</span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div>${slides}<a aria-controls="heroslider" aria-label="Previous slide" class="left carousel-control" data-slide="prev" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="Next slide" class="right carousel-control" data-slide="next" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></div></div><script defer src="/_resources/js/home-hero.js"></script>`;
+  return `<h1 class="sr-only">TritonAI</h1><div class="carousel slide jumbotron jumbotron-hero hm" data-interval="${hero.rotationIntervalMs}" id="heroslider"><div aria-label="Rotating homepage highlights with ${hero.slides.length} slides" class="carousel-inner" role="region" tabindex="0"><div id="indicators-container"><button aria-controls="heroslider" aria-label="Carousel is playing; click to pause" aria-pressed="false" data-home-hero-toggle type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span><span class="sr-only">Pause carousel</span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div>${slides}<a aria-controls="heroslider" aria-label="Previous slide" class="left carousel-control" data-home-hero-direction="prev" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="Next slide" class="right carousel-control" data-home-hero-direction="next" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></div></div><script defer src="/_resources/js/home-hero.js"></script>`;
 }
 
 function renderSkillsLibrary(library) {
@@ -243,8 +265,8 @@ function decodeCloudflareEmail(value) {
   return result;
 }
 
-function prefixInternalUrl(value) {
-  if (!value || /^(?:#|mailto:|tel:|javascript:|data:)/i.test(value) || value.startsWith("//")) return value;
+function prefixInternalUrl(value, relativePath) {
+  if (!value || /^(?:#|mailto:|tel:|javascript:|data:|about:|blob:)/i.test(value) || value.startsWith("//")) return value;
   let candidate = value;
   try {
     const parsed = new URL(value, OFFICIAL_ORIGIN);
@@ -254,6 +276,14 @@ function prefixInternalUrl(value) {
     }
   } catch {
     return value;
+  }
+  if (SITE_BASE_PATH && !candidate.startsWith("/")) {
+    try {
+      const resolved = new URL(candidate, `https://local.invalid/${relativePath}`);
+      candidate = `${resolved.pathname}${resolved.search}${resolved.hash}`;
+    } catch {
+      return value;
+    }
   }
   if (!candidate.startsWith("/") || !SITE_BASE_PATH) return candidate;
   if (candidate === SITE_BASE_PATH || candidate.startsWith(`${SITE_BASE_PATH}/`)) return candidate;
@@ -267,6 +297,75 @@ function upsertMeta($, selector, attributes) {
     $("head").append(element);
   }
   element.attr(attributes);
+}
+
+function localAssetPath(value, relativePath) {
+  if (!value || /^(?:data:|https?:|\/\/|#)/i.test(value)) return null;
+  try {
+    return new URL(value, `https://local.invalid/${relativePath}`).pathname;
+  } catch {
+    return null;
+  }
+}
+
+function optimizedImageFor(value, relativePath, optimizedImages) {
+  const localPath = localAssetPath(value, relativePath);
+  if (!localPath || !/\.(?:jpe?g|png)$/i.test(localPath)) return null;
+  const optimizedPath = localPath.replace(/\.(?:jpe?g|png)$/i, ".webp");
+  if (!optimizedImages.has(optimizedPath)) return null;
+  return value.replace(/\.(?:jpe?g|png)(?=$|[?#])/i, ".webp");
+}
+
+function optimizeLocalImages($, relativePath, optimizedImages) {
+  $("img[src]").each((_, element) => {
+    const image = $(element);
+    if (image.hasClass("first-slide") || image.parent("picture").length) return;
+    const source = image.attr("src");
+    const optimized = optimizedImageFor(source, relativePath, optimizedImages);
+    if (!optimized) return;
+    image.attr("loading", "lazy").attr("decoding", "async");
+    image.wrap('<picture class="tritonai-optimized-image"></picture>');
+    image.before(`<source srcset="${escapeHtml(optimized)}" type="image/webp">`);
+  });
+
+  $("[style*='background-image']").each((_, element) => {
+    const target = $(element);
+    const style = target.attr("style") || "";
+    const match = style.match(/background-image\s*:\s*url\((['\"]?)([^'\")]+)\1\)\s*;?/i);
+    if (!match) return;
+    const optimized = optimizedImageFor(match[2], relativePath, optimizedImages);
+    if (!optimized) return;
+    const fallbackDeclaration = `background-image:url('${match[2]}');`;
+    const fallbackType = /\.png(?:$|[?#])/i.test(match[2]) ? "png" : "jpeg";
+    const optimizedDeclaration = `background-image:image-set(url('${optimized}') type('image/webp'), url('${match[2]}') type('image/${fallbackType}'));`;
+    target.attr("style", style.replace(match[0], `${fallbackDeclaration}${optimizedDeclaration}`));
+  });
+}
+
+function optimizeScriptLoading($) {
+  $("script[src]").each((_, element) => {
+    const script = $(element);
+    const source = script.attr("src") || "";
+    if (AFTER_RENDER_SCRIPTS.has(source) || /(?:^|\/)datatables\.min\.js(?:[?#]|$)/i.test(source)) {
+      script.attr("data-after-render-src", source).attr("type", "application/x-tritonai-after-render-script").removeAttr("src");
+    } else if (source === EMERGENCY_BROADCAST_SCRIPT) {
+      script.attr("async", "");
+    } else if (source === TRITONGPT_WIDGET_SCRIPT) {
+      script.attr("data-idle-src", source).attr("type", "application/x-tritonai-idle-script").removeAttr("src");
+    }
+  });
+
+  $("script:not([src])").each((_, element) => {
+    const script = $(element);
+    if (script.attr("type") && script.attr("type") !== "text/javascript") return;
+    const source = script.html() || "";
+    if (!/\$\(document\)\.ready|initCopyright\(\)/.test(source)) return;
+    const guardedSource = source
+      .replace("$('.js-activated').dropdownHover().dropdown();", "if (window.jQuery && jQuery.fn.dropdownHover && jQuery.fn.dropdown) $('.js-activated').dropdownHover().dropdown();")
+      .replace("initCopyright();", "if (typeof initCopyright === 'function') initCopyright();");
+    script.attr("type", "application/x-tritonai-after-render-inline");
+    script.html(`if (window.jQuery) {\n${guardedSource}\n}`);
+  });
 }
 
 function transformHtml(html, relativePath, context) {
@@ -291,6 +390,10 @@ function transformHtml(html, relativePath, context) {
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
   if (!$("link[rel~='icon']").length) $("head").append('<link rel="icon" href="https://www.ucsd.edu/favicon.ico">');
   if (!$("link[href$='agent-site.css']").length) $("head").append('<link rel="stylesheet" href="/_resources/css/agent-site.css">');
+  const connectionHints = PRECONNECT_ORIGINS.map(
+    (origin) => `<link rel="preconnect" href="${origin}" crossorigin><link rel="dns-prefetch" href="//${new URL(origin).host}">`,
+  ).join("");
+  $("head").prepend(`${connectionHints}<script data-tritonai-js-class>document.documentElement.className=document.documentElement.className.replace(/\\bno-js\\b/g,'js');</script>`);
   $("script[data-tritonai-schema]").remove();
   const schema = JSON.stringify({
     "@context": "https://schema.org",
@@ -315,7 +418,19 @@ function transformHtml(html, relativePath, context) {
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
 
   $("video").each((_, element) => {
-    $(element).attr("autoplay", "autoplay").attr("muted", "muted").attr("playsinline", "playsinline");
+    const video = $(element);
+    video
+      .removeAttr("autoplay")
+      .attr("data-autoplay-when-visible", "true")
+      .attr("preload", "none")
+      .attr("muted", "muted")
+      .attr("playsinline", "playsinline");
+    if (video.attr("poster")) video.attr("data-poster", video.attr("poster")).removeAttr("poster");
+    if (video.attr("src")) video.attr("data-src", video.attr("src")).removeAttr("src");
+    video.find("source[src]").each((__, sourceElement) => {
+      const source = $(sourceElement);
+      source.attr("data-src", source.attr("src")).removeAttr("src");
+    });
   });
   $("iframe[src*='youtube.com/embed']").each((_, element) => {
     const iframe = $(element);
@@ -323,8 +438,16 @@ function transformHtml(html, relativePath, context) {
     url.searchParams.set("autoplay", "1");
     url.searchParams.set("mute", "1");
     url.searchParams.set("playsinline", "1");
-    iframe.attr("src", url.href);
+    iframe
+      .attr("data-src", url.href)
+      .attr("src", "about:blank")
+      .attr("loading", "lazy")
+      .attr("data-autoplay-when-visible", "true");
   });
+
+  optimizeLocalImages($, relativePath, context.optimizedImages);
+  optimizeScriptLoading($);
+  if (!$("script[src$='site-performance.js']").length) $("body").append('<script defer src="/_resources/js/site-performance.js"></script>');
 
   $("a[href^='/cdn-cgi/l/email-protection#']").each((_, element) => {
     const anchor = $(element);
@@ -350,10 +473,10 @@ function transformHtml(html, relativePath, context) {
     }
   });
 
-  for (const attr of ["href", "src", "action", "poster", "data-src"]) {
+  for (const attr of ["href", "src", "action", "poster", "data-src", "data-poster", "data-fallback-src", "data-after-render-src", "data-idle-src"]) {
     $(`[${attr}]`).each((_, element) => {
       if (attr === "href" && element.tagName === "link" && $(element).attr("rel") === "canonical") return;
-      $(element).attr(attr, prefixInternalUrl($(element).attr(attr)));
+      $(element).attr(attr, prefixInternalUrl($(element).attr(attr), relativePath));
     });
   }
   $("[srcset]").each((_, element) => {
@@ -361,7 +484,7 @@ function transformHtml(html, relativePath, context) {
       .split(",")
       .map((candidate) => {
         const parts = candidate.trim().split(/\s+/);
-        parts[0] = prefixInternalUrl(parts[0]);
+        parts[0] = prefixInternalUrl(parts[0], relativePath);
         return parts.join(" ");
       })
       .join(", ");
@@ -369,9 +492,9 @@ function transformHtml(html, relativePath, context) {
   });
 
   if (relativePath === "search/index.html") {
-    const searchScript = $("script[src='https://cdn.ucsd.edu/cms/search/js/search-api.js']").first();
+    const searchScript = $("script[data-after-render-src='https://cdn.ucsd.edu/cms/search/js/search-api.js']").first();
     if (searchScript.length) {
-      searchScript.after("<script>/* Keep staging searches scoped to the production TritonAI index. */\nif (typeof search === 'function') { const tritonAiSearch = search; search = function(data, back) { if (data && data.siteSearch && data.siteSearch !== 'tritonai.ucsd.edu') data.siteSearch = 'tritonai.ucsd.edu'; return tritonAiSearch(data, back); }; }\n</script>");
+      searchScript.after("<script>/* Keep staging searches scoped to the production TritonAI index. */\ndocument.addEventListener('tritonai:decorator-ready', function () { if (typeof search === 'function') { const tritonAiSearch = search; search = function(data, back) { if (data && data.siteSearch && data.siteSearch !== 'tritonai.ucsd.edu') data.siteSearch = 'tritonai.ucsd.edu'; return tritonAiSearch(data, back); }; } }, { once: true });\n</script>");
     }
   }
 
@@ -469,7 +592,12 @@ await writeGeneratedPage(
 );
 
 let htmlFiles = (await listFiles(OUTPUT_DIR)).filter((file) => file.endsWith(".html"));
-const context = { site, newsletters, useCases, facts, skills, generatedByPath };
+const optimizedImages = new Set(
+  (await listFiles(path.join(SOURCE_DIR, "_images")))
+    .filter((file) => file.endsWith(".webp"))
+    .map((file) => `/_images/${file.replaceAll(path.sep, "/")}`),
+);
+const context = { site, newsletters, useCases, facts, skills, generatedByPath, optimizedImages };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));

@@ -21,6 +21,7 @@
       "accent": "one-stop hub",
       "description": "Explore, access, and learn about AI services and resources across UC San Diego.",
       "image": "/_images/homepage/TritonAI_Hero_2500.png",
+      "optimizedImage": "/_images/homepage/TritonAI_Hero_2500.webp",
       "imageAlt": "Colorful blue and gold grit pattern",
       "link": "/about/strategy.html",
       "linkLabel": "Explore TritonAI"

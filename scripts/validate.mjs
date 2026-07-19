@@ -1,4 +1,4 @@
-import { access, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { load } from "cheerio";
 import matter from "gray-matter";
@@ -23,6 +23,18 @@ const requiredRemoteDependencies = [
   "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js",
   "https://today.ucsd.edu/news-and-features-api?category=190&limit=3",
 ];
+const preconnectOrigins = ["https://cdn.ucsd.edu", "https://www.ucsd.edu", "https://tritongpt-deck.vercel.app"];
+const afterRenderDecoratorScripts = [
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/modernizr.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/jquery.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/bootstrap.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/vendor.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/base.min.js",
+  "https://cdn.ucsd.edu/cms/decorator-5/scripts/decorator.js",
+];
+const emergencyBroadcastScript = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
+const tritonGptWidgetScript = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
+const imageBudgetBytes = 320_000;
 
 async function listFiles(directory, base = directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -99,6 +111,18 @@ const missing = [];
 const inherited = [];
 const accessibility = [];
 const metadata = [];
+const performance = [];
+
+const assetSizeCache = new Map();
+async function localAssetSize(raw, pagePath) {
+  const target = toLocalPath(raw, pagePath);
+  if (!target || !/^\/_images\/.+\.(?:jpe?g|png|webp)$/i.test(target)) return null;
+  if (assetSizeCache.has(target)) return assetSizeCache.get(target);
+  const filename = path.join(DIST_DIR, target.replace(/^\//, ""));
+  const size = await stat(filename).then((entry) => entry.size).catch(() => null);
+  assetSizeCache.set(target, size);
+  return size;
+}
 
 const pageContent = await loadMarkdownContent(
   path.join(CONTENT_DIR, "pages"),
@@ -205,7 +229,7 @@ for (const entry of freshnessEntries) {
 for (const page of htmlFiles) {
   const $ = load(await readFile(path.join(DIST_DIR, page), "utf8"));
   const route = page === "index.html" ? "/" : `/${page}`;
-  for (const attr of ["href", "src", "action", "poster", "data-src"]) {
+  for (const attr of ["href", "src", "action", "poster", "data-src", "data-poster", "data-fallback-src", "data-after-render-src", "data-idle-src"]) {
     for (const element of $(`[${attr}]`).toArray()) {
       const raw = $(element).attr(attr);
       const target = toLocalPath(raw, page);
@@ -220,9 +244,12 @@ for (const page of htmlFiles) {
   $("video").each((_, element) => {
     const video = $(element);
     if (video.attr("controls") === undefined) accessibility.push({ page: route, issue: "Video missing controls" });
-    if (video.attr("autoplay") === undefined) accessibility.push({ page: route, issue: "Video must autoplay" });
+    if (video.attr("data-autoplay-when-visible") !== "true") accessibility.push({ page: route, issue: "Video must autoplay when visible" });
     if (video.attr("muted") === undefined) accessibility.push({ page: route, issue: "Autoplay video must be muted" });
     if (video.attr("playsinline") === undefined) accessibility.push({ page: route, issue: "Autoplay video must play inline" });
+    if (video.attr("autoplay") !== undefined) performance.push({ page: route, issue: "Video must not load through eager autoplay" });
+    if (video.attr("preload") !== "none") performance.push({ page: route, issue: "Deferred video must use preload=none" });
+    if (video.attr("src") || video.find("source[src]").length) performance.push({ page: route, issue: "Video source must be deferred to data-src" });
     const descriptionId = video.attr("aria-describedby");
     const described = descriptionId && $(`#${descriptionId}`).length === 1;
     const silentDemo = video.attr("data-silent-demo") === "true" && video.attr("muted") !== undefined && described;
@@ -231,12 +258,70 @@ for (const page of htmlFiles) {
     }
   });
 
-  $("iframe[src*='youtube.com/embed']").each((_, element) => {
-    const iframeUrl = new URL($(element).attr("src"));
+  $("iframe[data-src*='youtube.com/embed']").each((_, element) => {
+    const iframe = $(element);
+    const iframeUrl = new URL(iframe.attr("data-src"));
     if (iframeUrl.searchParams.get("autoplay") !== "1" || iframeUrl.searchParams.get("mute") !== "1") {
       accessibility.push({ page: route, issue: "YouTube video must autoplay muted" });
     }
+    if (iframe.attr("loading") !== "lazy" || iframe.attr("data-autoplay-when-visible") !== "true") {
+      performance.push({ page: route, issue: "YouTube video must load only when it approaches the viewport" });
+    }
+    if (iframe.attr("src") !== "about:blank") performance.push({ page: route, issue: "YouTube embed has an eager source" });
   });
+
+  const preconnects = new Set($("link[rel='preconnect']").map((_, element) => $(element).attr("href")).get());
+  for (const origin of preconnectOrigins) {
+    if (!preconnects.has(origin)) performance.push({ page: route, issue: `Missing preconnect for ${origin}` });
+  }
+  const performanceRuntime = $("script[src$='/_resources/js/site-performance.js'][defer]");
+  if (performanceRuntime.length !== 1) performance.push({ page: route, issue: "Performance runtime is missing or not deferred" });
+  for (const source of afterRenderDecoratorScripts) {
+    const script = $(`script[data-after-render-src='${source}']`);
+    if (script.length !== 1 || script.attr("src")) {
+      performance.push({ page: route, issue: `Decorator dependency is not postponed until after render: ${source}` });
+    }
+  }
+  $("script[src^='http']").each((_, element) => {
+    const script = $(element);
+    const source = script.attr("src") || "";
+    if (script.attr("async") !== undefined || source.includes("googletagmanager.com")) return;
+    performance.push({ page: route, issue: `External script blocks initial rendering: ${source}` });
+  });
+  const emergencyScript = $(`script[src='${emergencyBroadcastScript}']`);
+  if (emergencyScript.length !== 1 || emergencyScript.attr("async") === undefined) {
+    performance.push({ page: route, issue: "Emergency broadcast must remain live without blocking rendering" });
+  }
+  const idleWidget = $(`script[data-idle-src='${tritonGptWidgetScript}']`);
+  if (idleWidget.length !== 1 || idleWidget.attr("src")) {
+    performance.push({ page: route, issue: "TritonGPT widget must initialize during browser idle time" });
+  }
+
+  for (const element of $("img").toArray()) {
+    const image = $(element);
+    const fallback = image.attr("data-fallback-src") || image.attr("src");
+    const fallbackSize = await localAssetSize(fallback, page);
+    if (!fallbackSize || fallbackSize <= imageBudgetBytes) continue;
+    const optimizedSource = image.attr("data-src") || image.parent("picture").find("source[type='image/webp']").attr("srcset");
+    const optimizedSize = await localAssetSize(optimizedSource, page);
+    if (!optimizedSource || !optimizedSize) {
+      performance.push({ page: route, issue: `Oversized image lacks a WebP source: ${fallback}` });
+    } else if (optimizedSize > imageBudgetBytes) {
+      performance.push({ page: route, issue: `Optimized image exceeds ${imageBudgetBytes} bytes: ${optimizedSource}` });
+    }
+  }
+  for (const element of $("[style*='background-image']").toArray()) {
+    const style = $(element).attr("style") || "";
+    const urls = [...style.matchAll(/url\((['\"]?)([^'\")]+)\1\)/gi)].map((match) => match[2]);
+    const fallback = urls.find((url) => /\.(?:jpe?g|png)(?:$|[?#])/i.test(url));
+    if (!fallback) continue;
+    const optimized = urls.find((url) => /\.webp(?:$|[?#])/i.test(url));
+    const fallbackSize = await localAssetSize(fallback, page);
+    if (!fallbackSize || fallbackSize <= imageBudgetBytes) continue;
+    const optimizedSize = await localAssetSize(optimized, page);
+    if (!optimized || !optimizedSize) performance.push({ page: route, issue: `Oversized background lacks a WebP source: ${fallback}` });
+    else if (optimizedSize > imageBudgetBytes) performance.push({ page: route, issue: `Optimized background exceeds ${imageBudgetBytes} bytes: ${optimized}` });
+  }
 
   if (generatedPaths.has(route)) {
     if ($("main#main-content").length !== 1) accessibility.push({ page: route, issue: "Expected one main landmark" });
@@ -266,7 +351,16 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: `Rendered hero slide count does not match content (${$("#heroslider .item").length} vs ${(homeHeroContent.slides || []).length})` });
     }
     if ($("[data-home-hero-toggle]").length !== 1) accessibility.push({ page: route, issue: "Homepage hero pause control is missing" });
+    const inactiveHeroImages = $("#heroslider .item:not(.active) img.first-slide");
+    if (!inactiveHeroImages.length || inactiveHeroImages.filter("[data-src$='.webp']").length !== inactiveHeroImages.length) {
+      performance.push({ page: route, issue: "Inactive hero images must use deferred optimized sources" });
+    }
   }
+}
+
+const performanceRuntimeSource = await readFile(path.join(DIST_DIR, "_resources/js/site-performance.js"), "utf8").catch(() => "");
+for (const behavior of ["IntersectionObserver", "requestIdleCallback", "data-after-render-src", 'document.addEventListener("pointerover"', 'document.addEventListener("touchstart"']) {
+  if (!performanceRuntimeSource.includes(behavior)) performance.push({ page: "/_resources/js/site-performance.js", issue: `Missing runtime behavior: ${behavior}` });
 }
 
 let routeManifest = null;
@@ -327,6 +421,7 @@ const report = {
     accessibilityFailures: accessibility.length,
     metadataFailures: metadata.length,
     routeFailures: routeFindings.length,
+    performanceFailures: performance.length,
   },
   missing,
   inherited,
@@ -337,6 +432,7 @@ const report = {
   accessibility,
   metadata,
   routeFindings,
+  performance,
 };
 await mkdir(REPORT_DIR, { recursive: true });
 await writeFile(path.join(REPORT_DIR, "validation.json"), `${JSON.stringify(report, null, 2)}\n`);
@@ -351,7 +447,8 @@ if (
   freshnessFailures.length ||
   accessibility.length ||
   metadata.length ||
-  routeFindings.length
+  routeFindings.length ||
+  performance.length
 ) {
   process.stderr.write("Validation failed. See reports/validation.json.\n");
   process.exit(1);
