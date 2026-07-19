@@ -51,6 +51,7 @@
       "items": [
         { "label": "Developer APIs", "href": "/developer-apis/index.html" },
         { "label": "Quickstarts", "href": "/developer-apis/quickstarts.html" },
+        { "label": "Skills Library", "href": "/skills/index.html" },
         { "label": "Hosting & Ownership", "href": "/developer-apis/hosting.html" },
         { "label": "Get Started", "href": "/developer-apis/start.html" },
         { "label": "FAQs", "href": "/developer-apis/faq.html" }

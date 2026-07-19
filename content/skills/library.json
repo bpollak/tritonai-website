@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "syncedAt": "2026-07-19T15:52:14.154Z",
+  "source": {
+    "repository": "dbalders/UCSD-Skills-Library",
+    "url": "https://github.com/dbalders/UCSD-Skills-Library",
+    "description": "Agent skills for UC San Diego and TritonAI",
+    "defaultBranch": "main",
+    "commitSha": "4d4c48be70156d1d18c80576037f8770f5a68c34",
+    "commitUrl": "https://github.com/dbalders/UCSD-Skills-Library/commit/4d4c48be70156d1d18c80576037f8770f5a68c34",
+    "commitDate": "2026-07-14T20:58:14Z",
+    "pushedAt": "2026-07-14T20:58:14Z",
+    "license": "MIT"
+  },
+  "collections": [
+    {
+      "id": "tritonai",
+      "label": "TritonAI maintained",
+      "count": 9
+    },
+    {
+      "id": "community",
+      "label": "Community maintained",
+      "count": 0
+    }
+  ],
+  "skills": [
+    {
+      "name": "tritonai-autoreview",
+      "description": "Use for TritonAI Harness or UCSD AI Tools code-review closeout before commit, pull request update, merge, release, or ship. Trigger when the user says use tritonai-autoreview, run TritonAI autoreview, autoreview this, auto review, Codex review, second-model review, review this branch, review this PR, review this commit, before merge, before ship, closeout review, run tests plus review, or fix accepted review findings.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/tritonai-autoreview/SKILL.md",
+      "directory": "tritonai/tritonai-autoreview",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-autoreview/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-autoreview",
+      "resources": {
+        "references": 0,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "tritonai-feedback",
+      "description": "Use when a user wants to send feedback, bug reports, support requests, improvement ideas, or agent-experience notes to the TritonAI team. Trigger on explicit requests such as /tritonai, /feedback, /feed-back, /feed back, TritonAI feedback, email TritonAI, report this to TritonAI, or send this to tritonai@ucsd.edu.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/tritonai-feedback/SKILL.md",
+      "directory": "tritonai/tritonai-feedback",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-feedback/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-feedback",
+      "resources": {
+        "references": 0,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "tritonai-harness-config",
+      "description": "Investigate and explain the live TritonAI Harness environment using sanitized runtime and source evidence. Use for Harness config files, CODEX_HOME or TRITONAI_HOME, permissions or sandbox modes, models and providers, skills, logs, installation paths, or comparisons with personal Codex or Codex Desktop. Also use for explicit T3 Code or t3code configuration/runtime questions, Harness-versus-T3 Code comparisons, or questions about a t3code identifier in a Harness diagnostic; not unrelated source-code mentions.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/tritonai-harness-config/SKILL.md",
+      "directory": "tritonai/tritonai-harness-config",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-harness-config/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-harness-config",
+      "resources": {
+        "references": 0,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "ucsd-accessibility-compliance",
+      "description": "Use for UC San Diego digital accessibility work across websites, web apps, Campus CMS or Simple Sites pages, LMS content, forms, documents, PDFs, presentations, email campaigns, social posts, images, graphics, audio, and video. Helps implement, audit, or remediate content against official UCSD accessibility guidance, UCSD Digital Accessibility Standards, WCAG 2.1 AA expectations, ADA Title II and UC policy context, keyboard and screen-reader usability, semantic HTML, forms, contrast, alt text, captions, transcripts, accessible documents, and practical manual review steps. Trigger on /ucsd-accessibility, accessibility review, a11y, WCAG, ADA Title II, Siteimprove, screen reader, keyboard access, alt text, captions, transcripts, PDF remediation, or \"is this accessible at UCSD\".",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/ucsd-accessibility-compliance/SKILL.md",
+      "directory": "tritonai/ucsd-accessibility-compliance",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-accessibility-compliance/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-accessibility-compliance",
+      "resources": {
+        "references": 1,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "ucsd-branding",
+      "description": "Apply the UC San Diego Developer/Decorator 5 visual system to web pages. Use when asked to match UCSD/UC San Diego web branding, campus page chrome, current Decorator 5 documentation pages, or the components shown in the official Decorator 5 kitchen sink. This skill is intentionally limited to current developer.ucsd.edu sitemap pages plus the linked Decorator 5 kitchen-sink examples.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/ucsd-branding/SKILL.md",
+      "directory": "tritonai/ucsd-branding",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-branding/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-branding",
+      "resources": {
+        "references": 1,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "ucsd-cms",
+      "description": "Use when authoring, editing, publishing, or reviewing content on a UC San Diego website running on Hannon Hill Cascade CMS (Blink, department sites, *.ucsd.edu sites managed in the campus CMS) — to follow the correct workflow, pick the right template/module, write valid metadata, meet accessibility and SEO requirements, and publish safely. Trigger when the user mentions Cascade, Blink, \"the CMS\", a `.ucsd.edu` page, templates, modules, drawers, tabs, metadata, display names, system names, SiteImprove, publish/unpublish, or asks \"how do I add/edit/publish a page\", \"what template should I use\", \"why is my page not showing\", \"how do I get CMS access\". Also /ucsd-cms.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/ucsd-cms/SKILL.md",
+      "directory": "tritonai/ucsd-cms",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-cms/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-cms",
+      "resources": {
+        "references": 0,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "ucsd-data-classification",
+      "description": "Use when building or reviewing a UC San Diego application, automation, script, database, API, or data pipeline that stores, transmits, logs, or displays data — to classify that data under UC's IS-3 Protection Levels (P1–P4) and apply the handling controls each level requires. Trigger when defining data models or database schemas, choosing where to store data, writing logging, building forms or endpoints that collect personal/financial/health/student data, or whenever fields like SSN, credit card, PHI, FERPA student records, passwords, API keys, or other PII appear. Also /ucsd-data-classification, \"classify this data\", \"what protection level\", \"can I store this\", \"is this allowed at UCSD\".",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/ucsd-data-classification/SKILL.md",
+      "directory": "tritonai/ucsd-data-classification",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-data-classification/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-data-classification",
+      "resources": {
+        "references": 3,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "ucsd-memory",
+      "description": "Use and maintain an existing local TritonAI memory vault. Trigger on $memory, remember this, forget this, search memory, what do we know about, summarize this into memory, memory status, or requests to add, update, remove, query, or cite Obsidian-style TritonAI memory notes.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/ucsd-memory/SKILL.md",
+      "directory": "tritonai/ucsd-memory",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory",
+      "resources": {
+        "references": 0,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "ucsd-memory-create",
+      "description": "Create and maintain a local TritonAI memory vault. Use when a user asks for $memory-create, memory setup, an Obsidian-style memory graph, daily conversation sync, weekly memory cleanup, or cross-platform background memory jobs for TritonAI Harness.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/ucsd-memory-create/SKILL.md",
+      "directory": "tritonai/ucsd-memory-create",
+      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory-create/SKILL.md",
+      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory-create",
+      "resources": {
+        "references": 1,
+        "scripts": 0,
+        "assets": 2,
+        "other": 0
+      }
+    }
+  ]
+}

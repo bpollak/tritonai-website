@@ -113,6 +113,7 @@ const useCaseContent = await loadMarkdownContent(
 const contentFindings = [...pageContent.findings, ...useCaseContent.findings];
 const roadmapContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "roadmap/milestones.json"), "utf8"));
 const factsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/public-facts.json"), "utf8"));
+const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/library.json"), "utf8"));
 const roadmapRequired = ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"];
 const roadmapMissing = missingFields(roadmapContent, roadmapRequired);
 if (roadmapMissing.length) contentFindings.push({ source: "roadmap/milestones.json", issue: `Missing fields: ${roadmapMissing.join(", ")}` });
@@ -120,6 +121,28 @@ const factRequired = ["id", "claim", "status", "owner", "lastReviewed", "source"
 for (const [index, fact] of (factsContent.facts || []).entries()) {
   const factMissing = missingFields(fact, factRequired);
   if (factMissing.length) contentFindings.push({ source: `facts/public-facts.json#${fact.id || index + 1}`, issue: `Missing fields: ${factMissing.join(", ")}` });
+}
+const skillsRequired = ["schemaVersion", "syncedAt", "source", "collections", "skills"];
+const skillsMissing = missingFields(skillsContent, skillsRequired);
+if (skillsMissing.length) contentFindings.push({ source: "skills/library.json", issue: `Missing fields: ${skillsMissing.join(", ")}` });
+const skillsSourceMissing = missingFields(skillsContent.source || {}, ["repository", "url", "defaultBranch", "commitSha", "commitUrl", "commitDate"]);
+if (skillsSourceMissing.length) contentFindings.push({ source: "skills/library.json#source", issue: `Missing fields: ${skillsSourceMissing.join(", ")}` });
+if (skillsContent.source?.repository !== "dbalders/UCSD-Skills-Library") {
+  contentFindings.push({ source: "skills/library.json#source", issue: `Unexpected repository: ${skillsContent.source?.repository || "missing"}` });
+}
+if (!(skillsContent.skills || []).length) contentFindings.push({ source: "skills/library.json", issue: "No public skills found" });
+const allowedSkillCollections = new Set(["tritonai", "community"]);
+const skillNames = new Set();
+const skillPaths = new Set();
+for (const [index, skill] of (skillsContent.skills || []).entries()) {
+  const skillMissing = missingFields(skill, ["name", "description", "collection", "collectionLabel", "path", "directory", "sourceUrl", "directoryUrl", "resources"]);
+  if (skillMissing.length) contentFindings.push({ source: `skills/library.json#${skill.name || index + 1}`, issue: `Missing fields: ${skillMissing.join(", ")}` });
+  if (!allowedSkillCollections.has(skill.collection)) contentFindings.push({ source: `skills/library.json#${skill.name || index + 1}`, issue: `Unknown collection: ${skill.collection}` });
+  if (skill.collection === "community" && !skill.maintainer) contentFindings.push({ source: `skills/library.json#${skill.name || index + 1}`, issue: "Community skill is missing a maintainer" });
+  if (skillNames.has(skill.name)) contentFindings.push({ source: `skills/library.json#${skill.name || index + 1}`, issue: "Duplicate skill name" });
+  if (skillPaths.has(skill.path)) contentFindings.push({ source: `skills/library.json#${skill.name || index + 1}`, issue: "Duplicate skill path" });
+  skillNames.add(skill.name);
+  skillPaths.add(skill.path);
 }
 const generatedPaths = new Set([
   ...pageContent.entries.map((entry) => entry.path),
@@ -142,6 +165,14 @@ for (const [index, milestone] of (roadmapContent.items || []).entries()) {
 const freshnessWarnings = [];
 const freshnessFailures = [];
 const today = new Date();
+const skillsSyncedAt = new Date(skillsContent.syncedAt);
+if (Number.isNaN(skillsSyncedAt.valueOf())) {
+  freshnessFailures.push({ source: "skills/library.json", issue: "Invalid syncedAt date" });
+} else {
+  const ageHours = Math.floor((today - skillsSyncedAt) / 3600000);
+  if (ageHours > 336) freshnessFailures.push({ source: "skills/library.json", syncedAt: skillsContent.syncedAt, ageHours });
+  else if (ageHours > 48) freshnessWarnings.push({ source: "skills/library.json", syncedAt: skillsContent.syncedAt, ageHours });
+}
 const freshnessEntries = [
   ...pageContent.entries,
   ...useCaseContent.entries,
@@ -199,6 +230,15 @@ for (const page of htmlFiles) {
     if (!$("meta[property='og:title']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph title" });
     if (!$("script[type='application/ld+json'][data-tritonai-schema]").length) metadata.push({ page: route, issue: "Missing JSON-LD" });
   }
+  if (route === "/skills/index.html") {
+    const renderedSkills = $("[data-skill-card]");
+    if (renderedSkills.length !== (skillsContent.skills || []).length) {
+      contentFindings.push({ source: route, issue: `Rendered skill count does not match catalog (${renderedSkills.length} vs ${(skillsContent.skills || []).length})` });
+    }
+    if ($("[data-skills-search]").length !== 1 || $("[data-skills-collection]").length !== 1) {
+      accessibility.push({ page: route, issue: "Skills filters are missing" });
+    }
+  }
 }
 
 let routeManifest = null;
@@ -238,6 +278,7 @@ const report = {
     files: files.length,
     htmlFiles: htmlFiles.length,
     newsletters: newsletterCount,
+    skills: (skillsContent.skills || []).length,
     missingInternalTargets: missing.length,
     inheritedProductionFailures: inherited.length,
     remoteDependencyFailures: remoteChecks.filter((check) => !check.ok).length,

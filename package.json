@@ -6,6 +6,7 @@
   "scripts": {
     "crawl": "node scripts/crawl.mjs",
     "extract:newsletters": "node scripts/extract-newsletters.mjs",
+    "sync:skills": "node scripts/sync-skills.mjs",
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
     "test": "npm run build && npm run validate"

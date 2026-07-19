@@ -107,6 +107,54 @@
   padding-left: 20px;
 }
 
+.skills-filter {
+  background: #f5f0e6;
+  border-top: 5px solid #f5c242;
+  margin: 20px 0 30px;
+  padding: 22px;
+}
+
+.skills-filter label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.skills-status {
+  font-weight: 700;
+  margin: 18px 0 0;
+}
+
+.skills-grid [hidden] {
+  display: none !important;
+}
+
+.skills-card .panel-heading {
+  min-height: 82px;
+}
+
+.skills-card .panel-title {
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+
+.skills-collection {
+  color: #46535c;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.skills-path {
+  overflow-wrap: anywhere;
+}
+
+.skills-card .btn {
+  margin: 4px 4px 4px 0;
+}
+
 @media (max-width: 767px) {
   .agent-page .agent-card-grid > [class*="col-"] {
     display: block;
