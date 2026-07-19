@@ -10,6 +10,7 @@
     var icon = toggle.querySelector(".glyphicon");
     var label = toggle.querySelector(".sr-only");
     var fallbackTimer = null;
+    var hasNativeCarousel = Boolean(window.jQuery && window.jQuery.fn && typeof window.jQuery.fn.carousel === "function");
 
     function hydrateSlideImage(slide) {
       if (!slide) return;
@@ -79,6 +80,18 @@
       fallbackTimer = null;
     }
 
+    var previous = carousel.querySelector("[data-home-hero-direction='prev']");
+    var next = carousel.querySelector("[data-home-hero-direction='next']");
+
+    if (hasNativeCarousel) {
+      window.jQuery(carousel).on("slide.bs.carousel", function (event) {
+        hydrateSlideImage(event.relatedTarget);
+      });
+      window.jQuery(carousel).on("slid.bs.carousel", updateSlides);
+      updateSlides();
+      return;
+    }
+
     toggle.addEventListener("click", function () {
       isPaused = !isPaused;
       if (isPaused) stopFallbackCycle();
@@ -86,8 +99,6 @@
       updateToggle();
     });
 
-    var previous = carousel.querySelector("[data-home-hero-direction='prev']");
-    var next = carousel.querySelector("[data-home-hero-direction='next']");
     if (previous) previous.addEventListener("click", function (event) {
       event.preventDefault();
       stopFallbackCycle();
@@ -108,6 +119,8 @@
     startFallbackCycle();
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeHomeHero);
-  else initializeHomeHero();
+  // The Decorator carousel scripts are external dependencies loaded by the page
+  // shell. Wait for them before deciding whether the local fallback is needed.
+  if (document.readyState === "complete") initializeHomeHero();
+  else window.addEventListener("load", initializeHomeHero);
 })();
