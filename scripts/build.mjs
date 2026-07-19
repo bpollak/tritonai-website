@@ -10,6 +10,7 @@ const PAGE_DIR = path.join(CONTENT_DIR, "pages");
 const USE_CASE_DIR = path.join(CONTENT_DIR, "use-cases");
 const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
 const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
+const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const OUTPUT_DIR = path.resolve("dist");
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
@@ -137,6 +138,22 @@ function renderPublicFacts(facts) {
     .join("")}</ul></div></div>`;
 }
 
+function renderHomeHero(hero) {
+  const indicators = hero.slides
+    .map(
+      (_, index) =>
+        `<li aria-hidden="true" class="${index === 0 ? "active" : ""}" data-slide-to="${index}" data-target="#heroslider"></li>`,
+    )
+    .join("");
+  const slides = hero.slides
+    .map((slide, index) => {
+      const accent = slide.accent ? `<br><span>${escapeHtml(slide.accent)}</span>` : "";
+      return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group"><img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" src="${escapeHtml(slide.image)}"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h2 class="home-hero-title rt-text-light">${escapeHtml(slide.title)}${accent}</h2><p class="rt-text-light">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
+    })
+    .join("");
+  return `<h1 class="sr-only">TritonAI</h1><div class="carousel slide jumbotron jumbotron-hero hm" data-interval="${hero.rotationIntervalMs}" data-ride="carousel" id="heroslider"><div aria-label="Rotating homepage highlights with ${hero.slides.length} slides" class="carousel-inner" role="region" tabindex="0"><div id="indicators-container"><button aria-controls="heroslider" aria-label="Carousel is playing; click to pause" aria-pressed="false" data-home-hero-toggle type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span><span class="sr-only">Pause carousel</span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div>${slides}<a aria-controls="heroslider" aria-label="Previous slide" class="left carousel-control" data-slide="prev" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="Next slide" class="right carousel-control" data-slide="next" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></div></div><script defer src="/_resources/js/home-hero.js"></script>`;
+}
+
 function renderSkillsLibrary(library) {
   const collectionOptions = library.collections
     .map((collection) => `<option value="${escapeHtml(collection.id)}">${escapeHtml(collection.label)} (${collection.count})</option>`)
@@ -205,10 +222,14 @@ function breadcrumbFor(page) {
   return `<li><a href="/">TritonAI</a></li><li><a href="${sectionHref}">${escapeHtml(sectionLabels[section] || section)}</a></li><li aria-current="page">${escapeHtml(page.title)}</li>`;
 }
 
-function renderGeneratedPage(shellHtml, page, bodyHtml) {
+function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const $ = load(shellHtml, { decodeEntities: false });
   $("body").addClass("agent-page");
-  $("main#main-content").html(`<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="text-indent"><p class="text-uppercase">${escapeHtml(page.eyebrow || "TritonAI")}</p><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div><div class="container"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`);
+  const mainContent =
+    page.path === "/index.html"
+      ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
+      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="text-indent"><p class="text-uppercase">${escapeHtml(page.eyebrow || "TritonAI")}</p><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div><div class="container"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`;
+  $("main#main-content").html(mainContent);
   return $.html();
 }
 
@@ -293,6 +314,18 @@ function transformHtml(html, relativePath, context) {
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
 
+  $("video").each((_, element) => {
+    $(element).attr("autoplay", "autoplay").attr("muted", "muted").attr("playsinline", "playsinline");
+  });
+  $("iframe[src*='youtube.com/embed']").each((_, element) => {
+    const iframe = $(element);
+    const url = new URL(iframe.attr("src"));
+    url.searchParams.set("autoplay", "1");
+    url.searchParams.set("mute", "1");
+    url.searchParams.set("playsinline", "1");
+    iframe.attr("src", url.href);
+  });
+
   $("a[href^='/cdn-cgi/l/email-protection#']").each((_, element) => {
     const anchor = $(element);
     const email = decodeCloudflareEmail((anchor.attr("href") || "").split("#")[1]);
@@ -356,11 +389,11 @@ async function listFiles(directory, base = directory) {
   return files;
 }
 
-async function writeGeneratedPage(shellHtml, page, bodyHtml, generatedByPath) {
+async function writeGeneratedPage(shellHtml, page, bodyHtml, generatedByPath, homeHero) {
   const relativePath = relativePathForRoute(page.path);
   const filename = path.join(OUTPUT_DIR, relativePath);
   await mkdir(path.dirname(filename), { recursive: true });
-  await writeFile(filename, renderGeneratedPage(shellHtml, page, bodyHtml));
+  await writeFile(filename, renderGeneratedPage(shellHtml, page, bodyHtml, homeHero));
   generatedByPath.set(relativePath, page);
 }
 
@@ -368,6 +401,7 @@ const site = await readJson(path.join(CONTENT_DIR, "site.json"));
 const roadmap = await readJson(path.join(CONTENT_DIR, "roadmap/milestones.json"));
 const facts = await readJson(path.join(CONTENT_DIR, "facts/public-facts.json"));
 const skills = await readJson(SKILLS_FILE);
+const homeHero = await readJson(HOME_HERO_FILE);
 requireFields(roadmap, ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"], "content/roadmap/milestones.json");
 roadmap.lastReviewed = isoDate(roadmap.lastReviewed);
 for (const [index, item] of roadmap.items.entries()) {
@@ -383,6 +417,11 @@ requireFields(skills.source, ["repository", "url", "defaultBranch", "commitSha",
 for (const [index, skill] of skills.skills.entries()) {
   requireFields(skill, ["name", "description", "collection", "collectionLabel", "path", "directory", "sourceUrl", "directoryUrl", "resources"], `skill ${index + 1}`);
 }
+requireFields(homeHero, ["schemaVersion", "owner", "source", "lastReviewed", "rotationIntervalMs", "slides"], "content/home/hero.json");
+homeHero.lastReviewed = isoDate(homeHero.lastReviewed);
+for (const [index, slide] of homeHero.slides.entries()) {
+  requireFields(slide, ["id", "title", "description", "image", "imageAlt", "link", "linkLabel"], `homepage hero slide ${index + 1}`);
+}
 
 const pages = await loadMarkdownDirectory(PAGE_DIR, ["title", "path", "description", "lastReviewed", "audiences", "source", "canonicalUrl", "relatedSlides"]);
 const useCases = await loadMarkdownDirectory(USE_CASE_DIR, ["title", "slug", "summary", "status", "owner", "lastReviewed", "audiences", "source", "measurementPeriod", "dataClassification", "canonicalUrl", "relatedSlides", "humanOversight", "measurableOutcome"]);
@@ -394,7 +433,7 @@ await mkdir(OUTPUT_DIR, { recursive: true });
 await cp(SOURCE_DIR, OUTPUT_DIR, { recursive: true });
 
 const generatedByPath = new Map();
-for (const page of pages) await writeGeneratedPage(shellHtml, page, page.html, generatedByPath);
+for (const page of pages) await writeGeneratedPage(shellHtml, page, page.html, generatedByPath, homeHero);
 
 const useCaseIndex = {
   title: "AI Use Cases",
@@ -404,7 +443,7 @@ const useCaseIndex = {
   lastReviewed: site.lastReviewed,
   canonicalUrl: "/use-cases/index.html",
 };
-await writeGeneratedPage(shellHtml, useCaseIndex, `<p class="lead">Explore how TritonAI applies shared AI capabilities to specific campus problems. Status labels distinguish available services, bounded pilots, active development, and early discovery.</p>${renderUseCaseCards(useCases)}`, generatedByPath);
+await writeGeneratedPage(shellHtml, useCaseIndex, `<p class="lead">Explore how TritonAI applies shared AI capabilities to specific campus problems. Status labels distinguish available services, bounded pilots, active development, and early discovery.</p>${renderUseCaseCards(useCases)}`, generatedByPath, homeHero);
 for (const useCase of useCases) {
   await writeGeneratedPage(
     shellHtml,
@@ -460,6 +499,7 @@ await writeFile(
       roadmap,
       useCases: useCases.map(({ html, body, filename, ...entry }) => entry),
       skillsLibrary: skills,
+      homeHero,
     },
     null,
     2,
