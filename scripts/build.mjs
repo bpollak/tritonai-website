@@ -198,10 +198,10 @@ function renderHomeHero(hero) {
           ? `src="${escapeHtml(imageSource)}" fetchpriority="high"`
           : `src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="${escapeHtml(imageSource)}" loading="lazy"`;
       const fallback = slide.optimizedImage ? ` data-fallback-src="${escapeHtml(slide.image)}"` : "";
-      return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group"><img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" ${imageAttributes}${fallback} decoding="async"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h2 class="home-hero-title rt-text-light">${escapeHtml(slide.title)}${accent}</h2><p class="rt-text-light">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
+      return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group"><img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" ${imageAttributes}${fallback} decoding="async"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h1 class="rt-text-light" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.title)}${accent}</h1><p class="rt-text-light" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" role="button" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
     })
     .join("");
-  return `<h1 class="sr-only">TritonAI</h1><div class="carousel slide jumbotron jumbotron-hero hm" data-interval="${hero.rotationIntervalMs}" id="heroslider"><div aria-label="Rotating homepage highlights with ${hero.slides.length} slides" class="carousel-inner" role="region" tabindex="0"><div id="indicators-container"><button aria-controls="heroslider" aria-label="Carousel is playing; click to pause" aria-pressed="false" data-home-hero-toggle type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span><span class="sr-only">Pause carousel</span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div>${slides}<a aria-controls="heroslider" aria-label="Previous slide" class="left carousel-control" data-home-hero-direction="prev" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="Next slide" class="right carousel-control" data-home-hero-direction="next" href="#heroslider" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></div></div><script defer src="/_resources/js/home-hero.js"></script>`;
+  return `<div class="carousel slide jumbotron jumbotron-hero hm" data-interval="${hero.rotationIntervalMs}" data-ride="carousel" id="heroslider"><div aria-label="Revolving Banners with ${hero.slides.length} items" class="carousel-inner" role="region" tabindex="0"><div id="indicators-container"><button aria-label="carousel is playing, click to pause" data-home-hero-toggle id="toggleCarousel" type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div>${slides}<a aria-controls="heroslider" aria-label="previous slide" class="left carousel-control" data-home-hero-direction="prev" data-slide="prev" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="next slide" class="right carousel-control" data-home-hero-direction="next" data-slide="next" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></div></div><script defer src="/_resources/js/home-hero.js"></script>`;
 }
 
 function renderSkillsLibrary(library) {
@@ -281,7 +281,7 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const mainContent =
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
-      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/navy-simple-grit.jpg);"><div class="container"><div class="text-indent"><p class="text-uppercase">${escapeHtml(page.eyebrow || "TritonAI")}</p><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div><div class="container"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`;
+      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
 }
@@ -581,13 +581,16 @@ const pages = await loadMarkdownDirectory(PAGE_DIR, ["title", "path", "descripti
 const useCases = await loadMarkdownDirectory(USE_CASE_DIR, ["title", "slug", "summary", "status", "owner", "lastReviewed", "audiences", "source", "measurementPeriod", "dataClassification", "canonicalUrl", "relatedSlides", "humanOversight", "measurableOutcome"]);
 const newsletters = await loadNewsletters();
 const shellHtml = await readFile(path.join(SOURCE_DIR, "about/index.html"), "utf8");
+const homeShellHtml = await readFile(path.join(SOURCE_DIR, "index.html"), "utf8");
 
 await rm(OUTPUT_DIR, { recursive: true, force: true });
 await mkdir(OUTPUT_DIR, { recursive: true });
 await cp(SOURCE_DIR, OUTPUT_DIR, { recursive: true });
 
 const generatedByPath = new Map();
-for (const page of pages) await writeGeneratedPage(shellHtml, page, page.html, generatedByPath, homeHero);
+for (const page of pages) {
+  await writeGeneratedPage(page.path === "/index.html" ? homeShellHtml : shellHtml, page, page.html, generatedByPath, homeHero);
+}
 
 const useCaseIndex = {
   title: "AI Use Cases",

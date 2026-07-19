@@ -10,31 +10,8 @@
 
 .agent-page .intro-banner {
   background-color: var(--triton-navy);
-  background-position: center;
-  background-size: cover;
-  min-height: 280px;
-  position: relative;
 }
 
-.agent-page .intro-banner::before {
-  background: linear-gradient(90deg, rgba(24, 43, 73, .98) 0%, rgba(24, 43, 73, .88) 46%, rgba(0, 98, 155, .28) 100%);
-  content: "";
-  inset: 0;
-  position: absolute;
-}
-
-.agent-page .intro-banner .container {
-  position: relative;
-  z-index: 1;
-}
-
-.agent-page .intro-banner-heading {
-  color: #fff;
-  max-width: 880px;
-  text-wrap: balance;
-}
-
-.agent-page .intro-banner .text-uppercase,
 .home-kicker {
   color: var(--triton-gold);
   font-size: 13px;
@@ -210,42 +187,6 @@
 }
 
 /* Homepage */
-.agent-page #heroslider .home-hero-title {
-  color: #fff;
-  font-size: 48px;
-  line-height: 1.08;
-  margin: 0 0 16px;
-  max-width: 720px;
-  text-wrap: balance;
-}
-
-.agent-page #heroslider .home-hero-title span {
-  color: var(--triton-gold);
-}
-
-.agent-page #heroslider .herotextbg-dark-opaque {
-  border-left: 6px solid var(--triton-gold);
-  max-width: 700px;
-  padding: 28px 30px;
-}
-
-.agent-page #heroslider .herotextbg-dark-opaque p {
-  font-size: 19px;
-  line-height: 1.5;
-  max-width: 610px;
-}
-
-.agent-page #heroslider [data-home-hero-toggle] {
-  align-items: center;
-  background: rgba(24, 43, 73, .92);
-  border: 1px solid rgba(255, 255, 255, .65);
-  color: #fff;
-  display: inline-flex;
-  height: 34px;
-  justify-content: center;
-  width: 34px;
-}
-
 .agent-page .home-main-content {
   padding-top: 0;
 }
@@ -723,37 +664,6 @@
 }
 
 @media (max-width: 767px) {
-  .agent-page #heroslider,
-  .agent-page #heroslider .carousel-inner,
-  .agent-page #heroslider .item,
-  .agent-page #heroslider .first-slide {
-    height: 430px;
-    min-height: 430px;
-  }
-
-  .agent-page #heroslider .first-slide {
-    object-fit: cover;
-    width: 100%;
-  }
-
-  .agent-page #heroslider .cr-item-container {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .agent-page #heroslider .home-hero-title {
-    font-size: 32px;
-  }
-
-  .agent-page #heroslider .herotextbg-dark-opaque {
-    border-left-width: 4px;
-    padding: 20px;
-  }
-
-  .agent-page #heroslider .herotextbg-dark-opaque p {
-    font-size: 16px;
-  }
-
   .agent-page .home-main-content {
     padding-top: 0;
   }
