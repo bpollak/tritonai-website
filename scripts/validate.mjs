@@ -111,6 +111,16 @@ const useCaseContent = await loadMarkdownContent(
   "use-cases",
 );
 const contentFindings = [...pageContent.findings, ...useCaseContent.findings];
+const roadmapContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "roadmap/milestones.json"), "utf8"));
+const factsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/public-facts.json"), "utf8"));
+const roadmapRequired = ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"];
+const roadmapMissing = missingFields(roadmapContent, roadmapRequired);
+if (roadmapMissing.length) contentFindings.push({ source: "roadmap/milestones.json", issue: `Missing fields: ${roadmapMissing.join(", ")}` });
+const factRequired = ["id", "claim", "status", "owner", "lastReviewed", "source", "measurementPeriod", "dataClassification", "canonicalUrl", "relatedSlides"];
+for (const [index, fact] of (factsContent.facts || []).entries()) {
+  const factMissing = missingFields(fact, factRequired);
+  if (factMissing.length) contentFindings.push({ source: `facts/public-facts.json#${fact.id || index + 1}`, issue: `Missing fields: ${factMissing.join(", ")}` });
+}
 const generatedPaths = new Set([
   ...pageContent.entries.map((entry) => entry.path),
   ...useCaseContent.entries.map((entry) => entry.canonicalUrl),
@@ -123,11 +133,23 @@ const allowedStatuses = new Set(["Shipped", "Pilot", "In development", "Explorin
 for (const useCase of useCaseContent.entries) {
   if (!allowedStatuses.has(useCase.status)) contentFindings.push({ source: `use-cases/${useCase.filename}`, issue: `Unknown status: ${useCase.status}` });
 }
+for (const [index, milestone] of (roadmapContent.items || []).entries()) {
+  const milestoneMissing = missingFields(milestone, ["period", "title", "status", "summary", "owner", "lastReviewed", "source"]);
+  if (milestoneMissing.length) contentFindings.push({ source: `roadmap/milestones.json#${index + 1}`, issue: `Missing fields: ${milestoneMissing.join(", ")}` });
+  if (!allowedStatuses.has(milestone.status)) contentFindings.push({ source: `roadmap/milestones.json#${index + 1}`, issue: `Unknown status: ${milestone.status}` });
+}
 
 const freshnessWarnings = [];
 const freshnessFailures = [];
 const today = new Date();
-for (const entry of [...pageContent.entries, ...useCaseContent.entries]) {
+const freshnessEntries = [
+  ...pageContent.entries,
+  ...useCaseContent.entries,
+  { filename: "roadmap/milestones.json", lastReviewed: isoDate(roadmapContent.lastReviewed) },
+  ...(roadmapContent.items || []).map((item, index) => ({ filename: `roadmap/milestones.json#${index + 1}`, lastReviewed: isoDate(item.lastReviewed) })),
+  ...(factsContent.facts || []).map((fact, index) => ({ filename: `facts/public-facts.json#${fact.id || index + 1}`, lastReviewed: isoDate(fact.lastReviewed) })),
+];
+for (const entry of freshnessEntries) {
   if (!entry.lastReviewed) {
     freshnessFailures.push({ source: entry.filename, issue: "Invalid lastReviewed date" });
     continue;
