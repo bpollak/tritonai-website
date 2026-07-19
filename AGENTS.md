@@ -7,11 +7,14 @@ Maintain an accessible, static TritonAI website that preserves the public site's
 ## Content rules
 
 - Add weekly updates in `content/newsletters/` using the existing filename and frontmatter pattern. Do not hand-edit the rendered newsletter panels in `src/site/index.html` or `src/site/about/ai-updates.html`; the build replaces those panels.
-- Edit other page content at its existing path under `src/site/`. Never rename or remove a public route without an explicit redirect/cutover plan.
+- Edit generated, high-change pages in `content/pages/`, use cases in `content/use-cases/`, roadmap entries in `content/roadmap/`, and reusable public claims in `content/facts/`. The build writes those pages over their matching paths in `dist/`.
+- Edit legacy snapshot content at its existing path under `src/site/`. Never rename or remove a public route without an explicit redirect/cutover plan.
 - Keep official UCSD Decorator CSS and JavaScript linked to `https://cdn.ucsd.edu/` (or the existing protocol-relative CDN URL). Do not vendor those files.
 - Keep third-party documents, video, news, and hosted service assets externally linked unless explicitly instructed otherwise.
 - Store new TritonAI-owned images and downloads under the matching `_images/`, `_files/`, or `_resources/` path.
 - Preserve semantic headings, alternative text, keyboard behavior, and current metadata when editing pages.
+- Keep public and internal presentation content separated. Do not publish internal staffing allocations, speculative workforce scenarios, unapproved ROI or accuracy claims, noncommitted dates, sensitive control details, or vendor/tool preference comparisons.
+- Quantitative public claims require a definition, owner, source, measurement period, data classification, canonical URL, related slide reference, and current `lastReviewed` date.
 
 ## Functional integrations
 

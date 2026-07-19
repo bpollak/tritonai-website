@@ -1,0 +1,129 @@
+.agent-page .intro-banner-heading {
+  max-width: 880px;
+}
+
+.agent-page .intro-banner .text-uppercase {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.agent-page .main-section {
+  float: none !important;
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+.agent-page .lead {
+  color: #37474f;
+  font-size: 22px;
+  line-height: 1.55;
+  margin-bottom: 30px;
+}
+
+.agent-page h2 {
+  margin-top: 36px;
+}
+
+.agent-page .agent-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.agent-page .agent-card-grid > [class*="col-"] {
+  display: flex;
+}
+
+.agent-page .agent-card {
+  width: 100%;
+}
+
+.agent-page .agent-card .panel-title {
+  font-size: 20px;
+}
+
+.agent-page .agent-status {
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin-bottom: 8px;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+.agent-status-shipped {
+  background: #e3f2e6;
+  color: #245c2d;
+}
+
+.agent-status-pilot {
+  background: #e7f3f8;
+  color: #0b536d;
+}
+
+.agent-status-development {
+  background: #fff1cc;
+  color: #6d4b00;
+}
+
+.agent-status-exploring {
+  background: #ece8f4;
+  color: #4a3970;
+}
+
+.agent-meta {
+  border-left: 4px solid #00c6d7;
+  margin: 24px 0;
+  padding: 8px 0 8px 18px;
+}
+
+.agent-meta dt {
+  margin-top: 8px;
+}
+
+.agent-newsletter .panel-heading {
+  background: #182b49;
+  color: #fff;
+}
+
+.agent-newsletter .panel-heading h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.agent-newsletter .panel-body h2,
+.agent-newsletter .panel-body h3 {
+  margin-top: 28px;
+}
+
+.agent-roadmap-item {
+  border-left: 5px solid #00629b;
+  margin-bottom: 22px;
+  padding-left: 20px;
+}
+
+@media (max-width: 767px) {
+  .agent-page .agent-card-grid > [class*="col-"] {
+    display: block;
+  }
+
+  .agent-page .lead {
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-page *,
+  .agent-page *::before,
+  .agent-page *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

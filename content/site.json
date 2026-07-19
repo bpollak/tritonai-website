@@ -1,0 +1,61 @@
+{
+  "name": "TritonAI",
+  "origin": "https://tritonai.ucsd.edu",
+  "description": "UC San Diego's trusted ecosystem for using, building, and learning with artificial intelligence.",
+  "lastReviewed": "2026-07-19",
+  "navigation": [
+    {
+      "label": "About",
+      "href": "/about/index.html",
+      "items": [
+        { "label": "Strategy", "href": "/about/strategy.html" },
+        { "label": "Roadmap", "href": "/about/roadmap.html" },
+        { "label": "Trust & Architecture", "href": "/about/trust-architecture.html" },
+        { "label": "Team & Service Ownership", "href": "/about/team.html" },
+        { "label": "Impact", "href": "/about/impact.html" },
+        { "label": "Sustainable AI", "href": "/about/sustainability.html" },
+        { "label": "Get Involved", "href": "/about/get-involved.html" },
+        { "label": "AI Updates", "href": "/about/ai-updates.html" }
+      ]
+    },
+    {
+      "label": "TritonGPT",
+      "href": "/tritongpt/index.html",
+      "items": [
+        { "label": "Overview", "href": "/tritongpt/index.html" },
+        { "label": "Where TritonGPT Appears", "href": "/tritongpt/integrations.html" },
+        { "label": "Guides", "href": "/training-resources/tritongpt/index.html" },
+        { "label": "Instructional AI Pilot", "href": "/tritongpt/instruction.html" },
+        { "label": "Chatbot Widget", "href": "/tritongpt/chatbot-widget.html" },
+        { "label": "Release Notes", "href": "/tritongpt/release-notes/index.html" },
+        { "label": "Terms of Use", "href": "/tritongpt/terms.html" },
+        { "label": "Privacy Statement", "href": "/tritongpt/privacy.html" }
+      ]
+    },
+    { "label": "Use Cases", "href": "/use-cases/index.html", "items": [] },
+    {
+      "label": "Learn",
+      "href": "/training-resources/index.html",
+      "items": [
+        { "label": "Learning Pathways", "href": "/training-resources/pathways.html" },
+        { "label": "TritonGPT Guides", "href": "/training-resources/tritongpt/index.html" },
+        { "label": "Prompting", "href": "/training-resources/prompting/index.html" },
+        { "label": "AI Webinars", "href": "/training-resources/webinars.html" },
+        { "label": "Faculty AI Symposium", "href": "/training-resources/faculty-ai-symposium.html" },
+        { "label": "FAQ", "href": "/training-resources/faq.html" }
+      ]
+    },
+    {
+      "label": "Build",
+      "href": "/developer-apis/index.html",
+      "items": [
+        { "label": "Developer APIs", "href": "/developer-apis/index.html" },
+        { "label": "Quickstarts", "href": "/developer-apis/quickstarts.html" },
+        { "label": "Hosting & Ownership", "href": "/developer-apis/hosting.html" },
+        { "label": "Get Started", "href": "/developer-apis/start.html" },
+        { "label": "FAQs", "href": "/developer-apis/faq.html" }
+      ]
+    },
+    { "label": "AI Tools", "href": "/tools/index.html", "items": [] }
+  ]
+}
