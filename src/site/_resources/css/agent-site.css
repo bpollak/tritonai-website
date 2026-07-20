@@ -191,16 +191,9 @@
   padding-top: 0;
 }
 
-.home-intro {
-  border-bottom: 1px solid var(--triton-border);
-  margin: 0 0 8px;
-  padding: 42px 0 28px;
-}
-
-.home-intro .lead {
-  font-size: 25px;
-  margin-bottom: 0;
-  max-width: 980px;
+.home-feature {
+  margin: 48px 0 8px;
+  overflow: hidden;
 }
 
 .home-section {
@@ -668,11 +661,6 @@
     padding-top: 0;
   }
 
-  .home-intro {
-    padding-top: 30px;
-  }
-
-  .home-intro .lead,
   .agent-page .lead {
     font-size: 19px;
   }

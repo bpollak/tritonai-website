@@ -10,10 +10,23 @@ canonicalUrl: /
 relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 ---
 
-<div class="home-intro">
-<p class="home-kicker">Trusted AI, powered by UC San Diego</p>
-<p class="lead">TritonAI brings trusted AI tools, reusable campus knowledge, developer services, and human-centered workflow solutions into one UC San Diego ecosystem.</p>
+<!-- AGENT_SECTION: homepage-feature -->
+<section class="jumbotron jumbotron-callout-image-small-inset home-feature" style="background-image: url(https://cdn.ucsd.edu/cms/decorator-5/img/bg-grit-orbs-2.jpg);" aria-labelledby="home-feature-heading">
+<div class="container">
+<div class="row">
+<div class="col-md-7">
+<div class="panel panel-default">
+<div class="panel-body">
+<h2 id="home-feature-heading">Trusted AI, powered by UC San Diego</h2>
+<p class="panel-text">TritonAI brings trusted AI tools, reusable campus knowledge, developer services, and human-centered workflow solutions into one UC San Diego ecosystem.</p>
+<p><a class="btn btn-default" href="/about/strategy.html">Explore TritonAI</a></p>
 </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END_AGENT_SECTION -->
 
 <section class="home-section home-starting-points" aria-labelledby="starting-point-heading">
 <div class="home-section-heading"><p class="home-kicker">Start here</p><h2 id="starting-point-heading">Choose your starting point</h2><p>Go straight to the campus AI experience that matches what you want to accomplish.</p></div>
