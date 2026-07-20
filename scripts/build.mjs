@@ -143,7 +143,7 @@ function renderLatestNewsletters(newsletters) {
 }
 
 function statusClass(status) {
-  if (status === "Shipped") return "agent-status-shipped";
+  if (status === "Shipped" || status === "Production") return "agent-status-shipped";
   if (status === "Pilot") return "agent-status-pilot";
   if (status === "In development") return "agent-status-development";
   return "agent-status-exploring";

@@ -2,12 +2,12 @@
 title: Contract Review
 slug: contract-review
 summary: A supervised workflow that compares contract language with approved legal positions and prepares review-ready findings.
-status: Pilot
+status: Production
 owner: TritonAI solutions team and the sponsoring legal service owner
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-20
 audiences: [staff, leaders]
 source: TritonAI strategy presentation
-measurementPeriod: Pilot; quantitative results pending public validation
+measurementPeriod: Production — 91% time savings (120 min to 11 min average)
 dataClassification: Public description; contract data follows the approved pilot controls
 canonicalUrl: /use-cases/contract-review.html
 relatedSlides: [Contract Review]
@@ -26,4 +26,4 @@ The pilot uses specialized review steps to identify relevant clauses, compare th
 
 ## Current status
 
-Pilot results described in the strategy presentation are undergoing public-claim validation. This page therefore publishes the measurement plan rather than an unqualified speed or savings figure.
+In production for UC San Diego Procurement. The workflow runs via a monitored inbox and portal — contracts are ingested, clauses extracted, compared against UC Legal Position and university template terms, and annotated redlines are produced for human review. Measured outcome: 91% time savings on NDA/T&C review (120 min to 11 min average).

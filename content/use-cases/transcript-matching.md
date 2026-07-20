@@ -2,12 +2,12 @@
 title: Transcript Matching
 slug: transcript-matching
 summary: A human-supervised workflow for matching transcript records and surfacing uncertain cases for review.
-status: Pilot
+status: Production
 owner: TritonAI solutions team and the sponsoring student-services owner
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-20
 audiences: [staff, leaders]
 source: TritonAI strategy presentation
-measurementPeriod: 2026 pilot
+measurementPeriod: Production — live for enrollment management transcript review
 dataClassification: Public description; student records require approved protected-data controls
 canonicalUrl: /use-cases/transcript-matching.html
 relatedSlides: [Transcript Matching]
@@ -26,4 +26,4 @@ The pilot extracts candidate identifiers, compares the evidence, and assigns con
 
 ## Current status
 
-The workflow remains a pilot. Public performance claims will be added only with an approved definition, source, sample, period, and accountable owner.
+In production for UC San Diego enrollment management. The workflow ingests incoming transcripts, extracts candidate identifiers via OCR, compares evidence against course equivalencies, assigns confidence scores, and routes uncertain matches to staff for review.
