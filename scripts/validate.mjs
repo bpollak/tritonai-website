@@ -187,7 +187,7 @@ const generatedPaths = new Set([
   "/404.html",
 ]);
 
-const allowedStatuses = new Set(["Shipped", "Pilot", "In development", "Exploring"]);
+const allowedStatuses = new Set(["Shipped", "Production", "Pilot", "In development", "Exploring"]);
 for (const useCase of useCaseContent.entries) {
   if (!allowedStatuses.has(useCase.status)) contentFindings.push({ source: `use-cases/${useCase.filename}`, issue: `Unknown status: ${useCase.status}` });
 }
