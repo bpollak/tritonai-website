@@ -246,9 +246,9 @@ function renderNavigation(items, route, mobile = false) {
     .join("");
 }
 
-function renderSidebar(navigation, route) {
+function renderSidebarItems(navigation, route) {
   const section = route.split("/").filter(Boolean)[0] || "";
-  const items = navigation
+  return navigation
     .map((item) => {
       const targetSection = item.href.split("/").filter(Boolean)[0] || "";
       const isDirectActive = route === item.href;
@@ -262,7 +262,7 @@ function renderSidebar(navigation, route) {
             return `<li${childActive ? ' class="active"' : ""}><a href="${escapeHtml(child.href)}"${childActive ? ' aria-current="page"' : ""}>${escapeHtml(child.label)}</a></li>`;
           })
           .join("");
-        return `<li class="expanded active">${escapeHtml(item.label)}<ul>${submenu}</ul></li>`;
+        return `<li class="expanded active"><a href="${escapeHtml(item.href)}"${isDirectActive ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a><ul>${submenu}</ul></li>`;
       }
       if (item.items?.length) {
         return `<li class="collapsed"><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>`;
@@ -270,7 +270,14 @@ function renderSidebar(navigation, route) {
       return `<li class="${isActive ? "expanded active" : "collapsed"}"><a href="${escapeHtml(item.href)}"${isDirectActive ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a></li>`;
     })
     .join("");
-  return `<section aria-label="Sidebar" class="col-xs-12 col-md-3 sidebar-section" role="complementary"><article aria-label="Sidebar Nav" class="main-content-nav" role="navigation"><h2><a href="/index.html">TritonAI</a></h2><ul class="navbar-list">${items}</ul></article></section>`;
+}
+
+function renderSidebarInner(navigation, route) {
+  return `<h2><a href="/index.html">TritonAI</a></h2><ul class="navbar-list">${renderSidebarItems(navigation, route)}</ul>`;
+}
+
+function renderSidebar(navigation, route) {
+  return `<section aria-label="Sidebar" class="col-xs-12 col-md-3 sidebar-section" role="complementary"><article aria-label="Sidebar Nav" class="main-content-nav" role="navigation">${renderSidebarInner(navigation, route)}</article></section>`;
 }
 
 function routeForRelativePath(relativePath) {
@@ -466,6 +473,9 @@ function transformHtml(html, relativePath, context) {
 
   $(".navbar-nav-list").first().html(renderNavigation(context.site.navigation, route, false));
   $("ul.nav.navmenu-nav").first().html(renderNavigation(context.site.navigation, route, true));
+  $("article.main-content-nav").each((_, element) => {
+    $(element).html(renderSidebarInner(context.site.navigation, route));
+  });
 
   $("[data-newsletters='latest']").html(renderLatestNewsletters(context.newsletters));
   $("[data-newsletters='all']").html(context.newsletters.map(renderNewsletter).join(""));
