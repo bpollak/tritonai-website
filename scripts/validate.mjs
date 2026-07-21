@@ -61,6 +61,18 @@ function isoDate(value) {
   return Number.isNaN(date.valueOf()) ? null : date.toISOString().slice(0, 10);
 }
 
+function normalizeRoute(route) {
+  return route === "/index.html" ? "/" : route;
+}
+
+function navigationOwner(items, route) {
+  const section = route.split("/").filter(Boolean)[0] || "";
+  if (!section) return null;
+  const sectionOwner = items.find((item) => (item.href.split("/").filter(Boolean)[0] || "") === section);
+  if (sectionOwner) return sectionOwner;
+  return items.find((item) => item.items?.some((child) => child.href === route)) || null;
+}
+
 function missingFields(object, fields) {
   return fields.filter((field) => object[field] === undefined || object[field] === null || object[field] === "");
 }
@@ -112,6 +124,7 @@ const inherited = [];
 const accessibility = [];
 const metadata = [];
 const performance = [];
+const navigation = [];
 
 const assetSizeCache = new Map();
 async function localAssetSize(raw, pagePath) {
@@ -139,6 +152,7 @@ const roadmapContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "roadmap
 const factsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/public-facts.json"), "utf8"));
 const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/library.json"), "utf8"));
 const homeHeroContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "home/hero.json"), "utf8"));
+const siteContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "site.json"), "utf8"));
 const roadmapRequired = ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"];
 const roadmapMissing = missingFields(roadmapContent, roadmapRequired);
 if (roadmapMissing.length) contentFindings.push({ source: "roadmap/milestones.json", issue: `Missing fields: ${roadmapMissing.join(", ")}` });
@@ -229,6 +243,100 @@ for (const entry of freshnessEntries) {
 for (const page of htmlFiles) {
   const $ = load(await readFile(path.join(DIST_DIR, page), "utf8"));
   const route = page === "index.html" ? "/" : `/${page}`;
+  const ids = new Map();
+  $("[id]").each((_, element) => {
+    const id = $(element).attr("id");
+    ids.set(id, (ids.get(id) || 0) + 1);
+  });
+  for (const [id, count] of ids) {
+    if (count > 1) navigation.push({ page: route, issue: `Duplicate id: ${id}` });
+  }
+  $("[tabindex]").each((_, element) => {
+    const value = Number($(element).attr("tabindex"));
+    if (Number.isFinite(value) && value > 0) accessibility.push({ page: route, issue: `Positive tabindex: ${value}` });
+  });
+  $("label[for]").each((_, element) => {
+    const label = $(element);
+    const targetId = label.attr("for");
+    const target = $(`#${targetId}`);
+    if (target.length !== 1) {
+      accessibility.push({ page: route, issue: `Label target is missing or duplicated: ${targetId}` });
+      return;
+    }
+    if (label.closest("form").get(0) !== target.closest("form").get(0)) {
+      accessibility.push({ page: route, issue: `Label and control are not in the same form: ${targetId}` });
+    }
+  });
+
+  const primaryNav = $("#navbar > .navbar-nav-list").first();
+  if (!primaryNav.length) {
+    navigation.push({ page: route, issue: "Primary navigation is missing" });
+  } else {
+    const primaryItems = primaryNav.children("li").toArray();
+    const activeItems = primaryItems.filter((item) => $(item).hasClass("active"));
+    const expectedOwner = navigationOwner(siteContent.navigation || [], route);
+    if (!expectedOwner && activeItems.length) {
+      navigation.push({ page: route, issue: "Primary navigation should not have an active item" });
+    }
+    if (expectedOwner) {
+      const expectedItem = primaryItems.find(
+        (item) => normalizeRoute(toLocalPath($(item).children("a").attr("href"), page) || "") === normalizeRoute(expectedOwner.href),
+      );
+      if (!expectedItem || activeItems.length !== 1 || activeItems[0] !== expectedItem) {
+        navigation.push({ page: route, issue: `Incorrect active primary navigation; expected ${expectedOwner.label}` });
+      }
+    }
+  }
+
+  $("[data-tritonai-nav-dropdown]").each((_, element) => {
+    const trigger = $(element);
+    const controls = trigger.attr("aria-controls");
+    if (
+      trigger.attr("aria-haspopup") !== "true" ||
+      !["true", "false"].includes(trigger.attr("aria-expanded")) ||
+      !controls ||
+      ids.get(controls) !== 1
+    ) {
+      navigation.push({ page: route, issue: "Desktop dropdown is missing a valid ARIA relationship" });
+    }
+  });
+  const mobileToggle = $("[data-tritonai-mobile-toggle]");
+  if (
+    mobileToggle.length !== 1 ||
+    mobileToggle.attr("aria-controls") !== "mobile-navigation" ||
+    !["true", "false"].includes(mobileToggle.attr("aria-expanded")) ||
+    ids.get("mobile-navigation") !== 1
+  ) {
+    navigation.push({ page: route, issue: "Mobile navigation toggle is missing a valid ARIA relationship" });
+  }
+  const searchToggle = $("[data-tritonai-search-toggle]");
+  if (
+    searchToggle.length !== 1 ||
+    !["true", "false"].includes(searchToggle.attr("aria-expanded")) ||
+    ids.get(searchToggle.attr("aria-controls")) !== 1
+  ) {
+    navigation.push({ page: route, issue: "Desktop search toggle is missing a valid ARIA relationship" });
+  }
+
+  const expectedTwoColumnLayout = (generatedPaths.has(route) && route !== "/") || route === "/search/index.html";
+  if (expectedTwoColumnLayout) {
+    const mainSection = $("main#main-content .main-section").first();
+    const sidebar = $("main#main-content .sidebar-section").first();
+    if (!mainSection.length || !sidebar.length) {
+      navigation.push({ page: route, issue: "Expected main content and sidebar sections" });
+    } else {
+      for (const requiredClass of ["col-xs-9", "main-section", "pull-right"]) {
+        if (!mainSection.hasClass(requiredClass)) navigation.push({ page: route, issue: `Main section is missing ${requiredClass}` });
+      }
+      for (const requiredClass of ["col-xs-12", "col-md-3", "sidebar-section"]) {
+        if (!sidebar.hasClass(requiredClass)) navigation.push({ page: route, issue: `Sidebar is missing ${requiredClass}` });
+      }
+      const contentOrder = $("main#main-content .main-section, main#main-content .sidebar-section").toArray();
+      if (contentOrder.indexOf(mainSection.get(0)) > contentOrder.indexOf(sidebar.get(0))) {
+        navigation.push({ page: route, issue: "Sidebar precedes main content in DOM order" });
+      }
+    }
+  }
   for (const attr of ["href", "src", "action", "poster", "data-src", "data-poster", "data-fallback-src", "data-after-render-src", "data-idle-src"]) {
     for (const element of $(`[${attr}]`).toArray()) {
       const raw = $(element).attr(attr);
@@ -419,6 +527,7 @@ const report = {
     freshnessWarnings: freshnessWarnings.length,
     freshnessFailures: freshnessFailures.length,
     accessibilityFailures: accessibility.length,
+    navigationFailures: navigation.length,
     metadataFailures: metadata.length,
     routeFailures: routeFindings.length,
     performanceFailures: performance.length,
@@ -430,6 +539,7 @@ const report = {
   freshnessWarnings,
   freshnessFailures,
   accessibility,
+  navigation,
   metadata,
   routeFindings,
   performance,
@@ -446,6 +556,7 @@ if (
   contentFindings.length ||
   freshnessFailures.length ||
   accessibility.length ||
+  navigation.length ||
   metadata.length ||
   routeFindings.length ||
   performance.length

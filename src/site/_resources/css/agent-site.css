@@ -22,8 +22,11 @@
 }
 
 .agent-page .main-section {
-  float: none !important;
   padding-bottom: 64px;
+}
+
+.agent-page .home-main-content .main-section {
+  float: none !important;
   width: 100%;
 }
 
