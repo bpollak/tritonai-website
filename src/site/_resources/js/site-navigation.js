@@ -32,6 +32,12 @@
     trigger.setAttribute("aria-expanded", String(dropdown.classList.contains("open")));
   }
 
+  function openDropdown(dropdown) {
+    if (!dropdown) return;
+    dropdown.classList.add("open");
+    syncDropdown(dropdown);
+  }
+
   function closeDropdown(dropdown, restoreFocus) {
     var trigger = dropdownTrigger(dropdown);
     if (!trigger) return;
@@ -48,6 +54,16 @@
 
   function desktopSearch() {
     return document.querySelector("nav.navbar .search");
+  }
+
+  function removeDuplicateSearchIds() {
+    var search = desktopSearch();
+    if (!search) return;
+    var desktopPanel = search.querySelector(".search-content[id]");
+    if (!desktopPanel) return;
+    Array.prototype.forEach.call(document.querySelectorAll(".search-content[id]"), function (panel) {
+      if (panel !== desktopPanel && panel.id === desktopPanel.id) panel.removeAttribute("id");
+    });
   }
 
   function syncSearch() {
@@ -104,6 +120,7 @@
 
   function syncAll() {
     removeClonedNavigationIds();
+    removeDuplicateSearchIds();
     desktopDropdowns().forEach(syncDropdown);
     syncSearch();
     syncMobileNavigation();
@@ -140,11 +157,11 @@
     }, 0);
   });
 
-  document.addEventListener("focusin", function (event) {
+  document.addEventListener("focus", function (event) {
     if (event.target.matches && event.target.matches("#navbar [data-tritonai-nav-dropdown]")) {
-      window.setTimeout(syncAll, 0);
+      openDropdown(event.target.closest("#navbar > .navbar-nav-list > li.dropdown"));
     }
-  });
+  }, true);
 
   document.addEventListener("click", function (event) {
     if (event.target.closest && event.target.closest("[data-tritonai-search-toggle], [data-tritonai-mobile-toggle], [data-tritonai-mobile-close]")) {
@@ -158,6 +175,14 @@
     if (navigation) new MutationObserver(syncMobileNavigation).observe(navigation, { attributes: true, attributeFilter: ["class", "style"] });
     if (search) new MutationObserver(syncSearch).observe(search, { attributes: true, attributeFilter: ["class", "style"], subtree: true });
     desktopDropdowns().forEach(function (dropdown) {
+      dropdown.addEventListener("mouseenter", function () {
+        openDropdown(dropdown);
+      });
+      dropdown.addEventListener("mouseleave", function () {
+        window.setTimeout(function () {
+          if (!dropdown.contains(document.activeElement)) closeDropdown(dropdown, false);
+        }, 0);
+      });
       new MutationObserver(function () {
         syncDropdown(dropdown);
       }).observe(dropdown, { attributes: true, attributeFilter: ["class"] });

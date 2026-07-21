@@ -11,13 +11,13 @@ relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 ---
 
 <!-- AGENT_SECTION: homepage-feature -->
-<section class="jumbotron jumbotron-callout-image-small-inset home-feature" style="background-image: url(https://cdn.ucsd.edu/cms/decorator-5/img/bg-grit-orbs-2.jpg);" aria-labelledby="home-feature-heading">
+<section class="jumbotron jumbotron-callout-image-small-inset home-feature" aria-labelledby="home-feature-heading">
 <div class="container">
 <div class="row">
 <div class="col-md-7">
 <div class="panel panel-default">
 <div class="panel-body">
-<h2 id="home-feature-heading">Trusted AI, powered by UC San Diego</h2>
+<h1 id="home-feature-heading">Trusted AI, powered by UC San Diego</h1>
 <p class="panel-text">TritonAI brings trusted AI tools, reusable campus knowledge, developer services, and human-centered workflow solutions into one UC San Diego ecosystem.</p>
 <p><a class="btn btn-default" href="/about/strategy.html">Explore TritonAI</a></p>
 </div>
@@ -74,4 +74,32 @@ TritonAI combines a broadly useful AI assistant with focused solutions for campu
 <div data-newsletters="latest"></div>
 
 <p><a class="btn btn-default" href="/about/ai-updates.html">View all AI updates</a></p>
+</section>
+
+<section class="jumbotron jumbotron-gray jumbotron-news home-news" aria-labelledby="today-news-heading" data-today-news>
+<div class="container">
+<div class="row">
+<div class="col-xs-8"><h2 id="today-news-heading">Stories Shaping AI at UC San Diego</h2></div>
+<div class="col-xs-4 view-all-link text-right"><a class="text-link" href="https://today.ucsd.edu/search/results?q=ai#gsc.tab=0&amp;gsc.q=ai&amp;gsc.page=1">View all news</a></div>
+</div>
+<p class="sr-only" aria-live="polite" data-today-news-status>Loading the latest AI stories from Today@UCSD.</p>
+<div class="row" aria-busy="true" data-today-news-cards>
+<div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div>
+<div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div>
+<div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div>
+</div>
+<p class="today-news-fallback" data-today-news-fallback>Browse current AI coverage on <a href="https://today.ucsd.edu/search/results?q=ai#gsc.tab=0&amp;gsc.q=ai&amp;gsc.page=1">Today@UCSD</a>.</p>
+</div>
+</section>
+
+<section class="jumbotron jumbotron-full-width side-image-white trident home-subscribe" aria-labelledby="stay-informed-heading" data-home-subscribe>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<h2 id="stay-informed-heading">Stay Informed</h2>
+<p>To receive the latest announcements and news, subscribe to the TritonAI mailing list.</p>
+<p><a class="btn btn-primary" href="https://signup.e2ma.net/signup/2010404/1972820/">Subscribe</a></p>
+</div>
+</div>
+</div>
 </section>

@@ -11,9 +11,10 @@
       "accent": "",
       "description": "The inaugural Faculty AI Symposium convened UC San Diego faculty to explore AI's impact on teaching, research, and academic practice. Key assets from the event are now available.",
       "image": "https://cdn.ucsd.edu/cms/decorator-5/img/navy-simple-grit.jpg",
+      "mobileImage": "/_images/homepage/hero-navy-gradient.svg",
       "imageAlt": "Navy background with a subtle grit pattern",
       "link": "/training-resources/faculty-ai-symposium.html",
-      "linkLabel": "Learn More"
+      "linkLabel": "Explore Symposium Resources"
     },
     {
       "id": "tritonai-hub",
