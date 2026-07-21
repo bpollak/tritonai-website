@@ -246,6 +246,33 @@ function renderNavigation(items, route, mobile = false) {
     .join("");
 }
 
+function renderSidebar(navigation, route) {
+  const section = route.split("/").filter(Boolean)[0] || "";
+  const items = navigation
+    .map((item) => {
+      const targetSection = item.href.split("/").filter(Boolean)[0] || "";
+      const isDirectActive = route === item.href;
+      const isSectionActive = targetSection && targetSection === section;
+      const hasActiveChild = item.items?.some((child) => child.href === route);
+      const isActive = isDirectActive || isSectionActive || hasActiveChild;
+      if (item.items?.length && isActive) {
+        const submenu = item.items
+          .map((child) => {
+            const childActive = route === child.href;
+            return `<li${childActive ? ' class="active"' : ""}><a href="${escapeHtml(child.href)}"${childActive ? ' aria-current="page"' : ""}>${escapeHtml(child.label)}</a></li>`;
+          })
+          .join("");
+        return `<li class="expanded active">${escapeHtml(item.label)}<ul>${submenu}</ul></li>`;
+      }
+      if (item.items?.length) {
+        return `<li class="collapsed"><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>`;
+      }
+      return `<li class="${isActive ? "expanded active" : "collapsed"}"><a href="${escapeHtml(item.href)}"${isDirectActive ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a></li>`;
+    })
+    .join("");
+  return `<section aria-label="Sidebar" class="col-xs-12 col-md-3 sidebar-section" role="complementary"><article aria-label="Sidebar Nav" class="main-content-nav" role="navigation"><h2><a href="/index.html">TritonAI</a></h2><ul class="navbar-list">${items}</ul></article></section>`;
+}
+
 function routeForRelativePath(relativePath) {
   if (relativePath === "index.html") return "/";
   return `/${relativePath.replaceAll(path.sep, "/")}`;
@@ -281,7 +308,7 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const mainContent =
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
-      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div></div>`;
+      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row">${renderSidebar(site.navigation, page.path)}<section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section></div></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
 }
