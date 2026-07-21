@@ -14,6 +14,13 @@
 
     function hydrateSlideImage(slide) {
       if (!slide) return;
+      Array.prototype.forEach.call(slide.querySelectorAll("source[data-srcset]"), function (source) {
+        var media = source.getAttribute("media");
+        if (!media || !window.matchMedia || window.matchMedia(media).matches) {
+          source.srcset = source.getAttribute("data-srcset");
+          source.removeAttribute("data-srcset");
+        }
+      });
       Array.prototype.forEach.call(slide.querySelectorAll("img[data-src]"), function (image) {
         image.src = image.getAttribute("data-src");
         image.removeAttribute("data-src");

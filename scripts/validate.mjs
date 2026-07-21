@@ -23,7 +23,13 @@ const requiredRemoteDependencies = [
   "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js",
   "https://today.ucsd.edu/news-and-features-api?category=190&limit=3",
 ];
-const preconnectOrigins = ["https://cdn.ucsd.edu", "https://www.ucsd.edu", "https://tritongpt-deck.vercel.app"];
+const preconnectOrigins = [
+  "https://cdn.ucsd.edu",
+  "https://www.ucsd.edu",
+  "https://tritongpt-deck.vercel.app",
+  "https://fonts.googleapis.com",
+  "https://fonts.gstatic.com",
+];
 const afterRenderDecoratorScripts = [
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/modernizr.min.js",
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/jquery.min.js",
@@ -199,7 +205,7 @@ const generatedPaths = new Set([
   "/use-cases/index.html",
   "/about/roadmap.html",
   "/404.html",
-]);
+].map(normalizeRoute));
 
 const allowedStatuses = new Set(["Shipped", "Production", "Pilot", "In development", "Exploring"]);
 for (const useCase of useCaseContent.entries) {
@@ -404,7 +410,6 @@ for (const page of htmlFiles) {
   if (idleWidget.length !== 1 || idleWidget.attr("src")) {
     performance.push({ page: route, issue: "TritonGPT widget must initialize during browser idle time" });
   }
-
   for (const element of $("img").toArray()) {
     const image = $(element);
     const fallback = image.attr("data-fallback-src") || image.attr("src");
@@ -458,10 +463,31 @@ for (const page of htmlFiles) {
     if ($("#heroslider .item").length !== (homeHeroContent.slides || []).length) {
       contentFindings.push({ source: route, issue: `Rendered hero slide count does not match content (${$("#heroslider .item").length} vs ${(homeHeroContent.slides || []).length})` });
     }
+    if ($("#heroslider h1").length || $("#heroslider .hero-slide-heading").length !== (homeHeroContent.slides || []).length) {
+      accessibility.push({ page: route, issue: "Homepage carousel must use one h2 heading per slide and no h1 headings" });
+    }
+    if ($("h1").length !== 1 || !$("#home-feature-heading").is("h1")) {
+      accessibility.push({ page: route, issue: "Homepage must have exactly one h1 in the feature section" });
+    }
+    if ($("#heroslider [data-module='hero-homepage']").first().text().trim() !== "Explore Symposium Resources") {
+      contentFindings.push({ source: route, issue: "Homepage symposium CTA text is not descriptive" });
+    }
     if ($("[data-home-hero-toggle]").length !== 1) accessibility.push({ page: route, issue: "Homepage hero pause control is missing" });
     const inactiveHeroImages = $("#heroslider .item:not(.active) img.first-slide");
     if (!inactiveHeroImages.length || inactiveHeroImages.filter("[data-src$='.webp']").length !== inactiveHeroImages.length) {
       performance.push({ page: route, issue: "Inactive hero images must use deferred optimized sources" });
+    }
+    if ($("[data-today-news]").length !== 1 || $("[data-today-news-cards]").length !== 1 || $("[data-today-news-status]").length !== 1) {
+      contentFindings.push({ source: route, issue: "Today@UCSD news module is missing required hooks" });
+    }
+    if ($("script[src$='/_resources/js/today-news.js'][defer]").length !== 1) {
+      performance.push({ page: route, issue: "Today@UCSD lazy loader is missing or not deferred" });
+    }
+    if ($("[data-home-subscribe]").length !== 1 || $("[data-home-subscribe] .btn-primary").length !== 1) {
+      contentFindings.push({ source: route, issue: "Homepage subscription CTA is missing" });
+    }
+    if (/background-image/i.test($(".home-feature").attr("style") || "")) {
+      performance.push({ page: route, issue: "Homepage feature background must be managed by responsive CSS" });
     }
   }
 }

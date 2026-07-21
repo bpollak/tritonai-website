@@ -29,7 +29,13 @@ const AFTER_RENDER_SCRIPTS = new Set([
 ]);
 const EMERGENCY_BROADCAST_SCRIPT = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
 const TRITONGPT_WIDGET_SCRIPT = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
-const PRECONNECT_ORIGINS = ["https://cdn.ucsd.edu", "https://www.ucsd.edu", "https://tritongpt-deck.vercel.app"];
+const PRECONNECT_ORIGINS = [
+  "https://cdn.ucsd.edu",
+  "https://www.ucsd.edu",
+  "https://tritongpt-deck.vercel.app",
+  "https://fonts.googleapis.com",
+  "https://fonts.gstatic.com",
+];
 
 function normalizeBasePath(value) {
   if (!value || value === "/") return "";
@@ -198,7 +204,16 @@ function renderHomeHero(hero) {
           ? `src="${escapeHtml(imageSource)}" fetchpriority="high"`
           : `src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="${escapeHtml(imageSource)}" loading="lazy"`;
       const fallback = slide.optimizedImage ? ` data-fallback-src="${escapeHtml(slide.image)}"` : "";
-      return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group"><img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" ${imageAttributes}${fallback} decoding="async"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h1 class="rt-text-light" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.title)}${accent}</h1><p class="rt-text-light" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" role="button" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
+      const mobileSource = slide.mobileImage && index === 0
+        ? `<source media="(min-width: 768px)" data-srcset="${escapeHtml(imageSource)}">`
+        : "";
+      const responsiveImageAttributes = slide.mobileImage && index === 0
+        ? `src="${escapeHtml(slide.mobileImage)}" fetchpriority="high"`
+        : imageAttributes;
+      const heroImage = mobileSource
+        ? `<picture class="home-hero-media">${mobileSource}<img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" ${responsiveImageAttributes}${fallback} decoding="async"></picture>`
+        : `<img alt="${escapeHtml(slide.imageAlt)}" class="first-slide" ${imageAttributes}${fallback} decoding="async">`;
+      return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group">${heroImage}<div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h2 class="rt-text-light hero-slide-heading" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.title)}${accent}</h2><p class="rt-text-light" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" role="button" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
     })
     .join("");
   return `<div class="carousel slide jumbotron jumbotron-hero hm" data-interval="${hero.rotationIntervalMs}" data-ride="carousel" id="heroslider"><div aria-label="Revolving Banners with ${hero.slides.length} items" class="carousel-inner" role="region" tabindex="0"><div id="indicators-container"><button aria-label="carousel is playing, click to pause" data-home-hero-toggle id="toggleCarousel" type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div>${slides}<a aria-controls="heroslider" aria-label="previous slide" class="left carousel-control" data-home-hero-direction="prev" data-slide="prev" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="next slide" class="right carousel-control" data-home-hero-direction="next" data-slide="next" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></div></div><script defer src="/_resources/js/home-hero.js"></script>`;
@@ -577,6 +592,9 @@ function transformHtml(html, relativePath, context) {
   optimizeLocalImages($, relativePath, context.optimizedImages);
   optimizeScriptLoading($);
   if (!$("script[src$='site-navigation.js']").length) $("body").append('<script defer src="/_resources/js/site-navigation.js"></script>');
+  if (relativePath === "index.html" && $("[data-today-news]").length && !$("script[src$='today-news.js']").length) {
+    $("body").append('<script defer src="/_resources/js/today-news.js"></script>');
+  }
   if (!$("script[src$='site-performance.js']").length) $("body").append('<script defer src="/_resources/js/site-performance.js"></script>');
 
   $("a[href^='/cdn-cgi/l/email-protection#']").each((_, element) => {
