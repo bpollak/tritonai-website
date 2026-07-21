@@ -79,6 +79,10 @@ function navigationOwner(items, route) {
   return items.find((item) => item.items?.some((child) => child.href === route)) || null;
 }
 
+function sidebarChildren(item) {
+  return (item?.items || []).filter((child) => child.href !== item.href);
+}
+
 function missingFields(object, fields) {
   return fields.filter((field) => object[field] === undefined || object[field] === null || object[field] === "");
 }
@@ -340,6 +344,73 @@ for (const page of htmlFiles) {
       const contentOrder = $("main#main-content .main-section, main#main-content .sidebar-section").toArray();
       if (contentOrder.indexOf(mainSection.get(0)) > contentOrder.indexOf(sidebar.get(0))) {
         navigation.push({ page: route, issue: "Sidebar precedes main content in DOM order" });
+      }
+
+      const owner = navigationOwner(siteContent.navigation || [], route);
+      const sidebarNavigation = sidebar.find(".main-content-nav").first();
+      if (owner && sidebarNavigation.length) {
+        const sidebarItems = sidebarNavigation.children("ul.navbar-list").children("li").toArray();
+        const children = sidebarChildren(owner);
+        const activeChild = children.find((child) => child.href === route);
+        const sidebarHref = (element) => normalizeRoute(toLocalPath($(element).attr("href"), page) || "");
+
+        if (activeChild) {
+          const heading = sidebarNavigation.children("h2").first();
+          const headingLink = heading.children("a").first();
+          if (
+            headingLink.length !== 1 ||
+            headingLink.text().trim() !== owner.label ||
+            sidebarHref(headingLink) !== normalizeRoute(owner.href)
+          ) {
+            navigation.push({ page: route, issue: `Sidebar child page must link its heading to ${owner.label}` });
+          }
+          if (sidebarItems.length !== children.length) {
+            navigation.push({ page: route, issue: "Sidebar child page must show only sibling entries" });
+          }
+          for (const [index, child] of children.entries()) {
+            const item = $(sidebarItems[index]);
+            if (!item.length) continue;
+            const directLink = item.children("a").first();
+            if (child.href === route) {
+              if (!item.hasClass("active") || directLink.length || item.text().trim() !== child.label) {
+                navigation.push({ page: route, issue: `Sidebar current child must be plain active text: ${child.label}` });
+              }
+            } else if (item.hasClass("active") || directLink.length !== 1 || sidebarHref(directLink) !== normalizeRoute(child.href)) {
+              navigation.push({ page: route, issue: `Sidebar sibling link is incorrect: ${child.label}` });
+            }
+          }
+        } else if (route === owner.href) {
+          const headingLink = sidebarNavigation.children("h2").children("a").first();
+          if (headingLink.length !== 1 || headingLink.text().trim() !== "TritonAI" || sidebarHref(headingLink) !== "/") {
+            navigation.push({ page: route, issue: "Sidebar section landing must link its heading to TritonAI home" });
+          }
+          if (sidebarItems.length !== (siteContent.navigation || []).length) {
+            navigation.push({ page: route, issue: "Sidebar section landing must show the root navigation" });
+          }
+          for (const [index, itemDefinition] of (siteContent.navigation || []).entries()) {
+            const item = $(sidebarItems[index]);
+            if (!item.length) continue;
+            const directLink = item.children("a").first();
+            if (itemDefinition === owner) {
+              const expectedClass = children.length ? "expanded" : "active";
+              if (!item.hasClass("active") || (children.length && !item.hasClass(expectedClass)) || directLink.length) {
+                navigation.push({ page: route, issue: `Sidebar section landing must render ${owner.label} as plain active text` });
+              }
+              const nestedItems = item.children("ul").children("li").toArray();
+              if (nestedItems.length !== children.length) {
+                navigation.push({ page: route, issue: `Sidebar section landing has incorrect ${owner.label} children` });
+              }
+              for (const [childIndex, child] of children.entries()) {
+                const nestedLink = $(nestedItems[childIndex]).children("a").first();
+                if (nestedLink.length !== 1 || sidebarHref(nestedLink) !== normalizeRoute(child.href)) {
+                  navigation.push({ page: route, issue: `Sidebar section child link is incorrect: ${child.label}` });
+                }
+              }
+            } else if (!item.hasClass("collapsed") || directLink.length !== 1 || sidebarHref(directLink) !== normalizeRoute(itemDefinition.href)) {
+              navigation.push({ page: route, issue: `Sidebar root link is incorrect: ${itemDefinition.label}` });
+            }
+          }
+        }
       }
     }
   }
