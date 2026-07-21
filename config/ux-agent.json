@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "model": "openai/gpt-4.1",
+  "confidenceThreshold": 0.92,
+  "maxDraftPullRequests": 2,
+  "defaultReviewer": "bpollak",
+  "trackingIssueTitle": "[UX Agent] Weekly CMS alignment review",
+  "breakpoints": [390, 768, 992, 1440],
+  "representativeRoutes": [
+    "/",
+    "/about/index.html",
+    "/about/strategy.html",
+    "/about/impact.html",
+    "/about/team.html",
+    "/about/ai-updates.html",
+    "/tritongpt/index.html",
+    "/tritongpt/integrations.html",
+    "/use-cases/index.html",
+    "/use-cases/contract-review.html",
+    "/training-resources/index.html",
+    "/training-resources/pathways.html",
+    "/training-resources/faq.html",
+    "/skills/index.html",
+    "/tools/index.html",
+    "/developer-apis/index.html"
+  ],
+  "referencePrecedence": [
+    "developer-decorator-5",
+    "department-cms-modules",
+    "blink-authoring",
+    "ucsd-accessibility",
+    "tritonai-integrations"
+  ],
+  "pageOwnership": [
+    { "route": "/about/index.html", "ownership": "human-owned" },
+    { "route": "/about/roadmap.html", "ownership": "human-owned" },
+    { "route": "/about/sustainability.html", "ownership": "human-owned" },
+    { "route": "/", "ownership": "shared" },
+    { "route": "/tritongpt/index.html", "ownership": "shared" },
+    { "route": "/tools/index.html", "ownership": "shared" },
+    { "route": "/developer-apis/index.html", "ownership": "shared" }
+  ],
+  "references": [
+    {
+      "id": "developer-decorator-5",
+      "kind": "chrome",
+      "url": "https://developer.ucsd.edu/design/decorator/index.html",
+      "requiredSelectors": [".layout-header", ".navbar-default", ".layout-main", ".footer"]
+    },
+    {
+      "id": "decorator-templates",
+      "kind": "templates",
+      "url": "https://developer.ucsd.edu/design/decorator/templates/index.html",
+      "requiredSelectors": [".layout-main", ".main-section"]
+    },
+    {
+      "id": "decorator-widgets",
+      "kind": "widgets",
+      "url": "https://developer.ucsd.edu/design/decorator/widgets/index.html",
+      "requiredSelectors": [".layout-main"]
+    },
+    {
+      "id": "cms-tiles",
+      "kind": "tiles-with-links",
+      "url": "https://department.ucsd.edu/modules/tiles-with-links/index.html",
+      "requiredSelectors": ["[data-module='tiles-with-links']", ".tiles-row", ".flex.tiles"]
+    },
+    {
+      "id": "cms-cta",
+      "kind": "call-to-action",
+      "url": "https://department.ucsd.edu/modules/call-to-action/index.html",
+      "requiredSelectors": [".jumbotron", ".jumbotron-sand"]
+    },
+    {
+      "id": "cms-cta-inset",
+      "kind": "call-to-action-inset",
+      "url": "https://department.ucsd.edu/modules/call-to-action-inset/index.html",
+      "requiredSelectors": [".jumbotron-callout-image-small-inset", ".panel"]
+    },
+    {
+      "id": "cms-callout-content",
+      "kind": "callout-content",
+      "url": "https://department.ucsd.edu/modules/callout-content/index.html",
+      "requiredSelectors": [".jumbotron-callout-content-two", ".panel"]
+    },
+    {
+      "id": "cms-news",
+      "kind": "news-with-images",
+      "url": "https://department.ucsd.edu/modules/news/index.html",
+      "requiredSelectors": [".jumbotron-news", ".panel-news-title"]
+    },
+    {
+      "id": "cms-drawers",
+      "kind": "drawers",
+      "url": "https://department.ucsd.edu/templates/drawer/index.html",
+      "requiredSelectors": [".drawer-wrapper", ".drawer"]
+    },
+    {
+      "id": "cms-profiles",
+      "kind": "profile-grid",
+      "url": "https://department.ucsd.edu/templates/profile-pages/listing-grid.html",
+      "requiredSelectors": [".profile-grid", ".profile"]
+    },
+    {
+      "id": "ucsd-accessibility-websites",
+      "kind": "accessibility",
+      "url": "https://accessibility.ucsd.edu/checklists/websites.html",
+      "requiredSelectors": ["main", "h1"]
+    }
+  ],
+  "allowedRecipes": {
+    "tiles-with-links": {
+      "referenceId": "cms-tiles",
+      "classes": ["jumbotron", "jumbotron-tile-links", "tile-module-white", "tiles-row", "flex", "tiles", "wrapper", "background-image"],
+      "automatic": false
+    },
+    "call-to-action": {
+      "referenceId": "cms-cta",
+      "classes": ["jumbotron", "jumbotron-sand", "side-image-white", "panel", "panel-default", "panel-body"],
+      "automatic": false
+    },
+    "call-to-action-inset": {
+      "referenceId": "cms-cta-inset",
+      "classes": ["jumbotron", "jumbotron-callout-image-small-inset", "panel", "panel-default", "panel-body"],
+      "automatic": false
+    },
+    "callout-content": {
+      "referenceId": "cms-callout-content",
+      "classes": ["jumbotron", "jumbotron-callout-content-two", "jumbotron-full-width", "panel", "panel-primary", "bg-blue-opaque"],
+      "automatic": false
+    },
+    "news-with-images": {
+      "referenceId": "cms-news",
+      "classes": ["jumbotron", "jumbotron-gray", "jumbotron-news", "panel", "panel-default", "panel-news-date", "panel-news-title"],
+      "automatic": false
+    },
+    "drawers": {
+      "referenceId": "cms-drawers",
+      "classes": ["drawer-wrapper", "drawer", "dark-theme"],
+      "automatic": false
+    },
+    "profile-grid": {
+      "referenceId": "cms-profiles",
+      "classes": ["profile-grid", "profile"],
+      "automatic": false
+    }
+  },
+  "sections": [
+    {
+      "id": "ux-home-starting-points",
+      "sourceFile": "content/pages/home.md",
+      "route": "/",
+      "ownership": "shared",
+      "allowedRecipes": ["tiles-with-links", "callout-content"]
+    },
+    {
+      "id": "ux-home-ecosystem",
+      "sourceFile": "content/pages/home.md",
+      "route": "/",
+      "ownership": "shared",
+      "allowedRecipes": ["callout-content", "call-to-action"]
+    },
+    {
+      "id": "ux-about-impact-measures",
+      "sourceFile": "content/pages/about-impact.md",
+      "route": "/about/impact.html",
+      "ownership": "structured-content",
+      "allowedRecipes": ["callout-content"]
+    },
+    {
+      "id": "ux-about-trust-layers",
+      "sourceFile": "content/pages/about-trust-architecture.md",
+      "route": "/about/trust-architecture.html",
+      "ownership": "structured-content",
+      "allowedRecipes": ["callout-content"]
+    },
+    {
+      "id": "ux-tritongpt-integrations",
+      "sourceFile": "content/pages/tritongpt-integrations.md",
+      "route": "/tritongpt/integrations.html",
+      "ownership": "structured-content",
+      "allowedRecipes": ["tiles-with-links", "callout-content"]
+    },
+    {
+      "id": "ux-training-pathways",
+      "sourceFile": "content/pages/training-pathways.md",
+      "route": "/training-resources/pathways.html",
+      "ownership": "structured-content",
+      "allowedRecipes": ["tiles-with-links", "callout-content"]
+    }
+  ]
+}

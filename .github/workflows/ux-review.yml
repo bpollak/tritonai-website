@@ -1,0 +1,129 @@
+name: TritonAI CMS UX review
+
+on:
+  schedule:
+    - cron: "17 16 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run an audit only or allow constrained draft-PR preparation"
+        required: true
+        default: "audit-and-draft"
+        type: choice
+        options:
+          - audit-only
+          - audit-and-draft
+      route:
+        description: "Optional generated route to inspect, such as /tools/index.html"
+        required: false
+        type: string
+
+concurrency:
+  group: ux-review
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      models: read
+    outputs:
+      mode: ${{ steps.parameters.outputs.mode }}
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium for UX checks
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate both deployment modes
+        run: |
+          npm test
+          SITE_BASE_PATH=/tritonai-website npm run build
+          SITE_BASE_PATH=/tritonai-website npm run validate
+
+      - name: Resolve review parameters
+        id: parameters
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_ROUTE: ${{ inputs.route }}
+        run: |
+          mode="$INPUT_MODE"
+          if [ "$EVENT_NAME" = "schedule" ]; then mode="audit-and-draft"; fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "UX_AGENT_RUN_ID=$GITHUB_RUN_ID" >> "$GITHUB_ENV"
+          echo "UX_AGENT_MODE=$mode" >> "$GITHUB_ENV"
+          echo "UX_AGENT_ROUTE=$INPUT_ROUTE" >> "$GITHUB_ENV"
+
+      - name: Run CMS UX audit
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if [ -n "$UX_AGENT_ROUTE" ]; then
+            node scripts/ux-agent/run.mjs --mode "$UX_AGENT_MODE" --route "$UX_AGENT_ROUTE"
+          else
+            node scripts/ux-agent/run.mjs --mode "$UX_AGENT_MODE"
+          fi
+
+      - name: Upload UX review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ux-agent-${{ github.run_id }}
+          path: reports/ux-agent/${{ github.run_id }}
+          retention-days: 30
+          if-no-files-found: error
+
+  publish:
+    if: ${{ needs.audit.outputs.mode == 'audit-and-draft' }}
+    needs: audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium for candidate verification
+        run: npx playwright install --with-deps chromium
+
+      - name: Download UX review artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ux-agent-${{ github.run_id }}
+          path: reports/ux-agent/${{ github.run_id }}
+
+      - name: Configure author identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Publish tracking issue and constrained draft PRs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/ux-agent/publish.mjs --report reports/ux-agent/${{ github.run_id }}/report.json
