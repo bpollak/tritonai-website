@@ -222,12 +222,19 @@ mkdir -p ~/.agents/skills
 cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>Review the skill and its supporting files before installation. The public library excludes restricted operational procedures and credentials.</p><p><a class="btn btn-default" href="${escapeHtml(library.source.url)}#installing-a-skill">Read the repository instructions</a></p></div></div></div>`;
 }
 
-function renderNavigation(items, route, mobile = false) {
+function navigationOwner(items, route) {
   const section = route.split("/").filter(Boolean)[0] || "";
+  if (!section) return null;
+  const sectionOwner = items.find((item) => (item.href.split("/").filter(Boolean)[0] || "") === section);
+  if (sectionOwner) return sectionOwner;
+  return items.find((item) => item.items?.some((child) => child.href === route)) || null;
+}
+
+function renderNavigation(items, route, mobile = false) {
+  const owner = navigationOwner(items, route);
   return items
-    .map((item) => {
-      const targetSection = item.href.split("/").filter(Boolean)[0] || "";
-      const active = route === item.href || (targetSection && targetSection === section);
+    .map((item, index) => {
+      const active = item === owner;
       const current = route === item.href ? ' aria-current="page"' : "";
       if (!item.items?.length) {
         return `<li class="${active ? "active" : ""}"><a href="${escapeHtml(item.href)}"${current}>${escapeHtml(item.label)}</a></li>`;
@@ -241,20 +248,18 @@ function renderNavigation(items, route, mobile = false) {
       if (mobile) {
         return `<li class="dropdown open ${active ? "active" : ""}"><a href="${escapeHtml(item.href)}"${current}>${escapeHtml(item.label)} <span class="caret"></span></a><ul class="dropdown-menu navmenu-nav">${submenu}</ul></li>`;
       }
-      return `<li class="dropdown ${active ? "active" : ""}"><a aria-expanded="false" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" href="${escapeHtml(item.href)}"${current}>${escapeHtml(item.label)} <span class="caret"></span></a><ul class="dropdown-menu">${submenu}</ul></li>`;
+      const submenuId = `nav-submenu-${index}`;
+      return `<li class="dropdown ${active ? "active" : ""}"><a aria-controls="${submenuId}" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-tritonai-nav-dropdown href="${escapeHtml(item.href)}"${current}>${escapeHtml(item.label)} <span class="caret"></span></a><ul class="dropdown-menu" id="${submenuId}">${submenu}</ul></li>`;
     })
-    .join("");
+    .join("") + (mobile ? '<li class="mobile-search-link"><a href="/search/index.html"><span aria-hidden="true" class="glyphicon glyphicon-search"></span> Search</a></li>' : "");
 }
 
 function renderSidebarItems(navigation, route) {
-  const section = route.split("/").filter(Boolean)[0] || "";
+  const owner = navigationOwner(navigation, route);
   return navigation
     .map((item) => {
-      const targetSection = item.href.split("/").filter(Boolean)[0] || "";
       const isDirectActive = route === item.href;
-      const isSectionActive = targetSection && targetSection === section;
-      const hasActiveChild = item.items?.some((child) => child.href === route);
-      const isActive = isDirectActive || isSectionActive || hasActiveChild;
+      const isActive = item === owner;
       if (item.items?.length && isActive) {
         const submenu = item.items
           .map((child) => {
@@ -315,7 +320,7 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const mainContent =
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
-      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row">${renderSidebar(site.navigation, page.path)}<section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section></div></div>`;
+      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section>${renderSidebar(site.navigation, page.path)}</div></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
 }
@@ -433,6 +438,61 @@ function optimizeScriptLoading($) {
   });
 }
 
+function normalizeNavigationMarkup($) {
+  $(".skip-to-main").removeAttr("tabindex");
+  $("[autofocus]").removeAttr("autofocus");
+
+  const mobileNavigation = $(".navmenu.navmenu-default.navmenu-fixed-left.offcanvas").not(".offcanvas-clone").first();
+  if (mobileNavigation.length) {
+    mobileNavigation.attr({ id: "mobile-navigation", "aria-hidden": "true", "aria-label": "Site navigation" });
+    mobileNavigation.find(".navbar-toggle[data-toggle='offcanvas']").attr({
+      "aria-controls": "mobile-navigation",
+      "aria-label": "Close navigation",
+      "data-tritonai-mobile-close": "",
+    });
+  }
+
+  const mobileToggle = $("nav.navbar .navbar-toggle[data-toggle='offcanvas']").first();
+  if (mobileToggle.length) {
+    mobileToggle.attr({
+      "aria-controls": "mobile-navigation",
+      "aria-expanded": "false",
+      "data-tritonai-mobile-toggle": "",
+    });
+  }
+
+  $("form").each((_, element) => {
+    const form = $(element);
+    const scope = form.find("select.search-scope").first();
+    const term = form.find("input.search-term").first();
+    if (!scope.length || !term.length) return;
+    const mobile = form.closest(".navmenu").length > 0;
+    const suffix = mobile ? "mobile" : "desktop";
+    const scopeId = `search-scope-${suffix}`;
+    const termId = `search-term-${suffix}`;
+    scope.attr("id", scopeId);
+    term.attr("id", termId);
+    form.find("label[for]").remove();
+    scope.before(`<label class="sr-only" for="${scopeId}">Search scope</label>`);
+    term.before(`<label class="sr-only" for="${termId}">Search term</label>`);
+  });
+
+  const desktopSearch = $("nav.navbar .search").first();
+  if (desktopSearch.length) {
+    const toggle = desktopSearch.find(".search-toggle").first();
+    const panel = desktopSearch.find(".search-content").first();
+    if (toggle.length && panel.length) {
+      const panelId = panel.attr("id") || "search";
+      panel.attr({ id: panelId, "aria-hidden": "true" });
+      toggle.attr({
+        "aria-controls": panelId,
+        "aria-expanded": "false",
+        "data-tritonai-search-toggle": "",
+      });
+    }
+  }
+}
+
 function transformHtml(html, relativePath, context) {
   const $ = load(html, { decodeEntities: false });
   const route = routeForRelativePath(relativePath);
@@ -476,6 +536,7 @@ function transformHtml(html, relativePath, context) {
   $("article.main-content-nav").each((_, element) => {
     $(element).html(renderSidebarInner(context.site.navigation, route));
   });
+  normalizeNavigationMarkup($);
 
   $("[data-newsletters='latest']").html(renderLatestNewsletters(context.newsletters));
   $("[data-newsletters='all']").html(context.newsletters.map(renderNewsletter).join(""));
@@ -515,6 +576,7 @@ function transformHtml(html, relativePath, context) {
 
   optimizeLocalImages($, relativePath, context.optimizedImages);
   optimizeScriptLoading($);
+  if (!$("script[src$='site-navigation.js']").length) $("body").append('<script defer src="/_resources/js/site-navigation.js"></script>');
   if (!$("script[src$='site-performance.js']").length) $("body").append('<script defer src="/_resources/js/site-performance.js"></script>');
 
   $("a[href^='/cdn-cgi/l/email-protection#']").each((_, element) => {
