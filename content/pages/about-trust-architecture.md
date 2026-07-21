@@ -26,4 +26,4 @@ The same foundation can support TritonGPT, embedded website assistants, the UC S
 
 No single hosting lane is correct for every use case. TritonAI does not claim that all data stays in one environment or that all information can be used with every model. Teams must follow the applicable data-classification, privacy, security, accessibility, records, and procurement requirements.
 
-<p><a class="btn btn-primary" href="/developer-apis/hosting.html">Compare hosting lanes</a> <a class="btn btn-default" href="/tritongpt/privacy.html">Read the privacy statement</a></p>
+<p><a class="btn btn-primary" href="/developer-apis/index.html">Explore Developer APIs</a> <a class="btn btn-default" href="/tritongpt/privacy.html">Read the privacy statement</a></p>

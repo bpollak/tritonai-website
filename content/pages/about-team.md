@@ -24,6 +24,6 @@ relatedSlides: [Team, Campus App Hosting]
 
 ## Start with the right path
 
-Use <a href="/about/get-involved.html">Get Involved</a> for a proposed campus use case. Developers can begin with the <a href="/developer-apis/quickstarts.html">API quickstarts</a>. Service owners considering a deployed application should review <a href="/developer-apis/hosting.html">hosting and ownership</a> before committing to a launch.
+Use <a href="/about/get-involved.html">Get Involved</a> for a proposed campus use case. Developers can begin with the <a href="/developer-apis/start.html">Get Started</a> guide. Service owners considering a deployed application should review service ownership before committing to a launch.
 
 <div class="alert alert-info">This public page describes service responsibilities. It intentionally excludes individual employment arrangements, staffing allocations, and internal capacity plans.</div>
