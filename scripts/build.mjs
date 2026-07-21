@@ -271,29 +271,50 @@ function renderNavigation(items, route, mobile = false) {
 
 function renderSidebarItems(navigation, route) {
   const owner = navigationOwner(navigation, route);
+  if (!owner) {
+    return navigation
+      .map((item) => `<li class="collapsed"><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>`)
+      .join("");
+  }
+
+  // The canonical TritonAI sidebar is contextual after a child page is chosen:
+  // it keeps only siblings in view and makes the current page plain active text.
+  // A top-level landing page instead remains in the root menu with its section
+  // expanded. Do not repeat a child that merely aliases the section landing.
+  const children = (owner.items || []).filter((child) => child.href !== owner.href);
+  const activeChild = children.find((child) => child.href === route);
+  if (activeChild) {
+    return children
+      .map((child) => {
+        if (child.href === route) return `<li class="active">${escapeHtml(child.label)}</li>`;
+        return `<li><a href="${escapeHtml(child.href)}">${escapeHtml(child.label)}</a></li>`;
+      })
+      .join("");
+  }
+
   return navigation
     .map((item) => {
-      const isDirectActive = route === item.href;
       const isActive = item === owner;
-      if (item.items?.length && isActive) {
-        const submenu = item.items
-          .map((child) => {
-            const childActive = route === child.href;
-            return `<li${childActive ? ' class="active"' : ""}><a href="${escapeHtml(child.href)}"${childActive ? ' aria-current="page"' : ""}>${escapeHtml(child.label)}</a></li>`;
-          })
+      if (isActive) {
+        const submenu = children
+          .map((child) => `<li><a href="${escapeHtml(child.href)}">${escapeHtml(child.label)}</a></li>`)
           .join("");
-        return `<li class="expanded active"><a href="${escapeHtml(item.href)}"${isDirectActive ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a><ul>${submenu}</ul></li>`;
+        const classes = submenu ? "expanded active" : "active";
+        return `<li class="${classes}">${escapeHtml(item.label)}${submenu ? `<ul>${submenu}</ul>` : ""}</li>`;
       }
-      if (item.items?.length) {
-        return `<li class="collapsed"><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>`;
-      }
-      return `<li class="${isActive ? "expanded active" : "collapsed"}"><a href="${escapeHtml(item.href)}"${isDirectActive ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a></li>`;
+      return `<li class="collapsed"><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>`;
     })
     .join("");
 }
 
 function renderSidebarInner(navigation, route) {
-  return `<h2><a href="/index.html">TritonAI</a></h2><ul class="navbar-list">${renderSidebarItems(navigation, route)}</ul>`;
+  const owner = navigationOwner(navigation, route);
+  const children = owner ? (owner.items || []).filter((child) => child.href !== owner.href) : [];
+  const activeChild = children.find((child) => child.href === route);
+  const heading = activeChild && owner
+    ? `<a href="${escapeHtml(owner.href)}">${escapeHtml(owner.label)}</a>`
+    : '<a href="/index.html">TritonAI</a>';
+  return `<h2>${heading}</h2><ul class="navbar-list">${renderSidebarItems(navigation, route)}</ul>`;
 }
 
 function renderSidebar(navigation, route) {
