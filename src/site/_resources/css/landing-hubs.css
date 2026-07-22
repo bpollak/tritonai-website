@@ -218,18 +218,21 @@
   width: 100%;
 }
 
-.home-feature-actions {
+.home-feature-actions,
+.about-feature-actions {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 15px 24px;
 }
 
-.home-feature-actions .btn {
+.home-feature-actions .btn,
+.about-feature-actions .btn {
   margin: 0;
 }
 
-.home-feature-link {
+.home-feature-link,
+.about-feature-link {
   color: var(--triton-navy);
   font-family: BrixSansBold, Arial, sans-serif;
   font-size: 18px;
@@ -240,9 +243,81 @@
 }
 
 .home-feature-link:hover,
-.home-feature-link:focus {
+.home-feature-link:focus,
+.about-feature-link:hover,
+.about-feature-link:focus {
   color: var(--triton-blue);
   text-decoration-thickness: 3px;
+}
+
+.about-feature {
+  background: #eef5f9;
+  border: 1px solid #cadde8;
+  border-top: 6px solid var(--triton-bright-blue);
+  border-radius: 14px;
+  box-shadow: 0 18px 46px rgba(24, 43, 73, .12);
+  margin: 70px auto 82px;
+  max-width: 1170px;
+  overflow: hidden;
+  padding: 0;
+  width: calc(100% - 60px);
+}
+
+.landing-hub-content > .about-feature {
+  padding: 0;
+}
+
+.about-feature .hub-split {
+  align-items: stretch;
+  margin: 0;
+  min-height: 410px;
+}
+
+.about-feature .hub-split-copy {
+  align-self: center;
+  padding: 54px 52px 54px 54px;
+}
+
+.about-feature .hub-split-copy .hub-lede {
+  margin-bottom: 26px;
+}
+
+.about-feature .hub-split > .col-md-5 {
+  display: flex;
+  padding: 0;
+}
+
+.about-feature .hub-quote-card {
+  background-color: var(--triton-navy);
+  background-image: linear-gradient(145deg, rgba(24, 43, 73, .98), rgba(0, 98, 155, .88)), url("https://cdn.ucsd.edu/cms/decorator-5/img/navy-simple-grit.jpg");
+  background-position: center;
+  background-size: cover;
+  border: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 52px 48px;
+}
+
+.about-feature .hub-quote-card .glyphicon {
+  color: var(--triton-gold);
+}
+
+.about-feature .hub-quote-card h3,
+.about-feature .hub-quote-card p {
+  color: #fff;
+}
+
+.about-feature .hub-quote-card h3 {
+  font-size: 30px;
+  line-height: 1.15;
+  margin-top: 18px;
+}
+
+.about-feature .hub-quote-card p {
+  font-size: 18px;
+  line-height: 1.55;
 }
 
 .hub-diagram-frame {
@@ -769,6 +844,11 @@
   .home-feature .hub-split { min-height: 0; }
   .home-feature .hub-split-copy { padding: 48px 42px; }
   .home-feature .hub-split-media { margin-top: 0; padding: 38px 42px; }
+  .about-feature { margin: 52px auto 64px; }
+  .about-feature .hub-split { min-height: 0; }
+  .about-feature .hub-split-copy { padding: 48px 42px; }
+  .about-feature .hub-split > .col-md-5 { display: block; }
+  .about-feature .hub-quote-card { padding: 42px; }
   .hub-subscribe-action { margin-top: 22px; text-align: left; }
   .hub-lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -784,6 +864,11 @@
   .home-feature .hub-split-media { padding: 26px 22px; }
   .home-feature-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
   .home-feature-actions .btn { width: 100%; }
+  .about-feature { border-radius: 10px; margin: 38px auto 52px; padding: 0; width: calc(100% - 44px); }
+  .about-feature .hub-split-copy { padding: 38px 28px 34px; }
+  .about-feature .hub-quote-card { padding: 34px 28px 38px; }
+  .about-feature-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
+  .about-feature-actions .btn { width: 100%; }
   .landing-hub-content > .hub-section,
   .hub-full-bleed { padding-left: 22px; padding-right: 22px; }
   .hub-full-bleed { margin-left: -15px; margin-right: -15px; }
