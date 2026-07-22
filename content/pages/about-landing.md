@@ -9,68 +9,48 @@ source: TritonAI public strategy and service pages
 canonicalUrl: /about/index.html
 relatedSlides: [Strategy, AI Principles, From Chat to Agents]
 landingHub: true
-bannerImage: /_images/building-branch-hero.webp
-bannerPosition: center 48%
+bannerImage: /_images/landing/geisel-library.webp
+bannerPosition: center 44%
 ---
 
-<section class="jumbotron jumbotron-callout-content-one navy-orbs" aria-labelledby="about-mission-heading">
-<div class="container">
-<div class="text-indent"><h2 id="about-mission-heading">Make useful AI a trusted campus capability</h2></div>
-<div class="row"><div class="col-md-10">
-<div class="panel panel-primary"><div class="panel-body">
-<p>UC San Diego is building shared foundations instead of isolated pilots: approved model access, reusable knowledge, developer interfaces, practical training, and clear accountability for the services that surround AI.</p>
-<p><a class="btn btn-default" href="/about/strategy.html">Read the TritonAI strategy</a></p>
+<section class="hub-section hub-section-intro" aria-labelledby="about-mission-heading">
+<div class="row hub-split hub-split-align-center">
+<div class="col-md-7 hub-split-copy"><p class="home-kicker">Shared campus capability</p><h2 id="about-mission-heading">Make useful AI easier to access—and easier to govern</h2><p class="hub-lede">TritonAI is UC San Diego's coordinated approach to AI: a common platform, practical learning, reusable components, and accountable solutions built around real campus work.</p><p><a class="btn btn-primary" href="/about/strategy.html">Read the strategy</a> <a class="btn btn-default" href="/about/get-involved.html">Get involved</a></p></div>
+<div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span><h3>Built around a simple idea</h3><p>Start with a human need, choose an appropriate technology path, and keep people accountable for the result.</p></aside></div>
+</div>
+</section>
+
+<section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="program-shape-heading">
+<div class="container"><div class="hub-heading"><p class="home-kicker">How the program works</p><h2 id="program-shape-heading">Shared foundations, focused outcomes</h2></div>
+<div class="row hub-number-grid">
+<div class="col-md-4"><article><span>01</span><h3>Provide a trusted starting point</h3><p>Offer approved model access, campus-aware assistants, and practical guidance through shared services.</p></article></div>
+<div class="col-md-4"><article><span>02</span><h3>Meet people in the workflow</h3><p>Embed capabilities into the tools and services people already use instead of adding avoidable steps.</p></article></div>
+<div class="col-md-4"><article><span>03</span><h3>Scale what proves useful</h3><p>Move bounded pilots toward owned services only when quality, oversight, accessibility, and support are clear.</p></article></div>
 </div></div>
+</section>
+
+<section class="hub-section" aria-labelledby="priorities-heading">
+<div class="hub-heading"><p class="home-kicker">Program priorities</p><h2 id="priorities-heading">The decisions stay connected</h2><p>Technology, governance, delivery, and evidence are treated as one design problem.</p></div>
+<div class="row hub-principle-grid">
+<div class="col-sm-6"><article><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><h3>Governed infrastructure</h3><p>Match identity, hosting, data handling, and review controls to the service and its risk.</p></div></article></div>
+<div class="col-sm-6"><article><span class="glyphicon glyphicon-random" aria-hidden="true"></span><div><h3>Model flexibility</h3><p>Use approved hosting choices and a common gateway instead of depending on one model vendor.</p></div></article></div>
+<div class="col-sm-6"><article><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><div><h3>Specific pain points</h3><p>Begin with a recurring problem, an accountable owner, and an outcome worth measuring.</p></div></article></div>
+<div class="col-sm-6"><article><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><div><h3>Human accountability</h3><p>Keep evaluation, review, accessibility, support, and escalation visible throughout the service.</p></div></article></div>
+</div>
+</section>
+
+<section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="impact-heading">
+<div class="container"><div class="row hub-split hub-split-align-center">
+<div class="col-md-5 hub-split-copy"><p class="home-kicker">Evidence, not activity</p><h2 id="impact-heading">Impact means more than adoption</h2><p>Each service should improve a meaningful campus outcome without weakening quality, trust, or accountability.</p><p><a class="btn btn-default" href="/about/impact.html">Explore impact measures</a></p></div>
+<div class="col-md-7"><dl class="hub-measure-grid"><div><dt>Reach</dt><dd>Who can use it, who does, and whether they return.</dd></div><div><dt>Efficiency</dt><dd>Time, queue, or rework returned to higher-value work.</dd></div><div><dt>Quality</dt><dd>Completeness, reviewer agreement, and usefulness.</dd></div><div><dt>Trust</dt><dd>Accessibility, exceptions, escalation, and oversight.</dd></div></dl></div>
 </div></div>
-</div>
 </section>
 
-<section class="jumbotron side-image-white jumbotron-callout-content-two jumbotron-full-width ct4-light-bg" aria-labelledby="strategy-priorities-heading">
-<div class="container">
-<div class="row"><div class="col-md-8 text-indent"><h2 id="strategy-priorities-heading">Six priorities shape the program</h2><p>Each priority keeps the technology connected to campus needs, responsible ownership, and evidence.</p></div></div>
-<div class="row">
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Governed infrastructure</h3><p class="panel-text">Match identity, hosting, data handling, and review controls to the service and its risk.</p></div></div></div>
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Shared access</h3><p class="panel-text">Offer common platforms and patterns so departments can build on a trusted foundation.</p></div></div></div>
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Specific pain points</h3><p class="panel-text">Start with a recurring problem, an accountable owner, and an outcome worth measuring.</p></div></div></div>
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Meet the workflow</h3><p class="panel-text">Bring AI into the services and tools people already use instead of creating extra steps.</p></div></div></div>
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Model flexibility</h3><p class="panel-text">Use approved hosting choices and a common gateway rather than depending on one model vendor.</p></div></div></div>
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Prepare for agency</h3><p class="panel-text">Develop skills, tools, evaluation, and oversight for supervised multi-step work.</p></div></div></div>
-</div>
-</div>
+<section class="hub-section" aria-labelledby="architecture-heading">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="TritonAI gateway connecting campus teams to approved cloud and UC-hosted model services" class="img-responsive" src="/_images/api-program.webp"></figure></div><div class="col-md-6 hub-split-copy"><p class="home-kicker">Trust by design</p><h2 id="architecture-heading">The architecture carries the policy</h2><p>Approved model routes, knowledge sources, evaluation, accessibility, service ownership, human review, and operational monitoring surround the model itself.</p><p><a class="btn btn-primary" href="/about/trust-architecture.html">See the trust architecture</a></p></div></div>
 </section>
 
-<section class="jumbotron side-image-white jumbotron-callout-content-two jumbotron-full-width" style="background-image: url('/_images/callout-scripps-rainbow-dark.webp')" aria-labelledby="impact-heading">
-<div class="container">
-<div class="row"><div class="col-md-8 text-indent"><h2 id="impact-heading">Impact means more than adoption</h2><p>Public evidence is organized around four durable dimensions, with definitions and sources maintained on the Impact page.</p><p><a class="btn btn-default" href="/about/impact.html">Explore impact measures</a></p></div></div>
-<div class="row">
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Reach</h3><p class="panel-text">Eligible users, active use, participating units, and repeat engagement.</p></div></div></div>
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Efficiency</h3><p class="panel-text">Time to complete, queue reduction, and work returned for higher-value activity.</p></div></div></div>
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Quality</h3><p class="panel-text">Completeness, reviewer agreement, rework, and user-reported usefulness.</p></div></div></div>
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Trust</h3><p class="panel-text">Accessibility findings, escalations, policy exceptions, and oversight performance.</p></div></div></div>
-</div>
-</div>
-</section>
-
-<section class="jumbotron jumbotron-callout-image-small-inset" aria-labelledby="governance-heading">
-<div class="container"><div class="row"><div class="col-md-7"><div class="panel panel-default"><div class="panel-body">
-<h2 id="governance-heading">Trust is part of the architecture</h2>
-<p class="panel-text">Governance is designed into approved model routes, knowledge sources, evaluation, human review, accessibility, service ownership, and operational monitoring.</p>
-<p><a class="btn btn-default" href="/about/trust-architecture.html">See the trust architecture</a></p>
-</div></div></div></div></div>
-</section>
-
-<section class="jumbotron jumbotron-tile-links tile-module-sand" data-module="tiles-with-links" aria-labelledby="explore-about-heading">
-<div class="container">
-<div class="row"><div class="col-md-8 text-indent"><h2 id="explore-about-heading">Go deeper</h2><p>Use these pages for the program's approved strategy, ownership, evidence, commitments, and policies.</p></div></div>
-<div class="row tiles-row">
-<div class="flex tiles">
-<div class="wrapper tile-navy-bg"><div class="background-image"></div><h3><a href="/about/strategy.html">Strategy</a></h3></div>
-<div class="wrapper tile-blue-bg"><div class="background-image"></div><h3><a href="/about/team.html">Team and ownership</a></h3></div>
-<div class="wrapper tile-turquoise-bg"><div class="background-image"></div><h3><a href="/about/impact.html">Impact</a></h3></div>
-<div class="wrapper tile-turquoise-bg"><div class="background-image"></div><h3><a href="/about/trust-architecture.html">Trust and architecture</a></h3></div>
-<div class="wrapper tile-navy-bg"><div class="background-image"></div><h3><a href="/about/roadmap.html">Roadmap</a></h3></div>
-<div class="wrapper tile-blue-bg"><div class="background-image"></div><h3><a href="/about/sustainability.html">Sustainable AI</a></h3></div>
-</div>
-</div>
-</div>
-</section>
+<nav class="hub-section hub-link-panel" aria-labelledby="explore-about-heading">
+<div class="hub-heading"><p class="home-kicker">Explore TritonAI</p><h2 id="explore-about-heading">Go deeper</h2></div>
+<div class="row hub-link-columns"><div class="col-sm-6 col-md-4"><a href="/about/strategy.html"><strong>Strategy</strong><span>Principles and delivery model</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/team.html"><strong>Team and ownership</strong><span>Roles and responsibilities</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/impact.html"><strong>Impact</strong><span>Measures and public evidence</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/trust-architecture.html"><strong>Trust and architecture</strong><span>Hosting, routing, and oversight</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/roadmap.html"><strong>Roadmap</strong><span>Public delivery status</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/sustainability.html"><strong>Sustainable AI</strong><span>Thoughtful use of resources</span></a></div></div>
+</nav>

@@ -11,133 +11,69 @@ relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 ---
 
 <!-- AGENT_SECTION: homepage-feature -->
-<section class="jumbotron jumbotron-callout-content-one home-feature" aria-labelledby="home-feature-heading">
-<div class="container">
-<div class="text-indent"><h1 id="home-feature-heading">Trusted AI, powered by UC San Diego</h1></div>
-<div class="row"><div class="col-md-10">
-<div class="panel panel-primary"><div class="panel-body">
-<p>TritonAI brings trusted AI tools, reusable campus knowledge, developer services, and human-centered workflow solutions into one UC San Diego ecosystem.</p>
-<p><a class="btn btn-default" href="/about/strategy.html">Explore TritonAI</a></p>
-</div></div>
-</div></div>
+<section class="hub-section hub-section-intro home-feature" aria-labelledby="home-feature-heading">
+<div class="row hub-split hub-split-align-center">
+<div class="col-md-6 hub-split-copy">
+<p class="home-kicker">One campus AI ecosystem</p>
+<h1 id="home-feature-heading">A practical path from first prompt to trusted service</h1>
+<p class="hub-lede">TritonAI brings together a campus assistant, approved tools, learning, developer services, and human-supervised solutions for recurring university work.</p>
+<p><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a> <a class="btn btn-default btn-lg" href="/about/strategy.html">See the strategy</a></p>
+</div>
+<div class="col-md-6 hub-split-media"><figure class="hub-browser-frame"><img alt="UC San Diego Assistant in TritonGPT with campus-aware guidance" class="img-responsive" src="/_images/tritongpt/ucsd-assistant.jpg"></figure></div>
 </div>
 </section>
 <!-- END_AGENT_SECTION -->
 
 <!-- AGENT_SECTION: ux-home-starting-points -->
-<section class="jumbotron side-image-white jumbotron-callout-content-two jumbotron-full-width ct4-light-bg" aria-labelledby="starting-point-heading">
-<div class="container">
-<div class="row"><div class="col-md-8 text-indent"><h2 id="starting-point-heading">Choose your starting point</h2><p>Go straight to the campus AI experience that matches what you want to accomplish.</p></div></div>
-<div class="row">
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Use TritonGPT</h3><p class="panel-text">Ask questions, work with documents, and choose an approved model.</p><p><a class="text-link" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a></p></div></div></div>
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Find an AI tool</h3><p class="panel-text">Explore supported services for research, teaching, meetings, and everyday work.</p><p><a class="text-link" href="/tools/index.html">Explore tools</a></p></div></div></div>
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Build with TritonAI</h3><p class="panel-text">Use governed APIs, reusable skills, and accountable hosting paths.</p><p><a class="text-link" href="/developer-apis/index.html">Start building</a></p></div></div></div>
-<div class="col-md-3"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Learn AI skills</h3><p class="panel-text">Follow a role-based path for safe, effective, and practical AI use.</p><p><a class="text-link" href="/training-resources/index.html">See pathways</a></p></div></div></div>
-</div>
+<section class="hub-section" aria-labelledby="starting-point-heading">
+<div class="hub-heading"><p class="home-kicker">Start where you are</p><h2 id="starting-point-heading">What do you want to do?</h2><p>Choose a direct route now; the surrounding guidance is there when you need it.</p></div>
+<div class="row hub-action-grid">
+<div class="col-sm-6 col-lg-3"><article class="hub-action-card"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><h3>Use AI</h3><p>Ask questions, work with documents, and choose an approved model.</p><a href="/tritongpt/index.html">Explore TritonGPT <span aria-hidden="true">→</span></a></article></div>
+<div class="col-sm-6 col-lg-3"><article class="hub-action-card"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><h3>Find a tool</h3><p>Match a supported service to a meeting, research, teaching, or office task.</p><a href="/tools/index.html">Browse AI tools <span aria-hidden="true">→</span></a></article></div>
+<div class="col-sm-6 col-lg-3"><article class="hub-action-card"><span class="glyphicon glyphicon-console" aria-hidden="true"></span><h3>Build a service</h3><p>Use governed APIs, reusable skills, and an accountable hosting path.</p><a href="/developer-apis/index.html">Build with TritonAI <span aria-hidden="true">→</span></a></article></div>
+<div class="col-sm-6 col-lg-3"><article class="hub-action-card"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><h3>Build confidence</h3><p>Learn prompting, verification, responsible use, and role-specific practices.</p><a href="/training-resources/index.html">Explore learning <span aria-hidden="true">→</span></a></article></div>
 </div>
 </section>
 <!-- END_AGENT_SECTION -->
 
 <!-- AGENT_SECTION: ux-home-ecosystem -->
-<section class="jumbotron side-image-white jumbotron-callout-content-two jumbotron-full-width jumbotron-orbs-1" aria-labelledby="ecosystem-heading">
+<section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="ecosystem-heading">
 <div class="container">
-<div class="row"><div class="col-md-8 text-indent"><h2 id="ecosystem-heading">One ecosystem, several ways to deliver value</h2><p>TritonAI combines a broadly useful AI assistant with focused solutions for campus workflows. A common platform provides model choice, retrieval from approved knowledge, developer interfaces, and operational visibility.</p><p><a class="btn btn-default" href="/about/strategy.html">Read the TritonAI strategy</a></p></div></div>
-<div class="row">
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Ask</h3><p class="panel-text">Start with a conversation in a trusted campus assistant.</p></div></div></div>
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Embed</h3><p class="panel-text">Bring AI into an existing campus service or website.</p><p><a class="text-link" href="/tritongpt/chatbot-widget.html">Explore the widget</a></p></div></div></div>
-<div class="col-md-4"><div class="panel panel-primary bg-blue-opaque"><div class="cta-two-three panel-body"><h3>Automate</h3><p class="panel-text">Develop a supervised workflow for a repeatable problem.</p><p><a class="text-link" href="/use-cases/index.html">Explore use cases</a></p></div></div></div>
+<div class="row hub-split hub-split-align-center">
+<div class="col-md-6 hub-split-copy"><p class="home-kicker">Shared foundation</p><h2 id="ecosystem-heading">Useful on day one. Governed for what comes next.</h2><p>TritonAI connects approved model access, campus knowledge, reusable components, and operational oversight. Teams can begin with chat, embed a capability in an existing service, or design a supervised workflow.</p><p><a class="btn btn-default" href="/about/trust-architecture.html">See the trust architecture</a></p></div>
+<div class="col-md-6"><ol class="hub-path-list"><li><strong>Ask</strong><span>Begin in a trusted campus assistant.</span></li><li><strong>Embed</strong><span>Bring an approved capability into an existing experience.</span></li><li><strong>Automate</strong><span>Design repeatable steps with clear human review.</span></li></ol></div>
 </div>
 </div>
 </section>
 <!-- END_AGENT_SECTION -->
 
-<section class="jumbotron jumbotron-gray jumbotron-news" aria-labelledby="home-highlights-heading">
-<div class="container">
-<div class="row">
-<div class="col-xs-8"><h2 id="home-highlights-heading">Explore what is happening now</h2></div>
-<div class="col-xs-4 view-all-link text-right"><a class="text-link" href="/about/ai-updates.html">See AI updates</a></div>
+<section class="hub-section" aria-labelledby="home-work-heading">
+<div class="hub-heading"><p class="home-kicker">Campus work in focus</p><h2 id="home-work-heading">See the kinds of problems teams are solving</h2><p>These public examples span a production service, bounded pilots, and a structured discovery process.</p></div>
+<div class="row hub-story-grid">
+<div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/contract-review.html"><img alt="Contract review workflow preparing findings for human review" class="img-responsive" src="/_images/use-cases/contract-review-card.png"></a><div class="hub-story-body"><span class="agent-status agent-status-shipped">Production</span><h3><a href="/use-cases/contract-review.html">Contract Review</a></h3><p>Compare contract language with approved positions and prepare review-ready findings.</p></div></article></div>
+<div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/dissertation-formatter.html"><img alt="Dissertation formatting assistant interface with document checks" class="img-responsive" src="/_images/landing/dissertation-formatter.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-pilot">Pilot</span><h3><a href="/use-cases/dissertation-formatter.html">Dissertation Formatter</a></h3><p>Turn complex formatting requirements into a guided, reviewable workflow.</p></div></article></div>
+<div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/ai-use-case-meeting.html"><img alt="AI use-case meeting workflow for identifying and shaping campus opportunities" class="img-responsive" src="/_images/landing/ai-use-case-meeting.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-development">In development</span><h3><a href="/use-cases/ai-use-case-meeting.html">AI Use-Case Meeting</a></h3><p>Structure discovery around the task, owner, data, review point, and measurable outcome.</p></div></article></div>
 </div>
-<div class="row">
-<div class="col-sm-4"><a alt="link to the Faculty AI Symposium" class="panel panel-default" href="/training-resources/faculty-ai-symposium.html"><img alt="UC San Diego campus building framed by tree branches" class="img-responsive" src="/_images/building-branch-hero.webp"><div class="panel-heading"><h3 class="panel-news-title">Faculty AI Symposium</h3></div><div class="panel-body">Explore the symposium</div></a></div>
-<div class="col-sm-4"><a alt="link to the TritonAI strategy" class="panel panel-default" href="/about/strategy.html"><img alt="Colorful blue and gold TritonAI grit pattern" class="img-responsive" src="/_images/homepage/TritonAI_Hero_2500.webp"><div class="panel-heading"><h3 class="panel-news-title">TritonAI strategy</h3></div><div class="panel-body">Read the strategy</div></a></div>
-<div class="col-sm-4"><a alt="link to AI in campus workflows" class="panel panel-default" href="/use-cases/index.html"><img alt="TritonAI workflow architecture connecting campus applications and model services" class="img-responsive" src="/_images/api-program.webp"><div class="panel-heading"><h3 class="panel-news-title">AI in campus workflows</h3></div><div class="panel-body">Explore all use cases</div></a></div>
-</div>
-</div>
+<p class="hub-section-action"><a class="btn btn-default" href="/use-cases/index.html">View all use cases</a></p>
 </section>
 
-<section class="home-section home-tools-section" aria-labelledby="tools-action-heading">
-<div class="home-section-heading"><p class="home-kicker">See it work</p><h2 id="tools-action-heading">TritonAI tools in action</h2><p>Watch real campus workflows move from source material to human-reviewed results.</p></div>
-
-<div class="jumbotron jumbotron-sand" aria-label="AI Contract Reviewer demo">
+<section class="hub-section hub-section-sand hub-full-bleed home-updates" aria-labelledby="latest-updates-heading">
 <div class="container">
-<div class="row">
-<div class="col-md-6">
-<span class="agent-status agent-status-shipped">Production</span>
-<h3 class="h2">AI Contract Reviewer</h3>
-<p>A supervised workflow that compares contract language with approved legal positions and prepares review-ready findings.</p>
-<p><a class="btn btn-default" href="/use-cases/contract-review.html">Explore contract review</a></p>
-</div>
-<div class="col-md-6"><figure><video class="img-responsive" controls muted playsinline preload="metadata" poster="/_images/use-cases/contract-review-card.png" aria-label="AI Contract Reviewer demo" aria-describedby="contract-demo-description" data-silent-demo="true"><source src="https://tritongpt-deck.vercel.app/media/media7.mp4" type="video/mp4">Your browser does not support the video element.</video></figure></div>
-</div>
-<p id="contract-demo-description" class="sr-only">Silent demo showing clause review, risk findings, and proposed redlines for human review.</p>
-</div>
-</div>
-<div class="jumbotron side-image-white" aria-label="Transcript Matching demo">
-<div class="container">
-<div class="row">
-<div class="col-md-6"><figure><video class="img-responsive" controls muted playsinline preload="metadata" aria-label="Transcript Matching demo" aria-describedby="transcript-demo-description" data-silent-demo="true"><source src="https://tritongpt-deck.vercel.app/media/tms-onbase-demo.mp4" type="video/mp4">Your browser does not support the video element.</video></figure></div>
-<div class="col-md-6">
-<span class="agent-status agent-status-shipped">Production</span>
-<h3 class="h2">Transcript Matching</h3>
-<p>A human-supervised workflow that extracts transcript evidence, proposes likely matches, and routes uncertain cases to staff.</p>
-<p><a class="btn btn-default" href="/use-cases/transcript-matching.html">Explore transcript matching</a></p>
-</div>
-</div>
-<p id="transcript-demo-description" class="sr-only">Silent demo showing evidence extraction, candidate matching, and staff review of exceptions.</p>
-</div>
-</div>
-</section>
-
-<section class="home-section home-use-cases" aria-labelledby="featured-use-cases-heading">
-<div class="home-section-heading"><p class="home-kicker">From idea to impact</p><h2 id="featured-use-cases-heading">Featured use cases</h2><p>Focused solutions pair measurable outcomes with clear human oversight.</p></div>
-
-<div data-featured-use-cases="true"></div>
-
-<p><a class="btn btn-default" href="/use-cases/index.html">View all use cases</a></p>
-</section>
-
-<section class="home-section home-updates" aria-labelledby="latest-updates-heading">
-<div class="home-section-heading"><p class="home-kicker">Keep pace with AI</p><h2 id="latest-updates-heading">Latest AI updates</h2><p>A concise campus briefing on supported tools, training, and noteworthy developments.</p></div>
-
+<div class="hub-heading"><p class="home-kicker">Keep pace with AI</p><h2 id="latest-updates-heading">Latest AI updates</h2><p>A concise campus briefing on supported tools, training, and noteworthy developments.</p></div>
 <div data-newsletters="latest"></div>
-
-<p><a class="btn btn-default" href="/about/ai-updates.html">View all AI updates</a></p>
+<p class="hub-section-action"><a class="btn btn-default" href="/about/ai-updates.html">View all AI updates</a></p>
+</div>
 </section>
 
-<section class="jumbotron jumbotron-gray jumbotron-news home-news" aria-labelledby="today-news-heading" data-today-news>
+<section class="jumbotron jumbotron-gray jumbotron-news home-news hub-full-bleed" aria-labelledby="today-news-heading" data-today-news>
 <div class="container">
-<div class="row">
-<div class="col-xs-8"><h2 id="today-news-heading">Stories Shaping AI at UC San Diego</h2></div>
-<div class="col-xs-4 view-all-link text-right"><a class="text-link" href="https://today.ucsd.edu/search/results?q=ai#gsc.tab=0&amp;gsc.q=ai&amp;gsc.page=1">View all news</a></div>
-</div>
+<div class="row"><div class="col-xs-8"><h2 id="today-news-heading">Stories shaping AI at UC San Diego</h2></div><div class="col-xs-4 view-all-link text-right"><a class="text-link" href="https://today.ucsd.edu/search/results?q=ai#gsc.tab=0&amp;gsc.q=ai&amp;gsc.page=1">View all news</a></div></div>
 <p class="sr-only" aria-live="polite" data-today-news-status>Loading the latest AI stories from Today@UCSD.</p>
-<div class="row" aria-busy="true" data-today-news-cards>
-<div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div>
-<div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div>
-<div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div>
-</div>
+<div class="row" aria-busy="true" data-today-news-cards><div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div><div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div><div class="col-sm-4" aria-hidden="true"><article class="panel panel-default today-news-placeholder"><div class="panel-heading"><h3>Loading latest story</h3></div></article></div></div>
 <p class="today-news-fallback" data-today-news-fallback>Browse current AI coverage on <a href="https://today.ucsd.edu/search/results?q=ai#gsc.tab=0&amp;gsc.q=ai&amp;gsc.page=1">Today@UCSD</a>.</p>
 </div>
 </section>
 
-<section class="jumbotron jumbotron-full-width side-image-white trident home-subscribe" aria-labelledby="stay-informed-heading" data-home-subscribe>
-<div class="container">
-<div class="row">
-<div class="col-md-6">
-<h2 id="stay-informed-heading">Stay Informed</h2>
-<p>To receive the latest announcements and news, subscribe to the TritonAI mailing list.</p>
-<p><a class="btn btn-primary" href="https://signup.e2ma.net/signup/2010404/1972820/">Subscribe</a></p>
-</div>
-</div>
-</div>
+<section class="hub-section hub-subscribe" aria-labelledby="stay-informed-heading" data-home-subscribe>
+<div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Stay informed</p><h2 id="stay-informed-heading">One useful update, once a week</h2><p>Receive a short campus briefing on supported tools, training, and notable changes.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="https://signup.e2ma.net/signup/2010404/1972820/">Subscribe to updates</a></div></div>
 </section>
