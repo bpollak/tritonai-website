@@ -10,6 +10,16 @@ source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot
 dataClassification: Public description; faculty records follow approved service controls
 canonicalUrl: /use-cases/biobib.html
+videoSrc: https://tritongpt-deck.vercel.app/media/product-previews/biobib-formatter-preview.mp4
+videoPoster: https://tritongpt-deck.vercel.app/media/product-previews/biobib-formatter-poster.png
+videoLabel: BioBib Formatter demo
+videoDescription: Silent screen recording showing CV upload, section-level review routing, and downloadable BioBib draft output.
+stats:
+  - { value: "20", label: "Review parts", sub: "Section-level routing" }
+  - { value: ".docx", label: "Output", sub: "BioBib draft" }
+  - { value: "UCSD", label: "Workflow", sub: "Academic personnel" }
+toolHighlights: ["Word CV Input", "Section Review", "TritonAI Routing"]
+
 relatedSlides: [BioBib]
 humanOversight: The faculty member or authorized reviewer validates every section before submission.
 measurableOutcome: Draft completion time, missing items, corrections, and reviewer satisfaction.

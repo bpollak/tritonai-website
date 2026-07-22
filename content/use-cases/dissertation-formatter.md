@@ -14,6 +14,16 @@ relatedSlides: [Dissertation Formatter]
 humanOversight: The student and graduate-education reviewer retain responsibility for the final document.
 measurableOutcome: Rules checked, issues resolved, review cycles, time to acceptance, and false findings.
 featured: true
+videoSrc: https://tritongpt-deck.vercel.app/media/product-previews/dissertation-formatter-preview.mp4
+videoPoster: https://tritongpt-deck.vercel.app/media/product-previews/dissertation-formatter-poster.png
+videoLabel: Dissertation Formatter demo
+videoDescription: Silent screen recording showing document upload, automated rule checks, auto-fixes, and the fixed/action/verify results breakdown.
+stats:
+  - { value: "84", label: "Rules checked", sub: "13 categories" }
+  - { value: "17+", label: "Auto-fixes", sub: "Common issues" }
+  - { value: "3", label: "Result buckets", sub: "Fixed, action, verify" }
+toolHighlights: ["GEPA Rules", "Auto-Corrections", "Compliance Report"]
+
 ---
 
 ## Problem

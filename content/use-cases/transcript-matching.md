@@ -14,6 +14,15 @@ relatedSlides: [Transcript Matching]
 humanOversight: Staff review uncertain matches and monitor quality before any broader use.
 measurableOutcome: Match precision and recall, review volume, processing time, and exception rate.
 featured: true
+videoSrc: https://tritongpt-deck.vercel.app/media/tms-onbase-demo.mp4
+videoLabel: Transcript Matching demo
+videoDescription: Silent screen recording showing transcript ingestion, OCR extraction, candidate matching, and staff review of exceptions.
+stats:
+  - { value: "60,000", label: "Annual volume", sub: "Transcripts per year" }
+  - { value: "225/hr", label: "AI throughput", sub: "Transcripts processed" }
+  - { value: "98%+", label: "Match accuracy", sub: "And improving" }
+toolHighlights: ["OCR Extraction", "Confidence Scoring", "Human Review Queue"]
+
 ---
 
 ## Problem

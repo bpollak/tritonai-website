@@ -10,6 +10,15 @@ source: TritonAI strategy presentation
 measurementPeriod: Exploratory discovery
 dataClassification: Public description; any profile integration requires source-specific approval
 canonicalUrl: /use-cases/research-alignment.html
+videoSrc: https://tritongpt-deck.vercel.app/media/Research%20Alignment%20_%20UC%20San%20Diego%20-%2027%20March%202026.mp4
+videoLabel: Research Alignment demo
+videoDescription: Silent screen recording showing opportunity parsing, expert matching across schools, and explainable connection surfacing.
+stats:
+  - { value: "5+", label: "Data sources", sub: "NIH, NSF, PubMed, ORCID, Semantic Scholar" }
+  - { value: "Weekly", label: "Refresh", sub: "Current research profiles" }
+  - { value: "Cross-school", label: "Search scope", sub: "Within or across divisions" }
+toolHighlights: ["Employee Activity Hub", "NIH RePORTER", "NSF Awards", "PubMed", "ORCID", "Semantic Scholar"]
+
 relatedSlides: [Research Alignment]
 humanOversight: Researchers and research administrators validate relevance and decide whether to act.
 measurableOutcome: Relevant opportunities surfaced, false matches, follow-through, and researcher usefulness.
