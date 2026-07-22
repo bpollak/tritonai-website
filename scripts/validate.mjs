@@ -195,7 +195,7 @@ for (const [index, skill] of (skillsContent.skills || []).entries()) {
 }
 const homeHeroMissing = missingFields(homeHeroContent, ["schemaVersion", "owner", "source", "lastReviewed", "rotationIntervalMs", "slides"]);
 if (homeHeroMissing.length) contentFindings.push({ source: "home/hero.json", issue: `Missing fields: ${homeHeroMissing.join(", ")}` });
-if ((homeHeroContent.slides || []).length < 2) contentFindings.push({ source: "home/hero.json", issue: "Hero rotator needs at least two slides" });
+if ((homeHeroContent.slides || []).length < 1) contentFindings.push({ source: "home/hero.json", issue: "Homepage hero needs at least one slide" });
 const heroSlideIds = new Set();
 for (const [index, slide] of (homeHeroContent.slides || []).entries()) {
   const slideMissing = missingFields(slide, ["id", "title", "description", "image", "imageAlt", "link", "linkLabel"]);
@@ -209,6 +209,11 @@ const generatedPaths = new Set([
   "/use-cases/index.html",
   "/about/roadmap.html",
   "/404.html",
+].map(normalizeRoute));
+const landingHubPaths = new Set([
+  "/",
+  "/use-cases/index.html",
+  ...pageContent.entries.filter((entry) => entry.landingHub === true).map((entry) => entry.path),
 ].map(normalizeRoute));
 
 const allowedStatuses = new Set(["Shipped", "Production", "Pilot", "In development", "Exploring"]);
@@ -328,7 +333,7 @@ for (const page of htmlFiles) {
     navigation.push({ page: route, issue: "Desktop search toggle is missing a valid ARIA relationship" });
   }
 
-  const expectedTwoColumnLayout = (generatedPaths.has(route) && route !== "/") || route === "/search/index.html";
+  const expectedTwoColumnLayout = (generatedPaths.has(route) && !landingHubPaths.has(route)) || route === "/search/index.html";
   if (expectedTwoColumnLayout) {
     const mainSection = $("main#main-content .main-section").first();
     const sidebar = $("main#main-content .sidebar-section").first();
@@ -413,6 +418,14 @@ for (const page of htmlFiles) {
         }
       }
     }
+  } else if (landingHubPaths.has(route)) {
+    const mainSection = $("main#main-content .main-section").first();
+    if (!mainSection.length || !mainSection.hasClass("col-xs-12")) {
+      navigation.push({ page: route, issue: "Landing hub must use a full-width main section" });
+    }
+    if ($("main#main-content .sidebar-section").length) {
+      navigation.push({ page: route, issue: "Landing hub must not render a sidebar" });
+    }
   }
   for (const attr of ["href", "src", "action", "poster", "data-src", "data-poster", "data-fallback-src", "data-after-render-src", "data-idle-src"]) {
     for (const element of $(`[${attr}]`).toArray()) {
@@ -486,7 +499,8 @@ for (const page of htmlFiles) {
     const fallback = image.attr("data-fallback-src") || image.attr("src");
     const fallbackSize = await localAssetSize(fallback, page);
     if (!fallbackSize || fallbackSize <= imageBudgetBytes) continue;
-    const optimizedSource = image.attr("data-src") || image.parent("picture").find("source[type='image/webp']").attr("srcset");
+    const source = image.attr("src") || "";
+    const optimizedSource = image.attr("data-src") || (/\.webp(?:$|[?#])/i.test(source) ? source : null) || image.parent("picture").find("source[type='image/webp']").attr("srcset");
     const optimizedSize = await localAssetSize(optimizedSource, page);
     if (!optimizedSource || !optimizedSize) {
       performance.push({ page: route, issue: `Oversized image lacks a WebP source: ${fallback}` });
@@ -530,6 +544,7 @@ for (const page of htmlFiles) {
     }
   }
   if (route === "/") {
+    const multipleHeroSlides = (homeHeroContent.slides || []).length > 1;
     if ($("#heroslider").length !== 1) accessibility.push({ page: route, issue: "Homepage hero rotator is missing" });
     if ($("#heroslider .item").length !== (homeHeroContent.slides || []).length) {
       contentFindings.push({ source: route, issue: `Rendered hero slide count does not match content (${$("#heroslider .item").length} vs ${(homeHeroContent.slides || []).length})` });
@@ -540,12 +555,13 @@ for (const page of htmlFiles) {
     if ($("h1").length !== 1 || !$("#home-feature-heading").is("h1")) {
       accessibility.push({ page: route, issue: "Homepage must have exactly one h1 in the feature section" });
     }
-    if ($("#heroslider [data-module='hero-homepage']").first().text().trim() !== "Explore Symposium Resources") {
-      contentFindings.push({ source: route, issue: "Homepage symposium CTA text is not descriptive" });
+    if ($("#heroslider [data-module='hero-homepage']").first().text().trim() !== homeHeroContent.slides?.[0]?.linkLabel) {
+      contentFindings.push({ source: route, issue: "Homepage hero CTA does not match structured content" });
     }
-    if ($("[data-home-hero-toggle]").length !== 1) accessibility.push({ page: route, issue: "Homepage hero pause control is missing" });
+    if (multipleHeroSlides && $("[data-home-hero-toggle]").length !== 1) accessibility.push({ page: route, issue: "Homepage hero pause control is missing" });
+    if (!multipleHeroSlides && $("[data-home-hero-toggle], #heroslider .carousel-control").length) accessibility.push({ page: route, issue: "Single-slide homepage hero must not render carousel controls" });
     const inactiveHeroImages = $("#heroslider .item:not(.active) img.first-slide");
-    if (!inactiveHeroImages.length || inactiveHeroImages.filter("[data-src$='.webp']").length !== inactiveHeroImages.length) {
+    if (multipleHeroSlides && (!inactiveHeroImages.length || inactiveHeroImages.filter("[data-src$='.webp']").length !== inactiveHeroImages.length)) {
       performance.push({ page: route, issue: "Inactive hero images must use deferred optimized sources" });
     }
     if ($("[data-today-news]").length !== 1 || $("[data-today-news-cards]").length !== 1 || $("[data-today-news-status]").length !== 1) {

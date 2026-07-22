@@ -2,30 +2,19 @@
   "schemaVersion": 1,
   "owner": "TritonAI",
   "source": "https://tritonai.ucsd.edu/",
-  "lastReviewed": "2026-07-19",
+  "lastReviewed": "2026-07-22",
   "rotationIntervalMs": 7000,
   "slides": [
     {
-      "id": "faculty-ai-symposium",
-      "title": "Faculty AI Symposium",
-      "accent": "",
-      "description": "The inaugural Faculty AI Symposium convened UC San Diego faculty to explore AI's impact on teaching, research, and academic practice. Key assets from the event are now available.",
-      "image": "https://cdn.ucsd.edu/cms/decorator-5/img/navy-simple-grit.jpg",
-      "mobileImage": "/_images/homepage/hero-navy-gradient.svg",
-      "imageAlt": "Navy background with a subtle grit pattern",
-      "link": "/training-resources/faculty-ai-symposium.html",
-      "linkLabel": "Explore Symposium Resources"
-    },
-    {
       "id": "tritonai-hub",
-      "title": "TritonAI: Your",
-      "accent": "one-stop hub",
-      "description": "Explore, access, and learn about AI services and resources across UC San Diego.",
+      "title": "TritonAI: Campus AI,",
+      "accent": "built right",
+      "description": "Use trusted AI, build governed solutions, and learn practical skills through one UC San Diego ecosystem.",
       "image": "/_images/homepage/TritonAI_Hero_2500.png",
       "optimizedImage": "/_images/homepage/TritonAI_Hero_2500.webp",
       "imageAlt": "Colorful blue and gold grit pattern",
-      "link": "/about/strategy.html",
-      "linkLabel": "Explore TritonAI"
+      "link": "/tritongpt/index.html",
+      "linkLabel": "Start with TritonGPT"
     }
   ]
 }
