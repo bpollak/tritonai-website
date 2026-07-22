@@ -8,7 +8,7 @@ lastReviewed: 2026-07-20
 audiences: [staff, leaders]
 source: TritonAI strategy presentation
 measurementPeriod: Production — 91% time savings (120 min to 11 min average)
-dataClassification: Public description; contract data follows the approved pilot controls
+dataClassification: Public description; contract data follows the approved production controls
 canonicalUrl: /use-cases/contract-review.html
 relatedSlides: [Contract Review]
 humanOversight: A qualified reviewer approves findings and every proposed change before use.
@@ -22,7 +22,7 @@ Contract review requires careful comparison with approved positions, consistent 
 
 ## Solution
 
-The pilot uses specialized review steps to identify relevant clauses, compare them with approved playbooks, and assemble a review-ready set of findings. The workflow supports the reviewer; it does not approve or execute an agreement.
+The workflow uses specialized review steps to identify relevant clauses, compare them with approved playbooks, and assemble a review-ready set of findings. The workflow supports the reviewer; it does not approve or execute an agreement.
 
 ## Current status
 

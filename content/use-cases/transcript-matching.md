@@ -22,7 +22,7 @@ High-volume transcript processing includes records with inconsistent layouts, id
 
 ## Solution
 
-The pilot extracts candidate identifiers, compares the evidence, and assigns confidence so staff can focus on exceptions. Rollout is staged: close monitoring first, then only carefully bounded automation if validated evidence supports it.
+The workflow extracts candidate identifiers, compares the evidence, and assigns confidence so staff can focus on exceptions. It runs in production with continuous monitoring and human review of uncertain matches.
 
 ## Current status
 
