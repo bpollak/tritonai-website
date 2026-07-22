@@ -810,6 +810,272 @@
   border-left: 5px solid var(--triton-bright-blue);
 }
 
+/* Learning pathways */
+.learning-section-heading {
+  margin-bottom: 24px;
+}
+
+.learning-section-heading h2 {
+  color: var(--triton-navy);
+  font-size: 34px;
+  margin: 0 0 10px;
+}
+
+.learning-section-heading > p:last-child {
+  color: var(--triton-slate);
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 760px;
+}
+
+.learning-pathway-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 48px;
+}
+
+.learning-pathway-card {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-top: 6px solid var(--triton-blue);
+  box-shadow: 0 6px 18px rgba(24, 43, 73, .07);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.learning-pathway-card:nth-child(2) {
+  border-top-color: var(--triton-bright-blue);
+}
+
+.learning-pathway-card:nth-child(3) {
+  border-top-color: var(--triton-gold);
+}
+
+.learning-pathway-card:nth-child(4) {
+  border-top-color: #6e963b;
+}
+
+.learning-pathway-card:hover,
+.learning-pathway-card:focus-within {
+  box-shadow: 0 12px 28px rgba(24, 43, 73, .12);
+}
+
+.learning-pathway-card header {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+}
+
+.learning-pathway-icon {
+  align-items: center;
+  background: var(--triton-sand);
+  color: var(--triton-blue);
+  display: flex;
+  flex: 0 0 52px;
+  font-size: 24px;
+  height: 52px;
+  justify-content: center;
+}
+
+.learning-pathway-card header p,
+.learning-program-type {
+  color: var(--triton-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.learning-pathway-card h3 {
+  color: var(--triton-navy);
+  font-size: 24px;
+  margin: 3px 0 4px;
+}
+
+.learning-pathway-card header div > span {
+  color: #52616b;
+  display: block;
+  line-height: 1.45;
+}
+
+.learning-pathway-steps {
+  counter-reset: pathway-step;
+  list-style: none;
+  margin: 24px 0 20px;
+  padding: 0;
+}
+
+.learning-pathway-steps li {
+  counter-increment: pathway-step;
+  line-height: 1.45;
+  margin-bottom: 14px;
+  min-height: 30px;
+  padding: 4px 0 0 42px;
+  position: relative;
+}
+
+.learning-pathway-steps li::before {
+  align-items: center;
+  background: var(--triton-navy);
+  color: #fff;
+  content: counter(pathway-step, decimal-leading-zero);
+  display: flex;
+  font-size: 11px;
+  font-weight: 700;
+  height: 30px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+.learning-pathway-action,
+.learning-program a {
+  align-items: center;
+  border-top: 1px solid var(--triton-border);
+  color: var(--triton-blue);
+  display: flex;
+  font-weight: 700;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 15px;
+  text-decoration: none;
+}
+
+.learning-pathway-action:hover,
+.learning-pathway-action:focus,
+.learning-program a:hover,
+.learning-program a:focus {
+  color: var(--triton-navy);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.learning-pathway-action span,
+.learning-program a span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.learning-pathway-wide {
+  border-top-color: var(--triton-navy);
+  grid-column: 1 / -1;
+}
+
+.learning-pathway-wide .learning-pathway-steps {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.learning-access-standard {
+  align-items: center;
+  background: linear-gradient(100deg, var(--triton-navy), #064c78);
+  border-bottom: 5px solid var(--triton-bright-blue);
+  color: #fff;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 54px minmax(0, 1fr) 210px;
+  margin: 6px 0 54px;
+  padding: 30px;
+}
+
+.learning-access-standard > .glyphicon {
+  color: var(--triton-gold);
+  font-size: 34px;
+}
+
+.learning-access-standard .home-kicker {
+  color: var(--triton-gold);
+}
+
+.learning-access-standard h2 {
+  color: #fff;
+  font-size: 28px;
+  margin: 0 0 9px;
+}
+
+.learning-access-standard p:last-child {
+  color: #edf7f8;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.learning-access-standard > a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--triton-bright-blue);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.learning-access-standard > a:hover,
+.learning-access-standard > a:focus {
+  color: var(--triton-gold);
+}
+
+.learning-access-standard > a span {
+  margin-left: 8px;
+}
+
+.learning-programs {
+  margin-top: 0;
+}
+
+.learning-program-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.learning-program {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-top: 4px solid var(--triton-bright-blue);
+  display: flex;
+  flex-direction: column;
+  min-height: 255px;
+  padding: 22px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.learning-program:nth-child(3n + 2) {
+  border-top-color: var(--triton-gold);
+}
+
+.learning-program:nth-child(3n) {
+  border-top-color: var(--triton-blue);
+}
+
+.learning-program:hover,
+.learning-program:focus-within {
+  border-color: #9aa7b2;
+  box-shadow: 0 10px 24px rgba(24, 43, 73, .1);
+}
+
+.learning-program > .glyphicon {
+  color: var(--triton-blue);
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.learning-program h3 {
+  color: var(--triton-navy);
+  font-size: 22px;
+  margin: 5px 0 10px;
+}
+
+.learning-program > p:not(.learning-program-type) {
+  line-height: 1.5;
+}
+
 @media (max-width: 991px) {
   .home-delivery-paths {
     padding: 24px 0 0;
@@ -833,6 +1099,18 @@
 
   .skills-entry-action a {
     justify-content: flex-start;
+  }
+
+  .learning-access-standard {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .learning-access-standard > a {
+    grid-column: 2;
+  }
+
+  .learning-program-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -926,6 +1204,52 @@
 
   .skills-entry-action {
     grid-column: 1 / -1;
+  }
+
+  .learning-section-heading h2 {
+    font-size: 29px;
+  }
+
+  .learning-pathway-grid,
+  .learning-program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-pathway-wide {
+    grid-column: auto;
+  }
+
+  .learning-pathway-wide .learning-pathway-steps {
+    display: block;
+  }
+
+  .learning-pathway-card {
+    padding: 20px 18px;
+  }
+
+  .learning-pathway-icon {
+    flex-basis: 44px;
+    font-size: 20px;
+    height: 44px;
+  }
+
+  .learning-access-standard {
+    display: block;
+    padding: 25px 22px;
+  }
+
+  .learning-access-standard > .glyphicon {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .learning-access-standard > a {
+    display: inline-block;
+    margin-top: 18px;
+  }
+
+  .learning-program {
+    min-height: 0;
   }
 }
 
