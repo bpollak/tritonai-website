@@ -64,7 +64,7 @@ export async function startDistServer(distDir = path.join(ROOT, "dist")) {
   };
 }
 
-async function preparePage(page) {
+export async function preparePage(page) {
   await page.addStyleTag({
     content: "*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:0.01ms!important}",
   });
@@ -74,13 +74,13 @@ async function preparePage(page) {
   });
 }
 
-async function visit(page, url) {
+export async function visit(page, url, { settleMs = 600 } = {}) {
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
-  await page.waitForTimeout(600);
+  await page.waitForTimeout(settleMs);
   await preparePage(page);
 }
 
-async function interactionChecks(page, width) {
+export async function interactionChecks(page, width) {
   const outcome = { mobileToggle: "not-present", desktopDropdown: "not-present" };
   const mobileToggle = page.locator("[data-tritonai-mobile-toggle]").first();
   if (await mobileToggle.count()) {
@@ -100,9 +100,15 @@ async function interactionChecks(page, width) {
   return outcome;
 }
 
-async function axeResults(page) {
+export async function axeResults(page) {
   const result = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
-  return result.violations.map((violation) => ({ id: violation.id, impact: violation.impact, help: violation.help, nodes: violation.nodes.length }));
+  return result.violations.map((violation) => ({
+    id: violation.id,
+    impact: violation.impact,
+    help: violation.help,
+    nodes: violation.nodes.length,
+    targets: violation.nodes.slice(0, 5).map((node) => node.target),
+  }));
 }
 
 export async function captureBrowserAudit({ config, routes, reportDir, routeFilter }) {

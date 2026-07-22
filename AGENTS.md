@@ -30,6 +30,8 @@ SITE_BASE_PATH=/tritonai-website npm run build
 SITE_BASE_PATH=/tritonai-website npm run validate
 ```
 
+`npm test` includes the required site-wide browser accessibility gate. It scans every generated route with axe at mobile and desktop widths, checks horizontal overflow, and exercises shared navigation keyboard behavior. Do not skip or weaken this gate for content-only changes; shared templates and injected modules can affect any route. Automated checks do not replace the required visual, keyboard, focus, zoom/reflow, and screen-reader spot checks for affected components.
+
 Visually inspect affected pages at desktop and responsive breakpoints. For newsletter changes, inspect both `/` and `/about/ai-updates.html`.
 
 The validator intentionally reports the inherited production links below as warnings:

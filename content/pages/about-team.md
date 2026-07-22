@@ -14,7 +14,7 @@ relatedSlides: [Team, Campus App Hosting]
 
 ## Responsibility model
 
-<div class="table-responsive"><table class="table table-striped"><thead><tr><th scope="col">Role</th><th scope="col">Primary responsibility</th><th scope="col">Typical decisions</th></tr></thead><tbody>
+<div class="table-responsive" role="region" aria-label="TritonAI responsibility model" tabindex="0"><table class="table table-striped"><thead><tr><th scope="col">Role</th><th scope="col">Primary responsibility</th><th scope="col">Typical decisions</th></tr></thead><tbody>
 <tr><th scope="row">Program leadership</th><td>Strategy, portfolio, campus alignment, and outcomes</td><td>Priorities, partnerships, public commitments</td></tr>
 <tr><th scope="row">Platform team</th><td>Model gateway, shared services, developer experience, reliability, and observability</td><td>Platform standards, supported integrations, operations</td></tr>
 <tr><th scope="row">Solutions team</th><td>Discovery, workflow design, prototypes, evaluation, and delivery patterns</td><td>Fit, pilot design, human oversight, readiness</td></tr>
