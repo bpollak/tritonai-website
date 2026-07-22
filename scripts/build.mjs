@@ -13,6 +13,10 @@ const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
 const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const OUTPUT_DIR = path.resolve("dist");
+const AGENT_SITE_CSS_VERSION = createHash("sha256")
+  .update(await readFile(path.join(SOURCE_DIR, "_resources/css/agent-site.css")))
+  .digest("hex")
+  .slice(0, 12);
 const LANDING_HUBS_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/landing-hubs.css")))
   .digest("hex")
@@ -708,7 +712,9 @@ function transformHtml(html, relativePath, context) {
   $("link[rel='canonical']").remove();
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
   if (!$("link[rel~='icon']").length) $("head").append('<link rel="icon" href="https://www.ucsd.edu/favicon.ico">');
-  if (!$("link[href$='agent-site.css']").length) $("head").append('<link rel="stylesheet" href="/_resources/css/agent-site.css">');
+  if (!$("link[href*='/agent-site.css']").length) {
+    $("head").append(`<link rel="stylesheet" href="/_resources/css/agent-site.css?v=${AGENT_SITE_CSS_VERSION}">`);
+  }
   if ($("body").hasClass("landing-hub-page") && !$("link[href*='/landing-hubs.css']").length) {
     $("head").append(`<link rel="stylesheet" href="/_resources/css/landing-hubs.css?v=${LANDING_HUBS_CSS_VERSION}">`);
   }
