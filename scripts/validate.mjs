@@ -225,6 +225,14 @@ for (const [index, milestone] of (roadmapContent.items || []).entries()) {
   const milestoneMissing = missingFields(milestone, ["period", "title", "status", "summary", "owner", "lastReviewed", "source"]);
   if (milestoneMissing.length) contentFindings.push({ source: `roadmap/milestones.json#${index + 1}`, issue: `Missing fields: ${milestoneMissing.join(", ")}` });
   if (!allowedStatuses.has(milestone.status)) contentFindings.push({ source: `roadmap/milestones.json#${index + 1}`, issue: `Unknown status: ${milestone.status}` });
+  if (/2026/.test(milestone.period)) {
+    if (!Array.isArray(milestone.details) || milestone.details.length < 3 || milestone.details.some((detail) => typeof detail !== "string" || detail.trim().length < 20)) {
+      contentFindings.push({ source: `roadmap/milestones.json#${index + 1}`, issue: "2026 roadmap milestones need at least three useful public detail points" });
+    }
+    if (!Array.isArray(milestone.links) || milestone.links.length < 2 || milestone.links.some((link) => missingFields(link, ["label", "href"]).length)) {
+      contentFindings.push({ source: `roadmap/milestones.json#${index + 1}`, issue: "2026 roadmap milestones need at least two related public resources" });
+    }
+  }
 }
 
 const freshnessWarnings = [];
@@ -571,6 +579,24 @@ for (const page of htmlFiles) {
     }
     if ($(".use-case-narrative-step").length !== 3 || $(".use-case-narrative-step h3").length !== 3) {
       accessibility.push({ page: route, issue: "Use-case narrative must contain three labeled workflow stages" });
+    }
+  }
+  if (route === "/about/roadmap.html") {
+    const currentItems = (roadmapContent.items || []).filter((item) => /2026/.test(item.period));
+    const historyItems = (roadmapContent.items || []).filter((item) => !/2026/.test(item.period));
+    const expectedDetails = currentItems.reduce((total, item) => total + (item.details || []).length, 0);
+    const expectedLinks = currentItems.reduce((total, item) => total + (item.links || []).length, 0);
+    if ($(".roadmap-status-key").length !== 1 || $(".roadmap-status-key li").length !== 4) {
+      accessibility.push({ page: route, issue: "Roadmap status guidance is incomplete" });
+    }
+    if ($(".agent-roadmap-item-current").length !== currentItems.length || $(".agent-roadmap-item-history").length !== historyItems.length) {
+      contentFindings.push({ source: route, issue: "Rendered roadmap milestone counts do not match structured content" });
+    }
+    if ($(".roadmap-detail-list li").length !== expectedDetails || $(".roadmap-item-links a").length !== expectedLinks) {
+      contentFindings.push({ source: route, issue: "Rendered roadmap details or related resources do not match structured content" });
+    }
+    if ($(".roadmap-current h2, .roadmap-history h2").length !== 2 || $(".agent-roadmap-item h3").length !== (roadmapContent.items || []).length) {
+      accessibility.push({ page: route, issue: "Roadmap section and milestone heading hierarchy is incomplete" });
     }
   }
   if (route === "/skills/index.html") {
