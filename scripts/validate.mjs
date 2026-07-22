@@ -552,6 +552,19 @@ for (const page of htmlFiles) {
     if (renderedSkills.length !== (skillsContent.skills || []).length) {
       contentFindings.push({ source: route, issue: `Rendered skill count does not match catalog (${renderedSkills.length} vs ${(skillsContent.skills || []).length})` });
     }
+    renderedSkills.each((_, element) => {
+      const card = $(element);
+      const skillName = card.find(".skills-entry-id code").first().text().trim() || "unknown skill";
+      if (card.find(".skills-entry h3").length !== 1) {
+        accessibility.push({ page: route, issue: `${skillName} is missing its capability heading` });
+      }
+      if (card.find(".skills-entry-summary").first().text().trim().length < 20) {
+        contentFindings.push({ source: route, issue: `${skillName} is missing a useful capability summary` });
+      }
+      if (card.find(".skills-entry-action a").length !== 1 || card.find(".skills-details").length !== 1) {
+        accessibility.push({ page: route, issue: `${skillName} is missing instructions or usage details` });
+      }
+    });
     if ($("[data-skills-search]").length !== 1 || $("[data-skills-collection]").length !== 1) {
       accessibility.push({ page: route, issue: "Skills filters are missing" });
     }

@@ -293,20 +293,89 @@ function renderHomeHero(hero) {
   return `<div class="carousel slide jumbotron jumbotron-hero hm"${carouselAttributes} id="heroslider"><div aria-label="${multipleSlides ? `Revolving Banners with ${hero.slides.length} items` : "TritonAI introduction"}" class="carousel-inner" role="region" tabindex="0">${controls}${slides}</div></div>${multipleSlides ? '<script defer src="/_resources/js/home-hero.js"></script>' : ""}`;
 }
 
+const SKILL_PRESENTATION = {
+  "tritonai-autoreview": {
+    title: "TritonAI Auto Review",
+    category: "Quality and review",
+    icon: "glyphicon-check",
+    summary: "Run a second-model code review and test closeout before a commit, merge, release, or ship.",
+  },
+  "tritonai-feedback": {
+    title: "TritonAI Feedback",
+    category: "Support and feedback",
+    icon: "glyphicon-comment",
+    summary: "Send feedback, bug reports, support requests, or improvement ideas to the TritonAI team.",
+  },
+  "tritonai-harness-config": {
+    title: "TritonAI Harness Configuration",
+    category: "Platform operations",
+    icon: "glyphicon-cog",
+    summary: "Investigate the live TritonAI Harness environment using sanitized runtime and source evidence.",
+  },
+  "ucsd-accessibility-compliance": {
+    title: "UC San Diego Accessibility Compliance",
+    category: "Accessibility",
+    icon: "glyphicon-eye-open",
+    summary: "Audit and remediate UC San Diego websites, documents, media, and communications for digital accessibility.",
+  },
+  "ucsd-branding": {
+    title: "UC San Diego Branding",
+    category: "Web and design",
+    icon: "glyphicon-picture",
+    summary: "Apply the UC San Diego Developer and Decorator 5 visual system to web pages.",
+  },
+  "ucsd-cms": {
+    title: "UC San Diego CMS",
+    category: "Content publishing",
+    icon: "glyphicon-edit",
+    summary: "Author, review, and publish Cascade CMS content with the right templates, metadata, accessibility, and SEO practices.",
+  },
+  "ucsd-data-classification": {
+    title: "UC San Diego Data Classification",
+    category: "Data governance",
+    icon: "glyphicon-lock",
+    summary: "Classify application data under UC IS-3 Protection Levels and apply the appropriate handling controls.",
+  },
+  "ucsd-memory": {
+    title: "UC San Diego Memory",
+    category: "Agent memory",
+    icon: "glyphicon-book",
+    summary: "Search, use, and maintain an existing local TritonAI memory vault.",
+  },
+  "ucsd-memory-create": {
+    title: "UC San Diego Memory Setup",
+    category: "Agent memory",
+    icon: "glyphicon-plus-sign",
+    summary: "Create a local TritonAI memory vault with conversation sync and maintenance workflows.",
+  },
+};
+
+function defaultSkillPresentation(skill) {
+  const title = skill.name
+    .split("-")
+    .map((part) => ({ ucsd: "UC San Diego", tritonai: "TritonAI", cms: "CMS" })[part] || `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join(" ");
+  const firstSentence = skill.description.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || skill.description;
+  return { title, category: "Agent capability", icon: "glyphicon-wrench", summary: firstSentence };
+}
+
 function renderSkillsLibrary(library) {
   const collectionOptions = library.collections
     .map((collection) => `<option value="${escapeHtml(collection.id)}">${escapeHtml(collection.label)} (${collection.count})</option>`)
     .join("");
+  const activeCollectionCount = library.collections.filter((collection) => collection.count > 0).length;
   const cards = library.skills
     .map((skill) => {
+      const presentation = SKILL_PRESENTATION[skill.name] || defaultSkillPresentation(skill);
       const resourceParts = Object.entries(skill.resources)
         .filter(([, count]) => count > 0)
-        .map(([type, count]) => `${count} ${type}`);
-      const searchable = `${skill.name} ${skill.description} ${skill.collectionLabel} ${skill.maintainer || ""}`.toLowerCase();
-      return `<div class="col-sm-6" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="panel panel-default agent-card skills-card"><div class="panel-heading"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h2 class="panel-title">${escapeHtml(skill.name)}</h2></div><div class="panel-body"><p>${escapeHtml(skill.description)}</p>${skill.maintainer ? `<p><strong>Maintainer:</strong> ${escapeHtml(skill.maintainer)}</p>` : ""}<p><strong>Supporting files:</strong> ${resourceParts.length ? escapeHtml(resourceParts.join(" · ")) : "None"}</p><details class="skills-details"><summary>Technical details</summary><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p></details></div><div class="panel-footer"><a class="btn btn-primary" href="${escapeHtml(skill.sourceUrl)}">View SKILL.md</a> <a class="btn btn-default" href="${escapeHtml(skill.directoryUrl)}">Browse files</a></div></article></div>`;
+        .map(([type, count]) => `${count} ${count === 1 ? type.replace(/s$/, "") : type}`);
+      const resourceLabel = resourceParts.length ? resourceParts.join(" · ") : "Self-contained";
+      const searchable = `${skill.name} ${presentation.title} ${presentation.category} ${presentation.summary} ${skill.description} ${skill.collectionLabel} ${skill.maintainer || ""}`.toLowerCase();
+      return `<div class="col-xs-12" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="skills-entry"><div class="skills-entry-icon"><span class="glyphicon ${escapeHtml(presentation.icon)}" aria-hidden="true"></span></div><div class="skills-entry-main"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h3>${escapeHtml(presentation.title)}</h3><p class="skills-entry-id"><code>${escapeHtml(skill.name)}</code></p><p class="skills-entry-summary">${escapeHtml(presentation.summary)}</p><div class="skills-entry-meta"><span>${escapeHtml(presentation.category)}</span><span>${escapeHtml(resourceLabel)}</span>${skill.maintainer ? `<span>Maintained by ${escapeHtml(skill.maintainer)}</span>` : ""}</div><details class="skills-details"><summary>When to use this skill</summary><p>${escapeHtml(skill.description)}</p><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p><p><a href="${escapeHtml(skill.directoryUrl)}">Browse source files</a></p></details></div><div class="skills-entry-action"><a href="${escapeHtml(skill.sourceUrl)}" aria-label="Open instructions for ${escapeHtml(presentation.title)}">Open instructions <span aria-hidden="true">→</span></a></div></article></div>`;
     })
     .join("");
-  return `<div data-skills-catalog><div class="row skills-summary" aria-label="Skills Library summary"><div class="col-sm-4"><div class="skills-summary-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><strong>${library.skills.length}</strong><span>public skills</span></div></div><div class="col-sm-4"><div class="skills-summary-item"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span><strong>${library.collections.length}</strong><span>collections</span></div></div><div class="col-sm-4"><div class="skills-summary-item"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><strong>Hourly</strong><span>automatic sync</span></div></div></div><div class="alert alert-info skills-sync-notice"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span><div><p><strong>Automatically synchronized from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong></p><p>Showing ${library.skills.length} public skills at source commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}. The catalog refreshes hourly and can also respond to a repository dispatch event.</p></div></div><div class="skills-section-heading"><p class="home-kicker">Reusable agent capabilities</p><h2>Browse skills</h2></div><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-7"><label for="skills-search">Search by skill name or purpose</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="skills-search" type="search" autocomplete="off" data-skills-search></div></div><div class="col-sm-5"><label for="skills-collection">Collection</label><select class="form-control" id="skills-collection" data-skills-collection><option value="">All collections (${library.skills.length})</option>${collectionOptions}</select></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row agent-card-grid skills-grid">${cards}</div><div class="panel panel-default skills-install"><div class="panel-heading"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory—not its <code>tritonai/</code> or <code>community/</code> wrapper—into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
+  return `<div data-skills-catalog><ul class="skills-summary" aria-label="Skills Library summary"><li><strong>${library.skills.length}</strong><span>skills ready to use</span></li><li><strong>${activeCollectionCount}</strong><span>active ${activeCollectionCount === 1 ? "collection" : "collections"}</span></li><li><strong>Hourly</strong><span>source refresh</span></li></ul><div class="skills-sync-notice"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><p><strong>Live from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong> Synced at commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}.</p></div><div class="skills-section-heading"><p class="home-kicker">Available now</p><h2>Find a skill for the work in front of you</h2><p>Search by outcome or browse the maintained collection. Open a skill when you are ready to give its instructions to an agent.</p></div><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-7"><label for="skills-search">What do you need help with?</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="skills-search" type="search" autocomplete="off" placeholder="Try accessibility, data, review, or memory" data-skills-search></div></div><div class="col-sm-5"><label for="skills-collection">Collection</label><select class="form-control" id="skills-collection" data-skills-collection><option value="">All collections (${library.skills.length})</option>${collectionOptions}</select></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row skills-grid">${cards}</div><div class="panel panel-default skills-install"><div class="panel-heading"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory—not its <code>tritonai/</code> or <code>community/</code> wrapper—into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
 mkdir -p ~/.agents/skills
 cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>Review the skill and its supporting files before installation. The public library excludes restricted operational procedures and credentials.</p><p><a class="btn btn-default" href="${escapeHtml(library.source.url)}#installing-a-skill">Read the repository instructions</a></p></div></div></div>`;
 }
