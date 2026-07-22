@@ -12,8 +12,9 @@
     "ux:audit": "node scripts/ux-agent/run.mjs --mode audit-only",
     "ux:review": "node scripts/ux-agent/run.mjs --mode audit-and-draft",
     "ux:verify": "node scripts/ux-agent/verify.mjs",
+    "test:a11y": "node scripts/accessibility-check.mjs",
     "test:ux": "node --test test/ux-agent/*.test.mjs",
-    "test": "npm run test:ux && npm run build && npm run validate"
+    "test": "npm run test:ux && npm run build && npm run validate && npm run test:a11y"
   },
   "engines": {
     "node": ">=22"
