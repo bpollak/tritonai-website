@@ -511,6 +511,13 @@ for (const page of htmlFiles) {
   for (const element of $("[style*='background-image']").toArray()) {
     const style = $(element).attr("style") || "";
     const urls = [...style.matchAll(/url\((['\"]?)([^'\")]+)\1\)/gi)].map((match) => match[2]);
+    if (SITE_BASE_PATH) {
+      for (const url of urls) {
+        if (url.startsWith("/") && !url.startsWith(`/${SITE_BASE_PATH}/`)) {
+          missing.push({ page: route, attribute: "style", target: url, issue: "Inline background URL is missing the site base path" });
+        }
+      }
+    }
     const fallback = urls.find((url) => /\.(?:jpe?g|png)(?:$|[?#])/i.test(url));
     if (!fallback) continue;
     const optimized = urls.find((url) => /\.webp(?:$|[?#])/i.test(url));

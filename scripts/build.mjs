@@ -471,6 +471,15 @@ function prefixInternalUrl(value, relativePath) {
   return `${SITE_BASE_PATH}${candidate}`;
 }
 
+function prefixInlineStyleUrls(value, relativePath) {
+  if (!value || !SITE_BASE_PATH || !/url\(/i.test(value)) return value;
+  return value.replace(/url\((['"]?)([^'")]+)\1\)/gi, (_, quote, url) => {
+    const rewritten = prefixInternalUrl(url, relativePath);
+    const delimiter = quote || "'";
+    return `url(${delimiter}${rewritten}${delimiter})`;
+  });
+}
+
 function upsertMeta($, selector, attributes) {
   let element = $(selector).first();
   if (!element.length) {
@@ -729,6 +738,10 @@ function transformHtml(html, relativePath, context) {
       $(element).attr(attr, prefixInternalUrl($(element).attr(attr), relativePath));
     });
   }
+  $("[style*='url(']").each((_, element) => {
+    const target = $(element);
+    target.attr("style", prefixInlineStyleUrls(target.attr("style") || "", relativePath));
+  });
   $("[srcset]").each((_, element) => {
     const rewritten = ($(element).attr("srcset") || "")
       .split(",")
