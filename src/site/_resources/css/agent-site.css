@@ -194,17 +194,7 @@
   padding-top: 0;
 }
 
-.home-feature {
-  background-color: var(--triton-navy);
-  background-image: linear-gradient(135deg, var(--triton-navy), var(--triton-blue));
-  background-position: center;
-  background-size: cover;
-  margin: 48px 0 8px;
-  overflow: hidden;
-}
-
 .home-feature h1 {
-  color: var(--triton-navy);
   font-size: 2.5rem;
   line-height: .9;
   margin: 23px 0 11.5px;
@@ -430,10 +420,6 @@
 }
 
 @media (min-width: 768px) {
-  .home-feature {
-    background-image: url("https://cdn.ucsd.edu/cms/decorator-5/img/bg-grit-orbs-2.jpg");
-  }
-
   .home-ecosystem-callout {
     background-image: linear-gradient(90deg, rgba(24, 43, 73, .98), rgba(0, 98, 155, .9)), url("https://cdn.ucsd.edu/cms/decorator-5/img/navy-simple-grit.jpg");
   }
@@ -924,5 +910,51 @@
 
   .use-case-card-icon {
     font-size: 22px;
+  }
+}
+
+/* Strategy page: principle icon badges */
+.agent-page .strategy-principle .panel-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-page .strategy-principle-icon {
+  align-items: center;
+  background: var(--triton-navy);
+  border-radius: 50%;
+  color: var(--triton-bright-blue);
+  display: flex;
+  font-size: 20px;
+  height: 46px;
+  justify-content: center;
+  margin-bottom: 14px;
+  width: 46px;
+}
+
+/* Strategy page: ecosystem band on sand */
+.agent-page .strategy-ecosystem {
+  background: var(--triton-sand);
+  margin: 36px 0;
+  padding: 32px 24px;
+}
+
+.agent-page .strategy-ecosystem-card {
+  text-align: center;
+}
+
+.agent-page .strategy-ecosystem-card .glyphicon {
+  color: var(--triton-blue);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.agent-page .strategy-ecosystem-card h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .agent-page .strategy-ecosystem {
+    padding: 24px 16px;
   }
 }
