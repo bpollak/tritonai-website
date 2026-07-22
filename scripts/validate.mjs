@@ -474,6 +474,12 @@ for (const page of htmlFiles) {
   }
   const performanceRuntime = $("script[src$='/_resources/js/site-performance.js'][defer]");
   if (performanceRuntime.length !== 1) performance.push({ page: route, issue: "Performance runtime is missing or not deferred" });
+  if ($("body").hasClass("landing-hub-page")) {
+    const landingStylesheet = $("link[href*='/landing-hubs.css']").attr("href") || "";
+    if (!/[?&]v=[a-f0-9]{12}(?:$|&)/.test(landingStylesheet)) {
+      performance.push({ page: route, issue: "Landing hub stylesheet is missing its content cache key" });
+    }
+  }
   for (const source of afterRenderDecoratorScripts) {
     const script = $(`script[data-after-render-src='${source}']`);
     if (script.length !== 1 || script.attr("src")) {

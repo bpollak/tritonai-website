@@ -1,4 +1,5 @@
 import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { load } from "cheerio";
 import matter from "gray-matter";
@@ -12,6 +13,10 @@ const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
 const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const OUTPUT_DIR = path.resolve("dist");
+const LANDING_HUBS_CSS_VERSION = createHash("sha256")
+  .update(await readFile(path.join(SOURCE_DIR, "_resources/css/landing-hubs.css")))
+  .digest("hex")
+  .slice(0, 12);
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
 const AFTER_RENDER_SCRIPTS = new Set([
@@ -635,8 +640,8 @@ function transformHtml(html, relativePath, context) {
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
   if (!$("link[rel~='icon']").length) $("head").append('<link rel="icon" href="https://www.ucsd.edu/favicon.ico">');
   if (!$("link[href$='agent-site.css']").length) $("head").append('<link rel="stylesheet" href="/_resources/css/agent-site.css">');
-  if ($("body").hasClass("landing-hub-page") && !$("link[href$='landing-hubs.css']").length) {
-    $("head").append('<link rel="stylesheet" href="/_resources/css/landing-hubs.css">');
+  if ($("body").hasClass("landing-hub-page") && !$("link[href*='/landing-hubs.css']").length) {
+    $("head").append(`<link rel="stylesheet" href="/_resources/css/landing-hubs.css?v=${LANDING_HUBS_CSS_VERSION}">`);
   }
   const connectionHints = PRECONNECT_ORIGINS.map(
     (origin) => `<link rel="preconnect" href="${origin}" crossorigin><link rel="dns-prefetch" href="//${new URL(origin).host}">`,
