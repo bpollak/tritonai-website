@@ -10,6 +10,16 @@ source: TritonAI strategy presentation
 measurementPeriod: 2026 development cycle
 dataClassification: Public description; discovery notes follow the meeting's approved handling
 canonicalUrl: /use-cases/ai-use-case-meeting.html
+videoSrc: https://tritongpt-deck.vercel.app/media/product-previews/ai-use-case-meeting-preview.mp4
+videoPoster: https://tritongpt-deck.vercel.app/media/product-previews/ai-use-case-meeting-poster.png
+videoLabel: AI Use-Case Meeting demo
+videoDescription: Silent screen recording showing presenter intake, agenda generation, and the recording archive.
+stats:
+  - { value: "Biweekly", label: "Cadence", sub: "Every other Friday" }
+  - { value: "5-60", label: "Minutes", sub: "Presenter-selected" }
+  - { value: "All", label: "Audience", sub: "Staff, faculty, researchers" }
+toolHighlights: ["Presenter Intake", "Agenda Generation", "Recording Archive"]
+
 relatedSlides: [AI Use Case Meeting]
 humanOversight: A TritonAI facilitator and campus service owner confirm the scope and recommendation.
 measurableOutcome: Time to decision, completeness of intake, appropriate routing, and participant usefulness.

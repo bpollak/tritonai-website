@@ -160,16 +160,35 @@ function renderStatus(status) {
 }
 
 function renderUseCaseCards(useCases) {
+  const iconMap = {
+    "contract-review": "file-text",
+    "transcript-matching": "education",
+    "dissertation-formatter": "book",
+    "pdf-remediation": "eye-open",
+    "biobib": "list-alt",
+    "ai-use-case-meeting": "comment",
+    "instructional-ai": "blackboard",
+    "research-alignment": "search",
+  };
   return `<div class="row agent-card-grid">${useCases
     .map(
       (useCase) =>
-        `<div class="col-sm-6 col-md-4"><article class="panel panel-default agent-card"><div class="panel-body">${renderStatus(useCase.status)}<h2 class="h3"><a href="${escapeHtml(useCase.canonicalUrl)}">${escapeHtml(useCase.title)}</a></h2><p>${escapeHtml(useCase.summary)}</p><p><strong>Measure:</strong> ${escapeHtml(useCase.measurableOutcome)}</p></div></article></div>`,
+        `<div class="col-sm-6 col-md-4"><article class="panel panel-default agent-card use-case-card"><div class="panel-body"><span class="glyphicon glyphicon-${iconMap[useCase.slug] || "star"} use-case-card-icon" aria-hidden="true"></span>${renderStatus(useCase.status)}<h2 class="h3"><a href="${escapeHtml(useCase.canonicalUrl)}">${escapeHtml(useCase.title)}</a></h2><p>${escapeHtml(useCase.summary)}</p><p><strong>Measure:</strong> ${escapeHtml(useCase.measurableOutcome)}</p></div></article></div>`,
     )
     .join("")}</div>`;
 }
 
 function renderUseCasePage(useCase) {
-  return `<p class="lead">${escapeHtml(useCase.summary)}</p>${renderStatus(useCase.status)}<dl class="agent-meta"><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd><dt>Measurement period</dt><dd>${escapeHtml(useCase.measurementPeriod)}</dd><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd><dt>Last reviewed</dt><dd>${escapeHtml(useCase.lastReviewed)}</dd></dl>${useCase.html}<p><a class="btn btn-default" href="/use-cases/index.html">Back to all use cases</a></p>`;
+  const statsHtml = useCase.stats && useCase.stats.length
+    ? `<div class="use-case-stats"><div class="row agent-card-grid">${useCase.stats.map((stat) => `<div class="col-sm-4"><div class="use-case-stat"><span class="use-case-stat-value">${escapeHtml(stat.value)}</span><span class="use-case-stat-label">${escapeHtml(stat.label)}</span>${stat.sub ? `<span class="use-case-stat-sub">${escapeHtml(stat.sub)}</span>` : ""}</div></div>`).join("")}</div></div>`
+    : "";
+  const videoHtml = useCase.videoSrc
+    ? `<div class="use-case-demo"><div class="use-case-demo-frame"><video class="img-responsive" controls muted playsinline preload="metadata"${useCase.videoPoster ? ` poster="${escapeHtml(useCase.videoPoster)}"` : ""} aria-label="${escapeHtml(useCase.videoLabel || useCase.title + " demo")}"${useCase.videoDescription ? ` aria-describedby="${useCase.slug}-demo-description"` : ""} data-silent-demo="true"><source src="${escapeHtml(useCase.videoSrc)}" type="video/mp4">Your browser does not support the video element.</video></div>${useCase.videoDescription ? `<p id="${useCase.slug}-demo-description" class="use-case-demo-caption"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ${escapeHtml(useCase.videoDescription)}</p>` : ""}</div>`
+    : "";
+  const toolsHtml = useCase.toolHighlights && useCase.toolHighlights.length
+    ? `<p class="use-case-tools">${useCase.toolHighlights.map((tool) => `<span class="label label-default">${escapeHtml(tool)}</span>`).join(" ")}</p>`
+    : "";
+  return `<p class="lead">${escapeHtml(useCase.summary)}</p>${renderStatus(useCase.status)}${statsHtml}<dl class="agent-meta"><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd><dt>Measurement period</dt><dd>${escapeHtml(useCase.measurementPeriod)}</dd><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd><dt>Last reviewed</dt><dd>${escapeHtml(useCase.lastReviewed)}</dd></dl>${videoHtml}${toolsHtml}${useCase.html}<p><a class="btn btn-default" href="/use-cases/index.html">Back to all use cases</a></p>`;
 }
 
 function renderRoadmap(roadmap) {

@@ -14,6 +14,16 @@ relatedSlides: [Contract Review]
 humanOversight: A qualified reviewer approves findings and every proposed change before use.
 measurableOutcome: Review time, completeness, reviewer agreement, rework, and escalations.
 featured: true
+videoSrc: https://tritongpt-deck.vercel.app/media/media7.mp4
+videoPoster: https://tritongpt-deck.vercel.app/media/image47.png
+videoLabel: AI Contract Reviewer demo
+videoDescription: Silent screen recording showing clause review, risk findings, and proposed redlines prepared for human review.
+stats:
+  - { value: "120→11 min", label: "Review time", sub: "91% time savings" }
+  - { value: "50+", label: "Risk categories", sub: "Liability, IP, data, SLAs" }
+  - { value: "3", label: "Contract types", sub: "NDA, T&C, Software" }
+toolHighlights: ["UC Legal Position", "Policy-backed Redlines", "Tracked Changes"]
+
 ---
 
 ## Problem

@@ -813,3 +813,116 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* Use-case cards (homepage featured grid) */
+.use-case-card .panel-body {
+  position: relative;
+}
+
+.use-case-card-icon {
+  color: var(--triton-blue);
+  font-size: 26px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+/* Use-case stats (detail page) */
+.use-case-stats {
+  margin: 28px 0;
+}
+
+.use-case-stat {
+  align-items: center;
+  background: var(--triton-navy);
+  border-bottom: 4px solid var(--triton-bright-blue);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 120px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.use-case-stat-value {
+  color: var(--triton-gold);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.use-case-stat-label {
+  font-size: 13px;
+  letter-spacing: .06em;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.use-case-stat-sub {
+  color: #d9f2f5;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* Use-case demo video (detail page) */
+.use-case-demo {
+  margin: 32px 0;
+}
+
+.use-case-demo-frame {
+  aspect-ratio: 16 / 9;
+  background: var(--triton-navy);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(24, 43, 73, .14);
+  overflow: hidden;
+}
+
+.use-case-demo-frame video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.use-case-demo-caption {
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 12px;
+}
+
+.use-case-demo-caption .glyphicon {
+  color: var(--triton-blue);
+  margin-right: 5px;
+}
+
+/* Use-case tool highlights (detail page) */
+.use-case-tools {
+  margin: 16px 0 24px;
+}
+
+.use-case-tools .label {
+  background: var(--triton-bright-blue);
+  border-radius: 2px;
+  color: var(--triton-navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin: 3px 4px 3px 0;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .use-case-stat {
+    min-height: 96px;
+  }
+
+  .use-case-stat-value {
+    font-size: 26px;
+  }
+
+  .use-case-card-icon {
+    font-size: 22px;
+  }
+}
