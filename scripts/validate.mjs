@@ -600,6 +600,16 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "Campus impact must use the reusable equal-height metric component" });
     }
   }
+  if (route === "/developer-apis/index.html") {
+    const harnessSection = $("#tritonai-harness");
+    const harnessFlow = harnessSection.find(".build-harness-flow > li");
+    if (harnessSection.length !== 1 || harnessFlow.length !== 4) {
+      contentFindings.push({ source: route, issue: "Build landing page must include the four-step TritonAI Harness overview" });
+    }
+    if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
+      accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
+    }
+  }
   if (route === "/about/roadmap.html") {
     const currentItems = (roadmapContent.items || []).filter((item) => /2026/.test(item.period));
     const historyItems = (roadmapContent.items || []).filter((item) => !/2026/.test(item.period));

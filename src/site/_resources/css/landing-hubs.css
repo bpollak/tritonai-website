@@ -510,6 +510,91 @@
   text-underline-offset: 4px;
 }
 
+.build-harness {
+  background: #f7f8f9;
+  border-bottom: 1px solid var(--triton-border);
+  border-top: 1px solid var(--triton-border);
+}
+
+.build-harness-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.build-harness-text-link {
+  color: var(--triton-blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.build-harness-text-link:hover,
+.build-harness-text-link:focus {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.build-harness-card {
+  background: var(--triton-navy);
+  border-bottom: 6px solid var(--triton-bright-blue);
+  box-shadow: 0 18px 42px rgba(24, 43, 73, .16);
+  color: #fff;
+  padding: 28px 30px 30px;
+}
+
+.build-harness-card-label {
+  color: var(--triton-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  margin-bottom: 17px;
+  text-transform: uppercase;
+}
+
+.build-harness-flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.build-harness-flow li {
+  border-top: 1px solid rgba(255, 255, 255, .22);
+  display: grid;
+  gap: 1px 15px;
+  grid-template-columns: 34px 1fr;
+  padding: 13px 0;
+}
+
+.build-harness-flow li > span {
+  color: var(--triton-gold);
+  font-size: 12px;
+  font-weight: 700;
+  grid-row: 1 / span 2;
+  letter-spacing: .08em;
+  padding-top: 3px;
+}
+
+.build-harness-flow strong {
+  color: #fff;
+  font-size: 18px;
+}
+
+.build-harness-flow small {
+  color: #d9f2f5;
+  font-size: 14px;
+}
+
+.build-harness-flow .build-harness-core {
+  background: rgba(0, 198, 215, .12);
+  border-left: 4px solid var(--triton-bright-blue);
+  margin: 0 -15px;
+  padding-left: 11px;
+  padding-right: 15px;
+}
+
 .hub-principle-grid article {
   align-items: flex-start;
   border-top: 3px solid var(--triton-bright-blue);
@@ -883,6 +968,9 @@
   .cms-tile-grid > [class*="col-"],
   .cms-callout-grid > [class*="col-"] { display: block; }
   .hub-action-card { min-height: 0; }
+  .build-harness-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .build-harness-actions .btn { width: 100%; }
+  .build-harness-card { padding: 24px 22px 26px; }
   .hub-measure-grid,
   .hub-lifecycle { grid-template-columns: 1fr; }
   .hub-subscribe { background: #fff; }
