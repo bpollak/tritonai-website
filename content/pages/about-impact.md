@@ -14,12 +14,14 @@ relatedSlides: [Use Cases, Roadmap]
 
 ## What we measure
 
+<!-- AGENT_SECTION: ux-about-impact-measures -->
 <div class="row agent-card-grid">
 <div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Reach</h2><p>Eligible users, active users, participating units, and repeat use.</p></div></div></div>
 <div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Efficiency</h2><p>Time to complete, queue reduction, and work returned for higher-value activity.</p></div></div></div>
 <div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Quality</h2><p>Accuracy, completeness, rework, reviewer agreement, and user-reported usefulness.</p></div></div></div>
 <div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Trust</h2><p>Escalations, accessibility findings, policy exceptions, and human-oversight performance.</p></div></div></div>
 </div>
+<!-- END_AGENT_SECTION -->
 
 ## Publication standard
 

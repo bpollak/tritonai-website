@@ -9,7 +9,11 @@
     "sync:skills": "node scripts/sync-skills.mjs",
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
-    "test": "npm run build && npm run validate"
+    "ux:audit": "node scripts/ux-agent/run.mjs --mode audit-only",
+    "ux:review": "node scripts/ux-agent/run.mjs --mode audit-and-draft",
+    "ux:verify": "node scripts/ux-agent/verify.mjs",
+    "test:ux": "node --test test/ux-agent/*.test.mjs",
+    "test": "npm run test:ux && npm run build && npm run validate"
   },
   "engines": {
     "node": ">=22"
@@ -19,5 +23,10 @@
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
     "turndown": "^7.2.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "lighthouse": "^12.8.2",
+    "playwright": "^1.55.0"
   }
 }

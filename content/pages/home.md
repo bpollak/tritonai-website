@@ -28,6 +28,7 @@ relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 </section>
 <!-- END_AGENT_SECTION -->
 
+<!-- AGENT_SECTION: ux-home-starting-points -->
 <section class="home-section home-starting-points" aria-labelledby="starting-point-heading">
 <div class="home-section-heading"><p class="home-kicker">Start here</p><h2 id="starting-point-heading">Choose your starting point</h2><p>Go straight to the campus AI experience that matches what you want to accomplish.</p></div>
 
@@ -38,7 +39,9 @@ relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 <div class="col-sm-6 col-md-3"><article class="panel panel-default agent-card home-path-card home-path-card-learn"><div class="panel-body"><span class="glyphicon glyphicon-education home-path-icon" aria-hidden="true"></span><h3>Learn AI skills</h3><p>Follow a role-based path for safe, effective AI use.</p><p class="home-card-action"><a class="btn btn-primary" href="/training-resources/pathways.html">Choose a pathway</a></p></div></article></div>
 </div>
 </section>
+<!-- END_AGENT_SECTION -->
 
+<!-- AGENT_SECTION: ux-home-ecosystem -->
 <section class="home-ecosystem-callout" aria-labelledby="ecosystem-heading">
 <div class="row">
 <div class="col-md-7"><p class="home-kicker">The TritonAI difference</p><h2 id="ecosystem-heading">One ecosystem, several ways to deliver value</h2>
@@ -50,6 +53,7 @@ TritonAI combines a broadly useful AI assistant with focused solutions for campu
 <div class="col-md-5"><ol class="home-delivery-paths"><li><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><div><strong>Ask</strong><small>Use a trusted campus assistant.</small></div></li><li><span class="glyphicon glyphicon-link" aria-hidden="true"></span><div><strong>Embed</strong><small>Bring AI into an existing service.</small></div></li><li><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><div><strong>Automate</strong><small>Supervise a repeatable workflow.</small></div></li></ol></div>
 </div>
 </section>
+<!-- END_AGENT_SECTION -->
 
 <section class="home-section home-tools-section" aria-labelledby="tools-action-heading">
 <div class="home-section-heading"><p class="home-kicker">See it work</p><h2 id="tools-action-heading">TritonAI tools in action</h2><p>Watch real campus workflows move from source material to human-reviewed results.</p></div>
