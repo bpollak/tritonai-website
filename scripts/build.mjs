@@ -272,12 +272,23 @@ function renderUseCasePage(useCase) {
 }
 
 function renderRoadmap(roadmap) {
-  return `<p class="lead">${escapeHtml(roadmap.description)}</p><div class="alert alert-info"><strong>Status key:</strong> Shipped is publicly available; Pilot is being tested with bounded users and oversight; In development is active work without a committed launch date; Exploring is discovery, not a delivery commitment.</div>${roadmap.items
-    .map(
-      (item) =>
-        `<article class="agent-roadmap-item">${renderStatus(item.status)}<h2>${escapeHtml(item.period)}: ${escapeHtml(item.title)}</h2><p>${escapeHtml(item.summary)}</p><p><small><strong>Owner:</strong> ${escapeHtml(item.owner)} · <strong>Last reviewed:</strong> ${escapeHtml(item.lastReviewed)}</small></p></article>`,
-    )
-    .join("")}<p><a class="btn btn-primary" href="/use-cases/index.html">Explore current use cases</a></p>`;
+  const currentItems = roadmap.items.filter((item) => /2026/.test(item.period));
+  const historyItems = roadmap.items.filter((item) => !/2026/.test(item.period));
+  const renderLinks = (links = []) => links.length
+    ? `<nav class="roadmap-item-links" aria-label="Related resources">${links.map((link) => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)} <span aria-hidden="true">→</span></a>`).join("")}</nav>`
+    : "";
+  const currentHtml = currentItems.map((item, index) => {
+    const headingId = `roadmap-current-${index + 1}`;
+    const details = item.details?.length
+      ? `<ul class="roadmap-detail-list">${item.details.map((detail) => `<li>${escapeHtml(detail)}</li>`).join("")}</ul>`
+      : "";
+    return `<article class="agent-roadmap-item agent-roadmap-item-current" aria-labelledby="${headingId}"><header><p class="roadmap-period">${escapeHtml(item.period)}</p>${renderStatus(item.status)}</header><h3 id="${headingId}">${escapeHtml(item.title)}</h3><p class="roadmap-summary">${escapeHtml(item.summary)}</p>${details}${renderLinks(item.links)}<p class="roadmap-item-meta"><span><strong>Owner</strong> ${escapeHtml(item.owner)}</span><span><strong>Reviewed</strong> ${escapeHtml(item.lastReviewed)}</span></p></article>`;
+  }).join("");
+  const historyHtml = historyItems.map((item, index) => {
+    const headingId = `roadmap-history-${index + 1}`;
+    return `<article class="agent-roadmap-item agent-roadmap-item-history" aria-labelledby="${headingId}"><div><p class="roadmap-period">${escapeHtml(item.period)}</p>${renderStatus(item.status)}</div><h3 id="${headingId}">${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><p class="roadmap-item-meta"><strong>Owner</strong> ${escapeHtml(item.owner)}</p></article>`;
+  }).join("");
+  return `<p class="lead roadmap-lead">${escapeHtml(roadmap.description)}</p><section class="roadmap-status-key" aria-labelledby="roadmap-status-heading"><div><p class="home-kicker">How to read this page</p><h2 id="roadmap-status-heading">Status reflects delivery confidence</h2></div><ul><li>${renderStatus("Shipped")}<span>Publicly available</span></li><li>${renderStatus("Pilot")}<span>Bounded testing with oversight</span></li><li>${renderStatus("In development")}<span>Active work without a committed launch date</span></li><li>${renderStatus("Exploring")}<span>Discovery, not a delivery commitment</span></li></ul></section><section class="roadmap-current" aria-labelledby="roadmap-current-heading"><div class="roadmap-section-heading"><p class="home-kicker">Current horizon</p><h2 id="roadmap-current-heading">2026 delivery detail</h2><p>The quarterly roadmap is organized around supervised solutions, reusable building blocks, and a governed path from prototype to supported service. A quarter's status reflects the grouped work; individual linked services may be further along.</p></div><div class="roadmap-current-list">${currentHtml}</div></section><section class="roadmap-history" aria-labelledby="roadmap-history-heading"><div class="roadmap-section-heading"><p class="home-kicker">Foundation</p><h2 id="roadmap-history-heading">How the ecosystem got here</h2><p>Earlier milestones show the progression from broad access to shared infrastructure and focused campus workflows.</p></div><div class="roadmap-history-grid">${historyHtml}</div></section><nav class="roadmap-actions" aria-label="Roadmap next steps"><a class="btn btn-primary" href="/use-cases/index.html">Explore current use cases</a><a class="btn btn-default" href="/about/get-involved.html">Bring a campus workflow</a></nav>`;
 }
 
 function renderPublicFacts(facts) {
