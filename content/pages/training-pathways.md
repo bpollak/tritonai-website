@@ -27,3 +27,16 @@ relatedSlides: [AI Essentials, Citizen Developer Ecosystem]
 Recordings should include captions and a transcript, use a descriptive title, and provide a meaningful poster or text alternative. Site demonstration videos autoplay silently with visible controls so visitors can pause them; people who prefer reduced motion must be able to access the same information through the accompanying description.
 
 <p><a class="btn btn-primary" href="/training-resources/webinars.html">Browse recorded webinars</a></p>
+
+## Training programs
+
+<!-- AGENT_SECTION: ux-training-programs -->
+<div class="row agent-card-grid">
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Self-Paced Learning</h2><p>Two UC Learning modules — AI Foundations covers concepts and UC policies; TritonGPT Training teaches hands-on tool application to real workflows.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">START Prompting Framework</h2><p>Situation, Task, Action, References, Tone — a repeatable method for getting strong results from any AI tool, with a prompt library of ready-made templates.</p><p><a href="/training-resources/prompting/index.html">Browse the prompt library</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Live Webinars &amp; Workshops</h2><p>Recurring sessions covering real use cases — from Lean Six Sigma + AI to TritonGPT deep dives. Recordings and slide decks available for async learning.</p><p><a href="/training-resources/webinars.html">Watch recordings</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Everyday AI Video Series</h2><p>Short YouTube videos demonstrating practical applications — showing staff how to apply TritonGPT to the tasks they already do every day.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">TritonAI Champions</h2><p>A Community of Practice connecting AI advocates across departments — collaborative learning, shared use cases, and peer support for adoption.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">UC-Wide Resources</h2><p>Shared training materials and responsible AI guidance across the University of California system — leveraging the federation for consistent standards.</p></div></div></div>
+</div>
+<!-- END_AGENT_SECTION -->

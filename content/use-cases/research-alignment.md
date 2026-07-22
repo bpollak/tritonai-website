@@ -22,8 +22,8 @@ Researchers and support teams must monitor many changing funding and publication
 
 ## Solution
 
-The concept would combine approved profile information with public research and funding sources to surface explainable matches. Each suggestion should show why it appeared and link back to the authoritative source.
+The concept would parse the requirements of an opportunity and identify experts whose published research, grants, and methods are a strong fit. Profiles are seeded from the Employee Activity Hub and enriched from public academic sources — currently NIH RePORTER, NSF Awards, PubMed, ORCID, and Semantic Scholar — with weekly refreshes to reflect current work. Searches can run within or across divisions and schools. Each suggestion should show why it appeared and link back to the authoritative source.
 
 ## Current status
 
-Exploring. No production commitment or exact launch date is implied. Data sources, consent, evaluation, and service ownership must be resolved before a pilot.
+Exploring. No production commitment or exact launch date is implied. Data sources, consent, evaluation, and service ownership must be resolved before a pilot. The underlying data is designed to serve more than one purpose: opportunity matching today, with collaboration discovery and strategic planning over time.
