@@ -511,6 +511,12 @@
 <h2>TritonAI Developer APIs</h2>
 <p>A governed gateway to self-hosted and approved cloud models, with starter credits, usage reporting, and recharge paths for projects that scale.</p>
 
+<div class="alert alert-info" style="margin: 20px 0; padding: 20px;">
+<h3 style="margin-top: 0;">Browse the Model Hub</h3>
+<p>See every available model — on-prem open-weight models at SDSC and approved cloud providers — in one table with capabilities, context windows, and pricing.</p>
+<p><a class="btn btn-primary btn-lg" href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
+</div>
+
 <h3>TritonAI Harness: Campus Agentic Development Platform</h3>
 <p>The TritonAI Harness is UC San Diego's campus agentic development platform — the execution layer that turns model inference into governed, tool-using AI workers. Based on the Hugging Face agent glossary: <em>Model &ne; Agent. Agent = Model + Scaffold + Harness.</em> The Harness is what makes it one: it calls the model, routes tool calls, manages the action-observation loop, handles errors, and controls state and memory across turns.</p>
 <p><strong>Architecture:</strong> User &rarr; Harness &rarr; LiteLLM Gateway &rarr; Hyperscaler/On-prem models + Tools/Skills (via MCP)</p>
@@ -606,6 +612,28 @@
 <li><strong>UCSD-Skills-Library</strong> (public) — all other skills in <code>tritonai/</code> and <code>community/</code> folders</li>
 </ul>
 <p>Skills are designed to be consumed dynamically by the Triton Code Agent and T3 Harness for campus workflows.</p>
+
+<h3>Agent Engineering Strategy</h3>
+<p>TritonAI supports multiple agentic coding interfaces so builders can choose the right tool for the task. All routes connect through the same LiteLLM gateway with campus recharge and on-prem governance.</p>
+<ul>
+<li><strong>CODEX (OpenAI)</strong> — autonomous delegation for self-contained, high-correctness tasks. Best when accuracy and verification are non-negotiable and work can run in parallel isolated environments.</li>
+<li><strong>Claude Code (Anthropic)</strong> — collaborative coordination across GitHub, docs, chat, and planning tools. Best for interdependent work where teams and agents must stay aligned with human-in-the-loop iteration.</li>
+<li><strong>Gemini Antigravity (Google)</strong> — also supported for teams that prefer the Gemini ecosystem.</li>
+</ul>
+<p><strong>Routing guidance:</strong> Use CODEX when correctness and autonomous recovery are critical and the task is self-contained. Use Claude Code when iterative drafting and review are acceptable and the workflow spans multiple systems.</p>
+
+<h3>Campus App Hosting</h3>
+<p>What happens after you build — the hosting path for campus apps, with review gates at each step.</p>
+<div class="table-responsive"><table class="table table-striped"><thead><tr><th scope="col">Step</th><th scope="col">Phase</th><th scope="col">What happens</th></tr></thead><tbody>
+<tr><th scope="row">1</th><td>Prototype</td><td>Build locally with Claude Code, CODEX, or curated ITS templates through the Citizen Developer Program</td></tr>
+<tr><th scope="row">2</th><td>Apply</td><td>Submit department sponsor, technical POC, audience, and data classification</td></tr>
+<tr><th scope="row">3</th><td>Review</td><td>Automated checks plus guided ITS review of data sensitivity, restricted APIs, and stack fit</td></tr>
+<tr><th scope="row">4</th><td>Deploy</td><td>Campus-only hosting with SSO, logging, and network controls — available on campus or VPN</td></tr>
+<tr><th scope="row">5</th><td>Operate</td><td>Department supports the app; ITS manages platform health and may remove non-compliant apps</td></tr>
+<tr><th scope="row">6</th><td>Promote</td><td>High-value apps graduate to enterprise support; unsupported apps are retired</td></tr>
+</tbody></table></div>
+<div class="row"><div class="col-md-6"><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title">ITS Owns</h4></div><div class="panel-body"><ul><li>Templates &amp; Standards</li><li>Hosting, SSO &amp; Logs</li><li>Baseline Risk Review</li><li>Right to Remove Apps</li></ul></div></div></div><div class="col-md-6"><div class="panel panel-warning"><div class="panel-heading"><h4 class="panel-title">Department Owns</h4></div><div class="panel-body"><ul><li>App Logic &amp; Dependencies</li><li>Accessibility &amp; Testing</li><li>End-User Support</li><li>Named Technical POC</li></ul></div></div></div></div>
+<p><strong>Boundaries:</strong> Campus App Hosting is for department workflows and single-purpose tools. It is not for public websites, HIPAA workloads, or payment processing.</p>
 
                     </section>
 				    

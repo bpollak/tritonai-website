@@ -22,8 +22,8 @@ featured: false
 
 ## Solution
 
-The developing workflow gathers context before and during a structured conversation, then drafts a use-case brief with assumptions, required partners, evaluation measures, and a recommended delivery path.
+The developing workflow captures presenter submissions, meeting length, topic context, upcoming sessions, and archive metadata. It runs on a biweekly cadence (every other Friday) with 5–60 minute presenter-selected sessions open to staff, faculty, and researchers. The platform generates agendas from submissions and maintains a recording archive so individual experiments become shared institutional learning.
 
 ## Current status
 
-In development. The tool supports discovery; people still decide whether the idea should proceed, change direction, or stop.
+In development. The tool supports session management and community learning; people still decide whether the idea should proceed, change direction, or stop.

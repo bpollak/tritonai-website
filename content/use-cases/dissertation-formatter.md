@@ -22,8 +22,8 @@ Dissertation formatting contains many detailed rules. Repeated manual checks can
 
 ## Solution
 
-The pilot checks rule categories, applies only bounded mechanical fixes, and separates issues that require human judgment. It explains findings so the student can review each change.
+The pilot validates Word documents against UCSD GEPA rules, checking 84 formatting rules across 13 categories and applying 17+ automatic fixes for common issues. Results are sorted into three buckets — fixed, action needed, and verify — so students can see what was corrected automatically and what still needs human review. It explains findings so the student can review each change.
 
 ## Current status
 
-Pilot. The workflow does not replace the official submission requirements or final graduate-education review.
+Pilot. The workflow does not replace the official submission requirements or final graduate-education review. Students upload a .docx, choose the document type, run checks, and download the result through a UC San Diego-branded interface.

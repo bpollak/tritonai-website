@@ -22,8 +22,8 @@ Preparing a BioBib can require repeated sorting, categorization, formatting, and
 
 ## Solution
 
-The pilot organizes approved inputs into the expected sections and prepares an editable document for review. It can help identify missing or ambiguous items without claiming that the draft is complete or authoritative.
+The pilot splits a Word CV into 20 review parts and routes each section through TritonAI for formatting and extraction. The output is a downloadable .docx BioBib draft organized into the expected UCSD academic biography and bibliography sections. It can help identify missing or ambiguous items without claiming that the draft is complete or authoritative.
 
 ## Current status
 
-Pilot. The responsible faculty member or service owner remains the source of truth for the final record.
+Pilot. The responsible faculty member or service owner remains the source of truth for the final record. The browser-first interface gives faculty and academic personnel teams a lightweight path from upload to downloadable output.
