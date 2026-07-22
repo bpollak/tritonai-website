@@ -210,6 +210,7 @@ const generatedPaths = new Set([
   "/about/roadmap.html",
   "/404.html",
 ].map(normalizeRoute));
+const useCaseByRoute = new Map(useCaseContent.entries.map((entry) => [normalizeRoute(entry.canonicalUrl), entry]));
 const landingHubPaths = new Set([
   "/",
   "/use-cases/index.html",
@@ -552,6 +553,25 @@ for (const page of htmlFiles) {
     if (!$("meta[name='description']").attr("content")) metadata.push({ page: route, issue: "Missing description" });
     if (!$("meta[property='og:title']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph title" });
     if (!$("script[type='application/ld+json'][data-tritonai-schema]").length) metadata.push({ page: route, issue: "Missing JSON-LD" });
+  }
+  if (useCaseByRoute.has(route)) {
+    const useCase = useCaseByRoute.get(route);
+    const requiredSections = [".use-case-overview", ".use-case-governance", ".use-case-evidence", ".use-case-story", ".use-case-actions"];
+    for (const selector of requiredSections) {
+      if ($(selector).length !== 1) accessibility.push({ page: route, issue: `Expected one ${selector.slice(1)} section` });
+    }
+    if ($(".use-case-governance-grid > div").length !== 4) {
+      contentFindings.push({ source: route, issue: "Use-case accountability summary must contain four fields" });
+    }
+    if ($(".use-case-stats li").length !== (useCase.stats || []).length) {
+      contentFindings.push({ source: route, issue: "Rendered impact measures do not match use-case content" });
+    }
+    if ($(".use-case-tools li").length !== (useCase.toolHighlights || []).length) {
+      contentFindings.push({ source: route, issue: "Rendered workflow elements do not match use-case content" });
+    }
+    if ($(".use-case-narrative-step").length !== 3 || $(".use-case-narrative-step h3").length !== 3) {
+      accessibility.push({ page: route, issue: "Use-case narrative must contain three labeled workflow stages" });
+    }
   }
   if (route === "/skills/index.html") {
     const renderedSkills = $("[data-skill-card]");
