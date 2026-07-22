@@ -3,7 +3,7 @@ title: TritonAI Strategy
 path: /about/strategy.html
 description: How UC San Diego combines trusted horizontal AI services with supervised vertical workflows — from chatbots to agentic workflows.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-21
+lastReviewed: 2026-07-22
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation
 canonicalUrl: /about/strategy.html
@@ -14,16 +14,14 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, administrative-ai-the-efficiency-
 
 ## Campus impact at a glance
 
-<div class="use-case-stats">
-<div class="row n-grid">
-<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">73,000+</span><span class="use-case-stat-label">Users served</span><span class="use-case-stat-sub">Across TritonAI initiatives</span></div></div>
-<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">16</span><span class="use-case-stat-label">Campus websites</span><span class="use-case-stat-sub">Powered by the TritonGPT widget</span></div></div>
-<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">91%</span><span class="use-case-stat-label">Faster review</span><span class="use-case-stat-sub">120 min to 11 min per contract</span></div></div>
-<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">81%</span><span class="use-case-stat-label">Satisfaction</span><span class="use-case-stat-sub">Instructional AI pilot survey</span></div></div>
-</div>
-</div>
+<ul class="row agent-metric-grid" aria-label="Campus impact measures">
+<li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">73,000+</strong><span class="agent-metric-label">Users served</span><span class="agent-metric-note">Across TritonAI initiatives</span></div></li>
+<li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">16</strong><span class="agent-metric-label">Campus websites</span><span class="agent-metric-note">Powered by the TritonGPT widget</span></div></li>
+<li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">91%</strong><span class="agent-metric-label">Faster review</span><span class="agent-metric-note">120 min to 11 min per contract</span></div></li>
+<li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">81%</strong><span class="agent-metric-label">Satisfaction</span><span class="agent-metric-note">Instructional AI pilot survey</span></div></li>
+</ul>
 
-<p><small>Figures reflect FY 2025-26 aggregate impact. Source: TritonAI strategy presentation. Contract review time savings measured on NDA and T&amp;C review for UC San Diego Procurement. Student satisfaction from instructional AI pilot survey. <a href="https://tritongpt-deck.vercel.app/?audience=all#slide=uc-san-diego-ai-strategy-2026">View the strategy deck</a>.</small></p>
+<p><small>Figures reflect FY 2025-26 aggregate impact. Source: TritonAI strategy presentation. Contract review time savings measured on NDA and T&amp;C review for UC San Diego Procurement. Student satisfaction from instructional AI pilot survey.</small></p>
 
 ## Six principles
 
@@ -57,4 +55,4 @@ The integration work done today — connecting APIs, cleaning data, building ski
 
 <div class="alert alert-info"><strong>Public-content boundary:</strong> this site publishes approved capabilities and delivery status. Internal staffing allocations, unapproved return-on-investment claims, sensitive controls, and speculative dates remain outside the public content pipeline.</div>
 
-<p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a> <a class="btn btn-default" href="https://tritongpt-deck.vercel.app/?audience=all#slide=uc-san-diego-ai-strategy-2026">View the strategy deck</a></p>
+<p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a> <a class="btn btn-default" href="/about/impact.html">See campus impact</a></p>
