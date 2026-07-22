@@ -4,3 +4,4 @@ dist/
 reports/validation.json
 reports/screenshots/
 reports/ux-agent/
+.claude/

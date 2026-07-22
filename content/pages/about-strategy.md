@@ -1,50 +1,60 @@
 ---
 title: TritonAI Strategy
 path: /about/strategy.html
-description: How UC San Diego combines trusted horizontal AI services with supervised solutions for specific campus workflows.
+description: How UC San Diego combines trusted horizontal AI services with supervised vertical workflows — from chatbots to agentic workflows.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-21
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation
 canonicalUrl: /about/strategy.html
-relatedSlides: [Strategy, From Chat to Agents, Citizen Developer Ecosystem]
+relatedSlides: [uc-san-diego-ai-strategy-2026, administrative-ai-the-efficiency-imperative, agent-engineering-strategy, From Chat to Agents, Citizen Developer Ecosystem]
 ---
 
-<p class="lead">The TritonAI strategy is to make trusted AI broadly useful, then turn recurring campus pain points into governed, measurable workflows.</p>
+<p class="lead">From chatbots to agentic workflows. The TritonAI strategy makes trusted AI broadly useful as a campus utility, then turns recurring pain points into governed, measurable workflows with human oversight.</p>
 
-## A horizontal utility
+## Campus impact at a glance
 
-TritonGPT gives the campus a common starting point: an approved assistant with model choice, document support, and access to campus-aware knowledge. Shared APIs, skills, connectors, templates, and observability let teams build on the same foundation instead of recreating it.
+<div class="use-case-stats">
+<div class="row n-grid">
+<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">73,000+</span><span class="use-case-stat-label">Users served</span><span class="use-case-stat-sub">Across TritonAI initiatives</span></div></div>
+<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">16</span><span class="use-case-stat-label">Campus websites</span><span class="use-case-stat-sub">Powered by the TritonGPT widget</span></div></div>
+<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">91%</span><span class="use-case-stat-label">Faster review</span><span class="use-case-stat-sub">120 min to 11 min per contract</span></div></div>
+<div class="col-sm-6 col-md-3"><div class="use-case-stat"><span class="use-case-stat-value">81%</span><span class="use-case-stat-label">Satisfaction</span><span class="use-case-stat-sub">Instructional AI pilot survey</span></div></div>
+</div>
+</div>
 
-## Vertical workflows
+<p><small>Figures reflect FY 2025-26 aggregate impact. Source: TritonAI strategy presentation. Contract review time savings measured on NDA and T&amp;C review for UC San Diego Procurement. Student satisfaction from instructional AI pilot survey. <a href="https://tritongpt-deck.vercel.app/?audience=all#slide=uc-san-diego-ai-strategy-2026">View the strategy deck</a>.</small></p>
 
-Some problems need more than a chat interface. TritonAI works with campus units to define the task, approved data, tools, review steps, and success measures for repeatable workflows such as contract review, transcript matching, instructional support, and document remediation.
-
-## Trust is infrastructure
-
-Trust is designed into identity, hosting choices, data handling, knowledge sources, evaluation, and operational monitoring. The appropriate model and hosting lane depend on the data and use case; TritonAI does not make a categorical claim that every request follows the same route.
-
-## Meet people where they work
-
-Useful AI should appear in existing experiences when possible: TritonGPT, the UC San Diego mobile app, campus websites, developer applications, and supported workflow tools. This reduces context switching and makes clear who owns the surrounding service.
-
-## Prepare for governed agency
-
-An agent can pursue a goal, use approved tools, and carry work across multiple steps. That makes human accountability more important, not less. TritonAI uses staged oversight: close human review for new or consequential workflows, measured expansion when evidence supports it, and clear escalation paths throughout.
-
-## Guiding principles
+## Six principles
 
 <!-- AGENT_SECTION: ux-about-strategy-principles -->
 <div class="row agent-card-grid">
-<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Solve specific pain points</h2><p>Specialized agents drive measurable efficiency; general-purpose chat drives curiosity. Build the contract reviewer, not chat for everyone.</p></div></div></div>
-<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Prepare for agency</h2><p>The integration work done today — connecting APIs, cleaning data — is the prerequisite for the autonomous workflows of tomorrow.</p></div></div></div>
-<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Trust is infrastructure</h2><p>Sensitive workflows in HR, finance, legal, and student support need governed, on-prem hosting. Local compute is the only way to get sensitive data into the AI loop.</p></div></div></div>
-<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Make intelligence a utility</h2><p>When on-prem compute makes AI abundant and free at the margin, the campus innovates instead of rationing.</p></div></div></div>
-<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Stay model-agnostic</h2><p>Models are a commodity; the architecture is the asset. Build around gateways and governance, not a single vendor.</p></div></div></div>
-<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Don't build alone</h2><p>The shared stack lets departments reuse campus components and contribute back. Join the community of practice instead of reinventing the platform.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-principle"><div class="panel-body"><span class="glyphicon glyphicon-lock strategy-principle-icon" aria-hidden="true"></span><h2 class="h3">Trust is infrastructure</h2><p>Sensitive workflows in HR, finance, legal, and student support need governed, on-prem hosting. Enterprise-approved hosted models are used where institutional agreements provide the right security, compliance, and scale.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-principle"><div class="panel-body"><span class="glyphicon glyphicon-tasks strategy-principle-icon" aria-hidden="true"></span><h2 class="h3">Make AI a utility</h2><p>Shared campus infrastructure and zero variable cost make AI abundant instead of rationed. Broad access drives adoption, experimentation, and institution-wide scale.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-principle"><div class="panel-body"><span class="glyphicon glyphicon-screenshot strategy-principle-icon" aria-hidden="true"></span><h2 class="h3">Solve specific pain points</h2><p>Prioritize high-friction workflows — contract review, search, scheduling, accessibility, instructional support. Purpose-built tools create measurable value faster than general-purpose chat.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-principle"><div class="panel-body"><span class="glyphicon glyphicon-globe strategy-principle-icon" aria-hidden="true"></span><h2 class="h3">Meet users in the workflow</h2><p>Embed AI in Blink, public websites, teaching tools, mobile, and departmental applications. Adoption rises when AI appears inside the systems people already use.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-principle"><div class="panel-body"><span class="glyphicon glyphicon-wrench strategy-principle-icon" aria-hidden="true"></span><h2 class="h3">Stay model-agnostic</h2><p>Build around gateways, connectors, and governance, not a single model vendor. Institutional agreements across AWS, Azure, GCP, and self-hosted models keep the platform flexible.</p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-principle"><div class="panel-body"><span class="glyphicon glyphicon-th strategy-principle-icon" aria-hidden="true"></span><h2 class="h3">Prepare for agency</h2><p>Move from assistants that answer questions to agents that retrieve data, call tools, and complete multi-step work with oversight. Skills, APIs, connectors, and observability are the foundation.</p></div></div></div>
 </div>
 <!-- END_AGENT_SECTION -->
 
+## Where AI meets the workflow
+
+<div class="strategy-ecosystem">
+<div class="row agent-card-grid">
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><h2 class="h3">TritonGPT</h2><p>The full chat experience: campus sign-in, model choice, document support, and campus-aware assistants.</p><p><a href="https://tritongpt.ucsd.edu/">Open TritonGPT</a></p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span><h2 class="h3">UC San Diego app</h2><p>The campus Assistant brings AI into a mobile experience that uses app context to surface answers on the go.</p><p><a href="https://mobile.ucsd.edu/">Learn about the app</a></p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><h2 class="h3">Website widget</h2><p>Approved sites embed an assistant grounded in their public content — live on 16 campus websites, no login required.</p><p><a href="/tritongpt/chatbot-widget.html">Explore the widget</a></p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-console" aria-hidden="true"></span><h2 class="h3">Developer APIs</h2><p>Shared APIs, skills, and connectors let teams build governed AI into departmental applications on the same foundation.</p><p><a href="/developer-apis/index.html">Build with TritonAI</a></p></div></div></div>
+</div>
+</div>
+
+## From chat to agents
+
+An agent can pursue a goal, use approved tools, and carry work across multiple steps — retrieving data, calling APIs, and returning a complete result with evidence. That makes human accountability more important, not less. TritonAI uses staged oversight: close human review for new or consequential workflows, measured expansion when evidence supports it, and clear escalation paths throughout.
+
+The integration work done today — connecting APIs, cleaning data, building skills — is the prerequisite for the autonomous workflows of tomorrow. Models are a commodity; the architecture is the asset.
+
 <div class="alert alert-info"><strong>Public-content boundary:</strong> this site publishes approved capabilities and delivery status. Internal staffing allocations, unapproved return-on-investment claims, sensitive controls, and speculative dates remain outside the public content pipeline.</div>
 
-<p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a></p>
+<p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a> <a class="btn btn-default" href="https://tritongpt-deck.vercel.app/?audience=all#slide=uc-san-diego-ai-strategy-2026">View the strategy deck</a></p>

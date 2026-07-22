@@ -1,7 +1,6 @@
-:root {
-  --hub-shadow: 0 14px 34px rgba(24, 43, 73, .12);
-  --hub-radius: 8px;
-}
+/* Landing hubs: thin layer over the official Decorator 5 / department CMS modules.
+   Bands, tiles, callouts, news cards, and CTA insets use decorator classes from
+   base.min.css. Only the hero banner, lead paragraph, and band stacking live here. */
 
 .landing-hub-page .landing-hub-hero {
   background-color: var(--triton-navy);
@@ -48,25 +47,42 @@
   text-wrap: balance;
 }
 
-.landing-hub-main {
-  padding-bottom: 0;
+.landing-hub-breadcrumbs .breadcrumb {
+  margin-bottom: 26px;
 }
 
+/* The validator requires col-xs-12 on the main section; cancel its grid inset so
+   module bands span the full page width like the department homepage template. */
 .landing-hub-content {
-  float: none !important;
-  padding-bottom: 0 !important;
+  float: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Stack module bands flush, like the department homepage template. */
+.landing-hub-content > .jumbotron {
+  margin-bottom: 0;
+}
+
+/* The decorator whitens h2-h6 in the text block module; the homepage places its h1 there. */
+.jumbotron-callout-content-one h1 {
+  color: #fff;
+}
+
+/* News-with-images expects 388x246 images; normalize mixed source aspects. */
+.jumbotron-news .panel > img {
+  aspect-ratio: 388 / 246;
+  object-fit: cover;
   width: 100%;
 }
 
-.landing-hub-content > .landing-hub-lead {
-  font-size: 24px;
-  margin: 42px auto 12px;
-  max-width: 920px;
-  text-align: center;
-}
-
+/* Use-case index: photo cards and icon tiles, restored per content-owner preference. */
 .landing-section {
   padding: 64px 0 42px;
+}
+
+.landing-section-sand {
+  background: var(--triton-sand);
 }
 
 .landing-section-heading {
@@ -88,19 +104,6 @@
   line-height: 1.55;
 }
 
-.landing-section-sand,
-.landing-section-navy,
-.landing-section-blue {
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-left: max(30px, calc((100vw - 1170px) / 2 + 30px));
-  padding-right: max(30px, calc((100vw - 1170px) / 2 + 30px));
-}
-
-.landing-section-sand {
-  background: var(--triton-sand);
-}
-
 .landing-section-navy {
   background-color: var(--triton-navy);
   background-image: url("https://cdn.ucsd.edu/cms/decorator-5/img/txt-navy-grit.jpg");
@@ -109,55 +112,44 @@
   color: #fff;
 }
 
-.landing-section-blue {
-  background: linear-gradient(130deg, var(--triton-blue), var(--triton-navy));
+.landing-section-navy .landing-section-heading h2,
+.landing-section-navy .landing-section-heading > p:last-child {
   color: #fff;
 }
 
-.landing-section-navy h2,
-.landing-section-blue h2,
-.landing-section-navy .landing-section-heading > p:last-child,
-.landing-section-blue .landing-section-heading > p:last-child {
-  color: #fff;
-}
-
-.landing-section-navy .home-kicker,
-.landing-section-blue .home-kicker {
+.landing-section-navy .home-kicker {
   color: var(--triton-gold);
 }
 
-.cms-callout-grid,
-.cms-tile-grid,
 .cms-news-grid,
-.cms-metric-grid {
+.cms-tile-grid,
+.cms-callout-grid {
   display: flex;
   flex-wrap: wrap;
 }
 
-.cms-callout-grid > [class*="col-"],
-.cms-tile-grid > [class*="col-"],
 .cms-news-grid > [class*="col-"],
-.cms-metric-grid > [class*="col-"] {
+.cms-tile-grid > [class*="col-"],
+.cms-callout-grid > [class*="col-"] {
   display: flex;
   margin-bottom: 30px;
 }
 
-.cms-callout-card,
-.cms-link-tile,
 .cms-news-card,
-.cms-metric {
+.cms-link-tile,
+.cms-callout-card {
   width: 100%;
 }
 
 .cms-callout-card {
   background: rgba(0, 98, 155, .94);
   border: 0;
-  border-radius: var(--hub-radius);
-  box-shadow: var(--hub-shadow);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(24, 43, 73, .12);
   color: #fff;
   display: flex;
   flex-direction: column;
-  min-height: 250px;
+  margin-bottom: 0;
   overflow: hidden;
 }
 
@@ -184,44 +176,46 @@
   padding-top: 12px;
 }
 
-.cms-callout-icon,
-.cms-link-tile > .glyphicon {
+.cms-callout-icon {
   color: var(--triton-gold);
   font-size: 30px;
 }
 
-.cms-link-tile {
-  background: #fff;
-  border: 1px solid var(--triton-border);
-  border-radius: var(--hub-radius);
-  box-shadow: 0 7px 20px rgba(24, 43, 73, .08);
-  min-height: 220px;
-  padding: 28px 25px 24px;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+.cms-cta {
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(24, 43, 73, .12);
+  margin: 64px 0;
+  overflow: hidden;
 }
 
-.cms-link-tile:hover,
-.cms-link-tile:focus-within {
-  border-color: var(--triton-blue);
-  box-shadow: var(--hub-shadow);
-  transform: translateY(-3px);
+.cms-cta .cms-cta-copy {
+  padding: 52px 48px;
 }
 
-.cms-link-tile h3 {
+.cms-cta .cms-cta-copy h2 {
   color: var(--triton-navy);
-  font-size: 23px;
-  margin: 15px 0 9px;
+  font-size: 40px;
+  margin-top: 0;
 }
 
-.cms-link-tile .agent-status {
-  margin-left: 12px;
-  vertical-align: top;
+.cms-cta .cms-cta-media {
+  background: var(--triton-sand);
+  min-height: 360px;
+  padding: 0;
+}
+
+.cms-cta .cms-cta-media img,
+.cms-cta .cms-cta-media video {
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .cms-news-card {
   border: 0;
-  border-radius: var(--hub-radius);
-  box-shadow: var(--hub-shadow);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(24, 43, 73, .12);
   overflow: hidden;
 }
 
@@ -253,144 +247,84 @@
   margin: 8px 0 10px;
 }
 
-.cms-text-block {
-  background-color: var(--triton-navy);
-  background-image: url("https://cdn.ucsd.edu/cms/decorator-5/img/bg-orbs-1.jpg");
-  background-position: center;
-  background-size: cover;
-  color: #fff;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 62px max(30px, calc((100vw - 1170px) / 2 + 30px));
-}
-
-.cms-text-block h2,
-.cms-text-block h3,
-.cms-text-block a {
-  color: #fff;
-}
-
-.cms-text-block h2 {
-  font-size: 42px;
-  margin-top: 0;
-}
-
-.cms-text-block p,
-.cms-text-block li {
-  font-size: 18px;
-  line-height: 1.65;
-}
-
-.cms-text-block .btn {
-  color: var(--triton-navy);
-}
-
-.cms-cta {
-  border-radius: var(--hub-radius);
-  box-shadow: var(--hub-shadow);
-  margin: 64px 0;
-  overflow: hidden;
-}
-
-.cms-cta .cms-cta-copy {
-  padding: 52px 48px;
-}
-
-.cms-cta .cms-cta-copy h2 {
-  color: var(--triton-navy);
-  font-size: 40px;
-  margin-top: 0;
-}
-
-.cms-cta .cms-cta-media {
-  background: var(--triton-sand);
-  min-height: 360px;
-  padding: 0;
-}
-
-.cms-cta .cms-cta-media img,
-.cms-cta .cms-cta-media video {
-  height: 100%;
-  min-height: 360px;
-  object-fit: cover;
-  width: 100%;
-}
-
-.cms-cta-inset {
-  background-color: var(--triton-navy);
-  background-image: url("https://cdn.ucsd.edu/cms/decorator-5/img/bg-grit-orbs-2.jpg");
-  background-position: center;
-  background-size: cover;
-  border-radius: var(--hub-radius);
-  margin: 64px 0;
-  min-height: 360px;
-  padding: 55px 0;
-}
-
-.cms-cta-inset .panel {
-  border: 0;
-  border-radius: var(--hub-radius);
-  box-shadow: var(--hub-shadow);
-  margin: 0;
-}
-
-.cms-cta-inset .panel-body {
-  padding: 34px 36px;
-}
-
-.cms-cta-inset h2 {
-  color: var(--triton-navy);
-  margin-top: 0;
-}
-
-.cms-metric {
+.cms-link-tile {
   background: #fff;
-  border-bottom: 5px solid var(--triton-bright-blue);
-  border-radius: var(--hub-radius);
+  border: 1px solid var(--triton-border);
+  border-radius: 8px;
+  box-shadow: 0 7px 20px rgba(24, 43, 73, .08);
+  padding: 28px 25px 24px;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.cms-link-tile:hover,
+.cms-link-tile:focus-within {
+  border-color: var(--triton-blue);
+  box-shadow: 0 14px 34px rgba(24, 43, 73, .12);
+  transform: translateY(-3px);
+}
+
+.cms-link-tile > .glyphicon {
+  color: var(--triton-gold);
+  font-size: 30px;
+}
+
+.cms-link-tile h3 {
   color: var(--triton-navy);
-  min-height: 170px;
-  padding: 28px 24px;
-  text-align: center;
+  font-size: 23px;
+  margin: 15px 0 9px;
 }
 
-.cms-metric .glyphicon {
-  color: var(--triton-blue);
-  font-size: 28px;
-  margin-bottom: 10px;
+.cms-link-tile .agent-status {
+  margin-left: 12px;
+  vertical-align: top;
 }
 
-.cms-metric strong {
-  display: block;
-  font-size: 22px;
-  margin-bottom: 7px;
+@media (max-width: 767px) {
+  .landing-section {
+    padding: 46px 0 24px;
+  }
+
+  .cms-news-grid > [class*="col-"],
+  .cms-tile-grid > [class*="col-"],
+  .cms-callout-grid > [class*="col-"] {
+    display: block;
+  }
+
+  .cms-cta {
+    margin: 46px 0;
+  }
+
+  .cms-cta .cms-cta-copy {
+    padding: 32px 24px;
+  }
+
+  .cms-cta .cms-cta-copy h2 {
+    font-size: 32px;
+  }
+
+  .cms-cta .cms-cta-media,
+  .cms-cta .cms-cta-media img,
+  .cms-cta .cms-cta-media video {
+    min-height: 240px;
+  }
 }
 
-.landing-actions .btn {
-  margin: 4px 8px 4px 0;
+@media (prefers-reduced-motion: reduce) {
+  .cms-news-card .cms-news-image img,
+  .cms-link-tile {
+    transition: none;
+  }
 }
 
-.landing-resource-nav {
-  margin-bottom: 22px;
+/* Align callout-box action links on one baseline: the decorator equalizes box
+   heights, so pinning the trailing link row to the bottom lines them up. */
+.jumbotron-callout-content-two .cta-two-three.panel-body {
+  display: flex;
+  flex-direction: column;
 }
 
-.landing-video-frame {
-  aspect-ratio: 16 / 9;
-  background: var(--triton-navy);
-  overflow: hidden;
-}
-
-.landing-video-frame video {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-.landing-hub-page .home-highlights {
-  padding-top: 54px;
-}
-
-.landing-hub-page .home-feature {
-  margin-top: 0;
+.jumbotron-callout-content-two .cta-two-three.panel-body > p:last-child:has(.text-link) {
+  margin-top: auto;
 }
 
 @media (max-width: 991px) {
@@ -400,16 +334,6 @@
 
   .landing-hub-title {
     padding: 78px 0 58px;
-  }
-
-  .cms-cta .cms-cta-copy {
-    padding: 38px 34px;
-  }
-
-  .cms-cta .cms-cta-media,
-  .cms-cta .cms-cta-media img,
-  .cms-cta .cms-cta-media video {
-    min-height: 300px;
   }
 }
 
@@ -428,65 +352,5 @@
 
   .landing-hub-page .landing-hub-title .intro-banner-heading {
     font-size: 42px;
-  }
-
-  .landing-hub-content > .landing-hub-lead {
-    font-size: 20px;
-    margin-top: 30px;
-    text-align: left;
-  }
-
-  .landing-section {
-    padding: 46px 0 24px;
-  }
-
-  .landing-section-sand,
-  .landing-section-navy,
-  .landing-section-blue,
-  .cms-text-block {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .cms-callout-grid > [class*="col-"],
-  .cms-tile-grid > [class*="col-"],
-  .cms-news-grid > [class*="col-"],
-  .cms-metric-grid > [class*="col-"] {
-    display: block;
-  }
-
-  .cms-callout-card,
-  .cms-link-tile {
-    min-height: 0;
-  }
-
-  .cms-cta {
-    margin: 46px 0;
-  }
-
-  .cms-cta .cms-cta-copy {
-    padding: 32px 24px;
-  }
-
-  .cms-cta .cms-cta-copy h2,
-  .cms-text-block h2 {
-    font-size: 32px;
-  }
-
-  .cms-cta-inset {
-    margin: 46px 0;
-    min-height: 0;
-    padding: 28px 0;
-  }
-
-  .cms-cta-inset .panel-body {
-    padding: 27px 24px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cms-news-card .cms-news-image img,
-  .cms-link-tile {
-    transition: none;
   }
 }
