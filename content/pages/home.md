@@ -17,7 +17,7 @@ relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 <p class="home-kicker">One campus AI ecosystem</p>
 <h1 id="home-feature-heading">A practical path from first prompt to trusted service</h1>
 <p class="hub-lede">TritonAI brings together a campus assistant, approved tools, learning, developer services, and human-supervised solutions for recurring university work.</p>
-<p><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a> <a class="btn btn-default btn-lg" href="/about/strategy.html">See the strategy</a></p>
+<div class="home-feature-actions"><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a><a class="home-feature-link" href="/about/strategy.html">See the strategy <span aria-hidden="true">→</span></a></div>
 </div>
 <div class="col-md-6 hub-split-media"><figure class="hub-browser-frame"><img alt="UC San Diego Assistant in TritonGPT with campus-aware guidance" class="img-responsive" src="/_images/tritongpt/ucsd-assistant.jpg"></figure></div>
 </div>
