@@ -291,6 +291,9 @@ for (const page of htmlFiles) {
       accessibility.push({ page: route, issue: `Label and control are not in the same form: ${targetId}` });
     }
   });
+  $("a[href*='tritongpt-deck.vercel.app']").each((_, element) => {
+    contentFindings.push({ source: route, issue: `Public pages must not link to the presentation deck: ${$(element).attr("href")}` });
+  });
 
   const primaryNav = $("#navbar > .navbar-nav-list").first();
   if (!primaryNav.length) {
@@ -579,6 +582,22 @@ for (const page of htmlFiles) {
     }
     if ($(".use-case-narrative-step").length !== 3 || $(".use-case-narrative-step h3").length !== 3) {
       accessibility.push({ page: route, issue: "Use-case narrative must contain three labeled workflow stages" });
+    }
+  }
+  if (route === "/about/strategy.html") {
+    const metricGrid = $(".agent-metric-grid");
+    const metricCards = metricGrid.children("li").children(".agent-metric-card");
+    if (metricGrid.length !== 1 || metricCards.length !== 4) {
+      contentFindings.push({ source: route, issue: "Campus impact must use one four-card metric grid" });
+    }
+    metricCards.each((_, element) => {
+      const card = $(element);
+      if (card.children(".agent-metric-value").length !== 1 || card.children(".agent-metric-label").length !== 1 || card.children(".agent-metric-note").length !== 1) {
+        accessibility.push({ page: route, issue: "Campus impact card is missing its value, label, or context" });
+      }
+    });
+    if ($(".use-case-stat").length) {
+      contentFindings.push({ source: route, issue: "Campus impact must use the reusable equal-height metric component" });
     }
   }
   if (route === "/about/roadmap.html") {
