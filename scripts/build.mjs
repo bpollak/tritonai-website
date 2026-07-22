@@ -168,21 +168,22 @@ function renderStatus(status) {
   return `<span class="agent-status ${statusClass(status)}">${escapeHtml(status)}</span>`;
 }
 
+const USE_CASE_ICON_MAP = {
+  "contract-review": "file",
+  "transcript-matching": "education",
+  "dissertation-formatter": "book",
+  "pdf-remediation": "eye-open",
+  biobib: "list-alt",
+  "ai-use-case-meeting": "comment",
+  "instructional-ai": "blackboard",
+  "research-alignment": "search",
+};
+
 function renderUseCaseCards(useCases) {
-  const iconMap = {
-    "contract-review": "file-text",
-    "transcript-matching": "education",
-    "dissertation-formatter": "book",
-    "pdf-remediation": "eye-open",
-    "biobib": "list-alt",
-    "ai-use-case-meeting": "comment",
-    "instructional-ai": "blackboard",
-    "research-alignment": "search",
-  };
   return `<div class="row agent-card-grid">${useCases
     .map(
       (useCase) =>
-        `<div class="col-sm-6 col-md-4"><article class="panel panel-default agent-card use-case-card"><div class="panel-body"><span class="glyphicon glyphicon-${iconMap[useCase.slug] || "star"} use-case-card-icon" aria-hidden="true"></span>${renderStatus(useCase.status)}<h2 class="h3"><a href="${escapeHtml(useCase.canonicalUrl)}">${escapeHtml(useCase.title)}</a></h2><p>${escapeHtml(useCase.summary)}</p><p><strong>Measure:</strong> ${escapeHtml(useCase.measurableOutcome)}</p></div></article></div>`,
+        `<div class="col-sm-6 col-md-4"><article class="panel panel-default agent-card use-case-card"><div class="panel-body"><span class="glyphicon glyphicon-${USE_CASE_ICON_MAP[useCase.slug] || "star"} use-case-card-icon" aria-hidden="true"></span>${renderStatus(useCase.status)}<h2 class="h3"><a href="${escapeHtml(useCase.canonicalUrl)}">${escapeHtml(useCase.title)}</a></h2><p>${escapeHtml(useCase.summary)}</p><p><strong>Measure:</strong> ${escapeHtml(useCase.measurableOutcome)}</p></div></article></div>`,
     )
     .join("")}</div>`;
 }
@@ -232,17 +233,42 @@ function renderUseCaseIndex(useCases) {
   return `<section aria-labelledby="featured-use-cases-heading" class="landing-section cms-news-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">From idea to impact</p><h2 id="featured-use-cases-heading">Featured use cases</h2><p>Three examples show the range from production services to bounded instructional pilots.</p></div><div class="row cms-news-grid">${featuredHtml}</div></div></section><section aria-labelledby="all-use-cases-heading" class="landing-section landing-section-sand cms-tiles-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">Explore the portfolio</p><h2 id="all-use-cases-heading">More campus workflows</h2><p>Status labels show what is available now, in pilot, in development, or being explored.</p></div><div class="row cms-tile-grid">${remainingHtml}</div></div></section><section aria-labelledby="propose-use-case-heading" class="jumbotron jumbotron-callout-image-small-inset"><div class="container"><div class="row"><div class="col-md-7"><div class="panel panel-default"><div class="panel-body"><h2 id="propose-use-case-heading">Bring a recurring problem</h2><p class="panel-text">Start with the workflow, its owner, the approved data, the review step, and the outcome that should improve.</p><p><a class="btn btn-default" href="/about/get-involved.html">Start a use-case conversation</a></p></div></div></div></div></div></section>`;
 }
 
+function renderUseCaseNarrative(html, slug) {
+  const $ = load(`<div data-use-case-narrative-source>${html}</div>`, { decodeEntities: false });
+  const sections = [];
+  let current = null;
+  $("[data-use-case-narrative-source]").children().each((_, element) => {
+    if ($(element).is("h2")) {
+      if (current) sections.push(current);
+      current = { title: $(element).text().trim(), body: [] };
+      return;
+    }
+    if (current) current.body.push($(element).toString());
+  });
+  if (current) sections.push(current);
+  const steps = sections.map((section, index) => {
+    const id = `${slug}-${section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+    return `<section class="use-case-narrative-step" aria-labelledby="${escapeHtml(id)}"><span class="use-case-narrative-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span><div><h3 id="${escapeHtml(id)}">${escapeHtml(section.title)}</h3>${section.body.join("")}</div></section>`;
+  }).join("");
+  return `<section class="use-case-story" aria-labelledby="${escapeHtml(slug)}-story-heading"><div class="use-case-section-heading"><p class="home-kicker">From need to service</p><h2 id="${escapeHtml(slug)}-story-heading">How the workflow fits</h2><p>Follow the problem, the bounded solution, and the current level of service maturity.</p></div><div class="use-case-narrative">${steps}</div></section>`;
+}
+
 function renderUseCasePage(useCase) {
+  const useCaseIcon = USE_CASE_ICON_MAP[useCase.slug] || "star";
   const statsHtml = useCase.stats && useCase.stats.length
-    ? `<div class="use-case-stats"><div class="row agent-card-grid">${useCase.stats.map((stat) => `<div class="col-sm-4"><div class="use-case-stat"><span class="use-case-stat-value">${escapeHtml(stat.value)}</span><span class="use-case-stat-label">${escapeHtml(stat.label)}</span>${stat.sub ? `<span class="use-case-stat-sub">${escapeHtml(stat.sub)}</span>` : ""}</div></div>`).join("")}</div></div>`
+    ? `<ul class="use-case-stats" aria-label="${escapeHtml(useCase.title)} impact at a glance">${useCase.stats.map((stat) => `<li><strong class="use-case-stat-value">${escapeHtml(stat.value)}</strong><span class="use-case-stat-label">${escapeHtml(stat.label)}</span>${stat.sub ? `<span class="use-case-stat-sub">${escapeHtml(stat.sub)}</span>` : ""}</li>`).join("")}</ul>`
     : "";
   const videoHtml = useCase.videoSrc
     ? `<div class="use-case-demo"><div class="use-case-demo-frame"><video class="img-responsive" controls muted playsinline preload="metadata"${useCase.videoPoster ? ` poster="${escapeHtml(useCase.videoPoster)}"` : ""} aria-label="${escapeHtml(useCase.videoLabel || useCase.title + " demo")}"${useCase.videoDescription ? ` aria-describedby="${useCase.slug}-demo-description"` : ""} data-silent-demo="true"><source src="${escapeHtml(useCase.videoSrc)}" type="video/mp4">Your browser does not support the video element.</video></div>${useCase.videoDescription ? `<p id="${useCase.slug}-demo-description" class="use-case-demo-caption"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ${escapeHtml(useCase.videoDescription)}</p>` : ""}</div>`
     : "";
   const toolsHtml = useCase.toolHighlights && useCase.toolHighlights.length
-    ? `<p class="use-case-tools">${useCase.toolHighlights.map((tool) => `<span class="label label-default">${escapeHtml(tool)}</span>`).join(" ")}</p>`
+    ? `<ul class="use-case-tools" aria-label="${escapeHtml(useCase.title)} workflow elements">${useCase.toolHighlights.map((tool) => `<li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>${escapeHtml(tool)}</li>`).join("")}</ul>`
     : "";
-  return `<p class="lead">${escapeHtml(useCase.summary)}</p>${renderStatus(useCase.status)}${statsHtml}<dl class="agent-meta"><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd><dt>Measurement period</dt><dd>${escapeHtml(useCase.measurementPeriod)}</dd><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd><dt>Last reviewed</dt><dd>${escapeHtml(useCase.lastReviewed)}</dd></dl>${videoHtml}${toolsHtml}${useCase.html}<p><a class="btn btn-default" href="/use-cases/index.html">Back to all use cases</a></p>`;
+  const governanceHtml = `<section class="use-case-governance" aria-labelledby="${escapeHtml(useCase.slug)}-governance-heading"><div class="use-case-section-heading"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><p class="home-kicker">Accountability</p><h2 id="${escapeHtml(useCase.slug)}-governance-heading">How this use case is governed</h2></div></div><dl class="use-case-governance-grid"><div><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd></div><div><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd></div><div><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd></div><div><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd></div></dl><p class="use-case-governance-meta"><span><strong>Measurement period</strong> ${escapeHtml(useCase.measurementPeriod)}</span><span><strong>Last reviewed</strong> ${escapeHtml(useCase.lastReviewed)}</span></p></section>`;
+  const overviewHtml = `<section class="use-case-overview" aria-label="${escapeHtml(useCase.title)} overview"><div class="use-case-overview-copy"><span class="glyphicon glyphicon-${escapeHtml(useCaseIcon)}" aria-hidden="true"></span><div><p class="home-kicker">Campus AI workflow</p>${renderStatus(useCase.status)}<p class="lead">${escapeHtml(useCase.summary)}</p></div></div>${statsHtml}</section>`;
+  const evidenceHtml = videoHtml ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">See the workflow</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">A supervised process in action</h2></div>${videoHtml}${toolsHtml}</section>` : "";
+  const actionsHtml = `<nav class="use-case-actions" aria-label="Use case next steps"><a href="/use-cases/index.html"><span aria-hidden="true">←</span> Explore all use cases</a><a href="/about/get-involved.html">Start a use-case conversation <span aria-hidden="true">→</span></a></nav>`;
+  return `${overviewHtml}${governanceHtml}${evidenceHtml}${renderUseCaseNarrative(useCase.html, useCase.slug)}${actionsHtml}`;
 }
 
 function renderRoadmap(roadmap) {
