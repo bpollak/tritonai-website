@@ -178,6 +178,51 @@ function renderUseCaseCards(useCases) {
     .join("")}</div>`;
 }
 
+const FEATURED_USE_CASE_SLUGS = ["contract-review", "transcript-matching", "instructional-ai"];
+
+function featuredUseCases(useCases) {
+  return FEATURED_USE_CASE_SLUGS.map((slug) => useCases.find((entry) => entry.slug === slug)).filter(Boolean);
+}
+
+function renderUseCaseIndex(useCases) {
+  const media = {
+    "contract-review": {
+      src: "https://tritongpt-deck.vercel.app/media/image47.png",
+      alt: "Contract review interface showing structured findings prepared for human review",
+    },
+    "transcript-matching": {
+      src: "/_images/api-program.webp",
+      alt: "TritonAI workflow diagram representing connected campus data and review steps",
+    },
+    "instructional-ai": {
+      src: "/_images/smiling-students-collaborating.webp",
+      alt: "UC San Diego students collaborating around a laptop",
+    },
+  };
+  const featured = featuredUseCases(useCases);
+  const remaining = useCases.filter((entry) => !FEATURED_USE_CASE_SLUGS.includes(entry.slug));
+  const iconMap = {
+    "ai-use-case-meeting": "comment",
+    biobib: "list-alt",
+    "dissertation-formatter": "book",
+    "pdf-remediation": "eye-open",
+    "research-alignment": "search",
+  };
+  const featuredHtml = featured
+    .map((entry) => {
+      const image = media[entry.slug];
+      return `<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
+    })
+    .join("");
+  const remainingHtml = remaining
+    .map(
+      (entry) =>
+        `<div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-${iconMap[entry.slug] || "star"}" aria-hidden="true"></span>${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p></article></div>`,
+    )
+    .join("");
+  return `<p class="lead landing-hub-lead">See how TritonAI turns specific campus problems into governed workflows with accountable human review.</p><section class="landing-section cms-news-module" aria-labelledby="featured-use-cases-heading"><div class="landing-section-heading"><p class="home-kicker">From idea to impact</p><h2 id="featured-use-cases-heading">Featured use cases</h2><p>Three examples show the range from production services to bounded instructional pilots.</p></div><div class="row cms-news-grid">${featuredHtml}</div></section><section class="landing-section cms-tiles-module landing-section-sand" aria-labelledby="all-use-cases-heading"><div class="landing-section-heading"><p class="home-kicker">Explore the portfolio</p><h2 id="all-use-cases-heading">More campus workflows</h2><p>Status labels show what is available now, in pilot, in development, or being explored.</p></div><div class="row cms-tile-grid">${remainingHtml}</div></section><section class="jumbotron jumbotron-callout-image-small-inset cms-cta-inset" aria-labelledby="propose-use-case-heading"><div class="container"><div class="row"><div class="col-md-7"><div class="panel panel-default"><div class="panel-body"><h2 id="propose-use-case-heading">Bring a recurring problem</h2><p>Start with the workflow, its owner, the approved data, the review step, and the outcome that should improve.</p><p><a class="btn btn-default" href="/about/get-involved.html">Start a use-case conversation</a></p></div></div></div></div></div></section>`;
+}
+
 function renderUseCasePage(useCase) {
   const statsHtml = useCase.stats && useCase.stats.length
     ? `<div class="use-case-stats"><div class="row agent-card-grid">${useCase.stats.map((stat) => `<div class="col-sm-4"><div class="use-case-stat"><span class="use-case-stat-value">${escapeHtml(stat.value)}</span><span class="use-case-stat-label">${escapeHtml(stat.label)}</span>${stat.sub ? `<span class="use-case-stat-sub">${escapeHtml(stat.sub)}</span>` : ""}</div></div>`).join("")}</div></div>`
@@ -208,12 +253,13 @@ function renderPublicFacts(facts) {
 }
 
 function renderHomeHero(hero) {
-  const indicators = hero.slides
+  const multipleSlides = hero.slides.length > 1;
+  const indicators = multipleSlides ? hero.slides
     .map(
       (_, index) =>
         `<li aria-hidden="true" class="${index === 0 ? "active" : ""}" data-slide-to="${index}" data-target="#heroslider"></li>`,
     )
-    .join("");
+    .join("") : "";
   const slides = hero.slides
     .map((slide, index) => {
       const accent = slide.accent ? `<br><span>${escapeHtml(slide.accent)}</span>` : "";
@@ -235,7 +281,11 @@ function renderHomeHero(hero) {
       return `<div aria-label="${index + 1} out of ${hero.slides.length}" aria-roledescription="slide" aria-hidden="${index === 0 ? "false" : "true"}" class="item${index === 0 ? " active" : ""}" role="group">${heroImage}<div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="animated fadeInUp herotextbg-dark-opaque"><h2 class="rt-text-light hero-slide-heading" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.title)}${accent}</h2><p class="rt-text-light" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.description)}</p><a class="btn btn-lg btn-default" data-module="hero-homepage" href="${escapeHtml(slide.link)}" role="button" tabindex="${index === 0 ? "0" : "-1"}">${escapeHtml(slide.linkLabel)}</a></div></div></div></div></div></div>`;
     })
     .join("");
-  return `<div class="carousel slide jumbotron jumbotron-hero hm" data-interval="${hero.rotationIntervalMs}" data-ride="carousel" id="heroslider"><div aria-label="Revolving Banners with ${hero.slides.length} items" class="carousel-inner" role="region" tabindex="0"><div id="indicators-container"><button aria-label="carousel is playing, click to pause" data-home-hero-toggle id="toggleCarousel" type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div>${slides}<a aria-controls="heroslider" aria-label="previous slide" class="left carousel-control" data-home-hero-direction="prev" data-slide="prev" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="next slide" class="right carousel-control" data-home-hero-direction="next" data-slide="next" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a></div></div><script defer src="/_resources/js/home-hero.js"></script>`;
+  const controls = multipleSlides
+    ? `<div id="indicators-container"><button aria-label="carousel is playing, click to pause" data-home-hero-toggle id="toggleCarousel" type="button"><span aria-hidden="true" class="glyphicon glyphicon-pause"></span></button><ol aria-hidden="true" class="carousel-indicators">${indicators}</ol></div><a aria-controls="heroslider" aria-label="previous slide" class="left carousel-control" data-home-hero-direction="prev" data-slide="prev" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span></a><a aria-controls="heroslider" aria-label="next slide" class="right carousel-control" data-home-hero-direction="next" data-slide="next" href="#heroslider" role="button" tabindex="0"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span></a>`
+    : "";
+  const carouselAttributes = multipleSlides ? ` data-interval="${hero.rotationIntervalMs}" data-ride="carousel"` : "";
+  return `<div class="carousel slide jumbotron jumbotron-hero hm"${carouselAttributes} id="heroslider"><div aria-label="${multipleSlides ? `Revolving Banners with ${hero.slides.length} items` : "TritonAI introduction"}" class="carousel-inner" role="region" tabindex="0">${controls}${slides}</div></div>${multipleSlides ? '<script defer src="/_resources/js/home-hero.js"></script>' : ""}`;
 }
 
 function renderSkillsLibrary(library) {
@@ -372,9 +422,15 @@ function breadcrumbFor(page) {
 function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const $ = load(shellHtml, { decodeEntities: false });
   $("body").addClass("agent-page");
+  const landingHub = page.path === "/index.html" || page.landingHub === true;
+  if (landingHub) $("body").addClass("landing-hub-page");
+  const bannerImage = page.bannerImage || "https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg";
+  const bannerPosition = page.bannerPosition || "center";
   const mainContent =
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
+      : landingHub
+        ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-main"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section></div></div>`
       : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section>${renderSidebar(site.navigation, page.path)}</div></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
@@ -570,6 +626,9 @@ function transformHtml(html, relativePath, context) {
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
   if (!$("link[rel~='icon']").length) $("head").append('<link rel="icon" href="https://www.ucsd.edu/favicon.ico">');
   if (!$("link[href$='agent-site.css']").length) $("head").append('<link rel="stylesheet" href="/_resources/css/agent-site.css">');
+  if ($("body").hasClass("landing-hub-page") && !$("link[href$='landing-hubs.css']").length) {
+    $("head").append('<link rel="stylesheet" href="/_resources/css/landing-hubs.css">');
+  }
   const connectionHints = PRECONNECT_ORIGINS.map(
     (origin) => `<link rel="preconnect" href="${origin}" crossorigin><link rel="dns-prefetch" href="//${new URL(origin).host}">`,
   ).join("");
@@ -597,7 +656,7 @@ function transformHtml(html, relativePath, context) {
   $("[data-newsletters='all']").html(context.newsletters.map(renderNewsletter).join(""));
   const legacyNewsletterContainer = $(".space-y-12.md\\:space-y-14").first();
   if (legacyNewsletterContainer.length) legacyNewsletterContainer.html(context.newsletters.map(renderNewsletter).join(""));
-  $("[data-featured-use-cases='true']").html(renderUseCaseCards(context.useCases.filter((entry) => entry.featured)));
+  $("[data-featured-use-cases='true']").html(renderUseCaseCards(featuredUseCases(context.useCases)));
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
 
@@ -759,8 +818,11 @@ const useCaseIndex = {
   eyebrow: "TritonAI portfolio",
   lastReviewed: site.lastReviewed,
   canonicalUrl: "/use-cases/index.html",
+  landingHub: true,
+  bannerImage: "/_images/callout-scripps-rainbow-dark.webp",
+  bannerPosition: "center 42%",
 };
-await writeGeneratedPage(shellHtml, useCaseIndex, `<p class="lead">Explore how TritonAI applies shared AI capabilities to specific campus problems. Status labels distinguish available services, bounded pilots, active development, and early discovery.</p>${renderUseCaseCards(useCases)}`, generatedByPath, homeHero);
+await writeGeneratedPage(shellHtml, useCaseIndex, renderUseCaseIndex(useCases), generatedByPath, homeHero);
 for (const useCase of useCases) {
   await writeGeneratedPage(
     shellHtml,

@@ -1,0 +1,492 @@
+:root {
+  --hub-shadow: 0 14px 34px rgba(24, 43, 73, .12);
+  --hub-radius: 8px;
+}
+
+.landing-hub-page .landing-hub-hero {
+  background-color: var(--triton-navy);
+  background-size: cover;
+  min-height: 360px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-hub-page .landing-hub-hero::before {
+  background: linear-gradient(90deg, rgba(24, 43, 73, .96) 0%, rgba(24, 43, 73, .78) 48%, rgba(24, 43, 73, .28) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.landing-hub-page .landing-hub-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-hub-title {
+  max-width: 820px;
+  padding: 92px 0 70px;
+}
+
+.landing-hub-title > p {
+  color: var(--triton-gold);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.landing-hub-page .landing-hub-title .intro-banner-heading {
+  color: #fff;
+  float: none;
+  font-size: clamp(46px, 5vw, 72px);
+  line-height: .98;
+  margin: 0;
+  max-width: 780px;
+  text-align: left;
+  text-wrap: balance;
+}
+
+.landing-hub-main {
+  padding-bottom: 0;
+}
+
+.landing-hub-content {
+  float: none !important;
+  padding-bottom: 0 !important;
+  width: 100%;
+}
+
+.landing-hub-content > .landing-hub-lead {
+  font-size: 24px;
+  margin: 42px auto 12px;
+  max-width: 920px;
+  text-align: center;
+}
+
+.landing-section {
+  padding: 64px 0 42px;
+}
+
+.landing-section-heading {
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+
+.landing-section-heading h2 {
+  color: var(--triton-navy);
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.08;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+
+.landing-section-heading > p:last-child {
+  color: #52616b;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.landing-section-sand,
+.landing-section-navy,
+.landing-section-blue {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: max(30px, calc((100vw - 1170px) / 2 + 30px));
+  padding-right: max(30px, calc((100vw - 1170px) / 2 + 30px));
+}
+
+.landing-section-sand {
+  background: var(--triton-sand);
+}
+
+.landing-section-navy {
+  background-color: var(--triton-navy);
+  background-image: url("https://cdn.ucsd.edu/cms/decorator-5/img/txt-navy-grit.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.landing-section-blue {
+  background: linear-gradient(130deg, var(--triton-blue), var(--triton-navy));
+  color: #fff;
+}
+
+.landing-section-navy h2,
+.landing-section-blue h2,
+.landing-section-navy .landing-section-heading > p:last-child,
+.landing-section-blue .landing-section-heading > p:last-child {
+  color: #fff;
+}
+
+.landing-section-navy .home-kicker,
+.landing-section-blue .home-kicker {
+  color: var(--triton-gold);
+}
+
+.cms-callout-grid,
+.cms-tile-grid,
+.cms-news-grid,
+.cms-metric-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cms-callout-grid > [class*="col-"],
+.cms-tile-grid > [class*="col-"],
+.cms-news-grid > [class*="col-"],
+.cms-metric-grid > [class*="col-"] {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.cms-callout-card,
+.cms-link-tile,
+.cms-news-card,
+.cms-metric {
+  width: 100%;
+}
+
+.cms-callout-card {
+  background: rgba(0, 98, 155, .94);
+  border: 0;
+  border-radius: var(--hub-radius);
+  box-shadow: var(--hub-shadow);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.cms-callout-card .panel-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 30px 26px 24px;
+}
+
+.cms-callout-card h3,
+.cms-callout-card h3 a,
+.cms-callout-card .text-link {
+  color: #fff;
+}
+
+.cms-callout-card h3 {
+  font-size: 25px;
+  margin: 13px 0 10px;
+}
+
+.cms-callout-card p:last-child {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.cms-callout-icon,
+.cms-link-tile > .glyphicon {
+  color: var(--triton-gold);
+  font-size: 30px;
+}
+
+.cms-link-tile {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-radius: var(--hub-radius);
+  box-shadow: 0 7px 20px rgba(24, 43, 73, .08);
+  min-height: 220px;
+  padding: 28px 25px 24px;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.cms-link-tile:hover,
+.cms-link-tile:focus-within {
+  border-color: var(--triton-blue);
+  box-shadow: var(--hub-shadow);
+  transform: translateY(-3px);
+}
+
+.cms-link-tile h3 {
+  color: var(--triton-navy);
+  font-size: 23px;
+  margin: 15px 0 9px;
+}
+
+.cms-link-tile .agent-status {
+  margin-left: 12px;
+  vertical-align: top;
+}
+
+.cms-news-card {
+  border: 0;
+  border-radius: var(--hub-radius);
+  box-shadow: var(--hub-shadow);
+  overflow: hidden;
+}
+
+.cms-news-card .cms-news-image {
+  background: var(--triton-navy);
+  display: block;
+  overflow: hidden;
+}
+
+.cms-news-card .cms-news-image img {
+  aspect-ratio: 388 / 246;
+  object-fit: cover;
+  transition: transform .25s ease;
+  width: 100%;
+}
+
+.cms-news-card:hover .cms-news-image img,
+.cms-news-card:focus-within .cms-news-image img {
+  transform: scale(1.035);
+}
+
+.cms-news-card .panel-body {
+  padding: 25px;
+}
+
+.cms-news-card h3 {
+  color: var(--triton-navy);
+  font-size: 24px;
+  margin: 8px 0 10px;
+}
+
+.cms-text-block {
+  background-color: var(--triton-navy);
+  background-image: url("https://cdn.ucsd.edu/cms/decorator-5/img/bg-orbs-1.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 62px max(30px, calc((100vw - 1170px) / 2 + 30px));
+}
+
+.cms-text-block h2,
+.cms-text-block h3,
+.cms-text-block a {
+  color: #fff;
+}
+
+.cms-text-block h2 {
+  font-size: 42px;
+  margin-top: 0;
+}
+
+.cms-text-block p,
+.cms-text-block li {
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.cms-text-block .btn {
+  color: var(--triton-navy);
+}
+
+.cms-cta {
+  border-radius: var(--hub-radius);
+  box-shadow: var(--hub-shadow);
+  margin: 64px 0;
+  overflow: hidden;
+}
+
+.cms-cta .cms-cta-copy {
+  padding: 52px 48px;
+}
+
+.cms-cta .cms-cta-copy h2 {
+  color: var(--triton-navy);
+  font-size: 40px;
+  margin-top: 0;
+}
+
+.cms-cta .cms-cta-media {
+  background: var(--triton-sand);
+  min-height: 360px;
+  padding: 0;
+}
+
+.cms-cta .cms-cta-media img,
+.cms-cta .cms-cta-media video {
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.cms-cta-inset {
+  background-color: var(--triton-navy);
+  background-image: url("https://cdn.ucsd.edu/cms/decorator-5/img/bg-grit-orbs-2.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--hub-radius);
+  margin: 64px 0;
+  min-height: 360px;
+  padding: 55px 0;
+}
+
+.cms-cta-inset .panel {
+  border: 0;
+  border-radius: var(--hub-radius);
+  box-shadow: var(--hub-shadow);
+  margin: 0;
+}
+
+.cms-cta-inset .panel-body {
+  padding: 34px 36px;
+}
+
+.cms-cta-inset h2 {
+  color: var(--triton-navy);
+  margin-top: 0;
+}
+
+.cms-metric {
+  background: #fff;
+  border-bottom: 5px solid var(--triton-bright-blue);
+  border-radius: var(--hub-radius);
+  color: var(--triton-navy);
+  min-height: 170px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.cms-metric .glyphicon {
+  color: var(--triton-blue);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.cms-metric strong {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 7px;
+}
+
+.landing-actions .btn {
+  margin: 4px 8px 4px 0;
+}
+
+.landing-resource-nav {
+  margin-bottom: 22px;
+}
+
+.landing-video-frame {
+  aspect-ratio: 16 / 9;
+  background: var(--triton-navy);
+  overflow: hidden;
+}
+
+.landing-video-frame video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.landing-hub-page .home-highlights {
+  padding-top: 54px;
+}
+
+.landing-hub-page .home-feature {
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .landing-hub-page .landing-hub-hero {
+    min-height: 320px;
+  }
+
+  .landing-hub-title {
+    padding: 78px 0 58px;
+  }
+
+  .cms-cta .cms-cta-copy {
+    padding: 38px 34px;
+  }
+
+  .cms-cta .cms-cta-media,
+  .cms-cta .cms-cta-media img,
+  .cms-cta .cms-cta-media video {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-hub-page .landing-hub-hero {
+    min-height: 260px;
+  }
+
+  .landing-hub-page .landing-hub-hero::before {
+    background: rgba(24, 43, 73, .86);
+  }
+
+  .landing-hub-title {
+    padding: 58px 0 42px;
+  }
+
+  .landing-hub-page .landing-hub-title .intro-banner-heading {
+    font-size: 42px;
+  }
+
+  .landing-hub-content > .landing-hub-lead {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  .landing-section {
+    padding: 46px 0 24px;
+  }
+
+  .landing-section-sand,
+  .landing-section-navy,
+  .landing-section-blue,
+  .cms-text-block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cms-callout-grid > [class*="col-"],
+  .cms-tile-grid > [class*="col-"],
+  .cms-news-grid > [class*="col-"],
+  .cms-metric-grid > [class*="col-"] {
+    display: block;
+  }
+
+  .cms-callout-card,
+  .cms-link-tile {
+    min-height: 0;
+  }
+
+  .cms-cta {
+    margin: 46px 0;
+  }
+
+  .cms-cta .cms-cta-copy {
+    padding: 32px 24px;
+  }
+
+  .cms-cta .cms-cta-copy h2,
+  .cms-text-block h2 {
+    font-size: 32px;
+  }
+
+  .cms-cta-inset {
+    margin: 46px 0;
+    min-height: 0;
+    padding: 28px 0;
+  }
+
+  .cms-cta-inset .panel-body {
+    padding: 27px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cms-news-card .cms-news-image img,
+  .cms-link-tile {
+    transition: none;
+  }
+}
