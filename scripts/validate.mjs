@@ -569,6 +569,36 @@ for (const page of htmlFiles) {
       accessibility.push({ page: route, issue: "Skills filters are missing" });
     }
   }
+  if (route === "/training-resources/pathways.html") {
+    const pathwayCards = $(".learning-pathway-card");
+    const programCards = $(".learning-program");
+    if (pathwayCards.length !== 5) {
+      contentFindings.push({ source: route, issue: `Expected 5 role pathways; found ${pathwayCards.length}` });
+    }
+    pathwayCards.each((_, element) => {
+      const card = $(element);
+      const label = card.find("h3").first().text().trim() || "Unnamed pathway";
+      if (card.find("h3").length !== 1 || card.find(".learning-pathway-action").length !== 1) {
+        accessibility.push({ page: route, issue: `${label} is missing a heading or next step` });
+      }
+      if (card.find(".learning-pathway-steps li").length !== 3) {
+        contentFindings.push({ source: route, issue: `${label} does not contain 3 learning steps` });
+      }
+    });
+    if (programCards.length !== 6) {
+      contentFindings.push({ source: route, issue: `Expected 6 training programs; found ${programCards.length}` });
+    }
+    programCards.each((_, element) => {
+      const card = $(element);
+      const label = card.find("h3").first().text().trim() || "Unnamed program";
+      if (card.find("h3").length !== 1 || card.find("a").length !== 1) {
+        accessibility.push({ page: route, issue: `${label} is missing a heading or destination` });
+      }
+    });
+    if ($(".learning-access-standard h2").length !== 1 || $(".learning-access-standard a").length !== 1) {
+      accessibility.push({ page: route, issue: "Accessible media guidance is incomplete" });
+    }
+  }
   if (route === "/") {
     const multipleHeroSlides = (homeHeroContent.slides || []).length > 1;
     if ($("#heroslider").length !== 1) accessibility.push({ page: route, issue: "Homepage hero rotator is missing" });
