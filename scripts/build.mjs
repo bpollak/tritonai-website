@@ -613,6 +613,9 @@ function transformHtml(html, relativePath, context) {
   optimizeLocalImages($, relativePath, context.optimizedImages);
   optimizeScriptLoading($);
   if (!$("script[src$='site-navigation.js']").length) $("body").append('<script defer src="/_resources/js/site-navigation.js"></script>');
+  if ($(".drawer").length && !$("script[src$='site-drawers.js']").length) {
+    $("body").append('<script defer src="/_resources/js/site-drawers.js"></script>');
+  }
   if (relativePath === "index.html" && $("[data-today-news]").length && !$("script[src$='today-news.js']").length) {
     $("body").append('<script defer src="/_resources/js/today-news.js"></script>');
   }
