@@ -498,6 +498,15 @@ for (const page of htmlFiles) {
       performance.push({ page: route, issue: "Landing hub stylesheet is missing its content cache key" });
     }
   }
+  const protocolRelativeUcsdAssets = [
+    ...$("link[rel~='stylesheet'][href^='//cdn.ucsd.edu/']").map((_, element) => $(element).attr("href")).get(),
+    ...$("script[src^='//cdn.ucsd.edu/']").map((_, element) => $(element).attr("src")).get(),
+    ...$("img[src^='//cdn.ucsd.edu/']").map((_, element) => $(element).attr("src")).get(),
+    ...$("source[src^='//cdn.ucsd.edu/']").map((_, element) => $(element).attr("src")).get(),
+  ];
+  for (const asset of protocolRelativeUcsdAssets) {
+    performance.push({ page: route, issue: `UCSD CDN asset must use HTTPS explicitly: ${asset}` });
+  }
   for (const source of afterRenderDecoratorScripts) {
     const script = $(`script[data-after-render-src='${source}']`);
     if (script.length !== 1 || script.attr("src")) {

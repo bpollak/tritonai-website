@@ -673,6 +673,21 @@ function optimizeScriptLoading($) {
   });
 }
 
+function normalizeRemoteAssetProtocols($) {
+  const remoteAssetAttributes = [
+    ["link[rel~='stylesheet'][href^='//cdn.ucsd.edu/']", "href"],
+    ["script[src^='//cdn.ucsd.edu/']", "src"],
+    ["img[src^='//cdn.ucsd.edu/']", "src"],
+    ["source[src^='//cdn.ucsd.edu/']", "src"],
+  ];
+  for (const [selector, attribute] of remoteAssetAttributes) {
+    $(selector).each((_, element) => {
+      const asset = $(element);
+      asset.attr(attribute, `https:${asset.attr(attribute)}`);
+    });
+  }
+}
+
 function normalizeNavigationMarkup($) {
   $(".skip-to-main").removeAttr("tabindex");
   $("[autofocus]").removeAttr("autofocus");
@@ -815,6 +830,7 @@ function transformHtml(html, relativePath, context) {
   });
 
   optimizeLocalImages($, relativePath, context.optimizedImages);
+  normalizeRemoteAssetProtocols($);
   optimizeScriptLoading($);
   if (!$("script[src$='site-navigation.js']").length) $("body").append('<script defer src="/_resources/js/site-navigation.js"></script>');
   if ($(".drawer").length && !$("script[src$='site-drawers.js']").length) {
