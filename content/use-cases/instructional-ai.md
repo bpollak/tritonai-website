@@ -4,7 +4,7 @@ slug: instructional-ai
 summary: Course-aware assistants that support learning within instructor-defined expectations and source material.
 status: Pilot
 owner: Participating instructors and the TritonAI instructional AI team
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-24
 audiences: [students, faculty]
 source: TritonAI Instructional AI public page and strategy presentation
 measurementPeriod: 2026 course pilots
