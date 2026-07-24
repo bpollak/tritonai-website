@@ -1885,12 +1885,6 @@
   padding: 28px 0;
 }
 
-.use-case-narrative-step:nth-child(3) {
-  background: linear-gradient(90deg, rgba(245, 240, 230, .7), rgba(245, 240, 230, 0));
-  padding-left: 18px;
-  padding-right: 18px;
-}
-
 .use-case-narrative-number {
   align-items: center;
   background: var(--triton-navy);
