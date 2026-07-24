@@ -19,7 +19,7 @@
     <meta content="index,follow,noarchive" name="robots"/>
     <meta content="TritonAI" name="SITE"/>
     <meta content="Instructional AI" name="PAGETITLE"/>
-    <meta content="UC San Diego's Instructional AI program provides participating instructors with secure, course-specific AI assistants powered by TritonGPT." name="DESCRIPTION"/>
+    <meta content="Learn how UC San Diego's Instructional AI program uses TritonGPT to create course-specific AI tutors for teaching and learning." name="DESCRIPTION"/>
     <meta content="7355c5b30aaf6b3a30a17f40a02358a8" name="id"/>
 
    
@@ -523,6 +523,41 @@
 <p>TritonGPT uses Retrieval-Augmented Generation (RAG) to ground the AI's knowledge in course materials provided by instructors: lecture slides, study guides, readings, and recorded lecture transcripts. While the AI language model maintains general knowledge, its primary function is to act as an expert on the specific content taught in your course.</p>
 <p>The platform supports both on-premise and cloud frontier models routed through LiteLLM, giving instructors model flexibility without compromising data governance.</p>
 
+<!-- AGENT_SECTION: metrics -->
+<section aria-labelledby="instructional-ai-pilot-results" style="margin: 30px 0;">
+<h2 id="instructional-ai-pilot-results">Pilot Results</h2>
+<div class="row">
+<div class="col-sm-4">
+<div class="panel panel-default text-center" style="min-height: 182px;">
+<div class="panel-body">
+<p style="color: #006A96; font-size: 3em; font-weight: 700; line-height: 1; margin-bottom: 10px;">81%</p>
+<p><strong>Student satisfaction</strong></p>
+<p>Agreed it helped them understand concepts</p>
+</div>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="panel panel-default text-center" style="min-height: 182px;">
+<div class="panel-body">
+<p style="color: #006A96; font-size: 3em; font-weight: 700; line-height: 1; margin-bottom: 10px;">86%</p>
+<p><strong>Ease of use</strong></p>
+<p>Found the assistant easy to use</p>
+</div>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="panel panel-default text-center" style="min-height: 182px;">
+<div class="panel-body">
+<p style="color: #006A96; font-size: 3em; font-weight: 700; line-height: 1; margin-bottom: 10px;">67%</p>
+<p><strong>Want more</strong></p>
+<p>Want it available in more courses</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END_AGENT_SECTION -->
+
 <h2>How It Works for Students</h2>
 <p>Each participating course gets a custom <strong>AI Tutor</strong> — a student-facing assistant deployed through Onyx (TritonGPT's platform) and integrated directly into Canvas. Students access it from the Canvas course navigation without a separate login.</p>
 
@@ -556,12 +591,16 @@
 <h3>Supported File Types</h3>
 <p>The platform supports Google Docs, Sheets, Slides, Microsoft Office files (Word, Excel, PowerPoint), PDF, TXT, CSV, MD, HTML, and JSON.</p>
 
+<h3>AI Models</h3>
+<p>Queries are routed through UC San Diego's model gateway, which provides access to UC-hosted open models and approved cloud frontier models. Model selection is configured for the instructional use case.</p>
+
 <h2>Support &amp; Logistics</h2>
 <ul>
 <li><strong>Collaboration:</strong> TAs and co-instructors can be added to help manage the course AI Tutor.</li>
 <li><strong>Canvas Integration:</strong> The AI Tutor appears in the Canvas course navigation for enrolled students.</li>
 <li><strong>Usage Insights:</strong> Monthly, anonymized reports of student prompts help instructors understand where students are struggling or most engaged.</li>
 <li><strong>Dedicated Support:</strong> The program team provides full technical support to participants throughout the quarter.</li>
+<li><strong>Onboarding:</strong> New instructors receive guided setup and documentation before the term begins.</li>
 <li><strong>Security:</strong> All interactions stay within UC San Diego's secure infrastructure. No data is shared with third-party training pipelines.</li>
 </ul>
 
