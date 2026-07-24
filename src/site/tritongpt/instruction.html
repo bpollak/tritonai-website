@@ -521,45 +521,41 @@
 </div>
 
 <p>TritonGPT uses Retrieval-Augmented Generation (RAG) to ground the AI's knowledge in course materials provided by instructors: lecture slides, study guides, readings, and recorded lecture transcripts. While the AI language model maintains general knowledge, its primary function is to act as an expert on the specific content taught in your course.</p>
-<p>All interactions stay within UC San Diego's secure infrastructure. No data is shared with third-party training pipelines. The platform supports both on-premise and cloud frontier models routed through LiteLLM, giving instructors model flexibility without compromising data governance.</p>
+<p>The platform supports both on-premise and cloud frontier models routed through LiteLLM, giving instructors model flexibility without compromising data governance.</p>
 
-<h2>AI Assistants for Participating Instructors</h2>
-<p>Each participating instructor receives two distinct, course-specific AI assistants deployed through Onyx (TritonGPT's platform):</p>
+<h2>How It Works for Students</h2>
+<p>Each participating course gets a custom <strong>AI Tutor</strong> — a student-facing assistant deployed through Onyx (TritonGPT's platform) and integrated directly into Canvas. Students access it from the Canvas course navigation without a separate login.</p>
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
-<div style="flex: 1; min-width: 300px;">
-<img src="../_images/tritongpt/instructional-ai/instructor-assistant.jpg" alt="Instructor AI Assistant in TritonGPT" style="width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
-<p style="text-align: center; font-size: 13px; color: #666; margin-top: 5px;">Instructor AI Assistant</p>
-</div>
-<div style="flex: 1; min-width: 300px;">
-<img src="../_images/tritongpt/instructional-ai/student-assistant.jpg" alt="Student AI Assistant in TritonGPT" style="width: 100%; border: 1px solid #ddd; border-radius: 6px;"/>
-<p style="text-align: center; font-size: 13px; color: #666; margin-top: 5px;">Student AI Assistant</p>
-</div>
+<div style="margin: 20px 0;">
+<img src="../_images/tritongpt/instructional-ai/student-assistant.jpg" alt="AI Tutor in TritonGPT" style="width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 6px;"/>
+<p style="text-align: center; font-size: 13px; color: #666; margin-top: 5px;">AI Tutor for BIMM143 in TritonGPT</p>
 </div>
 
-<h3>Instructor AI Assistant</h3>
-<p>Accessible only to instructors and their designated collaborators (TAs, IAs), this assistant helps streamline course development workflows. It can be used to:</p>
+<p>The AI Tutor is designed to help students engage more deeply with course materials:</p>
 <ul>
-<li><strong>Generate instructional content:</strong> Create quizzes, lecture summaries, and study guides.</li>
-<li><strong>Repurpose materials:</strong> Transform video transcripts into structured notes or outlines.</li>
-<li><strong>Brainstorm ideas:</strong> Explore new ways to structure a course or explain complex topics.</li>
+<li><strong>Acts as a Socratic tutor:</strong> Guides students toward answers and encourages critical thinking rather than simply providing solutions.</li>
+<li><strong>Grounded in your course content:</strong> Answers student questions based strictly on the materials you provide — lecture slides, readings, study guides, recorded transcripts.</li>
+<li><strong>Configurable pedagogical style:</strong> Instructors choose between Socratic (guides toward answers) or directive (provides answers) modes.</li>
+<li><strong>Available 24/7:</strong> Students can explore topics at their own pace in a safe, interactive space.</li>
 </ul>
 
-<h3>Student AI Assistant</h3>
-<p>Available to all enrolled students in the course, this assistant helps them engage more deeply with instructor-selected materials. It is designed to:</p>
+<h2>Instructor Setup &amp; Control</h2>
+<p>Instructors are the gatekeepers of their course AI Tutor. You control what the tutor knows and how it behaves:</p>
 <ul>
-<li><strong>Act as a Socratic tutor:</strong> Guide students toward answers and encourage critical thinking rather than simply providing solutions.</li>
-<li><strong>Offer instant clarification:</strong> Answer student questions based on the approved course content.</li>
-<li><strong>Increase engagement:</strong> Provide a safe, interactive space for students to explore topics at their own pace.</li>
+<li><strong>Select course materials:</strong> Choose which Canvas documents and Google Drive files the tutor can reference. Content syncs automatically every 30 minutes.</li>
+<li><strong>Set the pedagogical style:</strong> Choose Socratic mode to guide students toward answers, or directive mode to provide direct explanations.</li>
+<li><strong>Multiple tutors per course:</strong> Create separate tutors for different units, lab sections, or study purposes.</li>
+<li><strong>Usage insights:</strong> Monthly, anonymized reports of student prompts help you understand where students are struggling or most engaged.</li>
+<li><strong>No student-inserted content:</strong> Students cannot add their own materials to the tutor's knowledge base — only instructor-approved content is used.</li>
 </ul>
 
-<h2>How It Works: A Simple &amp; Secure Process</h2>
-<p>The system is designed for ease of use through a secure Google Drive integration and Canvas LTI.</p>
+<h2>Getting Started: A Simple &amp; Secure Process</h2>
+<p>The system is designed for ease of use through Canvas LTI and secure Google Drive integration.</p>
 <ol>
-<li><strong>Setup:</strong> Instructors create a Google Drive folder named with their course ID.</li>
-<li><strong>Organization:</strong> Two subfolders are automatically created: one for the Instructor AI Assistant and one for the Student AI Assistant.</li>
-<li><strong>Content Sync:</strong> Instructors add their course files to the appropriate folders. The assistants automatically check for new or updated content every 30 minutes.</li>
-<li><strong>Canvas Integration:</strong> The Student AI Assistant is linked directly from the Canvas course navigation, so students can access it without a separate login.</li>
+<li><strong>Request participation:</strong> Email <a href="mailto:AI-Pilots@ucsd.edu">AI-Pilots@ucsd.edu</a> to join the program. Our team will help you get set up.</li>
+<li><strong>Connect your course:</strong> Link your Canvas course and/or create a Google Drive folder with your course materials. The AI Tutor will automatically sync new or updated content every 30 minutes.</li>
+<li><strong>Configure your tutor:</strong> Select which documents the tutor can reference and choose your preferred pedagogical style (Socratic or directive).</li>
+<li><strong>Students access via Canvas:</strong> The AI Tutor appears in your Canvas course navigation. Students can start using it immediately — no separate login required.</li>
 </ol>
 
 <h3>Supported File Types</h3>
@@ -567,10 +563,11 @@
 
 <h2>Support &amp; Logistics</h2>
 <ul>
-<li><strong>Collaboration:</strong> TAs and co-instructors are invited to participate alongside the primary instructor.</li>
-<li><strong>Canvas Integration:</strong> The Student AI Assistant appears in the Canvas course navigation for enrolled students.</li>
+<li><strong>Collaboration:</strong> TAs and co-instructors can be added to help manage the course AI Tutor.</li>
+<li><strong>Canvas Integration:</strong> The AI Tutor appears in the Canvas course navigation for enrolled students.</li>
 <li><strong>Usage Insights:</strong> Monthly, anonymized reports of student prompts help instructors understand where students are struggling or most engaged.</li>
 <li><strong>Dedicated Support:</strong> The program team provides full technical support to participants throughout the quarter.</li>
+<li><strong>Security:</strong> All interactions stay within UC San Diego's secure infrastructure. No data is shared with third-party training pipelines.</li>
 </ul>
 
 <h2>Join the Program</h2>
