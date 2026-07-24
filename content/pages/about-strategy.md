@@ -3,7 +3,7 @@ title: TritonAI Strategy
 path: /about/strategy.html
 description: How UC San Diego combines trusted horizontal AI services with supervised vertical workflows — from chatbots to agentic workflows.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-22
+lastReviewed: 2026-07-23
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation
 canonicalUrl: /about/strategy.html
@@ -17,7 +17,7 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, administrative-ai-the-efficiency-
 <ul class="row agent-metric-grid" aria-label="Campus impact measures">
 <li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">73,000+</strong><span class="agent-metric-label">Users served</span><span class="agent-metric-note">Across TritonAI initiatives</span></div></li>
 <li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">16</strong><span class="agent-metric-label">Campus websites</span><span class="agent-metric-note">Powered by the TritonGPT widget</span></div></li>
-<li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">91%</strong><span class="agent-metric-label">Faster review</span><span class="agent-metric-note">120 min to 11 min per contract</span></div></li>
+<li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">91%</strong><span class="agent-metric-label">Faster contract redlining</span><span class="agent-metric-note">120 min to 11 min per contract</span></div></li>
 <li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">81%</strong><span class="agent-metric-label">Satisfaction</span><span class="agent-metric-note">Instructional AI pilot survey</span></div></li>
 </ul>
 
