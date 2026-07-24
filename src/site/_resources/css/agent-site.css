@@ -1444,6 +1444,37 @@
 }
 
 @media (max-width: 767px) {
+  .agent-page #heroslider .item.active {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agent-page #heroslider .item.active > .first-slide,
+  .agent-page #heroslider .item.active > .container {
+    grid-area: 1 / 1;
+  }
+
+  .agent-page #heroslider .item.active > .first-slide {
+    height: 100%;
+    min-height: 240px;
+    object-fit: cover;
+  }
+
+  .agent-page #heroslider .item.active > .container {
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .agent-page #heroslider .cr-item-container {
+    left: auto;
+    margin: 8px 20px 20px;
+    position: relative;
+    right: auto;
+    top: auto;
+    width: auto;
+  }
+
   .agent-page .home-main-content {
     padding-top: 0;
   }

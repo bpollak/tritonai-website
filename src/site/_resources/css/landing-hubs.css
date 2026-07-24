@@ -917,6 +917,20 @@
 }
 
 .cms-link-tile > .glyphicon { color: var(--triton-blue); font-size: 29px; }
+.cms-link-tile-meta {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-height: 34px;
+}
+.cms-link-tile-meta > .glyphicon {
+  color: var(--triton-blue);
+  flex: 0 0 32px;
+  font-size: 29px;
+  line-height: 1;
+  text-align: center;
+}
+.cms-link-tile-meta > .agent-status { margin: 0; }
 .cms-link-tile h3 { color: var(--triton-navy); font-size: 23px; margin: 15px 0 9px; }
 
 @media (max-width: 991px) {
