@@ -4,7 +4,7 @@ slug: dissertation-formatter
 summary: A review assistant that checks dissertation formatting rules and distinguishes automatic fixes from human decisions.
 status: Pilot
 owner: TritonAI solutions team and the sponsoring graduate-education service owner
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-24
 audiences: [students, staff]
 source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot

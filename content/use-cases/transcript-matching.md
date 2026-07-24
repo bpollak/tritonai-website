@@ -4,7 +4,7 @@ slug: transcript-matching
 summary: A human-supervised workflow for matching transcript records and surfacing uncertain cases for review.
 status: Production
 owner: TritonAI solutions team and the sponsoring student-services owner
-lastReviewed: 2026-07-20
+lastReviewed: 2026-07-24
 audiences: [staff, leaders]
 source: TritonAI strategy presentation
 measurementPeriod: Production — live for enrollment management transcript review

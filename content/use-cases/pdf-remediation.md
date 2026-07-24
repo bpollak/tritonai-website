@@ -1,10 +1,10 @@
 ---
-title: PDF Remediation
+title: PDF Remediator
 slug: pdf-remediation
 summary: An assistive workflow that identifies common document-accessibility issues and prepares evidence for a human remediator.
 status: Pilot
 owner: TritonAI solutions team and campus accessibility partners
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-24
 audiences: [staff, faculty, developers]
 source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot

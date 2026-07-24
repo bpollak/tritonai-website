@@ -4,7 +4,7 @@ slug: contract-review
 summary: A supervised workflow that compares contract language with approved legal positions and prepares review-ready findings.
 status: Production
 owner: TritonAI solutions team and the sponsoring legal service owner
-lastReviewed: 2026-07-20
+lastReviewed: 2026-07-24
 audiences: [staff, leaders]
 source: TritonAI strategy presentation
 measurementPeriod: Production — 91% time savings (120 min to 11 min average)

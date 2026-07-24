@@ -177,6 +177,9 @@ const USE_CASE_ICON_MAP = {
   "ai-use-case-meeting": "comment",
   "instructional-ai": "blackboard",
   "research-alignment": "search",
+  "class-planner": "calendar",
+  "voice-agent": "earphone",
+  "passport-app": "check",
 };
 
 function renderUseCaseCards(useCases) {
@@ -201,8 +204,8 @@ function renderUseCaseIndex(useCases) {
       alt: "Contract review interface showing structured findings prepared for human review",
     },
     "transcript-matching": {
-      src: "/_images/api-program.webp",
-      alt: "TritonAI workflow diagram representing connected campus data and review steps",
+      src: "/_images/use-cases/transcript-matching-card.jpg",
+      alt: "Transcript Matching review interface from the TritonGPT presentation",
     },
     "instructional-ai": {
       src: "/_images/smiling-students-collaborating.webp",
@@ -217,6 +220,9 @@ function renderUseCaseIndex(useCases) {
     "dissertation-formatter": "book",
     "pdf-remediation": "eye-open",
     "research-alignment": "search",
+    "class-planner": "calendar",
+    "voice-agent": "earphone",
+    "passport-app": "check",
   };
   const featuredHtml = featured
     .map((entry) => {
@@ -264,9 +270,14 @@ function renderUseCasePage(useCase) {
   const toolsHtml = useCase.toolHighlights && useCase.toolHighlights.length
     ? `<ul class="use-case-tools" aria-label="${escapeHtml(useCase.title)} workflow elements">${useCase.toolHighlights.map((tool) => `<li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>${escapeHtml(tool)}</li>`).join("")}</ul>`
     : "";
+  const resourcesHtml = useCase.resourceLinks && useCase.resourceLinks.length
+    ? `<div class="row agent-card-grid">${useCase.resourceLinks.map((resource) => `<div class="col-sm-6"><article class="panel panel-default agent-card"><div class="panel-body"><h3 class="h4"><a href="${escapeHtml(resource.href)}">${escapeHtml(resource.label)}</a></h3>${resource.description ? `<p>${escapeHtml(resource.description)}</p>` : ""}</div></article></div>`).join("")}</div>`
+    : "";
   const governanceHtml = `<section class="use-case-governance" aria-labelledby="${escapeHtml(useCase.slug)}-governance-heading"><div class="use-case-section-heading"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><p class="home-kicker">Accountability</p><h2 id="${escapeHtml(useCase.slug)}-governance-heading">How this use case is governed</h2></div></div><dl class="use-case-governance-grid"><div><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd></div><div><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd></div><div><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd></div><div><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd></div></dl><p class="use-case-governance-meta"><span><strong>Measurement period</strong> ${escapeHtml(useCase.measurementPeriod)}</span><span><strong>Last reviewed</strong> ${escapeHtml(useCase.lastReviewed)}</span></p></section>`;
   const overviewHtml = `<section class="use-case-overview" aria-label="${escapeHtml(useCase.title)} overview"><div class="use-case-overview-copy"><span class="glyphicon glyphicon-${escapeHtml(useCaseIcon)}" aria-hidden="true"></span><div><p class="home-kicker">Campus AI workflow</p>${renderStatus(useCase.status)}<p class="lead">${escapeHtml(useCase.summary)}</p></div></div>${statsHtml}</section>`;
-  const evidenceHtml = videoHtml ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">See the workflow</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">A supervised process in action</h2></div>${videoHtml}${toolsHtml}</section>` : "";
+  const evidenceHtml = videoHtml || resourcesHtml
+    ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">${videoHtml ? "See the workflow" : "Related service"}</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">${videoHtml ? "A supervised process in action" : "Continue with trusted resources"}</h2></div>${videoHtml}${toolsHtml}${resourcesHtml}</section>`
+    : "";
   const actionsHtml = `<nav class="use-case-actions" aria-label="Use case next steps"><a href="/use-cases/index.html"><span aria-hidden="true">←</span> Explore all use cases</a><a href="/about/get-involved.html">Start a use-case conversation <span aria-hidden="true">→</span></a></nav>`;
   return `${overviewHtml}${governanceHtml}${evidenceHtml}${renderUseCaseNarrative(useCase.html, useCase.slug)}${actionsHtml}`;
 }

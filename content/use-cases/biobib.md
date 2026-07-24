@@ -4,7 +4,7 @@ slug: biobib
 summary: A drafting workflow for organizing approved faculty activity data into a reviewable BioBib document.
 status: Pilot
 owner: TritonAI solutions team and the sponsoring academic service owner
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-24
 audiences: [faculty, staff]
 source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot

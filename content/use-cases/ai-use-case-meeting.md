@@ -2,12 +2,12 @@
 title: AI Use-Case Meeting
 slug: ai-use-case-meeting
 summary: A guided discovery workflow that turns an idea into a scoped use case, risk questions, measures, and next-step recommendation.
-status: In development
+status: Production
 owner: TritonAI program and solutions teams
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-24
 audiences: [staff, faculty, leaders]
-source: TritonAI strategy presentation
-measurementPeriod: 2026 development cycle
+source: TritonAI strategy presentation and current service status
+measurementPeriod: Production as of July 2026
 dataClassification: Public description; discovery notes follow the meeting's approved handling
 canonicalUrl: /use-cases/ai-use-case-meeting.html
 videoSrc: https://tritongpt-deck.vercel.app/media/product-previews/ai-use-case-meeting-preview.mp4
@@ -32,8 +32,8 @@ featured: false
 
 ## Solution
 
-The developing workflow captures presenter submissions, meeting length, topic context, upcoming sessions, and archive metadata. It runs on a biweekly cadence (every other Friday) with 5–60 minute presenter-selected sessions open to staff, faculty, and researchers. The platform generates agendas from submissions and maintains a recording archive so individual experiments become shared institutional learning.
+The production workflow captures presenter submissions, meeting length, topic context, upcoming sessions, and archive metadata. It runs on a biweekly cadence (every other Friday) with 5–60 minute presenter-selected sessions open to staff, faculty, and researchers. The platform generates agendas from submissions and maintains a recording archive so individual experiments become shared institutional learning.
 
 ## Current status
 
-In development. The tool supports session management and community learning; people still decide whether the idea should proceed, change direction, or stop.
+In production. The tool supports session management and community learning; people still decide whether the idea should proceed, change direction, or stop.
