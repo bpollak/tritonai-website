@@ -36,9 +36,9 @@ bannerPosition: center 46%
 
 <section class="landing-section tritongpt-assistant-ecosystem" aria-labelledby="assistant-breadth-heading">
 <div class="container">
-<div class="landing-section-heading"><p class="home-kicker">Purpose-built help across campus work</p><h2 id="assistant-breadth-heading">One platform, many defined jobs</h2><p>The current public TritonGPT deck shows assistants spanning campus knowledge, teaching, research, project work, development, security, and review. Each pattern starts with a defined task and keeps accountable people in the decision.</p></div>
+<div class="landing-section-heading"><p class="home-kicker">Purpose-built help across campus work</p><h2 id="assistant-breadth-heading">One platform, many defined jobs</h2><p>TritonGPT includes assistants spanning campus knowledge, teaching, research, project work, development, security, and review. Each pattern starts with a defined task and keeps accountable people in the decision.</p></div>
 <div class="assistant-breadth-layout">
-<aside class="assistant-breadth-stat" aria-label="Assistant breadth at a glance"><strong>18</strong><span>assistant patterns in the current public deck</span><p>The set visible to each person depends on role, approved access, and service stage.</p></aside>
+<aside class="assistant-breadth-stat" aria-label="Assistant breadth at a glance"><strong>18</strong><span>assistant patterns across the TritonGPT ecosystem</span><p>The set visible to each person depends on role, approved access, and service stage.</p></aside>
 <div class="assistant-domain-grid">
 <article class="assistant-domain-card"><div class="assistant-domain-heading"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><h3>Campus and employee information</h3></div><ul class="assistant-pattern-list">
 <li><strong>UC San Diego Assistant</strong><span>Connect questions with information across campus functions.</span></li>
@@ -70,7 +70,7 @@ bannerPosition: center 46%
 </ul></article>
 </div>
 </div>
-<p class="assistant-breadth-source">Descriptions summarize the current public TritonGPT Platform presentation, reviewed July 24, 2026. Assistant access does not authorize new data use or replace the responsible reviewer.</p>
+<p class="assistant-breadth-source">Assistant access does not authorize new data use or replace the responsible reviewer.</p>
 <p class="assistant-breadth-actions"><a class="btn btn-primary" href="/training-resources/tritongpt/assistants.html">Learn how assistants work</a><a class="btn btn-default" href="/use-cases/index.html">Explore supervised solutions</a></p>
 </div>
 </section>

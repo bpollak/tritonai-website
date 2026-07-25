@@ -12,7 +12,7 @@ _Monday, May 18, 2026_
 
 ### TritonGPT
 
--   **[TritonGPT Widget gets live campus data](https://tritonai.ucsd.edu/tritongpt/release-notes/5-1-2026-release.html)** — The chat widget now shows real-time parking availability and Geisel Library busyness levels. Redesigned interface makes it easier to follow how the AI assembles answers.
+-   **[TritonGPT Widget gets live campus data](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** — The chat widget now shows real-time parking availability and Geisel Library busyness levels. Redesigned interface makes it easier to follow how the AI assembles answers.
 
 ### Zoom AI Companion
 

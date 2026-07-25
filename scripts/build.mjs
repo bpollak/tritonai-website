@@ -329,9 +329,9 @@ function renderRoadmap(roadmap) {
 }
 
 function renderPublicFacts(facts) {
-  return `<div class="panel panel-default public-facts"><div class="panel-heading"><h2 class="panel-title">Current public facts</h2></div><div class="panel-body"><ul class="list-unstyled">${facts
+  return `<div class="panel panel-default public-facts"><div class="panel-heading"><h2 class="panel-title">Evidence details</h2></div><div class="panel-body"><ul class="list-unstyled">${facts
     .filter((fact) => fact.status === "public")
-    .map((fact) => `<li><p><strong>${escapeHtml(fact.claim)}</strong></p><dl class="public-fact-meta"><div><dt>Owner</dt><dd>${escapeHtml(fact.owner)}</dd></div><div><dt>Source</dt><dd>${escapeHtml(fact.source)}</dd></div><div><dt>Measurement period</dt><dd>${escapeHtml(fact.measurementPeriod)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(fact.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(fact.lastReviewed)}</dd></div></dl><p><a href="${escapeHtml(fact.canonicalUrl)}">View the related public page</a></p></li>`)
+    .map((fact) => `<li><p><strong>${escapeHtml(fact.claim)}</strong></p><dl class="public-fact-meta"><div><dt>Owner</dt><dd>${escapeHtml(fact.owner)}</dd></div><div><dt>Measurement period</dt><dd>${escapeHtml(fact.measurementPeriod)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(fact.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(fact.lastReviewed)}</dd></div></dl><p><a href="${escapeHtml(fact.canonicalUrl)}">View the related service</a></p></li>`)
     .join("")}</ul></div></div>`;
 }
 

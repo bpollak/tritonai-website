@@ -7,10 +7,16 @@ const DIST_DIR = path.resolve("dist");
 const REPORT_DIR = path.resolve("reports");
 const CONTENT_DIR = path.resolve("content");
 const SITE_BASE_PATH = (process.env.SITE_BASE_PATH || "").replace(/^\/+|\/+$/g, "");
-const inheritedProductionFailures = new Set([
-  "/technology/ai/tritongpt/release-notes/11-24-2025-release",
-  "/tritongpt/release-notes/5-1-2026-release.html",
-]);
+const inheritedProductionFailures = new Set();
+const renderedProvenancePatterns = [
+  { pattern: /\bSource:\s*[^<\n]*\.md\b/i, label: "internal content filename" },
+  { pattern: /\bcurrent public (?:deck|presentation|version)\b/i, label: "public-version framing" },
+  { pattern: /\bthis public view\b/i, label: "public-view framing" },
+  { pattern: /\btritonai public architecture\b/i, label: "public-version architecture framing" },
+  { pattern: /\bdescriptions summarize\b[^.]*\b(?:deck|presentation)\b/i, label: "presentation attribution" },
+  { pattern: /\bcurrent capabilities reflect\b[^.]*\b(?:demonstration|meeting|presentation)\b/i, label: "meeting attribution" },
+  { pattern: /\breported in the\b[^.]*\bpresentation\b/i, label: "presentation attribution" },
+];
 const ignoredLegacyAssets = new Set([
   "/_resources/cross-domain/respond.proxy.gif",
   "/_resources/cross-domain/respond.proxy.js",
@@ -158,6 +164,14 @@ const useCaseContent = await loadMarkdownContent(
   "use-cases",
 );
 const contentFindings = [...pageContent.findings, ...useCaseContent.findings];
+for (const asset of files.filter((file) => file.endsWith(".svg"))) {
+  const renderedAsset = await readFile(path.join(DIST_DIR, asset), "utf8");
+  for (const { pattern, label } of renderedProvenancePatterns) {
+    if (pattern.test(renderedAsset)) {
+      contentFindings.push({ source: `/${asset}`, issue: `Rendered asset exposes ${label}` });
+    }
+  }
+}
 const roadmapContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "roadmap/milestones.json"), "utf8"));
 const factsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/public-facts.json"), "utf8"));
 const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/library.json"), "utf8"));
@@ -294,6 +308,12 @@ for (const page of htmlFiles) {
   $("a[href*='tritongpt-deck.vercel.app']").each((_, element) => {
     contentFindings.push({ source: route, issue: `Public pages must not link to the presentation deck: ${$(element).attr("href")}` });
   });
+  const renderedCopy = `${$("main#main-content").text()} ${$("meta[name='description']").attr("content") || ""}`;
+  for (const { pattern, label } of renderedProvenancePatterns) {
+    if (pattern.test(renderedCopy)) {
+      contentFindings.push({ source: route, issue: `Rendered page exposes ${label}` });
+    }
+  }
 
   const primaryNav = $("#navbar > .navbar-nav-list").first();
   if (!primaryNav.length) {
