@@ -3,11 +3,11 @@ title: Build with TritonAI
 path: /developer-apis/index.html
 description: Use TritonAI model access, reusable skills, and accountable hosting patterns to build governed campus AI services.
 eyebrow: Developer APIs and resources
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-25
 audiences: [developers, researchers, staff, leaders]
-source: TritonAI developer documentation and public architecture presentation
+source: TritonAI developer documentation, public architecture presentation, and July 24 AI Use Case Office Hours demonstration
 canonicalUrl: /developer-apis/index.html
-relatedSlides: [platform-architecture, citizen-developer-ecosystem, agent-engineering-strategy]
+relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, cabinet-people-10-domain-expert]
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 44%
@@ -15,6 +15,22 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
 <div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">A governed path to production</p><h2 id="build-intro-heading">Build on shared infrastructure without giving up clear ownership</h2><p class="hub-lede">TritonAI gives campus teams a common model gateway, reusable skills, emerging patterns, and an explicit route from bounded experimentation to an owned service.</p></div><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></figure></div></div>
+</section>
+
+<section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" aria-labelledby="api-gateway-heading">
+<div class="container">
+<div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">One gateway connects campus builders to approved model choices</h2><p>Teams build in supported environments, send model requests through the TritonAI LLM Gateway, and reach approved cloud or UC-hosted models through one managed route.</p></div>
+<figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
+<div class="api-gateway-flow">
+<article class="api-gateway-stage"><span class="api-gateway-stage-number">01</span><span class="glyphicon glyphicon-user api-gateway-stage-icon" aria-hidden="true"></span><h3>Campus builders</h3><p>Department staff, research labs, administrative analysts, and faculty teams</p></article>
+<article class="api-gateway-stage"><span class="api-gateway-stage-number">02</span><span class="glyphicon glyphicon-console api-gateway-stage-icon" aria-hidden="true"></span><h3>Supported development environments</h3><p>Approved coding environments, templates, and campus solution patterns</p></article>
+<article class="api-gateway-stage api-gateway-stage-core"><span class="api-gateway-stage-number">03</span><span class="glyphicon glyphicon-transfer api-gateway-stage-icon" aria-hidden="true"></span><h3>TritonAI LLM Gateway</h3><p>Shared access, routing, usage tracking, templates, and guardrails</p></article>
+<article class="api-gateway-stage"><span class="api-gateway-stage-number">04</span><span class="glyphicon glyphicon-cloud api-gateway-stage-icon" aria-hidden="true"></span><h3>Approved model routes</h3><p>Enterprise cloud providers and models hosted on UC-controlled infrastructure</p></article>
+</div>
+<div class="api-gateway-capabilities" aria-label="Capabilities available through approved model routes"><strong>Available capabilities vary by model and approval:</strong><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></div>
+<figcaption id="api-gateway-caption">This public view summarizes the API gateway workflow shown in the current TritonAI presentation. Gateway access does not authorize new data use; each application remains responsible for approved data, testing, accessibility, support, and human review.</figcaption>
+</figure>
+</div>
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="builder-routes-heading">
@@ -27,7 +43,21 @@ bannerPosition: center 44%
 </section>
 
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Pilot development workspace</p><h2 id="harness-heading">TritonAI Harness connects models, tools, and campus patterns</h2><p class="hub-lede">The TritonAI Harness is being piloted for bounded, tool-using AI workflows. It coordinates model requests, reusable skills, and multi-step work while keeping the shared TritonAI gateway in the path.</p><p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Request developer access</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-6 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">A shared execution path</p><ol class="build-harness-flow" aria-label="TritonAI Harness workflow"><li><span>01</span><strong>Define the task</strong><small>User intent and approved context</small></li><li class="build-harness-core"><span>02</span><strong>TritonAI Harness</strong><small>Coordinates the workflow</small></li><li><span>03</span><strong>Connect capabilities</strong><small>Gateway models, tools, and skills</small></li><li><span>04</span><strong>Review the result</strong><small>Human judgment and ownership</small></li></ol></div></div></div>
+<div class="hub-heading"><p class="home-kicker">Pilot development workspace</p><h2 id="harness-heading">TritonAI Harness brings campus-ready controls to desktop agent work</h2><p>UC San Diego supports Claude Code and the Codex desktop app for experienced builders. TritonAI Harness is the preferred starting point for most campus staff because it packages the installation, model access, campus skills, permissions, and supported integrations into one UC San Diego-oriented experience.</p></div>
+<div class="build-tool-grid">
+<article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Claude Code</h3><p>A command-line environment for technical builders who want to work directly with Anthropic models and development tooling.</p></article>
+<article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Codex desktop app</h3><p>An OpenAI desktop environment for experienced builders managing code, repositories, parallel tasks, and agent workflows.</p></article>
+<article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Preferred for most UC San Diego staff</p><h3>TritonAI Harness</h3><p>A campus-oriented desktop experience that reduces setup burden and keeps approved models, skills, permissions, and integrations together.</p></article>
+</div>
+<div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why the Harness is the preferred campus path</h3><ul class="build-harness-benefits">
+<li><strong>One installer for Mac and Windows</strong><span>Bundles the required runtime, packages, skills library, configurations, and the campus-selected Harness version.</span></li>
+<li><strong>UC San Diego model access</strong><span>Routes requests through the shared gateway to available UC-hosted and approved frontier models.</span></li>
+<li><strong>Campus skills built in</strong><span>Provides official reusable skills and a reviewed community pathway instead of asking each user to assemble a toolchain.</span></li>
+<li><strong>Managed Microsoft 365 connections</strong><span>The Harness plugin makes structured calls and keeps connection tokens outside the agent context; users choose the permissions they grant.</span></li>
+<li><strong>Adjustable supervision</strong><span>Supports supervised, auto-accept, and full-access modes so autonomy can match the task and the user’s comfort level.</span></li>
+<li><strong>Desktop work in one place</strong><span>Combines chat, files, images, voice input, and a built-in browser with the same approved model route.</span></li>
+</ul><p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Request developer access</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">A shared execution path</p><ol class="build-harness-flow" aria-label="TritonAI Harness workflow"><li><span>01</span><strong>Install once</strong><small>Campus setup and skills are bundled</small></li><li class="build-harness-core"><span>02</span><strong>Connect deliberately</strong><small>Choose models, plugins, and permissions</small></li><li><span>03</span><strong>Work with context</strong><small>Use approved tools and campus patterns</small></li><li><span>04</span><strong>Review the result</strong><small>People remain accountable for decisions</small></li></ol></div></div></div>
+<p class="build-harness-source">Current capabilities reflect David Balderston’s TritonAI Harness demonstration at AI Use Case Office Hours on July 24, 2026. The Harness is an early pilot and changes quickly; access and individual capabilities depend on the approved service path.</p>
 </section>
 
 <section class="hub-section" aria-labelledby="build-lifecycle-heading">
