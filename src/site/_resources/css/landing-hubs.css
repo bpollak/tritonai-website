@@ -881,6 +881,162 @@
 .cms-callout-card p:last-child { margin-top: auto; padding-top: 12px; }
 .cms-callout-icon { color: var(--triton-gold); font-size: 30px; }
 
+.tritongpt-assistant-ecosystem {
+  background: linear-gradient(180deg, #f7f9fb 0%, #fff 100%);
+}
+
+.assistant-breadth-layout {
+  align-items: start;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: minmax(190px, .32fr) minmax(0, 1fr);
+}
+
+.assistant-breadth-stat {
+  background: var(--triton-navy);
+  border-bottom: 6px solid var(--triton-gold);
+  box-shadow: 0 14px 34px rgba(24, 43, 73, .15);
+  color: #fff;
+  padding: 30px 27px;
+}
+
+.assistant-breadth-stat strong {
+  color: var(--triton-gold);
+  display: block;
+  font-family: Teko-SemiBold, sans-serif;
+  font-size: 80px;
+  line-height: .9;
+}
+
+.assistant-breadth-stat span {
+  display: block;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 12px;
+}
+
+.assistant-breadth-stat p {
+  color: #d9e5ec;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 20px 0 0;
+}
+
+.assistant-domain-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.assistant-domain-card {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-top: 5px solid var(--triton-bright-blue);
+  box-shadow: 0 9px 24px rgba(24, 43, 73, .08);
+  padding: 24px;
+}
+
+.assistant-domain-card:nth-child(2) { border-top-color: var(--triton-gold); }
+.assistant-domain-card:nth-child(3) { border-top-color: #6e963b; }
+.assistant-domain-card:nth-child(4) { border-top-color: var(--triton-blue); }
+.assistant-domain-card:nth-child(5) { border-top-color: #f47c6c; }
+
+.assistant-domain-card-wide {
+  grid-column: 1 / -1;
+}
+
+.assistant-domain-heading {
+  align-items: center;
+  display: flex;
+  gap: 13px;
+}
+
+.assistant-domain-heading > .glyphicon {
+  align-items: center;
+  background: var(--triton-navy);
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  flex: 0 0 42px;
+  font-size: 19px;
+  height: 42px;
+  justify-content: center;
+}
+
+.assistant-domain-heading h3 {
+  color: var(--triton-navy);
+  font-size: 24px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.assistant-pattern-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.assistant-pattern-list li {
+  border-top: 1px solid #d9e1e6;
+  padding: 14px 0 0;
+  margin-top: 14px;
+}
+
+.assistant-pattern-list li:first-child {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.assistant-pattern-list strong {
+  color: var(--triton-blue);
+  display: block;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.assistant-pattern-list span {
+  color: #52616b;
+  display: block;
+  font-size: 15px;
+  line-height: 1.45;
+  margin-top: 3px;
+}
+
+.assistant-domain-card-wide .assistant-pattern-list {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.assistant-domain-card-wide .assistant-pattern-list li,
+.assistant-domain-card-wide .assistant-pattern-list li:first-child {
+  border-left: 1px solid #d9e1e6;
+  border-top: 0;
+  margin: 0;
+  padding: 0 0 0 22px;
+}
+
+.assistant-domain-card-wide .assistant-pattern-list li:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.assistant-breadth-source {
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 26px 0 0;
+}
+
+.assistant-breadth-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 0;
+}
+
 .cms-cta {
   border-radius: 8px;
   box-shadow: 0 14px 34px rgba(24, 43, 73, .12);
@@ -1001,6 +1157,45 @@
   .cms-news-grid > [class*="col-"],
   .cms-tile-grid > [class*="col-"],
   .cms-callout-grid > [class*="col-"] { display: block; }
+
+  .assistant-breadth-layout,
+  .assistant-domain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-breadth-stat {
+    padding: 25px 23px;
+  }
+
+  .assistant-breadth-stat strong {
+    font-size: 67px;
+  }
+
+  .assistant-domain-card-wide {
+    grid-column: auto;
+  }
+
+  .assistant-domain-card-wide .assistant-pattern-list {
+    display: block;
+  }
+
+  .assistant-domain-card-wide .assistant-pattern-list li,
+  .assistant-domain-card-wide .assistant-pattern-list li:first-child {
+    border-left: 0;
+    border-top: 1px solid #d9e1e6;
+    margin-top: 14px;
+    padding: 14px 0 0;
+  }
+
+  .assistant-domain-card-wide .assistant-pattern-list li:first-child {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .assistant-breadth-actions .btn {
+    width: 100%;
+  }
   .hub-action-card { min-height: 0; }
   .build-harness-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
   .build-harness-actions .btn { width: 100%; }
