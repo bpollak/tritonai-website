@@ -185,47 +185,47 @@ const USE_CASE_ICON_MAP = {
 const USE_CASE_MEDIA = {
   "contract-review": {
     src: "/_images/use-cases/contract-review-public.webp",
-    alt: "Illustrated contract review workflow moving from policy comparison to flagged clauses and human approval",
+    alt: "Open contract with original clauses beside tracked revisions as a reviewer completes the final approval",
   },
   "transcript-matching": {
     src: "/_images/use-cases/transcript-matching-public.webp",
-    alt: "Illustrated transcript workflow moving from record extraction to confidence matching and human review",
+    alt: "Two sets of academic records connected by course-equivalency paths, with an uncertain match routed for review",
   },
   "instructional-ai": {
     src: "/_images/use-cases/instructional-ai-public.webp",
-    alt: "Illustrated instructional workflow connecting course sources, guided tutoring, and instructor oversight",
+    alt: "Student in a guided dialogue connected to instructor-selected books, notes, and course materials",
   },
   "ai-use-case-meeting": {
     src: "/_images/use-cases/ai-use-case-meeting-public.webp",
-    alt: "Illustrated discovery workflow moving from an idea to structured scoping and a group recommendation",
+    alt: "Staff hands arranging users, data boundaries, risks, and outcomes on a collaborative use-case canvas",
   },
   biobib: {
     src: "/_images/use-cases/biobib-public.webp",
-    alt: "Illustrated BioBib workflow organizing approved faculty activity sections into a review-ready document",
+    alt: "Faculty publications, teaching, service, and awards branching into a review-ready academic portfolio",
   },
   "class-planner": {
     src: "/_images/use-cases/class-planner-public.webp",
-    alt: "Illustrated class-planning workflow combining meeting data and preferences into selectable schedule alternatives",
+    alt: "Color-coded course blocks arranged on a weekly scheduling board with three alternatives for comparison",
   },
   "dissertation-formatter": {
     src: "/_images/use-cases/dissertation-formatter-public.webp",
-    alt: "Illustrated dissertation workflow checking formatting rules and routing results for human review",
+    alt: "Dissertation page on a technical drafting table with margin, hierarchy, and alignment guides",
   },
   "passport-app": {
     src: "/_images/use-cases/passport-app-public.webp",
-    alt: "Illustrated visitor-services workflow moving from check-in through a privacy-safe queue to staff service",
+    alt: "Visitor checking in at a kiosk before following a privacy-safe queue path to a staffed service counter",
   },
   "pdf-remediation": {
     src: "/_images/use-cases/pdf-remediation-public.webp",
-    alt: "Illustrated PDF remediation workflow surfacing accessibility findings for a human remediator",
+    alt: "Document separated into transparent semantic layers while a human remediator inspects an unresolved issue",
   },
   "research-alignment": {
     src: "/_images/use-cases/research-alignment-public.webp",
-    alt: "Illustrated research-alignment workflow connecting profile signals and public sources to explainable opportunities",
+    alt: "Research profile constellation linked through traceable publication, funding, method, and collaborator clusters",
   },
   "voice-agent": {
     src: "/_images/use-cases/voice-agent-public.webp",
-    alt: "Illustrated consent-based interview workflow moving from conversation through redaction to human evidence review",
+    alt: "Staff conversation waveform with protected segments becoming a human-reviewed evidence map",
   },
 };
 
