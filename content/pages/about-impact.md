@@ -23,13 +23,13 @@ relatedSlides: [use-cases, platform-at-uc-san-diego]
 </div>
 <!-- END_AGENT_SECTION -->
 
-## Publication standard
+## Evidence standard
 
-Every public quantitative claim must include a definition, source, owner, measurement period, last-reviewed date, and enough context to distinguish a controlled pilot from a production service. Figures that do not meet that standard remain outside this page.
+Every quantitative claim must be defined, scoped to a named service and measurement period, and reviewed by an accountable owner. Figures that do not meet that standard remain outside this page.
 
-## Current public evidence
+## Current evidence
 
-The figures below are the currently published, scoped results. Each one applies only to the named service and measurement period; none should be read as a campus-wide average.
+The figures below are scoped results. Each one applies only to the named service and measurement period; none should be read as a campus-wide average.
 
 <!-- AGENT_SECTION: ux-about-impact-metrics -->
 <div class="row agent-card-grid">
@@ -40,7 +40,7 @@ The figures below are the currently published, scoped results. Each one applies 
 </div>
 <!-- END_AGENT_SECTION -->
 
-<p><small>Detailed evidence packages below identify the definition, owner, source, measurement period, classification, related presentation material, and review date for each published result.</small></p>
+<p><small>Each result below includes the service owner, measurement period, data classification, and review date.</small></p>
 
 <div data-public-facts="true"></div>
 

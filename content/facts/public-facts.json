@@ -3,7 +3,7 @@
   "facts": [
     {
       "id": "website-widget-reach",
-      "claim": "The TritonGPT public website widget is live on 16 UC San Diego websites.",
+      "claim": "The TritonGPT website widget is live on 16 UC San Diego websites.",
       "status": "public",
       "owner": "TritonGPT service team",
       "lastReviewed": "2026-07-24",
@@ -15,36 +15,36 @@
     },
     {
       "id": "tritongpt-assistant-breadth",
-      "claim": "The current public TritonGPT Platform slide catalogs 18 named assistant patterns across campus knowledge, teaching, research, administrative work, development, security, and review.",
+      "claim": "TritonGPT includes 18 named assistant patterns across campus knowledge, teaching, research, administrative work, development, security, and review.",
       "status": "public",
       "owner": "TritonGPT service team",
       "lastReviewed": "2026-07-24",
       "source": "TritonGPT Platform slide in the TritonAI strategy presentation",
-      "measurementPeriod": "Current public deck as reviewed July 24, 2026",
+      "measurementPeriod": "Service inventory reviewed July 24, 2026",
       "dataClassification": "Public service inventory; not a guarantee of universal access",
       "canonicalUrl": "/tritongpt/index.html",
       "relatedSlides": ["tritongpt-platform"]
     },
     {
       "id": "contract-review-time",
-      "claim": "The reported Procurement contract-review workflow reduced average review time from 120 minutes to 11 minutes, a 91% reduction, for the measured NDA and terms-and-conditions workflow.",
+      "claim": "The Procurement contract-review workflow reduced average review time from 120 minutes to 11 minutes, a 91% reduction, for the measured NDA and terms-and-conditions workflow.",
       "status": "public",
       "owner": "UC San Diego Procurement service owner and TritonAI solutions team",
       "lastReviewed": "2026-07-24",
       "source": "TritonAI strategy presentation and Contract Review production workflow",
-      "measurementPeriod": "FY 2025-26 reported production workflow",
+      "measurementPeriod": "FY 2025-26 production workflow",
       "dataClassification": "Public aggregate",
       "canonicalUrl": "/use-cases/contract-review.html",
       "relatedSlides": ["contract-reviewer-consolidated", "ai-contract-reviewer"]
     },
     {
       "id": "transcript-matching-validation",
-      "claim": "The published Transcript Matching validation result reported 99.86% accuracy across more than 3,700 records, with five errors.",
+      "claim": "Transcript Matching achieved 99.86% accuracy across more than 3,700 records, with five errors in the validation sample.",
       "status": "public",
       "owner": "Enrollment Management service owner and TritonAI solutions team",
       "lastReviewed": "2026-07-24",
       "source": "/tritongpt/release-notes/index.html",
-      "measurementPeriod": "Published production validation sample",
+      "measurementPeriod": "Production validation sample",
       "dataClassification": "Public aggregate; no student records",
       "canonicalUrl": "/use-cases/transcript-matching.html",
       "relatedSlides": ["transcript-matching-validation"]
@@ -87,7 +87,7 @@
     },
     {
       "id": "impact-measurement",
-      "claim": "Public quantitative impact claims require an owner, definition, source, measurement period, and review date before publication.",
+      "claim": "Quantitative impact claims are scoped to an owner, definition, measurement period, and review date.",
       "status": "public",
       "owner": "TritonAI program",
       "lastReviewed": "2026-07-24",

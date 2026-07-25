@@ -1,7 +1,7 @@
 ---
 title: Trust & Architecture
 path: /about/trust-architecture.html
-description: A public view of TritonAI hosting choices, model routing, grounded knowledge, and service responsibilities.
+description: An overview of TritonAI hosting choices, model routing, grounded knowledge, and service responsibilities.
 eyebrow: About TritonAI
 lastReviewed: 2026-07-24
 audiences: [staff, faculty, students, developers, leaders]

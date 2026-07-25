@@ -14,7 +14,7 @@ bannerPosition: center 44%
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">A governed path to production</p><h2 id="build-intro-heading">Build on shared infrastructure without giving up clear ownership</h2><p class="hub-lede">TritonAI gives campus teams a common model gateway, reusable skills, emerging patterns, and an explicit route from bounded experimentation to an owned service.</p></div><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></figure></div></div>
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">A governed path to production</p><h2 id="build-intro-heading">Build on shared infrastructure without giving up clear ownership</h2><p class="hub-lede">TritonAI gives campus teams a common model gateway, reusable skills, emerging patterns, and an explicit route from bounded experimentation to an owned service.</p></div><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></figure></div></div>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" aria-labelledby="api-gateway-heading">
@@ -28,7 +28,7 @@ bannerPosition: center 44%
 <article class="api-gateway-stage"><span class="api-gateway-stage-number">04</span><span class="glyphicon glyphicon-cloud api-gateway-stage-icon" aria-hidden="true"></span><h3>Approved model routes</h3><p>Enterprise cloud providers and models hosted on UC-controlled infrastructure</p></article>
 </div>
 <div class="api-gateway-capabilities" aria-label="Capabilities available through approved model routes"><strong>Available capabilities vary by model and approval:</strong><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></div>
-<figcaption id="api-gateway-caption">This public view summarizes the API gateway workflow shown in the current TritonAI presentation. Gateway access does not authorize new data use; each application remains responsible for approved data, testing, accessibility, support, and human review.</figcaption>
+<figcaption id="api-gateway-caption">Gateway access does not authorize new data use. Each application remains responsible for approved data, testing, accessibility, support, and human review.</figcaption>
 </figure>
 </div>
 </section>
@@ -57,7 +57,7 @@ bannerPosition: center 44%
 <li><strong>Adjustable supervision</strong><span>Supports supervised, auto-accept, and full-access modes so autonomy can match the task and the user’s comfort level.</span></li>
 <li><strong>Desktop work in one place</strong><span>Combines chat, files, images, voice input, and a built-in browser with the same approved model route.</span></li>
 </ul><p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Request developer access</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">A shared execution path</p><ol class="build-harness-flow" aria-label="TritonAI Harness workflow"><li><span>01</span><strong>Install once</strong><small>Campus setup and skills are bundled</small></li><li class="build-harness-core"><span>02</span><strong>Connect deliberately</strong><small>Choose models, plugins, and permissions</small></li><li><span>03</span><strong>Work with context</strong><small>Use approved tools and campus patterns</small></li><li><span>04</span><strong>Review the result</strong><small>People remain accountable for decisions</small></li></ol></div></div></div>
-<p class="build-harness-source">Current capabilities reflect David Balderston’s TritonAI Harness demonstration at AI Use Case Office Hours on July 24, 2026. The Harness is an early pilot and changes quickly; access and individual capabilities depend on the approved service path.</p>
+<p class="build-harness-source">TritonAI Harness is an early pilot and changes quickly. Access and individual capabilities depend on the approved service path.</p>
 </section>
 
 <section class="hub-section" aria-labelledby="build-lifecycle-heading">
