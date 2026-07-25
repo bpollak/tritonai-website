@@ -5,9 +5,9 @@ description: Access UC San Diego's trusted AI platform for model choice, documen
 eyebrow: The platform at the center of TritonAI
 lastReviewed: 2026-07-24
 audiences: [students, faculty, staff, developers]
-source: TritonGPT public service and guide pages
+source: TritonGPT public service, guide pages, and current public platform presentation
 canonicalUrl: /tritongpt/index.html
-relatedSlides: [platform-at-uc-san-diego, platform-architecture, assistants]
+relatedSlides: [tritongpt-platform, tritongpt-secure-scalable-ai-platform, instructional-ai-socratic-tutor-faculty-assistant]
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 46%
@@ -31,6 +31,47 @@ bannerPosition: center 46%
 <div class="col-sm-6 col-md-3"><article class="panel cms-callout-card"><div class="panel-body"><span class="glyphicon glyphicon-random cms-callout-icon" aria-hidden="true"></span><h3>Choose a model</h3><p>Select from models made available through approved UC San Diego routes.</p><p><a class="text-link" href="/about/trust-architecture.html">How routing works</a></p></div></article></div>
 <div class="col-sm-6 col-md-3"><article class="panel cms-callout-card"><div class="panel-body"><span class="glyphicon glyphicon-globe cms-callout-icon" aria-hidden="true"></span><h3>Use campus context</h3><p>Retrieve relevant information from approved sources at request time.</p><p><a class="text-link" href="/tritongpt/integrations.html">Where TritonGPT appears</a></p></div></article></div>
 </div>
+</div>
+</section>
+
+<section class="landing-section tritongpt-assistant-ecosystem" aria-labelledby="assistant-breadth-heading">
+<div class="container">
+<div class="landing-section-heading"><p class="home-kicker">Purpose-built help across campus work</p><h2 id="assistant-breadth-heading">One platform, many defined jobs</h2><p>The current public TritonGPT deck shows assistants spanning campus knowledge, teaching, research, project work, development, security, and review. Each pattern starts with a defined task and keeps accountable people in the decision.</p></div>
+<div class="assistant-breadth-layout">
+<aside class="assistant-breadth-stat" aria-label="Assistant breadth at a glance"><strong>18</strong><span>assistant patterns in the current public deck</span><p>The set visible to each person depends on role, approved access, and service stage.</p></aside>
+<div class="assistant-domain-grid">
+<article class="assistant-domain-card"><div class="assistant-domain-heading"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><h3>Campus and employee information</h3></div><ul class="assistant-pattern-list">
+<li><strong>UC San Diego Assistant</strong><span>Connect questions with information across campus functions.</span></li>
+<li><strong>UCSD Benefit Assistant</strong><span>Help employees find relevant benefit information.</span></li>
+<li><strong>Data Dictionary Assistant</strong><span>Find definitions from campus data references such as Blink and Activity Hub.</span></li>
+<li><strong>Supplier Search Tool</strong><span>Support procurement research and supplier discovery without selecting a vendor.</span></li>
+</ul></article>
+<article class="assistant-domain-card"><div class="assistant-domain-heading"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><h3>Teaching, learning, and planning</h3></div><ul class="assistant-pattern-list">
+<li><strong>Socratic Tutor</strong><span>Guide students through course material using questions and instructor-selected sources.</span></li>
+<li><strong>Instructor AI Assistant</strong><span>Help faculty draft lessons, quizzes, and study guides from selected material.</span></li>
+<li><strong>Class Scheduling Assistant</strong><span>Compare schedule alternatives against meeting times and preferences.</span></li>
+</ul></article>
+<article class="assistant-domain-card"><div class="assistant-domain-heading"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><h3>Research and funding support</h3></div><ul class="assistant-pattern-list">
+<li><strong>Deep Research Assistant</strong><span>Synthesize documents and research material into a reviewable starting point.</span></li>
+<li><strong>Fund Manager Coach</strong><span>Provide grant-administration and compliance guidance for human review.</span></li>
+<li><strong>Internet Search Assistant</strong><span>Use conversational search to gather current public information.</span></li>
+</ul></article>
+<article class="assistant-domain-card"><div class="assistant-domain-heading"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><h3>Drafting and project delivery</h3></div><ul class="assistant-pattern-list">
+<li><strong>Job Description Helper</strong><span>Draft role descriptions from structured inputs for accountable review.</span></li>
+<li><strong>Expert Notetaker</strong><span>Turn meetings into decisions, actions, and follow-up notes.</span></li>
+<li><strong>Project Charter Assistant</strong><span>Structure project goals, scope, roles, and first milestones.</span></li>
+<li><strong>AI Workplace Opportunity</strong><span>Examine recurring tasks for potential AI-supported workflows.</span></li>
+<li><strong>Triton Developer Assistant</strong><span>Support coding, debugging, and technical documentation.</span></li>
+</ul></article>
+<article class="assistant-domain-card assistant-domain-card-wide"><div class="assistant-domain-heading"><span class="glyphicon glyphicon-check" aria-hidden="true"></span><h3>Review, alignment, and risk</h3></div><ul class="assistant-pattern-list">
+<li><strong>Contract Reviewer</strong><span>Compare terms with approved positions and prepare review-ready findings.</span></li>
+<li><strong>Email Phishing Analyzer</strong><span>Explain suspicious-message signals to support a security decision.</span></li>
+<li><strong>Performance Review Evaluator</strong><span>Help supervisors check draft feedback for completeness and alignment.</span></li>
+</ul></article>
+</div>
+</div>
+<p class="assistant-breadth-source">Descriptions summarize the current public TritonGPT Platform presentation, reviewed July 24, 2026. Assistant access does not authorize new data use or replace the responsible reviewer.</p>
+<p class="assistant-breadth-actions"><a class="btn btn-primary" href="/training-resources/tritongpt/assistants.html">Learn how assistants work</a><a class="btn btn-default" href="/use-cases/index.html">Explore supervised solutions</a></p>
 </div>
 </section>
 
