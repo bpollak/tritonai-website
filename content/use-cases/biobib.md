@@ -4,12 +4,16 @@ slug: biobib
 summary: A drafting workflow for organizing approved faculty activity data into a reviewable BioBib document.
 status: Pilot
 owner: TritonAI solutions team and the sponsoring academic service owner
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-25
 audiences: [faculty, staff]
 source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot
 dataClassification: Public description; faculty records follow approved service controls
 canonicalUrl: /use-cases/biobib.html
+videoSrc: https://tritongpt-deck.vercel.app/media/product-previews/biobib-formatter-preview.mp4
+videoPoster: https://tritongpt-deck.vercel.app/media/product-previews/biobib-formatter-poster.png
+videoLabel: BioBib Formatter demo
+videoDescription: Silent screen recording showing a Word CV upload, section-level review, TritonAI routing, and a downloadable BioBib draft.
 stats:
   - { value: "20", label: "Review parts", sub: "Section-level routing" }
   - { value: ".docx", label: "Output", sub: "BioBib draft" }

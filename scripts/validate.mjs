@@ -239,7 +239,25 @@ const landingHubPaths = new Set([
 
 const allowedStatuses = new Set(["Shipped", "Production", "Pilot", "In development", "Exploring"]);
 for (const useCase of useCaseContent.entries) {
-  if (!allowedStatuses.has(useCase.status)) contentFindings.push({ source: `use-cases/${useCase.filename}`, issue: `Unknown status: ${useCase.status}` });
+  const source = `use-cases/${useCase.filename}`;
+  if (!allowedStatuses.has(useCase.status)) contentFindings.push({ source, issue: `Unknown status: ${useCase.status}` });
+  if (useCase.videoSrc) {
+    const missingVideoFields = missingFields(useCase, ["videoPoster", "videoLabel", "videoDescription"]);
+    if (missingVideoFields.length) contentFindings.push({ source, issue: `Video is missing fields: ${missingVideoFields.join(", ")}` });
+  }
+  for (const [index, screenshot] of (useCase.screenshots || []).entries()) {
+    const missingScreenshotFields = missingFields(screenshot, ["src", "alt", "caption"]);
+    if (missingScreenshotFields.length) {
+      contentFindings.push({ source: `${source}#screenshot-${index + 1}`, issue: `Screenshot is missing fields: ${missingScreenshotFields.join(", ")}` });
+    }
+  }
+  for (const mediaUrl of [
+    useCase.videoSrc,
+    useCase.videoPoster,
+    ...(useCase.screenshots || []).map((screenshot) => screenshot.src),
+  ].filter((url) => /^https?:\/\//i.test(url || ""))) {
+    if (!requiredRemoteDependencies.includes(mediaUrl)) requiredRemoteDependencies.push(mediaUrl);
+  }
 }
 for (const [index, milestone] of (roadmapContent.items || []).entries()) {
   const milestoneMissing = missingFields(milestone, ["period", "title", "status", "summary", "owner", "lastReviewed", "source"]);
@@ -634,6 +652,18 @@ for (const page of htmlFiles) {
     if ($(".use-case-tools li").length !== (useCase.toolHighlights || []).length) {
       contentFindings.push({ source: route, issue: "Rendered workflow elements do not match use-case content" });
     }
+    if ($(".use-case-demo").length !== (useCase.videoSrc ? 1 : 0)) {
+      contentFindings.push({ source: route, issue: "Rendered video does not match use-case content" });
+    }
+    if ($(".use-case-screenshot").length !== (useCase.screenshots || []).length) {
+      contentFindings.push({ source: route, issue: "Rendered screenshots do not match use-case content" });
+    }
+    $(".use-case-screenshot").each((_, element) => {
+      const screenshot = $(element);
+      if (!screenshot.find("img[alt]").attr("alt") || !screenshot.find("figcaption").text().trim()) {
+        accessibility.push({ page: route, issue: "Use-case screenshot needs alternative text and a visible caption" });
+      }
+    });
     if ($(".use-case-narrative-step").length !== 3 || $(".use-case-narrative-step h3").length !== 3) {
       accessibility.push({ page: route, issue: "Use-case narrative must contain three labeled workflow stages" });
     }
