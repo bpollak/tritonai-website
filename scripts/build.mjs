@@ -182,12 +182,62 @@ const USE_CASE_ICON_MAP = {
   "passport-app": "check",
 };
 
+const USE_CASE_MEDIA = {
+  "contract-review": {
+    src: "/_images/use-cases/contract-review-public.webp",
+    alt: "Illustrated contract review workflow moving from policy comparison to flagged clauses and human approval",
+  },
+  "transcript-matching": {
+    src: "/_images/use-cases/transcript-matching-public.webp",
+    alt: "Illustrated transcript workflow moving from record extraction to confidence matching and human review",
+  },
+  "instructional-ai": {
+    src: "/_images/use-cases/instructional-ai-public.webp",
+    alt: "Illustrated instructional workflow connecting course sources, guided tutoring, and instructor oversight",
+  },
+  "ai-use-case-meeting": {
+    src: "/_images/use-cases/ai-use-case-meeting-public.webp",
+    alt: "Illustrated discovery workflow moving from an idea to structured scoping and a group recommendation",
+  },
+  biobib: {
+    src: "/_images/use-cases/biobib-public.webp",
+    alt: "Illustrated BioBib workflow organizing approved faculty activity sections into a review-ready document",
+  },
+  "class-planner": {
+    src: "/_images/use-cases/class-planner-public.webp",
+    alt: "Illustrated class-planning workflow combining meeting data and preferences into selectable schedule alternatives",
+  },
+  "dissertation-formatter": {
+    src: "/_images/use-cases/dissertation-formatter-public.webp",
+    alt: "Illustrated dissertation workflow checking formatting rules and routing results for human review",
+  },
+  "passport-app": {
+    src: "/_images/use-cases/passport-app-public.webp",
+    alt: "Illustrated visitor-services workflow moving from check-in through a privacy-safe queue to staff service",
+  },
+  "pdf-remediation": {
+    src: "/_images/use-cases/pdf-remediation-public.webp",
+    alt: "Illustrated PDF remediation workflow surfacing accessibility findings for a human remediator",
+  },
+  "research-alignment": {
+    src: "/_images/use-cases/research-alignment-public.webp",
+    alt: "Illustrated research-alignment workflow connecting profile signals and public sources to explainable opportunities",
+  },
+  "voice-agent": {
+    src: "/_images/use-cases/voice-agent-public.webp",
+    alt: "Illustrated consent-based interview workflow moving from conversation through redaction to human evidence review",
+  },
+};
+
 function renderUseCaseCards(useCases) {
   return `<div class="row agent-card-grid">${useCases
-    .map(
-      (useCase) =>
-        `<div class="col-sm-6 col-md-4"><article class="panel panel-default agent-card use-case-card"><div class="panel-body"><span class="glyphicon glyphicon-${USE_CASE_ICON_MAP[useCase.slug] || "star"} use-case-card-icon" aria-hidden="true"></span>${renderStatus(useCase.status)}<h2 class="h3"><a href="${escapeHtml(useCase.canonicalUrl)}">${escapeHtml(useCase.title)}</a></h2><p>${escapeHtml(useCase.summary)}</p><p><strong>Measure:</strong> ${escapeHtml(useCase.measurableOutcome)}</p></div></article></div>`,
-    )
+    .map((useCase) => {
+      const image = USE_CASE_MEDIA[useCase.slug];
+      const imageHtml = image
+        ? `<a class="use-case-card-image" href="${escapeHtml(useCase.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a>`
+        : "";
+      return `<div class="col-sm-6 col-md-4"><article class="panel panel-default agent-card use-case-card">${imageHtml}<div class="panel-body"><span class="glyphicon glyphicon-${USE_CASE_ICON_MAP[useCase.slug] || "star"} use-case-card-icon" aria-hidden="true"></span>${renderStatus(useCase.status)}<h2 class="h3"><a href="${escapeHtml(useCase.canonicalUrl)}">${escapeHtml(useCase.title)}</a></h2><p>${escapeHtml(useCase.summary)}</p><p><strong>Measure:</strong> ${escapeHtml(useCase.measurableOutcome)}</p></div></article></div>`;
+    })
     .join("")}</div>`;
 }
 
@@ -198,43 +248,19 @@ function featuredUseCases(useCases) {
 }
 
 function renderUseCaseIndex(useCases) {
-  const media = {
-    "contract-review": {
-      src: "/_images/use-cases/contract-review-public.webp",
-      alt: "Illustrated contract review workflow moving from policy comparison to flagged clauses and human approval",
-    },
-    "transcript-matching": {
-      src: "/_images/use-cases/transcript-matching-public.webp",
-      alt: "Sanitized Transcript Matching review interface using fictional demonstration records",
-    },
-    "instructional-ai": {
-      src: "/_images/smiling-students-collaborating.webp",
-      alt: "UC San Diego students collaborating around a laptop",
-    },
-  };
   const featured = featuredUseCases(useCases);
   const remaining = useCases.filter((entry) => !FEATURED_USE_CASE_SLUGS.includes(entry.slug));
-  const iconMap = {
-    "ai-use-case-meeting": "comment",
-    biobib: "list-alt",
-    "dissertation-formatter": "book",
-    "pdf-remediation": "eye-open",
-    "research-alignment": "search",
-    "class-planner": "calendar",
-    "voice-agent": "earphone",
-    "passport-app": "check",
-  };
   const featuredHtml = featured
     .map((entry) => {
-      const image = media[entry.slug];
-      return `<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
+      const image = USE_CASE_MEDIA[entry.slug];
+      return `<div class="col-md-4"><article class="panel panel-default cms-news-card cms-use-case-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
     })
     .join("");
   const remainingHtml = remaining
-    .map(
-      (entry) =>
-        `<div class="col-sm-6 col-md-4"><article class="cms-link-tile"><div class="cms-link-tile-meta"><span class="glyphicon glyphicon-${iconMap[entry.slug] || "star"}" aria-hidden="true"></span>${renderStatus(entry.status)}</div><h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p></article></div>`,
-    )
+    .map((entry) => {
+      const image = USE_CASE_MEDIA[entry.slug];
+      return `<div class="col-sm-6 col-md-4"><article class="panel panel-default cms-news-card cms-use-case-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
+    })
     .join("");
   return `<section aria-labelledby="featured-use-cases-heading" class="landing-section cms-news-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">From idea to impact</p><h2 id="featured-use-cases-heading">Featured use cases</h2><p>Three examples show the range from production services to bounded instructional pilots.</p></div><div class="row cms-news-grid">${featuredHtml}</div></div></section><section aria-labelledby="all-use-cases-heading" class="landing-section landing-section-sand cms-tiles-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">Explore the portfolio</p><h2 id="all-use-cases-heading">More campus workflows</h2><p>Status labels show what is available now, in pilot, in development, or being explored.</p></div><div class="row cms-tile-grid">${remainingHtml}</div></div></section><section aria-labelledby="propose-use-case-heading" class="jumbotron jumbotron-callout-image-small-inset"><div class="container"><div class="row"><div class="col-md-7"><div class="panel panel-default"><div class="panel-body"><h2 id="propose-use-case-heading">Bring a recurring problem</h2><p class="panel-text">Start with the workflow, its owner, the approved data, the review step, and the outcome that should improve.</p><p><a class="btn btn-default" href="/about/get-involved.html">Start a use-case conversation</a></p></div></div></div></div></div></section>`;
 }

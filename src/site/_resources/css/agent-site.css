@@ -1625,6 +1625,22 @@
 }
 
 /* Use-case cards (homepage featured grid) */
+.use-case-card {
+  overflow: hidden;
+}
+
+.use-case-card-image {
+  background: #eef1f3;
+  display: block;
+  overflow: hidden;
+}
+
+.use-case-card-image img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+}
+
 .use-case-card .panel-body {
   position: relative;
 }

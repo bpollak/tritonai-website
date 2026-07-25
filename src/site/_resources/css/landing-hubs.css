@@ -908,6 +908,26 @@
 .cms-news-card .panel-body { padding: 25px; }
 .cms-news-card h3 { color: var(--triton-navy); font-size: 24px; margin: 8px 0 10px; }
 
+.cms-use-case-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cms-use-case-card .cms-news-image img {
+  aspect-ratio: 16 / 9;
+}
+
+.cms-use-case-card .panel-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.cms-use-case-card .panel-body p:last-child {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
 .cms-link-tile {
   background: #fff;
   border: 1px solid var(--triton-border);
