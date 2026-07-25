@@ -23,6 +23,13 @@ try {
         result.viewports.push({
           width,
           horizontalOverflow: await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1),
+          collapsedHubMedia: width <= 991
+            ? await page.evaluate(() => Array.from(document.querySelectorAll(".hub-split-media")).filter((media) => {
+              const mediaRect = media.getBoundingClientRect();
+              const splitRect = media.closest(".hub-split")?.getBoundingClientRect();
+              return splitRect && mediaRect.height > 0 && mediaRect.width < splitRect.width * 0.9;
+            }).length)
+            : 0,
           axe: await axeResults(page),
           interactions: await interactionChecks(page, width),
         });
@@ -44,6 +51,7 @@ for (const result of pages) {
     const label = `${result.route} at ${viewport.width}px`;
     if (viewport.error) failures.push(`${label}: browser check failed: ${viewport.error}`);
     if (viewport.horizontalOverflow) failures.push(`${label}: horizontal overflow`);
+    if (viewport.collapsedHubMedia) failures.push(`${label}: collapsed split media (${viewport.collapsedHubMedia} ${viewport.collapsedHubMedia === 1 ? "node" : "nodes"})`);
     for (const violation of viewport.axe || []) {
       failures.push(`${label}: axe ${violation.impact || "unknown"} ${violation.id} (${violation.nodes} ${violation.nodes === 1 ? "node" : "nodes"})`);
     }
