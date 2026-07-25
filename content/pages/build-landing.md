@@ -21,13 +21,31 @@ bannerPosition: center 44%
 <div class="container">
 <div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">One gateway connects campus builders to approved model choices</h2><p>Teams build in supported environments, send model requests through the TritonAI LLM Gateway, and reach approved cloud or UC-hosted models through one managed route.</p></div>
 <figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
-<div class="api-gateway-flow">
-<article class="api-gateway-stage"><span class="api-gateway-stage-number">01</span><span class="glyphicon glyphicon-user api-gateway-stage-icon" aria-hidden="true"></span><h3>Campus builders</h3><p>Department staff, research labs, administrative analysts, and faculty teams</p></article>
-<article class="api-gateway-stage"><span class="api-gateway-stage-number">02</span><span class="glyphicon glyphicon-console api-gateway-stage-icon" aria-hidden="true"></span><h3>Supported development environments</h3><p>Approved coding environments, templates, and campus solution patterns</p></article>
-<article class="api-gateway-stage api-gateway-stage-core"><span class="api-gateway-stage-number">03</span><span class="glyphicon glyphicon-transfer api-gateway-stage-icon" aria-hidden="true"></span><h3>TritonAI LLM Gateway</h3><p>Shared access, routing, usage tracking, templates, and guardrails</p></article>
-<article class="api-gateway-stage"><span class="api-gateway-stage-number">04</span><span class="glyphicon glyphicon-cloud api-gateway-stage-icon" aria-hidden="true"></span><h3>Approved model routes</h3><p>Enterprise cloud providers and models hosted on UC-controlled infrastructure</p></article>
+<div class="api-gateway-map">
+<div class="api-gateway-source-cluster">
+<section class="api-gateway-lane api-gateway-builders" aria-labelledby="api-gateway-builders-heading">
+<p class="api-gateway-lane-label">Start with a campus need</p>
+<h3 id="api-gateway-builders-heading">Campus builders</h3>
+<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Department staff</li><li><span class="glyphicon glyphicon-education" aria-hidden="true"></span>Research labs</li><li><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>Administrative analysts</li><li><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>Faculty teams</li></ul>
+</section>
+<section class="api-gateway-lane api-gateway-workspaces" aria-labelledby="api-gateway-workspaces-heading">
+<p class="api-gateway-lane-label">Build in a supported workspace</p>
+<h3 id="api-gateway-workspaces-heading">Development environments</h3>
+<ul class="api-gateway-node-list"><li class="api-gateway-node-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span><strong>TritonAI Harness</strong><small>Preferred for most campus staff</small></span></li><li><span class="glyphicon glyphicon-console" aria-hidden="true"></span>Claude Code</li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>Codex desktop app</li></ul>
+</section>
 </div>
-<div class="api-gateway-capabilities" aria-label="Capabilities available through approved model routes"><strong>Available capabilities vary by model and approval:</strong><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></div>
+<div class="api-gateway-connector api-gateway-connector-in" aria-hidden="true"><span>Connect through</span><i></i></div>
+<section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>Shared managed route</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3><ul><li>Access and routing</li><li>Usage tracking</li><li>Templates and guardrails</li></ul></div></section>
+<div class="api-gateway-connector api-gateway-connector-out" aria-hidden="true"><span>Access</span><i></i></div>
+<div class="api-gateway-target-cluster">
+<section class="api-gateway-lane api-gateway-routes" aria-labelledby="api-gateway-routes-heading">
+<p class="api-gateway-lane-label">Choose an approved route</p>
+<h3 id="api-gateway-routes-heading">Model routes</h3>
+<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><span><strong>Enterprise cloud</strong><small>Approved commercial model providers</small></span></li><li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span><strong>UC-controlled hosting</strong><small>Available self-hosted model families</small></span></li></ul>
+</section>
+<section class="api-gateway-capabilities" aria-labelledby="api-gateway-capabilities-heading"><p class="api-gateway-lane-label">Capabilities vary by model</p><h3 id="api-gateway-capabilities-heading">Available capabilities</h3><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></section>
+</div>
+</div>
 <figcaption id="api-gateway-caption">Gateway access does not authorize new data use. Each application remains responsible for approved data, testing, accessibility, support, and human review.</figcaption>
 </figure>
 </div>
