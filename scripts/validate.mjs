@@ -747,6 +747,22 @@ for (const page of htmlFiles) {
     if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
     }
+    const hostingLanes = $("#hosting-lanes");
+    if (
+      hostingLanes.length !== 1 ||
+      hostingLanes.find(".hosting-lanes > .hosting-lane").length !== 4 ||
+      hostingLanes.find(".hosting-lane-escalation").length !== 3 ||
+      hostingLanes.find(".hosting-lane-triggers li").length !== 3
+    ) {
+      contentFindings.push({ source: route, issue: "Build landing page must include four hosting lanes, three escalation steps, and three escalation triggers" });
+    }
+    if (
+      hostingLanes.text().includes("~1000") ||
+      hostingLanes.text().includes("*.apps.ucsd.edu") ||
+      hostingLanes.text().includes("*.tritonai.ucsd.edu")
+    ) {
+      contentFindings.push({ source: route, issue: "Public hosting lanes must not include internal volume estimates or tentative hosting domains" });
+    }
     const gatewayUsage = $("#gateway-usage");
     if (gatewayUsage.length !== 1 || gatewayUsage.find(".gateway-usage-metrics > li").length !== (gatewayUsageContent.metrics || []).length) {
       contentFindings.push({ source: route, issue: "Gateway usage summary does not match structured metrics" });
