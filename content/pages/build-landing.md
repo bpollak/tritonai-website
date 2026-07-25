@@ -82,6 +82,45 @@ bannerPosition: center 44%
 <p class="build-harness-source">TritonAI Harness is an early pilot and changes quickly. Access and individual capabilities depend on the approved service path.</p>
 </section>
 
+<section class="hub-section hub-section-sand hub-full-bleed hosting-lanes-section" id="hosting-lanes" aria-labelledby="hosting-lanes-heading">
+<div class="container">
+<div class="hub-heading"><p class="home-kicker">From artifact to service</p><h2 id="hosting-lanes-heading">Choose a hosting lane that matches reach and risk</h2><p>A useful artifact is not automatically a production service. As its audience, data, integrations, support needs, or consequences grow, move it into a more managed hosting and review path.</p></div>
+<figure class="hosting-lanes-figure" aria-describedby="hosting-lanes-caption">
+<ol class="hosting-lanes">
+<li class="hosting-lane hosting-lane-personal">
+<div class="hosting-lane-tier"><span>Lane 0</span><span class="glyphicon glyphicon-user" aria-hidden="true"></span><strong>Personal workspace</strong></div>
+<div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Explore a bounded task</strong><p>Individual work in an approved desktop environment or user sandbox.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>User-controlled workspace</strong><p>Useful for learning and prototypes; not an end-user service.</p></div>
+<div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Individual owner</strong><p>Protect data, review results, and keep the scope bounded.</p></div>
+</li>
+<li class="hosting-lane-escalation"><span aria-hidden="true">↓</span><strong>Move to a managed lane as scope grows</strong></li>
+<li class="hosting-lane hosting-lane-department">
+<div class="hosting-lane-tier"><span>Lane 1</span><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><strong>Department application</strong></div>
+<div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Serve a defined team</strong><p>A focused application with a known audience and business owner.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>Department-owned application</strong><p>Published through an approved campus application path.</p></div>
+<div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Initial risk and scope review</strong><p>Name technical ownership, support, accessibility, and data boundaries.</p></div>
+</li>
+<li class="hosting-lane-escalation"><span aria-hidden="true">↓</span><strong>Move to a managed lane as scope grows</strong></li>
+<li class="hosting-lane hosting-lane-managed">
+<div class="hosting-lane-tier"><span>Lane 2</span><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><strong>Managed campus service</strong></div>
+<div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Support many users</strong><p>A shared workflow with integrations or broader operational impact.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>TritonAI or ITS-managed path</strong><p>Development and hosting are paired with service operations.</p></div>
+<div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Recurring risk and scope review</strong><p>Monitor quality, security, accessibility, reliability, and support.</p></div>
+</li>
+<li class="hosting-lane-escalation"><span aria-hidden="true">↓</span><strong>Move to a managed lane as scope grows</strong></li>
+<li class="hosting-lane hosting-lane-enterprise">
+<div class="hosting-lane-tier"><span>Lane 3</span><span class="glyphicon glyphicon-tower" aria-hidden="true"></span><strong>Enterprise service</strong></div>
+<div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Campus-wide delivery</strong><p>A high-reach or high-consequence institutional capability.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>Enterprise platform</strong><p>Designed with architecture, identity, resilience, and service management.</p></div>
+<div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Formal operating ownership</strong><p>Governance, monitoring, continuity, and support are built into the service.</p></div>
+</li>
+</ol>
+<div class="hosting-lane-triggers" aria-label="Reasons to move an artifact to a more managed hosting lane"><strong>Escalate when:</strong><ul><li><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>Audience or reliance grows</li><li><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>Data or integrations expand</li><li><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>Failure or support impact rises</li></ul></div>
+<figcaption id="hosting-lanes-caption">The right lane depends on the application’s actual scope and risk, not only its current user count. A prototype may move between lanes as its purpose and operating requirements change.</figcaption>
+</figure>
+</div>
+</section>
+
 <section class="hub-section" aria-labelledby="build-lifecycle-heading">
 <div class="hub-heading"><p class="home-kicker">From request to service</p><h2 id="build-lifecycle-heading">A narrow prototype is the beginning, not the finish line</h2><p>Production readiness grows with reach, risk, integrations, and the consequences of failure.</p></div>
 <ol class="hub-lifecycle"><li><span>Request</span><p>Define the user, task, approved data, and success measure.</p></li><li><span>Prototype</span><p>Use bounded data and an explicit human review point.</p></li><li><span>Evaluate</span><p>Test quality, accessibility, security, cost, and operational fit.</p></li><li><span>Operate</span><p>Name an owner, document controls, support users, and monitor the service.</p></li></ol>
