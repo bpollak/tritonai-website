@@ -1841,7 +1841,7 @@
 
 .use-case-demo-frame video {
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -1855,6 +1855,32 @@
 .use-case-demo-caption .glyphicon {
   color: var(--triton-blue);
   margin-right: 5px;
+}
+
+.use-case-media-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.use-case-screenshot {
+  margin: 0;
+  overflow: hidden;
+}
+
+.use-case-screenshot img {
+  aspect-ratio: 16 / 9;
+  background: #edf4f7;
+  object-fit: contain;
+  width: 100%;
+}
+
+.use-case-screenshot figcaption {
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.45;
+  padding: 14px 16px 16px;
 }
 
 .use-case-tools {
@@ -1981,6 +2007,7 @@
 
   .use-case-stats,
   .use-case-governance-grid,
+  .use-case-media-grid,
   .use-case-tools {
     grid-template-columns: 1fr;
   }

@@ -4,12 +4,16 @@ slug: transcript-matching
 summary: A human-supervised workflow for matching transcript records and surfacing uncertain cases for review.
 status: Production
 owner: TritonAI solutions team and the sponsoring student-services owner
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-25
 audiences: [staff, leaders]
 source: TritonGPT release notes and TritonAI strategy presentation
 measurementPeriod: Production service; accuracy result from the published validation sample of 3,700+ transcript records
 dataClassification: Public description; student records require approved protected-data controls
 canonicalUrl: /use-cases/transcript-matching.html
+videoSrc: https://tritongpt-deck.vercel.app/media/tms-onbase-demo.mp4
+videoPoster: /_images/use-cases/transcript-matching-public.webp
+videoLabel: Transcript Matching staff review demo
+videoDescription: Silent screen recording showing confidence-based matching and the staff review interface used to resolve uncertain records.
 relatedSlides: [transcript-matching-validation]
 humanOversight: Staff review uncertain matches and monitor quality before any broader use.
 measurableOutcome: Match precision and recall, review volume, processing time, and exception rate.

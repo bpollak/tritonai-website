@@ -4,12 +4,16 @@ slug: contract-review
 summary: A supervised workflow that compares contract language with approved legal positions and prepares review-ready findings.
 status: Production
 owner: TritonAI solutions team and the sponsoring legal service owner
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-25
 audiences: [staff, leaders]
 source: TritonAI strategy presentation
 measurementPeriod: Production — 91% time savings (120 min to 11 min average)
 dataClassification: Public description; contract data follows the approved production controls
 canonicalUrl: /use-cases/contract-review.html
+videoSrc: https://tritongpt-deck.vercel.app/media/media7.mp4
+videoPoster: /_images/use-cases/contract-review-public.webp
+videoLabel: Contract Review workflow demo
+videoDescription: Silent screen recording showing monitored intake, processing status, and delivery of a redlined document for human review.
 relatedSlides: [contract-reviewer-consolidated, ai-contract-reviewer]
 humanOversight: A qualified reviewer approves findings and every proposed change before use.
 measurableOutcome: Review time, completeness, reviewer agreement, rework, and escalations.

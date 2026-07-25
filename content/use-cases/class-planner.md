@@ -4,12 +4,16 @@ slug: class-planner
 summary: A production campus app that generates class schedule alternatives from course meeting data, preferences, and unavailable times.
 status: Production
 owner: UC San Diego Class Planner service owner and supporting product team
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-25
 audiences: [students, staff]
 source: UC San Diego Class Planner public guide and current service status
 measurementPeriod: Production as of July 2026
 dataClassification: Public description; student and enrollment data follow the production service's approved controls
 canonicalUrl: /use-cases/class-planner.html
+videoSrc: https://classplanner.apps.ucsd.edu/assets/video/planner-build.mp4
+videoPoster: https://classplanner.apps.ucsd.edu/assets/img/planner-build-poster.png
+videoLabel: Class Planner schedule-building demo
+videoDescription: Silent screen recording showing course search, schedule generation, and comparison in the production Class Planner interface.
 relatedSlides: [video-tritongpt-class-scheduling-agent]
 humanOversight: Students review schedule alternatives, warnings, meeting details, and current availability before enrollment.
 measurableOutcome: Successful plan creation, schedule comparison, saved plans, service reliability, and student usefulness.
