@@ -725,6 +725,31 @@ for (const page of htmlFiles) {
     }
   }
   if (route === "/developer-apis/index.html") {
+    const architecture = $(".build-architecture");
+    if (
+      architecture.length !== 1 ||
+      architecture.find(".build-architecture-flow > li").length !== 4 ||
+      architecture.find(".build-architecture-accountability li").length !== 3 ||
+      $(".hub-section-intro img[src*='tritonai-architecture-public.svg']").length !== 0
+    ) {
+      contentFindings.push({ source: route, issue: "Build landing page must use the four-stage semantic service model with three accountability practices" });
+    }
+    const narrativeOrder = $(".landing-hub-content").children("section, nav").map((_, element) => $(element).attr("id")).get().filter(Boolean);
+    const expectedNarrativeOrder = [
+      "builder-entry-points",
+      "tritonai-harness",
+      "api-gateway",
+      "gateway-usage",
+      "service-lifecycle",
+      "hosting-lanes",
+      "shared-responsibility",
+      "builder-resources",
+      "build-start"
+    ];
+    const narrativePositions = expectedNarrativeOrder.map((id) => narrativeOrder.indexOf(id));
+    if (narrativePositions.some((position) => position === -1) || narrativePositions.some((position, index) => index > 0 && position <= narrativePositions[index - 1])) {
+      contentFindings.push({ source: route, issue: "Build landing page sections must follow the intended overview, entry point, workspace, platform, lifecycle, hosting, ownership, and resource narrative" });
+    }
     const gatewayMap = $(".api-gateway-map");
     if (
       gatewayMap.length !== 1 ||
