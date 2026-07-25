@@ -725,6 +725,20 @@ for (const page of htmlFiles) {
     }
   }
   if (route === "/developer-apis/index.html") {
+    const gatewayMap = $(".api-gateway-map");
+    if (
+      gatewayMap.length !== 1 ||
+      gatewayMap.find(".api-gateway-builders .api-gateway-node-list > li").length !== 4 ||
+      gatewayMap.find(".api-gateway-workspaces .api-gateway-node-list > li").length !== 3 ||
+      gatewayMap.find(".api-gateway-core").length !== 1 ||
+      gatewayMap.find(".api-gateway-routes .api-gateway-node-list > li").length !== 2 ||
+      gatewayMap.find(".api-gateway-capabilities li").length !== 6
+    ) {
+      contentFindings.push({ source: route, issue: "API gateway diagram is missing a builder, workspace, gateway, route, or capability group" });
+    }
+    if (gatewayMap.find(".api-gateway-node-preferred").text().trim().includes("TritonAI Harness") === false) {
+      contentFindings.push({ source: route, issue: "API gateway diagram must identify TritonAI Harness as the preferred campus workspace" });
+    }
     const harnessSection = $("#tritonai-harness");
     const harnessFlow = harnessSection.find(".build-harness-flow > li");
     if (harnessSection.length !== 1 || harnessFlow.length !== 4) {
