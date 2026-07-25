@@ -22,6 +22,7 @@ const ignoredLegacyAssets = new Set([
   "/_resources/cross-domain/respond.proxy.js",
 ]);
 const requiredRemoteDependencies = [
+  "https://cdn.ucsd.edu/cms/decorator-5/styles/bootstrap.min.css",
   "https://cdn.ucsd.edu/cms/decorator-5/styles/base.min.css",
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/base.min.js",
   "https://www.ucsd.edu/common/_emergency-broadcast/message.js",
@@ -43,6 +44,10 @@ const afterRenderDecoratorScripts = [
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/vendor.min.js",
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/base.min.js",
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/decorator.js",
+];
+const requiredDecoratorStylesheets = [
+  "https://cdn.ucsd.edu/cms/decorator-5/styles/bootstrap.min.css",
+  "https://cdn.ucsd.edu/cms/decorator-5/styles/base.min.css",
 ];
 const emergencyBroadcastScript = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
 const tritonGptWidgetScript = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
@@ -141,6 +146,7 @@ const accessibility = [];
 const metadata = [];
 const performance = [];
 const navigation = [];
+const decorator = [];
 
 const assetSizeCache = new Map();
 async function localAssetSize(raw, pagePath) {
@@ -281,6 +287,25 @@ for (const entry of freshnessEntries) {
 for (const page of htmlFiles) {
   const $ = load(await readFile(path.join(DIST_DIR, page), "utf8"));
   const route = page === "index.html" ? "/" : `/${page}`;
+  for (const stylesheet of requiredDecoratorStylesheets) {
+    if ($(`link[rel~='stylesheet'][href='${stylesheet}']`).length !== 1) {
+      decorator.push({ page: route, issue: `Missing official Decorator 5 stylesheet: ${stylesheet}` });
+    }
+  }
+  if (!$("body").hasClass("agent-page")) {
+    decorator.push({ page: route, issue: "Page is missing the shared Decorator extension class" });
+  }
+  $("[style]").each((_, element) => {
+    if (/font-family\s*:/i.test($(element).attr("style") || "")) {
+      decorator.push({ page: route, issue: "Inline font-family overrides the Decorator 5 type system" });
+    }
+  });
+  $(".hub-action-card, .hub-story-card").each((_, element) => {
+    const component = $(element);
+    if (!component.hasClass("panel") || !component.hasClass("panel-default")) {
+      decorator.push({ page: route, issue: "Custom landing card must extend the Decorator panel component" });
+    }
+  });
   const ids = new Map();
   $("[id]").each((_, element) => {
     const id = $(element).attr("id");
@@ -745,6 +770,16 @@ for (const page of htmlFiles) {
   }
 }
 
+for (const filename of files.filter((file) => file.startsWith("_resources/css/") && file.endsWith(".css"))) {
+  const source = await readFile(path.join(DIST_DIR, filename), "utf8");
+  for (const match of source.matchAll(/font-family\s*:\s*([^;}]+)/gi)) {
+    const family = match[1].trim();
+    if (!/\b(?:Roboto|Teko-SemiBold)\b/i.test(family)) {
+      decorator.push({ page: `/${filename}`, issue: `Non-Decorator font-family declaration: ${family}` });
+    }
+  }
+}
+
 const performanceRuntimeSource = await readFile(path.join(DIST_DIR, "_resources/js/site-performance.js"), "utf8").catch(() => "");
 for (const behavior of ["IntersectionObserver", "requestIdleCallback", "data-after-render-src", 'document.addEventListener("pointerover"', 'document.addEventListener("touchstart"']) {
   if (!performanceRuntimeSource.includes(behavior)) performance.push({ page: "/_resources/js/site-performance.js", issue: `Missing runtime behavior: ${behavior}` });
@@ -810,6 +845,7 @@ const report = {
     metadataFailures: metadata.length,
     routeFailures: routeFindings.length,
     performanceFailures: performance.length,
+    decoratorFailures: decorator.length,
   },
   missing,
   inherited,
@@ -822,6 +858,7 @@ const report = {
   metadata,
   routeFindings,
   performance,
+  decorator,
 };
 await mkdir(REPORT_DIR, { recursive: true });
 await writeFile(path.join(REPORT_DIR, "validation.json"), `${JSON.stringify(report, null, 2)}\n`);
@@ -838,7 +875,8 @@ if (
   navigation.length ||
   metadata.length ||
   routeFindings.length ||
-  performance.length
+  performance.length ||
+  decorator.length
 ) {
   process.stderr.write("Validation failed. See reports/validation.json.\n");
   process.exit(1);
