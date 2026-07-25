@@ -1361,7 +1361,13 @@
   .landing-hub-page .landing-hub-hero { min-height: 285px; }
   .landing-hub-title { padding: 66px 0 52px; }
   .hub-split-copy,
-  .hub-split-media { padding-left: 15px; padding-right: 15px; }
+  .hub-split-media {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+  }
   .hub-split-media { margin-top: 34px; }
   .home-feature { margin: 52px 0 64px; }
   .home-feature .hub-split { min-height: 0; }
