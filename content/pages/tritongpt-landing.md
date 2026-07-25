@@ -3,11 +3,11 @@ title: TritonGPT
 path: /tritongpt/index.html
 description: Access UC San Diego's trusted AI platform for model choice, document work, campus-aware assistants, and governed integrations.
 eyebrow: The platform at the center of TritonAI
-lastReviewed: 2026-07-22
+lastReviewed: 2026-07-24
 audiences: [students, faculty, staff, developers]
 source: TritonGPT public service and guide pages
 canonicalUrl: /tritongpt/index.html
-relatedSlides: [TritonGPT, Architecture, Assistants]
+relatedSlides: [platform-at-uc-san-diego, platform-architecture, assistants]
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 46%
@@ -17,7 +17,7 @@ bannerPosition: center 46%
 <div class="container">
 <div class="cms-cta row">
 <div class="col-md-6 cms-cta-copy"><p class="home-kicker">Available to eligible campus users</p><h2 id="access-tritongpt-heading">Start in TritonGPT</h2><p>Sign in with UC San Diego credentials to use the full chat experience, document support, model choice, and campus-aware assistants.</p><p><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a></p></div>
-<div class="col-md-6 cms-cta-media"><img alt="TritonGPT chat workspace showing campus assistants and model choice" class="img-responsive" src="/_images/Model-switcher.gif"></div>
+<div class="col-md-6 cms-cta-media"><img alt="Students collaborating with a laptop on the UC San Diego campus" class="img-responsive" src="/_images/smiling-students-collaborating.webp"></div>
 </div>
 </div>
 </section>
@@ -36,7 +36,7 @@ bannerPosition: center 46%
 
 <section class="landing-section" aria-labelledby="trusted-hosting-heading">
 <div class="container">
-<div class="row"><div class="col-md-7"><div class="landing-section-heading"><p class="home-kicker">Approved hosting choices</p><h2 id="trusted-hosting-heading">Model flexibility without fragmented governance</h2><p>TritonGPT can use approved enterprise cloud models or open models hosted on UC-controlled infrastructure. The appropriate route depends on the service, data, capability, and approved controls.</p></div><p><a class="btn btn-primary" href="/about/trust-architecture.html">Explore trust and architecture</a></p></div><div class="col-md-5"><img alt="TritonAI gateway diagram showing one governed route to approved cloud and UC-hosted models" class="img-responsive" src="/_images/api-program.webp"></div></div>
+<div class="row"><div class="col-md-7"><div class="landing-section-heading"><p class="home-kicker">Approved hosting choices</p><h2 id="trusted-hosting-heading">Model flexibility without fragmented governance</h2><p>TritonGPT can use approved enterprise cloud models or open models hosted on UC-controlled infrastructure. The appropriate route depends on the service, data, capability, and approved controls.</p></div><p><a class="btn btn-primary" href="/about/trust-architecture.html">Explore trust and architecture</a></p></div><div class="col-md-5"><img alt="Public TritonAI architecture showing one approved route to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></div></div>
 </div>
 </section>
 
@@ -44,9 +44,9 @@ bannerPosition: center 46%
 <div class="container">
 <div class="landing-section-heading"><p class="home-kicker">TritonGPT in practice</p><h2 id="assistant-examples-heading">Three useful patterns</h2><p>Start with a general campus experience, bring your own source material, or use an assistant designed for a defined workflow.</p></div>
 <div class="row cms-news-grid">
-<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/tritongpt/integrations.html"><img alt="UC San Diego Assistant in TritonGPT with campus-specific prompt suggestions" class="img-responsive" src="/_images/tritongpt/ucsd-assistant.jpg"></a><div class="panel-body"><h3><a href="/tritongpt/integrations.html">Campus answers</a></h3><p>Find relevant service and policy information through campus-aware experiences.</p></div></article></div>
-<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/training-resources/tritongpt/index.html"><img alt="Expert Notetaker assistant in TritonGPT ready to summarize a meeting transcript with action items" class="img-responsive" src="/_images/tritongpt/expert-notetaker.jpg"></a><div class="panel-body"><h3><a href="/training-resources/tritongpt/index.html">Document work</a></h3><p>Summarize, compare, and draft against the material you provide, then verify the result.</p></div></article></div>
-<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/use-cases/index.html"><img alt="Contract review workflow interface with findings prepared for human review" class="img-responsive" src="/_images/use-cases/contract-review-card.png"></a><div class="panel-body"><h3><a href="/use-cases/index.html">Supervised workflows</a></h3><p>Connect models, knowledge, and review steps for repeatable campus problems.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/tritongpt/integrations.html"><img alt="Geisel Library on the UC San Diego campus" class="img-responsive" src="/_images/landing/geisel-library.webp"></a><div class="panel-body"><h3><a href="/tritongpt/integrations.html">Campus answers</a></h3><p>Find relevant service and policy information through campus-aware experiences.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/training-resources/tritongpt/index.html"><img alt="Students collaborating around a laptop" class="img-responsive" src="/_images/smiling-students-collaborating.webp"></a><div class="panel-body"><h3><a href="/training-resources/tritongpt/index.html">Document work</a></h3><p>Summarize, compare, and draft against the material you provide, then verify the result.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/use-cases/index.html"><img alt="Illustrated contract review workflow with human approval" class="img-responsive" src="/_images/use-cases/contract-review-public.webp"></a><div class="panel-body"><h3><a href="/use-cases/index.html">Supervised workflows</a></h3><p>Connect models, knowledge, and review steps for repeatable campus problems.</p></div></article></div>
 </div>
 </div>
 </section>

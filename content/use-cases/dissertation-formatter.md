@@ -10,7 +10,7 @@ source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot
 dataClassification: Public description; submitted documents follow approved service controls
 canonicalUrl: /use-cases/dissertation-formatter.html
-relatedSlides: [Dissertation Formatter]
+relatedSlides: [the-flywheel-in-action-dissertation-formatter]
 humanOversight: The student and graduate-education reviewer retain responsibility for the final document.
 measurableOutcome: Rules checked, issues resolved, review cycles, time to acceptance, and false findings.
 featured: true
@@ -22,7 +22,7 @@ stats:
   - { value: "84", label: "Rules checked", sub: "13 categories" }
   - { value: "17+", label: "Auto-fixes", sub: "Common issues" }
   - { value: "3", label: "Result buckets", sub: "Fixed, action, verify" }
-toolHighlights: ["GEPA Rules", "Auto-Corrections", "Compliance Report"]
+toolHighlights: ["GEPA Rules", "Auto-Corrections", "Review Report"]
 
 ---
 

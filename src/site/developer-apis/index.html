@@ -509,131 +509,37 @@
 <!-- display the main content -->
 <section aria-label="Main Content" class="col-xs-9 main-section pull-right">
 <h2>TritonAI Developer APIs</h2>
-<p>A governed gateway to self-hosted and approved cloud models, with starter credits, usage reporting, and recharge paths for projects that scale.</p>
+<p>TritonAI provides a common gateway and emerging development patterns for campus teams exploring governed AI services. Access, data use, model routes, costs, and production readiness are reviewed for each project.</p>
 
 <div class="alert alert-info" style="margin: 20px 0; padding: 20px;">
-<h3 style="margin-top: 0;">Browse the Model Hub</h3>
-<p>See every available model — on-prem open-weight models at SDSC and approved cloud providers — in one table with capabilities, context windows, and pricing.</p>
+<h3 style="margin-top: 0;">Browse current models and rates</h3>
+<p>The Model Hub is the authoritative place to review models currently offered through the gateway, their published capabilities, context windows, and rates.</p>
 <p><a class="btn btn-primary btn-lg" href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
 </div>
 
-<h3>TritonAI Harness: Campus Agentic Development Platform</h3>
-<p>The TritonAI Harness is UC San Diego's campus agentic development platform — the execution layer that turns model inference into governed, tool-using AI workers. Based on the Hugging Face agent glossary: <em>Model &ne; Agent. Agent = Model + Scaffold + Harness.</em> The Harness is what makes it one: it calls the model, routes tool calls, manages the action-observation loop, handles errors, and controls state and memory across turns.</p>
-<p><strong>Architecture:</strong> User &rarr; Harness &rarr; LiteLLM Gateway &rarr; Hyperscaler/On-prem models + Tools/Skills (via MCP)</p>
-<p>The Harness evolved from the T3 Code fork and was formally named "TritonAI Harness" in June 2026. V1 (Mac) feature set is complete, including cron scheduling, heartbeat monitoring, job execution, and MS Graph access. It functions as UCSD's branded Codex replacement with governed gateway metering, observability, and recharge mechanics.</p>
-<p>Key capabilities include:</p>
-<ul>
-<li><strong>Agent orchestration</strong> — multi-step workflow execution with tool calls, error handling, and state management</li>
-<li><strong>MCP-based connectors</strong> — reusable skills and tools from the UCSD Skills Library, including MS Graph, Confluence, and campus data integrations</li>
-<li><strong>Governed access</strong> — every request routes through the LiteLLM gateway with usage tracking, access scopes, and model routing policies</li>
-<li><strong>Citizen developer pathway</strong> — tiered deployment model from individual experimentation to campus-wide enterprise applications</li>
-<li><strong>Recharge mechanics</strong> — usage-based cost recovery for production projects that scale beyond starter credits</li>
-</ul>
+<h3>A shared development path</h3>
+<p>Builders can begin with a narrow use case and use the shared gateway, reusable skills, and pilot tooling where those capabilities are approved for the project. A prototype does not imply production approval.</p>
+<ol>
+<li><strong>Define the need:</strong> identify the user, task, data, accountable owner, human review point, and success measure.</li>
+<li><strong>Request access:</strong> submit enough context for the service team to review the appropriate model route and controls.</li>
+<li><strong>Build a bounded prototype:</strong> use approved data and test quality, accessibility, security, cost, and failure handling.</li>
+<li><strong>Plan for operation:</strong> confirm ownership, support, monitoring, and the production path before serving additional users.</li>
+</ol>
 
-<div class="jumbotron jumbotron-full-width side-image-white bubbles">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Developer API Architecture</h3>
-                <p>Campus users connect through AI Harnesses (Claude Code, Codex, TritonBuild) to the LLM Gateway, which routes to both on-prem models at the San Diego Supercomputer Center and approved cloud providers. The gateway enforces templates, guardrails, and usage tracking. ITS owns templates, hosting, and baseline risk review; departments own app logic, accessibility, testing, and end-user support.</p>
-                <img src="../_images/api-program.png" alt="TritonAI Developer API architecture diagram showing the flow from campus users through AI harnesses to the LLM gateway and model providers, with the four-step onboarding process and responsibility model" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
-            </div>
-        </div>
-    </div>
+<img src="../_images/tritonai-architecture-public.svg" alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
+
+<h3>TritonAI Harness pilot</h3>
+<p>The TritonAI Harness is being piloted as a workspace for bounded, tool-using AI workflows. It can coordinate model requests, approved tools, reusable skills, and multi-step work. Availability and supported capabilities are confirmed during project review.</p>
+
+<h3>Shared responsibility</h3>
+<div class="row">
+<div class="col-md-6"><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title">Platform responsibilities</h4></div><div class="panel-body"><ul><li>Common gateway operations</li><li>Reusable patterns and published standards</li><li>Review of the proposed service path</li><li>Current access and model information</li></ul></div></div></div>
+<div class="col-md-6"><div class="panel panel-warning"><div class="panel-heading"><h4 class="panel-title">Project responsibilities</h4></div><div class="panel-body"><ul><li>Application logic and approved data</li><li>Accessibility and testing</li><li>End-user support</li><li>Named business and technical owners</li></ul></div></div></div>
 </div>
 
-<div class="jumbotron jumbotron-callout-image-small-inset" style="background-image: url(https://cdn.ucsd.edu/cms/decorator-5/img/bg-grit-orbs-2.jpg);">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h3>Tiered Deployment Model</h3>
-                        <p class="panel-text">From individual citizen development to campus-wide enterprise deployment — a structured escalation path with review gates at each tier.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<img src="../_images/ai-hosting.png" alt="TritonAI tiered deployment model showing four tiers from individual citizen development through campus-wide enterprise deployment with review gates" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
-
-<h3>Access Request</h3>
-<p>Submit a request via the Kuali Build form (search "TritonAI API" in the Service Portal). Default credits ($15/month) are active for experimentation.</p>
-
-<h3>What You Get</h3>
-<ul>
-<li>API key for the LiteLLM gateway at <code>tritonai-api.ucsd.edu/v1</code></li>
-<li>Default credits ($15/month) for experimentation</li>
-<li><strong>On-prem models</strong> — self-hosted open-weight models inside the UC firewall at SDSC, including Llama, Mistral, Gemma, and DeepSeek variants, with no per-token cost for campus users</li>
-<li><strong>Cloud models</strong> — access to 20+ approved cloud models including GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, Gemini 3.1 Pro/Flash, Amazon Nova Premier, and Cohere transcription</li>
-<li>Usage reporting and recharge mechanics for production projects</li>
-<li>MCP-based connectors and reusable skills from the UCSD Skills Library</li>
-</ul>
-
-<h3>On-Prem Model Hosting at SDSC</h3>
-<p>The San Diego Supercomputer Center hosts open-weight models inside the UC firewall, giving the campus a resilient, cost-controlled AI infrastructure that doesn't depend on external API availability or vendor rate limits. This is central to UC San Diego's strategy: <strong>own the base layer, rent the frontier.</strong></p>
-<ul>
-<li><strong>Data sovereignty</strong> — sensitive campus data never leaves the UC network when using on-prem models</li>
-<li><strong>Cost control</strong> — no per-token charges for self-hosted models; cloud usage is opt-in for frontier capabilities</li>
-<li><strong>Vendor independence</strong> — reduce lock-in to any single cloud provider; on-prem models provide a fallback if cloud access changes</li>
-<li><strong>Research access</strong> — SDSC GPU infrastructure (including DGX-class hardware) available for research and instructional workloads</li>
-<li><strong>Model flexibility</strong> — open-weight models can be fine-tuned, quantized, or swapped without vendor approval</li>
-</ul>
-
-<h3>Cloud Model Access</h3>
-<p>For workloads that need frontier capabilities, the LiteLLM gateway provides governed access to approved cloud providers with the same usage tracking, access scopes, and recharge mechanics as on-prem models. Cloud and on-prem models can be mixed within a single agent workflow — the Harness routes to whichever model the gateway policy specifies.</p>
-
-<h3>Model Hub Highlights</h3>
-<p><strong>On-prem (SDSC):</strong> GLM 5.2, Llama 3.1/4, Mistral Large, Gemma 3, DeepSeek V4, Qwen 3 — with new open-weight models added as they're released and validated.</p>
-<p><strong>Cloud (via gateway):</strong> GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, Gemini 3.1 Pro/Flash, Amazon Nova Premier, Cohere transcription.</p>
-<p><a class="btn btn-primary btn-lg" href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Browse the Model Hub (opens in a new tab)</a></p>
-
-<h3>TritonAI Harness in Action</h3>
-<p>Recorded demos of the Harness executing real campus workflows.</p>
-
-<div style="margin: 20px 0; border: 1px solid #ddd; background: #fff;">
-  <div style="padding: 15px; border-bottom: 1px solid #ddd;">
-    <h4 style="margin: 0 0 5px 0;">Harness API Demo (June 2026)</h4>
-    <p style="margin: 0; font-size: 14px; color: #666;">Screen recording of the TritonAI Harness making API calls through the LiteLLM gateway, showing tool execution, MCP connectors, and the action-observation loop in practice.</p>
-  </div>
-  <video style="width: 100%; display: block;" muted playsInline controls preload="metadata" aria-label="TritonAI Harness API demo video" aria-describedby="harness-api-demo-description" data-silent-demo="true">
-    <source src="https://tritongpt-deck.vercel.app/media/harness-api-demo-2026-06-30-1.5x.mp4"/>
-    Your browser does not support the video tag.
-  </video>
-  <p id="harness-api-demo-description" style="padding: 10px 15px;">Silent screen recording showing the Harness making governed model requests, invoking tools and connectors, and returning observable results.</p>
-</div>
-
-<h3>UCSD Skills Library</h3>
-<p>Reusable MCP-based skills for the TritonAI ecosystem, managed by David Balderston in two repos:</p>
-<ul>
-<li><strong>UCSD-Skills-Library-Secure</strong> (private) — DSMLP skill with automated GitHub pipeline</li>
-<li><strong>UCSD-Skills-Library</strong> (public) — all other skills in <code>tritonai/</code> and <code>community/</code> folders</li>
-</ul>
-<p>Skills are designed to be consumed dynamically by the Triton Code Agent and T3 Harness for campus workflows.</p>
-
-<h3>Agent Engineering Strategy</h3>
-<p>TritonAI supports multiple agentic coding interfaces so builders can choose the right tool for the task. All routes connect through the same LiteLLM gateway with campus recharge and on-prem governance.</p>
-<ul>
-<li><strong>CODEX (OpenAI)</strong> — autonomous delegation for self-contained, high-correctness tasks. Best when accuracy and verification are non-negotiable and work can run in parallel isolated environments.</li>
-<li><strong>Claude Code (Anthropic)</strong> — collaborative coordination across GitHub, docs, chat, and planning tools. Best for interdependent work where teams and agents must stay aligned with human-in-the-loop iteration.</li>
-<li><strong>Gemini Antigravity (Google)</strong> — also supported for teams that prefer the Gemini ecosystem.</li>
-</ul>
-<p><strong>Routing guidance:</strong> Use CODEX when correctness and autonomous recovery are critical and the task is self-contained. Use Claude Code when iterative drafting and review are acceptable and the workflow spans multiple systems.</p>
-
-<h3>Campus App Hosting</h3>
-<p>What happens after you build — the hosting path for campus apps, with review gates at each step.</p>
-<div class="table-responsive"><table class="table table-striped"><thead><tr><th scope="col">Step</th><th scope="col">Phase</th><th scope="col">What happens</th></tr></thead><tbody>
-<tr><th scope="row">1</th><td>Prototype</td><td>Build locally with Claude Code, CODEX, or curated ITS templates through the Citizen Developer Program</td></tr>
-<tr><th scope="row">2</th><td>Apply</td><td>Submit department sponsor, technical POC, audience, and data classification</td></tr>
-<tr><th scope="row">3</th><td>Review</td><td>Automated checks plus guided ITS review of data sensitivity, restricted APIs, and stack fit</td></tr>
-<tr><th scope="row">4</th><td>Deploy</td><td>Campus-only hosting with SSO, logging, and network controls — available on campus or VPN</td></tr>
-<tr><th scope="row">5</th><td>Operate</td><td>Department supports the app; ITS manages platform health and may remove non-compliant apps</td></tr>
-<tr><th scope="row">6</th><td>Promote</td><td>High-value apps graduate to enterprise support; unsupported apps are retired</td></tr>
-</tbody></table></div>
-<div class="row"><div class="col-md-6"><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title">ITS Owns</h4></div><div class="panel-body"><ul><li>Templates &amp; Standards</li><li>Hosting, SSO &amp; Logs</li><li>Baseline Risk Review</li><li>Right to Remove Apps</li></ul></div></div></div><div class="col-md-6"><div class="panel panel-warning"><div class="panel-heading"><h4 class="panel-title">Department Owns</h4></div><div class="panel-body"><ul><li>App Logic &amp; Dependencies</li><li>Accessibility &amp; Testing</li><li>End-User Support</li><li>Named Technical POC</li></ul></div></div></div></div>
-<p><strong>Boundaries:</strong> Campus App Hosting is for department workflows and single-purpose tools. It is not for public websites, HIPAA workloads, or payment processing.</p>
+<h3>Request access</h3>
+<p>Submit the access request with your use case and project context. The service team will confirm eligibility, available model routes, data-handling requirements, current rates, and any additional review needed.</p>
+<p><a class="btn btn-primary" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request API access</a> <a class="btn btn-default" href="faq.html">Read the developer FAQ</a></p>
 
                     </section>
 				    

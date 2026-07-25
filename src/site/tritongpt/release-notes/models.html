@@ -499,105 +499,30 @@
         
     
 
-                            <h1>TritonGPT Large Language Models (LLMs)</h1>
-<p><span>As commercial generative AI services continue to evolve, users are increasingly familiar with large language models (LLMs) from providers such as OpenAI and others. In response, the TritonGPT platform at UC San Diego offers access to multiple LLMs, empowering users to choose the model best suited to their specific needs.</span></p>
-<p><span>To maintain the highest standards of data protection, all models are deployed through secure, institutionally governed infrastructure that ensures compliance, privacy, and robust security controls.</span></p>
-<h2><span>GPT-OSS-120B</span></h2>
-<p><span>TritonGPT's default model is GPT-OSS-120B, OpenAI&#8217;s open-weight model designed for strong reasoning, tool use, and self-hosted deployment. It's a good on-prem choice for privacy-first RAG, internal knowledge workflows, and scalable business use cases where local inference matters. Users often view it as an open workhorse: not the flashiest model, but a reliable option for content generation, knowledge management, and operational tasks.</span></p>
-<p>By hosting GPT-OSS within SDSC's secure environment, UC San Diego retains full control over data usage and sharing. All processing occurs entirely within the university's infrastructure, ensuring institutional oversight and protection.<br/><span></span></p>
-<h2><span>Other Available Models</span></h2>
+                            <h1>TritonGPT Large Language Models</h1>
+<p>TritonGPT provides access to multiple models through approved UC San Diego routes. The available catalog changes as models are evaluated, added, updated, or retired.</p>
+
+<div class="alert alert-info">
+<h2>Use the Model Hub for the current catalog</h2>
+<p>The Model Hub is the authoritative source for models currently offered through the TritonAI gateway, including published capabilities, context windows, and rates.</p>
+<p><a class="btn btn-primary" href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></p>
+</div>
+
+<h2>Choose from the task outward</h2>
+<p>Do not select a model from a universal ranking. Start with the work and the information involved:</p>
 <ul>
-<li><span><strong>GPT 5.4</strong>&#160;&#8212; OpenAI's newest flagship model. A strong general-purpose choice for writing, summarizing, analysis, and complex reasoning tasks.</span></li>
-<li><span><strong>Gemini 3.1 Pro</strong>&#160;&#8212; Google's latest high-capability model, well suited to long documents, research, and tasks that need careful, structured thinking.</span></li>
-<li><span><strong>Gemini 3.1 Flash</strong>&#160;&#8212; A faster, lighter version of Gemini 3.1 designed for quick answers, drafting, and everyday questions.</span></li>
-<li><span><strong>Claude Sonnet 4.6</strong>&#160;&#8212; Anthropic's latest balanced model. A good fit for careful writing, editing, and nuanced conversations.</span></li>
-<li><span><strong>Gemma 4 26b</strong>&#160;&#8212; An efficient open model option for fast, lightweight tasks.<span class="Apple-converted-space">&#160;</span></span></li>
+<li><strong>Task:</strong> What must the model produce, and how will the result be checked?</li>
+<li><strong>Sources:</strong> Does the work require current, approved knowledge or documents supplied by the user?</li>
+<li><strong>Data:</strong> What classification and project-specific controls apply?</li>
+<li><strong>Capability:</strong> Does the task need long context, multimodal input, structured output, tool use, speed, or another specific capability?</li>
+<li><strong>Cost and scale:</strong> What do the current published rates and expected usage imply?</li>
 </ul>
-<p><span>The OpenAI 4 Series models have been retired and are no longer available. If you previously relied on one of those models, GPT 5.4 is the recommended replacement.</span></p>
-<h2>OpenAI Models<br/><span></span></h2>
-<p><span>The OpenAI models are made available through Microsoft Azure. Data shared with the Azure OpenAI Service remains private and secure. Microsoft operates this service entirely within the <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/concept-data-privacy">Azure AI Foundry environment</a>, ensuring that user inputs and outputs are not shared with OpenAI or any other external entities. Additionally, this data is never used to train or enhance any models. The Azure OpenAI Service operates independently and does not interact with OpenAI-operated services.</span></p>
-<p><span>Models accessed via Azure AI Foundry are configured to maintain full data residency within the United States.</span></p>
-<h2><span>Commitment to Privacy and Compliance</span></h2>
-<p><span>By leveraging Azure's secure infrastructure for cloud models and SDSC's on-premises hosting for open-source models, UC San Diego ensures that all data privacy, security, and compliance requirements are fully met.</span></p>
-<h2><span>Model Summaries</span></h2>
-<table class="table table-striped" style="width: 784px;">
-<thead>
-<tr>
-<th style="width: 195px; text-align: left; vertical-align: middle;">Model</th>
-<th style="width: 225.890625px; text-align: left;">Common User Vibe</th>
-<th style="width: 337.109375px; text-align: left;">Often Used For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="width: 195px;">
-<p style="text-align: left;"><strong>Gemma 4 (26B)</strong></p>
-</td>
-<td style="width: 225.890625px;">
-<p><span>Local powerhouse</span></p>
-</td>
-<td style="width: 337.109375px;">
-<p><span>Math, tool-calling, on-prem assistants</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 195px;">
-<p><strong>GPT-OSS-120B</strong></p>
-</td>
-<td style="width: 225.890625px;">
-<p><span>Open workhorse</span></p>
-</td>
-<td style="width: 337.109375px;">
-<p><span>Privacy-first content, RAG, knowledge workflows</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 195px;">
-<p><strong>Claude Sonnet 4.6</strong></p>
-</td>
-<td style="width: 225.890625px;">
-<p><span>Collaborative senior dev</span></p>
-</td>
-<td style="width: 337.109375px;">
-<p><span>Writing, collaborative coding, human tone</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 195px;">
-<p><strong>Gemini 3.1 Flash-Lite</strong></p>
-</td>
-<td style="width: 225.890625px;">
-<p><span>Snappy fixer</span></p>
-</td>
-<td style="width: 337.109375px;">
-<p><span>Fast summaries, quick coding, lightweight tasks</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 195px;">
-<p><strong>Gemini 3.1 Pro</strong></p>
-</td>
-<td style="width: 225.890625px;">
-<p><span>Multimodal specialist</span></p>
-</td>
-<td style="width: 337.109375px;">
-<p><span>Image, audio, video, deeper analysis</span></p>
-</td>
-</tr>
-<tr>
-<td style="width: 195px;">
-<p><strong>GPT-5.4</strong></p>
-</td>
-<td style="width: 225.890625px;">
-<p><span>Academic expert</span></p>
-</td>
-<td style="width: 337.109375px;">
-<p><span>Deep research, error-finding, complex reasoning</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>&#160;</p>
+
+<h2>Approved hosting routes</h2>
+<p>The TritonAI gateway can provide approved enterprise cloud models and open models hosted on UC-controlled infrastructure. The appropriate route depends on the service, data, capability, and controls; neither route should be treated as automatically approved for every workload.</p>
+
+<h2>Keep review in the workflow</h2>
+<p>Model outputs can be incomplete, outdated, or wrong. Verify important claims against authoritative sources, keep consequential decisions with accountable people, and follow the access and data-handling conditions confirmed for the project.</p>
                     </section>
 				    
 

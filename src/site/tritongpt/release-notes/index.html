@@ -521,39 +521,39 @@
 <td style="width: 11.7369%;">July 19</td>
 <td style="width: 13.2631%;">AI Contract Reviewer and Transcript Matcher in production</td>
 <td style="width: 65%; vertical-align: top;">
-<p>Two new TritonAI-powered tools are now in production. The <strong>AI Contract Reviewer</strong> monitors a dedicated inbox and portal, cleans formatting, extracts clauses, applies UC San Diego rulesets, and produces annotated redlines for NDAs and vendor agreements. The <strong>Enrollment Management Transcript Matcher</strong> processes incoming student transcripts, matching them to UC San Diego course equivalencies with 99.86% accuracy (3,700+ transcripts processed, 5 errors). Both tools leverage the TritonAI platform's on-prem inference and enterprise data integrations.</p>
+<p>Two human-supervised TritonAI workflows are in production. <strong>Contract Review</strong> compares relevant language with approved positions and prepares findings and proposed redlines for a qualified reviewer. <strong>Transcript Matching</strong> compares incoming transcript documents with student records and routes uncertain cases to staff. Its published validation sample reported 99.86% accuracy across more than 3,700 records, with five errors. Data handling and model routes follow the controls approved for each production service.</p>
 </td>
 </tr>
 <tr>
 <td style="width: 4%;">2026</td>
 <td style="width: 11.7369%;">July 9</td>
-<td style="width: 13.2631%;">Student Scheduling Assistant launched</td>
+<td style="width: 13.2631%;">Class Planner in production</td>
 <td style="width: 65%; vertical-align: top;">
-<p>The Student Scheduling Assistant is now live, serving 20,000-40,000 students in waves. Powered by TritonAI, the assistant leverages natural language scheduling interactions to help students plan and register for classes. Class Planner go-live scheduled for July 20.</p>
+<p>Class Planner is in production, helping students generate and compare schedule alternatives from course meeting information, preferences, and unavailable times. Students remain responsible for checking current course details and availability before enrollment.</p>
 </td>
 </tr>
 <tr>
 <td style="width: 4%;">2026</td>
 <td style="width: 11.7369%;">June 26</td>
-<td style="width: 13.2631%;">TritonAI Harness V1 feature set complete</td>
+<td style="width: 13.2631%;">TritonAI Harness pilot advances</td>
 <td style="width: 65%; vertical-align: top;">
-<p>The TritonAI Harness &mdash; UC San Diego's campus agentic development platform &mdash; reached V1 feature set completion. The Harness is the execution layer that turns model inference into governed, tool-using AI workers. It connects to the UCSD Skills Library, Onyx (417+ API endpoints), and LiteLLM (20K+ queries/week), with a companion Triton Code Agent daemon for cron scheduling, heartbeat monitoring, and automated job execution.</p>
+<p>The TritonAI Harness pilot advanced its support for bounded, tool-using workflows through the common model gateway and reusable skills. Availability and supported capabilities are confirmed through the developer-access process.</p>
 </td>
 </tr>
 <tr>
 <td style="width: 4%;">2026</td>
 <td style="width: 11.7369%;">June 17</td>
-<td style="width: 13.2631%;">Triton Code Agent Phase 1 and new models</td>
+<td style="width: 13.2631%;">Developer pilot and model-catalog updates</td>
 <td style="width: 65%; vertical-align: top;">
-<p>Triton Code Agent Phase 1 built &mdash; a companion daemon for the T3 Code harness with cron scheduling, heartbeat monitoring, and job execution (9 source modules, 21 passing tests). New models added to the platform include GPT-5.5, Claude Opus 4.7, Claude Sonnet 5, Gemini 3.5 Flash, Mistral Large 3, Kimi K2.5, Nova Premier, and MiniMax M2. Self-hosted open-weight models (DeepSeek V4 Flash Max, GPT-OSS-120B, Llama, Mistral, Gemma 4 26b) are included in the $15/month free credits tier.</p>
+<p>The developer pilot added workflow capabilities and expanded the models evaluated through the gateway. Because the catalog and rates change, use the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a> for current availability, capabilities, and published rates.</p>
 </td>
 </tr>
 <tr>
 <td style="width: 4%;">2026</td>
 <td style="width: 11.7369%;">June 16</td>
-<td style="width: 13.2631%;">Onyx contract extended and platform hardening</td>
+<td style="width: 13.2631%;">Platform reliability work</td>
 <td style="width: 65%; vertical-align: top;">
-<p>Onyx platform contract extended one year at flat rate, transitioning from startup vendor to strategic platform partner. The ucsd-memory MCP server (v1.1.0) was hardened with graceful session handoff for SSE transport and bearer token authentication. Onyx Canvas integration bugs are being addressed through an active crash program.</p>
+<p>Platform reliability, integration quality, and operational monitoring work continued across TritonGPT and its instructional pilot.</p>
 </td>
 </tr>
 <tr>

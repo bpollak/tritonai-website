@@ -34,7 +34,7 @@ No events scheduled in the next two weeks. See the [full training catalog](https
 ### Recent Recordings
 
 -   **[AI Webinar #6 - One Year of Innovation with TritonGPT: Past, Present, and Future](https://youtu.be/qaRfaAzmBEs)** — A practical look at TritonGPT’s first year, including MyDocuments, model switching, chat search, and chat sharing, with ideas for staying current as the tools keep changing.
--   **[AI Webinar #5 - Lean Six Sigma vs. Artificial Intelligencence](https://youtu.be/tAnnUlRP2uo?feature=shared)** — A plain-language walkthrough of where AI helps with workflow improvement, where it does not, and how to think about using it alongside more traditional process improvement methods.
+-   **[AI Webinar #5 - Lean Six Sigma vs. Artificial Intelligence](https://youtu.be/tAnnUlRP2uo?feature=shared)** — A plain-language walkthrough of where AI helps with workflow improvement, where it does not, and how to think about using it alongside more traditional process improvement methods.
 
 ## TritonAI News
 

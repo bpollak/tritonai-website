@@ -3,11 +3,11 @@ title: AI at UC San Diego
 path: /about/index.html
 description: How TritonAI helps UC San Diego use artificial intelligence responsibly, broadly, and with measurable human-centered outcomes.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-22
+lastReviewed: 2026-07-24
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public strategy and service pages
 canonicalUrl: /about/index.html
-relatedSlides: [Strategy, AI Principles, From Chat to Agents]
+relatedSlides: [uc-san-diego-ai-strategy-2026, six-principles-for-enterprise-ai, from-chat-to-agents]
 landingHub: true
 bannerImage: /_images/landing/geisel-library.webp
 bannerPosition: center 44%
@@ -47,7 +47,7 @@ bannerPosition: center 44%
 </section>
 
 <section class="hub-section" aria-labelledby="architecture-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="TritonAI gateway connecting campus teams to approved cloud and UC-hosted model services" class="img-responsive" src="/_images/api-program.webp"></figure></div><div class="col-md-6 hub-split-copy"><p class="home-kicker">Trust by design</p><h2 id="architecture-heading">The architecture carries the policy</h2><p>Approved model routes, knowledge sources, evaluation, accessibility, service ownership, human review, and operational monitoring surround the model itself.</p><p><a class="btn btn-primary" href="/about/trust-architecture.html">See the trust architecture</a></p></div></div>
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></figure></div><div class="col-md-6 hub-split-copy"><p class="home-kicker">Trust by design</p><h2 id="architecture-heading">The architecture carries the policy</h2><p>Approved model routes, knowledge sources, evaluation, accessibility, service ownership, human review, and operational monitoring surround the model itself.</p><p><a class="btn btn-primary" href="/about/trust-architecture.html">See the trust architecture</a></p></div></div>
 </section>
 
 <nav class="hub-section hub-link-panel" aria-labelledby="explore-about-heading">

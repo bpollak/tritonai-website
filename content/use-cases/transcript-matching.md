@@ -6,21 +6,18 @@ status: Production
 owner: TritonAI solutions team and the sponsoring student-services owner
 lastReviewed: 2026-07-24
 audiences: [staff, leaders]
-source: TritonAI strategy presentation
-measurementPeriod: Production — live for enrollment management transcript review
+source: TritonGPT release notes and TritonAI strategy presentation
+measurementPeriod: Production service; accuracy result from the published validation sample of 3,700+ transcript records
 dataClassification: Public description; student records require approved protected-data controls
 canonicalUrl: /use-cases/transcript-matching.html
-relatedSlides: [Transcript Matching]
+relatedSlides: [transcript-matching-validation]
 humanOversight: Staff review uncertain matches and monitor quality before any broader use.
 measurableOutcome: Match precision and recall, review volume, processing time, and exception rate.
 featured: true
-videoSrc: https://tritongpt-deck.vercel.app/media/tms-onbase-demo.mp4
-videoLabel: Transcript Matching demo
-videoDescription: Silent screen recording showing transcript ingestion, OCR extraction, candidate matching, and staff review of exceptions.
 stats:
-  - { value: "60,000", label: "Annual volume", sub: "Transcripts per year" }
-  - { value: "225/hr", label: "AI throughput", sub: "Transcripts processed" }
-  - { value: "98%+", label: "Match accuracy", sub: "And improving" }
+  - { value: "60,000", label: "Annual workflow volume", sub: "Approximate transcripts per year" }
+  - { value: "225/hr", label: "Processing throughput", sub: "Reported workflow rate" }
+  - { value: "99.86%", label: "Published accuracy", sub: "3,700+ records; five reported errors" }
 toolHighlights: ["OCR Extraction", "Confidence Scoring", "Human Review Queue"]
 
 ---
@@ -35,4 +32,6 @@ The workflow extracts candidate identifiers, compares the evidence, and assigns 
 
 ## Current status
 
-In production for UC San Diego enrollment management. The workflow ingests incoming transcripts, extracts candidate identifiers via OCR, compares evidence against course equivalencies, assigns confidence scores, and routes uncertain matches to staff for review.
+In production for UC San Diego enrollment management. The workflow ingests incoming transcripts, extracts candidate identifiers via OCR, compares each transcript with the appropriate student record, assigns confidence scores, and routes uncertain matches to staff for review. The published validation result reported 99.86% accuracy across more than 3,700 records, with five errors; staff review remains part of the service.
+
+<p><a class="btn btn-default" href="/tritongpt/release-notes/index.html">Read the published validation note</a></p>
