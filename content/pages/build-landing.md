@@ -33,6 +33,10 @@ bannerPosition: center 44%
 </div>
 </section>
 
+<section class="hub-section gateway-usage-section" id="gateway-usage" aria-labelledby="gateway-usage-heading">
+<div data-gateway-usage="true"></div>
+</section>
+
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="builder-routes-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Choose a route</p><h2 id="builder-routes-heading">Start with the resource you need</h2></div>
 <div class="row hub-number-grid">

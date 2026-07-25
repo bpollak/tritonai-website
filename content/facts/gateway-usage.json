@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "title": "Gateway usage at a glance",
+  "summary": "Aggregate TritonAI LLM Gateway activity shows the scale of shared model access across UC San Diego.",
+  "owner": "TritonAI platform team",
+  "source": "Raw gateway usage export (all_model_usage.csv) and Triton GPT API usage report v4",
+  "measurementPeriod": {
+    "start": "2026-01-01",
+    "end": "2026-06-30",
+    "label": "January 1–June 30, 2026"
+  },
+  "generatedAt": "2026-07-15",
+  "lastReviewed": "2026-07-25",
+  "dataClassification": "Public aggregate; no user-level records",
+  "canonicalUrl": "/developer-apis/index.html#gateway-usage",
+  "relatedSlides": [
+    "llm-api-usage-attribution"
+  ],
+  "metrics": [
+    {
+      "id": "tokens-processed",
+      "displayValue": "309.4B",
+      "label": "tokens processed",
+      "definition": "Total input and output tokens recorded by the gateway during the measurement period.",
+      "value": 309358904950
+    },
+    {
+      "id": "api-requests",
+      "displayValue": "105.1M",
+      "label": "API requests",
+      "definition": "Completed gateway request records during the measurement period.",
+      "value": 105100000
+    },
+    {
+      "id": "self-hosted-share",
+      "displayValue": "95.3%",
+      "label": "served by self-hosted models",
+      "definition": "Share of recorded tokens served by open-weight models running on UC-controlled infrastructure.",
+      "value": 95.25381241720741
+    },
+    {
+      "id": "peak-month",
+      "displayValue": "73.2B",
+      "label": "tokens in June",
+      "definition": "Highest monthly token volume recorded in the six-month measurement period.",
+      "value": 73192378690
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2026-01",
+      "label": "January",
+      "selfHostedTokens": 43824959128,
+      "cloudTokens": 459894700
+    },
+    {
+      "month": "2026-02",
+      "label": "February",
+      "selfHostedTokens": 48264731656,
+      "cloudTokens": 699033204
+    },
+    {
+      "month": "2026-03",
+      "label": "March",
+      "selfHostedTokens": 43741108447,
+      "cloudTokens": 1018688464
+    },
+    {
+      "month": "2026-04",
+      "label": "April",
+      "selfHostedTokens": 48545072711,
+      "cloudTokens": 1519665510
+    },
+    {
+      "month": "2026-05",
+      "label": "May",
+      "selfHostedTokens": 42462989692,
+      "cloudTokens": 5630382748
+    },
+    {
+      "month": "2026-06",
+      "label": "June",
+      "selfHostedTokens": 67837289383,
+      "cloudTokens": 5355089307
+    }
+  ],
+  "notes": [
+    "Commercial API model families are classified as cloud; open-weight model families running on UC-controlled infrastructure are classified as self-hosted.",
+    "Approximately 0.15 billion unattributed probe and test tokens are included in the aggregate total but not in audience-level breakdowns."
+  ]
+}

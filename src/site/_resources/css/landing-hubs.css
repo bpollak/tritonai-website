@@ -461,6 +461,205 @@
   margin-top: 18px;
 }
 
+.gateway-usage-section {
+  background: #fff;
+}
+
+.gateway-usage-heading {
+  max-width: 830px;
+}
+
+.gateway-usage-metrics {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 34px 0 42px;
+  padding: 0;
+}
+
+.gateway-usage-metrics li {
+  border-left: 5px solid var(--triton-bright-blue);
+  box-shadow: 0 8px 24px rgba(24, 43, 73, .09);
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+  padding: 24px 22px 22px;
+}
+
+.gateway-usage-metrics strong {
+  color: var(--triton-blue);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.gateway-usage-metrics span {
+  color: var(--triton-navy);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.25;
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+
+.gateway-usage-metrics small {
+  color: #52616b;
+  display: block;
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 12px;
+}
+
+.gateway-usage-trend {
+  background: var(--triton-navy);
+  color: #fff;
+  padding: 34px 36px 30px;
+}
+
+.gateway-usage-trend-heading {
+  align-items: flex-end;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.gateway-usage-trend h3 {
+  color: #fff;
+  margin: 0;
+}
+
+.gateway-usage-trend-heading p {
+  color: #d9f2f5;
+  margin: 6px 0 0;
+}
+
+.gateway-usage-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gateway-usage-legend li {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  gap: 8px;
+}
+
+.gateway-usage-legend span {
+  display: block;
+  height: 12px;
+  width: 24px;
+}
+
+.gateway-usage-key-self-hosted,
+.gateway-usage-bar-self-hosted {
+  background: var(--triton-bright-blue);
+}
+
+.gateway-usage-key-cloud,
+.gateway-usage-bar-cloud {
+  background: var(--triton-gold);
+}
+
+.gateway-usage-months {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+.gateway-usage-month {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 76px minmax(0, 1fr) 56px;
+  margin-top: 14px;
+}
+
+.gateway-usage-month:first-child {
+  margin-top: 0;
+}
+
+.gateway-usage-month-label {
+  font-weight: 700;
+}
+
+.gateway-usage-month > strong {
+  color: #fff;
+  text-align: right;
+}
+
+.gateway-usage-bar-track {
+  background: rgba(255, 255, 255, .12);
+  height: 22px;
+}
+
+.gateway-usage-bar-total {
+  display: flex;
+  height: 100%;
+  min-width: 2px;
+}
+
+.gateway-usage-bar-self-hosted,
+.gateway-usage-bar-cloud {
+  display: block;
+  height: 100%;
+}
+
+.gateway-usage-details {
+  border: 1px solid #d9e1e6;
+  border-top: 0;
+  padding: 0 28px 26px;
+}
+
+.gateway-usage-details summary {
+  color: var(--triton-blue);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 20px 0;
+}
+
+.gateway-usage-details summary:focus {
+  outline: 3px solid var(--triton-gold);
+  outline-offset: 4px;
+}
+
+.gateway-usage-details caption {
+  color: #52616b;
+}
+
+.gateway-usage-meta {
+  display: grid;
+  gap: 16px 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 22px 0 0;
+}
+
+.gateway-usage-meta div {
+  border-top: 2px solid #d9e1e6;
+  padding-top: 10px;
+}
+
+.gateway-usage-meta dt {
+  color: var(--triton-navy);
+}
+
+.gateway-usage-meta dd {
+  color: #52616b;
+  margin: 4px 0 0;
+}
+
+.gateway-usage-notes {
+  color: #52616b;
+  font-size: 14px;
+  margin: 22px 0 0;
+  padding-left: 20px;
+}
+
 .hub-quote-card,
 .hub-note-card {
   background: var(--triton-sand);
@@ -1383,6 +1582,8 @@
   .hub-subscribe-action { margin-top: 22px; text-align: left; }
   .hub-lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .api-gateway-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gateway-usage-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gateway-usage-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .api-gateway-stage:not(:last-child)::after { content: none; }
   .build-tool-grid { grid-template-columns: 1fr; }
   .build-tool-grid article { min-height: 0; }
@@ -1457,6 +1658,13 @@
     width: 100%;
   }
   .api-gateway-flow { grid-template-columns: 1fr; }
+  .gateway-usage-metrics { grid-template-columns: 1fr; }
+  .gateway-usage-metrics li { min-height: 0; }
+  .gateway-usage-trend { padding: 28px 22px 25px; }
+  .gateway-usage-trend-heading { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .gateway-usage-month { gap: 9px; grid-template-columns: 66px minmax(0, 1fr) 50px; }
+  .gateway-usage-details { padding: 0 18px 22px; }
+  .gateway-usage-meta { grid-template-columns: 1fr; }
   .api-gateway-stage { min-height: 0; }
   .api-gateway-capabilities { align-items: flex-start; flex-direction: column; }
   .api-gateway-capabilities strong { flex-basis: auto; }

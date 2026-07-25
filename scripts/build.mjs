@@ -12,6 +12,7 @@ const USE_CASE_DIR = path.join(CONTENT_DIR, "use-cases");
 const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
 const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
+const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
 const OUTPUT_DIR = path.resolve("dist");
 const AGENT_SITE_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/agent-site.css")))
@@ -337,6 +338,36 @@ function renderPublicFacts(facts) {
     .filter((fact) => fact.status === "public")
     .map((fact) => `<li><p><strong>${escapeHtml(fact.claim)}</strong></p><dl class="public-fact-meta"><div><dt>Owner</dt><dd>${escapeHtml(fact.owner)}</dd></div><div><dt>Measurement period</dt><dd>${escapeHtml(fact.measurementPeriod)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(fact.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(fact.lastReviewed)}</dd></div></dl><p><a href="${escapeHtml(fact.canonicalUrl)}">View the related service</a></p></li>`)
     .join("")}</ul></div></div>`;
+}
+
+function formatBillions(value) {
+  return `${(Number(value) / 1_000_000_000).toFixed(1)}B`;
+}
+
+function renderGatewayUsage(usage) {
+  const maxMonthlyTotal = Math.max(...usage.monthly.map((month) => month.selfHostedTokens + month.cloudTokens));
+  const metrics = usage.metrics
+    .map(
+      (metric) =>
+        `<li><strong>${escapeHtml(metric.displayValue)}</strong><span>${escapeHtml(metric.label)}</span><small>${escapeHtml(metric.definition)}</small></li>`,
+    )
+    .join("");
+  const monthRows = usage.monthly
+    .map((month) => {
+      const total = month.selfHostedTokens + month.cloudTokens;
+      const totalWidth = (total / maxMonthlyTotal) * 100;
+      const selfHostedWidth = (month.selfHostedTokens / total) * 100;
+      const cloudWidth = (month.cloudTokens / total) * 100;
+      return `<li class="gateway-usage-month"><span class="gateway-usage-month-label">${escapeHtml(month.label)}</span><div class="gateway-usage-bar-track" role="img" aria-label="${escapeHtml(month.label)}: ${formatBillions(total)} total tokens; ${formatBillions(month.selfHostedTokens)} self-hosted and ${formatBillions(month.cloudTokens)} cloud"><span class="gateway-usage-bar-total" style="width:${totalWidth.toFixed(4)}%"><span class="gateway-usage-bar-self-hosted" style="width:${selfHostedWidth.toFixed(4)}%"></span><span class="gateway-usage-bar-cloud" style="width:${cloudWidth.toFixed(4)}%"></span></span></div><strong>${formatBillions(total)}</strong></li>`;
+    })
+    .join("");
+  const tableRows = usage.monthly
+    .map((month) => {
+      const total = month.selfHostedTokens + month.cloudTokens;
+      return `<tr><th scope="row">${escapeHtml(month.label)} 2026</th><td>${formatBillions(month.selfHostedTokens)}</td><td>${formatBillions(month.cloudTokens)}</td><td>${formatBillions(total)}</td></tr>`;
+    })
+    .join("");
+  return `<div class="hub-heading gateway-usage-heading"><p class="home-kicker">Six months of shared model access</p><h2 id="gateway-usage-heading">${escapeHtml(usage.title)}</h2><p>${escapeHtml(usage.summary)}</p></div><ul class="gateway-usage-metrics" aria-label="Gateway usage summary">${metrics}</ul><div class="gateway-usage-trend"><div class="gateway-usage-trend-heading"><div><h3>Monthly token volume</h3><p>Usage rose to a six-month high in June.</p></div><ul class="gateway-usage-legend" aria-label="Chart legend"><li><span class="gateway-usage-key-self-hosted" aria-hidden="true"></span>Self-hosted</li><li><span class="gateway-usage-key-cloud" aria-hidden="true"></span>Cloud</li></ul></div><ol class="gateway-usage-months">${monthRows}</ol></div><details class="gateway-usage-details"><summary>View monthly data and measurement notes</summary><div class="table-responsive"><table class="table"><caption>Gateway token volume by model route, January through June 2026</caption><thead><tr><th scope="col">Month</th><th scope="col">Self-hosted</th><th scope="col">Cloud</th><th scope="col">Total tokens</th></tr></thead><tbody>${tableRows}</tbody></table></div><dl class="gateway-usage-meta"><div><dt>Measurement period</dt><dd>${escapeHtml(usage.measurementPeriod.label)}</dd></div><div><dt>Owner</dt><dd>${escapeHtml(usage.owner)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(usage.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(usage.lastReviewed)}</dd></div></dl><ul class="gateway-usage-notes">${usage.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></details>`;
 }
 
 function renderHomeHero(hero) {
@@ -841,6 +872,7 @@ function transformHtml(html, relativePath, context) {
   if (legacyNewsletterContainer.length) legacyNewsletterContainer.html(context.newsletters.map(renderNewsletter).join(""));
   $("[data-featured-use-cases='true']").html(renderUseCaseCards(featuredUseCases(context.useCases)));
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
+  $("[data-gateway-usage='true']").html(renderGatewayUsage(context.gatewayUsage));
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
 
   $("video").each((_, element) => {
@@ -963,6 +995,7 @@ const roadmap = await readJson(path.join(CONTENT_DIR, "roadmap/milestones.json")
 const facts = await readJson(path.join(CONTENT_DIR, "facts/public-facts.json"));
 const skills = await readJson(SKILLS_FILE);
 const homeHero = await readJson(HOME_HERO_FILE);
+const gatewayUsage = await readJson(GATEWAY_USAGE_FILE);
 requireFields(roadmap, ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"], "content/roadmap/milestones.json");
 roadmap.lastReviewed = isoDate(roadmap.lastReviewed);
 for (const [index, item] of roadmap.items.entries()) {
@@ -982,6 +1015,15 @@ requireFields(homeHero, ["schemaVersion", "owner", "source", "lastReviewed", "ro
 homeHero.lastReviewed = isoDate(homeHero.lastReviewed);
 for (const [index, slide] of homeHero.slides.entries()) {
   requireFields(slide, ["id", "title", "description", "image", "imageAlt", "link", "linkLabel"], `homepage hero slide ${index + 1}`);
+}
+requireFields(gatewayUsage, ["schemaVersion", "title", "summary", "owner", "source", "measurementPeriod", "generatedAt", "lastReviewed", "dataClassification", "canonicalUrl", "relatedSlides", "metrics", "monthly", "notes"], "content/facts/gateway-usage.json");
+requireFields(gatewayUsage.measurementPeriod, ["start", "end", "label"], "content/facts/gateway-usage.json measurement period");
+gatewayUsage.lastReviewed = isoDate(gatewayUsage.lastReviewed);
+for (const [index, metric] of gatewayUsage.metrics.entries()) {
+  requireFields(metric, ["id", "displayValue", "label", "definition", "value"], `gateway usage metric ${index + 1}`);
+}
+for (const [index, month] of gatewayUsage.monthly.entries()) {
+  requireFields(month, ["month", "label", "selfHostedTokens", "cloudTokens"], `gateway usage month ${index + 1}`);
 }
 
 const pages = await loadMarkdownDirectory(PAGE_DIR, ["title", "path", "description", "lastReviewed", "audiences", "source", "canonicalUrl", "relatedSlides"]);
@@ -1041,7 +1083,7 @@ const optimizedImages = new Set(
     .filter((file) => file.endsWith(".webp"))
     .map((file) => `/_images/${file.replaceAll(path.sep, "/")}`),
 );
-const context = { site, newsletters, useCases, facts, skills, generatedByPath, optimizedImages };
+const context = { site, newsletters, useCases, facts, gatewayUsage, skills, generatedByPath, optimizedImages };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));
@@ -1068,6 +1110,7 @@ await writeFile(
       generatedAt: new Date().toISOString(),
       lastReviewed: site.lastReviewed,
       facts: facts.facts.filter((fact) => fact.status === "public"),
+      gatewayUsage,
       roadmap,
       useCases: useCases.map(({ html, body, filename, ...entry }) => entry),
       skillsLibrary: skills,

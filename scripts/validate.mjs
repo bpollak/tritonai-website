@@ -180,6 +180,7 @@ for (const asset of files.filter((file) => file.endsWith(".svg"))) {
 }
 const roadmapContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "roadmap/milestones.json"), "utf8"));
 const factsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/public-facts.json"), "utf8"));
+const gatewayUsageContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/gateway-usage.json"), "utf8"));
 const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/library.json"), "utf8"));
 const homeHeroContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "home/hero.json"), "utf8"));
 const siteContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "site.json"), "utf8"));
@@ -190,6 +191,38 @@ const factRequired = ["id", "claim", "status", "owner", "lastReviewed", "source"
 for (const [index, fact] of (factsContent.facts || []).entries()) {
   const factMissing = missingFields(fact, factRequired);
   if (factMissing.length) contentFindings.push({ source: `facts/public-facts.json#${fact.id || index + 1}`, issue: `Missing fields: ${factMissing.join(", ")}` });
+}
+const gatewayRequired = ["schemaVersion", "title", "summary", "owner", "source", "measurementPeriod", "generatedAt", "lastReviewed", "dataClassification", "canonicalUrl", "relatedSlides", "metrics", "monthly", "notes"];
+const gatewayMissing = missingFields(gatewayUsageContent, gatewayRequired);
+if (gatewayMissing.length) contentFindings.push({ source: "facts/gateway-usage.json", issue: `Missing fields: ${gatewayMissing.join(", ")}` });
+const gatewayPeriodMissing = missingFields(gatewayUsageContent.measurementPeriod || {}, ["start", "end", "label"]);
+if (gatewayPeriodMissing.length) contentFindings.push({ source: "facts/gateway-usage.json#measurementPeriod", issue: `Missing fields: ${gatewayPeriodMissing.join(", ")}` });
+for (const [index, metric] of (gatewayUsageContent.metrics || []).entries()) {
+  const metricMissing = missingFields(metric, ["id", "displayValue", "label", "definition", "value"]);
+  if (metricMissing.length) contentFindings.push({ source: `facts/gateway-usage.json#metric-${index + 1}`, issue: `Missing fields: ${metricMissing.join(", ")}` });
+}
+for (const [index, month] of (gatewayUsageContent.monthly || []).entries()) {
+  const monthMissing = missingFields(month, ["month", "label", "selfHostedTokens", "cloudTokens"]);
+  if (monthMissing.length) contentFindings.push({ source: `facts/gateway-usage.json#month-${index + 1}`, issue: `Missing fields: ${monthMissing.join(", ")}` });
+}
+const gatewayMetricById = new Map((gatewayUsageContent.metrics || []).map((metric) => [metric.id, metric]));
+const gatewayMonths = gatewayUsageContent.monthly || [];
+const gatewaySelfHostedTotal = gatewayMonths.reduce((total, month) => total + Number(month.selfHostedTokens || 0), 0);
+const gatewayCloudTotal = gatewayMonths.reduce((total, month) => total + Number(month.cloudTokens || 0), 0);
+const gatewayTokenTotal = gatewaySelfHostedTotal + gatewayCloudTotal;
+const gatewaySelfHostedShare = gatewayTokenTotal ? (gatewaySelfHostedTotal / gatewayTokenTotal) * 100 : 0;
+const gatewayPeakMonth = gatewayMonths.reduce((peak, month) => Math.max(peak, Number(month.selfHostedTokens || 0) + Number(month.cloudTokens || 0)), 0);
+if (gatewayMonths.length !== 6 || new Set(gatewayMonths.map((month) => month.month)).size !== gatewayMonths.length) {
+  contentFindings.push({ source: "facts/gateway-usage.json", issue: "Gateway usage must contain six unique monthly records for the stated period" });
+}
+if (gatewayMetricById.get("tokens-processed")?.value !== gatewayTokenTotal) {
+  contentFindings.push({ source: "facts/gateway-usage.json#tokens-processed", issue: "Token headline does not equal the monthly self-hosted and cloud totals" });
+}
+if (Math.abs(Number(gatewayMetricById.get("self-hosted-share")?.value || 0) - gatewaySelfHostedShare) > 0.001) {
+  contentFindings.push({ source: "facts/gateway-usage.json#self-hosted-share", issue: "Self-hosted percentage does not reconcile with monthly token totals" });
+}
+if (gatewayMetricById.get("peak-month")?.value !== gatewayPeakMonth) {
+  contentFindings.push({ source: "facts/gateway-usage.json#peak-month", issue: "Peak-month headline does not match the monthly series" });
 }
 const skillsRequired = ["schemaVersion", "syncedAt", "source", "collections", "skills"];
 const skillsMissing = missingFields(skillsContent, skillsRequired);
@@ -293,6 +326,7 @@ const freshnessEntries = [
   { filename: "roadmap/milestones.json", lastReviewed: isoDate(roadmapContent.lastReviewed) },
   ...(roadmapContent.items || []).map((item, index) => ({ filename: `roadmap/milestones.json#${index + 1}`, lastReviewed: isoDate(item.lastReviewed) })),
   ...(factsContent.facts || []).map((fact, index) => ({ filename: `facts/public-facts.json#${fact.id || index + 1}`, lastReviewed: isoDate(fact.lastReviewed) })),
+  { filename: "facts/gateway-usage.json", lastReviewed: isoDate(gatewayUsageContent.lastReviewed) },
   { filename: "home/hero.json", lastReviewed: isoDate(homeHeroContent.lastReviewed) },
 ];
 for (const entry of freshnessEntries) {
@@ -698,6 +732,13 @@ for (const page of htmlFiles) {
     }
     if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
+    }
+    const gatewayUsage = $("#gateway-usage");
+    if (gatewayUsage.length !== 1 || gatewayUsage.find(".gateway-usage-metrics > li").length !== (gatewayUsageContent.metrics || []).length) {
+      contentFindings.push({ source: route, issue: "Gateway usage summary does not match structured metrics" });
+    }
+    if (gatewayUsage.find(".gateway-usage-month").length !== gatewayMonths.length || gatewayUsage.find("tbody tr").length !== gatewayMonths.length) {
+      contentFindings.push({ source: route, issue: "Gateway usage chart or table does not match structured monthly data" });
     }
   }
   if (route === "/about/roadmap.html") {
