@@ -512,7 +512,7 @@
     
 
                             <h1>Instructional AI</h1>
-<p>UC San Diego's Instructional AI program provides participating instructors with secure, course-specific AI assistants powered by <strong>TritonGPT</strong>, the university's on-premise AI platform. The program is expanding for Summer Session 2 and Fall 2026.</p>
+<p>UC San Diego's Instructional AI pilot helps participating instructors offer a course-grounded <strong>AI Tutor</strong> through TritonGPT. Instructors choose the learning purpose, approved source material, and expectations for student use.</p>
 
 <div style="background: #006A8E; color: #fff; padding: 20px 25px; border-radius: 8px; margin: 20px 0;">
 <h2 style="color: #fff; margin-top: 0;">Join the Summer Session 2 Cohort</h2>
@@ -520,8 +520,8 @@
 <p style="margin-bottom: 0;"><a class="btn btn-default" style="background: #fff; color: #006A8E; font-weight: bold;" href="mailto:AI-Pilots@ucsd.edu?subject=Summer Session 2 Instructional AI">Sign Up for Summer Session 2</a></p>
 </div>
 
-<p>TritonGPT uses Retrieval-Augmented Generation (RAG) to ground the AI's knowledge in course materials provided by instructors: lecture slides, study guides, readings, and recorded lecture transcripts. While the AI language model maintains general knowledge, its primary function is to act as an expert on the specific content taught in your course.</p>
-<p>The platform supports both on-premise and cloud frontier models routed through LiteLLM, giving instructors model flexibility without compromising data governance.</p>
+<p>The pilot uses retrieval-augmented generation to bring instructor-selected course material into a response at request time. Because generative AI can still be incomplete or wrong, students should verify important answers against course sources and instructor guidance.</p>
+<p>Model access follows the pilot's approved UC-hosted or enterprise cloud route. The appropriate route and controls depend on the course, source material, and intended use.</p>
 
 <!-- AGENT_SECTION: metrics -->
 <section aria-labelledby="instructional-ai-pilot-results" style="margin: 30px 0;">
@@ -531,8 +531,8 @@
 <div class="panel panel-default text-center" style="min-height: 182px;">
 <div class="panel-body">
 <p style="color: #006A96; font-size: 3em; font-weight: 700; line-height: 1; margin-bottom: 10px;">81%</p>
-<p><strong>Student satisfaction</strong></p>
-<p>Agreed it helped them understand concepts</p>
+<p><strong>Helped understanding</strong></p>
+<p>Respondents who said it helped them understand concepts</p>
 </div>
 </div>
 </div>
@@ -556,52 +556,50 @@
 </div>
 </div>
 </section>
+<p><small>Results reflect the 2026 course-pilot survey reported in the TritonAI strategy presentation. The public presentation does not provide the response count, so these percentages should be read as bounded pilot feedback rather than a campus-wide result.</small></p>
 <!-- END_AGENT_SECTION -->
 
 <h2>How It Works for Students</h2>
-<p>Each participating course gets a custom <strong>AI Tutor</strong> — a student-facing assistant deployed through Onyx (TritonGPT's platform) and integrated directly into Canvas. Students access it from the Canvas course navigation without a separate login.</p>
+<p>Each participating course can receive a student-facing <strong>AI Tutor</strong> configured for that course and made available through the approved course access path.</p>
 
 <p>The AI Tutor is designed to help students engage more deeply with course materials:</p>
 <ul>
 <li><strong>Acts as a Socratic tutor:</strong> Guides students toward answers and encourages critical thinking rather than simply providing solutions.</li>
-<li><strong>Grounded in your course content:</strong> Answers student questions based strictly on the materials you provide — lecture slides, readings, study guides, recorded transcripts.</li>
+<li><strong>Grounded in course content:</strong> Retrieves from instructor-selected material while generating a response; students should still check the cited source.</li>
 <li><strong>Configurable pedagogical style:</strong> Instructors choose between Socratic (guides toward answers) or directive (provides answers) modes.</li>
-<li><strong>Available 24/7:</strong> Students can explore topics at their own pace in a safe, interactive space.</li>
+<li><strong>Self-paced support:</strong> When the pilot service is available, students can explore topics at their own pace.</li>
 </ul>
 
 <h2>Instructor Setup &amp; Control</h2>
 <p>Instructors are the gatekeepers of their course AI Tutor. You control what the tutor knows and how it behaves:</p>
 <ul>
-<li><strong>Select course materials:</strong> Choose which Canvas documents, Google Drive files, and websites the tutor can reference. Content syncs automatically every 30 minutes.</li>
+<li><strong>Select course materials:</strong> Choose the approved documents and websites the tutor may retrieve from. Availability and refresh timing depend on the configured source.</li>
 <li><strong>Set the pedagogical style:</strong> Choose Socratic mode to guide students toward answers, or directive mode to provide direct explanations.</li>
 <li><strong>Multiple tutors per course:</strong> Create separate tutors for different units, lab sections, or study purposes.</li>
-<li><strong>Usage insights:</strong> Monthly, anonymized reports of student prompts help you understand where students are struggling or most engaged.</li>
+<li><strong>Evaluate the pilot:</strong> Work with the program team to review appropriate aggregate evidence and student feedback.</li>
 <li><strong>No student-inserted content:</strong> Students cannot add their own materials to the tutor's knowledge base — only instructor-approved content is used.</li>
 </ul>
 
-<h2>Getting Started: A Simple &amp; Secure Process</h2>
-<p>The system is designed for ease of use through Canvas LTI and secure Google Drive integration.</p>
+<h2>Getting Started</h2>
+<p>Participation begins with a course-level conversation about purpose, source material, student expectations, access, and evaluation.</p>
 <ol>
 <li><strong>Request participation:</strong> Email <a href="mailto:AI-Pilots@ucsd.edu">AI-Pilots@ucsd.edu</a> to join the program. Our team will help you get set up.</li>
-<li><strong>Connect your course:</strong> Link your Canvas course, create a Google Drive folder with your materials, and/or add website URLs for additional reading. The AI Tutor will automatically sync new or updated content every 30 minutes.</li>
+<li><strong>Review the course setup:</strong> Identify the approved source material and confirm the access path and refresh behavior with the program team.</li>
 <li><strong>Configure your tutor:</strong> Select which documents the tutor can reference and choose your preferred pedagogical style (Socratic or directive).</li>
-<li><strong>Students access via Canvas:</strong> The AI Tutor appears in your Canvas course navigation. Students can start using it immediately — no separate login required.</li>
+<li><strong>Communicate expectations:</strong> Tell students where to access the tutor, what it is for, how to verify answers, and what course policies apply.</li>
 </ol>
 
-<h3>Supported File Types</h3>
-<p>The platform supports Google Docs, Sheets, Slides, Microsoft Office files (Word, Excel, PowerPoint), PDF, TXT, CSV, MD, HTML, and JSON.</p>
-
-<h3>AI Models</h3>
-<p>Queries are routed through UC San Diego's model gateway, which provides access to UC-hosted open models and approved cloud frontier models. Model selection is configured for the instructional use case.</p>
+<h3>Models and source material</h3>
+<p>Queries use UC San Diego's approved model gateway. Source types and model selection are configured for the instructional use case and may change as the pilot is evaluated.</p>
 
 <h2>Support &amp; Logistics</h2>
 <ul>
 <li><strong>Collaboration:</strong> TAs and co-instructors can be added to help manage the course AI Tutor.</li>
 <li><strong>Canvas Integration:</strong> The AI Tutor appears in the Canvas course navigation for enrolled students.</li>
-<li><strong>Usage Insights:</strong> Monthly, anonymized reports of student prompts help instructors understand where students are struggling or most engaged.</li>
-<li><strong>Dedicated Support:</strong> The program team provides full technical support to participants throughout the quarter.</li>
+<li><strong>Evaluation:</strong> The program team and instructor agree on appropriate feedback and quality measures for the course.</li>
+<li><strong>Support:</strong> Available support and response expectations are confirmed during onboarding.</li>
 <li><strong>Onboarding:</strong> New instructors receive guided setup and documentation before the term begins.</li>
-<li><strong>Security:</strong> All interactions stay within UC San Diego's secure infrastructure. No data is shared with third-party training pipelines.</li>
+<li><strong>Data handling:</strong> Approved model routes and controls are selected for the course. Instructors should use only the source material approved for the pilot.</li>
 </ul>
 
 <h2>Join the Program</h2>

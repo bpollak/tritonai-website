@@ -10,14 +10,11 @@ source: Voice Agent Fable repository and current pilot status
 measurementPeriod: 2026 pilot
 dataClassification: Public description; interview consent, transcripts, recordings, and retention follow the approved pilot controls
 canonicalUrl: /use-cases/voice-agent.html
-relatedSlides: [Voice Agent]
+relatedSlides: []
 humanOversight: Participants consent before interviews, and authorized reviewers validate evidence and decide which opportunities should proceed.
 measurableOutcome: Interview completion, evidence quality, opportunity usefulness, reviewer agreement, and appropriate routing.
 featured: false
-resourceLinks:
-  - label: Voice Agent project repository
-    href: https://github.com/bpollak/voice-agent-fable
-    description: Review the project source and implementation documentation; repository access is required.
+toolHighlights: ["Consent-based interview", "Transcript redaction", "Human evidence review"]
 ---
 
 ## Problem

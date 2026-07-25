@@ -20,7 +20,7 @@ stats:
   - { value: "All", label: "Audience", sub: "Staff, faculty, researchers" }
 toolHighlights: ["Presenter Intake", "Agenda Generation", "Recording Archive"]
 
-relatedSlides: [AI Use Case Meeting]
+relatedSlides: [the-flywheel-in-action-ai-use-case-meeting]
 humanOversight: A TritonAI facilitator and campus service owner confirm the scope and recommendation.
 measurableOutcome: Time to decision, completeness of intake, appropriate routing, and participant usefulness.
 featured: false

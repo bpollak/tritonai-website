@@ -3,11 +3,11 @@ title: TritonAI
 path: /index.html
 description: Use, build, and learn with trusted artificial intelligence at UC San Diego.
 eyebrow: AI at UC San Diego
-lastReviewed: 2026-07-22
+lastReviewed: 2026-07-24
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public services and strategy presentation
 canonicalUrl: /
-relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
+relatedSlides: [uc-san-diego-ai-strategy-2026, citizen-developer-ecosystem, platform-architecture]
 ---
 
 <!-- AGENT_SECTION: homepage-feature -->
@@ -19,7 +19,7 @@ relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 <p class="hub-lede">TritonAI brings together a campus assistant, approved tools, learning, developer services, and human-supervised solutions for recurring university work.</p>
 <div class="home-feature-actions"><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a><a class="home-feature-link" href="/about/strategy.html">See the strategy <span aria-hidden="true">→</span></a></div>
 </div>
-<div class="col-md-6 hub-split-media"><figure class="hub-browser-frame"><img alt="UC San Diego Assistant in TritonGPT with campus-aware guidance" class="img-responsive" src="/_images/tritongpt/ucsd-assistant.jpg"></figure></div>
+<div class="col-md-6 hub-split-media"><figure class="hub-browser-frame"><img alt="Geisel Library beneath a rainbow over the UC San Diego campus" class="img-responsive" src="/_images/homepage/rainbow-over-geisel-library.webp"></figure></div>
 </div>
 </section>
 <!-- END_AGENT_SECTION -->
@@ -50,9 +50,9 @@ relatedSlides: [Strategy, Citizen Developer Ecosystem, Use Cases]
 <section class="hub-section" aria-labelledby="home-work-heading">
 <div class="hub-heading"><p class="home-kicker">Campus work in focus</p><h2 id="home-work-heading">See the kinds of problems teams are solving</h2><p>These public examples span a production service, bounded pilots, and a structured discovery process.</p></div>
 <div class="row hub-story-grid">
-<div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/contract-review.html"><img alt="Contract review workflow preparing findings for human review" class="img-responsive" src="/_images/use-cases/contract-review-card.png"></a><div class="hub-story-body"><span class="agent-status agent-status-shipped">Production</span><h3><a href="/use-cases/contract-review.html">Contract Review</a></h3><p>Compare contract language with approved positions and prepare review-ready findings.</p></div></article></div>
+<div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/contract-review.html"><img alt="Illustrated contract review workflow moving from policy comparison to flagged clauses and human approval" class="img-responsive" src="/_images/use-cases/contract-review-public.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-shipped">Production</span><h3><a href="/use-cases/contract-review.html">Contract Review</a></h3><p>Compare contract language with approved positions and prepare review-ready findings.</p></div></article></div>
 <div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/dissertation-formatter.html"><img alt="Dissertation formatting assistant interface with document checks" class="img-responsive" src="/_images/landing/dissertation-formatter.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-pilot">Pilot</span><h3><a href="/use-cases/dissertation-formatter.html">Dissertation Formatter</a></h3><p>Turn complex formatting requirements into a guided, reviewable workflow.</p></div></article></div>
-<div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/ai-use-case-meeting.html"><img alt="AI use-case meeting workflow for identifying and shaping campus opportunities" class="img-responsive" src="/_images/landing/ai-use-case-meeting.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-development">In development</span><h3><a href="/use-cases/ai-use-case-meeting.html">AI Use-Case Meeting</a></h3><p>Structure discovery around the task, owner, data, review point, and measurable outcome.</p></div></article></div>
+<div class="col-md-4"><article class="hub-story-card"><a href="/use-cases/ai-use-case-meeting.html"><img alt="AI use-case meeting workflow for identifying and shaping campus opportunities" class="img-responsive" src="/_images/landing/ai-use-case-meeting.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-shipped">Production</span><h3><a href="/use-cases/ai-use-case-meeting.html">AI Use-Case Meeting</a></h3><p>Structure discovery around the task, owner, data, review point, and measurable outcome.</p></div></article></div>
 </div>
 <p class="hub-section-action"><a class="btn btn-default" href="/use-cases/index.html">View all use cases</a></p>
 </section>

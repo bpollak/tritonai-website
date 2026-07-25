@@ -3,11 +3,11 @@ title: Trust & Architecture
 path: /about/trust-architecture.html
 description: A public view of TritonAI hosting choices, model routing, grounded knowledge, and service responsibilities.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-19
+lastReviewed: 2026-07-24
 audiences: [staff, faculty, students, developers, leaders]
 source: TritonAI architecture presentation and public developer documentation
 canonicalUrl: /about/trust-architecture.html
-relatedSlides: [Architecture, Model Gateway, Trust as Infrastructure]
+relatedSlides: [platform-architecture, six-principles-for-enterprise-ai]
 ---
 
 <p class="lead">TritonAI uses a layered architecture so campus services can choose an appropriate model, knowledge source, and delivery surface without giving up common governance.</p>

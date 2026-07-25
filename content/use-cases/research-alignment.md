@@ -10,16 +10,13 @@ source: TritonAI strategy presentation and current development status
 measurementPeriod: 2026 development cycle
 dataClassification: Public description; any profile integration requires source-specific approval
 canonicalUrl: /use-cases/research-alignment.html
-videoSrc: https://tritongpt-deck.vercel.app/media/Research%20Alignment%20_%20UC%20San%20Diego%20-%2027%20March%202026.mp4
-videoLabel: Research Alignment demo
-videoDescription: Silent screen recording showing opportunity parsing, expert matching across schools, and explainable connection surfacing.
 stats:
-  - { value: "5+", label: "Data sources", sub: "NIH, NSF, PubMed, ORCID, Semantic Scholar" }
-  - { value: "Weekly", label: "Refresh", sub: "Current research profiles" }
-  - { value: "Cross-school", label: "Search scope", sub: "Within or across divisions" }
+  - { value: "Prototype", label: "Delivery stage", sub: "Sources and ownership under review" }
+  - { value: "Explainable", label: "Design goal", sub: "Show why each match appeared" }
+  - { value: "Cross-school", label: "Intended scope", sub: "Within or across divisions" }
 toolHighlights: ["Employee Activity Hub", "NIH RePORTER", "NSF Awards", "PubMed", "ORCID", "Semantic Scholar"]
 
-relatedSlides: [Research Alignment]
+relatedSlides: [research-alignment-poc]
 humanOversight: Researchers and research administrators validate relevance and decide whether to act.
 measurableOutcome: Relevant opportunities surfaced, false matches, follow-through, and researcher usefulness.
 featured: false
@@ -31,8 +28,8 @@ Researchers and support teams must monitor many changing funding and publication
 
 ## Solution
 
-The workflow parses the requirements of an opportunity and identifies experts whose published research, grants, and methods are a strong fit. Profiles are seeded from the Employee Activity Hub and enriched from public academic sources — currently NIH RePORTER, NSF Awards, PubMed, ORCID, and Semantic Scholar — with weekly refreshes to reflect current work. Searches can run within or across divisions and schools. Each suggestion should show why it appeared and link back to the authoritative source.
+The prototype explores how to parse the requirements of an opportunity and identify researchers whose publications, grants, and methods may be relevant. Candidate sources under evaluation include approved campus profile data and public academic sources such as NIH RePORTER, NSF Awards, PubMed, ORCID, and Semantic Scholar. The design goal is to explain why each suggestion appeared and link back to an authoritative source.
 
 ## Current status
 
-In development. Data sources, consent, evaluation, and service ownership are being refined before a pilot. The underlying data is designed to serve more than one purpose: opportunity matching today, with collaboration discovery and strategic planning over time.
+In development. Data sources, consent, refresh behavior, evaluation, and service ownership are being refined before a pilot. No match should be treated as an endorsement or acted on without researcher and research-administrator review.

@@ -2045,3 +2045,75 @@
     padding: 24px 16px;
   }
 }
+
+/* Public evidence packages */
+.public-facts > .panel-body > ul > li {
+  border-bottom: 1px solid #d5dce1;
+  padding: 18px 0;
+}
+
+.public-facts > .panel-body > ul > li:first-child {
+  padding-top: 0;
+}
+
+.public-facts > .panel-body > ul > li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.public-fact-meta {
+  display: grid;
+  gap: 8px 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 12px 0;
+}
+
+.public-fact-meta div {
+  min-width: 0;
+}
+
+.public-fact-meta dt {
+  color: #182b49;
+  font-size: 13px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.public-fact-meta dd {
+  margin-left: 0;
+}
+
+/* Keep the externally supplied TritonGPT launcher compact on small screens. */
+@media (max-width: 767px) {
+  #chat-bubble {
+    border-radius: 50% !important;
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    min-width: 52px !important;
+    padding: 8px !important;
+    right: max(12px, env(safe-area-inset-right)) !important;
+    width: 52px !important;
+  }
+
+  #chat-bubble p {
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+  }
+
+  #chat-bubble svg {
+    height: 32px !important;
+    margin: 0 !important;
+    width: 32px !important;
+  }
+
+  .public-fact-meta {
+    grid-template-columns: 1fr;
+  }
+}

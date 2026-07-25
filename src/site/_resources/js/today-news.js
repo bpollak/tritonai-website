@@ -120,19 +120,7 @@
       }
     }
 
-    if (!("IntersectionObserver" in window)) {
-      loadStories();
-      return;
-    }
-    var observer = new IntersectionObserver(
-      function (entries) {
-        if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
-        observer.disconnect();
-        loadStories();
-      },
-      { rootMargin: "300px 0px", threshold: 0.01 },
-    );
-    observer.observe(section);
+    loadStories();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeTodayNews);

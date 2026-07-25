@@ -10,14 +10,10 @@ source: TritonAI strategy presentation
 measurementPeriod: Production — 91% time savings (120 min to 11 min average)
 dataClassification: Public description; contract data follows the approved production controls
 canonicalUrl: /use-cases/contract-review.html
-relatedSlides: [Contract Review]
+relatedSlides: [contract-reviewer-consolidated, ai-contract-reviewer]
 humanOversight: A qualified reviewer approves findings and every proposed change before use.
 measurableOutcome: Review time, completeness, reviewer agreement, rework, and escalations.
 featured: true
-videoSrc: https://tritongpt-deck.vercel.app/media/media7.mp4
-videoPoster: https://tritongpt-deck.vercel.app/media/image47.png
-videoLabel: AI Contract Reviewer demo
-videoDescription: Silent screen recording showing clause review, risk findings, and proposed redlines prepared for human review.
 stats:
   - { value: "120→11 min", label: "Review time", sub: "91% time savings" }
   - { value: "50+", label: "Risk categories", sub: "Liability, IP, data, SLAs" }

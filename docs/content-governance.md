@@ -17,6 +17,7 @@ Public content can include approved capabilities, status-based roadmap items, se
 
 ## Status definitions
 
+- `Production`: an operating service with named ownership, support, and controls at the stated scope
 - `Shipped`: publicly available and supported at the stated scope
 - `Pilot`: bounded testing with named ownership and human oversight
 - `In development`: active work without a committed public launch date

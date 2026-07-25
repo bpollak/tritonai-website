@@ -10,17 +10,13 @@ source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot
 dataClassification: Public description; document handling depends on source data
 canonicalUrl: /use-cases/pdf-remediation.html
-videoSrc: https://tritongpt-deck.vercel.app/media/pdf-remediator-1.6x.mov
-videoPoster: https://tritongpt-deck.vercel.app/media/pdf-remediator-poster.png
-videoLabel: PDF Remediator demo
-videoDescription: Silent screen recording showing automated accessibility checks across 9 categories and compliance evidence pack generation.
 stats:
   - { value: "17+", label: "Automated checks", sub: "9 categories" }
-  - { value: "Hours→Min", label: "Time savings", sub: "Per document" }
-  - { value: "Built-in", label: "Compliance evidence", sub: "Auditable packs" }
+  - { value: "Human", label: "Final review", sub: "Required for every document" }
+  - { value: "Reviewable", label: "Evidence package", sub: "Findings and remaining work" }
 toolHighlights: ["veraPDF Validation", "PDF/UA Standard", "Evidence Packs"]
 
-relatedSlides: [PDF Remediator]
+relatedSlides: [the-flywheel-in-action-pdf-remediator]
 humanOversight: A qualified human validates reading order, semantics, alternatives, and the final accessible document.
 measurableOutcome: Issues detected, remediation time, residual accessibility findings, and reviewer agreement.
 featured: false
@@ -32,7 +28,7 @@ PDF accessibility work combines automatable checks with visual and semantic judg
 
 ## Solution
 
-The workflow checks common structural and metadata problems, proposes selected fixes, and produces an evidence package for a human remediator. It runs 17+ automated checks across 9 categories — including reading order, tagged content, alternative text, and document structure — and builds auditable compliance evidence packs so reviewers can see what was checked and what remains. It is designed to accelerate expert work, not to certify conformance automatically.
+The workflow checks common structural and metadata problems, proposes selected fixes, and produces a reviewable evidence package for a human remediator. It runs 17+ automated checks across 9 categories—including reading order, tagged content, alternative text, and document structure—so reviewers can see what was checked and what remains. It is designed to assist expert work, not to certify conformance automatically.
 
 ## Current status
 

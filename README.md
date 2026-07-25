@@ -58,7 +58,7 @@ Newsletter files are sorted by `date`, so agents do not need to edit the homepag
 ## Publishing site content
 
 - Add or revise a high-change page in `content/pages/`.
-- Add a use case in `content/use-cases/` with an approved status: `Shipped`, `Pilot`, `In development`, or `Exploring`.
+- Add a use case in `content/use-cases/` with an approved status: `Production`, `Shipped`, `Pilot`, `In development`, or `Exploring`.
 - Update `content/roadmap/milestones.json` when delivery status changes.
 - Put reusable public claims in `content/facts/public-facts.json`; do not copy a quantitative claim out of a presentation without its definition, owner, source, measurement period, and review date.
 - Update `content/site.json` when a page should appear in global navigation.

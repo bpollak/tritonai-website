@@ -1,41 +1,89 @@
 {
-  "lastReviewed": "2026-07-19",
+  "lastReviewed": "2026-07-24",
   "facts": [
+    {
+      "id": "website-widget-reach",
+      "claim": "The TritonGPT public website widget is live on 16 UC San Diego websites.",
+      "status": "public",
+      "owner": "TritonGPT service team",
+      "lastReviewed": "2026-07-24",
+      "source": "TritonAI strategy presentation and public widget service inventory",
+      "measurementPeriod": "FY 2025-26 service inventory",
+      "dataClassification": "Public aggregate",
+      "canonicalUrl": "/tritongpt/chatbot-widget.html",
+      "relatedSlides": ["website-widget-the-public-front-door"]
+    },
+    {
+      "id": "contract-review-time",
+      "claim": "The reported Procurement contract-review workflow reduced average review time from 120 minutes to 11 minutes, a 91% reduction, for the measured NDA and terms-and-conditions workflow.",
+      "status": "public",
+      "owner": "UC San Diego Procurement service owner and TritonAI solutions team",
+      "lastReviewed": "2026-07-24",
+      "source": "TritonAI strategy presentation and Contract Review production workflow",
+      "measurementPeriod": "FY 2025-26 reported production workflow",
+      "dataClassification": "Public aggregate",
+      "canonicalUrl": "/use-cases/contract-review.html",
+      "relatedSlides": ["contract-reviewer-consolidated", "ai-contract-reviewer"]
+    },
+    {
+      "id": "transcript-matching-validation",
+      "claim": "The published Transcript Matching validation result reported 99.86% accuracy across more than 3,700 records, with five errors.",
+      "status": "public",
+      "owner": "Enrollment Management service owner and TritonAI solutions team",
+      "lastReviewed": "2026-07-24",
+      "source": "/tritongpt/release-notes/index.html",
+      "measurementPeriod": "Published production validation sample",
+      "dataClassification": "Public aggregate; no student records",
+      "canonicalUrl": "/use-cases/transcript-matching.html",
+      "relatedSlides": ["transcript-matching-validation"]
+    },
+    {
+      "id": "instructional-ai-understanding",
+      "claim": "In the 2026 Instructional AI pilot survey, 81% of respondents said the tool helped them understand concepts.",
+      "status": "public",
+      "owner": "Participating instructors and TritonAI instructional AI team",
+      "lastReviewed": "2026-07-24",
+      "source": "2026 Instructional AI pilot survey reported in the TritonAI strategy presentation",
+      "measurementPeriod": "2026 course pilots",
+      "dataClassification": "Public aggregate survey result",
+      "canonicalUrl": "/use-cases/instructional-ai.html",
+      "relatedSlides": ["instructional-ai-socratic-tutor-faculty-assistant"]
+    },
     {
       "id": "hosting-choice",
       "claim": "TritonAI supports approved enterprise cloud models and UC-hosted open models through a common gateway.",
       "status": "public",
       "owner": "TritonAI platform team",
-      "lastReviewed": "2026-07-19",
+      "lastReviewed": "2026-07-24",
       "source": "/developer-apis/index.html",
       "measurementPeriod": "Current service architecture",
       "dataClassification": "Public",
       "canonicalUrl": "/about/trust-architecture.html",
-      "relatedSlides": ["Architecture", "Model Gateway"]
+      "relatedSlides": ["platform-architecture"]
     },
     {
       "id": "human-oversight",
       "claim": "Campus workflow agents are designed around accountable human review, with oversight matched to risk and maturity.",
       "status": "public",
       "owner": "TritonAI solutions team",
-      "lastReviewed": "2026-07-19",
+      "lastReviewed": "2026-07-24",
       "source": "TritonAI strategy presentation",
       "measurementPeriod": "2026 operating model",
       "dataClassification": "Public",
       "canonicalUrl": "/about/strategy.html",
-      "relatedSlides": ["From Chat to Agents", "AI Principles"]
+      "relatedSlides": ["from-chat-to-agents", "six-principles-for-enterprise-ai"]
     },
     {
       "id": "impact-measurement",
       "claim": "Public quantitative impact claims require an owner, definition, source, measurement period, and review date before publication.",
       "status": "public",
       "owner": "TritonAI program",
-      "lastReviewed": "2026-07-19",
+      "lastReviewed": "2026-07-24",
       "source": "Website content governance policy",
       "measurementPeriod": "Ongoing",
       "dataClassification": "Public",
       "canonicalUrl": "/about/impact.html",
-      "relatedSlides": ["Use Cases", "Roadmap"]
+      "relatedSlides": ["use-cases"]
     }
   ]
 }

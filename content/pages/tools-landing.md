@@ -3,11 +3,11 @@ title: AI Tools
 path: /tools/index.html
 description: Find supported AI services and emerging campus capabilities without vendor rankings or unapproved preference comparisons.
 eyebrow: Supported services and capabilities
-lastReviewed: 2026-07-22
+lastReviewed: 2026-07-24
 audiences: [students, faculty, staff, researchers]
 source: UC San Diego public AI service pages
 canonicalUrl: /tools/index.html
-relatedSlides: [AI Tools, Citizen Developer Ecosystem]
+relatedSlides: [platform-at-uc-san-diego, citizen-developer-ecosystem]
 landingHub: true
 bannerImage: /_images/smiling-students-collaborating.webp
 bannerPosition: center 48%
@@ -18,8 +18,9 @@ bannerPosition: center 48%
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="supported-tools-heading">
-<div class="container"><div class="hub-heading"><p class="home-kicker">Available services</p><h2 id="supported-tools-heading">Four campus access paths</h2></div>
+<div class="container"><div class="hub-heading"><p class="home-kicker">Available services</p><h2 id="supported-tools-heading">Five campus access paths</h2></div>
 <div class="row hub-service-grid">
+<div class="col-sm-6"><article><div class="hub-service-mark">T</div><div><h3>TritonGPT</h3><p>UC San Diego's shared AI platform for model choice, document work, and campus-aware assistants.</p><a href="/tritongpt/index.html">Explore TritonGPT <span aria-hidden="true">→</span></a></div></article></div>
 <div class="col-sm-6"><article><div class="hub-service-mark">Z</div><div><h3>Zoom AI Companion</h3><p>Meeting transcription, summaries, questions, and other enabled Zoom experiences.</p><a href="https://blink.ucsd.edu/technology/file-sharing/zoom/zoom-ai-companion.html">Review Zoom guidance <span aria-hidden="true">→</span></a></div></article></div>
 <div class="col-sm-6"><article><div class="hub-service-mark">C</div><div><h3>Copilot with Data Protection</h3><p>A protected chat experience for drafting, summarization, image generation, and information retrieval.</p><a href="https://portal.office.com">Open Microsoft 365 <span aria-hidden="true">→</span></a></div></article></div>
 <div class="col-sm-6"><article><div class="hub-service-mark">M</div><div><h3>Copilot for Microsoft 365</h3><p>AI capabilities integrated with supported Microsoft 365 applications and workflows.</p><a href="https://blink.ucsd.edu/technology/computers/software-acms/available-software/microsoft-individual.html#Copilot-for-Microsoft-365">Review access details <span aria-hidden="true">→</span></a></div></article></div>

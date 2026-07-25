@@ -3,18 +3,18 @@ title: Build with TritonAI
 path: /developer-apis/index.html
 description: Use TritonAI model access, reusable skills, and accountable hosting patterns to build governed campus AI services.
 eyebrow: Developer APIs and resources
-lastReviewed: 2026-07-22
+lastReviewed: 2026-07-24
 audiences: [developers, researchers, staff, leaders]
 source: TritonAI developer documentation and public architecture presentation
 canonicalUrl: /developer-apis/index.html
-relatedSlides: [Architecture, Citizen Developer Ecosystem, Agent Engineering]
+relatedSlides: [platform-architecture, citizen-developer-ecosystem, agent-engineering-strategy]
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 44%
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">A governed path to production</p><h2 id="build-intro-heading">Build on shared infrastructure without giving up clear ownership</h2><p class="hub-lede">TritonAI gives campus teams a common model gateway, reusable skills, supported patterns, and an explicit route from bounded experimentation to an owned service.</p></div><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="Citizen Developer Program API path connecting department staff, research labs, analysts, and faculty teams through supported harnesses and the TritonAI gateway to approved model providers, followed by request, access, build, and hosting steps with shared ITS and department responsibilities" class="img-responsive" src="/_images/citizen-developer-api-path.webp"></figure></div></div>
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">A governed path to production</p><h2 id="build-intro-heading">Build on shared infrastructure without giving up clear ownership</h2><p class="hub-lede">TritonAI gives campus teams a common model gateway, reusable skills, emerging patterns, and an explicit route from bounded experimentation to an owned service.</p></div><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></figure></div></div>
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="builder-routes-heading">
@@ -27,7 +27,7 @@ bannerPosition: center 44%
 </section>
 
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Agentic development workspace</p><h2 id="harness-heading">TritonAI Harness connects models, tools, and campus patterns</h2><p class="hub-lede">The TritonAI Harness is a supported workspace for building tool-using AI workflows. It coordinates model requests, reusable skills, and multi-step work while keeping the shared TritonAI gateway in the path.</p><p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Request developer access</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-6 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">A shared execution path</p><ol class="build-harness-flow" aria-label="TritonAI Harness workflow"><li><span>01</span><strong>Define the task</strong><small>User intent and approved context</small></li><li class="build-harness-core"><span>02</span><strong>TritonAI Harness</strong><small>Coordinates the workflow</small></li><li><span>03</span><strong>Connect capabilities</strong><small>Gateway models, tools, and skills</small></li><li><span>04</span><strong>Review the result</strong><small>Human judgment and ownership</small></li></ol></div></div></div>
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Pilot development workspace</p><h2 id="harness-heading">TritonAI Harness connects models, tools, and campus patterns</h2><p class="hub-lede">The TritonAI Harness is being piloted for bounded, tool-using AI workflows. It coordinates model requests, reusable skills, and multi-step work while keeping the shared TritonAI gateway in the path.</p><p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Request developer access</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-6 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">A shared execution path</p><ol class="build-harness-flow" aria-label="TritonAI Harness workflow"><li><span>01</span><strong>Define the task</strong><small>User intent and approved context</small></li><li class="build-harness-core"><span>02</span><strong>TritonAI Harness</strong><small>Coordinates the workflow</small></li><li><span>03</span><strong>Connect capabilities</strong><small>Gateway models, tools, and skills</small></li><li><span>04</span><strong>Review the result</strong><small>Human judgment and ownership</small></li></ol></div></div></div>
 </section>
 
 <section class="hub-section" aria-labelledby="build-lifecycle-heading">
@@ -37,7 +37,7 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="responsibility-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Shared responsibility</p><h2 id="responsibility-heading">The platform and the department own different parts of the result</h2></div>
-<div class="row hub-responsibility-grid"><div class="col-md-6"><article><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><h3>Platform responsibilities</h3><p>Shared templates, supported hosting lanes, gateway operations, baseline standards, and service-level observability.</p></article></div><div class="col-md-6"><article><span class="glyphicon glyphicon-user" aria-hidden="true"></span><h3>Department responsibilities</h3><p>Application logic, approved content and data, accessibility, testing, end-user support, and a named technical owner.</p></article></div></div>
+<div class="row hub-responsibility-grid"><div class="col-md-6"><article><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><h3>Platform responsibilities</h3><p>Common gateway operations, reusable patterns, published standards, and review of the proposed service path.</p></article></div><div class="col-md-6"><article><span class="glyphicon glyphicon-user" aria-hidden="true"></span><h3>Department responsibilities</h3><p>Application logic, approved content and data, accessibility, testing, end-user support, and a named technical owner.</p></article></div></div>
 <p class="hub-section-action"><a class="btn btn-default" href="/about/trust-architecture.html">See trust and architecture</a> <a class="btn btn-default" href="/developer-apis/faq.html">Read developer FAQs</a></p></div>
 </section>
 

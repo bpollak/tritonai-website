@@ -200,12 +200,12 @@ function featuredUseCases(useCases) {
 function renderUseCaseIndex(useCases) {
   const media = {
     "contract-review": {
-      src: "/_images/use-cases/contract-review-card.png",
-      alt: "Contract review interface showing structured findings prepared for human review",
+      src: "/_images/use-cases/contract-review-public.webp",
+      alt: "Illustrated contract review workflow moving from policy comparison to flagged clauses and human approval",
     },
     "transcript-matching": {
-      src: "/_images/use-cases/transcript-matching-card.jpg",
-      alt: "Transcript Matching review interface from the TritonGPT presentation",
+      src: "/_images/use-cases/transcript-matching-public.webp",
+      alt: "Sanitized Transcript Matching review interface using fictional demonstration records",
     },
     "instructional-ai": {
       src: "/_images/smiling-students-collaborating.webp",
@@ -275,8 +275,8 @@ function renderUseCasePage(useCase) {
     : "";
   const governanceHtml = `<section class="use-case-governance" aria-labelledby="${escapeHtml(useCase.slug)}-governance-heading"><div class="use-case-section-heading"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><p class="home-kicker">Accountability</p><h2 id="${escapeHtml(useCase.slug)}-governance-heading">How this use case is governed</h2></div></div><dl class="use-case-governance-grid"><div><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd></div><div><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd></div><div><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd></div><div><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd></div></dl><p class="use-case-governance-meta"><span><strong>Measurement period</strong> ${escapeHtml(useCase.measurementPeriod)}</span><span><strong>Last reviewed</strong> ${escapeHtml(useCase.lastReviewed)}</span></p></section>`;
   const overviewHtml = `<section class="use-case-overview" aria-label="${escapeHtml(useCase.title)} overview"><div class="use-case-overview-copy"><span class="glyphicon glyphicon-${escapeHtml(useCaseIcon)}" aria-hidden="true"></span><div><p class="home-kicker">Campus AI workflow</p>${renderStatus(useCase.status)}<p class="lead">${escapeHtml(useCase.summary)}</p></div></div>${statsHtml}</section>`;
-  const evidenceHtml = videoHtml || resourcesHtml
-    ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">${videoHtml ? "See the workflow" : "Related service"}</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">${videoHtml ? "A supervised process in action" : "Continue with trusted resources"}</h2></div>${videoHtml}${toolsHtml}${resourcesHtml}</section>`
+  const evidenceHtml = videoHtml || resourcesHtml || toolsHtml
+    ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">${videoHtml ? "See the workflow" : resourcesHtml ? "Related service" : "Workflow elements"}</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">${videoHtml ? "A supervised process in action" : resourcesHtml ? "Continue with trusted resources" : "What the workflow brings together"}</h2></div>${videoHtml}${toolsHtml}${resourcesHtml}</section>`
     : "";
   const actionsHtml = `<nav class="use-case-actions" aria-label="Use case next steps"><a href="/use-cases/index.html"><span aria-hidden="true">←</span> Explore all use cases</a><a href="/about/get-involved.html">Start a use-case conversation <span aria-hidden="true">→</span></a></nav>`;
   return `${overviewHtml}${governanceHtml}${evidenceHtml}${renderUseCaseNarrative(useCase.html, useCase.slug)}${actionsHtml}`;
@@ -303,9 +303,9 @@ function renderRoadmap(roadmap) {
 }
 
 function renderPublicFacts(facts) {
-  return `<div class="panel panel-default"><div class="panel-heading"><h2 class="panel-title">Current public facts</h2></div><div class="panel-body"><ul>${facts
+  return `<div class="panel panel-default public-facts"><div class="panel-heading"><h2 class="panel-title">Current public facts</h2></div><div class="panel-body"><ul class="list-unstyled">${facts
     .filter((fact) => fact.status === "public")
-    .map((fact) => `<li>${escapeHtml(fact.claim)} <small>(Reviewed ${escapeHtml(fact.lastReviewed)})</small></li>`)
+    .map((fact) => `<li><p><strong>${escapeHtml(fact.claim)}</strong></p><dl class="public-fact-meta"><div><dt>Owner</dt><dd>${escapeHtml(fact.owner)}</dd></div><div><dt>Source</dt><dd>${escapeHtml(fact.source)}</dd></div><div><dt>Measurement period</dt><dd>${escapeHtml(fact.measurementPeriod)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(fact.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(fact.lastReviewed)}</dd></div></dl><p><a href="${escapeHtml(fact.canonicalUrl)}">View the related public page</a></p></li>`)
     .join("")}</ul></div></div>`;
 }
 

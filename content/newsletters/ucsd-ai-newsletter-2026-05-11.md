@@ -39,7 +39,7 @@ _Week of May 11, 2026 — your roundup of what's new with UC San Diego's support
 No new live sessions are scheduled for the next two weeks. The TritonAI webinar series remains available on demand:
 
 -   **[AI Webinar #6 — One Year of Innovation with TritonGPT](https://youtu.be/qaRfaAzmBEs)**: A look at what's changed since launch, including MyDocuments, model switching, and chat sharing.
--   **[Everyday I AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)**: Short, practical prompting tips that work across TritonGPT and other AI tools.
+-   **[Everyday AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)**: Short, practical prompting tips that work across TritonGPT and other AI tools.
 -   **[AI Foundations course (UC Learning)](https://go.ucsd.edu/3FvH9Hf)**: A self-paced intro to AI concepts and UC policy.
 
 * * *
