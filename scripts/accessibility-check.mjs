@@ -30,6 +30,27 @@ try {
               return splitRect && mediaRect.height > 0 && mediaRect.width < splitRect.width * 0.9;
             }).length)
             : 0,
+          decoratorFonts: await page.evaluate(() => {
+            const findings = [];
+            const check = (selector, expectedFamily) => {
+              for (const element of document.querySelectorAll(selector)) {
+                const family = getComputedStyle(element).fontFamily;
+                if (!family.toLowerCase().includes(expectedFamily.toLowerCase())) {
+                  findings.push({
+                    selector,
+                    element: element.tagName.toLowerCase(),
+                    family,
+                    expectedFamily,
+                    text: (element.textContent || "").trim().replace(/\s+/g, " ").slice(0, 80),
+                  });
+                }
+              }
+            };
+            check("body", "Roboto");
+            check("main h1, main .hero-slide-heading", "Teko-SemiBold");
+            check("main h3, main h4, main h5, main h6, nav, main .btn", "Roboto");
+            return findings;
+          }),
           axe: await axeResults(page),
           interactions: await interactionChecks(page, width),
         });
@@ -52,6 +73,9 @@ for (const result of pages) {
     if (viewport.error) failures.push(`${label}: browser check failed: ${viewport.error}`);
     if (viewport.horizontalOverflow) failures.push(`${label}: horizontal overflow`);
     if (viewport.collapsedHubMedia) failures.push(`${label}: collapsed split media (${viewport.collapsedHubMedia} ${viewport.collapsedHubMedia === 1 ? "node" : "nodes"})`);
+    for (const finding of viewport.decoratorFonts || []) {
+      failures.push(`${label}: Decorator font mismatch on ${finding.element} (${finding.family}; expected ${finding.expectedFamily})`);
+    }
     for (const violation of viewport.axe || []) {
       failures.push(`${label}: axe ${violation.impact || "unknown"} ${violation.id} (${violation.nodes} ${violation.nodes === 1 ? "node" : "nodes"})`);
     }

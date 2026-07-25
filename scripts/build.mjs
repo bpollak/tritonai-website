@@ -783,6 +783,7 @@ function normalizeNavigationMarkup($) {
 function transformHtml(html, relativePath, context) {
   const $ = load(html, { decodeEntities: false });
   const route = routeForRelativePath(relativePath);
+  $("body").addClass("agent-page");
   const generated = context.generatedByPath.get(relativePath);
   const title = generated?.title || $("meta[name='PAGETITLE']").attr("content") || $("title").text().trim() || context.site.name;
   const description = generated?.description || $("meta[name='DESCRIPTION']").attr("content") || context.site.description;
@@ -985,7 +986,7 @@ const newsletters = await loadNewsletters();
 const shellHtml = await readFile(path.join(SOURCE_DIR, "about/index.html"), "utf8");
 const homeShellHtml = await readFile(path.join(SOURCE_DIR, "index.html"), "utf8");
 
-await rm(OUTPUT_DIR, { recursive: true, force: true });
+await rm(OUTPUT_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
 await mkdir(OUTPUT_DIR, { recursive: true });
 await cp(SOURCE_DIR, OUTPUT_DIR, { recursive: true });
 
