@@ -204,8 +204,8 @@ const USE_CASE_MEDIA = {
     alt: "Faculty publications, teaching, service, and awards branching into a review-ready academic portfolio",
   },
   "class-planner": {
-    src: "/_images/use-cases/class-planner-public.webp",
-    alt: "Color-coded course blocks arranged on a weekly scheduling board with three alternatives for comparison",
+    src: "/_images/use-cases/tritongpt-class-planner-demo.webp",
+    alt: "TritonGPT Class Scheduling Assistant presenting a conflict-aware course combination for student review",
   },
   "dissertation-formatter": {
     src: "/_images/use-cases/dissertation-formatter-public.webp",
@@ -291,7 +291,7 @@ function renderUseCasePage(useCase) {
     ? `<ul class="use-case-stats" aria-label="${escapeHtml(useCase.title)} impact at a glance">${useCase.stats.map((stat) => `<li><strong class="use-case-stat-value">${escapeHtml(stat.value)}</strong><span class="use-case-stat-label">${escapeHtml(stat.label)}</span>${stat.sub ? `<span class="use-case-stat-sub">${escapeHtml(stat.sub)}</span>` : ""}</li>`).join("")}</ul>`
     : "";
   const videoHtml = useCase.videoSrc
-    ? `<div class="use-case-demo"><div class="use-case-demo-frame"><video class="img-responsive" controls muted playsinline preload="metadata"${useCase.videoPoster ? ` poster="${escapeHtml(useCase.videoPoster)}"` : ""} aria-label="${escapeHtml(useCase.videoLabel || useCase.title + " demo")}"${useCase.videoDescription ? ` aria-describedby="${useCase.slug}-demo-description"` : ""} data-silent-demo="true"><source src="${escapeHtml(useCase.videoSrc)}" type="video/mp4">Your browser does not support the video element.</video></div>${useCase.videoDescription ? `<p id="${useCase.slug}-demo-description" class="use-case-demo-caption"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ${escapeHtml(useCase.videoDescription)}</p>` : ""}</div>`
+    ? `<div class="use-case-demo"><div class="use-case-demo-frame"><video class="img-responsive" controls muted playsinline preload="metadata"${useCase.videoPoster ? ` poster="${escapeHtml(useCase.videoPoster)}"` : ""} aria-label="${escapeHtml(useCase.videoLabel || useCase.title + " demo")}"${useCase.videoDescription ? ` aria-describedby="${useCase.slug}-demo-description"` : ""}${useCase.videoCaptionsSrc ? "" : ` data-silent-demo="true"`}><source src="${escapeHtml(useCase.videoSrc)}" type="video/mp4">${useCase.videoCaptionsSrc ? `<track kind="captions" src="${escapeHtml(useCase.videoCaptionsSrc)}" srclang="en" label="${escapeHtml(useCase.videoCaptionsLabel || "English")}" default>` : ""}Your browser does not support the video element.</video></div>${useCase.videoDescription ? `<p id="${useCase.slug}-demo-description" class="use-case-demo-caption"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ${escapeHtml(useCase.videoDescription)}</p>` : ""}</div>`
     : "";
   const screenshotsHtml = useCase.screenshots && useCase.screenshots.length
     ? `<div class="use-case-media-grid">${useCase.screenshots.map((screenshot) => `<figure class="panel panel-default use-case-screenshot"><img class="img-responsive" src="${escapeHtml(screenshot.src)}" alt="${escapeHtml(screenshot.alt)}"><figcaption>${escapeHtml(screenshot.caption)}</figcaption></figure>`).join("")}</div>`

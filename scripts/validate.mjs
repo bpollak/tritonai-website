@@ -244,6 +244,9 @@ for (const useCase of useCaseContent.entries) {
   if (useCase.videoSrc) {
     const missingVideoFields = missingFields(useCase, ["videoPoster", "videoLabel", "videoDescription"]);
     if (missingVideoFields.length) contentFindings.push({ source, issue: `Video is missing fields: ${missingVideoFields.join(", ")}` });
+    if (useCase.videoCaptionsSrc && !useCase.videoCaptionsLabel) {
+      contentFindings.push({ source, issue: "Captioned video is missing videoCaptionsLabel" });
+    }
   }
   for (const [index, screenshot] of (useCase.screenshots || []).entries()) {
     const missingScreenshotFields = missingFields(screenshot, ["src", "alt", "caption"]);
@@ -654,6 +657,9 @@ for (const page of htmlFiles) {
     }
     if ($(".use-case-demo").length !== (useCase.videoSrc ? 1 : 0)) {
       contentFindings.push({ source: route, issue: "Rendered video does not match use-case content" });
+    }
+    if ($(".use-case-demo track[kind='captions']").length !== (useCase.videoCaptionsSrc ? 1 : 0)) {
+      accessibility.push({ page: route, issue: "Rendered video captions do not match use-case content" });
     }
     if ($(".use-case-screenshot").length !== (useCase.screenshots || []).length) {
       contentFindings.push({ source: route, issue: "Rendered screenshots do not match use-case content" });
