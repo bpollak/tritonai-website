@@ -35,7 +35,7 @@ bannerPosition: center 44%
 </section>
 </div>
 <div class="api-gateway-connector api-gateway-connector-in" aria-hidden="true"><span>Connect through</span><i></i></div>
-<section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>Shared managed route</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3><ul><li>Access and routing</li><li>Usage tracking</li><li>Templates and guardrails</li></ul></div></section>
+<section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>Shared managed route</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3></div></section>
 <div class="api-gateway-connector api-gateway-connector-out" aria-hidden="true"><span>Access</span><i></i></div>
 <div class="api-gateway-target-cluster">
 <section class="api-gateway-lane api-gateway-routes" aria-labelledby="api-gateway-routes-heading">

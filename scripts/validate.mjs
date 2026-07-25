@@ -739,6 +739,12 @@ for (const page of htmlFiles) {
     if (gatewayMap.find(".api-gateway-node-preferred").text().trim().includes("TritonAI Harness") === false) {
       contentFindings.push({ source: route, issue: "API gateway diagram must identify TritonAI Harness as the preferred campus workspace" });
     }
+    if (
+      gatewayMap.find(".api-gateway-core ul").length !== 0 ||
+      /Access and routing|Usage tracking|Templates and guardrails/.test(gatewayMap.find(".api-gateway-core").text())
+    ) {
+      contentFindings.push({ source: route, issue: "API gateway core must retain a concise label without the removed detail list" });
+    }
     const harnessSection = $("#tritonai-harness");
     const harnessFlow = harnessSection.find(".build-harness-flow > li");
     if (harnessSection.length !== 1 || harnessFlow.length !== 4) {
