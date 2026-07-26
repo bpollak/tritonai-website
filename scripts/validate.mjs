@@ -759,6 +759,30 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "Campus impact must use the reusable equal-height metric component" });
     }
   }
+  if (route === "/about/trust-architecture.html") {
+    const requiredSections = ["#trust-layers", "#trust-responsibility", "#trust-surfaces", "#trust-start"];
+    for (const selector of requiredSections) {
+      if ($(selector).length !== 1) contentFindings.push({ source: route, issue: `Trust page is missing ${selector}` });
+    }
+    if ($(".trust-service-map > ol > li").length !== 4) {
+      contentFindings.push({ source: route, issue: "Trust service map must contain four stages" });
+    }
+    if ($(".trust-layer-grid > article").length !== 3) {
+      contentFindings.push({ source: route, issue: "Trust foundation must contain three layers" });
+    }
+    if ($(".trust-responsibility-grid > article").length !== 2) {
+      contentFindings.push({ source: route, issue: "Trust responsibility summary must contain two owners" });
+    }
+    if ($(".trust-surface-grid > article").length !== 5) {
+      contentFindings.push({ source: route, issue: "Trust delivery surfaces must contain five examples" });
+    }
+    const trustText = $("main#main-content").text();
+    for (const requiredName of ["AWS", "Microsoft Azure", "Google Cloud Vertex AI", "San Diego Supercomputer Center"]) {
+      if (!trustText.includes(requiredName)) {
+        contentFindings.push({ source: route, issue: `Trust page is missing public hosting detail: ${requiredName}` });
+      }
+    }
+  }
   if (route === "/developer-apis/index.html") {
     const architecture = $(".build-architecture");
     if (
