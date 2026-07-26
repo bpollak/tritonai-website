@@ -1,9 +1,9 @@
 ---
 title: Build with TritonAI
 path: /developer-apis/index.html
-description: Use TritonAI model access, reusable skills, and accountable hosting patterns to build governed campus AI services.
-eyebrow: Developer APIs and resources
-lastReviewed: 2026-07-25
+description: Use TritonAI model access, reusable skills, and clear hosting and support plans to build campus AI services.
+eyebrow: Developer tools and resources
+lastReviewed: 2026-07-26
 audiences: [developers, researchers, staff, leaders]
 source: TritonAI developer documentation, public architecture presentation, and July 24 AI Use Case Office Hours demonstration
 canonicalUrl: /developer-apis/index.html
@@ -14,7 +14,7 @@ bannerPosition: center 44%
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">A governed path to production</p><h2 id="build-intro-heading">Build on shared infrastructure without giving up clear ownership</h2><p class="hub-lede">TritonAI gives campus teams a common model gateway, reusable skills, emerging patterns, and an explicit route from bounded experimentation to an owned service.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">A clear path to production</p><h2 id="build-intro-heading">Build on shared infrastructure with clear ownership</h2><p class="hub-lede">TritonAI gives campus teams one place to access models, reuse skills, and move from a small test to a supported service with a named owner.</p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
 <p class="build-architecture-label">The TritonAI service model</p>
 <ol class="build-architecture-flow">
@@ -32,14 +32,14 @@ bannerPosition: center 44%
 <section class="hub-section hub-section-dark hub-full-bleed" id="builder-entry-points" aria-labelledby="builder-routes-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Start here</p><h2 id="builder-routes-heading">Choose the resource you need</h2></div>
 <div class="row hub-number-grid">
-<div class="col-md-4"><article><span>01</span><h3>Browse models</h3><p>Review current capabilities, context windows, and published rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
-<div class="col-md-4"><article><span>02</span><h3>Request access</h3><p>Follow the onboarding path for credentials, usage expectations, and project ownership.</p><a href="/developer-apis/start.html">Get started</a></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Reuse a capability</h3><p>Begin with a focused public skill when an established campus pattern fits the task.</p><a href="/skills/index.html">Browse the Skills Library</a></article></div>
+<div class="col-md-4"><article><span>01</span><h3>Browse models</h3><p>Review available models, how much information each can handle, and current rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
+<div class="col-md-4"><article><span>02</span><h3>Request access</h3><p>Follow the setup steps for credentials, responsible use, and project ownership.</p><a href="/developer-apis/start.html">Get started</a></article></div>
+<div class="col-md-4"><article><span>03</span><h3>Reuse a capability</h3><p>Start with a reusable campus skill when it fits the task.</p><a href="/skills/index.html">Browse the Skills Library</a></article></div>
 </div></div>
 </section>
 
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Start with TritonAI Harness for desktop agent work</h2><p>TritonAI Harness is UC San Diego’s primary supported agentic development environment. It packages installation, model access, campus skills, permissions, and supported integrations into one UC San Diego-oriented experience. Claude Code and the Codex desktop app are also supported for experienced builders who prefer to work directly in those environments.</p></div>
+<div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Use TritonAI Harness for desktop agent work</h2><p>TritonAI Harness is UC San Diego’s primary supported desktop workspace for building and using AI agents. It brings installation, model access, campus skills, permissions, and supported connections into one UC San Diego-oriented experience. Claude Code and the Codex desktop app are also supported for experienced builders who prefer those tools.</p></div>
 <div class="build-tool-grid">
 <article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Primary supported workspace</p><h3>TritonAI Harness</h3><p>A campus-oriented desktop experience that reduces setup burden and keeps approved models, skills, permissions, and integrations together.</p></article>
 <article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Claude Code</h3><p>A command-line environment for technical builders who want to work directly with Anthropic models and development tooling.</p></article>
@@ -91,7 +91,7 @@ bannerPosition: center 44%
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed shared-compute-bridge" id="shared-compute" aria-labelledby="shared-compute-heading">
-<div class="container"><div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Shared campus compute</p><h2 id="shared-compute-heading">TritonAI builds on infrastructure designed for many kinds of computational work</h2><p>DataHub is the web entry point to the Data Science and Machine Learning Platform (DSMLP). The platform supplies containerized CPU/GPU resources, storage, and reusable environments for coursework, formal independent study, eligible student projects, and selected TritonAI workloads.</p><p><a class="btn btn-primary" href="/developer-apis/dsmlp-datahub.html">Explore DSMLP and DataHub</a></p></div><div class="col-md-6 hub-split-media"><figure class="shared-compute-mini" aria-describedby="shared-compute-caption"><p>Shared infrastructure at a glance</p><ol><li><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span><div><strong>DataHub and launch tools</strong><small>Web and command-line access</small></div></li><li><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><div><strong>DSMLP</strong><small>Containers, compute, storage, and datasets</small></div></li><li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><div><strong>Selected TritonAI workloads</strong><small>Services built on shared campus capacity</small></div></li></ol><figcaption class="sr-only" id="shared-compute-caption">DataHub and command-line launch tools provide access to DSMLP shared compute, which supports coursework, formal independent study, eligible student projects, and selected TritonAI workloads.</figcaption></figure></div></div></div>
+<div class="container"><div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Shared campus compute</p><h2 id="shared-compute-heading">TritonAI uses shared campus computing</h2><p>DataHub is the web entry point to the Data Science and Machine Learning Platform (DSMLP). The platform supplies CPU and GPU resources, storage, and ready-to-use environments for coursework, formal independent study, eligible student projects, and selected TritonAI workloads.</p><p><a class="btn btn-primary" href="/developer-apis/dsmlp-datahub.html">Explore DSMLP and DataHub</a></p></div><div class="col-md-6 hub-split-media"><figure class="shared-compute-mini" aria-describedby="shared-compute-caption"><p>Shared infrastructure at a glance</p><ol><li><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span><div><strong>DataHub and launch tools</strong><small>Web and command-line access</small></div></li><li><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><div><strong>DSMLP</strong><small>Containers, compute, storage, and datasets</small></div></li><li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><div><strong>Selected TritonAI workloads</strong><small>Services built on shared campus capacity</small></div></li></ol><figcaption class="sr-only" id="shared-compute-caption">DataHub and command-line launch tools provide access to DSMLP shared compute, which supports coursework, formal independent study, eligible student projects, and selected TritonAI workloads.</figcaption></figure></div></div></div>
 </section>
 
 <section class="hub-section gateway-usage-section" id="gateway-usage" aria-labelledby="gateway-usage-heading">

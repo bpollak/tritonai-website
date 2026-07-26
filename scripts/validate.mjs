@@ -538,6 +538,41 @@ for (const page of htmlFiles) {
     if ($("main#main-content .sidebar-section").length) {
       navigation.push({ page: route, issue: "Landing hub must not render a sidebar" });
     }
+
+    const owner = navigationOwner(siteContent.navigation || [], route);
+    if (owner?.items?.length) {
+      const sectionNavigation = $("main#main-content .landing-mobile-section-nav");
+      if (sectionNavigation.length !== 1) {
+        navigation.push({ page: route, issue: "Landing hub must include one mobile section navigation" });
+      } else {
+        const hasOverview = owner.items.some((item) => normalizeRoute(item.href) === normalizeRoute(owner.href));
+        const expectedItems = hasOverview
+          ? owner.items
+          : [{ label: `${owner.label} Overview`, href: owner.href }, ...owner.items];
+        const renderedItems = sectionNavigation.find("ul").first().children("li").toArray();
+        if (renderedItems.length !== expectedItems.length) {
+          navigation.push({ page: route, issue: `Mobile ${owner.label} navigation has the wrong number of links` });
+        }
+        for (const [index, expectedItem] of expectedItems.entries()) {
+          const item = $(renderedItems[index]);
+          if (!item.length) continue;
+          const link = item.children("a").first();
+          const current = item.children("[aria-current='page']").first();
+          if (normalizeRoute(expectedItem.href) === route) {
+            if (!item.hasClass("active") || current.length !== 1 || current.text().trim() !== expectedItem.label || link.length) {
+              navigation.push({ page: route, issue: `Mobile section navigation must mark ${expectedItem.label} as the current page` });
+            }
+          } else if (
+            item.hasClass("active") ||
+            link.length !== 1 ||
+            link.text().trim() !== expectedItem.label ||
+            normalizeRoute(toLocalPath(link.attr("href"), page) || "") !== normalizeRoute(expectedItem.href)
+          ) {
+            navigation.push({ page: route, issue: `Mobile section link is incorrect: ${expectedItem.label}` });
+          }
+        }
+      }
+    }
   }
   for (const attr of ["href", "src", "action", "poster", "data-src", "data-poster", "data-fallback-src", "data-after-render-src", "data-idle-src"]) {
     for (const element of $(`[${attr}]`).toArray()) {

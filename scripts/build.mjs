@@ -577,6 +577,28 @@ function renderSidebar(navigation, route) {
   return `<section aria-label="Sidebar" class="col-xs-12 col-md-3 sidebar-section" role="complementary"><article aria-label="Sidebar Nav" class="main-content-nav" role="navigation">${renderSidebarInner(navigation, route)}</article></section>`;
 }
 
+function renderLandingMobileSectionNav(navigation, route) {
+  const owner = navigationOwner(navigation, route);
+  if (!owner?.items?.length) return "";
+
+  const hasOverview = owner.items.some((item) => item.href === owner.href);
+  const items = hasOverview
+    ? owner.items
+    : [{ label: `${owner.label} Overview`, href: owner.href }, ...owner.items];
+  const sectionSlug = owner.href.split("/").filter(Boolean)[0] || "site";
+  const headingId = `mobile-section-nav-${sectionSlug}`;
+  const links = items
+    .map((item) => {
+      if (item.href === route) {
+        return `<li class="active"><span aria-current="page">${escapeHtml(item.label)}</span></li>`;
+      }
+      return `<li><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>`;
+    })
+    .join("");
+
+  return `<nav aria-labelledby="${headingId}" class="landing-mobile-section-nav"><div class="container"><h2 id="${headingId}">More in ${escapeHtml(owner.label)}</h2><ul>${links}</ul></div></nav>`;
+}
+
 function routeForRelativePath(relativePath) {
   if (relativePath === "index.html") return "/";
   return `/${relativePath.replaceAll(path.sep, "/")}`;
@@ -617,7 +639,7 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
       : landingHub
-        ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-breadcrumbs"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div></div><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section>`
+        ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-breadcrumbs"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div></div><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section>${renderLandingMobileSectionNav(site.navigation, page.path)}`
       : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section>${renderSidebar(site.navigation, page.path)}</div></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
