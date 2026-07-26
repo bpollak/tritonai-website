@@ -832,6 +832,98 @@
   margin: 0;
 }
 
+.dsmlp-access-pathway {
+  background: var(--triton-sand);
+  border-left: 7px solid var(--triton-gold);
+  margin-top: 34px;
+  padding: 29px 30px 27px;
+}
+
+.dsmlp-access-pathway-heading {
+  align-items: end;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 23px;
+}
+
+.dsmlp-access-pathway-heading .home-kicker {
+  flex: 0 0 auto;
+  margin: 0 0 4px;
+}
+
+.dsmlp-access-pathway-heading h3 {
+  color: var(--triton-navy);
+  flex: 0 1 700px;
+  font-size: 25px;
+  line-height: 1.2;
+  margin: 0;
+  text-align: right;
+}
+
+.dsmlp-access-pathway ol {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dsmlp-access-pathway li {
+  align-items: start;
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 36px 1fr;
+  min-width: 0;
+  padding: 19px 17px;
+}
+
+.dsmlp-access-pathway li > span {
+  align-items: center;
+  background: var(--triton-blue);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  font-size: 15px;
+  font-weight: 700;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+.dsmlp-access-pathway strong {
+  color: var(--triton-navy);
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.dsmlp-access-pathway li p {
+  color: #52616b;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
+.dsmlp-access-pathway-note {
+  align-items: start;
+  color: #52616b;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 20px 1fr;
+  line-height: 1.5;
+  margin: 20px 0 0;
+}
+
+.dsmlp-access-pathway-note .glyphicon {
+  color: var(--triton-blue);
+  margin-top: 3px;
+  text-align: center;
+}
+
 .dsmlp-tritonai-section {
   background:
     radial-gradient(circle at 90% 12%, rgba(0, 198, 215, .14), transparent 26%),
@@ -2570,6 +2662,7 @@
   .build-tool-grid { grid-template-columns: 1fr; }
   .build-tool-grid article { min-height: 0; }
   .dsmlp-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dsmlp-access-pathway ol { grid-template-columns: 1fr; }
   .dsmlp-tritonai-flow ol {
     gap: 22px;
     grid-template-columns: 1fr;
@@ -2737,6 +2830,18 @@
   .dsmlp-access-grid > [class*="col-"] { display: block; }
   .dsmlp-access-grid > [class*="col-"] + [class*="col-"] { margin-top: 22px; }
   .dsmlp-access-card { padding: 25px 22px 22px; }
+  .dsmlp-access-pathway { padding: 24px 18px 22px; }
+  .dsmlp-access-pathway-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .dsmlp-access-pathway-heading h3 {
+    flex-basis: auto;
+    font-size: 22px;
+    text-align: left;
+  }
+  .dsmlp-access-pathway li { padding: 17px 15px; }
   .dsmlp-tritonai-flow li {
     gap: 12px;
     grid-template-columns: 36px 1fr;
