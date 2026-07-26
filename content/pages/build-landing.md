@@ -80,7 +80,7 @@ bannerPosition: center 44%
 <section class="api-gateway-lane api-gateway-routes" aria-labelledby="api-gateway-routes-heading">
 <p class="api-gateway-lane-label">Choose an approved route</p>
 <h3 id="api-gateway-routes-heading">Model routes</h3>
-<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><span><strong>Enterprise cloud</strong><small>Approved commercial model providers</small></span></li><li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span><strong>UC-controlled hosting</strong><small>Available self-hosted model families</small></span></li></ul>
+<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><span><strong>Enterprise cloud</strong><small>AWS, Microsoft Azure, and Google Cloud Vertex AI</small></span></li><li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span><strong>SDSC-hosted</strong><small>Locally hosted at the San Diego Supercomputer Center</small></span></li></ul>
 </section>
 <section class="api-gateway-capabilities" aria-labelledby="api-gateway-capabilities-heading"><p class="api-gateway-lane-label">Capabilities vary by model</p><h3 id="api-gateway-capabilities-heading">Available capabilities</h3><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></section>
 </div>
