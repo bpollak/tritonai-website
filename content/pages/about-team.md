@@ -1,7 +1,7 @@
 ---
 title: Team & Service Ownership
 path: /about/team.html
-description: Who does what across TritonAI — program leadership, the platform and solutions teams, service owners, and governance partners.
+description: Who does what across TritonAI, from program leadership and the platform team to service owners and governance partners.
 eyebrow: About TritonAI
 lastReviewed: 2026-07-19
 audiences: [staff, faculty, developers, leaders]

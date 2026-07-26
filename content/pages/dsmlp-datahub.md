@@ -79,7 +79,7 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-sand hub-full-bleed dsmlp-tritonai-section" aria-labelledby="dsmlp-tritonai-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">Where TritonAI fits</p><h2 id="dsmlp-tritonai-heading">DSMLP provides computing. The TritonAI gateway provides model access.</h2><p>Some TritonAI services run workloads on DSMLP. TritonAI apps, service owners, and approved model routes remain separate.</p></div>
+<div class="hub-heading"><p class="home-kicker">Where TritonAI fits</p><h2 id="dsmlp-tritonai-heading">How the two differ</h2><p>DSMLP supplies computing. The TritonAI gateway supplies model access. Some TritonAI services run workloads on DSMLP, but the apps, their service owners, and the approved model routes stay separate from it.</p></div>
 <figure class="dsmlp-tritonai-flow" aria-describedby="dsmlp-tritonai-caption">
 <ol>
 <li><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><div><small>Shared compute</small><strong>DSMLP</strong><p>Containerized CPU/GPU capacity, storage, and platform operations</p></div></li>

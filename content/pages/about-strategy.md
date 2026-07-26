@@ -1,7 +1,7 @@
 ---
 title: TritonAI Strategy
 path: /about/strategy.html
-description: UC San Diego's plan for campus AI — shared services anyone can use, plus supervised workflows built for specific jobs.
+description: UC San Diego's plan for campus AI. Shared services anyone can use, plus supervised workflows built for specific jobs.
 eyebrow: About TritonAI
 lastReviewed: 2026-07-24
 audiences: [students, faculty, staff, developers, leaders]
@@ -23,6 +23,7 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, from-chat-to-agents, six-principl
 
 <p><small>Each result covers only the service and measurement period shown. None of them is a campus-wide average. The <a href="/about/impact.html">public evidence packages</a> give the definition, owner, source, and review date behind each figure.</small></p>
 
+<!-- lang-ok: "Six principles" is the name of the framework, not a count of the cards below -->
 ## Six principles
 
 <!-- AGENT_SECTION: ux-about-strategy-principles -->

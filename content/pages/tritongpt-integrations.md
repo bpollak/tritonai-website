@@ -1,7 +1,7 @@
 ---
 title: Where TritonGPT Appears
 path: /tritongpt/integrations.html
-description: TritonGPT shows up in three places — the chat site, the UC San Diego mobile app, and supported campus websites.
+description: TritonGPT shows up in three places. The chat site, the UC San Diego mobile app, and supported campus websites.
 eyebrow: TritonGPT
 lastReviewed: 2026-07-19
 audiences: [students, faculty, staff]

@@ -16,7 +16,7 @@ landingHub: true
 <div class="col-md-6 hub-split-copy">
 <p class="home-kicker">Hosting and ownership</p>
 <h2 id="trust-intro-heading">What we check before a service ships</h2>
-<p class="hub-lede">TritonAI gives campus services approved routes to AI models and to campus information, and keeps the privacy, security, testing, accessibility, and support decisions out in the open rather than buried in a vendor contract.</p>
+<p class="hub-lede">TritonAI gives campus services approved routes to AI models and to campus information. The privacy, security, and accessibility decisions behind those routes are published here rather than buried in a vendor contract.</p>
 <p>The platform does not make a service trustworthy on its own. Each service still needs a stated purpose, data it is allowed to use, a named owner, and people who check the results.</p>
 <p class="trust-intro-actions"><a class="btn btn-primary" href="/tritongpt/privacy.html">Read the privacy statement</a> <a class="btn btn-default" href="/developer-apis/index.html">Explore developer resources</a></p>
 </div>

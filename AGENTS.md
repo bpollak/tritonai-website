@@ -16,6 +16,21 @@ Maintain an accessible, static TritonAI website that preserves the public site's
 - Keep public and internal presentation content separated. Do not publish internal staffing allocations, speculative workforce scenarios, unapproved ROI or accuracy claims, noncommitted dates, sensitive control details, or vendor/tool preference comparisons.
 - Quantitative public claims require a definition, owner, source, measurement period, data classification, canonical URL, related slide reference, and current `lastReviewed` date.
 
+## Voice
+
+Full rules and before/after examples: [docs/voice-and-language.md](docs/voice-and-language.md). `npm run test:language` checks the mechanical ones.
+
+- One idea per heading. No two-sentence headings.
+- A heading names what the section contains. It is not a maxim.
+- No count in a heading when the list is visible below it.
+- No manufactured contrast: "X, not Y", "rather than", "instead of".
+- Four items maximum in a sentence-level list; more goes in a `<ul>`.
+- Cut boosters (`practical`, `trusted`, `meaningful`, `seamless`, `leverage`). Keep the governance vocabulary (`approved`, `bounded`, `supervised`, `named owner`) — those qualify real controls.
+- Em dashes only for a genuine aside or a numeric range. Never in a frontmatter `description`.
+- Read sibling strings top to bottom. If a set shares an opening frame, rewrite it. A use-case `summary` may not start with "A", "An", or "The".
+
+This applies to agent-authored newsletters in `content/newsletters/` as well as pages.
+
 ## Functional integrations
 
 Do not remove the UCSD emergency broadcast, hosted search API, Today@UCSD feed, Google Analytics, or TritonGPT widget without explicit approval. The build patches This Site searches on non-production hosts so they continue querying the `tritonai.ucsd.edu` index.

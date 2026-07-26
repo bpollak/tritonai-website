@@ -65,7 +65,7 @@ Newsletter files are sorted by `date`, so agents do not need to edit the homepag
 
 The validator warns after 120 days without review and fails after 365 days. Generated pages are also checked for semantic structure, metadata, JSON-LD, route registration, sitemap coverage, image alternatives, and accessible video controls/captions.
 
-See [content governance](docs/content-governance.md), [deck synchronization](docs/deck-synchronization.md), the [Skills Library synchronization guide](docs/skills-library-sync.md), and the [search cutover plan](docs/search-cutover.md).
+See [content governance](docs/content-governance.md), [voice and language](docs/voice-and-language.md), [deck synchronization](docs/deck-synchronization.md), the [Skills Library synchronization guide](docs/skills-library-sync.md), and the [search cutover plan](docs/search-cutover.md).
 
 ## Refreshing the public snapshot
 

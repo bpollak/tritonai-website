@@ -1,7 +1,7 @@
 ---
 title: AI Learning Pathways
 path: /training-resources/pathways.html
-description: Role-based pathways for students, faculty, staff, developers, and campus leaders.
+description: One learning pathway for each role, from students and instructors through to campus leaders.
 eyebrow: Training & Resources
 lastReviewed: 2026-07-22
 audiences: [students, faculty, staff, developers, leaders]
