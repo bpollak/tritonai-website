@@ -176,8 +176,26 @@ async function scan(directory, type) {
   if (summaries.length) checkRepeatedFrames(`${type} summary`, summaries);
 }
 
+// The homepage hero is the most-read copy on the site and lives in JSON rather
+// than a page file, so it needs its own pass.
+async function scanHero() {
+  const source = "home/hero.json";
+  const fileText = await readFile(path.join(CONTENT_DIR, "home", "hero.json"), "utf8");
+  const raw = maskComments(fileText);
+  const suppressed = suppressedLines(fileText);
+  for (const slide of JSON.parse(fileText).slides || []) {
+    const heading = [slide.title, slide.accent].filter(Boolean).join(" ");
+    if (heading) checkText("heading", heading, source, raw, suppressed);
+    if (slide.description) {
+      checkText("lede", slide.description, source, raw, suppressed, { checkLists: true, checkEmDash: true });
+    }
+    if (slide.linkLabel) checkText("kicker", slide.linkLabel, source, raw, suppressed);
+  }
+}
+
 await scan("pages", "page");
 await scan("use-cases", "use-case");
+await scanHero();
 
 const errors = findings.filter((finding) => finding.severity === "error");
 const warnings = findings.filter((finding) => finding.severity === "warn");

@@ -7,9 +7,9 @@
   "slides": [
     {
       "id": "tritonai-hub",
-      "title": "TritonAI: Campus AI,",
-      "accent": "built right",
-      "description": "Use trusted AI, build governed solutions, and learn practical skills through one UC San Diego ecosystem.",
+      "title": "TritonAI",
+      "accent": "Campus AI at UC San Diego",
+      "description": "TritonGPT is the assistant most people start with. Sign in with your campus account.",
       "image": "/_images/homepage/TritonAI_Hero_2500.png",
       "optimizedImage": "/_images/homepage/TritonAI_Hero_2500.webp",
       "imageAlt": "Colorful blue and gold grit pattern",
