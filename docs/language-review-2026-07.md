@@ -178,21 +178,41 @@ recorded exemption.
 - **`content/skills/library.json`**, synced from an external repository.
 - The dead `src/site/` files the build overwrites.
 
+## Follow-up: the homepage hero
+
+`content/home/hero.json` was outside the directories the first pass covered, which is how
+the most-read copy on the site survived it. It said *"TritonAI: Campus AI, built right"*
+over *"Use trusted AI, build governed solutions, and learn practical skills through one UC
+San Diego ecosystem."* — a booster stack and a triadic list in the most prominent position
+on the site.
+
+| | Before | After |
+|---|---|---|
+| Heading | TritonAI: Campus AI, / built right | TritonAI / Campus AI at UC San Diego |
+| Description | Use trusted AI, build governed solutions, and learn practical skills through one UC San Diego ecosystem. | TritonGPT is the assistant most people start with. Sign in with your campus account. |
+
+Two things fell out of doing it. The hero accent had been restating the `h1` and the kicker
+directly below it, so the kicker changed too — "AI at UC San Diego" became "For students,
+faculty, and staff", which tells a reader something the `h1` does not. And an early draft of
+the description said TritonGPT was "open to anyone with a UC San Diego account"; the service
+pages say "eligible campus users", so that claim came back out. A hero is the wrong place to
+widen an eligibility statement.
+
+`scripts/language-check.mjs` now covers hero slide headings, descriptions, and CTA labels.
+Checked against the previous copy first, to confirm it flags it rather than passing
+vacuously.
+
 ## Still outstanding
 
-Two things fall outside the scope agreed for this pass and are worth a follow-up.
+**`content/newsletters/`** carries the same markers and is regenerated weekly by an agent —
+*"cleaner drafts in Word, sharper analysis in Excel, richer presentations in PowerPoint"*,
+*"strengthening, not replacing, the teaching process"*. The archived issues are arguably a
+historical record and were left alone, but future ones now inherit the rules through the
+Voice section in `AGENTS.md`.
 
-1. **`content/home/hero.json`** is the first thing anyone reads on the homepage, and still
-   says *"TritonAI: Campus AI, built right"* over *"Use trusted AI, build governed
-   solutions, and learn practical skills through one UC San Diego ecosystem."* That is a
-   booster stack and a triadic list in the most prominent position on the site. The
-   surrounding hero copy has been rewritten; this slide has not.
-
-2. **`content/newsletters/`** carries the same markers and is regenerated weekly by an
-   agent — *"cleaner drafts in Word, sharper analysis in Excel, richer presentations in
-   PowerPoint"*, *"strengthening, not replacing, the teaching process"*. The archived
-   issues are arguably a historical record and were left alone, but future ones now inherit
-   the rules through the Voice section in `AGENTS.md`.
+The other JSON copy — `content/roadmap/milestones.json` and `content/facts/*.json` — has
+not been reviewed. The facts files are owner-controlled claims and should stay that way; the
+roadmap summaries are fair game for a later pass.
 
 One unrelated observation, noted rather than fixed: `scripts/build.mjs` hardcodes
 *"Usage rose to a six-month high in June."* next to data that lives in
