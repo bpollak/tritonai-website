@@ -730,6 +730,16 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.dsmlp-learning-value {
+  background:
+    radial-gradient(circle at 91% 12%, rgba(0, 198, 215, .12), transparent 25%),
+    var(--triton-sand);
+}
+
+.dsmlp-learning-value-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .dsmlp-feature-grid article {
   background: rgba(255, 255, 255, .96);
   border-top: 5px solid var(--triton-bright-blue);

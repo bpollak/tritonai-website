@@ -38,6 +38,16 @@ bannerPosition: center 44%
 </div>
 </div>
 </section>
+<section class="hub-section hub-section-sand hub-full-bleed dsmlp-learning-value" aria-labelledby="dsmlp-learning-value-heading">
+<div class="container">
+<div class="hub-heading"><p class="home-kicker">Why shared infrastructure matters</p><h2 id="dsmlp-learning-value-heading">Reduce setup friction without lowering the technical ceiling</h2><p>DSMLP gives eligible students and instructors a supported starting point for computational coursework while preserving paths to more advanced tools and environments.</p></div>
+<div class="dsmlp-feature-grid dsmlp-learning-value-grid">
+<article><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><h3>Course-ready access</h3><p>Students in assigned courses receive access through established provisioning instead of creating a separate computing environment for each class.</p></article>
+<article><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span><h3>Consistent environments</h3><p>Curated software images, shared course resources, and common datasets give a class a dependable technical baseline.</p></article>
+<article><span class="glyphicon glyphicon-education" aria-hidden="true"></span><h3>Campus-supported delivery</h3><p>ITS and Educational Technology Services consultants help instructors with software, containers, assignments, and course-specific datasets.</p></article>
+</div>
+</div>
+</section>
 <section class="hub-section hub-section-dark hub-full-bleed dsmlp-capabilities" aria-labelledby="dsmlp-capabilities-heading">
 <div class="container">
 <div class="hub-heading"><p class="home-kicker">Platform capabilities</p><h2 id="dsmlp-capabilities-heading">Move from an interactive notebook to a flexible ML workflow</h2><p>DSMLP packages the infrastructure needed to move from a notebook or command-line request to an isolated, resource-managed workspace.</p></div>
