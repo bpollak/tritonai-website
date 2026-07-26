@@ -19,7 +19,7 @@ bannerPosition: center 44%
 <p class="build-architecture-label">The TritonAI service model</p>
 <ol class="build-architecture-flow">
 <li><span>01</span><div><strong>Campus need</strong><small>Start with a person, task, approved data, and measurable outcome.</small></div></li>
-<li><span>02</span><div><strong>Supported build path</strong><small>Use the Harness, developer APIs, or reusable campus skills.</small></div></li>
+<li><span>02</span><div><strong>Supported build path</strong><small>Start with the TritonAI Harness, or use developer APIs and reusable campus skills.</small></div></li>
 <li><span>03</span><div><strong>Shared AI platform</strong><small>Connect through the gateway to approved model capabilities.</small></div></li>
 <li><span>04</span><div><strong>Owned service</strong><small>Match hosting, support, monitoring, and review to real-world impact.</small></div></li>
 </ol>
@@ -39,13 +39,13 @@ bannerPosition: center 44%
 </section>
 
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="hub-heading"><p class="home-kicker">Pilot development workspace</p><h2 id="harness-heading">TritonAI Harness brings campus-ready controls to desktop agent work</h2><p>UC San Diego supports Claude Code and the Codex desktop app for experienced builders. TritonAI Harness is the preferred starting point for most campus staff because it packages the installation, model access, campus skills, permissions, and supported integrations into one UC San Diego-oriented experience.</p></div>
+<div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Start with TritonAI Harness for desktop agent work</h2><p>TritonAI Harness is UC San Diego’s primary supported agentic development environment. It packages installation, model access, campus skills, permissions, and supported integrations into one UC San Diego-oriented experience. Claude Code and the Codex desktop app are also supported for experienced builders who prefer to work directly in those environments.</p></div>
 <div class="build-tool-grid">
+<article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Primary supported workspace</p><h3>TritonAI Harness</h3><p>A campus-oriented desktop experience that reduces setup burden and keeps approved models, skills, permissions, and integrations together.</p></article>
 <article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Claude Code</h3><p>A command-line environment for technical builders who want to work directly with Anthropic models and development tooling.</p></article>
 <article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Codex desktop app</h3><p>An OpenAI desktop environment for experienced builders managing code, repositories, parallel tasks, and agent workflows.</p></article>
-<article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Preferred for most UC San Diego staff</p><h3>TritonAI Harness</h3><p>A campus-oriented desktop experience that reduces setup burden and keeps approved models, skills, permissions, and integrations together.</p></article>
 </div>
-<div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why the Harness is the preferred campus path</h3><ul class="build-harness-benefits">
+<div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why the Harness is the primary supported campus path</h3><ul class="build-harness-benefits">
 <li><strong>One installer for Mac and Windows</strong><span>Bundles the required runtime, packages, skills library, configurations, and the campus-selected Harness version.</span></li>
 <li><strong>UC San Diego model access</strong><span>Routes requests through the shared gateway to available UC-hosted and approved frontier models.</span></li>
 <li><strong>Campus skills built in</strong><span>Provides official reusable skills and a reviewed community pathway instead of asking each user to assemble a toolchain.</span></li>
@@ -70,7 +70,7 @@ bannerPosition: center 44%
 <section class="api-gateway-lane api-gateway-workspaces" aria-labelledby="api-gateway-workspaces-heading">
 <p class="api-gateway-lane-label">Build in a supported workspace</p>
 <h3 id="api-gateway-workspaces-heading">Development environments</h3>
-<ul class="api-gateway-node-list"><li class="api-gateway-node-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span><strong>TritonAI Harness</strong><small>Preferred for most campus staff</small></span></li><li><span class="glyphicon glyphicon-console" aria-hidden="true"></span>Claude Code</li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>Codex desktop app</li></ul>
+<ul class="api-gateway-node-list"><li class="api-gateway-node-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span><strong>TritonAI Harness</strong><small>Primary supported workspace</small></span></li><li><span class="glyphicon glyphicon-console" aria-hidden="true"></span>Claude Code</li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>Codex desktop app</li></ul>
 </section>
 </div>
 <div class="api-gateway-connector api-gateway-connector-in" aria-hidden="true"><span>Connect through</span><i></i></div>
@@ -80,7 +80,7 @@ bannerPosition: center 44%
 <section class="api-gateway-lane api-gateway-routes" aria-labelledby="api-gateway-routes-heading">
 <p class="api-gateway-lane-label">Choose an approved route</p>
 <h3 id="api-gateway-routes-heading">Model routes</h3>
-<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><span><strong>Enterprise cloud</strong><small>Approved commercial model providers</small></span></li><li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span><strong>UC-controlled hosting</strong><small>Available self-hosted model families</small></span></li></ul>
+<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><span><strong>Enterprise cloud</strong><small>AWS, Microsoft Azure, and Google Cloud Vertex AI</small></span></li><li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span><strong>SDSC-hosted</strong><small>Locally hosted at the San Diego Supercomputer Center</small></span></li></ul>
 </section>
 <section class="api-gateway-capabilities" aria-labelledby="api-gateway-capabilities-heading"><p class="api-gateway-lane-label">Capabilities vary by model</p><h3 id="api-gateway-capabilities-heading">Available capabilities</h3><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></section>
 </div>
