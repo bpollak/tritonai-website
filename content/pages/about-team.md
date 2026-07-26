@@ -1,7 +1,7 @@
 ---
 title: Team & Service Ownership
 path: /about/team.html
-description: How TritonAI program, platform, solution, service, and governance responsibilities fit together.
+description: Who does what across TritonAI, from program leadership and the platform team to service owners and governance partners.
 eyebrow: About TritonAI
 lastReviewed: 2026-07-19
 audiences: [staff, faculty, developers, leaders]
@@ -10,7 +10,7 @@ canonicalUrl: /about/team.html
 relatedSlides: [Team, Campus App Hosting]
 ---
 
-<p class="lead">TritonAI is a shared campus capability. Clear ownership connects a central platform with the people who understand, approve, and operate each service.</p>
+<p class="lead">TritonAI runs as a shared campus capability, which only works if everyone knows who owns which decision. This table connects the central platform to the people who approve and operate each service.</p>
 
 ## Responsibility model
 
@@ -22,8 +22,8 @@ relatedSlides: [Team, Campus App Hosting]
 <tr><th scope="row">Governance partners</th><td>Privacy, security, accessibility, records, policy, and risk guidance</td><td>Required controls and review</td></tr>
 </tbody></table></div>
 
-## Start with the right path
+## Where to start
 
-Use <a href="/about/get-involved.html">Get Involved</a> for a proposed campus use case. Developers can begin with the <a href="/developer-apis/start.html">Get Started</a> guide. Service owners considering a deployed application should review service ownership before committing to a launch.
+Have a campus use case in mind? Start at <a href="/about/get-involved.html">Get Involved</a>. Building something? Start with the <a href="/developer-apis/start.html">Get Started</a> guide. If you are about to launch an application other people will depend on, read the service ownership rows above first.
 
-<div class="alert alert-info">This public page describes service responsibilities. It intentionally excludes individual employment arrangements, staffing allocations, and internal capacity plans.</div>
+<div class="alert alert-info">This page covers service responsibilities only. It leaves out individual employment arrangements, staffing allocations, and internal capacity plans.</div>

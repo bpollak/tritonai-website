@@ -1,7 +1,7 @@
 ---
 title: Contract Review
 slug: contract-review
-summary: A supervised workflow that compares contract language with approved legal positions and prepares review-ready findings.
+summary: Procurement staff get contract language compared against approved UC legal positions, marked up and ready for a qualified reviewer.
 status: Production
 owner: TritonAI solutions team and the sponsoring legal service owner
 lastReviewed: 2026-07-25
@@ -28,11 +28,11 @@ toolHighlights: ["UC Legal Position", "Policy-backed Redlines", "Tracked Changes
 
 ## Problem
 
-Contract review requires careful comparison with approved positions, consistent issue spotting, and a complete record of proposed changes. Repetitive first-pass work can slow the queue while still requiring expert judgment.
+Every contract has to be compared against approved positions, with issues spotted consistently and every proposed change recorded. The first pass is repetitive, but it still takes expert judgment, so the queue backs up.
 
 ## Solution
 
-The workflow uses specialized review steps to identify relevant clauses, compare them with approved playbooks, and assemble a review-ready set of findings. The workflow supports the reviewer; it does not approve or execute an agreement.
+The workflow pulls out the relevant clauses, compares them with the approved playbooks, and assembles findings a reviewer can act on. It supports the reviewer. It does not approve or sign anything.
 
 ## Current status
 

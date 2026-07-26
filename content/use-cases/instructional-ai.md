@@ -1,7 +1,7 @@
 ---
 title: Instructional AI
 slug: instructional-ai
-summary: Course-aware assistants that support learning within instructor-defined expectations and source material.
+summary: Course assistants that answer from the material an instructor approved, inside the limits that instructor sets.
 status: Pilot
 owner: Participating instructors and the TritonAI instructional AI team
 lastReviewed: 2026-07-25
@@ -31,7 +31,7 @@ featured: true
 
 ## Problem
 
-Generic AI tools may not reflect course goals, assigned material, or an instructor's expectations. Students need clear boundaries and reliable ways to verify support.
+A general AI tool knows nothing about the course goals, the assigned reading, or what the instructor considers acceptable. Students need to know where the line is and how to check what they get back.
 
 ## Solution
 
@@ -39,6 +39,6 @@ Participating courses can test assistants grounded in approved course material. 
 
 ## Current status
 
-Instructional AI is a pilot, not a default feature for every course. Evaluation includes learning quality and equity, not only usage.
+Instructional AI is a pilot. It is not switched on for every course by default. We are evaluating it on learning quality and equity, not just on how many students used it.
 
 <p><a class="btn btn-default" href="/tritongpt/instruction.html">Read the instructional AI pilot page</a></p>

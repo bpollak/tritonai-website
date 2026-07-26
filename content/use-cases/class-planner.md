@@ -1,7 +1,7 @@
 ---
 title: TritonGPT Class Planner
 slug: class-planner
-summary: A TritonGPT assistant that turns course requirements and time constraints into a conflict-aware draft schedule for student review.
+summary: Students say which courses they need and when they cannot meet, and the assistant drafts a schedule without conflicts for them to review.
 status: Production
 owner: TritonGPT service and the sponsoring enrollment-management team
 lastReviewed: 2026-07-25
@@ -29,14 +29,14 @@ resourceLinks:
 
 ## Problem
 
-Building a workable class schedule requires comparing course requirements, meeting patterns, work commitments, and other unavailable times across many possible combinations.
+Getting a workable class schedule means checking course requirements against meeting patterns, a work shift, and everything else already on the calendar, across a lot of possible combinations.
 
 ## Solution
 
-The TritonGPT Class Scheduling Assistant gathers required courses and time constraints conversationally, checks for conflicts, and proposes a draft combination for the student to review. Students can add work or other commitments and ask the assistant to revise the plan.
+The TritonGPT Class Scheduling Assistant asks which courses you need and when you are unavailable, checks for conflicts, and proposes a combination to review. Add a work shift or anything else and ask it to try again.
 
 This assistant is distinct from the standalone Class Planner web app. Planning happens in TritonGPT; official course review and booking remain in the student system.
 
 ## Current status
 
-In production in TritonGPT. The assistant prepares a plan, not an enrollment decision. Students remain responsible for verifying course requirements, meeting details, conflicts, availability, and the final booking.
+In production in TritonGPT. It produces a plan, not an enrollment. Students still have to verify the course requirements, meeting details, and availability, and do the actual booking themselves.

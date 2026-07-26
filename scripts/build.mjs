@@ -92,6 +92,12 @@ async function readJson(filename) {
   return JSON.parse(await readFile(filename, "utf8"));
 }
 
+// `<!-- lang-ok: reason -->` markers are editorial notes for
+// scripts/language-check.mjs. They are not published.
+function stripLanguageCheckComments(body) {
+  return body.replace(/^[ \t]*<!--\s*lang-ok:[\s\S]*?-->[ \t]*\n?/gm, "");
+}
+
 async function loadMarkdownDirectory(directory, requiredFields) {
   const filenames = (await readdir(directory)).filter((name) => name.endsWith(".md")).sort();
   const entries = [];
@@ -99,7 +105,8 @@ async function loadMarkdownDirectory(directory, requiredFields) {
     const parsed = matter(await readFile(path.join(directory, filename), "utf8"));
     requireFields(parsed.data, requiredFields, path.relative(process.cwd(), path.join(directory, filename)));
     parsed.data.lastReviewed = isoDate(parsed.data.lastReviewed);
-    entries.push({ filename, ...parsed.data, body: parsed.content, html: markdown.render(parsed.content) });
+    const body = stripLanguageCheckComments(parsed.content);
+    entries.push({ filename, ...parsed.data, body, html: markdown.render(body) });
   }
   return entries;
 }
@@ -152,10 +159,10 @@ function renderLatestNewsletters(newsletters) {
   const recentCards = recent
     .map(
       (newsletter) =>
-        `<div class="col-sm-6"><article class="panel panel-default home-update-card"><div class="panel-body"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><p class="home-kicker">Recent update</p><h3>${escapeHtml(newsletter.title)}</h3><p>${newsletter.items} ${newsletter.items === 1 ? "item" : "items"} covering campus AI tools, training, and news.</p><a href="/about/ai-updates.html#${escapeHtml(newsletter.date.toISOString().slice(0, 10))}">Read this update <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></div></article></div>`,
+        `<div class="col-sm-6"><article class="panel panel-default home-update-card"><div class="panel-body"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><p class="home-kicker">Recent update</p><h3>${escapeHtml(newsletter.title)}</h3><p>${newsletter.items} ${newsletter.items === 1 ? "item" : "items"} on campus AI tools, training, and news.</p><a href="/about/ai-updates.html#${escapeHtml(newsletter.date.toISOString().slice(0, 10))}">Read this update <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></div></article></div>`,
     )
     .join("");
-  return `<article class="panel panel-default home-latest-update"><div class="panel-heading"><div><p class="home-kicker">Newest briefing</p><h3>${escapeHtml(latest.title)}</h3></div><span class="home-update-count">${latest.items} ${latest.items === 1 ? "item" : "items"}</span></div><div class="panel-body"><p class="home-update-topics">${topicBadges}</p><p>${escapeHtml(excerpt)}${excerpt ? "…" : ""}</p><p><a class="btn btn-primary" href="/about/ai-updates.html#${dateId}">Read the latest update</a></p></div></article>${recentCards ? `<div class="row agent-card-grid home-recent-updates">${recentCards}</div>` : ""}`;
+  return `<article class="panel panel-default home-latest-update"><div class="panel-heading"><div><p class="home-kicker">This week</p><h3>${escapeHtml(latest.title)}</h3></div><span class="home-update-count">${latest.items} ${latest.items === 1 ? "item" : "items"}</span></div><div class="panel-body"><p class="home-update-topics">${topicBadges}</p><p>${escapeHtml(excerpt)}${excerpt ? "…" : ""}</p><p><a class="btn btn-primary" href="/about/ai-updates.html#${dateId}">Read the latest update</a></p></div></article>${recentCards ? `<div class="row agent-card-grid home-recent-updates">${recentCards}</div>` : ""}`;
 }
 
 function statusClass(status) {
@@ -263,7 +270,7 @@ function renderUseCaseIndex(useCases) {
       return `<div class="col-sm-6 col-md-4"><article class="panel panel-default cms-news-card cms-use-case-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
     })
     .join("");
-  return `<section aria-labelledby="featured-use-cases-heading" class="landing-section cms-news-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">From idea to impact</p><h2 id="featured-use-cases-heading">Featured use cases</h2><p>Three examples show the range from production services to bounded instructional pilots.</p></div><div class="row cms-news-grid">${featuredHtml}</div></div></section><section aria-labelledby="all-use-cases-heading" class="landing-section landing-section-sand cms-tiles-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">Explore the portfolio</p><h2 id="all-use-cases-heading">More campus workflows</h2><p>Status labels show what is available now, in pilot, in development, or being explored.</p></div><div class="row cms-tile-grid">${remainingHtml}</div></div></section><section aria-labelledby="propose-use-case-heading" class="jumbotron jumbotron-callout-image-small-inset"><div class="container"><div class="row"><div class="col-md-7"><div class="panel panel-default"><div class="panel-body"><h2 id="propose-use-case-heading">Bring a recurring problem</h2><p class="panel-text">Start with the workflow, its owner, the approved data, the review step, and the outcome that should improve.</p><p><a class="btn btn-default" href="/about/get-involved.html">Start a use-case conversation</a></p></div></div></div></div></div></section>`;
+  return `<section aria-labelledby="featured-use-cases-heading" class="landing-section cms-news-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">Featured</p><h2 id="featured-use-cases-heading">Featured use cases</h2><p>These three cover the range, from a service running in production to a bounded instructional pilot.</p></div><div class="row cms-news-grid">${featuredHtml}</div></div></section><section aria-labelledby="all-use-cases-heading" class="landing-section landing-section-sand cms-tiles-module"><div class="container"><div class="landing-section-heading"><p class="home-kicker">Explore the portfolio</p><h2 id="all-use-cases-heading">More campus workflows</h2><p>The status label on each one tells you whether you can use it today or whether we are still working on it.</p></div><div class="row cms-tile-grid">${remainingHtml}</div></div></section><section aria-labelledby="propose-use-case-heading" class="jumbotron jumbotron-callout-image-small-inset"><div class="container"><div class="row"><div class="col-md-7"><div class="panel panel-default"><div class="panel-body"><h2 id="propose-use-case-heading">Bring a recurring problem</h2><p class="panel-text">Tell us the workflow, who owns it, what data it uses, and what should get better.</p><p><a class="btn btn-default" href="/about/get-involved.html">Start a use-case conversation</a></p></div></div></div></div></div></section>`;
 }
 
 function renderUseCaseNarrative(html, slug) {
@@ -283,7 +290,7 @@ function renderUseCaseNarrative(html, slug) {
     const id = `${slug}-${section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
     return `<section class="use-case-narrative-step" aria-labelledby="${escapeHtml(id)}"><span class="use-case-narrative-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span><div><h3 id="${escapeHtml(id)}">${escapeHtml(section.title)}</h3>${section.body.join("")}</div></section>`;
   }).join("");
-  return `<section class="use-case-story" aria-labelledby="${escapeHtml(slug)}-story-heading"><div class="use-case-section-heading"><p class="home-kicker">From need to service</p><h2 id="${escapeHtml(slug)}-story-heading">How the workflow fits</h2><p>Follow the problem, the bounded solution, and the current level of service maturity.</p></div><div class="use-case-narrative">${steps}</div></section>`;
+  return `<section class="use-case-story" aria-labelledby="${escapeHtml(slug)}-story-heading"><div class="use-case-section-heading"><p class="home-kicker">How it works</p><h2 id="${escapeHtml(slug)}-story-heading">How the workflow fits</h2><p>The problem it addresses, what it actually does, and how far along it is.</p></div><div class="use-case-narrative">${steps}</div></section>`;
 }
 
 function renderUseCasePage(useCase) {
@@ -307,7 +314,7 @@ function renderUseCasePage(useCase) {
   const overviewHtml = `<section class="use-case-overview" aria-label="${escapeHtml(useCase.title)} overview"><div class="use-case-overview-copy"><span class="glyphicon glyphicon-${escapeHtml(useCaseIcon)}" aria-hidden="true"></span><div><p class="home-kicker">Campus AI workflow</p>${renderStatus(useCase.status)}<p class="lead">${escapeHtml(useCase.summary)}</p></div></div>${statsHtml}</section>`;
   const mediaHtml = `${videoHtml}${screenshotsHtml}`;
   const evidenceHtml = mediaHtml || resourcesHtml || toolsHtml
-    ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">${mediaHtml ? "Product media" : resourcesHtml ? "Related service" : "Workflow elements"}</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">${mediaHtml ? "See the workflow in action" : resourcesHtml ? "Continue with trusted resources" : "What the workflow brings together"}</h2></div>${mediaHtml}${toolsHtml}${resourcesHtml}</section>`
+    ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">${mediaHtml ? "Product media" : resourcesHtml ? "Related service" : "Workflow elements"}</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">${mediaHtml ? "See the workflow in action" : resourcesHtml ? "Where to read more" : "What the workflow uses"}</h2></div>${mediaHtml}${toolsHtml}${resourcesHtml}</section>`
     : "";
   const actionsHtml = `<nav class="use-case-actions" aria-label="Use case next steps"><a href="/use-cases/index.html"><span aria-hidden="true">←</span> Explore all use cases</a><a href="/about/get-involved.html">Start a use-case conversation <span aria-hidden="true">→</span></a></nav>`;
   return `${overviewHtml}${governanceHtml}${evidenceHtml}${renderUseCaseNarrative(useCase.html, useCase.slug)}${actionsHtml}`;
@@ -330,7 +337,7 @@ function renderRoadmap(roadmap) {
     const headingId = `roadmap-history-${index + 1}`;
     return `<article class="agent-roadmap-item agent-roadmap-item-history" aria-labelledby="${headingId}"><div><p class="roadmap-period">${escapeHtml(item.period)}</p>${renderStatus(item.status)}</div><h3 id="${headingId}">${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><p class="roadmap-item-meta"><strong>Owner</strong> ${escapeHtml(item.owner)}</p></article>`;
   }).join("");
-  return `<p class="lead roadmap-lead">${escapeHtml(roadmap.description)}</p><section class="roadmap-status-key" aria-labelledby="roadmap-status-heading"><div><p class="home-kicker">How to read this page</p><h2 id="roadmap-status-heading">Status reflects delivery confidence</h2></div><ul><li>${renderStatus("Shipped")}<span>Publicly available</span></li><li>${renderStatus("Pilot")}<span>Bounded testing with oversight</span></li><li>${renderStatus("In development")}<span>Active work without a committed launch date</span></li><li>${renderStatus("Exploring")}<span>Discovery, not a delivery commitment</span></li></ul></section><section class="roadmap-current" aria-labelledby="roadmap-current-heading"><div class="roadmap-section-heading"><p class="home-kicker">Current horizon</p><h2 id="roadmap-current-heading">2026 delivery detail</h2><p>The quarterly roadmap is organized around supervised solutions, reusable building blocks, and a governed path from prototype to supported service. A quarter's status reflects the grouped work; individual linked services may be further along.</p></div><div class="roadmap-current-list">${currentHtml}</div></section><section class="roadmap-history" aria-labelledby="roadmap-history-heading"><div class="roadmap-section-heading"><p class="home-kicker">Foundation</p><h2 id="roadmap-history-heading">How the ecosystem got here</h2><p>Earlier milestones show the progression from broad access to shared infrastructure and focused campus workflows.</p></div><div class="roadmap-history-grid">${historyHtml}</div></section><nav class="roadmap-actions" aria-label="Roadmap next steps"><a class="btn btn-primary" href="/use-cases/index.html">Explore current use cases</a><a class="btn btn-default" href="/about/get-involved.html">Bring a campus workflow</a></nav>`;
+  return `<p class="lead roadmap-lead">${escapeHtml(roadmap.description)}</p><section class="roadmap-status-key" aria-labelledby="roadmap-status-heading"><div><p class="home-kicker">How to read this page</p><h2 id="roadmap-status-heading">What each status means</h2></div><ul><li>${renderStatus("Shipped")}<span>Publicly available</span></li><li>${renderStatus("Pilot")}<span>Bounded testing with oversight</span></li><li>${renderStatus("In development")}<span>Active work without a committed launch date</span></li><li>${renderStatus("Exploring")}<span>Discovery only; no delivery commitment</span></li></ul></section><section class="roadmap-current" aria-labelledby="roadmap-current-heading"><div class="roadmap-section-heading"><p class="home-kicker">Current horizon</p><h2 id="roadmap-current-heading">2026 delivery detail</h2><p>Each quarter groups supervised solutions, the reusable pieces underneath them, and the work of getting prototypes to supported services. A quarter's status covers the group as a whole, so an individual service linked below may be further along.</p></div><div class="roadmap-current-list">${currentHtml}</div></section><section class="roadmap-history" aria-labelledby="roadmap-history-heading"><div class="roadmap-section-heading"><p class="home-kicker">Foundation</p><h2 id="roadmap-history-heading">How we got here</h2><p>Earlier milestones, from opening up broad access to building the shared infrastructure and the first focused campus workflows.</p></div><div class="roadmap-history-grid">${historyHtml}</div></section><nav class="roadmap-actions" aria-label="Roadmap next steps"><a class="btn btn-primary" href="/use-cases/index.html">Explore current use cases</a><a class="btn btn-default" href="/about/get-involved.html">Bring a campus workflow</a></nav>`;
 }
 
 function renderPublicFacts(facts) {
@@ -367,7 +374,7 @@ function renderGatewayUsage(usage) {
       return `<tr><th scope="row">${escapeHtml(month.label)} 2026</th><td>${formatBillions(month.selfHostedTokens)}</td><td>${formatBillions(month.cloudTokens)}</td><td>${formatBillions(total)}</td></tr>`;
     })
     .join("");
-  return `<div class="hub-heading gateway-usage-heading"><p class="home-kicker">Six months of shared model access</p><h2 id="gateway-usage-heading">${escapeHtml(usage.title)}</h2><p>${escapeHtml(usage.summary)}</p></div><ul class="gateway-usage-metrics" aria-label="Gateway usage summary">${metrics}</ul><div class="gateway-usage-trend"><div class="gateway-usage-trend-heading"><div><h3>Monthly token volume</h3><p>Usage rose to a six-month high in June.</p></div><ul class="gateway-usage-legend" aria-label="Chart legend"><li><span class="gateway-usage-key-self-hosted" aria-hidden="true"></span>Self-hosted</li><li><span class="gateway-usage-key-cloud" aria-hidden="true"></span>Cloud</li></ul></div><ol class="gateway-usage-months">${monthRows}</ol></div><details class="gateway-usage-details"><summary>View monthly data and measurement notes</summary><div class="table-responsive"><table class="table"><caption>Gateway token volume by model route, January through June 2026</caption><thead><tr><th scope="col">Month</th><th scope="col">Self-hosted</th><th scope="col">Cloud</th><th scope="col">Total tokens</th></tr></thead><tbody>${tableRows}</tbody></table></div><dl class="gateway-usage-meta"><div><dt>Measurement period</dt><dd>${escapeHtml(usage.measurementPeriod.label)}</dd></div><div><dt>Owner</dt><dd>${escapeHtml(usage.owner)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(usage.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(usage.lastReviewed)}</dd></div></dl><ul class="gateway-usage-notes">${usage.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></details>`;
+  return `<div class="hub-heading gateway-usage-heading"><p class="home-kicker">Gateway usage</p><h2 id="gateway-usage-heading">${escapeHtml(usage.title)}</h2><p>${escapeHtml(usage.summary)}</p></div><ul class="gateway-usage-metrics" aria-label="Gateway usage summary">${metrics}</ul><div class="gateway-usage-trend"><div class="gateway-usage-trend-heading"><div><h3>Monthly token volume</h3><p>Usage rose to a six-month high in June.</p></div><ul class="gateway-usage-legend" aria-label="Chart legend"><li><span class="gateway-usage-key-self-hosted" aria-hidden="true"></span>Self-hosted</li><li><span class="gateway-usage-key-cloud" aria-hidden="true"></span>Cloud</li></ul></div><ol class="gateway-usage-months">${monthRows}</ol></div><details class="gateway-usage-details"><summary>View monthly data and measurement notes</summary><div class="table-responsive"><table class="table"><caption>Gateway token volume by model route, January through June 2026</caption><thead><tr><th scope="col">Month</th><th scope="col">Self-hosted</th><th scope="col">Cloud</th><th scope="col">Total tokens</th></tr></thead><tbody>${tableRows}</tbody></table></div><dl class="gateway-usage-meta"><div><dt>Measurement period</dt><dd>${escapeHtml(usage.measurementPeriod.label)}</dd></div><div><dt>Owner</dt><dd>${escapeHtml(usage.owner)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(usage.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(usage.lastReviewed)}</dd></div></dl><ul class="gateway-usage-notes">${usage.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></details>`;
 }
 
 function renderHomeHero(hero) {
@@ -1066,7 +1073,7 @@ for (const page of pages) {
 const useCaseIndex = {
   title: "AI Use Cases",
   path: "/use-cases/index.html",
-  description: "Public, status-based descriptions of TritonAI workflow solutions and their human-oversight and measurement plans.",
+  description: "Campus workflows TritonAI has built, what stage each one is at, who reviews the output, and what gets measured.",
   eyebrow: "TritonAI portfolio",
   lastReviewed: site.lastReviewed,
   canonicalUrl: "/use-cases/index.html",
@@ -1090,12 +1097,12 @@ await writeGeneratedPage(
   {
     title: "Page Not Found",
     path: "/404.html",
-    description: "The requested TritonAI page could not be found.",
+    description: "We could not find that TritonAI page.",
     eyebrow: "404",
     lastReviewed: site.lastReviewed,
     canonicalUrl: "/404.html",
   },
-  '<p class="lead">The page may have moved, or the address may be incomplete.</p><p><a class="btn btn-primary" href="/">Return to TritonAI</a> <a class="btn btn-default" href="/search/index.html">Search the site</a></p>',
+  '<p class="lead">The page may have moved, or the address may be incomplete.</p><p><a class="btn btn-primary" href="/">Go to the TritonAI home page</a> <a class="btn btn-default" href="/search/index.html">Search the site</a></p>',
   generatedByPath,
 );
 

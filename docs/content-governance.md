@@ -2,6 +2,8 @@
 
 The website is the public source of truth. Presentation material may inform it, but a slide is not automatically approved website content.
 
+This page decides what may be published. [Voice and language](voice-and-language.md) decides how it reads, and defers to the status definitions below rather than restating them.
+
 ## Publishable content
 
 Public content can include approved capabilities, status-based roadmap items, service-owner responsibilities, public architecture, learning paths, and use-case descriptions with human oversight and measurement plans.

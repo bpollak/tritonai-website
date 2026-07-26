@@ -1,7 +1,7 @@
 ---
 title: Voice Agent
 slug: voice-agent
-summary: A consent-based interview workflow that turns staff conversations into an evidence-backed backlog of automation opportunities.
+summary: Structured voice interviews with staff, turned into a backlog of automation opportunities that reviewers can weigh against evidence.
 status: Pilot
 owner: TritonAI program and participating service owners
 lastReviewed: 2026-07-24
@@ -19,7 +19,7 @@ toolHighlights: ["Consent-based interview", "Transcript redaction", "Human evide
 
 ## Problem
 
-Teams often know where repetitive work creates friction, but collecting comparable evidence across interviews and turning it into a reviewable opportunity backlog takes significant facilitation and analysis.
+Teams usually know where the repetitive work is. The hard part is collecting comparable evidence across many interviews and turning it into a backlog someone can actually review.
 
 ## Solution
 
@@ -27,4 +27,4 @@ The pilot uses structured voice interviews to gather staff perspectives, redact 
 
 ## Current status
 
-In pilot. Participation is consent-based, and people—not the agent—decide how evidence is interpreted and whether any proposed automation should move forward.
+In pilot. Nobody is interviewed without agreeing to it first, and people decide how the evidence is read and whether any proposed automation goes ahead. The agent does not.

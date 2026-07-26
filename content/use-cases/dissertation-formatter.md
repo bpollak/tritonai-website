@@ -1,7 +1,7 @@
 ---
 title: Dissertation Formatter
 slug: dissertation-formatter
-summary: A review assistant that checks dissertation formatting rules and distinguishes automatic fixes from human decisions.
+summary: Checks a dissertation against the graduate formatting rules, fixes what it safely can, and flags the rest for the student to decide.
 status: Pilot
 owner: TritonAI solutions team and the sponsoring graduate-education service owner
 lastReviewed: 2026-07-24
@@ -28,12 +28,12 @@ toolHighlights: ["GEPA Rules", "Auto-Corrections", "Review Report"]
 
 ## Problem
 
-Dissertation formatting contains many detailed rules. Repeated manual checks can distract students and reviewers from the substance of the work.
+There are a lot of dissertation formatting rules, and checking them by hand pulls students and reviewers away from the actual work.
 
 ## Solution
 
-The pilot validates Word documents against UCSD GEPA rules, checking 84 formatting rules across 13 categories and applying 17+ automatic fixes for common issues. Results are sorted into three buckets — fixed, action needed, and verify — so students can see what was corrected automatically and what still needs human review. It explains findings so the student can review each change.
+The pilot checks a Word document against 84 UCSD GEPA formatting rules across 13 categories and applies 17+ automatic fixes for the common problems. Findings land in one of three buckets: fixed, action needed, or verify. Each one comes with an explanation, so the student can see what changed and why.
 
 ## Current status
 
-Pilot. The workflow does not replace the official submission requirements or final graduate-education review. Students upload a .docx, choose the document type, run checks, and download the result through a UC San Diego-branded interface.
+Pilot. It does not replace the official submission requirements or the final graduate-education review. Students upload a .docx, pick the document type, run the checks, and download the result.

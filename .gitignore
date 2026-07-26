@@ -3,6 +3,7 @@ dist/
 .DS_Store
 reports/validation.json
 reports/accessibility.json
+reports/language.json
 reports/screenshots/
 reports/ux-agent/
 .claude/

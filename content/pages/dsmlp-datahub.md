@@ -1,7 +1,7 @@
 ---
 title: DSMLP and DataHub
 path: /developer-apis/dsmlp-datahub.html
-description: Learn how UC San Diego DataHub provides web access to the Data Science and Machine Learning Platform and how selected TritonAI workloads use this shared computing foundation.
+description: DataHub is the browser route into DSMLP, the shared computing platform behind coursework and some TritonAI workloads.
 eyebrow: Shared campus infrastructure
 lastReviewed: 2026-07-26
 audiences: [students, faculty, researchers, staff, developers, leaders]
@@ -40,10 +40,10 @@ bannerPosition: center 44%
 </section>
 <section class="hub-section hub-section-sand hub-full-bleed dsmlp-learning-value" aria-labelledby="dsmlp-learning-value-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">Why shared infrastructure matters</p><h2 id="dsmlp-learning-value-heading">Start with a supported setup and grow into advanced work</h2><p>DSMLP gives eligible students and instructors a ready-to-use starting point for computational coursework, with options for advanced tools and custom environments.</p></div>
+<div class="hub-heading"><p class="home-kicker">Why shared infrastructure matters</p><h2 id="dsmlp-learning-value-heading">Start supported, grow into advanced work</h2><p>Eligible students and instructors get an environment that already works for computational coursework, and can move to custom tooling when they outgrow it.</p></div>
 <div class="dsmlp-feature-grid dsmlp-learning-value-grid">
 <article><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><h3>Access for assigned courses</h3><p>Students in assigned courses receive access automatically through the course setup process.</p></article>
-<article><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span><h3>A consistent setup</h3><p>Shared software, course resources, and common datasets give everyone in a class the same starting point.</p></article>
+<article><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span><h3>A consistent setup</h3><p>Everyone in the class gets the same software, course files, and datasets, so nobody loses a week to installation.</p></article>
 <article><span class="glyphicon glyphicon-education" aria-hidden="true"></span><h3>Support for instructors</h3><p>ITS and Educational Technology Services help instructors set up software, containers, assignments, and course datasets.</p></article>
 </div>
 </div>
@@ -52,16 +52,16 @@ bannerPosition: center 44%
 <div class="container">
 <div class="hub-heading"><p class="home-kicker">Platform capabilities</p><h2 id="dsmlp-capabilities-heading">Start in a notebook or build a custom ML workflow</h2><p>DSMLP turns a notebook or command-line request into an isolated workspace with the computing resources it needs.</p></div>
 <div class="dsmlp-feature-grid">
-<article><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><h3>Interactive notebooks</h3><p>Jupyter combines live code, equations, visualizations, and narrative text for data preparation, analysis, modeling, and machine learning.</p></article>
+<article><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><h3>Interactive notebooks</h3><p>Jupyter puts live code, equations, charts, and your own notes in one document.</p></article>
 <article><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><h3>Accelerated ML development</h3><p>Research-class CPU/GPU resources and an Ubuntu CUDA environment support popular languages and GPU-enabled frameworks.</p></article>
-<article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><h3>Flexible environments</h3><p>Users can add library packages or launch custom Docker containers when the default software environment does not fit the work.</p></article>
+<article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><h3>Flexible environments</h3><p>When the default image does not fit, add packages or launch your own Docker container.</p></article>
 <article><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><h3>Storage and datasets</h3><p>Cluster-local storage supports student workspaces, course files, and commonly used training datasets across sessions.</p></article>
 </div>
 </div>
 </section>
 
 <section class="hub-section dsmlp-access-section" aria-labelledby="dsmlp-access-heading">
-<div class="hub-heading"><p class="home-kicker">Two ways in</p><h2 id="dsmlp-access-heading">Choose web or command-line access</h2><p>Both options use DSMLP. Choose the browser for a guided workspace or the command line for more control.</p></div>
+<div class="hub-heading"><p class="home-kicker">Getting in</p><h2 id="dsmlp-access-heading">Web or command line</h2><p>Both reach the same DSMLP. Use the browser for a workspace that is already set up, or the command line when you want control.</p></div>
 <div class="row dsmlp-access-grid">
 <div class="col-md-6"><article class="dsmlp-access-card dsmlp-access-card-web"><header><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span><div><p>Browser-based</p><h3>DataHub</h3></div></header><ul><li>Launch a course or independent-study environment from the web.</li><li>Work in Jupyter notebooks, terminals, and supported graphical tools.</li><li>Use curated software images and shared course resources.</li></ul><p><a href="https://datahub.ucsd.edu/hub/login?next=%2Fhub%2F">Go to DataHub <span aria-hidden="true">→</span></a></p></article></div>
 <div class="col-md-6"><article class="dsmlp-access-card dsmlp-access-card-cli"><header><span class="glyphicon glyphicon-console" aria-hidden="true"></span><div><p>Command-line</p><h3>DSMLP launch tools</h3></div></header><ul><li>Start interactive, batch, or custom-container workloads with <code>launch.sh</code>.</li><li>Request CPU, memory, and GPU resources for the container.</li><li>Use advanced workflows without running jobs on the shared login host.</li></ul><p><a href="https://support.ucsd.edu/services?id=kb_article_view&amp;sysparm_article=KB0032269">Read the container launch guide <span aria-hidden="true">→</span></a></p></article></div>
@@ -79,7 +79,7 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-sand hub-full-bleed dsmlp-tritonai-section" aria-labelledby="dsmlp-tritonai-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">Where TritonAI fits</p><h2 id="dsmlp-tritonai-heading">DSMLP provides computing. The TritonAI gateway provides model access.</h2><p>Some TritonAI services run workloads on DSMLP. TritonAI apps, service owners, and approved model routes remain separate.</p></div>
+<div class="hub-heading"><p class="home-kicker">Where TritonAI fits</p><h2 id="dsmlp-tritonai-heading">How the two differ</h2><p>DSMLP supplies computing. The TritonAI gateway supplies model access. Some TritonAI services run workloads on DSMLP, but the apps, their service owners, and the approved model routes stay separate from it.</p></div>
 <figure class="dsmlp-tritonai-flow" aria-describedby="dsmlp-tritonai-caption">
 <ol>
 <li><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><div><small>Shared compute</small><strong>DSMLP</strong><p>Containerized CPU/GPU capacity, storage, and platform operations</p></div></li>

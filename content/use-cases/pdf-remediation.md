@@ -1,7 +1,7 @@
 ---
 title: PDF Remediator
 slug: pdf-remediation
-summary: An assistive workflow that identifies common document-accessibility issues and prepares evidence for a human remediator.
+summary: Finds the document-accessibility problems software can catch reliably, and hands a qualified remediator the evidence for the rest.
 status: Pilot
 owner: TritonAI solutions team and campus accessibility partners
 lastReviewed: 2026-07-24
@@ -24,12 +24,12 @@ featured: false
 
 ## Problem
 
-PDF accessibility work combines automatable checks with visual and semantic judgments that software cannot safely make on its own.
+Some of PDF accessibility work is mechanical and checkable. The rest depends on visual and semantic judgments software cannot safely make on its own.
 
 ## Solution
 
-The workflow checks common structural and metadata problems, proposes selected fixes, and produces a reviewable evidence package for a human remediator. It runs 17+ automated checks across 9 categories—including reading order, tagged content, alternative text, and document structure—so reviewers can see what was checked and what remains. It is designed to assist expert work, not to certify conformance automatically.
+The workflow looks for common structural and metadata problems, proposes fixes for some of them, and assembles an evidence package a human remediator can work from. It runs 17+ automated checks across 9 categories, covering reading order, tagged content, alternative text, and document structure, so a reviewer can see what was checked and what is still open. It assists expert work. It does not certify conformance.
 
 ## Current status
 
-Pilot. A final document still requires manual accessibility review with the appropriate tools and standards. Built by a staff member — not an engineer — through the Citizen Developer Program, the tool is browser-first with no database and SSO-ready for campus hosting.
+Pilot. A finished document still needs a manual accessibility review against the appropriate standards. A staff member with no engineering background built this through the Citizen Developer Program. It runs in the browser, uses no database, and is ready for campus SSO.

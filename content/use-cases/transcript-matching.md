@@ -1,7 +1,7 @@
 ---
 title: Transcript Matching
 slug: transcript-matching
-summary: A human-supervised workflow for matching transcript records and surfacing uncertain cases for review.
+summary: Matches incoming transcripts to student records, scores its own confidence, and sends the uncertain ones to staff.
 status: Production
 owner: TritonAI solutions team and the sponsoring student-services owner
 lastReviewed: 2026-07-25
@@ -28,7 +28,7 @@ toolHighlights: ["OCR Extraction", "Confidence Scoring", "Human Review Queue"]
 
 ## Problem
 
-High-volume transcript processing includes records with inconsistent layouts, identifiers, and scan quality. Manual matching is time-consuming, while an incorrect match can have serious consequences.
+Transcripts arrive in large volumes with inconsistent layouts, identifiers, and scan quality. Matching them by hand is slow, and getting one wrong has real consequences for a student.
 
 ## Solution
 
