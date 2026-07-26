@@ -90,6 +90,10 @@ bannerPosition: center 44%
 </div>
 </section>
 
+<section class="hub-section hub-section-dark hub-full-bleed shared-compute-bridge" id="shared-compute" aria-labelledby="shared-compute-heading">
+<div class="container"><div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Shared campus compute</p><h2 id="shared-compute-heading">TritonAI builds on infrastructure designed for many kinds of computational work</h2><p>DataHub is the web entry point to the Data Science and Machine Learning Platform (DSMLP). The platform supplies containerized CPU/GPU resources, storage, and reusable environments for teaching, research, student projects, and selected TritonAI workloads.</p><p><a class="btn btn-primary" href="/developer-apis/dsmlp-datahub.html">Explore DSMLP and DataHub</a></p></div><div class="col-md-6 hub-split-media"><figure class="shared-compute-mini" aria-describedby="shared-compute-caption"><p>Shared infrastructure at a glance</p><ol><li><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span><div><strong>DataHub and launch tools</strong><small>Web and command-line access</small></div></li><li><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><div><strong>DSMLP</strong><small>Containers, compute, storage, and datasets</small></div></li><li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><div><strong>Selected TritonAI workloads</strong><small>Services built on shared campus capacity</small></div></li></ol><figcaption class="sr-only" id="shared-compute-caption">DataHub and command-line launch tools provide access to DSMLP shared compute, which supports teaching, research, student projects, and selected TritonAI workloads.</figcaption></figure></div></div></div>
+</section>
+
 <section class="hub-section gateway-usage-section" id="gateway-usage" aria-labelledby="gateway-usage-heading">
 <div data-gateway-usage="true"></div>
 </section>
