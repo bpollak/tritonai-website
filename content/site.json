@@ -2,7 +2,7 @@
   "name": "TritonAI",
   "origin": "https://tritonai.ucsd.edu",
   "description": "UC San Diego's trusted ecosystem for using, building, and learning with artificial intelligence.",
-  "lastReviewed": "2026-07-19",
+  "lastReviewed": "2026-07-26",
   "navigation": [
     {
       "label": "About",
@@ -10,10 +10,10 @@
       "items": [
         { "label": "Strategy", "href": "/about/strategy.html" },
         { "label": "Roadmap", "href": "/about/roadmap.html" },
-        { "label": "Trust & Architecture", "href": "/about/trust-architecture.html" },
-        { "label": "Team & Service Ownership", "href": "/about/team.html" },
+        { "label": "Trust, Privacy & Hosting", "href": "/about/trust-architecture.html" },
+        { "label": "Team & Responsibilities", "href": "/about/team.html" },
         { "label": "Impact", "href": "/about/impact.html" },
-        { "label": "Sustainable AI", "href": "/about/sustainability.html" },
+        { "label": "Sustainability", "href": "/about/sustainability.html" },
         { "label": "Get Involved", "href": "/about/get-involved.html" },
         { "label": "AI Updates", "href": "/about/ai-updates.html" }
       ]
@@ -37,7 +37,7 @@
       "label": "Learn",
       "href": "/training-resources/index.html",
       "items": [
-        { "label": "Learning Pathways", "href": "/training-resources/pathways.html" },
+        { "label": "Learning Paths", "href": "/training-resources/pathways.html" },
         { "label": "TritonGPT Guides", "href": "/training-resources/tritongpt/index.html" },
         { "label": "Prompting", "href": "/training-resources/prompting/index.html" },
         { "label": "AI Webinars", "href": "/training-resources/webinars.html" },
@@ -49,10 +49,11 @@
       "label": "Build",
       "href": "/developer-apis/index.html",
       "items": [
-        { "label": "Developer APIs", "href": "/developer-apis/index.html" },
+        { "label": "Build Overview", "href": "/developer-apis/index.html" },
+        { "label": "DSMLP & DataHub", "href": "/developer-apis/dsmlp-datahub.html" },
         { "label": "Skills Library", "href": "/skills/index.html" },
         { "label": "Get Started", "href": "/developer-apis/start.html" },
-        { "label": "FAQs", "href": "/developer-apis/faq.html" }
+        { "label": "Developer FAQs", "href": "/developer-apis/faq.html" }
       ]
     },
     { "label": "AI Tools", "href": "/tools/index.html", "items": [] }

@@ -15,17 +15,17 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-intro about-feature" aria-labelledby="about-mission-heading">
 <div class="row hub-split">
-<div class="col-md-7 hub-split-copy"><p class="home-kicker">Shared campus capability</p><h2 id="about-mission-heading">Make useful AI easier to access—and easier to govern</h2><p class="hub-lede">TritonAI is UC San Diego's coordinated approach to AI: a common platform, practical learning, reusable components, and accountable solutions built around real campus work.</p><div class="about-feature-actions"><a class="btn btn-primary btn-lg" href="/about/strategy.html">Read the strategy</a><a class="about-feature-link" href="/about/get-involved.html">Get involved <span aria-hidden="true">→</span></a></div></div>
+<div class="col-md-7 hub-split-copy"><p class="home-kicker">Shared campus capability</p><h2 id="about-mission-heading">Make useful AI easier to access—and easier to manage responsibly</h2><p class="hub-lede">TritonAI brings together shared AI tools, practical training, reusable building blocks, and clear responsibility for services that support campus work.</p><div class="about-feature-actions"><a class="btn btn-primary btn-lg" href="/about/strategy.html">Read the strategy</a><a class="about-feature-link" href="/about/get-involved.html">Get involved <span aria-hidden="true">→</span></a></div></div>
 <div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span><h3>Built around a simple idea</h3><p>Start with a human need, choose an appropriate technology path, and keep people accountable for the result.</p></aside></div>
 </div>
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="program-shape-heading">
-<div class="container"><div class="hub-heading"><p class="home-kicker">How the program works</p><h2 id="program-shape-heading">Shared foundations, focused outcomes</h2></div>
+<div class="container"><div class="hub-heading"><p class="home-kicker">How the program works</p><h2 id="program-shape-heading">Share the foundation. Focus on the result.</h2></div>
 <div class="row hub-number-grid">
 <div class="col-md-4"><article><span>01</span><h3>Provide a trusted starting point</h3><p>Offer approved model access, campus-aware assistants, and practical guidance through shared services.</p></article></div>
 <div class="col-md-4"><article><span>02</span><h3>Meet people in the workflow</h3><p>Embed capabilities into the tools and services people already use instead of adding avoidable steps.</p></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Scale what proves useful</h3><p>Move bounded pilots toward owned services only when quality, oversight, accessibility, and support are clear.</p></article></div>
+<div class="col-md-4"><article><span>03</span><h3>Scale what proves useful</h3><p>Move small tests into supported services only when quality, oversight, accessibility, and support are clear.</p></article></div>
 </div></div>
 </section>
 
