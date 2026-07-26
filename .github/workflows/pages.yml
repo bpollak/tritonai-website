@@ -55,6 +55,9 @@ jobs:
           SITE_BASE_PATH: /${{ github.event.repository.name }}
         run: npm run validate
 
+      - name: Check copy against the voice guide
+        run: npm run test:language
+
       - name: Run site-wide accessibility checks
         run: npm run test:a11y
 
