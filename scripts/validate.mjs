@@ -764,10 +764,9 @@ for (const page of htmlFiles) {
     if (
       architecture.length !== 1 ||
       architecture.find(".build-architecture-flow > li").length !== 4 ||
-      architecture.find(".build-architecture-accountability li").length !== 3 ||
       $(".hub-section-intro img[src*='tritonai-architecture-public.svg']").length !== 0
     ) {
-      contentFindings.push({ source: route, issue: "Build landing page must use the four-stage semantic service model with three accountability practices" });
+      contentFindings.push({ source: route, issue: "Build landing page must use the four-stage semantic service model" });
     }
     const narrativeOrder = $(".landing-hub-content").children("section, nav").map((_, element) => $(element).attr("id")).get().filter(Boolean);
     const expectedNarrativeOrder = [

@@ -23,8 +23,7 @@ bannerPosition: center 44%
 <li><span>03</span><div><strong>Shared AI platform</strong><small>Connect through the gateway to approved model capabilities.</small></div></li>
 <li><span>04</span><div><strong>Owned service</strong><small>Match hosting, support, monitoring, and review to real-world impact.</small></div></li>
 </ol>
-<div class="build-architecture-accountability"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span><div><strong>Human accountability spans every stage</strong><ul><li>Review</li><li>Accessibility</li><li>Operations</li></ul></div></div>
-<figcaption class="sr-only" id="build-architecture-caption">A campus need moves through a supported build path and the shared AI platform into an owned service, with human review, accessibility, and operations across every stage.</figcaption>
+<figcaption class="sr-only" id="build-architecture-caption">A campus need moves through a supported build path and the shared AI platform into an owned service.</figcaption>
 </figure>
 </div></div>
 </section>
