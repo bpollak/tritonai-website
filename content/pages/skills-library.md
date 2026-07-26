@@ -1,7 +1,7 @@
 ---
 title: UCSD Skills Library
 path: /skills/index.html
-description: Browse public, reusable agent skills maintained by TritonAI and the UC San Diego community.
+description: Public, reusable agent skills maintained by TritonAI and the UC San Diego community.
 eyebrow: Build with TritonAI
 lastReviewed: 2026-07-22
 audiences: [developers, staff, faculty, students]
@@ -10,7 +10,7 @@ canonicalUrl: /skills/index.html
 relatedSlides: [Citizen Developer Ecosystem, Reusable Skills and MCP]
 ---
 
-<p class="lead">Browse focused, reusable capabilities for recurring UC San Diego work. Each skill packages instructions and supporting resources an AI agent can follow.</p>
+<p class="lead">A skill bundles the instructions and reference material an AI agent needs to do one campus job properly. Take one instead of writing your own from scratch.</p>
 
 <div data-skills-library="true"></div>
 
