@@ -1,7 +1,7 @@
 ---
 title: Research Alignment
 slug: research-alignment
-summary: A developing workflow for connecting researcher profiles with relevant external funding and collaboration signals.
+summary: Matches researcher profiles against outside funding and collaboration opportunities, and explains why each one surfaced.
 status: In development
 owner: TritonAI solutions team and prospective research-service partners
 lastReviewed: 2026-07-24
@@ -24,7 +24,7 @@ featured: false
 
 ## Problem
 
-Researchers and support teams must monitor many changing funding and publication sources. Keyword matching alone can miss relevant connections or create excessive noise.
+Researchers and their support teams have to watch a lot of funding and publication sources that keep changing. Keyword matching either misses the relevant ones or buries them in noise.
 
 ## Solution
 
@@ -32,4 +32,4 @@ The prototype explores how to parse the requirements of an opportunity and ident
 
 ## Current status
 
-In development. Data sources, consent, refresh behavior, evaluation, and service ownership are being refined before a pilot. No match should be treated as an endorsement or acted on without researcher and research-administrator review.
+In development. We are still working out the data sources, consent, how often it refreshes, how to evaluate it, and who will own it before this becomes a pilot. A match is not an endorsement, and nobody should act on one without a researcher and a research administrator looking at it.

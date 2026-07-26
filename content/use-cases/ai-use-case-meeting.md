@@ -1,7 +1,7 @@
 ---
 title: AI Use-Case Meeting
 slug: ai-use-case-meeting
-summary: A guided discovery workflow that turns an idea into a scoped use case, risk questions, measures, and next-step recommendation.
+summary: Biweekly sessions where campus staff bring an AI idea and leave with a scoped use case and a recommendation on whether to proceed.
 status: Production
 owner: TritonAI program and solutions teams
 lastReviewed: 2026-07-24
@@ -28,7 +28,7 @@ featured: false
 
 ## Problem
 
-“Can AI help?” is usually too broad to answer. Useful discovery needs a real user, task, source of truth, risk boundary, owner, and measure of success.
+“Can AI help?” is too broad to answer. Before anyone can say yes or no, someone has to name the person who would use it, the task, where the correct answer comes from, and how you would know it worked.
 
 ## Solution
 
@@ -36,4 +36,4 @@ The production workflow captures presenter submissions, meeting length, topic co
 
 ## Current status
 
-In production. The tool supports session management and community learning; people still decide whether the idea should proceed, change direction, or stop.
+In production. The tool runs the sessions and keeps the archive. People still decide whether an idea should proceed, change direction, or stop.

@@ -1,7 +1,7 @@
 ---
 title: BioBib
 slug: biobib
-summary: A drafting workflow for organizing approved faculty activity data into a reviewable BioBib document.
+summary: Faculty pull approved activity data into a BioBib draft, then check every section before it goes anywhere.
 status: Pilot
 owner: TritonAI solutions team and the sponsoring academic service owner
 lastReviewed: 2026-07-25
@@ -28,12 +28,12 @@ featured: false
 
 ## Problem
 
-Preparing a BioBib can require repeated sorting, categorization, formatting, and review across many source records.
+Putting a BioBib together means sorting, categorizing, and formatting the same kinds of record over and over, then checking all of it.
 
 ## Solution
 
-The pilot splits a Word CV into 20 review parts and routes each section through TritonAI for formatting and extraction. The output is a downloadable .docx BioBib draft organized into the expected UCSD academic biography and bibliography sections. It can help identify missing or ambiguous items without claiming that the draft is complete or authoritative.
+The pilot splits a Word CV into 20 parts and runs each one through TritonAI for formatting and extraction. You get back a .docx BioBib draft laid out in the expected UCSD biography and bibliography sections. It will point out items that look missing or ambiguous, but it does not claim the draft is complete or correct.
 
 ## Current status
 
-Pilot. The responsible faculty member or service owner remains the source of truth for the final record. The browser-first interface gives faculty and academic personnel teams a lightweight path from upload to downloadable output.
+Pilot. The faculty member or service owner is still the source of truth for the final record. It all runs in the browser, so faculty and academic personnel teams go from upload to download without installing anything.

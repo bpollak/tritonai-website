@@ -1,7 +1,7 @@
 ---
 title: Passport App
 slug: passport-app
-summary: A production campus app for visitor check-in and queue management at UC San Diego Passport Services.
+summary: Visitors check themselves in at UC San Diego Passport Services while staff run the queue from a shared dashboard.
 status: Production
 owner: UC San Diego Passport Services and the application team
 lastReviewed: 2026-07-24
@@ -25,7 +25,7 @@ resourceLinks:
 
 ## Problem
 
-Visitor check-in and queue coordination require clear status, consistent questions, and a shared view for staff serving multiple Passport Services locations.
+Staff working across several Passport Services locations need one shared view of who has checked in, where each visitor is in the queue, and what they were asked.
 
 ## Solution
 
