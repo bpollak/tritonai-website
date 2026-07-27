@@ -1,38 +1,47 @@
 ---
-title: Passport App
+title: Passport Visitor Management
 slug: passport-app
-summary: Visitors check themselves in at UC San Diego Passport Services while staff run the queue from a shared dashboard.
+summary: Visitors check in for Passport Services at CSC or the UCSD Bookstore while staff manage each location from a shared queue dashboard.
 status: Production
-owner: UC San Diego Passport Services and the application team
-lastReviewed: 2026-07-24
+owner: UC San Diego Passport Services and IPPS Technology and Project Management
+lastReviewed: 2026-07-27
 audiences: [staff, students, visitors]
-source: UC San Diego Passports Visitor Management repository and current service status
-measurementPeriod: Production as of July 2026
-dataClassification: Public description; visitor and appointment data follow the production service's approved controls
+source: Production application, public repository, and the June–July 2026 project handoff
+measurementPeriod: Production service reviewed in July 2026
+dataClassification: Public description; visitor contact and visit details follow the production service's approved controls
 canonicalUrl: /use-cases/passport-app.html
 relatedSlides: []
-humanOversight: Passport Services staff manage the queue, visitor status, questions, and service decisions.
+humanOversight: Passport Services staff manage each queue, update visitor status, review readiness questions, and make all service decisions.
 measurableOutcome: Check-in completion, wait-time visibility, queue accuracy, staff workflow efficiency, and service reliability.
 featured: false
+stats:
+  - { value: "2", label: "Check-in locations", sub: "CSC and UCSD Bookstore" }
+  - { value: "Public", label: "Visitor check-in", sub: "Shared device or personal phone" }
+  - { value: "Staff", label: "Queue management", sub: "Location-specific dashboards" }
+toolHighlights: ["Public check-in", "Location dashboards", "Operational reporting"]
 resourceLinks:
   - label: Open the Passport App
     href: https://passports.apps.ucsd.edu/
-    description: Visit the production Passport Services check-in application.
+    description: Choose the CSC or UCSD Bookstore check-in flow in the production service.
   - label: View the public repository
     href: https://github.com/IPPS-TechPM-BSA/passports-app
-    description: Review the public source code and implementation documentation.
+    description: Review the source code, technical documentation, and release history maintained by IPPS.
 ---
 
-## Problem
+## Why it was built
 
-Staff working across several Passport Services locations need one shared view of who has checked in, where each visitor is in the queue, and what they were asked.
+Passport Services needed a focused waiting-room tool that matched its check-in process across CSC and the UCSD Bookstore. The team defined a public visitor flow, separate staff views for each location, and operational reporting without bringing unrelated features into the workflow.
 
-## Solution
+## Visitor and staff workflow
 
-The Passport App provides a public check-in flow and staff dashboard for managing visitors, queue status, notes, questions, and operational reporting.
+Visitors choose a location and provide the information Passport Services needs to organize the visit. Readiness questions help staff identify missing materials before a visitor reaches the counter. Visitors can use a shared device at the office or their own phone.
 
-This page includes the Passport App as a production campus-app example from the broader solution-delivery ecosystem. It is not presented as an AI system making passport or service decisions.
+Staff use a location-specific dashboard to review new check-ins, update queue status, and record notes. They can also manage readiness questions and export operational data. Passport Services staff remain responsible for the queue and every service decision.
 
-## Current status
+## From requirements to ownership
 
-In production. Passport Services staff remain responsible for queue management and all service decisions.
+Passport Services and IPPS staff mapped the workflow and built the initial application with AI-assisted development tools. A campus-branded prototype was then prepared for production by application and infrastructure specialists. The work included application cleanup, a deployment path, and campus hosting at `passports.apps.ucsd.edu`.
+
+The project shows how clear requirements and bounded AI-assisted development can shorten the path from an operational need to a working campus service. The production application uses standard web components; staff provide the judgment and oversight.
+
+The Passport App is in production for CSC and the UCSD Bookstore. The public repository is maintained by IPPS Technology and Project Management, giving the service-owning team access to the code and release history for future updates.
