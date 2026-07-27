@@ -141,7 +141,8 @@
         "The TritonGPT Class Planner is moving through a supervised student rollout tied to registration readiness.",
         "Campus App Hosting is beginning with limited-scope proof-of-concept apps and a shared-responsibility path to support.",
         "The skills pipeline is organizing reusable UC San Diego skills, MCP integrations, and data-source patterns.",
-        "Academic advising and shared knowledge-management work remain in scoped prototype and build phases.",
+        "Shared knowledge work is testing reviewed promotion, source provenance, freshness checks, and scoped retrieval before context can be reused.",
+        "Academic advising remains in a scoped prototype and build phase.",
         "Governance and observability work is documenting data, security, reliability, and operational requirements before broader access."
       ],
       "links": [
@@ -152,8 +153,8 @@
       ],
       "owner": "TritonAI platform and solutions teams",
       "lastReviewed": "2026-07-27",
-      "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 3",
-      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting"]
+      "source": "TritonAI Ecosystem Timeline, AI Roadmap 2026 — Quarter 3, and TritonAI memory architecture presentation",
+      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting", "harness-memory-architecture", "harness-memory-scale-ucsd"]
     },
     {
       "period": "Beyond Q3 2026",
@@ -162,6 +163,7 @@
       "summary": "Evaluating repeatable, supervised agent workflows that can use approved tools and connectors while retaining accountable human review.",
       "details": [
         "Agents would retrieve approved data and call approved tools only within bounded workflows.",
+        "Shared context would move from private task context to reviewed team or service knowledge through explicit promotion.",
         "Human review would remain at consequential decisions and actions.",
         "Observability would capture the reliability, usage, and evidence needed to operate services responsibly.",
         "Successful pilots would graduate through a named service owner, governance review, support model, and approved hosting path."

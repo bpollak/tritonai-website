@@ -5,9 +5,9 @@ description: How the AI Development Workgroup coordinates campus perspectives on
 eyebrow: About TritonAI
 lastReviewed: 2026-07-27
 audiences: [staff, faculty, leaders, developers]
-source: AI Development Workgroup public page and governance materials
+source: AI Development Workgroup public page, governance materials, and TritonAI memory architecture presentation
 canonicalUrl: /about/workgroup.html
-relatedSlides: [ai-engagement-at-scale, uc-san-diego-ai-strategy-2026]
+relatedSlides: [ai-engagement-at-scale, uc-san-diego-ai-strategy-2026, harness-memory-scale-ucsd]
 landingHub: true
 bannerImage: /_images/landing/geisel-library.webp
 bannerPosition: center 44%
@@ -26,6 +26,16 @@ bannerPosition: center 44%
 <div class="col-md-4"><article><span>01</span><h3>Coordinate the portfolio</h3><p>Compare proposals, surface dependencies, reduce duplication, and connect initiatives to university priorities.</p></article></div>
 <div class="col-md-4"><article><span>02</span><h3>Discuss risk and controls</h3><p>Bring the right campus perspectives together around privacy, security, accessibility, policy, records, bias, and responsible use.</p></article></div>
 <div class="col-md-4"><article><span>03</span><h3>Share tested practices</h3><p>Keep campus units aware of current services, reusable patterns, lessons from pilots, and questions that need a common answer.</p></article></div>
+</div></div>
+</section>
+
+<section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="shared-practice-heading">
+<div class="container"><div class="hub-heading"><p class="home-kicker">From lesson to shared practice</p><h2 id="shared-practice-heading">How a tested pattern reaches campus</h2><p>A useful result becomes reusable through review, documentation, and a named owner who can keep it current.</p></div>
+<div class="row hub-number-grid hub-number-grid-light">
+<div class="col-sm-6 col-md-3"><article><span>01</span><h3>Surface</h3><p>A unit brings a recurring need, a lesson from a pilot, or a gap that several teams share.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>02</span><h3>Test</h3><p>A bounded use case checks the workflow, controls, evidence, and source quality with a named owner.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>03</span><h3>Review</h3><p>The Workgroup and responsible partners consider audience, duplication, access boundaries, and operational fit.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>04</span><h3>Publish or retire</h3><p>A proven pattern can become shared guidance, a skill, or a template. Outdated material is withdrawn.</p></article></div>
 </div></div>
 </section>
 

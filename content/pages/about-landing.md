@@ -7,7 +7,7 @@ lastReviewed: 2026-07-27
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation, operating model, and public service pages
 canonicalUrl: /about/index.html
-relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison, tritongpt-secure-scalable-ai-platform, ai-engagement-at-scale]
+relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison, tritongpt-secure-scalable-ai-platform, from-tritongpt-to-tritonai, harness-memory-scale-ucsd]
 landingHub: true
 bannerImage: /_images/landing/geisel-library.webp
 bannerPosition: center 44%
@@ -26,6 +26,16 @@ bannerPosition: center 44%
 <div class="col-md-4"><article><span>01</span><h3>Start with shared services</h3><p>TritonGPT, approved model access, campus assistants, training, and support give everyone a common starting point.</p></article></div>
 <div class="col-md-4"><article><span>02</span><h3>Build around a campus need</h3><p>Teams can embed an assistant, use the Developer APIs, or work in TritonAI Harness when a job needs more than chat.</p></article></div>
 <div class="col-md-4"><article><span>03</span><h3>Operate what proves useful</h3><p>A pilot becomes a supported service once the evidence, review points, owner, hosting, accessibility, and support path are clear.</p></article></div>
+</div></div>
+</section>
+
+<section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="tritonai-ecosystem-heading">
+<div class="container"><div class="hub-heading"><p class="home-kicker">From TritonGPT to TritonAI</p><h2 id="tritonai-ecosystem-heading">How the parts fit together</h2><p>TritonGPT gives the campus broad access to AI. TritonAI adds the builder path, governed context, and operating model required when an application carries out work across several steps.</p></div>
+<div class="row hub-number-grid hub-number-grid-light">
+<div class="col-sm-6 col-md-3"><article><span>01</span><h3>Access</h3><p>TritonGPT and embedded assistants give people approved ways to ask questions and work with documents.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>02</span><h3>Build</h3><p>Developer APIs, TritonAI Harness, and reusable skills help teams assemble supervised workflows.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>03</span><h3>Connect</h3><p>Approved sources, scoped connectors, and reviewed shared context let a service use the information its task permits.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>04</span><h3>Operate</h3><p>Hosting, observability, support, review gates, and named owners keep useful services accountable over time.</p></article></div>
 </div></div>
 </section>
 

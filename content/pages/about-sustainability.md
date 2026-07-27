@@ -5,9 +5,9 @@ description: How TritonAI considers model fit, hosting, reuse, cost, resource us
 eyebrow: About TritonAI
 lastReviewed: 2026-07-27
 audiences: [students, faculty, staff, developers, leaders]
-source: TritonAI public architecture and service design guidance
+source: TritonAI public architecture, memory architecture, and service design guidance
 canonicalUrl: /about/sustainability.html
-relatedSlides: [tritongpt-secure-scalable-ai-platform, uc-san-diego-ai-strategy-2026]
+relatedSlides: [tritongpt-secure-scalable-ai-platform, uc-san-diego-ai-strategy-2026, memory-quality-is-an-operational-service]
 landingHub: true
 bannerImage: /_images/building-branch-hero.jpg
 bannerPosition: center 44%
@@ -25,7 +25,7 @@ bannerPosition: center 44%
 <div class="row hub-number-grid">
 <div class="col-md-4"><article><span>01</span><h3>Model and workload fit</h3><p>Use the smallest capable model, reduce repeated work, and evaluate whether retrieval, rules, or a simpler tool can solve part of the task.</p></article></div>
 <div class="col-md-4"><article><span>02</span><h3>Shared infrastructure</h3><p>Reuse the gateway, knowledge sources, skills, connectors, and hosting patterns campus already operates.</p></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Service lifecycle</h3><p>Monitor use and outcomes, revisit inefficient routes, and retire services or data pipelines that no longer justify their operating cost.</p></article></div>
+<div class="col-md-4"><article><span>03</span><h3>Service lifecycle</h3><p>Monitor use and outcomes, revisit inefficient routes, and retire stale indexes, duplicated context, services, or pipelines that no longer justify their operating cost.</p></article></div>
 </div></div>
 </section>
 
@@ -38,6 +38,6 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="sustainability-practice-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Operating practice</p><h2 id="sustainability-practice-heading">Questions for every service review</h2></div>
-<ul class="hub-feature-list"><li><strong>Is the model larger than the task requires?</strong><span>Compare a smaller approved model and a non-generative method where either could meet the need.</span></li><li><strong>Are we repeating work?</strong><span>Reuse approved sources, cache safe results where appropriate, and remove unnecessary retries or duplicate pipelines.</span></li><li><strong>Does the evidence justify continued operation?</strong><span>Review use, outcome, reliability, support effort, and resource consumption together.</span></li><li><strong>Can another team reuse this?</strong><span>Package stable instructions, integrations, and evaluation patterns so the next service starts further ahead.</span></li></ul>
+<ul class="hub-feature-list"><li><strong>Is the model larger than the task requires?</strong><span>Compare a smaller approved model and a non-generative method where either could meet the need.</span></li><li><strong>Are we repeating work?</strong><span>Reuse approved sources, cache safe results where appropriate, and remove unnecessary retries or duplicate pipelines.</span></li><li><strong>Is shared context still current?</strong><span>Check the source, owner, review date, index, and cached material. Correct or retire stale context before it causes more work.</span></li><li><strong>Does the evidence justify continued operation?</strong><span>Review use, outcome, reliability, support effort, and resource consumption together.</span></li><li><strong>Can another team reuse this?</strong><span>Package stable instructions, integrations, and evaluation patterns so the next service starts further ahead.</span></li></ul>
 <p><a class="btn btn-default" href="/about/impact.html">See the evidence standard</a> <a class="btn btn-default" href="/skills/index.html">Browse reusable skills</a></p></div>
 </section>
