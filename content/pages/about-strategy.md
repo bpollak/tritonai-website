@@ -3,14 +3,14 @@ title: TritonAI Strategy
 path: /about/strategy.html
 description: UC San Diego's plan for campus AI. Shared services anyone can use, plus supervised workflows built for specific jobs.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-27
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation
 canonicalUrl: /about/strategy.html
-relatedSlides: [uc-san-diego-ai-strategy-2026, from-chat-to-agents, six-principles-for-enterprise-ai, citizen-developer-ecosystem]
+relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison, key-takeaways, from-tritongpt-to-tritonai]
 ---
 
-<p class="lead">TritonAI has two jobs. Make AI available to everyone at UC San Diego as a normal campus utility, then take the specific jobs that eat the most staff time and rebuild them as supervised, measurable workflows.</p>
+<p class="lead">TritonAI makes AI available across UC San Diego as a shared campus capability, then helps teams turn specific, recurring work into supervised and measurable services. The same foundation supports chat, embedded assistants, developer applications, and agentic workflows.</p>
 
 ## Campus impact at a glance
 
@@ -37,20 +37,31 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, from-chat-to-agents, six-principl
 </div>
 <!-- END_AGENT_SECTION -->
 
+## How an idea becomes a service
+
+<div class="row agent-card-grid">
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><h2 class="h3">Discover</h2><p>Name the people, workflow, approved data, service owner, review point, and result that should improve.</p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><h2 class="h3">Pilot</h2><p>Use a bounded environment, realistic examples, and close human review to test whether the approach fits.</p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-check" aria-hidden="true"></span><h2 class="h3">Prove</h2><p>Measure reach, efficiency, quality, and trust. Refine the workflow until the evidence supports wider use.</p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><h2 class="h3">Operate</h2><p>Establish approved hosting, accessibility, monitoring, support, escalation, and a named owner before people depend on it.</p></div></div></div>
+</div>
+
 ## Where AI meets the workflow
 
 <div class="strategy-ecosystem">
 <div class="row agent-card-grid">
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><h2 class="h3">TritonGPT</h2><p>The full chat experience. Sign in with your campus account, pick a model, upload documents, and use assistants that already know about campus.</p><p><a href="https://tritongpt.ucsd.edu/">Open TritonGPT</a></p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span><h2 class="h3">UC San Diego app</h2><p>The campus Assistant answers questions inside the mobile app, using what the app already knows about where you are and what you are doing.</p><p><a href="https://mobile.ucsd.edu/">Learn about the app</a></p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><h2 class="h3">Website widget</h2><p>Approved sites embed an assistant grounded in their public content — live on 16 campus websites, no login required.</p><p><a href="/tritongpt/chatbot-widget.html">Explore the widget</a></p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-console" aria-hidden="true"></span><h2 class="h3">Developer APIs</h2><p>Departments build AI into their own applications using the same APIs, skills, and connectors, so the governance comes with it.</p><p><a href="/developer-apis/index.html">Build with TritonAI</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><h2 class="h3">TritonGPT</h2><p>The full chat experience. Sign in with your campus account, pick a model, upload documents, and use assistants that already know about campus.</p><p><a href="https://tritongpt.ucsd.edu/">Open TritonGPT</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span><h2 class="h3">UC San Diego app</h2><p>The campus Assistant answers questions inside the mobile app, using approved context available to that experience.</p><p><a href="https://mobile.ucsd.edu/">Learn about the app</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><h2 class="h3">Website widget</h2><p>Approved sites embed an assistant grounded in their public content. The public evidence package tracks where it is live.</p><p><a href="/tritongpt/chatbot-widget.html">Explore the widget</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-console" aria-hidden="true"></span><h2 class="h3">Developer APIs</h2><p>Departments add approved model access to their applications through the shared gateway and its accountability controls.</p><p><a href="/developer-apis/index.html">Explore the APIs</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><h2 class="h3">TritonAI Harness</h2><p>The primary supported workspace for building agentic applications with campus model access, skills, connectors, and review gates.</p><p><a href="/developer-apis/index.html#tritonai-harness">Explore the Harness</a></p></div></div></div>
+<div class="col-sm-6 col-md-4"><div class="panel panel-default agent-card strategy-ecosystem-card"><div class="panel-body"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><h2 class="h3">Skills Library</h2><p>Reusable instructions and patterns let teams adapt work that has already been tested without rebuilding every integration.</p><p><a href="/skills/index.html">Browse the Skills Library</a></p></div></div></div>
 </div>
 </div>
 
 ## From chat to agents
 
-An agent works toward a goal on its own: it fetches data, calls approved tools, carries the work across several steps, and comes back with a finished result and the evidence behind it. That raises the stakes on human accountability rather than lowering them. So oversight is staged. A new or consequential workflow gets close human review on every run. Review loosens only when the evidence supports it, and there is always a way to escalate.
+An agent works toward a goal across several steps: it can retrieve approved data, call approved tools, and return a finished result with evidence about what it did. That raises the stakes on human accountability. Oversight is staged, and consequential reads, writes, decisions, and exceptions retain explicit review and escalation points.
 
 Models will keep changing. The work that survives that is the integration work: connecting approved APIs, cleaning up the source data, and building skills other teams can reuse. Good data, honest evaluation, a named service owner, and a workflow people can actually follow outlast any particular model.
 

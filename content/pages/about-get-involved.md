@@ -1,0 +1,42 @@
+---
+title: Get Involved
+path: /about/get-involved.html
+description: Ways to use TritonAI, bring a campus workflow, build a service, join the community, and follow weekly updates.
+eyebrow: About TritonAI
+lastReviewed: 2026-07-27
+audiences: [students, faculty, staff, developers, leaders]
+source: TritonAI public program intake, training, and community pages
+canonicalUrl: /about/get-involved.html
+relatedSlides: [ai-engagement-at-scale, from-tritongpt-to-tritonai, campus-app-hosting-intake]
+landingHub: true
+bannerImage: /_images/callout-scripps-rainbow-dark.webp
+bannerPosition: center 52%
+---
+
+<section class="hub-section hub-section-intro" aria-labelledby="get-involved-start-heading">
+<div class="hub-heading"><p class="home-kicker">Choose a starting point</p><h2 id="get-involved-start-heading">Start with what you need to do</h2><p class="hub-lede">You may already have the right campus tool. If the work needs a new service, come with the workflow, owner, approved data, review point, and result that should improve.</p></div>
+<div class="row agent-card-grid">
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><h3>Use TritonGPT</h3><p>Chat with an approved model, work with documents, or use a campus assistant.</p><p><a href="/tritongpt/index.html">Explore TritonGPT</a></p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><h3>Find an AI tool</h3><p>Check the campus tools for meetings, research, teaching, writing, and office work.</p><p><a href="/tools/index.html">Browse AI tools</a></p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-console" aria-hidden="true"></span><h3>Build a service</h3><p>Use the Developer APIs, TritonAI Harness, skills, and supported hosting paths.</p><p><a href="/developer-apis/index.html">Build with TritonAI</a></p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><h3>Learn and share</h3><p>Follow a learning path, attend a session, and share tested examples with peers.</p><p><a href="/training-resources/index.html">Explore training</a></p></div></div></div>
+</div>
+</section>
+
+<section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="workflow-intake-heading">
+<div class="container"><div class="row hub-split">
+<div class="col-md-5 hub-split-copy"><p class="home-kicker">Campus workflow intake</p><h2 id="workflow-intake-heading">Bring a recurring problem</h2><p>Start with the job and the people involved. The first conversation determines whether an existing service, a bounded pilot, a developer build, or another approach is the best fit.</p><p><a class="btn btn-primary" href="mailto:tritonai@ucsd.edu?subject=TritonAI%20use-case%20conversation">Start a use-case conversation</a></p></div>
+<div class="col-md-7"><ul class="hub-path-list"><li><strong>Need</strong><span>Who is doing the work, and what keeps slowing them down?</span></li><li><strong>Owner</strong><span>Who decides what good looks like and answers for the service?</span></li><li><strong>Data</strong><span>What information may the workflow read, create, or change?</span></li><li><strong>Review</strong><span>Where must a person check the result or approve an action?</span></li><li><strong>Outcome</strong><span>What evidence would show that the service helped?</span></li></ul></div>
+</div></div>
+</section>
+
+<section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="champions-heading">
+<div class="container"><div class="row hub-split hub-split-align-center">
+<div class="col-md-7 hub-split-copy"><p class="home-kicker">Community of practice</p><h2 id="champions-heading">Learn with TritonAI Champions</h2><p>TritonAI Champions connects people exploring generative AI across UC San Diego. Members share examples, compare what worked, surface recurring needs, and help colleagues use campus tools responsibly.</p><p><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSelRa47S13lRZTGfwxbjICuI1yYpLPW32OGMLVXymesgsNMLA/viewform">Join TritonAI Champions</a></p></div>
+<div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span><h3>Share evidence</h3><p>Bring the example, the people it helped, what still needed review, and what another team should know before adapting it.</p></aside></div>
+</div></div>
+</section>
+
+<section class="hub-section hub-subscribe" aria-labelledby="updates-heading">
+<div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Weekly updates</p><h2 id="updates-heading">Follow campus tools and training</h2><p>Get a short weekly update on changes to campus AI tools, upcoming workshops, recordings, and TritonAI releases.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="https://signup.e2ma.net/signup/2010404/1972820/">Subscribe to updates</a></div></div>
+</section>

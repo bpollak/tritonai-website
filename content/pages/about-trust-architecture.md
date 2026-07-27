@@ -3,11 +3,11 @@ title: Trust, Privacy and Hosting
 path: /about/trust-architecture.html
 description: Where campus AI services run, how they reach models, what data they can use, and who is responsible.
 eyebrow: Trust, privacy and hosting
-lastReviewed: 2026-07-26
+lastReviewed: 2026-07-27
 audiences: [staff, faculty, students, developers, leaders]
 source: TritonAI architecture presentation and public developer documentation
 canonicalUrl: /about/trust-architecture.html
-relatedSlides: [platform-architecture, six-principles-for-enterprise-ai]
+relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-comparison, the-agentic-ai-stack]
 landingHub: true
 ---
 
@@ -28,8 +28,9 @@ landingHub: true
 <li><span>02</span><div><strong>TritonAI LLM Gateway</strong><small>One managed route from supported applications to approved models.</small></div></li>
 <li class="trust-service-map-routes"><span>03</span><div><strong>Approved model routes</strong><ul><li>Enterprise cloud<br><small>AWS, Microsoft Azure, and Google Cloud Vertex AI</small></li><li>SDSC-hosted<br><small>Models hosted at the San Diego Supercomputer Center</small></li></ul></div></li>
 <li><span>04</span><div><strong>Approved information sources</strong><small>Assistants look things up when someone asks, from sources they are cleared for.</small></div></li>
+<li><span>05</span><div><strong>Bounded tools and review</strong><small>Agentic services use approved capabilities within a stated scope, with people reviewing consequential results and actions.</small></div></li>
 </ol>
-<figcaption class="sr-only" id="trust-service-map-caption">A campus service with a named owner connects through the TritonAI LLM Gateway to approved enterprise cloud or SDSC-hosted models and can use approved information sources when responding.</figcaption>
+<figcaption class="sr-only" id="trust-service-map-caption">A campus service with a named owner connects through the TritonAI LLM Gateway to approved enterprise cloud or SDSC-hosted models, can use approved information sources and tools, and retains human review for consequential results and actions.</figcaption>
 </figure>
 </div>
 </div>
@@ -38,11 +39,12 @@ landingHub: true
 <!-- AGENT_SECTION: ux-about-trust-layers -->
 <section class="hub-section hub-section-dark hub-full-bleed trust-layers" id="trust-layers" aria-labelledby="trust-layers-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">The shared foundation</p><h2 id="trust-layers-heading">The three parts</h2><p>Hosting, model access, and information sources solve different problems. Conflating them is how services end up with unclear data boundaries.</p></div>
-<div class="trust-layer-grid">
+<div class="hub-heading"><p class="home-kicker">The shared foundation</p><h2 id="trust-layers-heading">What the foundation separates</h2><p>Hosting, model access, information sources, and actions solve different problems. Each needs its own approval and operating boundary.</p></div>
+<div class="trust-layer-grid trust-layer-grid-four">
 <article><span>01</span><h3>Approved hosting choices</h3><p>A service can use approved enterprise cloud models or models hosted locally at SDSC. Which route it takes depends on the data involved and the controls that data requires.</p><ul><li>AWS</li><li>Microsoft Azure</li><li>Google Cloud Vertex AI</li><li>SDSC-hosted models</li></ul></article>
 <article><span>02</span><h3>One gateway for model access</h3><p>Supported applications reach models through a single managed gateway. It gives everyone the same technical path. It does not approve what data a service may send through it.</p></article>
 <article><span>03</span><h3>Approved sources at request time</h3><p>When someone asks a question, the assistant looks the answer up in sources it is cleared for. The model itself was not trained on private campus content.</p></article>
+<article><span>04</span><h3>Bounded tools and actions</h3><p>Skills and connectors expose only the capabilities approved for a service. The service defines who may use them, where a person reviews the result, and when the workflow must stop or escalate.</p></article>
 </div>
 </div>
 </section>
