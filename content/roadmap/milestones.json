@@ -2,7 +2,7 @@
   "title": "TritonAI Roadmap",
   "description": "A public, status-based view of the TritonAI ecosystem from the 2023 chatbot launch through the 2026 governed builder path. Recent milestones include initiative-level detail drawn from the public TritonAI Ecosystem Timeline and 2026 quarterly roadmap.",
   "owner": "TritonAI program",
-  "lastReviewed": "2026-07-22",
+  "lastReviewed": "2026-07-27",
   "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 Q1-Q3 (presentation-test/ucsd-presentation, public-safe excerpts) and public product pages",
   "canonicalUrl": "/about/roadmap.html",
   "audiences": ["students", "faculty", "staff", "developers", "leaders"],
@@ -105,7 +105,7 @@
         { "label": "Developer APIs", "href": "/developer-apis/index.html" }
       ],
       "owner": "TritonAI solutions team and sponsoring units",
-      "lastReviewed": "2026-07-22",
+      "lastReviewed": "2026-07-27",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 1",
       "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 1", "Use Cases"]
     },
@@ -113,7 +113,7 @@
       "period": "Q2 2026 — Refine",
       "title": "Process Automation",
       "status": "Pilot",
-      "summary": "Refined contract review with adjustable redlining, piloted an Academic Advising Agent proof of concept, and launched an AI IT observability pilot.",
+      "summary": "Expanded the builder path, brought TritonGPT into the campus mobile app, delivered a Canvas-integrated instructional assistant, and advanced focused finance, transcript, contract, research, BioBib, and observability pilots.",
       "details": [
         "Developer API access and N8N Agent Builder broadened the path from model access to supervised workflow orchestration.",
         "TritonGPT extended into the campus mobile experience and began surfacing live campus signals with stronger response traceability.",
@@ -127,7 +127,7 @@
         { "label": "AI tools", "href": "/tools/index.html" }
       ],
       "owner": "TritonAI solutions team",
-      "lastReviewed": "2026-07-22",
+      "lastReviewed": "2026-07-27",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 2",
       "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 2", "Use Cases"]
     },
@@ -135,9 +135,10 @@
       "period": "Q3 2026 — Ecosystem",
       "title": "Governed Builder Path",
       "status": "In development",
-      "summary": "Connecting Developer APIs, Agent Builder, and the skills library to reusable capabilities; governing data access and tool calls with MCP connectors and observability; and turning successful prototypes into supported campus tools via Campus App Hosting.",
+      "summary": "Launching the TritonAI Harness pilot and initial hosted applications, organizing reusable skills and connector patterns, and preparing governance and observability for broader agentic development.",
       "details": [
         "A bounded Citizen Developer pilot is testing a gateway-connected harness, tiered model access, and early project accountability patterns.",
+        "The TritonGPT Class Planner is moving through a supervised student rollout tied to registration readiness.",
         "Campus App Hosting is beginning with limited-scope proof-of-concept apps and a shared-responsibility path to support.",
         "The skills pipeline is organizing reusable UC San Diego skills, MCP integrations, and data-source patterns.",
         "Academic advising and shared knowledge-management work remain in scoped prototype and build phases.",
@@ -145,11 +146,12 @@
       ],
       "links": [
         { "label": "Skills library", "href": "/skills/index.html" },
+        { "label": "TritonGPT Class Planner", "href": "/use-cases/class-planner.html" },
         { "label": "Build with TritonAI", "href": "/developer-apis/index.html" },
         { "label": "Trust and architecture", "href": "/about/trust-architecture.html" }
       ],
       "owner": "TritonAI platform and solutions teams",
-      "lastReviewed": "2026-07-22",
+      "lastReviewed": "2026-07-27",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 3",
       "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting"]
     },
@@ -169,7 +171,7 @@
         { "label": "Start a conversation", "href": "/about/get-involved.html" }
       ],
       "owner": "TritonAI program and campus governance partners",
-      "lastReviewed": "2026-07-22",
+      "lastReviewed": "2026-07-27",
       "source": "TritonAI strategy presentation and From Chat to Agents",
       "relatedSlides": ["From Chat to Agents", "Strategy"]
     }

@@ -3,11 +3,11 @@ title: Impact & Measurement
 path: /about/impact.html
 description: What TritonAI measures, the standard a number has to meet to appear here, and the current results.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-27
 audiences: [leaders, staff, faculty, students]
-source: TritonAI content governance policy and public use-case portfolio
+source: TritonAI strategy presentation, content governance policy, and public use-case portfolio
 canonicalUrl: /about/impact.html
-relatedSlides: [use-cases, platform-at-uc-san-diego]
+relatedSlides: [scaling-engagement-the-tritongpt-widget, contract-reviewer-consolidated, transcript-matching-validation, instructional-ai-socratic-tutor-faculty-assistant]
 ---
 
 <p class="lead">A TritonAI service has to make something at the university better without quietly making something else worse. These are the four things we watch to tell the difference.</p>
@@ -26,6 +26,14 @@ relatedSlides: [use-cases, platform-at-uc-san-diego]
 ## Evidence standard
 
 Before a number appears here it needs a definition, a named service and measurement period it applies to, and an owner who has reviewed it. Numbers that cannot meet that bar stay off this page.
+
+## How evidence changes a service
+
+<div class="row agent-card-grid">
+<div class="col-sm-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Expand</h2><p>Broaden access when people return to the service, the outcome improves, and review shows that quality and trust hold up.</p></div></div></div>
+<div class="col-sm-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Refine</h2><p>Adjust the workflow, data, prompts, model route, or review point when the evidence shows a specific weakness.</p></div></div></div>
+<div class="col-sm-4"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Pause</h2><p>Stop wider use when the expected benefit does not appear, a control fails, or the service creates unacceptable rework or risk.</p></div></div></div>
+</div>
 
 ## Current evidence
 

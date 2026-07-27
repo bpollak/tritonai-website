@@ -2,7 +2,7 @@
   "name": "TritonAI",
   "origin": "https://tritonai.ucsd.edu",
   "description": "UC San Diego's trusted ecosystem for using, building, and learning with artificial intelligence.",
-  "lastReviewed": "2026-07-26",
+  "lastReviewed": "2026-07-27",
   "navigation": [
     {
       "label": "About",
@@ -14,6 +14,7 @@
         { "label": "Team & Responsibilities", "href": "/about/team.html" },
         { "label": "Impact", "href": "/about/impact.html" },
         { "label": "Sustainability", "href": "/about/sustainability.html" },
+        { "label": "AI Development Workgroup", "href": "/about/workgroup.html" },
         { "label": "Get Involved", "href": "/about/get-involved.html" },
         { "label": "AI Updates", "href": "/about/ai-updates.html" }
       ]

@@ -764,11 +764,11 @@ for (const page of htmlFiles) {
     for (const selector of requiredSections) {
       if ($(selector).length !== 1) contentFindings.push({ source: route, issue: `Trust page is missing ${selector}` });
     }
-    if ($(".trust-service-map > ol > li").length !== 4) {
-      contentFindings.push({ source: route, issue: "Trust service map must contain four stages" });
+    if ($(".trust-service-map > ol > li").length !== 5) {
+      contentFindings.push({ source: route, issue: "Trust service map must contain five stages" });
     }
-    if ($(".trust-layer-grid > article").length !== 3) {
-      contentFindings.push({ source: route, issue: "Trust foundation must contain three layers" });
+    if ($(".trust-layer-grid > article").length !== 4) {
+      contentFindings.push({ source: route, issue: "Trust foundation must contain four layers" });
     }
     if ($(".trust-responsibility-grid > article").length !== 2) {
       contentFindings.push({ source: route, issue: "Trust responsibility summary must contain two owners" });

@@ -3,11 +3,11 @@ title: AI at UC San Diego
 path: /about/index.html
 description: What the TritonAI program does, who owns each service, and how we measure whether it helped.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-27
 audiences: [students, faculty, staff, developers, leaders]
-source: TritonAI public strategy and service pages
+source: TritonAI strategy presentation, operating model, and public service pages
 canonicalUrl: /about/index.html
-relatedSlides: [uc-san-diego-ai-strategy-2026, six-principles-for-enterprise-ai, from-chat-to-agents]
+relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison, tritongpt-secure-scalable-ai-platform, ai-engagement-at-scale]
 landingHub: true
 bannerImage: /_images/landing/geisel-library.webp
 bannerPosition: center 44%
@@ -15,7 +15,7 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-intro about-feature" aria-labelledby="about-mission-heading">
 <div class="row hub-split">
-<div class="col-md-7 hub-split-copy"><p class="home-kicker">Shared campus capability</p><h2 id="about-mission-heading">Make AI easy to use and easy to manage</h2><p class="hub-lede">TritonAI runs the shared AI tools campus depends on, trains people to use them, and keeps a named owner responsible for every service we support.</p><div class="about-feature-actions"><a class="btn btn-primary btn-lg" href="/about/strategy.html">Read the strategy</a><a class="about-feature-link" href="/about/get-involved.html">Get involved <span aria-hidden="true">→</span></a></div></div>
+<div class="col-md-7 hub-split-copy"><p class="home-kicker">Shared campus capability</p><h2 id="about-mission-heading">Make AI easy to use and easy to manage</h2><p class="hub-lede">TritonAI gives UC San Diego a shared path from everyday AI assistance to supervised campus workflows. The program runs common services, helps teams build on them, and keeps a named owner responsible for every service it supports.</p><div class="about-feature-actions"><a class="btn btn-primary btn-lg" href="/about/strategy.html">Read the strategy</a><a class="about-feature-link" href="/about/get-involved.html">Get involved <span aria-hidden="true">→</span></a></div></div>
 <div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span><h3>How we decide what to build</h3><p>Start with something a person actually needs, pick the technology that fits it, and name who answers for the result.</p></aside></div>
 </div>
 </section>
@@ -23,9 +23,9 @@ bannerPosition: center 44%
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="program-shape-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">How the program works</p><h2 id="program-shape-heading">Departments build on shared services</h2></div>
 <div class="row hub-number-grid">
-<div class="col-md-4"><article><span>01</span><h3>Give people a place to start</h3><p>Approved model access, assistants that know about campus, and someone to ask when you get stuck.</p></article></div>
-<div class="col-md-4"><article><span>02</span><h3>Meet people in the workflow</h3><p>Put AI inside the tools people already open, so nobody has to learn a new system to get the benefit.</p></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Scale what proves useful</h3><p>A pilot becomes a supported service once we know it works, who reviews it, and who answers the support ticket.</p></article></div>
+<div class="col-md-4"><article><span>01</span><h3>Start with shared services</h3><p>TritonGPT, approved model access, campus assistants, training, and support give everyone a common starting point.</p></article></div>
+<div class="col-md-4"><article><span>02</span><h3>Build around a campus need</h3><p>Teams can embed an assistant, use the Developer APIs, or work in TritonAI Harness when a job needs more than chat.</p></article></div>
+<div class="col-md-4"><article><span>03</span><h3>Operate what proves useful</h3><p>A pilot becomes a supported service once the evidence, review points, owner, hosting, accessibility, and support path are clear.</p></article></div>
 </div></div>
 </section>
 
@@ -52,5 +52,5 @@ bannerPosition: center 44%
 
 <nav class="hub-section hub-link-panel" aria-labelledby="explore-about-heading">
 <div class="hub-heading"><p class="home-kicker">Explore TritonAI</p><h2 id="explore-about-heading">Go deeper</h2></div>
-<div class="row hub-link-columns"><div class="col-sm-6 col-md-4"><a href="/about/strategy.html"><strong>Strategy</strong><span>Principles and delivery model</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/team.html"><strong>Team and ownership</strong><span>Roles and responsibilities</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/impact.html"><strong>Impact</strong><span>What we measure and what it showed</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/trust-architecture.html"><strong>Trust and architecture</strong><span>Hosting, routing, and oversight</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/roadmap.html"><strong>Roadmap</strong><span>Public delivery status</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/sustainability.html"><strong>Sustainable AI</strong><span>How we account for energy and cost</span></a></div></div>
+<div class="row hub-link-columns"><div class="col-sm-6 col-md-4"><a href="/about/strategy.html"><strong>Strategy</strong><span>Principles and delivery model</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/team.html"><strong>Team and ownership</strong><span>Roles and responsibilities</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/impact.html"><strong>Impact</strong><span>What we measure and what it showed</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/trust-architecture.html"><strong>Trust and architecture</strong><span>Hosting, routing, tools, and oversight</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/roadmap.html"><strong>Roadmap</strong><span>Public delivery status</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/sustainability.html"><strong>Sustainable AI</strong><span>How we account for energy and cost</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/workgroup.html"><strong>AI Development Workgroup</strong><span>Campus coordination and governance</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/get-involved.html"><strong>Get involved</strong><span>Use, build, learn, or share</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/ai-updates.html"><strong>AI updates</strong><span>Weekly campus tool and training news</span></a></div></div>
 </nav>
