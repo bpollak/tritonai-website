@@ -3,11 +3,11 @@ title: Build with TritonAI
 path: /developer-apis/index.html
 description: Model access, reusable skills, hosting, and support for campus teams building their own AI services.
 eyebrow: Developer tools and resources
-lastReviewed: 2026-07-26
+lastReviewed: 2026-07-27
 audiences: [developers, researchers, staff, leaders]
 source: TritonAI developer documentation, public architecture presentation, and July 24 AI Use Case Office Hours demonstration
 canonicalUrl: /developer-apis/index.html
-relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, cabinet-people-10-domain-expert]
+relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert]
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 44%
@@ -110,28 +110,28 @@ bannerPosition: center 44%
 <li class="hosting-lane hosting-lane-personal">
 <div class="hosting-lane-tier"><span>Lane 0</span><span class="glyphicon glyphicon-user" aria-hidden="true"></span><strong>Personal workspace</strong></div>
 <div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Explore a bounded task</strong><p>Working on your own, in an approved desktop environment or sandbox.</p></div>
-<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>User-controlled workspace</strong><p>Fine for learning and prototypes. Not something to hand other people.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>User-controlled workspace</strong><p>Fine for learning and prototypes. Not something to hand other people.</p><p class="hosting-lane-address"><span class="hosting-lane-label">URL</span><code>localhost</code></p></div>
 <div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Individual owner</strong><p>You protect the data, you check the results, you keep the scope small.</p></div>
 </li>
 <li class="hosting-lane-escalation"><span aria-hidden="true">↓</span><strong>Move to a managed lane as scope grows</strong></li>
 <li class="hosting-lane hosting-lane-department">
 <div class="hosting-lane-tier"><span>Lane 1</span><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><strong>Department application</strong></div>
 <div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Serve a defined team</strong><p>One application, a known set of users, and a business owner who wants it.</p></div>
-<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>Department-owned application</strong><p>Published through an approved campus application path.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>Department-owned application</strong><p>Published through an approved campus application path.</p><p class="hosting-lane-address"><span class="hosting-lane-label">URL</span><code>apps.ucsd.edu</code></p></div>
 <div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Initial risk and scope review</strong><p>Say who maintains it, who answers support, and what data it may touch.</p></div>
 </li>
 <li class="hosting-lane-escalation"><span aria-hidden="true">↓</span><strong>Move to a managed lane as scope grows</strong></li>
 <li class="hosting-lane hosting-lane-managed">
 <div class="hosting-lane-tier"><span>Lane 2</span><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><strong>Managed campus service</strong></div>
 <div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Support many users</strong><p>A shared workflow, usually with integrations, that other teams now depend on.</p></div>
-<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>TritonAI or ITS-managed path</strong><p>Someone operates the service, not just builds it.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>TritonAI or ITS-managed path</strong><p>Someone operates the service, not just builds it.</p><p class="hosting-lane-address"><span class="hosting-lane-label">URL</span><code>tritonai.ucsd.edu</code></p></div>
 <div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Recurring risk and scope review</strong><p>Quality, security, accessibility, uptime, and support are all watched.</p></div>
 </li>
 <li class="hosting-lane-escalation"><span aria-hidden="true">↓</span><strong>Move to a managed lane as scope grows</strong></li>
 <li class="hosting-lane hosting-lane-enterprise">
 <div class="hosting-lane-tier"><span>Lane 3</span><span class="glyphicon glyphicon-tower" aria-hidden="true"></span><strong>Enterprise service</strong></div>
 <div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Campus-wide delivery</strong><p>Something the whole university uses, or something that hurts badly when it breaks.</p></div>
-<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>Enterprise platform</strong><p>Built with real architecture, identity, and service management behind it.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>Enterprise platform</strong><p>Built with real architecture, identity, and service management behind it.</p><p class="hosting-lane-address"><span class="hosting-lane-label">URL</span><code>ucsd.edu</code></p></div>
 <div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Formal operating ownership</strong><p>Governance, monitoring, continuity, and support come with the service.</p></div>
 </li>
 </ol>
