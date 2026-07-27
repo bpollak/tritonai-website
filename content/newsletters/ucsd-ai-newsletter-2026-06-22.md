@@ -38,7 +38,7 @@ June 22, 2026
 
 -   **Self-paced learning** — Enroll in [Module 1 - AI Foundations](https://go.ucsd.edu/3FvH9Hf) on UC Learning for an introduction to AI concepts, UC policies, and practical applications in higher education.
 
--   **Everyday AI video series** — Short, practical videos on using generative AI tools effectively. Watch the [full playlist on YouTube](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA).
+-   **Everyday I AI video series** — Short, practical videos on using generative AI tools effectively. Watch the [full playlist on YouTube](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA).
 
 * * *
 

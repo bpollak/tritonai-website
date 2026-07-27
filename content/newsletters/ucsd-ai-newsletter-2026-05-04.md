@@ -35,7 +35,7 @@ _Week of May 4, 2026_
 No new live sessions are scheduled for the next two weeks. In the meantime, the TritonAI webinar series is available on demand:
 
 -   **[AI Webinar #6 — One Year of Innovation with TritonGPT](https://youtu.be/qaRfaAzmBEs)**: A look at what's changed since launch, including MyDocuments, model switching, and chat sharing.
--   **[Everyday AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)**: Short, practical prompting tips that work across TritonGPT and other AI tools.
+-   **[Everyday I AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)**: Short, practical prompting tips that work across TritonGPT and other AI tools.
 -   **[AI Foundations course (UC Learning)](https://go.ucsd.edu/3FvH9Hf)**: A self-paced intro to AI concepts and UC policy — good starting point if you're new to AI tools at work.
 
 * * *

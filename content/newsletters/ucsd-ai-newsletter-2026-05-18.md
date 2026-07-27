@@ -55,4 +55,4 @@ _Monday, May 18, 2026_
 
 * * *
 
-_Questions? Reply to this email. To subscribe, visit [tritonai.ucsd.edu](https://tritonai.ucsd.edu)._
+_Questions? Reply to this email. To subscribe, visit [tritonai.ucsd.edu](https://tritonai.ucsd.edu/)._

@@ -25,7 +25,7 @@ items: 3
 **No live sessions scheduled for the next two weeks**, but past webinars are available on demand:
 
 -   **[AI Webinar #6 — One Year of Innovation with TritonGPT](https://youtu.be/qaRfaAzmBEs)** — Anniversary recap featuring My Documents, model switching, chat search, and link sharing.
--   **[Everyday AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)** — Practical prompting tips for TritonGPT and other generative AI tools.
+-   **[Everyday I AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)** — Practical prompting tips for TritonGPT and other generative AI tools.
 -   **[Self-Appraisal Prompting Guide](https://docs.google.com/presentation/d/1r2TcPEZgXYjpumbAllOMjf5yUvxNfPGL2FPRNfjqF1g/edit)** — Use AI to articulate your impact for this year's appraisal.
 
 ## TritonAI News

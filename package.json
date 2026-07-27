@@ -6,6 +6,8 @@
   "scripts": {
     "crawl": "node scripts/crawl.mjs",
     "extract:newsletters": "node scripts/extract-newsletters.mjs",
+    "sync:ai-news": "node scripts/sync-ai-news.mjs",
+    "check:ai-news": "node scripts/sync-ai-news.mjs --check",
     "sync:skills": "node scripts/sync-skills.mjs",
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
@@ -15,7 +17,8 @@
     "test:a11y": "node scripts/accessibility-check.mjs",
     "test:ux": "node --test test/ux-agent/*.test.mjs",
     "test:language": "node scripts/language-check.mjs",
-    "test": "npm run test:ux && npm run build && npm run validate && npm run test:a11y && npm run test:language"
+    "test:ai-news": "node --test test/sync-ai-news.test.mjs",
+    "test": "npm run test:ux && npm run test:ai-news && npm run build && npm run validate && npm run test:a11y && npm run test:language"
   },
   "engines": {
     "node": ">=22"
