@@ -1,0 +1,132 @@
+name: Publish to Cascade
+
+# Manual only to start with. Once a few runs are green, add a push trigger:
+#
+#   push:
+#     branches: [main]
+#
+# dist/ is gitignored and rebuilt here, so change detection is not used:
+# every run is a full upsert. That is safe (create-or-edit) but not free,
+# so pace it against the size of the site.
+on:
+  workflow_dispatch:
+    inputs:
+      site_name:
+        description: Cascade site name
+        required: true
+        default: TritonAI-Test
+      root_path:
+        description: Target folder in Cascade
+        required: true
+        default: /_pipeline-test
+      base_url:
+        description: Cascade host
+        required: true
+        default: https://ucsd-dev.cascadecms.com
+
+concurrency:
+  group: cascade-${{ inputs.site_name }}-${{ inputs.root_path }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and plan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'          # match pages.yml
+          cache: npm
+
+      - run: npm ci
+
+      # Empty SITE_BASE_PATH is required. GitHub Pages builds with
+      # /tritonai-website, which would prefix every route and break all
+      # links once uploaded to a Cascade site root.
+      - name: Build and validate
+        env:
+          SITE_BASE_PATH: ''
+        run: |
+          npm run build
+          npm run validate
+
+      - name: Fail if base path leaked into the build
+        run: |
+          if grep -rl '/tritonai-website' dist >/dev/null 2>&1; then
+            echo "::error::dist contains /tritonai-website; SITE_BASE_PATH was not empty"
+            grep -rl '/tritonai-website' dist | head -20
+            exit 1
+          fi
+          echo "Base path clean. dist contains $(find dist -type f | wc -l) files."
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install requests urllib3
+
+      - name: Dry-run upload
+        env:
+          CASCADE_API_KEY: ${{ secrets.CASCADE_API_KEY }}
+        run: |
+          test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
+          python scripts/cascade_uploader.py ./dist \
+            --site-name "${{ inputs.site_name }}" \
+            --root-path "${{ inputs.root_path }}" \
+            --base-url "${{ inputs.base_url }}" \
+            2>&1 | tee dry-run.log
+
+      # Deploy the exact bytes that were planned, rather than rebuilding
+      # and hoping the second build matches the first.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cascade-dist
+          path: dist
+          retention-days: 7
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cascade-dry-run-log
+          path: dry-run.log
+          retention-days: 30
+
+  deploy:
+    name: Upload to Cascade
+    needs: build
+    runs-on: ubuntu-latest
+    environment: cascade          # approval gate configured in repo settings
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: cascade-dist
+          path: dist
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install requests urllib3
+
+      - name: Live upload
+        env:
+          CASCADE_API_KEY: ${{ secrets.CASCADE_API_KEY }}
+        run: |
+          test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
+          python scripts/cascade_uploader.py ./dist \
+            --site-name "${{ inputs.site_name }}" \
+            --root-path "${{ inputs.root_path }}" \
+            --base-url "${{ inputs.base_url }}" \
+            --no-dry-run \
+            2>&1 | tee upload.log
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cascade-upload-log
+          path: upload.log
+          retention-days: 30
