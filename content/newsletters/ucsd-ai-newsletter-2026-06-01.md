@@ -59,4 +59,4 @@ No live trainings are scheduled in the next 14 days, but you can:
 
 * * *
 
-Questions? Reply to this email or reach out to the [TritonAI team](/cdn-cgi/l/email-protection#5c282e352833323d351c293f2f3872393829).
+Questions? Reply to this email or reach out to the [tritonai@ucsd.edu](mailto:tritonai@ucsd.edu).

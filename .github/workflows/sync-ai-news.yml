@@ -1,0 +1,82 @@
+name: Sync UC San Diego AI Weekly
+
+on:
+  schedule:
+    - cron: "15 18 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-ucsd-ai-weekly
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch newsletter editions
+        run: npm run sync:ai-news
+
+      - name: Detect content changes
+        id: changes
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain -- content/newsletters)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate the updated site
+        if: steps.changes.outputs.changed == 'true'
+        run: npm test
+
+      - name: Publish the sync branch
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          BRANCH_NAME: automation/sync-ai-news
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH_NAME"
+          git add content/newsletters
+          git commit -m "Sync UC San Diego AI Weekly"
+          git push --force origin "HEAD:$BRANCH_NAME"
+
+      - name: Open or refresh the sync pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH_NAME: automation/sync-ai-news
+        shell: bash
+        run: |
+          existing="$(gh pr list --base main --head "$BRANCH_NAME" --state open --json number --jq '.[0].number // empty')"
+          if [[ -z "$existing" ]]; then
+            gh pr create \
+              --base main \
+              --head "$BRANCH_NAME" \
+              --title "Sync UC San Diego AI Weekly" \
+              --body "Imports new or updated editions from https://brettcpollak.com/ucsd-ai-news. The standard build, language, and accessibility checks passed before this pull request was opened."
+          else
+            gh pr edit "$existing" \
+              --title "Sync UC San Diego AI Weekly" \
+              --body "Imports new or updated editions from https://brettcpollak.com/ucsd-ai-news. The standard build, language, and accessibility checks passed before this pull request was refreshed."
+          fi

@@ -149,11 +149,12 @@ function renderLatestNewsletters(newsletters) {
   });
   const firstTopicHeading = $latest("h3").first();
   const firstStory = firstTopicHeading.nextAll("p, li").first().text().trim() || $latest("li, p").first().text().trim();
-  const excerpt = firstStory
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 280)
-    .replace(/\s+\S*$/, "");
+  const normalizedFirstStory = firstStory.replace(/\s+/g, " ").trim();
+  const excerpt =
+    normalizedFirstStory.length > 280
+      ? normalizedFirstStory.slice(0, 280).replace(/\s+\S*$/, "")
+      : normalizedFirstStory;
+  const excerptWasTruncated = excerpt.length < normalizedFirstStory.length;
   const dateId = latest.date.toISOString().slice(0, 10);
   const topicBadges = topics.map((topic) => `<span class="label label-default">${escapeHtml(topic)}</span>`).join(" ");
   const recentCards = recent
@@ -162,7 +163,7 @@ function renderLatestNewsletters(newsletters) {
         `<div class="col-sm-6"><article class="panel panel-default home-update-card"><div class="panel-body"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><p class="home-kicker">Recent update</p><h3>${escapeHtml(newsletter.title)}</h3><p>${newsletter.items} ${newsletter.items === 1 ? "item" : "items"} on campus AI tools, training, and news.</p><a href="/about/ai-updates.html#${escapeHtml(newsletter.date.toISOString().slice(0, 10))}">Read this update <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></div></article></div>`,
     )
     .join("");
-  return `<article class="panel panel-default home-latest-update"><div class="panel-heading"><div><p class="home-kicker">This week</p><h3>${escapeHtml(latest.title)}</h3></div><span class="home-update-count">${latest.items} ${latest.items === 1 ? "item" : "items"}</span></div><div class="panel-body"><p class="home-update-topics">${topicBadges}</p><p>${escapeHtml(excerpt)}${excerpt ? "…" : ""}</p><p><a class="btn btn-primary" href="/about/ai-updates.html#${dateId}">Read the latest update</a></p></div></article>${recentCards ? `<div class="row agent-card-grid home-recent-updates">${recentCards}</div>` : ""}`;
+  return `<article class="panel panel-default home-latest-update"><div class="panel-heading"><div><p class="home-kicker">This week</p><h3>${escapeHtml(latest.title)}</h3></div><span class="home-update-count">${latest.items} ${latest.items === 1 ? "item" : "items"}</span></div><div class="panel-body"><p class="home-update-topics">${topicBadges}</p><p>${escapeHtml(excerpt)}${excerptWasTruncated ? "…" : ""}</p><p><a class="btn btn-primary" href="/about/ai-updates.html#${dateId}">Read the latest update</a></p></div></article>${recentCards ? `<div class="row agent-card-grid home-recent-updates">${recentCards}</div>` : ""}`;
 }
 
 function statusClass(status) {

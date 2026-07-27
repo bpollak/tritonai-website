@@ -28,9 +28,9 @@ No notable changes to the TritonAI model hub this week.
 
 No new live webinars are scheduled for the next two weeks, but you can catch up on previous sessions:
 
--   **[AI Webinar #6 — One Year of Innovation with TritonGPT: Past, Present, and Future](https://youtu.be/qaRfaAzmBEs)** — Covers TritonGPT's launch journey, new features like My Documents and model switching, and strategies for staying engaged with AI tools.
+-   **[AI Webinar #6 — One Year of Innovation with TritonGPT: Past, Present, and Future](https://youtu.be/qaRfaAzmBEs)** — Covers TritonGPT's launch journey, new features like My Documents and model switching, and strategies for staying engaged with AI tools. [View the slide deck](https://stage-tritonai.ucsd.edu/_files/AI---TGPT-Webinar-6---Anniversary.pdf).
 
--   **Self-paced courses** are always available: [AI Foundations (UC Learning)](https://go.ucsd.edu/3FvH9Hf) and the [Everyday AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA).
+-   **Self-paced courses** are always available: [AI Foundations (UC Learning)](https://go.ucsd.edu/3FvH9Hf) and the [Everyday I AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA).
 
 * * *
 
@@ -42,4 +42,4 @@ _[Read the full story](https://today.ucsd.edu/story/uc-san-diego-helps-prepare-a
 
 * * *
 
-_Have questions or want to suggest a topic? Email [\[email protected\]](/cdn-cgi/l/email-protection#493d3b203d26272820093c2a3a2d672c2d3c)._
+_Have questions or want to suggest a topic? Email [tritonai@ucsd.edu](mailto:tritonai@ucsd.edu)._
