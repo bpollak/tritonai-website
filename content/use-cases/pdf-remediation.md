@@ -10,6 +10,10 @@ source: TritonAI strategy presentation
 measurementPeriod: 2026 pilot
 dataClassification: Public description; document handling depends on source data
 canonicalUrl: /use-cases/pdf-remediation.html
+videoSrc: https://tritongpt-deck.vercel.app/media/pdf-remediator-1.6x.mov
+videoPoster: https://tritongpt-deck.vercel.app/media/pdf-remediator-poster.png
+videoLabel: PDF Remediator accessibility review demo
+videoDescription: Silent screen recording showing a PDF upload, automated accessibility findings, remediation progress, and the reviewable results.
 stats:
   - { value: "17+", label: "Automated checks", sub: "9 categories" }
   - { value: "Human", label: "Final review", sub: "Required for every document" }
