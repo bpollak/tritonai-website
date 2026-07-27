@@ -5,9 +5,9 @@ description: Where campus AI services run, how they reach models, what data they
 eyebrow: Trust, privacy and hosting
 lastReviewed: 2026-07-27
 audiences: [staff, faculty, students, developers, leaders]
-source: TritonAI architecture presentation and public developer documentation
+source: TritonAI architecture and memory presentations, plus public developer documentation
 canonicalUrl: /about/trust-architecture.html
-relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-comparison, the-agentic-ai-stack]
+relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-comparison, the-agentic-ai-stack, harness-memory-architecture, harness-memory-scale-ucsd]
 landingHub: true
 ---
 
@@ -49,6 +49,16 @@ landingHub: true
 </div>
 </section>
 <!-- END_AGENT_SECTION -->
+
+<section class="hub-section trust-context" id="context-lifecycle" aria-labelledby="context-lifecycle-heading">
+<div class="hub-heading"><p class="home-kicker">Context lifecycle</p><h2 id="context-lifecycle-heading">How context becomes reusable</h2><p>An AI service can use recent context and shared campus knowledge without treating every conversation or document as permanent memory. Promotion into shared use is an explicit human decision.</p></div>
+<ol class="memory-governance-flow">
+<li><span>01</span><div><h3>Task context</h3><p>The service retrieves only what the current task and user are allowed to use. Personal context stays private by default.</p></div></li>
+<li><span>02</span><div><h3>Reviewed shared context</h3><p>A person decides what a team or service may reuse. The record includes its source, owner, review date, and freshness expectations.</p></div></li>
+<li><span>03</span><div><h3>Governed agent use</h3><p>Agents retrieve approved context within their scope. Proposed corrections and additions return to a person for approval, reconciliation, or retirement.</p></div></li>
+</ol>
+<div class="memory-trust-rail"><p><strong>Trust rail</strong><span>These checks follow context from source to use.</span></p><ul><li>Provenance</li><li>Freshness</li><li>Privacy</li><li>Human correction</li></ul></div>
+</section>
 
 <section class="hub-section trust-responsibility" id="trust-responsibility" aria-labelledby="trust-responsibility-heading">
 <div class="hub-heading"><p class="home-kicker">Shared responsibility</p><h2 id="trust-responsibility-heading">Who decides what</h2><p>Shared infrastructure gives every team the same starting point. It does not stand in for review and ownership at the service level.</p></div>

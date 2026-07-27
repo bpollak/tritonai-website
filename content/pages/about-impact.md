@@ -27,6 +27,15 @@ relatedSlides: [scaling-engagement-the-tritongpt-widget, contract-reviewer-conso
 
 Before a number appears here it needs a definition, a named service and measurement period it applies to, and an owner who has reviewed it. Numbers that cannot meet that bar stay off this page.
 
+## How evidence becomes a decision
+
+<div class="row agent-card-grid">
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Define</h2><p>Name the outcome, baseline, measure, period, population, exclusions, and service owner before the pilot begins.</p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Measure</h2><p>Collect the result with its source, data classification, and enough context for another reviewer to understand it.</p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Review</h2><p>Check the calculation, source freshness, limitations, quality, accessibility, and effects on the people in the workflow.</p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Decide</h2><p>Expand, refine, or pause the service, then record the owner, decision, and next review point.</p></div></div></div>
+</div>
+
 ## How evidence changes a service
 
 <div class="row agent-card-grid">

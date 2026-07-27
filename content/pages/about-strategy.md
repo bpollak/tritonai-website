@@ -7,7 +7,7 @@ lastReviewed: 2026-07-27
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation
 canonicalUrl: /about/strategy.html
-relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison, key-takeaways, from-tritongpt-to-tritonai]
+relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison, key-takeaways, from-tritongpt-to-tritonai, harness-memory-architecture]
 ---
 
 <p class="lead">TritonAI makes AI available across UC San Diego as a shared campus capability, then helps teams turn specific, recurring work into supervised and measurable services. The same foundation supports chat, embedded assistants, developer applications, and agentic workflows.</p>
@@ -59,10 +59,16 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison,
 </div>
 </div>
 
-## From chat to agents
+## How the work changes
 
-An agent works toward a goal across several steps: it can retrieve approved data, call approved tools, and return a finished result with evidence about what it did. That raises the stakes on human accountability. Oversight is staged, and consequential reads, writes, decisions, and exceptions retain explicit review and escalation points.
+<div class="row agent-card-grid">
+<div class="col-sm-4"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><h2 class="h3">Answer</h2><p>A person asks a question, provides context, and checks the response. TritonGPT and embedded assistants support this interaction.</p></div></div></div>
+<div class="col-sm-4"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><h2 class="h3">Act</h2><p>A supervised workflow works toward a goal, using approved skills, sources, and connectors across several steps with review gates.</p></div></div></div>
+<div class="col-sm-4"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><h2 class="h3">Improve</h2><p>The service owner reviews the trace and outcome, corrects the context, and promotes tested patterns that another team can reuse.</p></div></div></div>
+</div>
 
-Models will keep changing. The work that survives that is the integration work: connecting approved APIs, cleaning up the source data, and building skills other teams can reuse. Good data, honest evaluation, a named service owner, and a workflow people can actually follow outlast any particular model.
+Models will keep changing. Approved integrations, clean sources, reusable skills, honest evaluation, and named ownership are the durable parts of the service.
+
+Shared context follows the same operating discipline. A person approves what becomes reusable, and the record carries its source, owner, review date, and freshness expectations. A service retrieves only the context its task permits and presents proposed changes for review. The <a href="/about/trust-architecture.html#context-lifecycle">trust architecture</a> explains that lifecycle.
 
 <p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a> <a class="btn btn-default" href="/about/impact.html">See campus impact</a></p>

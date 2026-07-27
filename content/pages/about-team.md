@@ -5,9 +5,9 @@ description: Who does what across TritonAI, from program leadership and the plat
 eyebrow: About TritonAI
 lastReviewed: 2026-07-27
 audiences: [staff, faculty, developers, leaders]
-source: TritonAI operating model and strategy presentation
+source: TritonAI operating model, strategy presentation, and memory architecture presentation
 canonicalUrl: /about/team.html
-relatedSlides: [the-team-behind-tritonai, campus-app-hosting, ai-engagement-at-scale]
+relatedSlides: [the-team-behind-tritonai, campus-app-hosting, ai-engagement-at-scale, harness-memory-scale-ucsd]
 ---
 
 <p class="lead">TritonAI runs as a shared campus capability, which only works if everyone knows who owns which decision. This table connects the central platform to the people who approve and operate each service.</p>
@@ -20,8 +20,18 @@ relatedSlides: [the-team-behind-tritonai, campus-app-hosting, ai-engagement-at-s
 <tr><th scope="row">Platform team</th><td>Model gateway, shared services, developer experience, reliability, and observability</td><td>Platform standards, supported integrations, operations</td></tr>
 <tr><th scope="row">Solutions team</th><td>Discovery, workflow design, prototypes, evaluation, and delivery patterns</td><td>Fit, pilot design, human oversight, readiness</td></tr>
 <tr><th scope="row">Campus service owner</th><td>Business process, approved data, subject-matter review, support, and adoption</td><td>Requirements, acceptance, escalation, ongoing ownership</td></tr>
+<tr><th scope="row">Knowledge and source owners</th><td>Source quality, provenance, freshness, correction, and access boundaries for shared context</td><td>What can be promoted, updated, reconciled, or retired</td></tr>
 <tr><th scope="row">Governance partners</th><td>Privacy, security, accessibility, records, policy, and risk guidance</td><td>Required controls and review</td></tr>
 </tbody></table></div>
+
+## Who owns shared context
+
+<div class="row agent-card-grid">
+<div class="col-sm-6"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><h2 class="h3">Source owner</h2><ul><li>Names the authoritative source and who may use it</li><li>Explains what the information means in the workflow</li><li>Approves material corrections to the source</li></ul></div></div></div>
+<div class="col-sm-6"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-check" aria-hidden="true"></span><h2 class="h3">Context steward</h2><ul><li>Keeps the source, owner, review date, and freshness expectations with the record</li><li>Reconciles human corrections before wider reuse</li><li>Retires shared context when it no longer reflects the source</li></ul></div></div></div>
+</div>
+
+<div class="alert alert-info">An agent may propose a correction or addition. A named person approves whether it becomes shared context.</div>
 
 ## How responsibility moves
 

@@ -1,20 +1,20 @@
 ---
 title: Build with TritonAI
 path: /developer-apis/index.html
-description: Model access, reusable skills, hosting, and support for campus teams building their own AI services.
+description: Personal productivity, application building, reusable skills, approved connections, hosting, and support through TritonAI.
 eyebrow: Developer tools and resources
 lastReviewed: 2026-07-27
 audiences: [developers, researchers, staff, leaders]
-source: TritonAI developer documentation, public architecture presentation, and July 24 AI Use Case Office Hours demonstration
+source: TritonAI developer documentation, public architecture and memory presentations, and July 24 AI Use Case Office Hours demonstration
 canonicalUrl: /developer-apis/index.html
-relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert]
+relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert, harness-memory-architecture]
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 44%
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">For campus builders</p><h2 id="build-intro-heading">Build on shared infrastructure</h2><p class="hub-lede">Get to the models from one place, reuse skills other campus teams have already written, and take a small test all the way to a supported service with someone's name on it.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Personal productivity and building</p><h2 id="build-intro-heading">Use AI for your own work or build a service</h2><p class="hub-lede">For personal productivity, the TritonAI Harness can work across files, browser tasks, and the productivity tools you choose to connect, using reusable skills and memory sources available through the Harness within the permissions you grant. For application building, you can use the Harness and shared APIs to create an integration, then move it into a secure hosting environment supported by IT Services when other people need to rely on it.</p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
 <p class="build-architecture-label">The TritonAI service model</p>
 <ol class="build-architecture-flow">
