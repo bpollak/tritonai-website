@@ -28,6 +28,10 @@ bannerPosition: center 48%
 </div></div>
 </section>
 
+<section class="hub-section hub-subscribe" aria-labelledby="build-tools-heading">
+<div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Build with TritonAI</p><h2 id="build-tools-heading">Need a tool that is not listed?</h2><p>The Build page covers TritonAI Harness, Claude Code, and the Codex desktop app, along with campus model access, reusable skills, and supported hosting paths.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/index.html">Explore the Build page</a></div></div>
+</section>
+
 <section class="hub-section" aria-labelledby="choose-task-heading">
 <div class="hub-heading"><p class="home-kicker">A better question to ask</p><h2 id="choose-task-heading">What needs to happen next?</h2><p>Pick based on the work you are actually doing rather than on a feature comparison.</p></div>
 <div class="row hub-action-grid hub-action-grid-three">
