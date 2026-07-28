@@ -11,6 +11,7 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison,
 landingHub: true
 bannerImage: /_images/landing/geisel-library.webp
 bannerPosition: center 44%
+bannerOverlay: /_images/hero-overlays/about-tritonai.webp
 ---
 
 <section class="hub-section hub-section-intro about-feature" aria-labelledby="about-mission-heading">

@@ -11,6 +11,7 @@ relatedSlides: [platform-at-uc-san-diego, citizen-developer-ecosystem]
 landingHub: true
 bannerImage: /_images/smiling-students-collaborating.webp
 bannerPosition: center 48%
+bannerOverlay: /_images/hero-overlays/ai-tools.webp
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="tools-intro-heading">

@@ -11,6 +11,7 @@ relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-pla
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 44%
+bannerOverlay: /_images/hero-overlays/build.webp
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
