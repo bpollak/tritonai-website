@@ -82,5 +82,5 @@ bannerMode: abstract
 </section>
 
 <section class="tritongpt-recognition" aria-labelledby="recognition-heading">
-<div class="container"><div class="tritongpt-recognition-panel"><div><p class="home-kicker">Program impact</p><h2 id="recognition-heading">Recognition outside UC San Diego</h2><p>TritonGPT and the wider TritonAI program have been recognized by outside organizations for institutional technology and transformation.</p></div><a class="btn btn-default btn-lg" href="/about/impact.html">See evidence and recognition</a></div></div>
+<div class="container"><div class="tritongpt-recognition-panel"><div><p class="home-kicker">Program impact</p><h2 id="recognition-heading">Recognition outside UC San Diego</h2><p>TritonGPT and the wider TritonAI program have been recognized by outside organizations for institutional technology and transformation.</p></div></div></div>
 </section>

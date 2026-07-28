@@ -21,7 +21,7 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison,
 <li class="col-sm-6 col-md-3"><div class="agent-metric-card"><strong class="agent-metric-value">81%</strong><span class="agent-metric-label">Helped understanding</span><span class="agent-metric-note">Instructional AI pilot survey response</span></div></li>
 </ul>
 
-<p><small>Each result covers only the service and measurement period shown. None of them is a campus-wide average. The <a href="/about/impact.html">public evidence packages</a> give the definition, owner, source, and review date behind each figure.</small></p>
+<p><small>Each result covers only the service and measurement period shown. None of them is a campus-wide average.</small></p>
 
 <!-- lang-ok: "Six principles" is the name of the framework, not a count of the cards below -->
 ## Six principles
@@ -71,4 +71,4 @@ Models will keep changing. The service depends on approved integrations and clea
 
 Shared context follows the same operating discipline. A person approves what becomes reusable, and the record carries its source, owner, review date, and freshness expectations. A service retrieves only the context its task permits and presents proposed changes for review. The <a href="/about/trust-architecture.html">trust architecture</a> explains the shared service foundation.
 
-<p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a> <a class="btn btn-default" href="/about/impact.html">See campus impact</a></p>
+<p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a></p>
