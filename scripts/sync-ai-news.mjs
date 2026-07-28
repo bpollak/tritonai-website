@@ -135,6 +135,9 @@ function extractEditions(html, sourceUrl) {
     const items = Number.parseInt(countText, 10);
     const body = item.find("> div:nth-child(2) > div").first().clone();
     if (!title || !body.length) throw new Error(`Incomplete newsletter markup for ${filename}`);
+    if (!Number.isInteger(items) || items < 1) {
+      throw new Error(`Newsletter edition ${filename} reports no items; refusing to synchronize an empty edition`);
+    }
 
     const headings = body.find("h2").map((_, element) => $(element).text().trim()).get();
     if (!headings.includes("What's New in Your AI Tools") || !headings.includes("TritonAI News")) {
@@ -148,7 +151,7 @@ function extractEditions(html, sourceUrl) {
       `title: ${JSON.stringify(title)}`,
       `date: ${filenameMatch[1]}`,
       `source: ${JSON.stringify(filename)}`,
-      `items: ${Number.isFinite(items) ? items : 0}`,
+      `items: ${items}`,
       "---",
       "",
     ].join("\n");
