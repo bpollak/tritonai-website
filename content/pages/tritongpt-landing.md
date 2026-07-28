@@ -11,6 +11,7 @@ relatedSlides: [tritongpt-platform, tritongpt-secure-scalable-ai-platform, instr
 landingHub: true
 bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
 bannerPosition: center 46%
+bannerOverlay: /_images/hero-overlays/tritongpt.webp
 ---
 
 <section class="tritongpt-intro" aria-labelledby="access-tritongpt-heading">

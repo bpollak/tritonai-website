@@ -11,6 +11,7 @@ relatedSlides: [Training, AI Foundations, Citizen Developer Ecosystem]
 landingHub: true
 bannerImage: /_images/building-branch-hero.webp
 bannerPosition: center 48%
+bannerOverlay: /_images/hero-overlays/learn.webp
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="learn-intro-heading">
