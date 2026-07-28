@@ -8,7 +8,6 @@ audiences: [staff, faculty, leaders, developers]
 source: AI Development Workgroup public page, governance materials, and TritonAI memory architecture presentation
 canonicalUrl: /about/workgroup.html
 relatedSlides: [ai-engagement-at-scale, uc-san-diego-ai-strategy-2026, harness-memory-scale-ucsd]
-landingHub: true
 bannerImage: /_images/landing/geisel-library.webp
 bannerPosition: center 44%
 ---

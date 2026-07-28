@@ -8,7 +8,6 @@ audiences: [staff, faculty, students, developers, leaders]
 source: TritonAI architecture and memory presentations, plus public developer documentation
 canonicalUrl: /about/trust-architecture.html
 relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-comparison, the-agentic-ai-stack, harness-memory-architecture, harness-memory-scale-ucsd]
-landingHub: true
 ---
 
 <section class="hub-section hub-section-intro trust-intro" aria-labelledby="trust-intro-heading">
