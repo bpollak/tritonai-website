@@ -140,14 +140,37 @@
 }
 
 .agent-page .btn {
+  align-items: center;
   border-radius: 2px;
+  display: inline-flex;
+  font-size: 15px;
   font-weight: 700;
+  justify-content: center;
   letter-spacing: .02em;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
+.agent-page .btn.btn-lg {
+  font-size: 18px;
+  line-height: 1.3333333;
+  min-height: 50px;
+  padding: 12px;
+}
+
+@media (min-width: 768px) {
+  .agent-page .btn {
+    white-space: nowrap;
+  }
 }
 
 .agent-page .btn-primary {
   background-color: var(--triton-blue);
   border-color: var(--triton-blue);
+  border-style: solid;
+  border-width: 1px;
 }
 
 .agent-page .btn-primary:hover,

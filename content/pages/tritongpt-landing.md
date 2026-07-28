@@ -3,7 +3,7 @@ title: TritonGPT
 path: /tritongpt/index.html
 description: TritonGPT is UC San Diego's AI chat platform. Sign in with your campus account to use it with your own documents.
 eyebrow: The platform at the center of TritonAI
-lastReviewed: 2026-07-27
+lastReviewed: 2026-07-28
 audiences: [students, faculty, staff, developers]
 source: TritonGPT public service, guide pages, and current public platform presentation
 canonicalUrl: /tritongpt/index.html
@@ -26,7 +26,7 @@ bannerPosition: center 46%
 <div class="container">
 <div class="landing-section-heading"><p class="home-kicker">One starting point</p><h2 id="tritongpt-capabilities-heading">What you can do in TritonGPT</h2><p>One platform gives you several modes. Pick the one that fits the task.</p></div>
 <div class="tritongpt-capability-grid">
-<article class="tritongpt-capability-card"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><div><h3>Ask an assistant</h3><p>Pick an assistant built for the question you have, from benefits to contract terms.</p><a href="/training-resources/tritongpt/assistants.html">Explore assistants</a></div></article>
+<article class="tritongpt-capability-card"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><div><h3>Ask an assistant</h3><p>Pick an assistant built for the question you have, from benefits to job-description drafting.</p><a href="/training-resources/tritongpt/assistants.html">Explore assistants</a></div></article>
 <article class="tritongpt-capability-card"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><div><h3>Work with documents</h3><p>Upload your own files and ask about them. You still decide what to do with the answer.</p><a href="/training-resources/tritongpt/index.html">Read the guides</a></div></article>
 <article class="tritongpt-capability-card"><span class="glyphicon glyphicon-random" aria-hidden="true"></span><div><h3>Choose a model</h3><p>Switch between the models UC San Diego has approved without leaving the conversation.</p><a href="/about/trust-architecture.html">How routing works</a></div></article>
 <article class="tritongpt-capability-card"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><div><h3>Use campus context</h3><p>Answers can draw from approved campus sources at the time of your question.</p><a href="/tritongpt/integrations.html">Where TritonGPT appears</a></div></article>
@@ -43,7 +43,7 @@ bannerPosition: center 46%
 <article class="assistant-overview-card"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><h3>Teaching, learning, and planning</h3><p>Work with course material or compare class schedule options.</p><p class="assistant-overview-examples"><strong>Examples</strong> Socratic Tutor, Instructor AI Assistant, Class Scheduling Assistant</p></article>
 <article class="assistant-overview-card"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><h3>Research and funding support</h3><p>Gather current information and organize research or grant guidance.</p><p class="assistant-overview-examples"><strong>Examples</strong> Deep Research Assistant, Fund Manager Coach, Internet Search Assistant</p></article>
 <article class="assistant-overview-card"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><h3>Drafting and project delivery</h3><p>Turn structured input into a draft, plan, meeting record, or technical starting point.</p><p class="assistant-overview-examples"><strong>Examples</strong> Expert Notetaker, Project Charter Assistant, Triton Developer Assistant</p></article>
-<article class="assistant-overview-card"><span class="glyphicon glyphicon-check" aria-hidden="true"></span><h3>Review, alignment, and risk</h3><p>Prepare findings that support a contract, security, or performance review.</p><p class="assistant-overview-examples"><strong>Examples</strong> Contract Reviewer, Email Phishing Analyzer, Performance Review Evaluator</p></article>
+<article class="assistant-overview-card"><span class="glyphicon glyphicon-check" aria-hidden="true"></span><h3>Review, alignment, and risk</h3><p>Prepare findings that support a policy, security, or performance review.</p><p class="assistant-overview-examples"><strong>Examples</strong> General AI Assistant, Email Phishing Analyzer, Performance Review Evaluator</p></article>
 </div>
 <div class="assistant-overview-footer"><p>Opening an assistant does not give you access to new data. The person responsible for the work still reviews the result.</p><div><a class="btn btn-primary" href="/training-resources/tritongpt/assistants.html">Learn how assistants work</a><a class="btn btn-default" href="/use-cases/index.html">See supervised workflows</a></div></div>
 </div>
@@ -57,11 +57,11 @@ bannerPosition: center 46%
 
 <section class="landing-section landing-section-sand cms-news-module" aria-labelledby="assistant-examples-heading">
 <div class="container">
-<div class="landing-section-heading"><p class="home-kicker">TritonGPT in practice</p><h2 id="assistant-examples-heading">How people use it</h2><p>Ask a general campus question, bring your own material, or hand a repeating job to an assistant built for it.</p></div>
+<div class="landing-section-heading"><p class="home-kicker">What sits on the platform</p><h2 id="assistant-examples-heading">TritonGPT and custom solutions</h2><p>Use TritonGPT for conversations, assistants, and document work. Separate custom applications handle defined campus workflows with their own interfaces and review steps.</p></div>
 <div class="row cms-news-grid tritongpt-practice-grid">
 <div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/tritongpt/integrations.html"><img alt="Geisel Library on the UC San Diego campus" class="img-responsive" src="/_images/landing/geisel-library.webp"></a><div class="panel-body"><h3><a href="/tritongpt/integrations.html">Campus answers</a></h3><p>Look up a campus service or policy without hunting through Blink yourself.</p></div></article></div>
 <div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/training-resources/tritongpt/index.html"><img alt="Students collaborating around a laptop" class="img-responsive" src="/_images/smiling-students-collaborating.webp"></a><div class="panel-body"><h3><a href="/training-resources/tritongpt/index.html">Document work</a></h3><p>Summarize, compare, and draft from files you upload. Check the result before you use it.</p></div></article></div>
-<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/use-cases/index.html"><img alt="Open contract with original clauses beside tracked revisions as a reviewer completes the final approval" class="img-responsive" src="/_images/use-cases/contract-review-public.webp"></a><div class="panel-body"><h3><a href="/use-cases/index.html">Supervised workflows</a></h3><p>For a job that comes back every week, a built workflow with a review step at the end.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/use-cases/index.html"><img alt="Open contract with original clauses beside tracked revisions as a reviewer completes the final approval" class="img-responsive" src="/_images/use-cases/contract-review-public.webp"></a><div class="panel-body"><h3><a href="/use-cases/index.html">Custom solutions</a></h3><p>Contract Review and Transcript Matching are separate applications built on the AI platform, with workflow-specific controls and staff review.</p></div></article></div>
 </div>
 </div>
 </section>
