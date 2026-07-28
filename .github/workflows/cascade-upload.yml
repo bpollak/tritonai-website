@@ -23,6 +23,12 @@ on:
         description: Cascade host
         required: true
         default: https://ucsd-dev.cascadecms.com
+      publish_id:
+        description: >
+          Asset id to publish after upload. Leave blank to skip publishing.
+          Root folder of TritonAI-Test is a57efd7c0a0000b6521ddeadfd53a18b
+        required: false
+        default: ''
 
 concurrency:
   group: cascade-${{ inputs.site_name }}-${{ inputs.root_path }}
@@ -37,7 +43,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'          # match pages.yml
+          node-version: '20'          # match pages.yml
           cache: npm
 
       - run: npm ci
@@ -130,3 +136,38 @@ jobs:
           name: cascade-upload-log
           path: upload.log
           retention-days: 30
+
+  publish:
+    name: Publish
+    needs: deploy
+    # Only when an id was supplied, and only if every asset uploaded cleanly.
+    if: inputs.publish_id != ''
+    runs-on: ubuntu-latest
+    environment: cascade
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install requests urllib3
+
+      # No source directory is walked here: the upload already happened.
+      # An empty directory keeps the uploader from re-reading anything.
+      - name: Queue publish
+        env:
+          CASCADE_API_KEY: ${{ secrets.CASCADE_API_KEY }}
+        run: |
+          test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
+          mkdir -p empty
+          python scripts/cascade_uploader.py ./empty \
+            --site-name "${{ inputs.site_name }}" \
+            --root-path "${{ inputs.root_path }}" \
+            --base-url "${{ inputs.base_url }}" \
+            --no-dry-run \
+            --publish \
+            --publish-id "${{ inputs.publish_id }}" \
+            --publish-type folder
+          echo "Publish queued. success means queued, not finished."
+          echo "Check the publish queue in Cascade for progress."

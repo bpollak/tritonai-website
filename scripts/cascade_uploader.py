@@ -288,22 +288,32 @@ class CascadeUploader:
         logger.error("%s | file | FAILED: %s", cascade_path, message)
         return False
 
-    def publish(self) -> bool:
-        """Queue the upload root for publishing. success only means queued."""
-        payload = {
-            "publishInformation": {
-                "identifier": {
-                    "path": {"path": self.root_path, "siteName": self.site_name},
-                    "type": "folder",
-                }
-            }
-        }
-        result = self._post("/api/v1/publish", payload, f"publish {self.root_path}")
+    def publish(self, asset_id: Optional[str] = None, asset_type: str = "folder") -> bool:
+        """
+        Queue an asset for publishing.
+
+        success only means the asset reached the publish queue, not that
+        publishing finished. Watch the queue in Cascade for actual progress.
+
+        Publishing a folder publishes everything beneath it.
+        """
+        # Verified against QA: the type segment is required. A bare id returns
+        # "No bean specified", which reads like a body problem but is not.
+        if asset_id:
+            endpoint = f"/api/v1/publish/{asset_type}/{asset_id}"
+            target = f"{asset_type} id {asset_id}"
+        else:
+            endpoint = f"/api/v1/publish/{asset_type}/{self.site_name}{self.root_path}"
+            target = f"{asset_type} {self.root_path}"
+
+        payload = {"publishInformation": {"unpublish": False}}
+        result = self._post(endpoint, payload, f"publish {target}")
         if result and result.get("success"):
-            logger.info("Publish queued for %s", self.root_path)
+            logger.info("Queued for publish: %s", target)
             return True
         message = result.get("message", "unknown error") if result else "request failed"
-        self.summary.fail(self.site_name, self.root_path, f"publish: {message}")
+        self.summary.fail(self.site_name, target, f"publish: {message}")
+        logger.error("Publish failed: %s", message)
         return False
 
     # ---------- walk ----------
@@ -398,6 +408,17 @@ def main() -> None:
     parser.add_argument("--api-key", help="Defaults to CASCADE_API_KEY")
     parser.add_argument("--no-dry-run", action="store_true", help="Actually write to Cascade")
     parser.add_argument("--publish", action="store_true", help="Queue a publish after upload")
+    parser.add_argument(
+        "--publish-id",
+        help="Asset id to publish, instead of resolving the root by path. "
+             "Needed for a site root, which does not resolve by path.",
+    )
+    parser.add_argument(
+        "--publish-type",
+        default="folder",
+        choices=["folder", "file", "page", "site"],
+        help="Asset type for the publish call (default: folder)",
+    )
     parser.add_argument("--changed-files", help="File containing changed paths, one per line")
     parser.add_argument("--rate-limit-delay", type=float, default=0.5)
     parser.add_argument(
@@ -444,7 +465,7 @@ def main() -> None:
     summary = uploader.upload(args.source_dir, changed)
 
     if args.publish and summary.failed == 0:
-        uploader.publish()
+        uploader.publish(args.publish_id, args.publish_type)
     elif args.publish:
         logger.warning("Skipping publish: %d failures during upload.", summary.failed)
 
