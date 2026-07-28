@@ -1,37 +1,46 @@
 name: Publish to Cascade
 
-# Manual only to start with. Once a few runs are green, add a push trigger:
-#
-#   push:
-#     branches: [main]
-#
-# dist/ is gitignored and rebuilt here, so change detection is not used:
-# every run is a full upsert. That is safe (create-or-edit) but not free,
-# so pace it against the size of the site.
+# Runs automatically on merge to main. The values below in `env` are the
+# single source of truth; the workflow_dispatch inputs are optional
+# overrides for one-off runs (for example pointing at a scratch folder or a
+# different instance) and are deliberately left without defaults so they
+# fall through to `env` when blank.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       site_name:
-        description: Cascade site name
-        required: true
-        default: TritonAI-Test
-      root_path:
-        description: Target folder in Cascade
-        required: true
-        default: /_pipeline-test
-      base_url:
-        description: Cascade host
-        required: true
-        default: https://ucsd-dev.cascadecms.com
-      publish_id:
-        description: >
-          Asset id to publish after upload. Leave blank to skip publishing.
-          Root folder of TritonAI-Test is a57efd7c0a0000b6521ddeadfd53a18b
+        description: 'Override site name (blank uses the workflow default)'
         required: false
-        default: ''
+      root_path:
+        description: 'Override target folder (blank uses the workflow default)'
+        required: false
+      base_url:
+        description: 'Override Cascade host (blank uses the workflow default)'
+        required: false
+      publish_id:
+        description: 'Override publish target asset id (blank uses the workflow default)'
+        required: false
+      skip_publish:
+        description: 'Upload without publishing'
+        required: false
+        type: boolean
+        default: false
 
+env:
+  # Change these to retarget the pipeline. Everything else reads from here.
+  CASCADE_SITE: ${{ inputs.site_name || 'TritonAI-Test' }}
+  CASCADE_ROOT: ${{ inputs.root_path || '/' }}
+  CASCADE_HOST: ${{ inputs.base_url || 'https://ucsd-dev.cascadecms.com' }}
+  # Root folder of TritonAI-Test on ucsd-dev. Asset ids are per instance:
+  # a prod root will have a different id.
+  CASCADE_PUBLISH_ID: ${{ inputs.publish_id || 'a57efd7c0a0000b6521ddeadfd53a18b' }}
+
+# One deploy at a time. Queued rather than cancelled, so a run that is
+# already writing to Cascade is never interrupted part way through.
 concurrency:
-  group: cascade-${{ inputs.site_name }}-${{ inputs.root_path }}
+  group: cascade-publish
   cancel-in-progress: false
 
 jobs:
@@ -43,14 +52,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'          # match pages.yml
+          node-version: '22'
           cache: npm
 
       - run: npm ci
 
       # Empty SITE_BASE_PATH is required. GitHub Pages builds with
-      # /tritonai-website, which would prefix every route and break all
-      # links once uploaded to a Cascade site root.
+      # /tritonai-website, which would prefix every route and break every
+      # link once uploaded to a Cascade site root.
       - name: Build and validate
         env:
           SITE_BASE_PATH: ''
@@ -78,14 +87,15 @@ jobs:
           CASCADE_API_KEY: ${{ secrets.CASCADE_API_KEY }}
         run: |
           test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
+          echo "Target: $CASCADE_SITE $CASCADE_ROOT on $CASCADE_HOST"
           python scripts/cascade_uploader.py ./dist \
-            --site-name "${{ inputs.site_name }}" \
-            --root-path "${{ inputs.root_path }}" \
-            --base-url "${{ inputs.base_url }}" \
+            --site-name "$CASCADE_SITE" \
+            --root-path "$CASCADE_ROOT" \
+            --base-url "$CASCADE_HOST" \
             2>&1 | tee dry-run.log
 
-      # Deploy the exact bytes that were planned, rather than rebuilding
-      # and hoping the second build matches the first.
+      # Deploy the exact bytes that were planned, rather than rebuilding and
+      # hoping the second build matches the first.
       - uses: actions/upload-artifact@v4
         with:
           name: cascade-dist
@@ -103,7 +113,7 @@ jobs:
     name: Upload to Cascade
     needs: build
     runs-on: ubuntu-latest
-    environment: cascade          # approval gate configured in repo settings
+    environment: cascade
     steps:
       - uses: actions/checkout@v4
 
@@ -124,9 +134,9 @@ jobs:
         run: |
           test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
           python scripts/cascade_uploader.py ./dist \
-            --site-name "${{ inputs.site_name }}" \
-            --root-path "${{ inputs.root_path }}" \
-            --base-url "${{ inputs.base_url }}" \
+            --site-name "$CASCADE_SITE" \
+            --root-path "$CASCADE_ROOT" \
+            --base-url "$CASCADE_HOST" \
             --no-dry-run \
             2>&1 | tee upload.log
 
@@ -140,8 +150,9 @@ jobs:
   publish:
     name: Publish
     needs: deploy
-    # Only when an id was supplied, and only if every asset uploaded cleanly.
-    if: inputs.publish_id != ''
+    # Runs on every automatic deploy. Tick skip_publish on a manual run to
+    # upload without publishing.
+    if: inputs.skip_publish != true
     runs-on: ubuntu-latest
     environment: cascade
     steps:
@@ -153,8 +164,8 @@ jobs:
 
       - run: pip install requests urllib3
 
-      # No source directory is walked here: the upload already happened.
-      # An empty directory keeps the uploader from re-reading anything.
+      # No directory is walked here: the upload already happened. The empty
+      # directory just satisfies the required argument.
       - name: Queue publish
         env:
           CASCADE_API_KEY: ${{ secrets.CASCADE_API_KEY }}
@@ -162,12 +173,11 @@ jobs:
           test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
           mkdir -p empty
           python scripts/cascade_uploader.py ./empty \
-            --site-name "${{ inputs.site_name }}" \
-            --root-path "${{ inputs.root_path }}" \
-            --base-url "${{ inputs.base_url }}" \
+            --site-name "$CASCADE_SITE" \
+            --root-path "$CASCADE_ROOT" \
+            --base-url "$CASCADE_HOST" \
             --no-dry-run \
             --publish \
-            --publish-id "${{ inputs.publish_id }}" \
+            --publish-id "$CASCADE_PUBLISH_ID" \
             --publish-type folder
-          echo "Publish queued. success means queued, not finished."
-          echo "Check the publish queue in Cascade for progress."
+          echo "Queued, not finished. Watch the publish queue in Cascade."
