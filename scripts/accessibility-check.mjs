@@ -30,6 +30,42 @@ try {
               return splitRect && mediaRect.height > 0 && mediaRect.width < splitRect.width * 0.9;
             }).length)
             : 0,
+          adjacentButtonSizeMismatches: await page.evaluate(() => {
+            const findings = [];
+            for (const parent of document.querySelectorAll("main *")) {
+              const buttons = Array.from(parent.children).filter((child) => child.matches?.(".btn"));
+              if (buttons.length < 2) continue;
+              const rows = new Map();
+              for (const button of buttons) {
+                const rect = button.getBoundingClientRect();
+                if (!rect.width || !rect.height) continue;
+                const row = Math.round(rect.top);
+                if (!rows.has(row)) rows.set(row, []);
+                rows.get(row).push({ button, rect });
+              }
+              for (const rowButtons of rows.values()) {
+                if (rowButtons.length < 2) continue;
+                const measurements = rowButtons.map(({ button, rect }) => {
+                  const styles = getComputedStyle(button);
+                  return {
+                    text: (button.textContent || "").trim().replace(/\s+/g, " ").slice(0, 80),
+                    height: Math.round(rect.height),
+                    fontSize: styles.fontSize,
+                    paddingBlock: `${styles.paddingTop} ${styles.paddingBottom}`,
+                  };
+                });
+                const first = measurements[0];
+                if (measurements.some((measurement) => (
+                  Math.abs(measurement.height - first.height) > 1
+                  || measurement.fontSize !== first.fontSize
+                  || measurement.paddingBlock !== first.paddingBlock
+                ))) {
+                  findings.push(measurements);
+                }
+              }
+            }
+            return findings;
+          }),
           decoratorFonts: await page.evaluate(() => {
             const findings = [];
             const check = (selector, expectedFamily) => {
@@ -73,6 +109,9 @@ for (const result of pages) {
     if (viewport.error) failures.push(`${label}: browser check failed: ${viewport.error}`);
     if (viewport.horizontalOverflow) failures.push(`${label}: horizontal overflow`);
     if (viewport.collapsedHubMedia) failures.push(`${label}: collapsed split media (${viewport.collapsedHubMedia} ${viewport.collapsedHubMedia === 1 ? "node" : "nodes"})`);
+    for (const mismatch of viewport.adjacentButtonSizeMismatches || []) {
+      failures.push(`${label}: adjacent button size mismatch (${mismatch.map((button) => `${button.text}: ${button.height}px, ${button.fontSize}, ${button.paddingBlock}`).join("; ")})`);
+    }
     for (const finding of viewport.decoratorFonts || []) {
       failures.push(`${label}: Decorator font mismatch on ${finding.element} (${finding.family}; expected ${finding.expectedFamily})`);
     }

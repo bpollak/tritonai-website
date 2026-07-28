@@ -437,7 +437,7 @@
 }
 
 .trust-intro-actions {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -939,7 +939,7 @@
 }
 
 .dsmlp-intro-actions {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -2906,6 +2906,7 @@
 }
 
 .tritongpt-intro-actions {
+  align-items: stretch;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -3136,6 +3137,7 @@
 }
 
 .assistant-overview-footer > div {
+  align-items: stretch;
   display: flex;
   flex: 0 0 auto;
   flex-wrap: wrap;
