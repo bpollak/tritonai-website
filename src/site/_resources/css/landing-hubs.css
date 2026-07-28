@@ -2700,6 +2700,66 @@
   text-align: right;
 }
 
+.tools-build-workspaces {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.tools-build-workspaces li {
+  align-items: center;
+  background: rgba(0, 98, 155, .06);
+  border: 1px solid rgba(0, 98, 155, .2);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 30px minmax(0, 1fr);
+  padding: 12px 14px;
+}
+
+.tools-build-workspaces .glyphicon {
+  color: var(--triton-blue);
+  font-size: 23px;
+  text-align: center;
+}
+
+.tools-build-workspaces strong,
+.tools-build-workspaces small {
+  display: block;
+}
+
+.tools-build-workspaces strong {
+  color: var(--triton-navy);
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.tools-build-workspaces small {
+  color: #52616b;
+  font-size: 12px;
+  line-height: 1.3;
+  margin-top: 3px;
+}
+
+.tools-build-workspaces .tools-build-workspace-primary {
+  background: var(--triton-navy);
+  border-color: var(--triton-navy);
+}
+
+.tools-build-workspace-primary .glyphicon {
+  color: var(--triton-gold);
+}
+
+.tools-build-workspace-primary strong {
+  color: #fff;
+}
+
+.tools-build-workspace-primary small {
+  color: #d9f2f5;
+}
+
 .hub-responsibility-grid article {
   background: #fff;
   border-top: 5px solid var(--triton-blue);
@@ -3437,6 +3497,7 @@
   .hub-measure-grid,
   .hub-lifecycle { grid-template-columns: 1fr; }
   .hub-subscribe { background: #fff; }
+  .tools-build-workspaces { grid-template-columns: 1fr; }
   .hub-path-list li { grid-template-columns: 90px 1fr; }
   .hub-path-list-light li { gap: 4px; grid-template-columns: 1fr; }
   .cms-cta { margin: 42px 0; }

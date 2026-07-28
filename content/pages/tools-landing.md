@@ -3,7 +3,7 @@ title: AI Tools
 path: /tools/index.html
 description: The AI services UC San Diego supports, what each one is for, and how to get access.
 eyebrow: Supported services and capabilities
-lastReviewed: 2026-07-24
+lastReviewed: 2026-07-27
 audiences: [students, faculty, staff, researchers]
 source: UC San Diego public AI service pages
 canonicalUrl: /tools/index.html
@@ -29,7 +29,7 @@ bannerPosition: center 48%
 </section>
 
 <section class="hub-section hub-subscribe" aria-labelledby="build-tools-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Build with TritonAI</p><h2 id="build-tools-heading">Need a tool that is not listed?</h2><p>The Build page covers TritonAI Harness, Claude Code, and the Codex desktop app, along with campus model access, reusable skills, and supported hosting paths.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/index.html">Explore the Build page</a></div></div>
+<div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Build with TritonAI</p><h2 id="build-tools-heading">Need a tool that is not listed?</h2><p>The Build page covers TritonAI Harness, Claude Code, and the Codex desktop app, along with campus model access, reusable skills, and supported hosting paths.</p><ul class="tools-build-workspaces" aria-label="Supported desktop workspaces"><li class="tools-build-workspace-primary"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span><strong>TritonAI Harness</strong><small>Primary supported workspace</small></span></li><li><span class="glyphicon glyphicon-console" aria-hidden="true"></span><span><strong>Claude Code</strong><small>Supported</small></span></li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><span><strong>Codex desktop app</strong><small>Supported</small></span></li></ul></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/index.html">Explore the Build page</a></div></div>
 </section>
 
 <section class="hub-section" aria-labelledby="choose-task-heading">
