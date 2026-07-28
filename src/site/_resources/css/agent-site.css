@@ -27,6 +27,8 @@
 
 .agent-page .home-main-content .main-section {
   float: none !important;
+  margin-bottom: 0;
+  padding-bottom: 0;
   width: 100%;
 }
 
