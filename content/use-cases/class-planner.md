@@ -13,9 +13,7 @@ canonicalUrl: /use-cases/class-planner.html
 videoSrc: https://tritongpt-deck.vercel.app/media/TritonGPT%20Class%20Scheduling%20Agent%20-%20LinkedIn%20Horizontal.mp4
 videoPoster: /_images/use-cases/tritongpt-class-planner-demo.webp
 videoLabel: TritonGPT Class Scheduling Assistant demo
-videoDescription: One-minute screen recording with background music and on-screen callouts showing the assistant interpreting course requirements, building a conflict-aware schedule, adapting to a work schedule, and preparing a plan for review before official booking.
-videoCaptionsSrc: /_resources/captions/tritongpt-class-planner.vtt
-videoCaptionsLabel: English
+videoDescription: One-minute screen recording with on-screen callouts showing the assistant interpreting course requirements, building a conflict-aware schedule, adapting to a work schedule, and preparing a plan for review before official booking.
 relatedSlides: [video-tritongpt-class-scheduling-agent]
 humanOversight: Students confirm requirements and constraints, review every proposed course and meeting time, and complete official booking in the student system.
 measurableOutcome: Successful draft creation, conflict identification, constraint handling, student corrections, and usefulness before official booking.
