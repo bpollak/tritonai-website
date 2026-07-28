@@ -213,8 +213,8 @@ const USE_CASE_MEDIA = {
     alt: "Faculty publications, teaching, service, and awards branching into a review-ready academic portfolio",
   },
   "class-planner": {
-    src: "/_images/use-cases/tritongpt-class-planner-demo.webp",
-    alt: "TritonGPT Class Scheduling Assistant presenting a conflict-aware course combination for student review",
+    src: "/_images/use-cases/class-planner-public.webp",
+    alt: "Color-coded course blocks arranged on a weekly planner, with unavailable times and three schedule options for comparison",
   },
   "dissertation-formatter": {
     src: "/_images/use-cases/dissertation-formatter-public.webp",
