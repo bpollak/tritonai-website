@@ -69,6 +69,6 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison,
 
 Models will keep changing. The service depends on approved integrations and clean sources. Reusable skills, honest evaluation, and named ownership keep it running.
 
-Shared context follows the same operating discipline. A person approves what becomes reusable, and the record carries its source, owner, review date, and freshness expectations. A service retrieves only the context its task permits and presents proposed changes for review. The <a href="/about/trust-architecture.html#context-lifecycle">trust architecture</a> explains that lifecycle.
+Shared context follows the same operating discipline. A person approves what becomes reusable, and the record carries its source, owner, review date, and freshness expectations. A service retrieves only the context its task permits and presents proposed changes for review. The <a href="/about/trust-architecture.html">trust architecture</a> explains the shared service foundation.
 
 <p><a class="btn btn-primary" href="/use-cases/index.html">Explore use cases</a> <a class="btn btn-default" href="/about/roadmap.html">View the roadmap</a> <a class="btn btn-default" href="/about/impact.html">See campus impact</a></p>

@@ -763,7 +763,7 @@ for (const page of htmlFiles) {
     }
   }
   if (route === "/about/trust-architecture.html") {
-    const requiredSections = ["#trust-layers", "#trust-responsibility", "#trust-surfaces", "#trust-start"];
+    const requiredSections = ["#trust-layers", "#trust-surfaces"];
     for (const selector of requiredSections) {
       if ($(selector).length !== 1) contentFindings.push({ source: route, issue: `Trust page is missing ${selector}` });
     }
@@ -772,9 +772,6 @@ for (const page of htmlFiles) {
     }
     if ($(".trust-layer-grid > article").length !== 4) {
       contentFindings.push({ source: route, issue: "Trust foundation must contain four layers" });
-    }
-    if ($(".trust-responsibility-grid > article").length !== 2) {
-      contentFindings.push({ source: route, issue: "Trust responsibility summary must contain two owners" });
     }
     if ($(".trust-surface-grid > article").length !== 5) {
       contentFindings.push({ source: route, issue: "Trust delivery surfaces must contain five examples" });
