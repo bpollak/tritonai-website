@@ -49,6 +49,7 @@ class Summary:
     def __init__(self) -> None:
         self.created = 0
         self.edited = 0
+        self.unchanged = 0
         self.skipped = 0
         self.failed = 0
         self.failures: List[str] = []
@@ -58,13 +59,14 @@ class Summary:
         self.failures.append(f"{site} | {path} | {message}")
 
     def report(self) -> None:
-        total = self.created + self.edited + self.skipped + self.failed
+        total = self.created + self.edited + self.unchanged + self.skipped + self.failed
         logger.info("--- RUN SUMMARY ---")
-        logger.info("Total:   %d", total)
-        logger.info("Created: %d", self.created)
-        logger.info("Edited:  %d", self.edited)
-        logger.info("Skipped: %d", self.skipped)
-        logger.info("Failed:  %d", self.failed)
+        logger.info("Total:     %d", total)
+        logger.info("Created:   %d", self.created)
+        logger.info("Edited:    %d", self.edited)
+        logger.info("Unchanged: %d", self.unchanged)
+        logger.info("Skipped:   %d", self.skipped)
+        logger.info("Failed:    %d", self.failed)
         if self.failures:
             logger.info("Failures:")
             for line in self.failures:
@@ -82,7 +84,9 @@ class CascadeUploader:
         dry_run: bool = True,
         rate_limit_delay: float = 0.5,
         excludes: Optional[Set[str]] = None,
+        force: bool = False,
     ) -> None:
+        self.force = force
         self.excludes = set(DEFAULT_EXCLUDES) | set(excludes or ())
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key
@@ -245,6 +249,31 @@ class CascadeUploader:
         logger.error("%s | folder | FAILED: %s", cascade_path, message)
         return False
 
+    @staticmethod
+    def _unchanged(existing: dict, content: dict) -> bool:
+        """
+        True when Cascade already holds exactly what we are about to send.
+
+        The read that decides create-vs-edit already returns the current
+        content, so this comparison costs no extra request. Comparing against
+        Cascade rather than a cached manifest means a file edited by hand in
+        the CMS is still detected as drift and corrected.
+        """
+        if "text" in content:
+            return existing.get("text") == content["text"]
+
+        current = existing.get("data")
+        if not isinstance(current, list):
+            return False
+        # Cascade may report bytes signed or unsigned depending on the call;
+        # normalise both sides before comparing.
+        try:
+            return [(int(b) + 256) % 256 for b in current] == [
+                (b + 256) % 256 for b in content["data"]
+            ]
+        except (TypeError, ValueError):
+            return False
+
     def _upsert_file(self, local: Path, cascade_path: str) -> bool:
         content = self._content_fields(local)
         if content is None:
@@ -257,6 +286,10 @@ class CascadeUploader:
             return False
 
         if status == "found":
+            if not self.force and self._unchanged(existing or {}, content):
+                self.summary.unchanged += 1
+                logger.info("%s | file | unchanged", cascade_path)
+                return True
             # Edit sends the whole asset back, so untouched fields (metadata,
             # shouldBePublished, tags) survive. Only the content changes.
             asset = dict(existing or {})
@@ -422,6 +455,11 @@ def main() -> None:
     parser.add_argument("--changed-files", help="File containing changed paths, one per line")
     parser.add_argument("--rate-limit-delay", type=float, default=0.5)
     parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Rewrite every file even when Cascade already holds identical content",
+    )
+    parser.add_argument(
         "--exclude",
         action="append",
         default=[],
@@ -457,6 +495,7 @@ def main() -> None:
         dry_run=not args.no_dry_run,
         rate_limit_delay=args.rate_limit_delay,
         excludes=set(args.exclude),
+        force=args.force,
     )
 
     logger.info(
