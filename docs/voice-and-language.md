@@ -3,8 +3,9 @@
 How TritonAI copy should read. [Content governance](content-governance.md) decides what may
 be published; this page decides how it sounds.
 
-`npm run test:language` checks the mechanical parts of these rules against
-`content/pages/` and `content/use-cases/` and writes `reports/language.json`.
+`npm run test:language` checks the mechanical parts of these rules against page and
+use-case copy, newsletter descriptions, the homepage hero, and public roadmap narrative.
+It writes `reports/language.json`.
 
 ## The target
 

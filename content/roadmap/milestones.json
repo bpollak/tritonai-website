@@ -113,7 +113,7 @@
       "period": "Q2 2026 — Refine",
       "title": "Process Automation",
       "status": "Pilot",
-      "summary": "Expanded the builder path, brought TritonGPT into the campus mobile app, delivered a Canvas-integrated instructional assistant, and advanced focused finance, transcript, contract, research, BioBib, and observability pilots.",
+      "summary": "The builder path expanded, and TritonGPT moved into the campus mobile app. A Canvas-integrated instructional assistant shipped. Teams also advanced pilots in finance, transcript processing, and contract review. Research, BioBib, and observability pilots moved ahead as well.",
       "details": [
         "Developer API access and N8N Agent Builder broadened the path from model access to supervised workflow orchestration.",
         "TritonGPT extended into the campus mobile experience and began surfacing live campus signals with stronger response traceability.",

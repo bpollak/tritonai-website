@@ -20,8 +20,8 @@ relatedSlides: [the-team-behind-tritonai, campus-app-hosting, ai-engagement-at-s
 <tr><th scope="row">Platform team</th><td>Model gateway, shared services, developer experience, reliability, and observability</td><td>Platform standards, supported integrations, operations</td></tr>
 <tr><th scope="row">Solutions team</th><td>Discovery, workflow design, prototypes, evaluation, and delivery patterns</td><td>Fit, pilot design, human oversight, readiness</td></tr>
 <tr><th scope="row">Campus service owner</th><td>Business process, approved data, subject-matter review, support, and adoption</td><td>Requirements, acceptance, escalation, ongoing ownership</td></tr>
-<tr><th scope="row">Knowledge and source owners</th><td>Source quality, provenance, freshness, correction, and access boundaries for shared context</td><td>What can be promoted, updated, reconciled, or retired</td></tr>
-<tr><th scope="row">Governance partners</th><td>Privacy, security, accessibility, records, policy, and risk guidance</td><td>Required controls and review</td></tr>
+<tr><th scope="row">Knowledge and source owners</th><td>Maintain quality and provenance for shared context. Set its freshness, correction, and access boundaries.</td><td>What can be promoted, updated, reconciled, or retired</td></tr>
+<tr><th scope="row">Governance partners</th><td>Privacy, security, and accessibility guidance; records, policy, and risk review</td><td>Required controls and review</td></tr>
 </tbody></table></div>
 
 ## Who owns shared context
@@ -38,7 +38,7 @@ relatedSlides: [the-team-behind-tritonai, campus-app-hosting, ai-engagement-at-s
 <div class="row agent-card-grid">
 <div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Sponsor</h2><p>A campus unit names the need, process owner, approved data, expected outcome, and people who will review the work.</p></div></div></div>
 <div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Build</h2><p>The platform and solutions teams choose a supported pattern, design the workflow, and establish evaluation and oversight.</p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Review</h2><p>Governance partners identify required privacy, security, accessibility, policy, records, and risk controls.</p></div></div></div>
+<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Review</h2><p>Governance partners identify the privacy, security, and accessibility controls. They also set requirements for policy, records, and risk.</p></div></div></div>
 <div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h2 class="h3">Operate</h2><p>The service owner accepts the result, maintains support and escalation, and keeps checking whether the service still performs.</p></div></div></div>
 </div>
 

@@ -57,7 +57,7 @@ bannerPosition: center 44%
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" id="api-gateway" aria-labelledby="api-gateway-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">Everything goes through one gateway</h2><p>You build in a supported environment and send model requests to the TritonAI LLM Gateway. It routes them to approved cloud or UC-hosted models, so you deal with one endpoint instead of several vendors.</p></div>
+<div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">Everything goes through one gateway</h2><p>You build in a supported environment and send model requests to the TritonAI LLM Gateway. One endpoint handles routing to approved cloud or UC-hosted models.</p></div>
 <figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
 <div class="api-gateway-map">
 <div class="api-gateway-source-cluster">
@@ -124,8 +124,8 @@ bannerPosition: center 44%
 <li class="hosting-lane hosting-lane-managed">
 <div class="hosting-lane-tier"><span>Lane 2</span><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><strong>Managed campus service</strong></div>
 <div class="hosting-lane-purpose"><span class="hosting-lane-label">Best for</span><strong>Support many users</strong><p>A shared workflow, usually with integrations, that other teams now depend on.</p></div>
-<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>TritonAI or ITS-managed path</strong><p>Someone operates the service, not just builds it.</p><p class="hosting-lane-address"><span class="hosting-lane-label">URL</span><code>tritonai.ucsd.edu</code></p></div>
-<div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Recurring risk and scope review</strong><p>Quality, security, accessibility, uptime, and support are all watched.</p></div>
+<div class="hosting-lane-host"><span class="hosting-lane-label">Hosting</span><strong>TritonAI or ITS-managed path</strong><p>A named team operates and supports the service.</p><p class="hosting-lane-address"><span class="hosting-lane-label">URL</span><code>tritonai.ucsd.edu</code></p></div>
+<div class="hosting-lane-review"><span class="hosting-lane-label">Accountability</span><strong>Recurring risk and scope review</strong><p>Teams monitor quality, security, accessibility, and uptime. They also own support.</p></div>
 </li>
 <li class="hosting-lane-escalation"><span aria-hidden="true">↓</span><strong>Move to a managed lane as scope grows</strong></li>
 <li class="hosting-lane hosting-lane-enterprise">
@@ -149,4 +149,4 @@ bannerPosition: center 44%
 
 <nav class="hub-section hub-link-panel" id="builder-resources" aria-labelledby="build-resources-heading"><div class="hub-heading"><p class="home-kicker">Builder resources</p><h2 id="build-resources-heading">Where to go next</h2></div><div class="row hub-link-columns"><div class="col-sm-6 col-md-4"><a href="#tritonai-harness"><strong>TritonAI Harness</strong><span>Agentic development workspace</span></a></div><div class="col-sm-6 col-md-4"><a href="/developer-apis/start.html"><strong>Get started</strong><span>Access and onboarding</span></a></div><div class="col-sm-6 col-md-4"><a href="/developer-apis/faq.html"><strong>Developer FAQ</strong><span>Common implementation questions</span></a></div><div class="col-sm-6 col-md-4"><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/"><strong>Model Hub</strong><span>Capabilities and rates</span></a></div><div class="col-sm-6 col-md-4"><a href="/skills/index.html"><strong>Skills Library</strong><span>Reusable capability packages</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/trust-architecture.html"><strong>Trust and architecture</strong><span>Hosting and oversight</span></a></div></div></nav>
 
-<section class="hub-section hub-subscribe" id="build-start" aria-labelledby="prototype-heading"><div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Before you email us</p><h2 id="prototype-heading">Bring a narrow, measurable problem</h2><p>Work out who it is for, what data you may use, where a person reviews it, and how you will know it worked. Pick the model after that, not before.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Start the access process</a></div></div></section>
+<section class="hub-section hub-subscribe" id="build-start" aria-labelledby="prototype-heading"><div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Before you email us</p><h2 id="prototype-heading">Bring a narrow, measurable problem</h2><p>Work out who it is for and what data it may use. Name the review point and a result you can measure. Then choose the model.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Start the access process</a></div></div></section>

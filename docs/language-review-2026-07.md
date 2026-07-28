@@ -202,17 +202,23 @@ widen an eligibility statement.
 Checked against the previous copy first, to confirm it flags it rather than passing
 vacuously.
 
-## Still outstanding
+## Follow-up: body copy, newsletters, and roadmap
 
-**`content/newsletters/`** carries the same markers and is regenerated weekly by an agent —
-*"cleaner drafts in Word, sharper analysis in Excel, richer presentations in PowerPoint"*,
-*"strengthening, not replacing, the teaching process"*. The archived issues are arguably a
-historical record and were left alone, but future ones now inherit the rules through the
-Voice section in `AGENTS.md`.
+The first check covered metadata, headings, kickers, and selected ledes. Ordinary
+paragraphs and list items could still contain the same patterns while the report stayed
+green. A second pass in July 2026 expanded the check to rendered body copy in
+`content/pages/` and `content/use-cases/`, all newsletter descriptions, and the public
+roadmap narrative.
 
-The other JSON copy — `content/roadmap/milestones.json` and `content/facts/*.json` — has
-not been reviewed. The facts files are owner-controlled claims and should stay that way; the
-roadmap summaries are fair game for a later pass.
+That pass removed manufactured contrasts, rhetorical internal dashes, booster adjectives,
+and long sentence-level lists from the current source corpus. Newsletter link-title dashes,
+numeric ranges, approved measurement periods, linked titles, and factual claims remain
+unchanged where the punctuation or wording carries meaning.
+
+The review also covered legacy pages whose main content is not replaced by the build,
+including the prompt library, webinars, TritonGPT training, the chatbot widget, and release
+notes. The owner-controlled claims in `content/facts/*.json` remain outside the copy-edit
+scope.
 
 One unrelated observation, noted rather than fixed: `scripts/build.mjs` hardcodes
 *"Usage rose to a six-month high in June."* next to data that lives in

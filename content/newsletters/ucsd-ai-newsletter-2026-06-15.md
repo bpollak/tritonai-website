@@ -42,4 +42,4 @@ _June 15, 2026_
 ## TritonAI News
 
 -   **[Beyond the Song Generator: How UC San Diego Students Are Rethinking AI and Music](https://today.ucsd.edu/story/beyond-the-song-generator)** – Students and faculty explore AI's role in music composition, accessibility, and creativity.
--   **[UC San Diego Professor Daniel Kane Awarded Gödel Prize](https://today.ucsd.edu/story/uc-san-diego-professor-daniel-kane-awarded-goedel-prize-highest-theoretical-computer-science-honor)** – Computer science and mathematics professor Daniel M. Kane receives the 2026 Gödel Prize for groundbreaking work in computational complexity.
+-   **[UC San Diego Professor Daniel Kane Awarded Gödel Prize](https://today.ucsd.edu/story/uc-san-diego-professor-daniel-kane-awarded-goedel-prize-highest-theoretical-computer-science-honor)** – Computer science and mathematics professor Daniel M. Kane receives the 2026 Gödel Prize for his work in computational complexity.

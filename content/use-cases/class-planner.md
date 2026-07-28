@@ -39,4 +39,4 @@ This assistant is distinct from the standalone Class Planner web app. Planning h
 
 ## Current status
 
-In production in TritonGPT. It produces a plan, not an enrollment. Students still have to verify the course requirements, meeting details, and availability, and do the actual booking themselves.
+In production in TritonGPT. It produces a proposed schedule for students to review. Students still have to verify the course requirements, meeting details, and availability, and do the actual booking themselves.

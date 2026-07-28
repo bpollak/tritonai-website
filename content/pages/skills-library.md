@@ -10,7 +10,7 @@ canonicalUrl: /skills/index.html
 relatedSlides: [Citizen Developer Ecosystem, Reusable Skills and MCP]
 ---
 
-<p class="lead">A skill bundles the instructions and reference material an AI agent needs to do one campus job properly. Take one instead of writing your own from scratch.</p>
+<p class="lead">A skill bundles instructions and reference material for one campus job. Start with an existing skill and adapt it to the work.</p>
 
 <div data-skills-library="true"></div>
 

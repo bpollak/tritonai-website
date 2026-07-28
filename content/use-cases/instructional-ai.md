@@ -39,6 +39,6 @@ Participating courses can test assistants grounded in approved course material. 
 
 ## Current status
 
-Instructional AI is a pilot. It is not switched on for every course by default. We are evaluating it on learning quality and equity, not just on how many students used it.
+Instructional AI is available only in participating pilot courses. We are evaluating learning quality and equity, along with how many students use it.
 
 <p><a class="btn btn-default" href="/tritongpt/instruction.html">Read the instructional AI pilot page</a></p>

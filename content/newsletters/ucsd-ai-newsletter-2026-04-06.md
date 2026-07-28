@@ -4,26 +4,26 @@ date: 2026-04-06
 source: "ucsd-ai-newsletter-2026-04-06.md"
 items: 8
 ---
-_Week of April 6, 2026 — your roundup of what's new with UC San Diego's supported AI services._
+_Week of April 6, 2026. Here is what changed in UC San Diego's supported AI services._
 
 ## What's New in Your AI Tools
 
 ### Zoom AI Companion
 
--   **[Enhancements to the onboarding workflow for AI Companion](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061222)** — Zoom’s March 24 Zoom Workplace release adds a clearer setup flow for AI Companion, including hosted meeting setup, calendar connection prompts, and summary delivery options. For UC San Diego staff, that should make it easier to get meeting summaries and related AI features turned on without hunting through settings.
+-   **[Enhancements to the onboarding workflow for AI Companion](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061222)** — Zoom added setup prompts for hosted meetings, calendar connections, and summary delivery. Staff can turn on the features from the setup flow.
 
 ### Microsoft Copilot with Data Protection
 
--   **[Latest enhancements for Copilot security, management, and analytics](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/latest-enhancements-for-copilot-security-management-and-analytics/4508476)** — Microsoft added stronger admin controls for sensitive prompts, oversharing cleanup, and Copilot usage reporting. That matters for staff because it supports safer day-to-day use of protected Copilot experiences while giving campus IT clearer visibility into adoption and risk.
+-   **[Latest enhancements for Copilot security, management, and analytics](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/latest-enhancements-for-copilot-security-management-and-analytics/4508476)** — Microsoft added admin controls for sensitive prompts and oversharing, along with Copilot usage reports. Campus IT can manage adoption and risk through the protected Copilot experience.
 
 ### Copilot for Microsoft 365
 
--   **[Copilot in Word: New Capabilities for Document Workflows](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/copilot-in-word-new-capabilities-for-document-workflows/4508974)** — Copilot in Word can now turn on Track Changes, work with comments, update tables of contents, and handle headers, footers, and page numbers in one flow. For staff who draft policies, contracts, reports, or committee documents, that means less cleanup after asking Copilot for help.
+-   **[Copilot in Word: New Capabilities for Document Workflows](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/copilot-in-word-new-capabilities-for-document-workflows/4508974)** — Copilot in Word can turn on Track Changes and work with comments. It can also update tables of contents, headers, footers, and page numbers. Staff drafting policies or reports should have less cleanup after using it.
 
 ### Google Gemini & NotebookLM
 
--   **[The Gemini app can now generate interactive simulations and models.](https://blog.google/innovation-and-ai/products/gemini-app/3d-models-charts/)** — Gemini can now turn a prompt into an interactive model or simulation inside the chat instead of only returning static text. That gives staff a faster way to explore concepts, test assumptions, or explain something visually without building slides or diagrams by hand.
--   **[Try notebooks in Gemini to easily keep track of projects](https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/)** — Google added notebooks that sync between Gemini and NotebookLM, so chats, files, and source material stay organized in one place. For UC San Diego staff, this is useful for longer-running work like planning, research, training prep, or policy drafting where context needs to carry across sessions.
+-   **[The Gemini app can now generate interactive simulations and models.](https://blog.google/innovation-and-ai/products/gemini-app/3d-models-charts/)** — Gemini can turn a prompt into an interactive model or simulation inside the chat. Staff can test assumptions or explain a concept visually without building a separate slide or diagram.
+-   **[Try notebooks in Gemini to easily keep track of projects](https://blog.google/innovation-and-ai/products/gemini-app/notebooks-gemini-notebooklm/)** — Google added notebooks that sync between Gemini and NotebookLM. Chats, files, and source material stay together across both tools. Staff can carry a long-running project across sessions without rebuilding its context.
 
 ## Coming Up: Trainings & Workshops
 
@@ -33,12 +33,12 @@ No events scheduled in the next two weeks. See the [full training catalog](https
 
 ### Recent Recordings
 
--   📼 **[AI Webinar #6 - One Year of Innovation with TritonGPT: Past, Present, and Future](https://youtu.be/qaRfaAzmBEs)** — A practical look at TritonGPT’s first year, including MyDocuments, model switching, chat search, and chat sharing, with ideas for staying current as the tools keep changing.
--   📼 **[AI Webinar #5 - Lean Six Sigma vs. Artificial Intelligencence](https://youtu.be/tAnnUlRP2uo?feature=shared)** — A plain-language walkthrough of where AI helps with workflow improvement, where it does not, and how to think about using it alongside more traditional process improvement methods.
+-   📼 **[AI Webinar #6 - One Year of Innovation with TritonGPT: Past, Present, and Future](https://youtu.be/qaRfaAzmBEs)** — A tour of TritonGPT’s first year, covering MyDocuments and model switching. It also shows chat search and sharing.
+-   📼 **[AI Webinar #5 - Lean Six Sigma vs. Artificial Intelligencence](https://youtu.be/tAnnUlRP2uo?feature=shared)** — A plain-language walkthrough of AI and traditional process improvement methods, with examples of where each one fits.
 
 ## TritonAI News
 
--   **[What Does It Mean To Learn With AI?](https://today.ucsd.edu/story/how-ai-is-showing-up-in-our-classrooms)** — UC San Diego looks at how AI is starting to show up in teaching and learning, which is useful context for staff supporting courses, student services, or academic operations.
+-   **[What Does It Mean To Learn With AI?](https://today.ucsd.edu/story/how-ai-is-showing-up-in-our-classrooms)** — UC San Diego looks at how AI is showing up in teaching and learning. The examples are relevant to staff supporting courses, student services, or academic operations.
 
 * * *
 
