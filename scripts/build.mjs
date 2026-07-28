@@ -120,15 +120,19 @@ async function loadNewsletters() {
   const newsletters = [];
   for (const filename of filenames) {
     const parsed = matter(await readFile(path.join(NEWSLETTER_DIR, filename), "utf8"));
-    requireFields(parsed.data, ["title", "date"], `content/newsletters/${filename}`);
+    requireFields(parsed.data, ["title", "date", "items"], `content/newsletters/${filename}`);
     const date = asDate(parsed.data.date);
     if (Number.isNaN(date.valueOf())) throw new Error(`Invalid newsletter date in ${filename}`);
+    const items = Number(parsed.data.items);
+    if (!Number.isInteger(items) || items < 1) {
+      throw new Error(`Newsletter ${filename} must contain at least one item`);
+    }
     newsletters.push({
       filename,
       title: parsed.data.title,
       date,
       source: parsed.data.source || filename,
-      items: Number(parsed.data.items || 0),
+      items,
       html: markdown.render(parsed.content),
     });
   }
