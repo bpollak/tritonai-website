@@ -9,9 +9,9 @@ source: TritonAI developer documentation, public architecture and memory present
 canonicalUrl: /developer-apis/index.html
 relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert, harness-memory-architecture]
 landingHub: true
-bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
-bannerPosition: center 44%
-bannerOverlay: /_images/hero-overlays/build.webp
+bannerImage: /_images/hero-abstract/build.webp
+bannerPosition: center
+bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">

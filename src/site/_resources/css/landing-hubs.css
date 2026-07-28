@@ -18,24 +18,19 @@
   z-index: 0;
 }
 
-.landing-hub-page .landing-hub-hero-art {
-  background-position: right 5vw center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: drop-shadow(0 14px 24px rgba(8, 24, 44, .24));
-  height: calc(100% - 28px);
-  opacity: .9;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 14px;
-  width: min(58vw, 920px);
-  z-index: 1;
+.landing-hub-page .landing-hub-hero--abstract {
+  background-color: #102b4e;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.landing-hub-page .landing-hub-hero--abstract::before {
+  background: linear-gradient(90deg, rgba(24, 43, 73, .3) 0%, rgba(24, 43, 73, .12) 48%, rgba(24, 43, 73, 0) 82%);
 }
 
 .landing-hub-page .landing-hub-hero .container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .landing-hub-title {
@@ -3528,13 +3523,12 @@
 
   .landing-hub-page .landing-hub-hero { min-height: 235px; }
   .landing-hub-page .landing-hub-hero::before { background: rgba(24, 43, 73, .79); }
-  .landing-hub-page .landing-hub-hero-art {
-    background-position: right -70px center;
-    height: calc(100% - 16px);
-    opacity: .48;
-    right: 0;
-    top: 8px;
-    width: 82vw;
+  .landing-hub-page .landing-hub-hero--abstract {
+    background-position: 70% center !important;
+    background-size: cover !important;
+  }
+  .landing-hub-page .landing-hub-hero--abstract::before {
+    background: linear-gradient(90deg, rgba(24, 43, 73, .72) 0%, rgba(24, 43, 73, .52) 58%, rgba(24, 43, 73, .2) 100%);
   }
   .landing-hub-title { padding: 48px 0 38px; }
   .landing-hub-page .landing-hub-title .intro-banner-heading { font-size: 42px; }

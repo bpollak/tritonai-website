@@ -643,15 +643,12 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   if (landingHub) $("body").addClass("landing-hub-page");
   const bannerImage = page.bannerImage || "https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg";
   const bannerPosition = page.bannerPosition || "center";
-  const bannerOverlay = page.bannerOverlay || "";
-  const bannerOverlayHtml = bannerOverlay
-    ? `<span aria-hidden="true" class="landing-hub-hero-art" style="background-image:url('${escapeHtml(bannerOverlay)}');"></span>`
-    : "";
+  const bannerClass = page.bannerMode === "abstract" ? " landing-hub-hero--abstract" : "";
   const mainContent =
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
       : landingHub
-        ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};">${bannerOverlayHtml}<div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-breadcrumbs"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div></div><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section>${renderLandingMobileSectionNav(site.navigation, page.path)}`
+        ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero${bannerClass}" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-breadcrumbs"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div></div><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section>${renderLandingMobileSectionNav(site.navigation, page.path)}`
       : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section>${renderSidebar(site.navigation, page.path)}</div></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
@@ -1083,9 +1080,9 @@ const useCaseIndex = {
   lastReviewed: site.lastReviewed,
   canonicalUrl: "/use-cases/index.html",
   landingHub: true,
-  bannerImage: "/_images/callout-scripps-rainbow-dark.webp",
-  bannerPosition: "center 42%",
-  bannerOverlay: "/_images/hero-overlays/use-cases.webp",
+  bannerImage: "/_images/hero-abstract/use-cases.webp",
+  bannerPosition: "center",
+  bannerMode: "abstract",
 };
 await writeGeneratedPage(shellHtml, useCaseIndex, renderUseCaseIndex(useCases), generatedByPath, homeHero);
 for (const useCase of useCases) {
