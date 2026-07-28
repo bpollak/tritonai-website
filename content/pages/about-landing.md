@@ -9,8 +9,9 @@ source: TritonAI strategy presentation, operating model, and public service page
 canonicalUrl: /about/index.html
 relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison, tritongpt-secure-scalable-ai-platform, from-tritongpt-to-tritonai, harness-memory-scale-ucsd]
 landingHub: true
-bannerImage: /_images/landing/geisel-library.webp
-bannerPosition: center 44%
+bannerImage: /_images/hero-abstract/about-tritonai.webp
+bannerPosition: center
+bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro about-feature" aria-labelledby="about-mission-heading">

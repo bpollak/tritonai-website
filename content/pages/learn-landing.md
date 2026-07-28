@@ -9,8 +9,9 @@ source: TritonAI training catalog and UC San Diego learning resources
 canonicalUrl: /training-resources/index.html
 relatedSlides: [Training, AI Foundations, Citizen Developer Ecosystem]
 landingHub: true
-bannerImage: /_images/building-branch-hero.webp
-bannerPosition: center 48%
+bannerImage: /_images/hero-abstract/learn.webp
+bannerPosition: center
+bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="learn-intro-heading">
