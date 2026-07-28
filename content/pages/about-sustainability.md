@@ -8,7 +8,6 @@ audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public architecture, memory architecture, and service design guidance
 canonicalUrl: /about/sustainability.html
 relatedSlides: [tritongpt-secure-scalable-ai-platform, uc-san-diego-ai-strategy-2026, memory-quality-is-an-operational-service]
-landingHub: true
 bannerImage: /_images/building-branch-hero.jpg
 bannerPosition: center 44%
 ---

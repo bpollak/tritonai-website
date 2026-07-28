@@ -101,7 +101,10 @@ function missingFields(object, fields) {
 async function loadMarkdownContent(directory, requiredFields, type) {
   const entries = [];
   const findings = [];
-  for (const filename of (await readdir(directory)).filter((name) => name.endsWith(".md")).sort()) {
+  const filenames = (await readdir(directory))
+    .filter((name) => name.endsWith(".md") && !/ \d+\.md$/i.test(name))
+    .sort();
+  for (const filename of filenames) {
     const parsed = matter(await readFile(path.join(directory, filename), "utf8"));
     const missing = missingFields(parsed.data, requiredFields);
     if (missing.length) findings.push({ source: `${type}/${filename}`, issue: `Missing fields: ${missing.join(", ")}` });

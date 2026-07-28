@@ -8,7 +8,6 @@ audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public program intake, training, community pages, and memory architecture presentation
 canonicalUrl: /about/get-involved.html
 relatedSlides: [ai-engagement-at-scale, from-tritongpt-to-tritonai, campus-app-hosting-intake, harness-memory-architecture]
-landingHub: true
 bannerImage: /_images/callout-scripps-rainbow-dark.webp
 bannerPosition: center 52%
 ---
