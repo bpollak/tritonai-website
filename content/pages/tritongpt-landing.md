@@ -24,12 +24,12 @@ bannerPosition: center 46%
 
 <section class="landing-section landing-section-navy" aria-labelledby="tritongpt-capabilities-heading">
 <div class="container">
-<div class="landing-section-heading"><p class="home-kicker">One starting point</p><h2 id="tritongpt-capabilities-heading">What you can do in TritonGPT</h2><p>It is one platform, so you pick the mode that fits the task instead of switching tools.</p></div>
+<div class="landing-section-heading"><p class="home-kicker">One starting point</p><h2 id="tritongpt-capabilities-heading">What you can do in TritonGPT</h2><p>One platform gives you several modes. Pick the one that fits the task.</p></div>
 <div class="row cms-callout-grid">
 <div class="col-sm-6 col-md-3"><article class="panel cms-callout-card"><div class="panel-body"><span class="glyphicon glyphicon-comment cms-callout-icon" aria-hidden="true"></span><h3>Ask an assistant</h3><p>Pick an assistant built for the question you have, from benefits to contract terms.</p><p><a class="text-link" href="/training-resources/tritongpt/assistants.html">Explore assistants</a></p></div></article></div>
 <div class="col-sm-6 col-md-3"><article class="panel cms-callout-card"><div class="panel-body"><span class="glyphicon glyphicon-file cms-callout-icon" aria-hidden="true"></span><h3>Work with documents</h3><p>Upload your own files and ask about them. You still decide what to do with the answer.</p><p><a class="text-link" href="/training-resources/tritongpt/index.html">Read the guides</a></p></div></article></div>
 <div class="col-sm-6 col-md-3"><article class="panel cms-callout-card"><div class="panel-body"><span class="glyphicon glyphicon-random cms-callout-icon" aria-hidden="true"></span><h3>Choose a model</h3><p>Switch between the models UC San Diego has approved, without leaving the conversation.</p><p><a class="text-link" href="/about/trust-architecture.html">How routing works</a></p></div></article></div>
-<div class="col-sm-6 col-md-3"><article class="panel cms-callout-card"><div class="panel-body"><span class="glyphicon glyphicon-globe cms-callout-icon" aria-hidden="true"></span><h3>Use campus context</h3><p>Answers pull from approved campus sources as you ask, not from a stale copy.</p><p><a class="text-link" href="/tritongpt/integrations.html">Where TritonGPT appears</a></p></div></article></div>
+<div class="col-sm-6 col-md-3"><article class="panel cms-callout-card"><div class="panel-body"><span class="glyphicon glyphicon-globe cms-callout-icon" aria-hidden="true"></span><h3>Use campus context</h3><p>Answers can draw from approved campus sources at the time of your question.</p><p><a class="text-link" href="/tritongpt/integrations.html">Where TritonGPT appears</a></p></div></article></div>
 </div>
 </div>
 </section>

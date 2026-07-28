@@ -16,7 +16,7 @@ landingHub: true
 <div class="col-md-6 hub-split-copy">
 <p class="home-kicker">Hosting and ownership</p>
 <h2 id="trust-intro-heading">What we check before a service ships</h2>
-<p class="hub-lede">TritonAI gives campus services approved routes to AI models and to campus information. The privacy, security, and accessibility decisions behind those routes are published here rather than buried in a vendor contract.</p>
+<p class="hub-lede">TritonAI gives campus services approved routes to AI models and campus information. Anyone can review the privacy, security, and accessibility decisions behind those routes on this site.</p>
 <p>The platform does not make a service trustworthy on its own. Each service still needs a stated purpose, data it is allowed to use, a named owner, and people who check the results.</p>
 <p class="trust-intro-actions"><a class="btn btn-primary" href="/tritongpt/privacy.html">Read the privacy statement</a> <a class="btn btn-default" href="/developer-apis/index.html">Explore developer resources</a></p>
 </div>
@@ -66,7 +66,7 @@ landingHub: true
 <article><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><div><h3>The TritonAI foundation</h3><ul><li>Runs the shared gateway and the supported model routes</li><li>Publishes the technical patterns other teams build on</li><li>Keeps one consistent path for getting approved access</li></ul></div></article>
 <article><span class="glyphicon glyphicon-user" aria-hidden="true"></span><div><h3>Each campus service</h3><ul><li>Says what it is for, who uses it, and what data it may touch</li><li>Tests the output and keeps a person in the workflow</li><li>Names who answers for accessibility, support, and operations</li></ul></div></article>
 </div>
-<aside class="trust-boundary-note"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><p><strong>Gateway access does not authorize new data use.</strong> Getting connected does not widen what your service is allowed to touch. The service owner is still responsible for approved data, testing, accessibility, support, and human review.</p></aside>
+<aside class="trust-boundary-note"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><p><strong>Gateway access does not authorize new data use.</strong> Getting connected does not widen what your service is allowed to touch. The service owner still owns the approved data, testing, and accessibility. They also own support and human review.</p></aside>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed trust-surfaces" id="trust-surfaces" aria-labelledby="trust-surfaces-heading">

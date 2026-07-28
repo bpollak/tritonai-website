@@ -25,7 +25,7 @@ bannerPosition: center 44%
 <div class="row hub-number-grid">
 <div class="col-md-4"><article><span>01</span><h3>Start with shared services</h3><p>TritonGPT, approved model access, campus assistants, training, and support give everyone a common starting point.</p></article></div>
 <div class="col-md-4"><article><span>02</span><h3>Build around a campus need</h3><p>Teams can embed an assistant, use the Developer APIs, or work in TritonAI Harness when a job needs more than chat.</p></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Operate what proves useful</h3><p>A pilot becomes a supported service once the evidence, review points, owner, hosting, accessibility, and support path are clear.</p></article></div>
+<div class="col-md-4"><article><span>03</span><h3>Operate what proves useful</h3><p>A pilot becomes a supported service once the evidence and review points are clear. It also needs an owner, approved hosting, accessibility checks, and a support path.</p></article></div>
 </div></div>
 </section>
 

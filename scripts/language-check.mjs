@@ -2,6 +2,7 @@ import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { load } from "cheerio";
 import matter from "gray-matter";
+import MarkdownIt from "markdown-it";
 
 // Checks repository-authored copy against docs/voice-and-language.md.
 //
@@ -16,6 +17,7 @@ import matter from "gray-matter";
 const CONTENT_DIR = path.resolve("content");
 const REPORT_DIR = path.resolve("reports");
 const STRICT = process.argv.includes("--strict");
+const markdown = new MarkdownIt({ html: true, linkify: false, typographer: false });
 
 const BOOSTERS = [
   "practical", "trusted", "meaningful", "thoughtful", "durable", "robust",
@@ -45,7 +47,10 @@ function report(severity, rule, source, line, role, text, note) {
 
 async function listFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
-  return entries.filter((entry) => entry.isFile() && entry.name.endsWith(".md")).map((entry) => entry.name).sort();
+  return entries
+    .filter((entry) => entry.isFile() && /^[a-z0-9][a-z0-9-]*\.md$/.test(entry.name))
+    .map((entry) => entry.name)
+    .sort();
 }
 
 // Blank out HTML comment bodies so a `lang-ok` note quoting the string it
@@ -88,11 +93,16 @@ function checkText(role, value, source, raw, suppressed, options = {}) {
     report("warn", "antithesis-in-heading", source, line, role, value,
       "Manufactured contrast. State the positive claim directly.");
   }
+  if (!isHeadline && ANTITHESIS.test(value)) {
+    report("warn", "manufactured-contrast", source, line, role, value,
+      "State the point directly. Keep the contrast only when the distinction is necessary.");
+  }
   if (options.checkLists && LONG_LIST.test(value)) {
     report("warn", "long-comma-list", source, line, role, value,
       "Five or more items in one sentence. Cut it down or use a list element.");
   }
-  if (options.checkEmDash && EM_DASH.test(value)) {
+  const dashCheckValue = value.replace(/\b\d+\s*[—–]\s*\d+\b/g, "");
+  if (options.checkEmDash && EM_DASH.test(dashCheckValue)) {
     report("warn", "em-dash", source, line, role, value,
       "Use a period, a comma, or a conjunction unless this is a genuine aside or a numeric range.");
   }
@@ -156,19 +166,38 @@ async function scan(directory, type) {
       checkText("summary", summary, source, raw, suppressed, { checkLists: true, checkEmDash: true });
     }
 
-    const $ = load(`<div data-language-check>${parsed.content}</div>`, { decodeEntities: false });
+    const rendered = markdown.render(parsed.content);
+    const $ = load(`<div data-language-check>${rendered}</div>`, { decodeEntities: false });
     $("[data-language-check] h1, [data-language-check] h2, [data-language-check] h3, [data-language-check] h4").each((_, element) => {
       checkText("heading", $(element).text().trim(), source, raw, suppressed);
     });
     $("[data-language-check] .home-kicker").each((_, element) => {
       checkText("kicker", $(element).text().trim(), source, raw, suppressed);
     });
-    // Markdown ATX headings never reach cheerio as elements.
-    for (const match of parsed.content.matchAll(/^#{2,4}\s+(.+)$/gm)) {
-      checkText("heading", match[1].trim(), source, raw, suppressed);
-    }
     for (const element of $("[data-language-check] p.lead, [data-language-check] p.hub-lede").toArray()) {
       checkText("lede", $(element).text().trim(), source, raw, suppressed, { checkLists: true, checkEmDash: true });
+    }
+    const bodySelector = [
+      "[data-language-check] p:not(.lead):not(.hub-lede)",
+      "[data-language-check] li:not(:has(p)):not(:has(li))",
+      "[data-language-check] dd",
+      "[data-language-check] td",
+    ].join(", ");
+    for (const element of $(bodySelector).toArray()) {
+      let value = $(element).text().replace(/\s+/g, " ").trim();
+      if (!value) continue;
+
+      // Newsletter entries conventionally lead with a linked title and dash.
+      // The guide allows that dash; inspect the editor-authored description.
+      if (directory === "newsletters") {
+        const linkedTitle = $(element).find("strong").first().text().replace(/\s+/g, " ").trim();
+        const titleIndex = linkedTitle ? value.indexOf(linkedTitle) : -1;
+        if (titleIndex >= 0 && titleIndex < 8) {
+          value = value.slice(titleIndex + linkedTitle.length).replace(/^\s*[—–:-]\s*/, "").trim();
+        }
+      }
+
+      checkText("body", value, source, raw, suppressed, { checkLists: true, checkEmDash: true });
     }
   }
 
@@ -195,7 +224,26 @@ async function scanHero() {
 
 await scan("pages", "page");
 await scan("use-cases", "use-case");
+await scan("newsletters", "newsletter");
 await scanHero();
+
+async function scanRoadmap() {
+  const source = "roadmap/milestones.json";
+  const fileText = await readFile(path.join(CONTENT_DIR, "roadmap", "milestones.json"), "utf8");
+  const raw = maskComments(fileText);
+  const suppressed = suppressedLines(fileText);
+  const roadmap = JSON.parse(fileText);
+  const values = [
+    roadmap.description,
+    ...(roadmap.items || []).flatMap((item) => [item.summary, ...(item.details || [])]),
+  ].filter(Boolean);
+
+  for (const value of values) {
+    checkText("roadmap narrative", value, source, raw, suppressed, { checkLists: true, checkEmDash: false });
+  }
+}
+
+await scanRoadmap();
 
 const errors = findings.filter((finding) => finding.severity === "error");
 const warnings = findings.filter((finding) => finding.severity === "warn");

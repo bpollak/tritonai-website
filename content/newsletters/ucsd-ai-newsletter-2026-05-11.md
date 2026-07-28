@@ -4,7 +4,7 @@ date: 2026-05-11
 source: "ucsd-ai-newsletter-2026-05-11.md"
 items: 7
 ---
-_Week of May 11, 2026 — your roundup of what's new with UC San Diego's supported AI services._
+_Week of May 11, 2026. Here is what changed in UC San Diego's supported AI services._
 
 ## What's New in Your AI Tools
 
@@ -18,7 +18,7 @@ _Week of May 11, 2026 — your roundup of what's new with UC San Diego's support
 
 ### Microsoft Copilot with Data Protection
 
--   **[Federated Copilot connectors bring real-time enterprise data (May 5)](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/federated-copilot-connectors---bringing-real-time-enterprise-data-within-microso/4515993)**: Microsoft launched federated connectors that pull live data from external systems like HubSpot, Notion, and Moody's directly into Copilot responses. For staff, this means getting current CRM records, stock ratings, or deal statuses without switching apps. Data stays in the source system and access is governed through your existing permissions.
+-   **[Federated Copilot connectors bring real-time enterprise data (May 5)](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/federated-copilot-connectors---bringing-real-time-enterprise-data-within-microso/4515993)**: Microsoft launched federated connectors that pull live data from systems such as HubSpot, Notion, and Moody's into Copilot responses. Staff can get current CRM records, stock ratings, or deal status from Copilot. The data stays in its source system and uses existing permissions.
 
 ### Copilot for Microsoft 365
 
@@ -39,7 +39,7 @@ _Week of May 11, 2026 — your roundup of what's new with UC San Diego's support
 No new live sessions are scheduled for the next two weeks. The TritonAI webinar series remains available on demand:
 
 -   **[AI Webinar #6 — One Year of Innovation with TritonGPT](https://youtu.be/qaRfaAzmBEs)**: A look at what's changed since launch, including MyDocuments, model switching, and chat sharing.
--   **[Everyday I AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)**: Short, practical prompting tips that work across TritonGPT and other AI tools.
+-   **[Everyday I AI video series](https://www.youtube.com/playlist?list=PLZoL-14Q0aIkY5gnibNuZZh3X0ikY6VGA)**: Short prompting examples that work across TritonGPT and other AI tools.
 -   **[AI Foundations course (UC Learning)](https://go.ucsd.edu/3FvH9Hf)**: A self-paced intro to AI concepts and UC policy.
 
 * * *

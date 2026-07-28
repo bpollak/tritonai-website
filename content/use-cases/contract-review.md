@@ -36,4 +36,4 @@ The workflow pulls out the relevant clauses, compares them with the approved pla
 
 ## Current status
 
-In production for UC San Diego Procurement. The workflow runs via a monitored inbox and portal — contracts are ingested, clauses extracted, compared against UC Legal Position and university template terms, and annotated redlines are produced for human review. Measured outcome: 91% time savings on NDA/T&C review (120 min to 11 min average).
+In production for UC San Diego Procurement. The workflow runs through a monitored inbox and portal. It ingests contracts, extracts clauses, compares them against UC Legal Position and university template terms, and produces annotated redlines for human review. Measured outcome: 91% time savings on NDA/T&C review (120 min to 11 min average).

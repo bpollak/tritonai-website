@@ -12,11 +12,11 @@ items: 4
 
 ### Copilot for Microsoft 365
 
--   **[Claude Sonnet 5 now available in Microsoft 365 Copilot](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/available-today-anthropic%E2%80%99s-claude-sonnet-5-in-microsoft-365-copilot/4532188)** — Anthropic's Claude Sonnet 5 is rolling out as a new model option inside Microsoft 365 Copilot. If you work in Word, Excel, PowerPoint, or Outlook, you can now choose Sonnet 5 alongside existing models to match the AI approach to your document or task. No extra setup needed—it appears automatically in the model picker.
+-   **[Claude Sonnet 5 now available in Microsoft 365 Copilot](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/available-today-anthropic%E2%80%99s-claude-sonnet-5-in-microsoft-365-copilot/4532188)** — Anthropic's Claude Sonnet 5 is rolling out as a model option in Microsoft 365 Copilot. It appears in the model picker for Word, Excel, PowerPoint, and Outlook with no extra setup.
 
 ### Google Gemini & NotebookLM
 
--   **[Gemini Spark arrives on Mac](https://gemini.google/release-notes/)** — Google launched Gemini Spark, a personal AI agent for macOS that works autonomously on your behalf. It can organize folders, build documents from your local files, and run multi-step workflows across Google Workspace—think of it as an assistant that doesn't just answer questions but actually does work. Available now in the Gemini macOS app for Google AI Ultra subscribers.
+-   **[Gemini Spark arrives on Mac](https://gemini.google/release-notes/)** — Google launched Gemini Spark, a personal AI agent for macOS. It can organize folders, build documents from local files, and run multi-step Google Workspace workflows. Google AI Ultra subscribers can find it in the Gemini app for Mac.
 
 ### TritonAI Developer API
 
