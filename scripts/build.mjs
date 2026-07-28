@@ -146,17 +146,28 @@ function renderNewsletter(newsletter) {
   return `<article class="panel panel-default agent-newsletter" id="${dateId}"><div class="panel-heading"><h2>${escapeHtml(newsletter.title)}</h2><p>${newsletter.items} ${plural}</p></div><div class="panel-body">${newsletter.html}</div></article>`;
 }
 
+function findFirstNewsletterStory($newsletter, firstStoryHeading) {
+  let candidate = firstStoryHeading.next();
+  while (candidate.length && !candidate.is("h2, h3")) {
+    const storyElement = candidate.is("p, li") ? candidate : candidate.find("p, li").first();
+    const storyText = storyElement.text().trim();
+    if (storyText) return storyText;
+    candidate = candidate.next();
+  }
+  return $newsletter("li, p").first().text().trim();
+}
+
 function renderLatestNewsletters(newsletters) {
   if (!newsletters.length) return '<div class="alert alert-info">No AI updates are available yet.</div>';
   const [latest, ...recent] = newsletters.slice(0, 3);
   const $latest = load(latest.html, { decodeEntities: false });
   const topics = [];
-  $latest("h2, h3").each((_, element) => {
+  $latest("h2").each((_, element) => {
     const topic = $latest(element).text().trim();
     if (topic && !/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/i.test(topic) && !topics.includes(topic) && topics.length < 3) topics.push(topic);
   });
   const firstTopicHeading = $latest("h3").first();
-  const firstStory = firstTopicHeading.nextAll("p, li").first().text().trim() || $latest("li, p").first().text().trim();
+  const firstStory = findFirstNewsletterStory($latest, firstTopicHeading);
   const normalizedFirstStory = firstStory.replace(/\s+/g, " ").trim();
   const excerpt =
     normalizedFirstStory.length > 280
