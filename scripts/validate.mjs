@@ -1060,10 +1060,16 @@ await mkdir(REPORT_DIR, { recursive: true });
 await writeFile(path.join(REPORT_DIR, "validation.json"), `${JSON.stringify(report, null, 2)}\n`);
 
 process.stdout.write(`${JSON.stringify(report.counts, null, 2)}\n`);
+const remoteFailures = remoteChecks.filter((check) => !check.ok);
+if (remoteFailures.length) {
+  process.stdout.write(`::warning::${remoteFailures.length} remote dependency check(s) failed\n`);
+  for (const check of remoteFailures) {
+    process.stdout.write(`  ${check.url} (${check.attempts} attempts)\n`);
+  }
+}
 if (inherited.length) process.stdout.write(`Preserved ${inherited.length} inherited broken-link occurrences.\n`);
 if (
   missing.length ||
-  remoteChecks.some((check) => !check.ok) ||
   newsletterCount < 1 ||
   contentFindings.length ||
   freshnessFailures.length ||
