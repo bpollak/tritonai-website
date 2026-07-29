@@ -39,6 +39,11 @@ const AFTER_RENDER_SCRIPTS = new Set([
 ]);
 const EMERGENCY_BROADCAST_SCRIPT = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
 const TRITONGPT_WIDGET_SCRIPT = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
+// The build owns the analytics tag. Pages must not carry their own copy; every
+// route gets this one injected below. `validate.mjs` fails the build if a route
+// is missing it or carries a different measurement ID.
+const GOOGLE_ANALYTICS_ID = "G-CSQGMG6EFP";
+const GOOGLE_ANALYTICS_COOKIE_DOMAIN = "tritonai.ucsd.edu";
 const PRECONNECT_ORIGINS = [
   "https://cdn.ucsd.edu",
   "https://www.ucsd.edu",
@@ -780,6 +785,17 @@ function optimizeLocalImages($, relativePath, optimizedImages) {
   });
 }
 
+function applyGoogleAnalytics($) {
+  $("script[src*='googletagmanager.com']").remove();
+  $("script:not([src])").each((_, element) => {
+    if (/gtag\s*\(/.test($(element).html() || "")) $(element).remove();
+  });
+  $("head").append(
+    `<script async data-tritonai-analytics src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"></script>` +
+      `<script data-tritonai-analytics>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GOOGLE_ANALYTICS_ID}',{'cookie_domain':'${GOOGLE_ANALYTICS_COOKIE_DOMAIN}'});</script>`,
+  );
+}
+
 function optimizeScriptLoading($) {
   $("script[src]").each((_, element) => {
     const script = $(element);
@@ -931,6 +947,7 @@ function transformHtml(html, relativePath, context) {
     dateModified: generated?.lastReviewed || context.site.lastReviewed,
   }).replaceAll("</script", "<\\/script");
   $("head").append(`<script type="application/ld+json" data-tritonai-schema>${schema}</script>`);
+  applyGoogleAnalytics($);
 
   $(".navbar-nav-list").first().html(renderNavigation(context.site.navigation, route, false));
   $("ul.nav.navmenu-nav").first().html(renderNavigation(context.site.navigation, route, true));
