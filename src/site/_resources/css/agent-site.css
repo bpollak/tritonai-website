@@ -2151,6 +2151,389 @@
   margin-left: 0;
 }
 
+/* Faculty AI Symposium: event archive and resource cards */
+.faculty-symposium-page {
+  color: var(--triton-slate);
+}
+
+.symposium-intro {
+  align-items: center;
+  background: var(--triton-navy);
+  border-bottom: 7px solid var(--triton-bright-blue);
+  color: #fff;
+  display: grid;
+  gap: 34px;
+  grid-template-columns: 156px minmax(0, 1fr);
+  margin-bottom: 28px;
+  padding: 34px;
+}
+
+.symposium-date {
+  align-items: center;
+  background: var(--triton-sand);
+  border-top: 8px solid var(--triton-gold);
+  color: var(--triton-navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 176px;
+  padding: 18px;
+  text-align: center;
+}
+
+.symposium-date span {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.symposium-date strong {
+  font-size: 64px;
+  line-height: 1;
+  margin: 5px 0;
+}
+
+.symposium-date small {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.symposium-intro .home-kicker {
+  color: var(--triton-bright-blue);
+}
+
+.symposium-intro h1 {
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.symposium-intro .lead {
+  color: #fff;
+  font-size: 23px;
+  line-height: 1.45;
+  margin-bottom: 13px;
+}
+
+.symposium-intro-copy > p:last-child {
+  color: #e7eef3;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.symposium-jump-links {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 46px;
+}
+
+.symposium-jump-links a {
+  align-items: center;
+  background: #f4f7f8;
+  border: 1px solid var(--triton-border);
+  color: var(--triton-navy);
+  display: grid;
+  gap: 2px 13px;
+  grid-template-columns: 34px minmax(0, 1fr);
+  padding: 17px 18px;
+  text-decoration: none;
+}
+
+.symposium-jump-links a:hover,
+.symposium-jump-links a:focus {
+  background: var(--triton-sand);
+  border-color: var(--triton-blue);
+}
+
+.symposium-jump-links .glyphicon {
+  color: var(--triton-blue);
+  font-size: 25px;
+  grid-row: 1 / 3;
+}
+
+.symposium-jump-links strong,
+.symposium-jump-links small {
+  display: block;
+}
+
+.symposium-jump-links strong {
+  font-size: 16px;
+}
+
+.symposium-jump-links small {
+  color: var(--triton-slate);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.symposium-section {
+  margin-top: 46px;
+}
+
+.symposium-section-heading {
+  margin-bottom: 22px;
+}
+
+.symposium-section-heading h2 {
+  color: var(--triton-navy);
+  margin: 0;
+}
+
+.symposium-panel-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.symposium-panel-card {
+  border: 1px solid var(--triton-border);
+  border-top: 5px solid var(--triton-blue);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.symposium-panel-card > .glyphicon {
+  color: var(--triton-blue);
+  font-size: 25px;
+}
+
+.symposium-panel-card h3 {
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 13px 0 12px;
+}
+
+.symposium-panel-card p {
+  line-height: 1.58;
+}
+
+.symposium-panel-card .symposium-card-action {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.symposium-card-action a,
+.symposium-material-grid a {
+  font-weight: 700;
+}
+
+.symposium-presentations {
+  align-items: center;
+  background: var(--triton-sand);
+  border-left: 7px solid var(--triton-bright-blue);
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 180px minmax(0, 1fr);
+  margin: 48px 0;
+  padding: 30px 34px;
+}
+
+.symposium-presentation-count {
+  border-right: 1px solid #d3cabb;
+  color: var(--triton-navy);
+  padding-right: 30px;
+  text-align: center;
+}
+
+.symposium-presentation-count strong,
+.symposium-presentation-count span {
+  display: block;
+}
+
+.symposium-presentation-count strong {
+  color: var(--triton-blue);
+  font-size: 72px;
+  line-height: .95;
+}
+
+.symposium-presentation-count span {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  line-height: 1.25;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.symposium-presentations h2 {
+  color: var(--triton-navy);
+  margin: 0 0 12px;
+}
+
+.symposium-presentations > div:last-child > p {
+  line-height: 1.6;
+}
+
+.symposium-presentations > div:last-child > p:last-child {
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.symposium-material-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.symposium-material-grid article {
+  align-items: start;
+  background: #f4f7f8;
+  border-left: 4px solid var(--triton-blue);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  padding: 23px;
+}
+
+.symposium-material-grid .glyphicon {
+  color: var(--triton-blue);
+  font-size: 28px;
+  margin-top: 3px;
+}
+
+.symposium-material-grid h3 {
+  color: var(--triton-navy);
+  margin: 0 0 8px;
+}
+
+.symposium-material-grid p {
+  line-height: 1.5;
+}
+
+.symposium-material-grid p:last-child {
+  margin-bottom: 0;
+}
+
+.symposium-connected {
+  align-items: start;
+  background: var(--triton-navy);
+  border-bottom: 5px solid var(--triton-gold);
+  color: #fff;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 46px minmax(0, 1fr);
+  margin-top: 46px;
+  padding: 27px 29px;
+}
+
+.symposium-connected > .glyphicon {
+  color: var(--triton-gold);
+  font-size: 31px;
+  margin-top: 3px;
+}
+
+.symposium-connected h2 {
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.symposium-connected p {
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.symposium-connected a,
+.symposium-connected a:visited {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--triton-bright-blue);
+  text-underline-offset: 3px;
+}
+
+.symposium-connected a:hover,
+.symposium-connected a:focus {
+  color: var(--triton-gold);
+}
+
+@media (max-width: 991px) {
+  .symposium-intro {
+    grid-template-columns: 132px minmax(0, 1fr);
+    padding: 28px;
+  }
+
+  .symposium-date {
+    min-height: 154px;
+  }
+
+  .symposium-jump-links {
+    grid-template-columns: 1fr;
+  }
+
+  .symposium-panel-grid,
+  .symposium-material-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .symposium-intro {
+    align-items: stretch;
+    gap: 24px;
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .symposium-date {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    min-height: 0;
+    padding: 16px 20px;
+  }
+
+  .symposium-date strong {
+    font-size: 42px;
+    margin: 0;
+  }
+
+  .symposium-date span,
+  .symposium-date small {
+    align-self: center;
+    font-size: 18px;
+  }
+
+  .symposium-intro .lead {
+    font-size: 20px;
+  }
+
+  .symposium-presentations {
+    grid-template-columns: 1fr;
+    padding: 25px 22px;
+  }
+
+  .symposium-presentation-count {
+    align-items: center;
+    border-bottom: 1px solid #d3cabb;
+    border-right: 0;
+    display: flex;
+    gap: 16px;
+    padding: 0 0 20px;
+    text-align: left;
+  }
+
+  .symposium-presentation-count strong {
+    font-size: 56px;
+  }
+
+  .symposium-presentation-count span {
+    margin-top: 0;
+  }
+
+  .symposium-connected {
+    grid-template-columns: 36px minmax(0, 1fr);
+    padding: 24px 21px;
+  }
+
+  .symposium-connected > .glyphicon {
+    font-size: 27px;
+  }
+}
+
 /* Keep the externally supplied TritonGPT launcher compact on small screens. */
 @media (max-width: 767px) {
   #chat-bubble {
