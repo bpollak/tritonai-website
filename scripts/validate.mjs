@@ -51,6 +51,8 @@ const requiredDecoratorStylesheets = [
 ];
 const emergencyBroadcastScript = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
 const tritonGptWidgetScript = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
+// Must match GOOGLE_ANALYTICS_ID in build.mjs, which injects the tag on every route.
+const googleAnalyticsId = "G-CSQGMG6EFP";
 const imageBudgetBytes = 320_000;
 
 async function listFiles(directory, base = directory) {
@@ -150,6 +152,7 @@ const metadata = [];
 const performance = [];
 const navigation = [];
 const decorator = [];
+const analytics = [];
 
 const assetSizeCache = new Map();
 async function localAssetSize(raw, pagePath) {
@@ -682,6 +685,21 @@ for (const page of htmlFiles) {
   if (idleWidget.length !== 1 || idleWidget.attr("src")) {
     performance.push({ page: route, issue: "TritonGPT widget must initialize during browser idle time" });
   }
+  const analyticsLoader = $("script[data-tritonai-analytics][src]");
+  const analyticsConfig = $("script[data-tritonai-analytics]:not([src])");
+  const strayAnalytics = $("script[src*='googletagmanager.com']:not([data-tritonai-analytics])");
+  if (analyticsLoader.length !== 1 || analyticsConfig.length !== 1) {
+    analytics.push({ page: route, issue: "Page must carry exactly one build-injected Google Analytics tag" });
+  } else if (analyticsLoader.attr("src") !== `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`) {
+    analytics.push({ page: route, issue: `Analytics loader does not use measurement ID ${googleAnalyticsId}` });
+  } else if (!(analyticsConfig.html() || "").includes(`gtag('config','${googleAnalyticsId}'`)) {
+    analytics.push({ page: route, issue: `Analytics configuration does not use measurement ID ${googleAnalyticsId}` });
+  } else if (analyticsLoader.attr("async") === undefined) {
+    analytics.push({ page: route, issue: "Analytics loader must stay asynchronous" });
+  }
+  if (strayAnalytics.length) {
+    analytics.push({ page: route, issue: "Page carries a hand-authored analytics tag; the build owns this tag" });
+  }
   for (const element of $("img").toArray()) {
     const image = $(element);
     const fallback = image.attr("data-fallback-src") || image.attr("src");
@@ -1059,6 +1077,7 @@ const report = {
     routeFailures: routeFindings.length,
     performanceFailures: performance.length,
     decoratorFailures: decorator.length,
+    analyticsFailures: analytics.length,
   },
   missing,
   inherited,
@@ -1072,6 +1091,7 @@ const report = {
   routeFindings,
   performance,
   decorator,
+  analytics,
 };
 await mkdir(REPORT_DIR, { recursive: true });
 await writeFile(path.join(REPORT_DIR, "validation.json"), `${JSON.stringify(report, null, 2)}\n`);
@@ -1095,7 +1115,8 @@ if (
   metadata.length ||
   routeFindings.length ||
   performance.length ||
-  decorator.length
+  decorator.length ||
+  analytics.length
 ) {
   process.stderr.write("Validation failed. See reports/validation.json.\n");
   process.exit(1);
