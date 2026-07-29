@@ -1,53 +1,15 @@
 ---
-title: AI Development Workgroup
+title: About TritonAI
 path: /about/workgroup.html
-description: How the AI Development Workgroup coordinates campus perspectives on priorities, risk, resourcing, and reusable practices.
+description: Learn how TritonAI supports campus AI services, who owns each decision, and how to get involved.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-27
+lastReviewed: 2026-07-28
 audiences: [staff, faculty, leaders, developers]
-source: AI Development Workgroup public page, governance materials, and TritonAI memory architecture presentation
-canonicalUrl: /about/workgroup.html
-relatedSlides: [ai-engagement-at-scale, uc-san-diego-ai-strategy-2026, harness-memory-scale-ucsd]
-bannerImage: /_images/landing/geisel-library.webp
-bannerPosition: center 44%
+source: TritonAI public About page
+canonicalUrl: /about/index.html
+redirectTo: /about/index.html
+relatedSlides: [uc-san-diego-ai-strategy-2026]
 ---
 
-<section class="hub-section hub-section-intro" aria-labelledby="workgroup-role-heading">
-<div class="row hub-split">
-<div class="col-md-7 hub-split-copy"><p class="home-kicker">Campus coordination</p><h2 id="workgroup-role-heading">Connect strategy to campus experience</h2><p class="hub-lede">The AI Development Workgroup brings broad campus perspectives into discussion of AI priorities, risks, resourcing, and reusable practices. It helps the university see the portfolio as a whole while each service retains a named operational owner.</p></div>
-<div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><h3>Governance works across layers</h3><p>The Workgroup coordinates and advises. Service owners still make their decisions with the campus partners responsible for privacy, security, and accessibility. Policy, records, and risk partners join where the service requires them.</p></aside></div>
-</div>
-</section>
-
-<section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="workgroup-support-heading">
-<div class="container"><div class="hub-heading"><p class="home-kicker">Workgroup role</p><h2 id="workgroup-support-heading">How the Workgroup supports campus</h2></div>
-<div class="row hub-number-grid">
-<div class="col-md-4"><article><span>01</span><h3>Coordinate the portfolio</h3><p>Compare proposals, surface dependencies, reduce duplication, and connect initiatives to university priorities.</p></article></div>
-<div class="col-md-4"><article><span>02</span><h3>Discuss risk and controls</h3><p>Bring together the people responsible for privacy, security, and accessibility. Include policy, records, bias, and responsible use in the discussion.</p></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Share tested practices</h3><p>Keep campus units aware of current services, reusable patterns, lessons from pilots, and questions that need a common answer.</p></article></div>
-</div></div>
-</section>
-
-<section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="shared-practice-heading">
-<div class="container"><div class="hub-heading"><p class="home-kicker">From lesson to shared practice</p><h2 id="shared-practice-heading">How a tested pattern reaches campus</h2><p>A useful result becomes reusable through review, documentation, and a named owner who can keep it current.</p></div>
-<div class="row hub-number-grid hub-number-grid-light">
-<div class="col-sm-6 col-md-3"><article><span>01</span><h3>Surface</h3><p>A unit brings a recurring need, a lesson from a pilot, or a gap that several teams share.</p></article></div>
-<div class="col-sm-6 col-md-3"><article><span>02</span><h3>Test</h3><p>A bounded use case checks the workflow, controls, evidence, and source quality with a named owner.</p></article></div>
-<div class="col-sm-6 col-md-3"><article><span>03</span><h3>Review</h3><p>The Workgroup and responsible partners consider audience, duplication, access boundaries, and operational fit.</p></article></div>
-<div class="col-sm-6 col-md-3"><article><span>04</span><h3>Publish or retire</h3><p>A proven pattern can become shared guidance, a skill, or a template. Outdated material is withdrawn.</p></article></div>
-</div></div>
-</section>
-
-<section class="hub-section" aria-labelledby="representation-heading">
-<div class="hub-heading"><p class="home-kicker">Representation</p><h2 id="representation-heading">Perspectives from across UC San Diego</h2><p>Members come from academic and administrative units, health, student services, and technology teams. Communications, finance, and compliance are represented too, along with equity and other campus functions.</p></div>
-<div class="row agent-card-grid">
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h3>Academic mission</h3><p>Teaching and learning, faculty affairs, research, and libraries.</p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h3>Campus services</h3><p>Student services, finance, communications, and advancement and administrative operations.</p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h3>Trust partners</h3><p>Privacy, security, accessibility, and equity. Ethics, compliance, records, and policy.</p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><h3>Technology delivery</h3><p>Architecture, infrastructure, applications, and data. Support and service management.</p></div></div></div>
-</div>
-</section>
-
-<section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="workgroup-resources-heading">
-<div class="container"><div class="row hub-split hub-split-align-center"><div class="col-md-8 hub-split-copy"><p class="home-kicker">Charter and records</p><h2 id="workgroup-resources-heading">Use the governed workspace for current details</h2><p>The charter, current membership, and meeting records are maintained in the university’s IT Governance workspace and require a campus sign-in.</p><p><a class="btn btn-primary" href="https://ucsdcloud.sharepoint.com/sites/itg/EISC/SitePages/AI-Admin-Workgroup.aspx">Open Workgroup materials</a> <a class="btn btn-default" href="mailto:servicedesk@ucsd.edu?subject=AI%20Development%20Workgroup">Ask about the Workgroup</a></p></div><div class="col-md-4"><aside class="trust-boundary-note"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><p><strong>Membership changes over time.</strong> The governed workspace is the source for the current roster and meeting record.</p></aside></div></div></div>
-</section>
+<p class="lead">This address now points to the TritonAI About section.</p>
+<p><a class="btn btn-primary" href="/about/index.html">Continue to About TritonAI</a></p>

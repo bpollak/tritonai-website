@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 import { ROOT, listDistRoutes } from "./ux-agent/lib.mjs";
@@ -6,7 +6,12 @@ import { axeResults, interactionChecks, startDistServer, visit } from "./ux-agen
 
 const VIEWPORTS = [390, 1440];
 const reportFile = path.join(ROOT, "reports", "accessibility.json");
-const routes = await listDistRoutes();
+const allRoutes = await listDistRoutes();
+const routeManifest = JSON.parse(await readFile(path.join(ROOT, "dist", "_data", "routes.json"), "utf8"));
+const redirectRoutes = new Set(
+  routeManifest.routes.filter((route) => route.redirectTo).map((route) => route.path),
+);
+const routes = allRoutes.filter((route) => !redirectRoutes.has(route));
 const server = await startDistServer();
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ reducedMotion: "reduce" });
@@ -128,6 +133,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   standard: "WCAG 2.1 AA automated coverage",
   routes: routes.length,
+  redirectsSkipped: [...redirectRoutes],
   viewports: VIEWPORTS,
   failures,
   pages,
@@ -141,7 +147,7 @@ const report = {
 await mkdir(path.dirname(reportFile), { recursive: true });
 await writeFile(reportFile, `${JSON.stringify(report, null, 2)}\n`);
 
-process.stdout.write(`${JSON.stringify({ report: path.relative(ROOT, reportFile), routes: routes.length, viewportChecks: routes.length * VIEWPORTS.length, failures: failures.length }, null, 2)}\n`);
+process.stdout.write(`${JSON.stringify({ report: path.relative(ROOT, reportFile), routes: routes.length, redirectsSkipped: redirectRoutes.size, viewportChecks: routes.length * VIEWPORTS.length, failures: failures.length }, null, 2)}\n`);
 if (failures.length) {
   process.stderr.write(`${failures.slice(0, 30).map((failure) => `- ${failure}`).join("\n")}\n`);
   process.exitCode = 1;

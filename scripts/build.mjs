@@ -900,6 +900,12 @@ function transformHtml(html, relativePath, context) {
   if (relativePath === "404.html") upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,follow" });
   $("link[rel='canonical']").remove();
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
+  if (generated?.redirectTo) {
+    const redirectTarget = prefixInternalUrl(generated.redirectTo, relativePath);
+    $("meta[http-equiv='refresh']").remove();
+    $("head").append(`<meta http-equiv="refresh" content="0; url=${escapeHtml(redirectTarget)}">`);
+    upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,follow" });
+  }
   if (!$("link[rel~='icon']").length) $("head").append('<link rel="icon" href="https://www.ucsd.edu/favicon.ico">');
   if (!$("link[href*='/agent-site.css']").length) {
     $("head").append(`<link rel="stylesheet" href="/_resources/css/agent-site.css?v=${AGENT_SITE_CSS_VERSION}">`);
@@ -1164,11 +1170,12 @@ htmlFiles = (await listFiles(OUTPUT_DIR)).filter((file) => file.endsWith(".html"
 const routes = htmlFiles.map((relativePath) => ({
   path: routeForRelativePath(relativePath),
   canonicalUrl: new URL(generatedByPath.get(relativePath)?.canonicalUrl || routeForRelativePath(relativePath), OFFICIAL_ORIGIN).href,
+  redirectTo: generatedByPath.get(relativePath)?.redirectTo || null,
   source: generatedByPath.has(relativePath) ? "structured-content" : "cascade-snapshot",
   lastReviewed: generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
 }));
 const sitemapEntries = routes
-  .filter((route) => route.path !== "/404.html")
+  .filter((route) => route.path !== "/404.html" && !route.redirectTo)
   .map((route) => `<url><loc>${escapeHtml(route.canonicalUrl)}</loc><lastmod>${escapeHtml(route.lastReviewed)}</lastmod></url>`)
   .join("");
 await mkdir(path.join(OUTPUT_DIR, "_data"), { recursive: true });

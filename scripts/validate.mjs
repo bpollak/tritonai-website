@@ -342,9 +342,26 @@ for (const entry of freshnessEntries) {
   else if (ageDays > 120) freshnessWarnings.push({ source: entry.filename, lastReviewed: entry.lastReviewed, ageDays });
 }
 
+const retiredReferencePatterns = [
+  /AI\s+Development\s+Work\s*group/i,
+  /AI\s+in\s+Administration\s+Work\s*group/i,
+];
+
 for (const page of htmlFiles) {
-  const $ = load(await readFile(path.join(DIST_DIR, page), "utf8"));
+  const renderedHtml = await readFile(path.join(DIST_DIR, page), "utf8");
+  const $ = load(renderedHtml);
   const route = page === "index.html" ? "/" : `/${page}`;
+  for (const pattern of retiredReferencePatterns) {
+    if (pattern.test(renderedHtml)) {
+      contentFindings.push({ source: `dist/${page}`, issue: "Retired AI workgroup reference remains in rendered content" });
+    }
+  }
+  $("a[href]").each((_, element) => {
+    const target = normalizeRoute(toLocalPath($(element).attr("href"), page) || "");
+    if (target === "/about/workgroup.html") {
+      contentFindings.push({ source: `dist/${page}`, issue: "Rendered page still links to the retired workgroup route" });
+    }
+  });
   for (const stylesheet of requiredDecoratorStylesheets) {
     if ($(`link[rel~='stylesheet'][href='${stylesheet}']`).length !== 1) {
       decorator.push({ page: route, issue: `Missing official Decorator 5 stylesheet: ${stylesheet}` });
@@ -992,7 +1009,7 @@ const routeFindings = [];
 if (!routeManifest || routeManifest.routes?.length !== htmlFiles.length) {
   routeFindings.push({ issue: `Route manifest count does not match HTML count (${routeManifest?.routes?.length || 0} vs ${htmlFiles.length})` });
 } else {
-  for (const route of routeManifest.routes.filter((entry) => entry.path !== "/404.html")) {
+  for (const route of routeManifest.routes.filter((entry) => entry.path !== "/404.html" && !entry.redirectTo)) {
     if (!sitemap.includes(`<loc>${route.canonicalUrl}</loc>`)) routeFindings.push({ path: route.path, issue: "Missing from sitemap" });
   }
 }

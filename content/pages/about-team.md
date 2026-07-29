@@ -16,7 +16,6 @@ relatedSlides: [the-team-behind-tritonai, campus-app-hosting, ai-engagement-at-s
 
 <div class="table-responsive" role="region" aria-label="TritonAI responsibility model" tabindex="0"><table class="table table-striped"><thead><tr><th scope="col">Role</th><th scope="col">Primary responsibility</th><th scope="col">Typical decisions</th></tr></thead><tbody>
 <tr><th scope="row">Program leadership</th><td>Strategy, portfolio, campus alignment, and outcomes</td><td>Priorities, partnerships, public commitments</td></tr>
-<tr><th scope="row">AI Development Workgroup</th><td>Broad campus coordination, portfolio awareness, risk discussion, and best-practice sharing</td><td>Cross-campus feedback, duplication concerns, and governance recommendations</td></tr>
 <tr><th scope="row">Platform team</th><td>Model gateway, shared services, developer experience, reliability, and observability</td><td>Platform standards, supported integrations, operations</td></tr>
 <tr><th scope="row">Solutions team</th><td>Discovery, workflow design, prototypes, evaluation, and delivery patterns</td><td>Fit, pilot design, human oversight, readiness</td></tr>
 <tr><th scope="row">Campus service owner</th><td>Business process, approved data, subject-matter review, support, and adoption</td><td>Requirements, acceptance, escalation, ongoing ownership</td></tr>
@@ -26,7 +25,7 @@ relatedSlides: [the-team-behind-tritonai, campus-app-hosting, ai-engagement-at-s
 
 ## Campus participation
 
-The <a href="/about/workgroup.html">AI Development Workgroup</a> connects broad campus perspectives to the program’s governance and portfolio. <a href="/about/get-involved.html">TritonAI Champions</a> gives practitioners a place to share tested examples, learn from peers, and surface recurring needs.
+<a href="/about/get-involved.html">TritonAI Champions</a> gives practitioners a place to share tested examples, learn from peers, and surface recurring needs.
 
 ## Where to start
 
