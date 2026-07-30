@@ -166,6 +166,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  .agent-page #mobile-navigation .msearch .search-content {
+    display: block;
+  }
+}
+
 .agent-page .btn-primary {
   background-color: var(--triton-blue);
   border-color: var(--triton-blue);

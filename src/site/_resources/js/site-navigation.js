@@ -97,13 +97,24 @@
     return document.querySelector("[data-tritonai-mobile-toggle]");
   }
 
+  function mobileSearchScope(navigation) {
+    return navigation && navigation.querySelector(".msearch select.search-scope");
+  }
+
   function syncMobileNavigation() {
     var navigation = mobileNavigation();
     var toggle = mobileToggle();
     if (!navigation || !toggle) return;
     var expanded = navigation.classList.contains("in");
+    var wasExpanded = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(expanded));
     navigation.setAttribute("aria-hidden", String(!expanded));
+    if (expanded && !wasExpanded) {
+      window.setTimeout(function () {
+        var scope = mobileSearchScope(navigation);
+        if (navigation.classList.contains("in") && scope && visible(scope)) scope.focus();
+      }, 0);
+    }
   }
 
   function closeMobileNavigation(restoreFocus) {
