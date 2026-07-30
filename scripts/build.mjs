@@ -555,7 +555,7 @@ function renderNavigation(items, route, mobile = false) {
       const submenuId = `nav-submenu-${index}`;
       return `<li class="dropdown ${active ? "active" : ""}"><a aria-controls="${submenuId}" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-tritonai-nav-dropdown href="${escapeHtml(item.href)}"${current}>${escapeHtml(item.label)} <span class="caret"></span></a><ul class="dropdown-menu" id="${submenuId}">${submenu}</ul></li>`;
     })
-    .join("") + (mobile ? '<li class="mobile-search-link"><a href="/search/index.html"><span aria-hidden="true" class="glyphicon glyphicon-search"></span> Search</a></li>' : "");
+    .join("");
 }
 
 function renderSidebarItems(navigation, route) {

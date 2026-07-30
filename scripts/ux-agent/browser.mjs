@@ -81,14 +81,54 @@ export async function visit(page, url, { settleMs = 600 } = {}) {
 }
 
 export async function interactionChecks(page, width) {
-  const outcome = { mobileToggle: "not-present", desktopDropdown: "not-present" };
+  const outcome = { mobileToggle: "not-present", mobileSearch: "not-applicable", desktopDropdown: "not-present" };
   const mobileToggle = page.locator("[data-tritonai-mobile-toggle]").first();
   if (await mobileToggle.count()) {
     const before = await mobileToggle.getAttribute("aria-expanded");
-    if (width < 768) await mobileToggle.press("Enter");
+    if (width < 768) {
+      await page.waitForFunction(
+        () => typeof window.jQuery === "function" && typeof window.jQuery.fn?.offcanvas === "function",
+        null,
+        { timeout: 3000 },
+      ).catch(() => {});
+      await mobileToggle.press("Enter");
+      await page.waitForFunction(
+        () => document.querySelector("[data-tritonai-mobile-toggle]")?.getAttribute("aria-expanded") === "true",
+        null,
+        { timeout: 2000 },
+      ).catch(() => {});
+      await page.waitForFunction(() => {
+        const navigation = document.getElementById("mobile-navigation");
+        const scope = navigation?.querySelector(".msearch select.search-scope");
+        const term = navigation?.querySelector(".msearch input.search-term");
+        return (
+          navigation?.classList.contains("in")
+          && scope?.getClientRects().length
+          && term?.getClientRects().length
+          && document.activeElement === scope
+        );
+      }, null, { timeout: 2000 }).catch(() => {});
+    }
     const after = await mobileToggle.getAttribute("aria-expanded");
     const controls = await mobileToggle.getAttribute("aria-controls");
-    outcome.mobileToggle = controls === "mobile-navigation" && ["true", "false"].includes(before) && ["true", "false"].includes(after) ? "pass" : "fail";
+    outcome.mobileToggle = (
+      controls === "mobile-navigation"
+      && ["true", "false"].includes(before)
+      && ["true", "false"].includes(after)
+      && (width >= 768 || after === "true")
+    ) ? "pass" : "fail";
+    if (width < 768) {
+      const mobileSearch = page.locator("#mobile-navigation .msearch .search-content");
+      const scope = mobileSearch.locator("select.search-scope");
+      const term = mobileSearch.locator("input.search-term");
+      outcome.mobileSearch = (
+        after === "true"
+        && await mobileSearch.isVisible()
+        && await scope.isVisible()
+        && await term.isVisible()
+        && await scope.evaluate((element) => element === document.activeElement)
+      ) ? "pass" : "fail";
+    }
     if (width < 768 && after === "true") await mobileToggle.press("Escape");
   }
   const dropdown = page.locator("[data-tritonai-nav-dropdown]").first();

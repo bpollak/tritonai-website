@@ -124,6 +124,7 @@ for (const result of pages) {
       failures.push(`${label}: axe ${violation.impact || "unknown"} ${violation.id} (${violation.nodes} ${violation.nodes === 1 ? "node" : "nodes"})`);
     }
     if (viewport.interactions?.mobileToggle === "fail") failures.push(`${label}: mobile navigation keyboard check failed`);
+    if (viewport.interactions?.mobileSearch === "fail") failures.push(`${label}: mobile navigation search check failed`);
     if (viewport.interactions?.desktopDropdown === "fail") failures.push(`${label}: desktop navigation keyboard check failed`);
   }
 }
