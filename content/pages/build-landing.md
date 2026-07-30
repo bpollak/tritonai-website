@@ -1,11 +1,11 @@
 ---
 title: Build with TritonAI
 path: /developer-apis/index.html
-description: Personal productivity, application building, reusable skills, approved connections, hosting, and support through TritonAI.
+description: Personal productivity, workflow automation, application building, reusable skills, approved connections, hosting, and support through TritonAI.
 eyebrow: Developer tools and resources
-lastReviewed: 2026-07-27
+lastReviewed: 2026-07-30
 audiences: [developers, researchers, staff, leaders]
-source: TritonAI developer documentation, public architecture and memory presentations, and July 24 AI Use Case Office Hours demonstration
+source: TritonAI developer documentation, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, and ITS-TritonAI n8n service documentation reviewed July 30, 2026
 canonicalUrl: /developer-apis/index.html
 relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert, harness-memory-architecture]
 landingHub: true
@@ -15,12 +15,12 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Personal productivity and building</p><h2 id="build-intro-heading">Use AI for your own work or build a service</h2><p class="hub-lede">For personal productivity, the TritonAI Harness can work across files, browser tasks, and the productivity tools you choose to connect, using reusable skills and memory sources available through the Harness within the permissions you grant. For application building, you can use the Harness and shared APIs to create an integration, then move it into a secure hosting environment supported by IT Services when other people need to rely on it.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Personal productivity, automation and building</p><h2 id="build-intro-heading">Use AI for your own work or build a service</h2><p class="hub-lede">For personal productivity, the TritonAI Harness can work across files, browser tasks, and the productivity tools you choose to connect, using reusable skills and memory sources available through the Harness within the permissions you grant. For recurring processes, n8n can connect applications and APIs around a defined trigger. For application building, you can use the Harness and shared APIs to create an integration, then move it into a secure hosting environment supported by IT Services when other people need to rely on it.</p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
 <p class="build-architecture-label">The TritonAI service model</p>
 <ol class="build-architecture-flow">
 <li><span>01</span><div><strong>Campus need</strong><small>A real person, a real task, data you are allowed to use.</small></div></li>
-<li><span>02</span><div><strong>Supported build path</strong><small>Start in the TritonAI Harness, or use the developer APIs and campus skills.</small></div></li>
+<li><span>02</span><div><strong>Supported build path</strong><small>Start in the TritonAI Harness, automate with n8n, or use the developer APIs and campus skills.</small></div></li>
 <li><span>03</span><div><strong>Shared AI platform</strong><small>Reach approved models through the gateway.</small></div></li>
 <li><span>04</span><div><strong>Owned service</strong><small>Hosting, support, and review sized to what breaks if it fails.</small></div></li>
 </ol>
@@ -54,6 +54,26 @@ bannerMode: abstract
 <li><strong>Desktop work in one place</strong><span>Chat, files, images, voice input, and a built-in browser, all on the same approved model route.</span></li>
 </ul><p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Request developer access</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">A shared execution path</p><ol class="build-harness-flow" aria-label="TritonAI Harness workflow"><li><span>01</span><strong>Install once</strong><small>Campus setup and skills are bundled</small></li><li class="build-harness-core"><span>02</span><strong>Connect deliberately</strong><small>Pick your models, plugins, and permissions</small></li><li><span>03</span><strong>Work with context</strong><small>Approved tools and campus patterns</small></li><li><span>04</span><strong>Review the result</strong><small>You still answer for the decision</small></li></ol></div></div></div>
 <p class="build-harness-source">The Harness is an early pilot and changes quickly. What you can access depends on your approved service path.</p>
+</section>
+
+<section class="hub-section hub-section-dark hub-full-bleed" id="workflow-automation" aria-labelledby="workflow-automation-heading">
+<div class="container"><div class="row hub-split hub-split-align-center"><div class="col-md-7 hub-split-copy">
+<p class="home-kicker">Workflow automation</p>
+<h2 id="workflow-automation-heading">Build repeatable workflows with n8n</h2>
+<p>UC San Diego hosts n8n, a visual workflow-automation platform that connects applications and APIs with little or no code. A workflow can start from a schedule, webhook, email, or file event and then run a defined series of steps. Workflows can also include AI-assisted steps and pause for human review before selected actions.</p>
+<h3>How n8n fits with the TritonAI Harness</h3>
+<p>The Harness supports interactive agent work across files, browsers, and connected tools. n8n supports processes that begin from a known trigger and follow a repeatable path. Projects can use the Harness for interactive work and n8n for recurring execution.</p>
+<p><a class="btn btn-primary" href="https://support.ucsd.edu/">Request n8n access</a> <a class="btn btn-default" href="https://n8n.tritonai.ucsd.edu/">Open n8n</a></p>
+</div><div class="col-md-5 hub-split-media">
+<aside class="shared-compute-mini" aria-labelledby="n8n-access-heading">
+<p id="n8n-access-heading">Request access</p>
+<ol>
+<li><span class="glyphicon glyphicon-send" aria-hidden="true"></span><div><strong>Submit a support request</strong><small>Ask the ITS-TritonAI team for access to the n8n platform.</small></div></li>
+<li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><div><strong>Describe the intended workflow</strong><small>Include your AD username, department, intended use case, and whether you need a testing environment.</small></div></li>
+<li><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><div><strong>Sign in after approval</strong><small>Use your UC San Diego SSO credentials at n8n.tritonai.ucsd.edu.</small></div></li>
+</ol>
+</aside>
+</div></div></div>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" id="api-gateway" aria-labelledby="api-gateway-heading">
