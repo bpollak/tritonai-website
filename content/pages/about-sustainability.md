@@ -15,7 +15,7 @@ bannerPosition: center 44%
 <section class="hub-section hub-section-intro" aria-labelledby="sustainability-intro-heading">
 <div class="row hub-split">
 <div class="col-md-7 hub-split-copy"><p class="home-kicker">Service design and operations</p><h2 id="sustainability-intro-heading">Use the resources the work requires</h2><p class="hub-lede">Sustainable AI starts with choosing an appropriate model and workflow, avoiding unnecessary processing, reusing shared capabilities, and measuring quality, latency, cost, and resource use together.</p><p>No hosting choice is automatically best for every workload. TritonAI revisits the route as models, demand, evidence, and campus requirements change.</p></div>
-<div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span><h3>Measure before making a claim</h3><p>A public environmental comparison needs a defined workload, boundaries, measurement period, source, and owner. Architecture alone does not establish superiority.</p></aside></div>
+<div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span><h3>Start with the workload</h3><p>Match the model, context, and infrastructure to the task. Reduce repeated processing, reuse shared services, and review the design as demand and requirements change.</p></aside></div>
 </div>
 </section>
 
