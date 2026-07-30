@@ -13,6 +13,7 @@ const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
 const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
+const SEO_FILE = path.join(CONTENT_DIR, "seo.json");
 const OUTPUT_DIR = path.resolve("dist");
 const AGENT_SITE_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/agent-site.css")))
@@ -742,6 +743,31 @@ function upsertMeta($, selector, attributes) {
   element.attr(attributes);
 }
 
+function breadcrumbSchema($, canonicalUrl) {
+  const items = $("ol[aria-label='Breadcrumb'] li")
+    .toArray()
+    .map((element, index, elements) => {
+      const item = $(element);
+      const link = item.find("a[href]").first();
+      const name = item.text().replace(/\s+/g, " ").trim();
+      if (!name) return null;
+      const entry = {
+        "@type": "ListItem",
+        position: index + 1,
+        name,
+      };
+      if (link.length) entry.item = new URL(link.attr("href"), OFFICIAL_ORIGIN).href;
+      else if (index === elements.length - 1) entry.item = canonicalUrl;
+      return entry;
+    })
+    .filter(Boolean);
+  if (items.length < 2) return null;
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
+}
+
 function localAssetPath(value, relativePath) {
   if (!value || /^(?:data:|https?:|\/\/|#)/i.test(value)) return null;
   try {
@@ -900,10 +926,15 @@ function transformHtml(html, relativePath, context) {
   if (aboutSubpage) $("body").addClass("about-subpage");
   if (relativePath === "about/ai-updates.html") $("body").addClass("about-updates-page");
   const generated = context.generatedByPath.get(relativePath);
-  const title = generated?.title || $("meta[name='PAGETITLE']").attr("content") || $("title").text().trim() || context.site.name;
-  const description = generated?.description || $("meta[name='DESCRIPTION']").attr("content") || context.site.description;
+  const seo = context.seo.routes[route] || {};
+  const title = seo.title || generated?.title || $("meta[name='PAGETITLE']").attr("content") || $("title").text().trim() || context.site.name;
+  const description = seo.description || generated?.description || $("meta[name='DESCRIPTION']").attr("content") || context.site.description;
   const canonicalPath = generated?.canonicalUrl || route;
   const canonicalUrl = new URL(canonicalPath, OFFICIAL_ORIGIN).href;
+  const useCaseImage = generated?.slug ? USE_CASE_MEDIA[generated.slug]?.src : null;
+  const socialImagePath = seo.socialImage || generated?.socialImage || generated?.bannerImage || useCaseImage || context.seo.defaultSocialImage;
+  const socialImageUrl = new URL(socialImagePath, OFFICIAL_ORIGIN).href;
+  const socialImageAlt = seo.socialImageAlt || generated?.imageAlt || context.seo.defaultSocialImageAlt;
 
   $("title").text(title === context.site.name ? title : `${title} | ${context.site.name}`);
   upsertMeta($, "meta[name='description'], meta[name='DESCRIPTION']", { name: "description", content: description });
@@ -912,7 +943,15 @@ function transformHtml(html, relativePath, context) {
   upsertMeta($, "meta[property='og:description']", { property: "og:description", content: description });
   upsertMeta($, "meta[property='og:type']", { property: "og:type", content: "website" });
   upsertMeta($, "meta[property='og:url']", { property: "og:url", content: canonicalUrl });
-  upsertMeta($, "meta[name='twitter:card']", { name: "twitter:card", content: "summary" });
+  upsertMeta($, "meta[property='og:site_name']", { property: "og:site_name", content: context.site.name });
+  upsertMeta($, "meta[property='og:image']", { property: "og:image", content: socialImageUrl });
+  upsertMeta($, "meta[property='og:image:alt']", { property: "og:image:alt", content: socialImageAlt });
+  upsertMeta($, "meta[name='twitter:card']", { name: "twitter:card", content: "summary_large_image" });
+  upsertMeta($, "meta[name='twitter:title']", { name: "twitter:title", content: title });
+  upsertMeta($, "meta[name='twitter:description']", { name: "twitter:description", content: description });
+  upsertMeta($, "meta[name='twitter:image']", { name: "twitter:image", content: socialImageUrl });
+  upsertMeta($, "meta[name='twitter:image:alt']", { name: "twitter:image:alt", content: socialImageAlt });
+  upsertMeta($, "meta[name='robots']", { name: "robots", content: seo.robots || "index,follow" });
   if (relativePath === "404.html") upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,follow" });
   $("link[rel='canonical']").remove();
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
@@ -937,15 +976,20 @@ function transformHtml(html, relativePath, context) {
   ).join("");
   $("head").prepend(`${connectionHints}<script data-tritonai-js-class>document.documentElement.className=document.documentElement.className.replace(/\\bno-js\\b/g,'js');</script>`);
   $("script[data-tritonai-schema]").remove();
-  const schema = JSON.stringify({
+  const pageSchema = {
     "@context": "https://schema.org",
     "@type": relativePath === "index.html" ? "WebSite" : "WebPage",
     name: title,
     description,
     url: canonicalUrl,
-    isPartOf: { "@type": "WebSite", name: context.site.name, url: OFFICIAL_ORIGIN },
-    dateModified: generated?.lastReviewed || context.site.lastReviewed,
-  }).replaceAll("</script", "<\\/script");
+    image: socialImageUrl,
+    dateModified: seo.lastModified || generated?.lastReviewed || context.site.lastReviewed,
+  };
+  if (relativePath === "index.html") pageSchema.alternateName = "Triton AI";
+  else pageSchema.isPartOf = { "@type": "WebSite", name: context.site.name, url: OFFICIAL_ORIGIN };
+  const breadcrumb = breadcrumbSchema($, canonicalUrl);
+  const schema = JSON.stringify(breadcrumb ? [pageSchema, { "@context": "https://schema.org", ...breadcrumb }] : pageSchema)
+    .replaceAll("</script", "<\\/script");
   $("head").append(`<script type="application/ld+json" data-tritonai-schema>${schema}</script>`);
   applyGoogleAnalytics($);
 
@@ -1089,6 +1133,7 @@ const facts = await readJson(path.join(CONTENT_DIR, "facts/public-facts.json"));
 const skills = await readJson(SKILLS_FILE);
 const homeHero = await readJson(HOME_HERO_FILE);
 const gatewayUsage = await readJson(GATEWAY_USAGE_FILE);
+const seo = await readJson(SEO_FILE);
 requireFields(roadmap, ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"], "content/roadmap/milestones.json");
 roadmap.lastReviewed = isoDate(roadmap.lastReviewed);
 for (const [index, item] of roadmap.items.entries()) {
@@ -1112,6 +1157,11 @@ for (const [index, slide] of homeHero.slides.entries()) {
 requireFields(gatewayUsage, ["schemaVersion", "title", "summary", "owner", "source", "measurementPeriod", "generatedAt", "lastReviewed", "dataClassification", "canonicalUrl", "relatedSlides", "metrics", "monthly", "notes"], "content/facts/gateway-usage.json");
 requireFields(gatewayUsage.measurementPeriod, ["start", "end", "label"], "content/facts/gateway-usage.json measurement period");
 gatewayUsage.lastReviewed = isoDate(gatewayUsage.lastReviewed);
+requireFields(seo, ["schemaVersion", "defaultSocialImage", "defaultSocialImageAlt", "routes"], "content/seo.json");
+for (const [route, entry] of Object.entries(seo.routes)) {
+  if (!route.startsWith("/")) throw new Error(`content/seo.json route must start with /: ${route}`);
+  if (entry.lastModified) entry.lastModified = isoDate(entry.lastModified);
+}
 for (const [index, metric] of gatewayUsage.metrics.entries()) {
   requireFields(metric, ["id", "displayValue", "label", "definition", "value"], `gateway usage metric ${index + 1}`);
 }
@@ -1177,7 +1227,7 @@ const optimizedImages = new Set(
     .filter((file) => file.endsWith(".webp"))
     .map((file) => `/_images/${file.replaceAll(path.sep, "/")}`),
 );
-const context = { site, newsletters, useCases, facts, gatewayUsage, skills, generatedByPath, optimizedImages };
+const context = { site, newsletters, useCases, facts, gatewayUsage, skills, seo, generatedByPath, optimizedImages };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));
@@ -1189,11 +1239,14 @@ const routes = htmlFiles.map((relativePath) => ({
   canonicalUrl: new URL(generatedByPath.get(relativePath)?.canonicalUrl || routeForRelativePath(relativePath), OFFICIAL_ORIGIN).href,
   redirectTo: generatedByPath.get(relativePath)?.redirectTo || null,
   source: generatedByPath.has(relativePath) ? "structured-content" : "cascade-snapshot",
-  lastReviewed: generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
+  lastModified: seo.routes[routeForRelativePath(relativePath)]?.lastModified || generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
+  indexable: relativePath !== "404.html"
+    && !generatedByPath.get(relativePath)?.redirectTo
+    && !/noindex/i.test(seo.routes[routeForRelativePath(relativePath)]?.robots || ""),
 }));
 const sitemapEntries = routes
-  .filter((route) => route.path !== "/404.html" && !route.redirectTo)
-  .map((route) => `<url><loc>${escapeHtml(route.canonicalUrl)}</loc><lastmod>${escapeHtml(route.lastReviewed)}</lastmod></url>`)
+  .filter((route) => route.indexable)
+  .map((route) => `<url><loc>${escapeHtml(route.canonicalUrl)}</loc><lastmod>${escapeHtml(route.lastModified)}</lastmod></url>`)
   .join("");
 await mkdir(path.join(OUTPUT_DIR, "_data"), { recursive: true });
 await writeFile(path.join(OUTPUT_DIR, "_data/routes.json"), `${JSON.stringify({ generatedAt: new Date().toISOString(), routes }, null, 2)}\n`);

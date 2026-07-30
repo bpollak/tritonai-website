@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "defaultSocialImage": "/_images/homepage/TritonAI_Hero_2500.webp",
+  "defaultSocialImageAlt": "Blue and gold TritonAI pattern",
+  "routes": {
+    "/": {
+      "title": "AI Tools and Support at UC San Diego",
+      "lastModified": "2026-07-29"
+    },
+    "/about/ai-updates.html": {
+      "description": "Read weekly updates on supported AI tools, TritonAI services, and upcoming UC San Diego training and workshops.",
+      "lastModified": "2026-07-29"
+    },
+    "/about/roadmap.html": {
+      "description": "See the status of TritonAI services and campus AI work from the first chatbot launch through the current governed builder program.",
+      "lastModified": "2026-07-29"
+    },
+    "/developer-apis/faq.html": {
+      "title": "Developer APIs and Resources FAQ",
+      "description": "Find answers about TritonAI API access, supported development paths, account setup, security, and help for UC San Diego builders.",
+      "lastModified": "2026-07-29"
+    },
+    "/search/index.html": {
+      "title": "Search TritonAI",
+      "description": "Search TritonAI tools, training, use cases, developer resources, and program information.",
+      "robots": "noindex,follow",
+      "lastModified": "2026-07-29"
+    },
+    "/training-resources/faq.html": {
+      "title": "TritonAI Frequently Asked Questions",
+      "description": "Find answers about TritonGPT access, data use, supported AI tools, training, and help at UC San Diego.",
+      "lastModified": "2026-07-29"
+    },
+    "/training-resources/index.html": {
+      "title": "AI Training and Resources",
+      "lastModified": "2026-07-29"
+    },
+    "/training-resources/prompting/index.html": {
+      "title": "AI Prompting Guide",
+      "description": "Use the START framework to write clearer AI prompts, add useful context, and review the result before using it.",
+      "lastModified": "2026-07-29"
+    },
+    "/training-resources/prompting/prompt-library.html": {
+      "title": "UC San Diego AI Prompt Library",
+      "description": "Browse reusable prompts for common UC San Diego tasks and adapt each example with the context, sources, and review your work requires.",
+      "lastModified": "2026-07-29"
+    },
+    "/training-resources/tritongpt/index.html": {
+      "description": "Learn how to use TritonGPT for campus questions, document work, prompting, assistants, and course-specific instructional support.",
+      "lastModified": "2026-07-29"
+    },
+    "/training-resources/webinars.html": {
+      "title": "UC San Diego AI Webinars",
+      "description": "Watch recorded UC San Diego sessions on TritonGPT, prompting, workflow improvement, and responsible use of AI at work.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/chatbot-widget.html": {
+      "description": "Learn how UC San Diego websites use the TritonGPT chatbot widget to answer campus questions and connect visitors with relevant resources.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/instruction.html": {
+      "title": "Instructional AI Program",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/privacy.html": {
+      "description": "Read how TritonGPT handles prompts, files, account information, and service data when UC San Diego community members use the platform.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/release-notes/11-24-2025-release.html": {
+      "description": "Projects, personalization, Deep Research, GPT-5.1, Gemini 3 Pro, and model privacy labels arrived in the November 24, 2025 TritonGPT release.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/release-notes/4-14-2026-release.html": {
+      "description": "The April 14, 2026 TritonGPT release added new models, campus parking and busyness tools, improved web search, and stronger safety controls.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/release-notes/4-2-2025-release.html": {
+      "description": "The April 2, 2025 TritonGPT release redesigned navigation and assistant discovery, added model selection, and expanded the context window.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/release-notes/8-13-24-release.html": {
+      "description": "The August 13, 2024 TritonGPT release added Fund Manager Coach, file uploads, saved chats, assistant switching, and the Llama 3.1 model.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/release-notes/index.html": {
+      "description": "Review TritonGPT releases, feature changes, model updates, and service improvements by date.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/release-notes/models.html": {
+      "title": "Models Available in TritonGPT",
+      "description": "Review the large language models available in TritonGPT and learn how model capabilities affect which one to choose.",
+      "lastModified": "2026-07-29"
+    },
+    "/tritongpt/terms.html": {
+      "description": "Review the responsibilities, restrictions, and acceptable-use requirements that apply when using TritonGPT at UC San Diego.",
+      "lastModified": "2026-07-29"
+    },
+    "/use-cases/instructional-ai.html": {
+      "title": "Instructional AI Use Case",
+      "lastModified": "2026-07-29"
+    }
+  }
+}

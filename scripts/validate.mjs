@@ -149,6 +149,7 @@ const missing = [];
 const inherited = [];
 const accessibility = [];
 const metadata = [];
+const metadataTitles = new Map();
 const performance = [];
 const navigation = [];
 const decorator = [];
@@ -740,12 +741,37 @@ for (const page of htmlFiles) {
     $("img").each((_, element) => {
       if ($(element).attr("alt") === undefined) accessibility.push({ page: route, issue: "Image missing alt attribute" });
     });
-    const canonical = $("link[rel='canonical']").attr("href");
-    if (!canonical) metadata.push({ page: route, issue: "Missing canonical URL" });
-    else if (!canonical.startsWith("https://tritonai.ucsd.edu/")) metadata.push({ page: route, issue: `Canonical URL is not absolute: ${canonical}` });
-    if (!$("meta[name='description']").attr("content")) metadata.push({ page: route, issue: "Missing description" });
-    if (!$("meta[property='og:title']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph title" });
-    if (!$("script[type='application/ld+json'][data-tritonai-schema]").length) metadata.push({ page: route, issue: "Missing JSON-LD" });
+  }
+  const title = $("title").text().trim();
+  const robots = $("meta[name='robots']").attr("content") || "";
+  const canonical = $("link[rel='canonical']").attr("href");
+  if (!canonical) metadata.push({ page: route, issue: "Missing canonical URL" });
+  else if (!canonical.startsWith("https://tritonai.ucsd.edu/")) metadata.push({ page: route, issue: `Canonical URL is not absolute: ${canonical}` });
+  if (!title) metadata.push({ page: route, issue: "Missing title" });
+  else if (!/noindex/i.test(robots)) {
+    if (!metadataTitles.has(title)) metadataTitles.set(title, []);
+    metadataTitles.get(title).push(route);
+  }
+  if (!$("meta[name='description']").attr("content")) metadata.push({ page: route, issue: "Missing description" });
+  if (!$("meta[property='og:title']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph title" });
+  if (!$("meta[property='og:description']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph description" });
+  if (!$("meta[property='og:url']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph URL" });
+  if (!$("meta[property='og:site_name']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph site name" });
+  if (!$("meta[property='og:image']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph image" });
+  if (!$("meta[property='og:image:alt']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph image alternative" });
+  if ($("meta[name='twitter:card']").attr("content") !== "summary_large_image") metadata.push({ page: route, issue: "Missing large-image Twitter card" });
+  for (const name of ["twitter:title", "twitter:description", "twitter:image", "twitter:image:alt"]) {
+    if (!$(`meta[name='${name}']`).attr("content")) metadata.push({ page: route, issue: `Missing ${name}` });
+  }
+  if (/noarchive/i.test(robots)) metadata.push({ page: route, issue: "Obsolete noarchive directive remains" });
+  const schemaSource = $("script[type='application/ld+json'][data-tritonai-schema]").first().text();
+  if (!schemaSource) metadata.push({ page: route, issue: "Missing JSON-LD" });
+  else {
+    try {
+      JSON.parse(schemaSource);
+    } catch (error) {
+      metadata.push({ page: route, issue: `Invalid JSON-LD: ${error.message}` });
+    }
   }
   if (useCaseByRoute.has(route)) {
     const useCase = useCaseByRoute.get(route);
@@ -1001,6 +1027,10 @@ for (const page of htmlFiles) {
   }
 }
 
+for (const [title, routes] of metadataTitles) {
+  if (routes.length > 1) metadata.push({ page: routes.join(", "), issue: `Duplicate indexable title: ${title}` });
+}
+
 for (const filename of files.filter((file) => file.startsWith("_resources/css/") && file.endsWith(".css"))) {
   const source = await readFile(path.join(DIST_DIR, filename), "utf8");
   for (const match of source.matchAll(/font-family\s*:\s*([^;}]+)/gi)) {
@@ -1027,8 +1057,10 @@ const routeFindings = [];
 if (!routeManifest || routeManifest.routes?.length !== htmlFiles.length) {
   routeFindings.push({ issue: `Route manifest count does not match HTML count (${routeManifest?.routes?.length || 0} vs ${htmlFiles.length})` });
 } else {
-  for (const route of routeManifest.routes.filter((entry) => entry.path !== "/404.html" && !entry.redirectTo)) {
-    if (!sitemap.includes(`<loc>${route.canonicalUrl}</loc>`)) routeFindings.push({ path: route.path, issue: "Missing from sitemap" });
+  for (const route of routeManifest.routes) {
+    const included = sitemap.includes(`<loc>${route.canonicalUrl}</loc>`);
+    if (route.indexable && !included) routeFindings.push({ path: route.path, issue: "Indexable route is missing from sitemap" });
+    if (!route.indexable && !route.redirectTo && included) routeFindings.push({ path: route.path, issue: "Non-indexable route appears in sitemap" });
   }
 }
 if (!(await exists(path.join(DIST_DIR, "404.html")))) routeFindings.push({ path: "/404.html", issue: "Custom 404 is missing" });
