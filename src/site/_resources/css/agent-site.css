@@ -169,6 +169,7 @@
 @media (max-width: 767px) {
   .agent-page #mobile-navigation .msearch .search-content {
     display: block;
+    min-height: 49px;
   }
 }
 

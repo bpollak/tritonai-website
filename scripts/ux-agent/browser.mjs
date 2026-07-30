@@ -124,6 +124,7 @@ export async function interactionChecks(page, width) {
       outcome.mobileSearch = (
         after === "true"
         && await mobileSearch.isVisible()
+        && await mobileSearch.evaluate((element) => element.getBoundingClientRect().height >= 49)
         && await scope.isVisible()
         && await term.isVisible()
         && await scope.evaluate((element) => element === document.activeElement)
