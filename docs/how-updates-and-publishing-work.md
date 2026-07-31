@@ -38,6 +38,67 @@ Every change goes through a pull request (PR). This keeps a record of who change
 
 Some pages are owned by people and require their review before merge — for example, the strategic narrative, roadmap, and sustainability policy. Others, like newsletters and release notes, agents may edit freely. The `AGENTS.md` file in the repository lists who owns what.
 
+## How multiple contributors work together
+
+The site is built for more than one person or agent editing at the same time. The mechanics below keep concurrent work from colliding and make each person's scope clear.
+
+### Branching
+
+Every contributor — human or agent — works on their own feature branch, never directly on `main`. The branch name describes the work:
+
+- `content/update-strategy-2026-07-30` for a page edit
+- `content/newsletter-2026-07-27` for a weekly update
+- `automation/sync-ai-news` for an automated job's PR
+
+This means two people can edit different parts of the site at the same time without overwriting each other. Each branch becomes a PR, and `main` only receives changes through a merge.
+
+### Edit ownership
+
+Not every file is fair game for every contributor. `AGENTS.md` defines three tiers:
+
+- **Agent-owned** — newsletters, the media article archive (`content/media/articles.json`), release notes, and clearly marked metrics sections. Agents may edit these freely and open PRs without a content owner's sign-off.
+- **Human-owned** — the strategic narrative (`src/site/about/index.html`), roadmap (`src/site/about/roadmap.html`), and sustainability policy (`src/site/about/sustainability.html`). Agents must open a PR but never direct-commit; the content owner reviews before merge.
+- **Shared** — the homepage, TritonGPT landing, tools listing, and developer page. A PR is required and the content owner reviews.
+
+When a human and an agent are both editing the site, the agent checks open PRs first and avoids editing the same section a human is already changing.
+
+### Section markers
+
+Generated or agent-managed regions inside a file are wrapped in HTML comment markers:
+
+```
+<!-- AGENT_SECTION: metrics -->
+...generated content...
+<!-- END_AGENT_SECTION -->
+```
+
+A human editing the same file can safely change anything outside the markers. The build or sync job replaces only what is inside them. This lets a person and an automation edit the same file without clobbering each other's work.
+
+### Avoiding conflicts
+
+- **Check open PRs before starting.** If someone already has a PR open that touches the same file or section, coordinate before branching.
+- **Keep PRs focused.** One PR per page or per task. A PR that changes one newsletter is easy to review and merge; a PR that changes ten files across four sections is not.
+- **Pull `main` before merging.** If `main` has moved since the branch was created, rebase or merge `main` into the branch and re-run `npm test` so the checks run against the latest state.
+- **Stage only the files you intended.** In a worktree with unrelated edits, stage only the files your PR is about. Leave stray files alone.
+
+### Who reviews what
+
+| File or area | Who can edit | Who reviews before merge |
+| --- | --- | --- |
+| Newsletters, release notes, media archive, metrics | Agents and people | Any maintainer |
+| Strategic narrative, roadmap, sustainability | PR only, never direct commit | Content owner |
+| Homepage, TritonGPT landing, tools, developer page | PR required | Content owner |
+| Automated job PRs (`automation/sync-*`) | The job opens the PR | A person merges |
+
+### How an automated job and a person overlap
+
+The automated jobs (newsletter sync, media search, skills refresh) run on schedules and open their own PRs. If a person is also editing a newsletter or the media archive at the same time:
+
+1. The job's PR and the person's PR are on separate branches.
+2. The job never force-pushes to a person's branch — it pushes only to its own `automation/sync-*` branch.
+3. If both PRs touch the same file, GitHub flags a merge conflict when the second one is merged. Rebase the second branch onto `main`, resolve the conflict, and re-run `npm test`.
+4. Because the job is idempotent, re-running it after a merge produces a clean result with no duplicates.
+
 ## Automated content jobs
 
 Three scheduled jobs find and add content without a person doing it by hand. Each opens a pull request — a human still reviews and merges before anything goes live. None of these jobs publish directly.
