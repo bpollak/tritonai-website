@@ -73,9 +73,22 @@ bannerMode: abstract
 </div>
 </section>
 
-<section class="landing-section landing-section-navy media-articles-cta" aria-labelledby="media-articles-cta-heading">
-<div class="container"><div><p class="home-kicker">Written coverage</p><h2 id="media-articles-cta-heading">Browse the article archive</h2><p>News stories, case studies, campus reporting, and independent coverage are organized by year on a separate page.</p></div><a class="btn btn-primary btn-lg" href="/about/media-articles.html">View articles and coverage</a></div>
+<!-- AGENT_SECTION: media-latest -->
+<section class="landing-section media-latest" aria-labelledby="media-latest-heading">
+<div class="container">
+<div class="landing-section-heading"><p class="home-kicker">Written coverage</p><h2 id="media-latest-heading">Latest coverage</h2><p>Recent reporting and case studies about TritonAI and TritonGPT. Browse the full archive by year.</p></div>
+<div class="media-entry-grid">
+<a class="media-entry" href="https://higheredaiplaybook.substack.com/p/adoption-without-authority-what-50000" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><div><span class="media-entry-meta">Higher Ed AI Playbook · July 13, 2026</span><h3>Adoption Without Authority: What 50,000 Students and Faculty Just Revealed</h3><p>Article</p></div></a>
+<a class="media-entry" href="https://today.ucsd.edu/story/tritongpt-is-here-and-ready-to-help" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><div><span class="media-entry-meta">UC San Diego Magazine · November 21, 2025</span><h3>TritonGPT is Here and Ready to Help</h3><p>Campus story</p></div></a>
+<a class="media-entry" href="https://ucsdguardian.org/2025/11/03/revisited-chatgpt-goes-to-college/" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><div><span class="media-entry-meta">The UCSD Guardian · November 3, 2025</span><h3>Revisited: ChatGPT Goes to College</h3><p>Student journalism</p></div></a>
+<a class="media-entry" href="https://www.forbes.com/sites/avivalegatt/2025/08/10/why-faculty-hold-the-keys-to-higher-ed-s-ai-digital-transformation/" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><div><span class="media-entry-meta">Forbes · August 10, 2025</span><h3>Why Faculty Hold the Keys to Higher Ed's AI Digital Transformation</h3><p>Article</p></div></a>
+<a class="media-entry" href="https://www.cio.com/article/4032770/unpacking-uc-san-diegos-use-of-llms-to-boost-access-to-knowledge.html" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><div><span class="media-entry-meta">CIO.com · August 8, 2025</span><h3>Unpacking UC San Diego's Use of LLMs to Boost Access to Knowledge</h3><p>Case study</p></div></a>
+<a class="media-entry" href="https://ai.berkeley.edu/beargpt" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><div><span class="media-entry-meta">UC Berkeley AI Hub · June 1, 2025</span><h3>BearGPT Enterprise Assistants</h3><p>Partner deployment</p></div></a>
+</div>
+<p><a class="btn btn-primary" href="/about/media-articles.html">View articles and coverage</a></p>
+</div>
 </section>
+<!-- END_AGENT_SECTION -->
 
 <section class="landing-section media-source-note" aria-label="Source note">
 <div class="container"><p>Curated from the public <a href="https://brettcpollak.com/media" rel="noopener noreferrer" target="_blank">Media and Appearances index</a>. Each item above links to the original publisher.</p></div>

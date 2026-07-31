@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "lastReviewed": "2026-07-30",
+  "owner": "TritonAI program",
+  "source": "Curated archive plus automated web search via scripts/sync-media-coverage.mjs",
+  "queries": [
+    "TritonGPT UC San Diego",
+    "TritonAI UC San Diego",
+    "\"TritonGPT\" coverage",
+    "\"TritonAI\" UCSD"
+  ],
+  "sections": [
+    {
+      "year": 2026,
+      "heading": "Current program perspective",
+      "description": "Recent writing about adoption and the choices behind shared institutional AI.",
+      "articles": [
+        {
+          "date": "2026-07-13",
+          "source": "Higher Ed AI Playbook",
+          "title": "Adoption Without Authority: What 50,000 Students and Faculty Just Revealed",
+          "url": "https://higheredaiplaybook.substack.com/p/adoption-without-authority-what-50000",
+          "kind": "Article",
+          "curated": true
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "heading": "Expansion and shared infrastructure",
+      "description": "Coverage of campus access, instructional use, partner deployments, and the program's operating model.",
+      "articles": [
+        {
+          "date": "2025-11-21",
+          "source": "UC San Diego Magazine",
+          "title": "TritonGPT is Here and Ready to Help",
+          "url": "https://today.ucsd.edu/story/tritongpt-is-here-and-ready-to-help",
+          "kind": "Campus story",
+          "curated": true
+        },
+        {
+          "date": "2025-11-03",
+          "source": "The UCSD Guardian",
+          "title": "Revisited: ChatGPT Goes to College",
+          "url": "https://ucsdguardian.org/2025/11/03/revisited-chatgpt-goes-to-college/",
+          "kind": "Student journalism",
+          "curated": true
+        },
+        {
+          "date": "2025-08-10",
+          "source": "Forbes",
+          "title": "Why Faculty Hold the Keys to Higher Ed's AI Digital Transformation",
+          "url": "https://www.forbes.com/sites/avivalegatt/2025/08/10/why-faculty-hold-the-keys-to-higher-ed-s-ai-digital-transformation/",
+          "kind": "Article",
+          "curated": true
+        },
+        {
+          "date": "2025-08-08",
+          "source": "CIO.com",
+          "title": "Unpacking UC San Diego's Use of LLMs to Boost Access to Knowledge",
+          "url": "https://www.cio.com/article/4032770/unpacking-uc-san-diegos-use-of-llms-to-boost-access-to-knowledge.html",
+          "kind": "Case study",
+          "curated": true
+        },
+        {
+          "date": "2025-06-01",
+          "source": "UC Berkeley AI Hub",
+          "title": "BearGPT Enterprise Assistants",
+          "url": "https://ai.berkeley.edu/beargpt",
+          "kind": "Partner deployment",
+          "curated": true
+        },
+        {
+          "date": "2025-05-22",
+          "source": "EdTech Magazine",
+          "title": "UC San Diego Launches TritonGPT Generative AI Tool",
+          "url": "https://edtechmagazine.com/higher/article/2025/05/uc-san-diego-launches-tritongpt-generative-ai-tool",
+          "kind": "News",
+          "curated": true
+        },
+        {
+          "date": "2025-04-22",
+          "source": "GovTech Industry Insider",
+          "title": "San Diego Area Colleges Band Together on AI",
+          "url": "https://www.govtech.com/education/higher-ed/asu-gsv-2025-san-diego-area-colleges-band-together-on-ai",
+          "kind": "News",
+          "curated": true
+        },
+        {
+          "date": "2025-04-03",
+          "source": "Internet2 Community Blog",
+          "title": "Unlocking Institutional Insights: Discover UC San Diego's TritonGPT Journey",
+          "url": "https://internet2.edu/discover-uc-san-diegos-tritongpt-journey/",
+          "kind": "Case study",
+          "curated": true
+        },
+        {
+          "date": "2025-03-20",
+          "source": "GovTech",
+          "title": "UC Irvine, UC San Diego Launch Campuswide AI Programs",
+          "url": "https://insider.govtech.com/california/news/uc-irvine-uc-san-diego-launch-campuswide-ai-programs",
+          "kind": "News",
+          "curated": true
+        },
+        {
+          "date": "2025-01-20",
+          "source": "The Daily Californian",
+          "title": "UC Berkeley Chatbot BearGPT Violated Worker Rights, GSI Union Alleges",
+          "url": "https://www.dailycal.org/news/campus/uc-berkeley-chatbot-beargpt-violated-worker-rights-gsi-union-alleges/article_67f64b7b-a584-4b44-82e9-15b92e0f3f43.html",
+          "kind": "Independent coverage",
+          "curated": true
+        },
+        {
+          "date": "2025-01-15",
+          "source": "UAW Local 4811",
+          "title": "2025 Unfair Labor Practice Charges",
+          "url": "https://www.uaw4811.org/2025-ulps",
+          "kind": "Stakeholder source",
+          "curated": true
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "heading": "Launch and early adoption",
+      "description": "The first year of public coverage, from campus launch through regional collaboration.",
+      "articles": [
+        {
+          "date": "2024-11-25",
+          "source": "SDSU News",
+          "title": "SDSU, UC San Diego and SD Community College District's Equitable AI Alliance",
+          "url": "https://aaai.sdsu.edu/initiatives/equitable-ai-alliance",
+          "kind": "Partner announcement",
+          "curated": true
+        },
+        {
+          "date": "2024-09-27",
+          "source": "UC Tech News",
+          "title": "TritonGPT Webinar Recap",
+          "url": "https://uctechnews.ucop.edu/tritongpt-webinar-recap-democratizing-ai-for-uc-san-diego-and-the-broader-higher-education-community/",
+          "kind": "Event recap",
+          "curated": true
+        },
+        {
+          "date": "2024-06-04",
+          "source": "IdeaScale",
+          "title": "All About UC San Diego's In-House AI Assistant, Triton GPT",
+          "url": "https://ideascale.com/blog/triton-gpt/",
+          "kind": "Article",
+          "curated": true
+        },
+        {
+          "date": "2024-05-30",
+          "source": "UC Tech News",
+          "title": "TritonGPT: Shaping the Future at UC San Diego Through Student Innovation",
+          "url": "https://uctechnews.ucop.edu/tritongpt-shaping-the-future-at-uc-san-diego-through-student-innovation/",
+          "kind": "Campus story",
+          "curated": true
+        },
+        {
+          "date": "2024-05-24",
+          "source": "GovTech",
+          "title": "Meet TritonGPT: AI That Loves Tedious University Tasks",
+          "url": "https://www.govtech.com/education/higher-ed/meet-tritongpt-ai-that-loves-tedious-university-tasks",
+          "kind": "News",
+          "curated": true
+        },
+        {
+          "date": "2024-04-24",
+          "source": "BestColleges",
+          "title": "Campus-GPT: How Two University of California Campuses Are Designing Specialized AI Tools",
+          "url": "https://www.bestcolleges.com/news/uc-san-diego-irvine-design-specialized-ai-tools/",
+          "kind": "News",
+          "curated": true
+        },
+        {
+          "date": "2024-03-27",
+          "source": "San Diego Reader",
+          "title": "Artificial Intelligence Has Come to UC San Diego",
+          "url": "https://www.sandiegoreader.com/news/2024/mar/27/radar-adelas-big-fat-raises/",
+          "kind": "Local coverage",
+          "curated": true
+        },
+        {
+          "date": "2024-03-19",
+          "source": "ScienceSprings",
+          "title": "From UC San Diego: Say Hello to TritonGPT",
+          "url": "https://sciencesprings.wordpress.com/2024/03/19/from-the-university-of-california-san-diego-say-hello-to-tritongpt/",
+          "kind": "Syndicated coverage",
+          "curated": true
+        },
+        {
+          "date": "2024-03-19",
+          "source": "UC San Diego Today",
+          "title": "Say Hello to TritonGPT",
+          "url": "https://today.ucsd.edu/story/say-hello-to-tritongpt",
+          "kind": "Launch story",
+          "curated": true
+        }
+      ]
+    }
+  ]
+}
