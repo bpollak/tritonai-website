@@ -61,13 +61,16 @@ html, body {
 }
 .title-brand span { font-weight: 700; }
 .title-ucsd {
-  font-family: Roboto, sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--triton-blue);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
 }
-.title-ucsd:hover { text-decoration: underline; }
+.title-ucsd img {
+  display: block;
+  width: 170px;
+  height: auto;
+}
+.title-ucsd:hover { opacity: .85; }
 .layout-nav {
   background: var(--triton-blue);
   display: flex;
@@ -166,35 +169,6 @@ html, body {
   font-size: 16px;
   color: rgba(255,255,255,.8);
   margin-top: 2px;
-}
-
-/* --- Section divider slides --- */
-.slide-section {
-  background: var(--triton-blue);
-  color: #fff;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 60px;
-}
-.slide-section .section-number {
-  font-family: 'Teko', sans-serif;
-  font-size: 80px;
-  line-height: .8;
-  color: var(--triton-gold);
-  font-weight: 600;
-}
-.slide-section h2 {
-  font-family: 'Teko', sans-serif;
-  font-size: clamp(42px, 5vw, 64px);
-  line-height: 1;
-  margin-top: 8px;
-  max-width: 800px;
-}
-.slide-section p {
-  font-size: 20px;
-  margin-top: 16px;
-  max-width: 640px;
-  color: rgba(255,255,255,.8);
 }
 
 /* --- Content slides --- */
@@ -580,10 +554,17 @@ td code { font-size: 13px; }
 .slide-content .kbd-hint, .slide-sand .kbd-hint { color: rgba(0,0,0,.25); }
 
 @media (max-width: 768px) {
-  .slide-hero, .slide-section, .slide-content { padding: 32px 24px; }
+  .slide-hero, .slide-content { padding: 32px 24px; }
   .compare, .two-col { grid-template-columns: 1fr; }
   .flow { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+  .controls { height: 48px; padding: 0 12px; }
+  .nav-btn { width: 44px; height: 44px; }
+  .progress-bar { margin: 0 12px; }
+  .controls-right { display: none; }
+}
+@media (max-width: 480px) {
+  .title-ucsd img { width: 140px; }
 }
 </style>
 </head>
@@ -594,7 +575,7 @@ td code { font-size: 13px; }
 <header class="site-header">
   <section class="layout-title">
     <a class="title-brand" href="https://tritonai.ucsd.edu">Triton <span>AI</span></a>
-    <a class="title-ucsd" href="https://ucsd.edu">UC San Diego</a>
+    <a class="title-ucsd" href="https://ucsd.edu"><img alt="UC San Diego" src="https://www.ucsd.edu/_resources/img/logo_UCSD.png"></a>
   </section>
   <nav class="layout-nav">
     <span>Managing the TritonAI Website</span>
@@ -646,15 +627,8 @@ td code { font-size: 13px; }
   <div class="callout">The public URLs, UC San Diego Decorator look and feel, and browser integrations are all preserved. What changed is how content gets in.</div>
 </section>
 
-<!-- SLIDE 3: Section divider — Where content lives -->
-<section class="slide slide-section" data-slide="3">
-  <span class="section-number">01</span>
-  <h2>Where content lives</h2>
-  <p>Understand the file structure and you understand the site.</p>
-</section>
-
-<!-- SLIDE 4: Content locations -->
-<section class="slide slide-content" data-slide="4">
+<!-- SLIDE 3: Content locations -->
+<section class="slide slide-content" data-slide="3">
   <p class="kicker">The repository</p>
   <h2>Content is organized by type</h2>
   <div class="card-grid">
@@ -692,15 +666,8 @@ td code { font-size: 13px; }
   <div class="callout">If a file lives under <code>content/</code>, you edit the source and the build writes the page. If it lives under <code>src/site/</code>, it is a legacy page edited directly at its original path.</div>
 </section>
 
-<!-- SLIDE 5: Section divider — How a change becomes live -->
-<section class="slide slide-section" data-slide="5">
-  <span class="section-number">02</span>
-  <h2>How a change becomes a web page</h2>
-  <p>Six steps from edit to live — no CMS queue, no manual upload.</p>
-</section>
-
-<!-- SLIDE 6: The six-step flow -->
-<section class="slide slide-content slide-sand" data-slide="6">
+<!-- SLIDE 4: The six-step flow -->
+<section class="slide slide-content slide-sand" data-slide="4">
   <p class="kicker">The publishing pipeline</p>
   <h2>From edit to live in six steps</h2>
   <div class="flow">
@@ -726,15 +693,8 @@ td code { font-size: 13px; }
   </ul>
 </section>
 
-<!-- SLIDE 7: Section divider — Multiple contributors -->
-<section class="slide slide-section" data-slide="7">
-  <span class="section-number">03</span>
-  <h2>How multiple contributors work together</h2>
-  <p>Branches, ownership tiers, and section markers keep concurrent work safe.</p>
-</section>
-
-<!-- SLIDE 8: Branching -->
-<section class="slide slide-content" data-slide="8">
+<!-- SLIDE 5: Branching -->
+<section class="slide slide-content" data-slide="5">
   <p class="kicker">Contribution mechanics</p>
   <h2>Everyone works on a branch</h2>
   <p>No one edits <code>main</code> directly. Every contributor — human or agent — creates a feature branch named for the work:</p>
@@ -751,8 +711,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   </ul>
 </section>
 
-<!-- SLIDE 9: Edit ownership -->
-<section class="slide slide-content slide-sand" data-slide="9">
+<!-- SLIDE 6: Edit ownership -->
+<section class="slide slide-content slide-sand" data-slide="6">
   <p class="kicker">Who can edit what</p>
   <h2>Edit ownership tiers</h2>
   <div class="card-grid">
@@ -785,8 +745,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   </div>
 </section>
 
-<!-- SLIDE 10: Section markers -->
-<section class="slide slide-content" data-slide="10">
+<!-- SLIDE 7: Section markers -->
+<section class="slide slide-content" data-slide="7">
   <p class="kicker">Conflict prevention</p>
   <h2>Section markers protect generated regions</h2>
   <p>Generated or agent-managed regions inside a file are wrapped in HTML comment markers:</p>
@@ -806,8 +766,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   <div class="callout">This lets a person and an automation edit the same file at the same time — each in their own region.</div>
 </section>
 
-<!-- SLIDE 11: Automated jobs + people -->
-<section class="slide slide-content slide-sand" data-slide="11">
+<!-- SLIDE 8: Automated jobs + people -->
+<section class="slide slide-content slide-sand" data-slide="8">
   <p class="kicker">When automation and people overlap</p>
   <h2>Automated jobs and people can work in parallel</h2>
   <ul>
@@ -819,15 +779,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   </ul>
 </section>
 
-<!-- SLIDE 12: Section divider — Automated jobs -->
-<section class="slide slide-section" data-slide="12">
-  <span class="section-number">04</span>
-  <h2>Automated content jobs</h2>
-  <p>Three scheduled jobs find and add content — a human still reviews before publish.</p>
-</section>
-
-<!-- SLIDE 13: Jobs overview -->
-<section class="slide slide-content" data-slide="13">
+<!-- SLIDE 9: Jobs overview -->
+<section class="slide slide-content" data-slide="9">
   <p class="kicker">Scheduled automation</p>
   <h2>Three jobs that run on their own</h2>
   <div class="card-grid">
@@ -850,15 +803,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   <div class="callout">None of these jobs publish directly. They open or refresh a PR, and a person merges it. Each job runs the full <code>npm test</code> suite before opening the PR.</div>
 </section>
 
-<!-- SLIDE 14: Section divider — Checks -->
-<section class="slide slide-section" data-slide="14">
-  <span class="section-number">05</span>
-  <h2>Checks that must pass</h2>
-  <p>Every change runs through five layers of automated review before it can merge.</p>
-</section>
-
-<!-- SLIDE 15: Checks overview -->
-<section class="slide slide-content" data-slide="15">
+<!-- SLIDE 10: Checks overview -->
+<section class="slide slide-content" data-slide="10">
   <p class="kicker">The <code>npm test</code> suite</p>
   <h2>Five layers of automated review</h2>
   <ul class="checklist">
@@ -871,8 +817,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   <div class="callout">Automated checks do not replace manual review. After changing a page, look at it at desktop and responsive widths and confirm headings, links, and keyboard focus behave.</div>
 </section>
 
-<!-- SLIDE 16: Validation detail -->
-<section class="slide slide-content slide-sand" data-slide="16">
+<!-- SLIDE 11: Validation detail -->
+<section class="slide slide-content slide-sand" data-slide="11">
   <p class="kicker">Validation in detail</p>
   <h2>What the validator checks</h2>
   <div class="two-col">
@@ -899,8 +845,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   </div>
 </section>
 
-<!-- SLIDE 17: Accessibility detail -->
-<section class="slide slide-content slide-navy" data-slide="17">
+<!-- SLIDE 12: Accessibility detail -->
+<section class="slide slide-content slide-navy" data-slide="12">
   <p class="kicker">Accessibility is a gate, not a suggestion</p>
   <h2>The accessibility scan</h2>
   <p>Every non-redirect route opens in headless Chromium at two widths — 390 px and 1440 px — and runs axe-core plus interaction checks:</p>
@@ -924,8 +870,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   <div class="callout">Results are written to <code>reports/accessibility.json</code> and uploaded as a GitHub Actions artifact that stays for 30 days.</div>
 </section>
 
-<!-- SLIDE 18: Language check -->
-<section class="slide slide-content" data-slide="18">
+<!-- SLIDE 13: Language check -->
+<section class="slide slide-content" data-slide="13">
   <p class="kicker">Voice and language</p>
   <h2>The language check reads the source, not the HTML</h2>
   <p>It reads Markdown in <code>content/</code> so a finding names the file an editor would open. It flags:</p>
@@ -950,14 +896,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   <div class="callout">Governance vocabulary — "approved", "bounded", "supervised", "named owner" — is never flagged. Those qualify real controls.</div>
 </section>
 
-<!-- SLIDE 19: Section divider — What to take home -->
-<section class="slide slide-section" data-slide="19">
-  <span class="section-number">06</span>
-  <h2>What to take home</h2>
-</section>
-
-<!-- SLIDE 20: Key takeaways -->
-<section class="slide slide-content slide-sand" data-slide="20">
+<!-- SLIDE 14: Key takeaways -->
+<section class="slide slide-content slide-sand" data-slide="14">
   <p class="kicker">Summary</p>
   <h2>Key takeaways for Cascade content staff</h2>
   <ul class="checklist">
@@ -970,8 +910,8 @@ automation/sync-ai-news                # an automated job</code></pre>
   </ul>
 </section>
 
-<!-- SLIDE 21: Quick reference -->
-<section class="slide slide-content" data-slide="21">
+<!-- SLIDE 15: Quick reference -->
+<section class="slide slide-content" data-slide="15">
   <p class="kicker">Quick reference</p>
   <h2>Where to edit and how to publish</h2>
   <div class="table-wrap">
@@ -994,8 +934,8 @@ SITE_BASE_PATH=<span>/</span>tritonai-website npm run build
 SITE_BASE_PATH=<span>/</span>tritonai-website npm run validate</code></pre>
 </section>
 
-<!-- SLIDE 22: Closing -->
-<section class="slide slide-hero" data-slide="22">
+<!-- SLIDE 16: Closing -->
+<section class="slide slide-hero" data-slide="16">
   <p class="kicker">Questions and discussion</p>
   <h1>What would you like to know?</h1>
   <p class="lede">Full details are in <code>docs/how-updates-and-publishing-work.md</code> in the repository. The TritonAI Harness can apply this same pattern to other sites currently in Cascade.</p>
@@ -1013,9 +953,9 @@ SITE_BASE_PATH=<span>/</span>tritonai-website npm run validate</code></pre>
   <div class="controls-left">
     <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
     <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
-    <span class="progress-text" id="slideCounter">1 / 22</span>
+    <span class="progress-text" id="slideCounter">1 / 16</span>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:4.5%"></div></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:6.25%"></div></div>
   <div class="controls-right">
     <span class="progress-text">← → to navigate · F for fullscreen</span>
   </div>
@@ -1035,6 +975,9 @@ SITE_BASE_PATH=<span>/</span>tritonai-website npm run validate</code></pre>
   const nextBtn = document.getElementById('nextBtn');
   const counter = document.getElementById('slideCounter');
   const progressFill = document.getElementById('progressFill');
+  const viewport = document.getElementById('viewport');
+  let touchStartX = null;
+  let touchStartY = null;
 
   slides.forEach((slide, index) => {
     slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
@@ -1060,6 +1003,27 @@ SITE_BASE_PATH=<span>/</span>tritonai-website npm run validate</code></pre>
 
   prevBtn.addEventListener('click', () => show(current - 1));
   nextBtn.addEventListener('click', () => show(current + 1));
+
+  viewport.addEventListener('touchstart', (event) => {
+    if (event.touches.length !== 1) return;
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', (event) => {
+    if (touchStartX === null || touchStartY === null || event.changedTouches.length !== 1) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX;
+    const deltaY = event.changedTouches[0].clientY - touchStartY;
+    touchStartX = null;
+    touchStartY = null;
+    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.25) return;
+    show(current + (deltaX < 0 ? 1 : -1));
+  }, { passive: true });
+
+  viewport.addEventListener('touchcancel', () => {
+    touchStartX = null;
+    touchStartY = null;
+  }, { passive: true });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
