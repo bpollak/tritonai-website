@@ -2746,6 +2746,350 @@
   }
 }
 
+/* Developer Get Started: paths, examples, and prototype flow */
+.developer-start-page {
+  color: var(--triton-slate);
+}
+
+.developer-start-intro {
+  background: var(--triton-sand);
+  border-left: 6px solid var(--triton-bright-blue);
+  margin-bottom: 38px;
+  padding: 30px 32px 26px;
+}
+
+.developer-start-intro h2 {
+  color: var(--triton-navy);
+  margin: 0 0 12px;
+}
+
+.developer-start-intro .lead {
+  margin-bottom: 0;
+  max-width: 820px;
+}
+
+.developer-start-step {
+  border-top: 1px solid var(--triton-border);
+  margin-top: 42px;
+  padding-top: 38px;
+}
+
+.developer-start-step:first-child {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.developer-start-step-header {
+  align-items: start;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 54px minmax(0, 1fr);
+  margin-bottom: 18px;
+}
+
+.developer-start-step-header > span {
+  align-items: center;
+  background: var(--triton-navy);
+  border-radius: 50%;
+  color: var(--triton-gold);
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  height: 54px;
+  justify-content: center;
+  letter-spacing: .05em;
+  width: 54px;
+}
+
+.developer-start-step-header .home-kicker {
+  margin-top: 2px;
+}
+
+.developer-start-step-header h2 {
+  color: var(--triton-navy);
+  margin: 0;
+}
+
+.developer-start-paths {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 26px 0;
+}
+
+.developer-start-paths article {
+  border: 1px solid var(--triton-border);
+  border-top: 5px solid var(--triton-blue);
+  padding: 24px;
+}
+
+.developer-start-paths article:first-child {
+  border-top-color: var(--triton-bright-blue);
+}
+
+.developer-start-paths .glyphicon,
+.developer-harness-examples .glyphicon {
+  color: var(--triton-blue);
+  font-size: 24px;
+}
+
+.developer-start-paths h3,
+.developer-harness-examples h3 {
+  color: var(--triton-navy);
+  margin: 12px 0 9px;
+}
+
+.developer-start-paths p:last-child,
+.developer-start-paths ul:last-child,
+.developer-harness-examples p:last-child {
+  margin-bottom: 0;
+}
+
+.developer-start-paths ul {
+  padding-left: 20px;
+}
+
+.developer-start-request {
+  align-items: center;
+  background: var(--triton-navy);
+  border-bottom: 5px solid var(--triton-bright-blue);
+  color: #fff;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  padding: 25px 28px;
+}
+
+.developer-start-request h3 {
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.developer-start-request p {
+  line-height: 1.55;
+  margin-bottom: 0;
+  max-width: 620px;
+}
+
+.developer-start-request .btn-primary,
+.developer-start-request .btn-primary:visited {
+  background: var(--triton-gold);
+  border-color: var(--triton-gold);
+  color: var(--triton-navy) !important;
+}
+
+.developer-start-request .btn-primary {
+  flex: 0 0 auto;
+}
+
+.developer-start-request .btn-primary:hover,
+.developer-start-request .btn-primary:focus {
+  background: #fff;
+  border-color: #fff;
+  color: var(--triton-navy) !important;
+}
+
+.developer-start-confirmation {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 24px 0 18px;
+}
+
+.developer-start-confirmation > div {
+  background: #f4f7f8;
+  border-left: 4px solid var(--triton-blue);
+  padding: 20px 22px;
+}
+
+.developer-start-confirmation dt {
+  color: var(--triton-navy);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.developer-start-confirmation dd {
+  line-height: 1.55;
+  margin: 0;
+}
+
+.developer-start-note {
+  border-left: 3px solid var(--triton-gold);
+  font-size: 15px;
+  line-height: 1.55;
+  margin-top: 18px;
+  padding-left: 16px;
+}
+
+.developer-harness-examples {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 26px 0 34px;
+}
+
+.developer-harness-examples article {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  box-shadow: 0 8px 20px rgba(24, 43, 73, .06);
+  min-height: 210px;
+  padding: 22px;
+}
+
+.developer-harness-examples h3 {
+  font-size: 21px;
+}
+
+.developer-harness-examples p {
+  line-height: 1.55;
+}
+
+.developer-start-cycle-heading {
+  color: var(--triton-navy);
+  margin-bottom: 18px;
+}
+
+.developer-start-cycle {
+  counter-reset: none;
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.developer-start-cycle li {
+  background: var(--triton-sand);
+  border-right: 1px solid #d8d1c5;
+  min-width: 0;
+  padding: 20px 18px 22px;
+}
+
+.developer-start-cycle li:last-child {
+  border-right: 0;
+}
+
+.developer-start-cycle li > span {
+  align-items: center;
+  background: var(--triton-blue);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  font-weight: 700;
+  height: 32px;
+  justify-content: center;
+  margin-bottom: 12px;
+  width: 32px;
+}
+
+.developer-start-cycle strong,
+.developer-start-cycle small {
+  display: block;
+}
+
+.developer-start-cycle strong {
+  color: var(--triton-navy);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.developer-start-cycle small {
+  color: var(--triton-slate);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.developer-start-operation-list {
+  columns: 2;
+  column-gap: 42px;
+  margin: 22px 0 24px;
+}
+
+.developer-start-operation-list li {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.developer-start-final {
+  background: #f4f7f8;
+  border-left: 4px solid var(--triton-bright-blue);
+  font-weight: 700;
+  line-height: 1.55;
+  padding: 18px 20px;
+}
+
+@media (max-width: 991px) {
+  .developer-harness-examples {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .developer-start-cycle {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .developer-start-cycle li:nth-child(2) {
+    border-right: 0;
+  }
+
+  .developer-start-cycle li:nth-child(-n+2) {
+    border-bottom: 1px solid #d8d1c5;
+  }
+}
+
+@media (max-width: 767px) {
+  .developer-start-intro {
+    padding: 24px 20px 21px;
+  }
+
+  .developer-start-step-header {
+    gap: 14px;
+    grid-template-columns: 46px minmax(0, 1fr);
+  }
+
+  .developer-start-step-header > span {
+    font-size: 16px;
+    height: 46px;
+    width: 46px;
+  }
+
+  .developer-start-paths,
+  .developer-start-confirmation,
+  .developer-harness-examples,
+  .developer-start-cycle {
+    grid-template-columns: 1fr;
+  }
+
+  .developer-start-request {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+    padding: 23px 20px;
+  }
+
+  .developer-start-request .btn {
+    width: 100%;
+  }
+
+  .developer-harness-examples article {
+    min-height: 0;
+  }
+
+  .developer-start-cycle li {
+    border-bottom: 1px solid #d8d1c5;
+    border-right: 0;
+  }
+
+  .developer-start-cycle li:last-child {
+    border-bottom: 0;
+  }
+
+  .developer-start-operation-list {
+    columns: 1;
+  }
+}
+
 /* Keep the externally supplied TritonGPT launcher compact on small screens. */
 @media (max-width: 767px) {
   #chat-bubble {
