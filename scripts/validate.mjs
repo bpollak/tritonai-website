@@ -7,7 +7,11 @@ const DIST_DIR = path.resolve("dist");
 const REPORT_DIR = path.resolve("reports");
 const CONTENT_DIR = path.resolve("content");
 const SITE_BASE_PATH = (process.env.SITE_BASE_PATH || "").replace(/^\/+|\/+$/g, "");
+const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const inheritedProductionFailures = new Set();
+const standaloneRoutes = new Set([
+  "/presentations/managing-the-tritonai-website.html",
+]);
 const renderedProvenancePatterns = [
   { pattern: /\bSource:\s*[^<\n]*\.md\b/i, label: "internal content filename" },
   { pattern: /\bcurrent public (?:deck|presentation|version)\b/i, label: "public-version framing" },
@@ -355,6 +359,7 @@ for (const page of htmlFiles) {
   const renderedHtml = await readFile(path.join(DIST_DIR, page), "utf8");
   const $ = load(renderedHtml);
   const route = page === "index.html" ? "/" : `/${page}`;
+  const standalone = standaloneRoutes.has(route);
   for (const pattern of retiredReferencePatterns) {
     if (pattern.test(renderedHtml)) {
       contentFindings.push({ source: `dist/${page}`, issue: "Retired AI workgroup reference remains in rendered content" });
@@ -366,9 +371,11 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: `dist/${page}`, issue: "Rendered page still links to the retired workgroup route" });
     }
   });
-  for (const stylesheet of requiredDecoratorStylesheets) {
-    if ($(`link[rel~='stylesheet'][href='${stylesheet}']`).length !== 1) {
-      decorator.push({ page: route, issue: `Missing official Decorator 5 stylesheet: ${stylesheet}` });
+  if (!standalone) {
+    for (const stylesheet of requiredDecoratorStylesheets) {
+      if ($(`link[rel~='stylesheet'][href='${stylesheet}']`).length !== 1) {
+        decorator.push({ page: route, issue: `Missing official Decorator 5 stylesheet: ${stylesheet}` });
+      }
     }
   }
   if (!$("body").hasClass("agent-page")) {
@@ -420,7 +427,7 @@ for (const page of htmlFiles) {
   }
 
   const primaryNav = $("#navbar > .navbar-nav-list").first();
-  if (!primaryNav.length) {
+  if (!primaryNav.length && !standalone) {
     navigation.push({ page: route, issue: "Primary navigation is missing" });
   } else {
     const primaryItems = primaryNav.children("li").toArray();
@@ -453,18 +460,20 @@ for (const page of htmlFiles) {
   });
   const mobileToggle = $("[data-tritonai-mobile-toggle]");
   if (
-    mobileToggle.length !== 1 ||
-    mobileToggle.attr("aria-controls") !== "mobile-navigation" ||
-    !["true", "false"].includes(mobileToggle.attr("aria-expanded")) ||
-    ids.get("mobile-navigation") !== 1
+    !standalone &&
+    (mobileToggle.length !== 1 ||
+      mobileToggle.attr("aria-controls") !== "mobile-navigation" ||
+      !["true", "false"].includes(mobileToggle.attr("aria-expanded")) ||
+      ids.get("mobile-navigation") !== 1)
   ) {
     navigation.push({ page: route, issue: "Mobile navigation toggle is missing a valid ARIA relationship" });
   }
   const searchToggle = $("[data-tritonai-search-toggle]");
   if (
-    searchToggle.length !== 1 ||
-    !["true", "false"].includes(searchToggle.attr("aria-expanded")) ||
-    ids.get(searchToggle.attr("aria-controls")) !== 1
+    !standalone &&
+    (searchToggle.length !== 1 ||
+      !["true", "false"].includes(searchToggle.attr("aria-expanded")) ||
+      ids.get(searchToggle.attr("aria-controls")) !== 1)
   ) {
     navigation.push({ page: route, issue: "Desktop search toggle is missing a valid ARIA relationship" });
   }
@@ -666,10 +675,12 @@ for (const page of htmlFiles) {
   for (const asset of protocolRelativeUcsdAssets) {
     performance.push({ page: route, issue: `UCSD CDN asset must use HTTPS explicitly: ${asset}` });
   }
-  for (const source of afterRenderDecoratorScripts) {
-    const script = $(`script[data-after-render-src='${source}']`);
-    if (script.length !== 1 || script.attr("src")) {
-      performance.push({ page: route, issue: `Decorator dependency is not postponed until after render: ${source}` });
+  if (!standalone) {
+    for (const source of afterRenderDecoratorScripts) {
+      const script = $(`script[data-after-render-src='${source}']`);
+      if (script.length !== 1 || script.attr("src")) {
+        performance.push({ page: route, issue: `Decorator dependency is not postponed until after render: ${source}` });
+      }
     }
   }
   $("script[src^='http']").each((_, element) => {
@@ -679,11 +690,11 @@ for (const page of htmlFiles) {
     performance.push({ page: route, issue: `External script blocks initial rendering: ${source}` });
   });
   const emergencyScript = $(`script[src='${emergencyBroadcastScript}']`);
-  if (emergencyScript.length !== 1 || emergencyScript.attr("async") === undefined) {
+  if (!standalone && (emergencyScript.length !== 1 || emergencyScript.attr("async") === undefined)) {
     performance.push({ page: route, issue: "Emergency broadcast must remain live without blocking rendering" });
   }
   const idleWidget = $(`script[data-idle-src='${tritonGptWidgetScript}']`);
-  if (idleWidget.length !== 1 || idleWidget.attr("src")) {
+  if (!standalone && (idleWidget.length !== 1 || idleWidget.attr("src"))) {
     performance.push({ page: route, issue: "TritonGPT widget must initialize during browser idle time" });
   }
   const analyticsLoader = $("script[data-tritonai-analytics][src]");
@@ -1054,13 +1065,22 @@ try {
 }
 const sitemap = await readFile(path.join(DIST_DIR, "sitemap.xml"), "utf8").catch(() => "");
 const routeFindings = [];
-if (!routeManifest || routeManifest.routes?.length !== htmlFiles.length) {
-  routeFindings.push({ issue: `Route manifest count does not match HTML count (${routeManifest?.routes?.length || 0} vs ${htmlFiles.length})` });
+const listedHtmlFiles = htmlFiles.filter((file) => !standaloneRoutes.has(normalizeRoute(`/${file}`)));
+if (!routeManifest || routeManifest.routes?.length !== listedHtmlFiles.length) {
+  routeFindings.push({ issue: `Route manifest count does not match listed HTML count (${routeManifest?.routes?.length || 0} vs ${listedHtmlFiles.length})` });
 } else {
   for (const route of routeManifest.routes) {
     const included = sitemap.includes(`<loc>${route.canonicalUrl}</loc>`);
     if (route.indexable && !included) routeFindings.push({ path: route.path, issue: "Indexable route is missing from sitemap" });
     if (!route.indexable && !route.redirectTo && included) routeFindings.push({ path: route.path, issue: "Non-indexable route appears in sitemap" });
+  }
+}
+for (const route of standaloneRoutes) {
+  if (routeManifest?.routes?.some((entry) => entry.path === route)) {
+    routeFindings.push({ path: route, issue: "Unlisted standalone route appears in the public route manifest" });
+  }
+  if (sitemap.includes(`<loc>${OFFICIAL_ORIGIN}${route}</loc>`)) {
+    routeFindings.push({ path: route, issue: "Unlisted standalone route appears in the sitemap" });
   }
 }
 if (!(await exists(path.join(DIST_DIR, "404.html")))) routeFindings.push({ path: "/404.html", issue: "Custom 404 is missing" });

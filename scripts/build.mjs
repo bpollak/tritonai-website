@@ -14,6 +14,7 @@ const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
 const SEO_FILE = path.join(CONTENT_DIR, "seo.json");
+const PRESENTATION_DIR = path.resolve("presentations");
 const OUTPUT_DIR = path.resolve("dist");
 const AGENT_SITE_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/agent-site.css")))
@@ -25,6 +26,9 @@ const LANDING_HUBS_CSS_VERSION = createHash("sha256")
   .slice(0, 12);
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
+const UNLISTED_ROUTES = new Set([
+  "/presentations/managing-the-tritonai-website.html",
+]);
 const AFTER_RENDER_SCRIPTS = new Set([
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/modernizr.min.js",
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/jquery.min.js",
@@ -1179,6 +1183,7 @@ const homeShellHtml = await readFile(path.join(SOURCE_DIR, "index.html"), "utf8"
 await rm(OUTPUT_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
 await mkdir(OUTPUT_DIR, { recursive: true });
 await cp(SOURCE_DIR, OUTPUT_DIR, { recursive: true });
+await cp(PRESENTATION_DIR, path.join(OUTPUT_DIR, "presentations"), { recursive: true });
 
 const generatedByPath = new Map();
 for (const page of pages) {
@@ -1235,16 +1240,18 @@ for (const relativePath of htmlFiles) {
 }
 
 htmlFiles = (await listFiles(OUTPUT_DIR)).filter((file) => file.endsWith(".html")).sort();
-const routes = htmlFiles.map((relativePath) => ({
-  path: routeForRelativePath(relativePath),
-  canonicalUrl: new URL(generatedByPath.get(relativePath)?.canonicalUrl || routeForRelativePath(relativePath), OFFICIAL_ORIGIN).href,
-  redirectTo: generatedByPath.get(relativePath)?.redirectTo || null,
-  source: generatedByPath.has(relativePath) ? "structured-content" : "cascade-snapshot",
-  lastModified: seo.routes[routeForRelativePath(relativePath)]?.lastModified || generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
-  indexable: relativePath !== "404.html"
-    && !generatedByPath.get(relativePath)?.redirectTo
-    && !/noindex/i.test(seo.routes[routeForRelativePath(relativePath)]?.robots || ""),
-}));
+const routes = htmlFiles
+  .map((relativePath) => ({
+    path: routeForRelativePath(relativePath),
+    canonicalUrl: new URL(generatedByPath.get(relativePath)?.canonicalUrl || routeForRelativePath(relativePath), OFFICIAL_ORIGIN).href,
+    redirectTo: generatedByPath.get(relativePath)?.redirectTo || null,
+    source: generatedByPath.has(relativePath) ? "structured-content" : "cascade-snapshot",
+    lastModified: seo.routes[routeForRelativePath(relativePath)]?.lastModified || generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
+    indexable: relativePath !== "404.html"
+      && !generatedByPath.get(relativePath)?.redirectTo
+      && !/noindex/i.test(seo.routes[routeForRelativePath(relativePath)]?.robots || ""),
+  }))
+  .filter((route) => !UNLISTED_ROUTES.has(route.path));
 const sitemapEntries = routes
   .filter((route) => route.indexable)
   .map((route) => `<url><loc>${escapeHtml(route.canonicalUrl)}</loc><lastmod>${escapeHtml(route.lastModified)}</lastmod></url>`)
