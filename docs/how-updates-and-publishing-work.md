@@ -38,15 +38,100 @@ Every change goes through a pull request (PR). This keeps a record of who change
 
 Some pages are owned by people and require their review before merge — for example, the strategic narrative, roadmap, and sustainability policy. Others, like newsletters and release notes, agents may edit freely. The `AGENTS.md` file in the repository lists who owns what.
 
-## Automated jobs
+## Automated content jobs
 
-Three scheduled jobs find and add content without a person doing it by hand. Each opens a pull request so a human still reviews before anything goes live.
+Three scheduled jobs find and add content without a person doing it by hand. Each opens a pull request — a human still reviews and merges before anything goes live. None of these jobs publish directly.
 
-- **Weekly AI newsletter sync** — runs every Monday, pulls new newsletter editions from the external newsletter source into `content/newsletters/`, and opens a PR.
-- **Media coverage search** — runs every Monday, searches the public web via DuckDuckGo for articles about TritonAI or TritonGPT, adds new items to `content/media/articles.json`, regenerates the article archive and latest-coverage sections, and opens a PR. Discovered items are tagged with the date and source so a reviewer can see what the search found.
-- **Skills Library refresh** — runs hourly and before every build, updating `content/skills/library.json` from the upstream GitHub repository so the public skills catalog stays current.
+### Quick reference
 
-None of these jobs publish directly. They open or refresh a PR, and a person merges it.
+| Job | What it does | Schedule | Script | PR branch |
+| --- | --- | --- | --- | --- |
+| Weekly AI newsletter sync | Pulls new newsletter editions from the external newsletter source | Mondays 18:15 UTC | `scripts/sync-ai-news.mjs` | `automation/sync-ai-news` |
+| Media coverage search | Searches the web for TritonAI and TritonGPT articles and adds them to the archive | Mondays 18:30 UTC | `scripts/sync-media-coverage.mjs` | `automation/sync-media-coverage` |
+| Skills Library refresh | Updates the public skills catalog from the upstream GitHub repository | Hourly at :17 and before every build | `scripts/sync-skills.mjs` | Builds in place; no PR |
+
+All three can also be started manually from the GitHub Actions tab.
+
+### Weekly AI newsletter sync
+
+**What it does:** Fetches newsletter editions from the external source at `brettcpollak.com/ucsd-ai-news`, sanitizes the HTML, converts it to Markdown, and writes one file per edition into `content/newsletters/`.
+
+**When it runs:** Every Monday at 18:15 UTC, or on demand from the Actions tab.
+
+**What it changes:** Files in `content/newsletters/`. The homepage and `/about/ai-updates.html` pick up the newest entries automatically at build time.
+
+**How a new edition reaches the site:**
+
+1. The job fetches the source page and extracts each newsletter edition.
+2. It compares each edition against the file already in the repository. If nothing changed, it stops.
+3. If there is a new or updated edition, it writes the Markdown file, runs the full `npm test` suite, and force-pushes the `automation/sync-ai-news` branch.
+4. It opens or refreshes a pull request titled "Sync UC San Diego AI Weekly."
+5. A reviewer merges the PR. The merge triggers the standard build and deploy.
+
+**Run it locally:**
+
+```bash
+npm run sync:ai-news      # fetch and write
+npm run check:ai-news     # fetch only, exit 1 if changes are pending
+```
+
+### Media coverage search
+
+**What it does:** Searches the public web via DuckDuckGo Lite for articles mentioning TritonAI or TritonGPT, filters out first-party `ucsd.edu` pages and social-media sites, extracts a publish date and publisher name from each article page, and appends new items to `content/media/articles.json`. It then regenerates the article archive on `/about/media-articles.html` and the latest-coverage section on `/about/media.html` from that JSON.
+
+**When it runs:** Every Monday at 18:30 UTC, or on demand from the Actions tab.
+
+**What it changes:** `content/media/articles.json` and the generated section blocks inside `content/pages/about-media-articles.md` and `content/pages/about-media.md`. Curated sections on the media page — featured coverage, awards, appearances, and reports — are never touched by the job.
+
+**How a discovered article reaches the site:**
+
+1. The job runs each search query from the `queries` array in `articles.json`.
+2. It filters results for relevance (title or snippet must mention TritonGPT, TritonAI, or UC San Diego alongside AI) and drops blocked hosts.
+3. It normalizes URLs — stripping tracking parameters — and skips any URL already in the archive.
+4. For each new URL, it fetches the article page and extracts a publish date from JSON-LD, Open Graph metadata, or a `YYYY/MM/DD` URL pattern.
+5. It adds the article to the matching year section in the JSON, re-renders both pages, runs `npm test`, and force-pushes the `automation/sync-media-coverage` branch.
+6. It opens or refreshes a pull request titled "Add discovered TritonAI / TritonGPT media coverage."
+7. A reviewer checks the discovered items (each tagged with `discoveredAt` and `discoveredVia`) and merges the PR.
+
+**What the job never does:** It never deletes a curated entry, never promotes an item to the featured grid, and never publishes without a merge.
+
+**Run it locally:**
+
+```bash
+npm run sync:media        # search and write
+npm run check:media       # search only, exit 1 if new items are pending
+npm run render:media      # regenerate both pages from JSON without searching
+```
+
+### Skills Library refresh
+
+**What it does:** Reads the public UCSD Skills Library repository via the GitHub API and writes a build-safe snapshot to `content/skills/library.json`. This keeps the public skills catalog current without committing every upstream change by hand.
+
+**When it runs:** Hourly at :17 UTC as part of the main Pages workflow, before every build, and whenever a `skills-library-updated` repository dispatch event fires. It also runs on every pull request and push to `main`.
+
+**What it changes:** `content/skills/library.json`. Unlike the other two jobs, this one does not open a pull request — it refreshes the snapshot in place during the build. The committed file keeps builds deterministic if GitHub is temporarily unreachable.
+
+**Run it locally:**
+
+```bash
+npm run sync:skills
+```
+
+### What every job has in common
+
+- **A human reviews before publish.** The newsletter and media jobs open pull requests. The skills job refreshes a data file that the build reads, but the catalog itself is not a curated narrative.
+- **The full test suite runs.** Before any PR is opened, `npm test` runs the build, validator, accessibility gate, language check, and unit tests. If any check fails, the PR is not opened.
+- **Generated `dist/` is never committed.** GitHub builds it fresh on deploy.
+- **Each job is idempotent.** Running it twice with the same source produces the same output. If there is nothing new, the job exits without opening a PR.
+- **Each job can run on demand.** Use the GitHub Actions tab to trigger any of them outside the schedule.
+
+### Adding or changing a search query
+
+The media coverage job reads its search queries from the `queries` array in `content/media/articles.json`. To search for a different or additional term, edit that array and open a PR. The next scheduled run — or a manual run from the Actions tab — will use the new queries.
+
+### Disabling a job
+
+Remove the `on: schedule` block from the workflow file. The `workflow_dispatch` trigger lets you still run it manually from the Actions tab. Do not delete the workflow file unless you intend to retire the automation permanently.
 
 ## How to publish a weekly update
 
@@ -95,7 +180,6 @@ Automated checks do not replace visual and keyboard spot-checks. After changing 
 | Navigation menu | `content/site.json` | PR to `main` |
 | Skills catalog | `content/skills/library.json` | Refreshed automatically |
 
-- [Automated content jobs](automated-content-jobs.md) — the scheduled jobs that find and add content automatically
 ## Further reading
 
 - [Content governance](content-governance.md) — what may be published and what stays out
