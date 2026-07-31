@@ -50,9 +50,13 @@ bannerMode: abstract
 </div>
 </section>
 
-<section class="landing-section" aria-labelledby="trusted-hosting-heading">
+<section class="landing-section tritongpt-architecture-section" aria-labelledby="trusted-hosting-heading">
 <div class="container">
-<div class="row"><div class="col-md-7"><div class="landing-section-heading"><p class="home-kicker">Approved hosting choices</p><h2 id="trusted-hosting-heading">Where the models actually run</h2><p>TritonGPT can call approved enterprise cloud models, or open models running on UC-controlled hardware. Which route a request takes depends on the data involved and the controls that data requires.</p></div><p><a class="btn btn-primary" href="/about/trust-architecture.html">Explore trust and architecture</a></p></div><div class="col-md-5"><img alt="Public TritonAI architecture showing one approved route to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></div></div>
+<div class="landing-section-heading tritongpt-architecture-heading"><p class="home-kicker">TritonGPT request architecture</p><h2 id="trusted-hosting-heading">How a request moves through the platform</h2><p>After campus sign-in, TritonGPT sends each request through the TritonAI LLM Gateway. The gateway routes it to an approved model and can add your files, approved campus sources, or bounded assistant tools when the task needs them and your access allows. The response returns to TritonGPT for you to review.</p></div>
+<figure class="tritongpt-architecture-figure">
+<picture><source media="(max-width: 767px)" srcset="/_images/tritongpt/tritongpt-request-architecture-mobile.svg"><img alt="TritonGPT request architecture: campus sign-in, TritonGPT, the TritonAI LLM Gateway, permitted files, campus sources or assistant tools, an approved model route, and a response the user reviews" class="img-responsive" src="/_images/tritongpt/tritongpt-request-architecture.svg"></picture>
+</figure>
+<p class="tritongpt-architecture-action"><a class="btn btn-primary" href="/about/trust-architecture.html">Explore trust and architecture</a></p>
 </div>
 </section>
 

@@ -3349,6 +3349,24 @@
   gap: 12px;
 }
 
+.tritongpt-architecture-heading {
+  max-width: 900px;
+}
+
+.tritongpt-architecture-figure {
+  margin: 34px 0 26px;
+}
+
+.tritongpt-architecture-figure img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.tritongpt-architecture-action {
+  margin: 0;
+}
+
 .tritongpt-recognition {
   background: var(--triton-sand);
   padding: 54px 0;

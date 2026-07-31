@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">TritonGPT request architecture</title>
+  <desc id="desc">A user signs in to TritonGPT with a UC San Diego account. TritonGPT sends the request through the TritonAI LLM Gateway. When the task calls for them and access allows, the request can include the user's files, approved campus sources, or bounded assistant tools. The gateway sends the prepared request to an approved enterprise cloud or SDSC-hosted model. The response returns to TritonGPT for the user to review.</desc>
+  <defs>
+    <linearGradient id="gateway" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00629b"/>
+      <stop offset="1" stop-color="#00a6b6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#182b49" flood-opacity=".14"/>
+    </filter>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 11 5.5 0 11z" fill="#00629b"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="720" rx="24" fill="#f5f0e6"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#182b49">
+    <text x="52" y="62" font-size="31" font-weight="700" letter-spacing="2.4">TRITONGPT REQUEST ARCHITECTURE</text>
+    <text x="52" y="99" font-size="21">From campus sign-in to a response you review</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="40" y="150" width="160" height="190" rx="18" fill="#fff"/>
+    <rect x="230" y="150" width="185" height="190" rx="18" fill="#fff"/>
+    <rect x="445" y="140" width="220" height="210" rx="20" fill="url(#gateway)"/>
+    <rect x="695" y="150" width="225" height="190" rx="18" fill="#fff"/>
+    <rect x="950" y="150" width="210" height="190" rx="18" fill="#fff"/>
+  </g>
+
+  <g fill="none" stroke="#00629b" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M200 245h23"/>
+    <path d="M415 245h23"/>
+    <path d="M665 245h23"/>
+    <path d="M920 245h23"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <circle cx="120" cy="204" r="27" fill="#ffcd00"/>
+    <path d="M103 249h34m-17-17v34" fill="none" stroke="#182b49" stroke-width="8" stroke-linecap="round"/>
+    <text x="120" y="295" fill="#182b49" font-size="21" font-weight="700">You sign in</text>
+    <text x="120" y="320" fill="#46535f" font-size="16">UC San Diego account</text>
+
+    <rect x="291" y="180" width="63" height="48" rx="13" fill="#e7f3f8"/>
+    <path d="M306 193h33v22h-33z" fill="none" stroke="#00629b" stroke-width="4"/>
+    <path d="M314 228h17" fill="none" stroke="#00629b" stroke-width="4" stroke-linecap="round"/>
+    <text x="322" y="272" fill="#182b49" font-size="23" font-weight="700">TritonGPT</text>
+    <text x="322" y="301" fill="#46535f" font-size="16">Chat · documents</text>
+    <text x="322" y="324" fill="#46535f" font-size="16">Assistants</text>
+
+    <circle cx="555" cy="198" r="32" fill="#fff" opacity=".96"/>
+    <path d="M537 198h36m-18-18v36" fill="none" stroke="#00629b" stroke-width="8" stroke-linecap="round"/>
+    <text x="555" y="265" fill="#fff" font-size="24" font-weight="700">TritonAI</text>
+    <text x="555" y="293" fill="#fff" font-size="24" font-weight="700">LLM Gateway</text>
+    <text x="555" y="324" fill="#fff" font-size="16">Identity · policy · routing</text>
+
+    <circle cx="807" cy="202" r="28" fill="#e7f3f8"/>
+    <path d="M790 204h34m-29-10 7-7m17 7-7-7m-17 25 7 7m17-7-7 7" fill="none" stroke="#00629b" stroke-width="4" stroke-linecap="round"/>
+    <text x="807" y="264" fill="#182b49" font-size="21" font-weight="700">Approved model route</text>
+    <text x="807" y="296" fill="#46535f" font-size="16">Enterprise cloud</text>
+    <text x="807" y="319" fill="#46535f" font-size="16">or SDSC-hosted</text>
+
+    <circle cx="1055" cy="204" r="28" fill="#00c6d7"/>
+    <path d="m1041 204 10 10 20-24" fill="none" stroke="#182b49" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1055" y="264" fill="#182b49" font-size="21" font-weight="700">Response</text>
+    <text x="1055" y="290" fill="#182b49" font-size="21" font-weight="700">in TritonGPT</text>
+    <text x="1055" y="320" fill="#46535f" font-size="16">You review before use</text>
+  </g>
+
+  <g fill="none" stroke="#00629b" stroke-width="4" stroke-linecap="round">
+    <path d="M555 350v52"/>
+    <path d="M345 402h420"/>
+    <path d="M345 402v30M555 402v30M765 402v30"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="555" y="390" fill="#182b49" font-size="18" font-weight="700">Included only when the task needs it and your access allows</text>
+    <g filter="url(#shadow)">
+      <rect x="260" y="432" width="170" height="92" rx="16" fill="#fff"/>
+      <rect x="455" y="432" width="200" height="92" rx="16" fill="#fff"/>
+      <rect x="680" y="432" width="170" height="92" rx="16" fill="#fff"/>
+    </g>
+    <text x="345" y="470" fill="#182b49" font-size="20" font-weight="700">Your files</text>
+    <text x="345" y="497" fill="#46535f" font-size="16">Files you provide</text>
+    <text x="555" y="470" fill="#182b49" font-size="20" font-weight="700">Campus sources</text>
+    <text x="555" y="497" fill="#46535f" font-size="16">Approved for the assistant</text>
+    <text x="765" y="470" fill="#182b49" font-size="20" font-weight="700">Assistant tools</text>
+    <text x="765" y="497" fill="#46535f" font-size="16">Bounded capabilities</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="40" y="575" width="1120" height="95" rx="20" fill="#182b49"/>
+    <text x="70" y="613" fill="#ffcd00" font-size="18" font-weight="700" letter-spacing="1.4">CONTROLS ACROSS THE REQUEST</text>
+    <text x="70" y="646" fill="#fff" font-size="18">Privacy · security · accessibility · evaluation · monitoring · named service owner</text>
+  </g>
+</svg>
