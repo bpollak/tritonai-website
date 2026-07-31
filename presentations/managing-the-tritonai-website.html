@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Managing the TritonAI Website | Presentation</title>
+<title>Updating Content with the TritonAI Harness | Presentation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -542,6 +542,233 @@ td code { font-size: 13px; }
 .slide-navy .checklist li::before { background: var(--triton-bright-blue); }
 .checklist li strong { display: block; }
 
+/* --- Benefit-led presentation elements --- */
+.benefit-lead {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  color: var(--triton-navy);
+  max-width: 900px;
+  margin: 12px 0 28px;
+}
+.slide-navy .benefit-lead { color: #fff; }
+.benefit-pairs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  max-width: 920px;
+  border-top: 1px solid var(--triton-border);
+}
+.benefit-pair {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--triton-border);
+}
+.benefit-pair h3 { margin: 0 0 4px; }
+.benefit-pair p { font-size: 16px; margin: 0; }
+.trigger-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 980px;
+  margin-top: 22px;
+}
+.trigger-item {
+  border-top: 5px solid var(--triton-gold);
+  padding: 18px 4px 0;
+}
+.trigger-item h3 { margin: 0 0 6px; }
+.trigger-item p { font-size: 15px; margin: 0; }
+.guardrail {
+  border-left: 4px solid var(--triton-bright-blue);
+  padding-left: 22px;
+}
+.guardrail h3 { margin-top: 0; }
+.pathway-note {
+  max-width: 920px;
+  margin-top: 24px;
+  font-size: 17px;
+  color: rgba(255,255,255,.82);
+}
+.slide-brand { padding-bottom: 40px; }
+
+/* --- Architecture and workflow visuals --- */
+.arch-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--triton-blue);
+}
+.slide-navy .arch-label, .slide-hero .arch-label { color: var(--triton-gold); }
+.arch-node {
+  background: #fff;
+  border: 2px solid var(--triton-blue);
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-width: 0;
+  box-shadow: 0 5px 14px rgba(24,43,73,.08);
+}
+.arch-node strong { display: block; font-size: 15px; color: var(--triton-navy); }
+.arch-node span { display: block; margin-top: 4px; font-size: 12px; line-height: 1.35; color: #66737d; }
+.arch-node.core { background: var(--triton-blue); border-color: var(--triton-blue); }
+.arch-node.core strong, .arch-node.core span { color: #fff; }
+.arch-node.review { border-color: var(--triton-gold); }
+.slide-navy .arch-node, .slide-hero .arch-node {
+  background: rgba(255,255,255,.07);
+  border-color: var(--triton-bright-blue);
+  box-shadow: none;
+}
+.slide-navy .arch-node strong, .slide-hero .arch-node strong { color: #fff; }
+.slide-navy .arch-node span, .slide-hero .arch-node span { color: rgba(255,255,255,.68); }
+.slide-navy .arch-node.core, .slide-hero .arch-node.core {
+  background: var(--triton-blue);
+  border-color: var(--triton-gold);
+}
+.arch-arrow { color: var(--triton-blue); font-size: 25px; font-weight: 700; text-align: center; align-self: center; }
+.slide-navy .arch-arrow, .slide-hero .arch-arrow { color: var(--triton-bright-blue); }
+
+.hero-architecture {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr);
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+.hero-copy { min-width: 0; }
+.hero-system {
+  display: grid;
+  grid-template-columns: 1fr 28px 1.18fr 28px 1fr;
+  align-items: center;
+  gap: 6px;
+}
+.hero-system .arch-column { display: grid; gap: 10px; }
+.hero-system .arch-label { text-align: center; margin-bottom: 4px; }
+
+.capability-map {
+  display: grid;
+  grid-template-columns: minmax(150px,.7fr) 34px minmax(180px,.85fr) 34px minmax(340px,1.6fr);
+  align-items: center;
+  gap: 8px;
+  max-width: 1040px;
+  margin-top: 18px;
+}
+.capability-outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.entry-sources { display: grid; gap: 12px; }
+
+.journey-flow {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  align-items: stretch;
+  gap: 8px;
+  max-width: 1080px;
+  margin-top: 24px;
+}
+.journey-stage {
+  min-width: 0;
+  min-height: 156px;
+  padding: 18px 16px;
+  border-top: 6px solid var(--triton-blue);
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(24,43,73,.1);
+  display: flex;
+  flex-direction: column;
+}
+.journey-stage:nth-of-type(7) { border-color: var(--triton-gold); }
+.journey-stage:nth-of-type(9) { border-color: var(--triton-bright-blue); }
+.journey-number {
+  font-family: 'Teko', sans-serif;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--triton-blue);
+}
+.journey-stage strong { color: var(--triton-navy); font-size: 17px; margin-top: 6px; }
+.journey-stage span:last-child { color: #66737d; font-size: 13px; line-height: 1.4; margin-top: 8px; }
+.journey-owner {
+  max-width: 1080px;
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 2px solid var(--triton-bright-blue);
+  padding-top: 10px;
+  color: var(--triton-blue);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.risk-matrix {
+  max-width: 1060px;
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: .8fr 34px 1.2fr;
+  gap: 10px 12px;
+  align-items: stretch;
+}
+.slide-risk { padding-bottom: 12px; }
+.slide-risk .risk-matrix { margin-top: 12px; row-gap: 8px; }
+.risk-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--triton-blue);
+  padding: 0 14px 3px;
+}
+.risk-item, .control-item {
+  border-radius: 9px;
+  padding: 12px 16px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.risk-item { background: #fff; border-left: 5px solid #d75b43; }
+.control-item { background: rgba(0,98,155,.07); border-left: 5px solid var(--triton-blue); }
+.risk-item strong, .control-item strong { color: var(--triton-navy); font-size: 15px; }
+.risk-item span, .control-item span { color: #66737d; font-size: 12px; line-height: 1.35; margin-top: 3px; }
+.risk-matrix .arch-arrow { font-size: 20px; }
+
+.layer-stack { max-width: 1020px; display: grid; gap: 12px; margin-top: 12px; }
+.layer-row { display: grid; grid-template-columns: 160px 1fr; gap: 18px; align-items: stretch; }
+.layer-title { display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; border-radius: 10px; background: var(--triton-navy); color: #fff; font-weight: 700; }
+.layer-items { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.layer-row.creative .layer-title { background: var(--triton-blue); }
+.layer-row.creative .arch-node { border-color: var(--triton-bright-blue); }
+.layer-connector { text-align: center; font-size: 22px; color: var(--triton-blue); line-height: 1; }
+
+.workflow-pipeline { display: grid; grid-template-columns: repeat(9,auto); align-items: stretch; gap: 8px; max-width: 1080px; margin-top: 18px; }
+.workflow-pipeline .arch-node { display: flex; flex-direction: column; justify-content: center; min-height: 112px; }
+.workflow-pipeline .arch-arrow { padding: 0 2px; }
+.workflow-note { max-width: 1040px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.workflow-note div { border-left: 4px solid var(--triton-bright-blue); padding: 10px 16px; font-size: 15px; line-height: 1.45; }
+
+.iteration-map { display: grid; grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr; align-items: center; max-width: 1040px; margin-top: 22px; }
+.iteration-map .arch-node { min-height: 132px; }
+.feedback-rail { max-width: 1040px; margin-top: 16px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 18px; text-align: center; color: var(--triton-blue); font-size: 14px; font-weight: 700; }
+
+.context-map { display: grid; grid-template-columns: 1.05fr 38px .8fr 38px 1.05fr; align-items: center; gap: 10px; max-width: 1040px; margin-top: 12px; }
+.context-sources { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.context-map .boundary { border: 2px dashed var(--triton-blue); border-radius: 12px; padding: 14px; display: grid; gap: 10px; background: rgba(255,255,255,.55); }
+.context-map .boundary-label { text-align: center; font-size: 12px; font-weight: 700; color: var(--triton-blue); }
+.context-actions { display: grid; gap: 10px; }
+
+.branch-map { display: grid; grid-template-columns: 150px 34px 1fr 34px 180px 34px 180px; align-items: center; gap: 8px; max-width: 1060px; margin-top: 22px; }
+.branch-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.branch-options .arch-node { min-height: 104px; }
+
+.swimlane { max-width: 1080px; margin-top: 14px; display: grid; grid-template-columns: 120px repeat(4,1fr); border: 1px solid var(--triton-border); border-radius: 10px; overflow: hidden; }
+.swimlane > div { padding: 12px; border-right: 1px solid var(--triton-border); border-bottom: 1px solid var(--triton-border); font-size: 13px; line-height: 1.35; }
+.swimlane > div:nth-child(5n) { border-right: 0; }
+.swimlane .lane-head { background: var(--triton-navy); color: #fff; font-weight: 700; text-align: center; }
+.swimlane .lane-label { background: var(--triton-sand); color: var(--triton-blue); font-weight: 700; display: flex; align-items: center; }
+.swimlane .handoff { color: var(--triton-blue); font-weight: 700; }
+.mobile-scroll-hint { display: none; }
+
+.flywheel { display: grid; grid-template-columns: repeat(9,auto); align-items: center; gap: 7px; margin-top: 28px; position: relative; z-index: 1; }
+.flywheel .arch-node { min-height: 105px; display: flex; flex-direction: column; justify-content: center; }
+.flywheel-return { margin-top: 14px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 16px; text-align: center; color: rgba(255,255,255,.8); font-size: 14px; position: relative; z-index: 1; }
+
 /* --- Keyboard hint --- */
 .kbd-hint {
   position: absolute;
@@ -553,9 +780,48 @@ td code { font-size: 13px; }
 }
 .slide-content .kbd-hint, .slide-sand .kbd-hint { color: rgba(0,0,0,.25); }
 
+@media (max-height: 760px) and (min-width: 769px) {
+  .slide-content { padding: 34px 60px 44px; }
+  .slide-brand { padding-bottom: 12px; }
+  .slide-content h2 { font-size: clamp(32px, 3.4vw, 40px); margin-bottom: 16px; }
+  .slide-content h3 { font-size: 24px; margin-top: 18px; margin-bottom: 6px; }
+  .slide-content p, .slide-content ul, .slide-content ol { font-size: 16px; line-height: 1.5; }
+  .benefit-lead { font-size: 28px; margin: 8px 0 18px; }
+  .benefit-pair { padding: 12px 0; }
+  .benefit-pair p, .trigger-item p { font-size: 14px; }
+  .checklist li { padding-top: 7px; padding-bottom: 7px; font-size: 15px; }
+  .checklist li::before { top: 7px; }
+  .callout { padding-top: 11px; padding-bottom: 11px; margin: 10px 0; }
+  .arch-node { padding: 10px 12px; }
+  .arch-node strong { font-size: 13px; }
+  .arch-node span { font-size: 11px; }
+  .workflow-pipeline .arch-node { min-height: 88px; }
+  .iteration-map .arch-node { min-height: 102px; }
+}
+
 @media (max-width: 768px) {
   .slide-hero, .slide-content { padding: 32px 24px; }
-  .compare, .two-col { grid-template-columns: 1fr; }
+  .slide-hero { justify-content: flex-start; }
+  .slide-hero h1 { font-size: 44px; }
+  .slide-hero .lede { font-size: 18px; line-height: 1.45; }
+  .hero-architecture { gap: 24px; }
+  .compare, .two-col, .benefit-pairs, .trigger-list { grid-template-columns: 1fr; }
+  .hero-architecture, .capability-map, .layer-row, .context-map, .branch-map { grid-template-columns: 1fr; gap: 12px; }
+  .hero-system { grid-template-columns: 1fr; }
+  .hero-system .arch-arrow, .capability-map > .arch-arrow, .context-map > .arch-arrow, .branch-map > .arch-arrow { transform: rotate(90deg); }
+  .capability-outputs, .layer-items, .context-sources, .branch-options { grid-template-columns: 1fr; }
+  .workflow-pipeline, .iteration-map, .flywheel { grid-template-columns: 1fr; gap: 8px; }
+  .journey-flow { grid-template-columns: 1fr; gap: 8px; }
+  .journey-flow .arch-arrow { transform: rotate(90deg); }
+  .journey-stage { min-height: 112px; }
+  .journey-owner { grid-template-columns: 1fr; gap: 8px; text-align: left; }
+  .risk-matrix { grid-template-columns: 1fr; }
+  .risk-matrix .arch-arrow { transform: rotate(90deg); }
+  .risk-head { display: none; }
+  .workflow-pipeline .arch-arrow, .iteration-map .arch-arrow, .flywheel .arch-arrow { transform: rotate(90deg); }
+  .workflow-note { grid-template-columns: 1fr; }
+  .swimlane { grid-template-columns: 92px repeat(4, minmax(150px,1fr)); overflow-x: auto; }
+  .mobile-scroll-hint { display: block; margin: 8px 0 0; font-size: 13px !important; color: var(--triton-blue); font-weight: 700; }
   .flow { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
   .controls { height: 48px; padding: 0 12px; }
@@ -578,7 +844,7 @@ td code { font-size: 13px; }
     <a class="title-ucsd" href="https://ucsd.edu"><img alt="UC San Diego" src="https://www.ucsd.edu/_resources/img/logo_UCSD.png"></a>
   </section>
   <nav class="layout-nav">
-    <span>Managing the TritonAI Website</span>
+    <span>TritonAI Harness Content Updates</span>
   </nav>
 </header>
 
@@ -587,363 +853,205 @@ td code { font-size: 13px; }
 
 <!-- SLIDE 1: Title -->
 <section class="slide slide-hero active" data-slide="1">
-  <p class="kicker">For Cascade Server CMS content staff</p>
-  <h1>Managing the TritonAI Website</h1>
-  <p class="lede">How the TritonAI site is built, updated, and published — without Cascade Server — using the TritonAI Harness and GitHub.</p>
-  <dl class="presentation-meta">
-    <div><dt>Audience</dt><dd>Web content staff managing Cascade CMS sites</dd></div>
-    <div><dt>Format</dt><dd>Walk-through with live examples</dd></div>
-    <div><dt>Source</dt><dd>docs/how-updates-and-publishing-work.md</dd></div>
-  </dl>
+  <div class="hero-architecture">
+    <div class="hero-copy">
+      <p class="kicker">For UC San Diego content updaters</p>
+      <h1>Updating Content with the TritonAI Harness</h1>
+      <p class="lede">You bring the content need and judgment. The Harness helps you shape, preview, refine, and publish the audience experience.</p>
+    </div>
+    <div class="hero-system" role="img" aria-label="A user prompt or another approved trigger starts a collaborative workflow in the TritonAI Harness, leading to an updated audience experience.">
+      <div class="arch-column">
+        <p class="arch-label">Start</p>
+        <div class="arch-node"><strong>User prompt</strong><span>Request made directly in the Harness</span></div>
+        <div class="arch-node"><strong>Other triggers</strong><span>Schedule, new item, review date, team request</span></div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-column">
+        <p class="arch-label">Collaborate</p>
+        <div class="arch-node core"><strong>TritonAI Harness</strong><span>Context · content · visuals · preview</span></div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-column">
+        <p class="arch-label">Outcome</p>
+        <div class="arch-node"><strong>Updated experience</strong><span>Clear, branded, and accessible</span></div>
+        <div class="arch-node review"><strong>Your approval</strong><span>You decide what is ready to publish</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- [Sources] https://tritonai.ucsd.edu/developer-apis/index.html#tritonai-harness -->
   <div class="kbd-hint">Use ← → arrow keys to navigate</div>
 </section>
 
-<!-- SLIDE 2: Why this matters -->
-<section class="slide slide-content" data-slide="2">
-  <p class="kicker">Context</p>
-  <h2>Why we moved off Cascade</h2>
-  <div class="compare">
-    <div class="compare-col compare-old">
-      <h3>Before — Cascade Server</h3>
-      <ul>
-        <li>Edits made inside a CMS web interface</li>
-        <li>Publish runs through a server queue</li>
-        <li>Version history lives in Cascade</li>
-        <li>Preview requires a staging server</li>
-        <li>One person can edit a page at a time</li>
-      </ul>
-    </div>
-    <div class="compare-col compare-new">
-      <h3>Now — GitHub + TritonAI Harness</h3>
-      <ul>
-        <li>Edits made in Markdown and JSON files</li>
-        <li>A build script generates the finished HTML</li>
-        <li>Git tracks every change with a full history</li>
-        <li>Automated checks run before anything goes live</li>
-        <li>Multiple contributors work at the same time</li>
-      </ul>
-    </div>
+<!-- SLIDE 2: Entry points -->
+<section class="slide slide-content slide-sand" data-slide="2">
+  <p class="kicker">The end-to-end content update journey</p>
+  <h2>You guide the experience from the first request through ongoing maintenance</h2>
+  <p>The Harness keeps context, drafts, visuals, feedback, and review connected across the complete workflow.</p>
+  <div class="journey-flow" role="img" aria-label="The content updater journey has five stages: start with a prompt or approved trigger, shape the content experience with permitted context, review and refine a preview, approve and verify publishing, then maintain the content through freshness signals.">
+    <div class="journey-stage"><span class="journey-number">1</span><strong>Start</strong><span>Your prompt or an approved trigger identifies the content need.</span></div><div class="arch-arrow">→</div>
+    <div class="journey-stage"><span class="journey-number">2</span><strong>Shape</strong><span>Permitted context helps create the content, visual, or pathway.</span></div><div class="arch-arrow">→</div>
+    <div class="journey-stage"><span class="journey-number">3</span><strong>Review</strong><span>You preview, give feedback, and refine the audience experience.</span></div><div class="arch-arrow">→</div>
+    <div class="journey-stage"><span class="journey-number">4</span><strong>Publish</strong><span>You approve the result and verify the live experience.</span></div><div class="arch-arrow">→</div>
+    <div class="journey-stage"><span class="journey-number">5</span><strong>Maintain</strong><span>Freshness signals can begin the next review cycle.</span></div>
   </div>
-  <div class="callout">The public URLs, UC San Diego Decorator look and feel, and browser integrations are all preserved. What changed is how content gets in.</div>
+  <div class="journey-owner"><span>You set direction</span><span>The Harness prepares and checks</span><span>You approve what reaches the audience</span></div>
 </section>
 
-<!-- SLIDE 3: Content locations -->
-<section class="slide slide-content" data-slide="3">
-  <p class="kicker">The repository</p>
-  <h2>Content is organized by type</h2>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-blue">Pages</span>
-      <h3>content/pages/</h3>
-      <p>Homepage, strategy, trust architecture, tools — the pages people read often. Markdown files with frontmatter.</p>
+<!-- SLIDE 3: Context -->
+<section class="slide slide-content slide-brand" data-slide="3">
+  <p class="kicker">The Harness starts with context</p>
+  <h2>You spend less time re-explaining how your team works</h2>
+  <p>The Harness assembles the knowledge permitted for the update and keeps your current request at the center.</p>
+  <div class="context-map" role="img" aria-label="Personal, team, connected, and current content context pass through the updater's permissions into a working context used to understand the request and propose an experience.">
+    <div class="context-sources">
+      <div class="arch-node"><strong>Personal</strong><span>Your preferences · prior work · enabled memory</span></div>
+      <div class="arch-node"><strong>Team</strong><span>Shared guidance · approved sources · common patterns</span></div>
+      <div class="arch-node"><strong>Connected</strong><span>Current files · pages · productivity tools</span></div>
+      <div class="arch-node"><strong>This update</strong><span>Audience · objective · content · feedback</span></div>
     </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Newsletters</span>
-      <h3>content/newsletters/</h3>
-      <p>One Markdown file per week. The homepage and AI Updates page pick them up automatically.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-cyan">Use cases</span>
-      <h3>content/use-cases/</h3>
-      <p>Real campus AI workflows. Each carries a status, owner, and review date.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-blue">Media</span>
-      <h3>content/media/</h3>
-      <p>Article archive as JSON. Both media pages are generated from this file.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Structured data</span>
-      <h3>content/roadmap/, facts/, skills/</h3>
-      <p>Roadmap milestones, public claims, and the skills catalog — all JSON with required fields.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-cyan">Visual shell</span>
-      <h3>src/site/</h3>
-      <p>The UC San Diego Decorator header, footer, styles, and scripts. Loads from the UCSD CDN. Rarely edited.</p>
+    <div class="arch-arrow">→</div>
+    <div class="boundary"><div class="boundary-label">YOUR PERMISSIONS</div><div class="arch-node core"><strong>Working context</strong><span>Relevant knowledge assembled for this update</span></div></div>
+    <div class="arch-arrow">→</div>
+    <div class="context-actions">
+      <div class="arch-node"><strong>Understand</strong><span>Interpret the need in your team and site context</span></div>
+      <div class="arch-node"><strong>Propose</strong><span>Content · structure · visuals · experience</span></div>
     </div>
   </div>
-  <div class="callout">If a file lives under <code>content/</code>, you edit the source and the build writes the page. If it lives under <code>src/site/</code>, it is a legacy page edited directly at its original path.</div>
+  <div class="callout">You choose what context is available and what becomes reusable or publishable.</div>
 </section>
 
-<!-- SLIDE 4: The six-step flow -->
+<!-- SLIDE 4: Core benefit -->
 <section class="slide slide-content slide-sand" data-slide="4">
-  <p class="kicker">The publishing pipeline</p>
-  <h2>From edit to live in six steps</h2>
+  <p class="kicker">A larger creative range</p>
+  <h2>You can choose the experience that best serves the audience</h2>
+  <p>Start with the communication need. The Harness can help you explore several ways to deliver it.</p>
+  <div class="capability-map" role="img" aria-label="A content need flows into the TritonAI Harness, which can produce pages, accessible visuals, update workflows, or learning pathways.">
+    <div class="arch-node"><strong>Content need</strong><span>Audience · purpose · desired outcome</span></div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Explore with the Harness</strong><span>Content guidance · site patterns · audience needs</span></div>
+    <div class="arch-arrow">→</div>
+    <div class="capability-outputs">
+      <div class="arch-node"><strong>Page or section</strong><span>Structured content in the real site</span></div>
+      <div class="arch-node"><strong>Accessible visual</strong><span>Concept made easier to understand</span></div>
+      <div class="arch-node"><strong>Update workflow</strong><span>Triggers and reviewable changes</span></div>
+      <div class="arch-node"><strong>Learning pathway</strong><span>Video, guidance, and practice</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: Branded and accessible draft -->
+<section class="slide slide-content slide-navy" data-slide="5">
+  <p class="kicker">Your concept becomes a working experience</p>
+  <h2>The Harness turns your idea into branded, accessible content</h2>
   <div class="flow">
-    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Edit</div><div class="step-desc">Change a content file</div></div>
+    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Your intent</div><div class="step-desc">Audience, purpose, source, and message</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Build</div><div class="step-desc">Script generates HTML</div></div>
+    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Structure</div><div class="step-desc">Headings, sequence, and relationships</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Validate</div><div class="step-desc">Routes, links, metadata</div></div>
+    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Experience</div><div class="step-desc">Copy, visual explanation, and interaction</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Test</div><div class="step-desc">A11y + language checks</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">5</div><div class="step-label">Review</div><div class="step-desc">Pull request</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">6</div><div class="step-label">Publish</div><div class="step-desc">Merge deploys</div></div>
+    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Preview</div><div class="step-desc">Branded page at desktop and mobile sizes</div></div>
   </div>
-  <h3>What happens at each step</h3>
-  <ul>
-    <li><strong>Build</strong> — <code>scripts/build.mjs</code> reads every content file, applies the Decorator shell, injects the Google Analytics tag, and writes finished HTML to <code>dist/</code>.</li>
-    <li><strong>Validate</strong> — <code>scripts/validate.mjs</code> checks routes, links, metadata, analytics, freshness, and Decorator conformance.</li>
-    <li><strong>Test</strong> — An axe-based accessibility scan runs at mobile and desktop widths. A language check flags booster words and heading problems.</li>
-    <li><strong>Review</strong> — A pull request shows exactly what changed. Checks must pass before merge.</li>
-    <li><strong>Publish</strong> — Merging to <code>main</code> triggers GitHub Actions to build and deploy to GitHub Pages automatically.</li>
-  </ul>
+  <div class="workflow-note"><div><strong>Brand foundation:</strong> UC San Diego identity and existing site patterns travel with the work.</div><div><strong>Accessible foundation:</strong> headings, keyboard behavior, contrast, labels, and reflow are considered from the start.</div></div>
 </section>
 
-<!-- SLIDE 5: Branching -->
-<section class="slide slide-content" data-slide="5">
-  <p class="kicker">Contribution mechanics</p>
-  <h2>Everyone works on a branch</h2>
-  <p>No one edits <code>main</code> directly. Every contributor — human or agent — creates a feature branch named for the work:</p>
-  <pre><code>content/update-strategy-2026-07-30     # a page edit
-content/newsletter-2026-07-27          # a weekly update
-automation/sync-ai-news                # an automated job</code></pre>
-  <p>Two people can edit different parts of the site at the same time. Each branch becomes a pull request. <code>main</code> only receives changes through a merge.</p>
-  <h3>Avoiding conflicts</h3>
-  <ul>
-    <li>Check open PRs before starting — if someone is already editing the same file, coordinate first</li>
-    <li>Keep PRs focused — one page or one task per PR</li>
-    <li>Pull <code>main</code> before merging and re-run <code>npm test</code> against the latest state</li>
-    <li>Stage only the files your PR is about — leave stray edits alone</li>
-  </ul>
+<!-- SLIDE 6: Preview and refine -->
+<section class="slide slide-content" data-slide="6">
+  <p class="kicker">Preview and refine</p>
+  <h2>You review a working experience and guide the next version</h2>
+  <p>Feedback stays connected to the audience, the content, and the choices already made.</p>
+  <div class="iteration-map" role="img" aria-label="The content updater reviews a working preview, gives feedback in plain language, receives a refined version, and decides whether it is ready.">
+    <div class="arch-node"><strong>1 · Preview</strong><span>See the proposed message, structure, visuals, and behavior</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>2 · Your feedback</strong><span>Ask for changes in plain language and explain what matters</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>3 · Refined version</strong><span>The Harness carries forward the approved direction and context</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node review"><strong>4 · Your decision</strong><span>Continue refining or move the experience toward publishing</span></div>
+  </div>
+  <div class="feedback-rail">↶ Your feedback returns to the same working context for the next focused revision</div>
 </section>
 
-<!-- SLIDE 6: Edit ownership -->
-<section class="slide slide-content slide-sand" data-slide="6">
-  <p class="kicker">Who can edit what</p>
-  <h2>Edit ownership tiers</h2>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-cyan">Agent-owned</span>
-      <h3>Edit freely</h3>
-      <p>Newsletters, media archive, release notes, and metrics sections. Agents may open PRs without a content owner's sign-off.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Human-owned</span>
-      <h3>PR only, never direct commit</h3>
-      <p>Strategic narrative, roadmap, and sustainability policy. The content owner reviews before merge.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-blue">Shared</span>
-      <h3>PR with content-owner review</h3>
-      <p>Homepage, TritonGPT landing, tools listing, and developer page. Both agents and people can edit, but the owner reviews.</p>
+<!-- SLIDE 7: Review summary -->
+<section class="slide slide-content slide-sand" data-slide="7">
+  <p class="kicker">Review with useful evidence</p>
+  <h2>You receive a clear picture of what is ready and what needs attention</h2>
+  <p>Automated checks support your judgment without replacing it.</p>
+  <div class="capability-map" role="img" aria-label="A working preview passes through brand, content, accessibility, link, and responsive checks, producing a review summary for the content updater's decision.">
+    <div class="arch-node"><strong>Working preview</strong><span>The audience experience you have reviewed</span></div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Quality checks</strong><span>Brand · content · accessibility · links · responsive behavior</span></div>
+    <div class="arch-arrow">→</div>
+    <div class="capability-outputs">
+      <div class="arch-node"><strong>What passed</strong><span>Checks completed successfully</span></div>
+      <div class="arch-node"><strong>What changed</strong><span>Audience-facing changes summarized plainly</span></div>
+      <div class="arch-node"><strong>What needs review</strong><span>Open questions and judgment calls</span></div>
+      <div class="arch-node review"><strong>Your approval</strong><span>You accept the content and experience</span></div>
     </div>
   </div>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>File or area</th><th>Who can edit</th><th>Who reviews</th></tr></thead>
-      <tbody>
-        <tr><td>Newsletters, release notes, media archive</td><td>Agents and people</td><td>Any maintainer</td></tr>
-        <tr><td>Strategic narrative, roadmap, sustainability</td><td>PR only, never direct commit</td><td>Content owner</td></tr>
-        <tr><td>Homepage, TritonGPT landing, tools, developer page</td><td>PR required</td><td>Content owner</td></tr>
-        <tr><td>Automated job PRs (<code>automation/sync-*</code>)</td><td>The job opens the PR</td><td>A person merges</td></tr>
-      </tbody>
-    </table>
+  <div class="callout">You remain responsible for accuracy, appropriateness, and the decision to publish.</div>
+</section>
+
+<!-- SLIDE 8: Risks and controls -->
+<section class="slide slide-content slide-sand slide-risk" data-slide="8">
+  <p class="kicker">Risks and controls</p>
+  <h2>People manage the risks that automation cannot decide</h2>
+  <p>Clear sources, bounded context, human judgment, and live verification protect the audience and the institution.</p>
+  <div class="risk-matrix" role="img" aria-label="Four content publishing risks and their controls: inaccurate or stale content is controlled with approved sources and owner review; excessive context is controlled with limited permissions and data boundaries; inaccessible or off-brand experiences are controlled with automated and human review; unintended site or publishing impact is controlled with focused scope, validation, and live verification.">
+    <div class="risk-head">Risk</div><div></div><div class="risk-head">Control</div>
+    <div class="risk-item"><strong>Inaccurate or stale content</strong><span>A draft may use the wrong source, miss context, or make an unsupported claim.</span></div><div class="arch-arrow">→</div><div class="control-item"><strong>Source and owner review</strong><span>Use approved sources, named owners, review dates, and direct claim checking.</span></div>
+    <div class="risk-item"><strong>More context than the update needs</strong><span>Connected files or tools may expose information outside the intended scope.</span></div><div class="arch-arrow">→</div><div class="control-item"><strong>Bounded permissions</strong><span>Grant only the connections needed and keep restricted or sensitive content out of public work.</span></div>
+    <div class="risk-item"><strong>Accessibility or brand gaps</strong><span>Automated checks cannot make every content, keyboard, zoom, or screen-reader judgment.</span></div><div class="arch-arrow">→</div><div class="control-item"><strong>Automated and human review</strong><span>Combine validation with responsive, keyboard, zoom/reflow, and assistive-technology spot checks.</span></div>
+    <div class="risk-item"><strong>Unexpected site or release impact</strong><span>A focused update can affect routes, integrations, or differ from the approved preview after publishing.</span></div><div class="arch-arrow">→</div><div class="control-item"><strong>Focused scope and live verification</strong><span>Preserve existing services, validate the site, and compare the live page with the approved result.</span></div>
   </div>
+  <div class="callout">The Harness is an early pilot and changes quickly. Confirm the current supported capabilities and service path before relying on a workflow.</div>
 </section>
 
-<!-- SLIDE 7: Section markers -->
-<section class="slide slide-content" data-slide="7">
-  <p class="kicker">Conflict prevention</p>
-  <h2>Section markers protect generated regions</h2>
-  <p>Generated or agent-managed regions inside a file are wrapped in HTML comment markers:</p>
-  <pre><code>&lt;!-- AGENT_SECTION: media-articles --&gt;
-...generated content...
-&lt;!-- END_AGENT_SECTION --&gt;</code></pre>
-  <div class="two-col">
-    <div>
-      <h3>Inside the markers</h3>
-      <p>The build or sync job owns this region. It replaces only what is inside the markers on every run.</p>
-    </div>
-    <div>
-      <h3>Outside the markers</h3>
-      <p>A human can safely edit anything outside the markers in the same file without the build clobbering their work.</p>
-    </div>
+<!-- SLIDE 9: Publish -->
+<section class="slide slide-content slide-navy" data-slide="9">
+  <p class="kicker">Approve and publish</p>
+  <h2>Your approval moves the experience into the site’s publishing process</h2>
+  <div class="workflow-pipeline" role="img" aria-label="The content updater approves the experience, the established site process prepares and publishes it, the updater verifies the live page, and the audience receives the update.">
+    <div class="arch-node review"><strong>You approve</strong><span>Content, visuals, behavior, and open decisions</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Prepare</strong><span>The established site process packages the approved update</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Publish</strong><span>The approved experience moves to the public site</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Verify</strong><span>Confirm the live page matches what you approved</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Audience</strong><span>People receive the updated content experience</span></div>
   </div>
-  <div class="callout">This lets a person and an automation edit the same file at the same time — each in their own region.</div>
+  <p class="pathway-note">The publishing mechanism stays behind the experience. Content updaters focus on the audience, the message, and the approved result.</p>
 </section>
 
-<!-- SLIDE 8: Automated jobs + people -->
-<section class="slide slide-content slide-sand" data-slide="8">
-  <p class="kicker">When automation and people overlap</p>
-  <h2>Automated jobs and people can work in parallel</h2>
-  <ul>
-    <li>The job's PR and the person's PR are on separate branches</li>
-    <li>The job never force-pushes to a person's branch — only to its own <code>automation/sync-*</code> branch</li>
-    <li>If both PRs touch the same file, GitHub flags a merge conflict when the second one is merged</li>
-    <li>Rebase the second branch onto <code>main</code>, resolve the conflict, and re-run <code>npm test</code></li>
-    <li>Because the job is idempotent, re-running it after a merge produces a clean result with no duplicates</li>
-  </ul>
-</section>
-
-<!-- SLIDE 9: Jobs overview -->
-<section class="slide slide-content" data-slide="9">
-  <p class="kicker">Scheduled automation</p>
-  <h2>Three jobs that run on their own</h2>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-blue">Mondays 18:15 UTC</span>
-      <h3>Newsletter sync</h3>
-      <p>Pulls new editions from the external newsletter source into <code>content/newsletters/</code>. Opens a PR on <code>automation/sync-ai-news</code>.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-cyan">Mondays 18:30 UTC</span>
-      <h3>Media coverage search</h3>
-      <p>Searches DuckDuckGo for TritonAI and TritonGPT articles, adds them to <code>content/media/articles.json</code>, regenerates both media pages. Opens a PR.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Hourly at :17</span>
-      <h3>Skills Library refresh</h3>
-      <p>Updates <code>content/skills/library.json</code> from the upstream GitHub repository. Builds in place — no PR needed.</p>
-    </div>
-  </div>
-  <div class="callout">None of these jobs publish directly. They open or refresh a PR, and a person merges it. Each job runs the full <code>npm test</code> suite before opening the PR.</div>
-</section>
-
-<!-- SLIDE 10: Checks overview -->
+<!-- SLIDE 10: Keep current -->
 <section class="slide slide-content" data-slide="10">
-  <p class="kicker">The <code>npm test</code> suite</p>
-  <h2>Five layers of automated review</h2>
-  <ul class="checklist">
-    <li><strong>Unit tests</strong> — UX-agent helpers, newsletter sync, and media coverage sync run first, before the build.</li>
-    <li><strong>Build</strong> — Reads all content, applies the Decorator shell, injects analytics, writes HTML + sitemap + routes.</li>
-    <li><strong>Validation</strong> — Content schema, broken links, remote dependencies, freshness, metadata, analytics, navigation, Decorator conformance, performance, routes, sitemap.</li>
-    <li><strong>Accessibility scan</strong> — axe-core at 390 px and 1440 px, horizontal overflow, keyboard behavior, button sizing.</li>
-    <li><strong>Language check</strong> — Booster words, manufactured contrast, heading sentence breaks, long lists, em dashes, repeated opening frames.</li>
-  </ul>
-  <div class="callout">Automated checks do not replace manual review. After changing a page, look at it at desktop and responsive widths and confirm headings, links, and keyboard focus behave.</div>
+  <p class="kicker">Keep content current</p>
+  <h2>Publishing can become the start of the next update</h2>
+  <p>Freshness signals and new information can bring content back to your attention before it becomes stale.</p>
+  <div class="iteration-map" role="img" aria-label="A published experience is monitored for scheduled reviews, new information, audience needs, and team requests, which can start the next updater review in the Harness.">
+    <div class="arch-node"><strong>Published experience</strong><span>The live page becomes the current source for the audience</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Freshness signals</strong><span>Schedule · new information · audience need · team request</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Prepared update</strong><span>The Harness gathers context and proposes what may need to change</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node review"><strong>Your review</strong><span>You decide whether to revise, defer, or publish</span></div>
+  </div>
+  <div class="feedback-rail">↶ Approved decisions and team knowledge support the next update</div>
 </section>
 
-<!-- SLIDE 11: Validation detail -->
-<section class="slide slide-content slide-sand" data-slide="11">
-  <p class="kicker">Validation in detail</p>
-  <h2>What the validator checks</h2>
-  <div class="two-col">
-    <div>
-      <h3>Content and structure</h3>
-      <ul>
-        <li>Content schema — required fields on every page, use case, fact, milestone, and skill</li>
-        <li>Broken links — every internal link must resolve</li>
-        <li>Remote dependencies — Decorator, search, widget, and feed must respond over HTTPS</li>
-        <li>Freshness — warns after 120 days, fails after 365</li>
-        <li>Retired content — no links to retired routes or internal filenames</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Presentation and performance</h3>
-      <ul>
-        <li>Metadata — canonical URL, Open Graph, Twitter card, JSON-LD</li>
-        <li>Analytics — exactly one tag, correct ID, asynchronous</li>
-        <li>Navigation — ARIA relationships, active state, duplicate IDs</li>
-        <li>Decorator — stylesheets, extension class, no inline fonts</li>
-        <li>Performance — deferred video, lazy YouTube, preconnect, image budget</li>
-      </ul>
+<!-- SLIDE 11: Future enhancements -->
+<section class="slide slide-content slide-navy" data-slide="11">
+  <p class="kicker">Possible future enhancements</p>
+  <h2>Content teams can explore new site features with the same workflow</h2>
+  <p>These are directions to test with content owners, audiences, and the appropriate campus reviewers.</p>
+  <div class="capability-map" role="img" aria-label="An audience or content need enters the updater-led Harness workflow and can lead to six future site features: content health dashboards, source-connected updates, guided video learning, interactive decision guides, role-based journeys, and reusable accessible visual explanations.">
+    <div class="arch-node"><strong>Audience or content need</strong><span>Start with a specific problem worth solving</span></div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Updater-led Harness workflow</strong><span>Context · preview · review · approval · verification</span></div>
+    <div class="arch-arrow">→</div>
+    <div class="capability-outputs">
+      <div class="arch-node"><strong>Content health dashboard</strong><span>Owners, review dates, freshness signals, and open issues</span></div>
+      <div class="arch-node"><strong>Source-connected updates</strong><span>Approved information can prepare changes when it evolves</span></div>
+      <div class="arch-node"><strong>Guided video learning</strong><span>Short demonstrations with captions, transcripts, and practice</span></div>
+      <div class="arch-node"><strong>Interactive decision guides</strong><span>Questions route people to relevant choices and resources</span></div>
+      <div class="arch-node"><strong>Role-based journeys</strong><span>Different starting paths for faculty, staff, students, or builders</span></div>
+      <div class="arch-node"><strong>Accessible visual library</strong><span>Reusable timelines, process maps, comparisons, and explainers</span></div>
     </div>
   </div>
-</section>
-
-<!-- SLIDE 12: Accessibility detail -->
-<section class="slide slide-content slide-navy" data-slide="12">
-  <p class="kicker">Accessibility is a gate, not a suggestion</p>
-  <h2>The accessibility scan</h2>
-  <p>Every non-redirect route opens in headless Chromium at two widths — 390 px and 1440 px — and runs axe-core plus interaction checks:</p>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-cyan">axe-core</span>
-      <h3>WCAG automated checks</h3>
-      <p>Color contrast, landmarks, headings, labels, names, and ARIA correctness.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-blue">Interaction</span>
-      <h3>Keyboard behavior</h3>
-      <p>Navigation dropdowns, toggles, and search controls must respond to keyboard focus and activation.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Layout</span>
-      <h3>Overflow and sizing</h3>
-      <p>No horizontal scroll at either width. Collapsed hub media and mismatched button sizes are flagged.</p>
-    </div>
-  </div>
-  <div class="callout">Results are written to <code>reports/accessibility.json</code> and uploaded as a GitHub Actions artifact that stays for 30 days.</div>
-</section>
-
-<!-- SLIDE 13: Language check -->
-<section class="slide slide-content" data-slide="13">
-  <p class="kicker">Voice and language</p>
-  <h2>The language check reads the source, not the HTML</h2>
-  <p>It reads Markdown in <code>content/</code> so a finding names the file an editor would open. It flags:</p>
-  <div class="two-col">
-    <div>
-      <ul>
-        <li><strong>Heading sentence breaks</strong> — a heading with two sentences reads as a slogan</li>
-        <li><strong>Count in a heading</strong> — when the list below already shows the count</li>
-        <li><strong>Manufactured contrast</strong> — "X, not Y", "rather than", "instead of"</li>
-        <li><strong>Booster adjectives</strong> — "practical", "seamless", "leverage" — words that do no work</li>
-      </ul>
-    </div>
-    <div>
-      <ul>
-        <li><strong>Long comma lists</strong> — five or more items should become a list element</li>
-        <li><strong>Em dashes</strong> — outside numeric ranges, use a period or comma</li>
-        <li><strong>Repeated opening frames</strong> — when sibling strings all start the same way</li>
-        <li><strong>Description length</strong> — frontmatter descriptions under 155 characters</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout">Governance vocabulary — "approved", "bounded", "supervised", "named owner" — is never flagged. Those qualify real controls.</div>
-</section>
-
-<!-- SLIDE 14: Key takeaways -->
-<section class="slide slide-content slide-sand" data-slide="14">
-  <p class="kicker">Summary</p>
-  <h2>Key takeaways for Cascade content staff</h2>
-  <ul class="checklist">
-    <li><strong>Content lives in files, not in a CMS.</strong> Markdown and JSON under <code>content/</code> are the source. The build writes the HTML.</li>
-    <li><strong>Every change goes through a pull request.</strong> A branch, a review, a merge. No direct edits to <code>main</code>.</li>
-    <li><strong>Multiple contributors can work at once.</strong> Branches, ownership tiers, and section markers prevent conflicts.</li>
-    <li><strong>Three jobs find content automatically.</strong> Newsletters, media coverage, and the skills catalog — each opens a PR for review.</li>
-    <li><strong>Five check layers run before merge.</strong> Unit tests, build, validation, accessibility, and language. If any fails, the PR cannot merge.</li>
-    <li><strong>Merge to <code>main</code> publishes.</strong> GitHub Actions builds and deploys to GitHub Pages. No manual upload.</li>
-  </ul>
-</section>
-
-<!-- SLIDE 15: Quick reference -->
-<section class="slide slide-content" data-slide="15">
-  <p class="kicker">Quick reference</p>
-  <h2>Where to edit and how to publish</h2>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Task</th><th>Where to edit</th><th>How to publish</th></tr></thead>
-      <tbody>
-        <tr><td>Weekly AI update</td><td><code>content/newsletters/</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Strategy, trust, tools, or other page</td><td><code>content/pages/</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Use case</td><td><code>content/use-cases/</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Roadmap status</td><td><code>content/roadmap/milestones.json</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Media coverage</td><td><code>content/media/articles.json</code></td><td>PR, or the weekly search job opens one</td></tr>
-        <tr><td>Navigation menu</td><td><code>content/site.json</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Skills catalog</td><td><code>content/skills/library.json</code></td><td>Refreshed automatically</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <h3>Run the checks locally</h3>
-  <pre><code>npm test
-SITE_BASE_PATH=<span>/</span>tritonai-website npm run build
-SITE_BASE_PATH=<span>/</span>tritonai-website npm run validate</code></pre>
-</section>
-
-<!-- SLIDE 16: Closing -->
-<section class="slide slide-hero" data-slide="16">
-  <p class="kicker">Questions and discussion</p>
-  <h1>What would you like to know?</h1>
-  <p class="lede">Full details are in <code>docs/how-updates-and-publishing-work.md</code> in the repository. The TritonAI Harness can apply this same pattern to other sites currently in Cascade.</p>
-  <dl class="presentation-meta">
-    <div><dt>Documentation</dt><dd>docs/how-updates-and-publishing-work.md</dd></div>
-    <div><dt>Live site</dt><dd>tritonai.ucsd.edu</dd></div>
-    <div><dt>Repository</dt><dd>github.com/bpollak<span>/</span>tritonai-website</dd></div>
-  </dl>
+  <p class="pathway-note">Each idea still follows the same path: define the need, bound the context, preview the experience, review the risks, approve the result, and verify what reaches the audience.</p>
 </section>
 
 </div><!-- /viewport -->
@@ -953,9 +1061,9 @@ SITE_BASE_PATH=<span>/</span>tritonai-website npm run validate</code></pre>
   <div class="controls-left">
     <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
     <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
-    <span class="progress-text" id="slideCounter">1 / 16</span>
+    <span class="progress-text" id="slideCounter">1 / 11</span>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:6.25%"></div></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:9.09%"></div></div>
   <div class="controls-right">
     <span class="progress-text">← → to navigate · F for fullscreen</span>
   </div>
@@ -1006,6 +1114,11 @@ SITE_BASE_PATH=<span>/</span>tritonai-website npm run validate</code></pre>
 
   viewport.addEventListener('touchstart', (event) => {
     if (event.touches.length !== 1) return;
+    if (event.target instanceof Element && event.target.closest('.swimlane')) {
+      touchStartX = null;
+      touchStartY = null;
+      return;
+    }
     touchStartX = event.touches[0].clientX;
     touchStartY = event.touches[0].clientY;
   }, { passive: true });
