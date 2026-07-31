@@ -10,7 +10,6 @@
     "/",
     "/about/index.html",
     "/about/strategy.html",
-    "/about/impact.html",
     "/about/team.html",
     "/about/ai-updates.html",
     "/tritongpt/index.html",
@@ -159,13 +158,6 @@
       "route": "/",
       "ownership": "shared",
       "allowedRecipes": ["callout-content", "call-to-action"]
-    },
-    {
-      "id": "ux-about-impact-measures",
-      "sourceFile": "content/pages/about-impact.md",
-      "route": "/about/impact.html",
-      "ownership": "structured-content",
-      "allowedRecipes": ["callout-content"]
     },
     {
       "id": "ux-about-trust-layers",

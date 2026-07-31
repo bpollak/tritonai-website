@@ -30,12 +30,12 @@ on:
 
 env:
   # Change these to retarget the pipeline. Everything else reads from here.
-  CASCADE_SITE: ${{ inputs.site_name || 'TritonAI-Test' }}
+  CASCADE_SITE: ${{ inputs.site_name || 'TritonAI' }}
   CASCADE_ROOT: ${{ inputs.root_path || '/' }}
-  CASCADE_HOST: ${{ inputs.base_url || 'https://ucsd-dev.cascadecms.com' }}
+  CASCADE_HOST: ${{ inputs.base_url || 'https://ucsd.cascadecms.com' }}
   # Root folder of TritonAI-Test on ucsd-dev. Asset ids are per instance:
   # a prod root will have a different id.
-  CASCADE_PUBLISH_ID: ${{ inputs.publish_id || 'a57efd7c0a0000b6521ddeadfd53a18b' }}
+  CASCADE_PUBLISH_ID: ${{ inputs.publish_id || '1b1cf53b0aaf69f5520d3d68d7e754fe' }}
 
 # One deploy at a time. Queued rather than cancelled, so a run that is
 # already writing to Cascade is never interrupted part way through.

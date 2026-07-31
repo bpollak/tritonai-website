@@ -35,6 +35,8 @@ This applies to agent-authored newsletters in `content/newsletters/` as well as 
 
 Do not remove the UCSD emergency broadcast, hosted search API, Today@UCSD feed, Google Analytics, or TritonGPT widget without explicit approval. The build patches This Site searches on non-production hosts so they continue querying the `tritonai.ucsd.edu` index.
 
+The build owns the Google Analytics tag. `scripts/build.mjs` strips whatever analytics tag a page carries and injects the canonical one into every route, so the measurement ID lives in one place. To change it, edit `GOOGLE_ANALYTICS_ID` in `scripts/build.mjs` and `googleAnalyticsId` in `scripts/validate.mjs`. Never paste a gtag snippet into a page under `src/site/` or `content/`. `npm run validate` fails on any route missing the injected tag, carrying a different measurement ID, or carrying a hand-authored one. The tag sets `cookie_domain` to `tritonai.ucsd.edu`, so it collects nothing on staging hosts.
+
 ## Required validation
 
 Run both deployment modes before proposing a change:

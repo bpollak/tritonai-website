@@ -13,6 +13,7 @@ const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
 const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
+const SEO_FILE = path.join(CONTENT_DIR, "seo.json");
 const OUTPUT_DIR = path.resolve("dist");
 const AGENT_SITE_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/agent-site.css")))
@@ -39,6 +40,11 @@ const AFTER_RENDER_SCRIPTS = new Set([
 ]);
 const EMERGENCY_BROADCAST_SCRIPT = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
 const TRITONGPT_WIDGET_SCRIPT = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
+// The build owns the analytics tag. Pages must not carry their own copy; every
+// route gets this one injected below. `validate.mjs` fails the build if a route
+// is missing it or carries a different measurement ID.
+const GOOGLE_ANALYTICS_ID = "G-CSQGMG6EFP";
+const GOOGLE_ANALYTICS_COOKIE_DOMAIN = "tritonai.ucsd.edu";
 const PRECONNECT_ORIGINS = [
   "https://cdn.ucsd.edu",
   "https://www.ucsd.edu",
@@ -98,8 +104,12 @@ function stripLanguageCheckComments(body) {
   return body.replace(/^[ \t]*<!--\s*lang-ok:[\s\S]*?-->[ \t]*\n?/gm, "");
 }
 
+function isCanonicalMarkdownFilename(name) {
+  return name.endsWith(".md") && !/ \d+\.md$/i.test(name);
+}
+
 async function loadMarkdownDirectory(directory, requiredFields) {
-  const filenames = (await readdir(directory)).filter((name) => name.endsWith(".md")).sort();
+  const filenames = (await readdir(directory)).filter(isCanonicalMarkdownFilename).sort();
   const entries = [];
   for (const filename of filenames) {
     const parsed = matter(await readFile(path.join(directory, filename), "utf8"));
@@ -112,19 +122,23 @@ async function loadMarkdownDirectory(directory, requiredFields) {
 }
 
 async function loadNewsletters() {
-  const filenames = (await readdir(NEWSLETTER_DIR)).filter((name) => name.endsWith(".md"));
+  const filenames = (await readdir(NEWSLETTER_DIR)).filter(isCanonicalMarkdownFilename);
   const newsletters = [];
   for (const filename of filenames) {
     const parsed = matter(await readFile(path.join(NEWSLETTER_DIR, filename), "utf8"));
-    requireFields(parsed.data, ["title", "date"], `content/newsletters/${filename}`);
+    requireFields(parsed.data, ["title", "date", "items"], `content/newsletters/${filename}`);
     const date = asDate(parsed.data.date);
     if (Number.isNaN(date.valueOf())) throw new Error(`Invalid newsletter date in ${filename}`);
+    const items = Number(parsed.data.items);
+    if (!Number.isInteger(items) || items < 1) {
+      throw new Error(`Newsletter ${filename} must contain at least one item`);
+    }
     newsletters.push({
       filename,
       title: parsed.data.title,
       date,
       source: parsed.data.source || filename,
-      items: Number(parsed.data.items || 0),
+      items,
       html: markdown.render(parsed.content),
     });
   }
@@ -138,17 +152,28 @@ function renderNewsletter(newsletter) {
   return `<article class="panel panel-default agent-newsletter" id="${dateId}"><div class="panel-heading"><h2>${escapeHtml(newsletter.title)}</h2><p>${newsletter.items} ${plural}</p></div><div class="panel-body">${newsletter.html}</div></article>`;
 }
 
+function findFirstNewsletterStory($newsletter, firstStoryHeading) {
+  let candidate = firstStoryHeading.next();
+  while (candidate.length && !candidate.is("h2, h3")) {
+    const storyElement = candidate.is("p, li") ? candidate : candidate.find("p, li").first();
+    const storyText = storyElement.text().trim();
+    if (storyText) return storyText;
+    candidate = candidate.next();
+  }
+  return $newsletter("li, p").first().text().trim();
+}
+
 function renderLatestNewsletters(newsletters) {
   if (!newsletters.length) return '<div class="alert alert-info">No AI updates are available yet.</div>';
   const [latest, ...recent] = newsletters.slice(0, 3);
   const $latest = load(latest.html, { decodeEntities: false });
   const topics = [];
-  $latest("h2, h3").each((_, element) => {
+  $latest("h2").each((_, element) => {
     const topic = $latest(element).text().trim();
     if (topic && !/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/i.test(topic) && !topics.includes(topic) && topics.length < 3) topics.push(topic);
   });
   const firstTopicHeading = $latest("h3").first();
-  const firstStory = firstTopicHeading.nextAll("p, li").first().text().trim() || $latest("li, p").first().text().trim();
+  const firstStory = findFirstNewsletterStory($latest, firstTopicHeading);
   const normalizedFirstStory = firstStory.replace(/\s+/g, " ").trim();
   const excerpt =
     normalizedFirstStory.length > 280
@@ -530,7 +555,7 @@ function renderNavigation(items, route, mobile = false) {
       const submenuId = `nav-submenu-${index}`;
       return `<li class="dropdown ${active ? "active" : ""}"><a aria-controls="${submenuId}" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-tritonai-nav-dropdown href="${escapeHtml(item.href)}"${current}>${escapeHtml(item.label)} <span class="caret"></span></a><ul class="dropdown-menu" id="${submenuId}">${submenu}</ul></li>`;
     })
-    .join("") + (mobile ? '<li class="mobile-search-link"><a href="/search/index.html"><span aria-hidden="true" class="glyphicon glyphicon-search"></span> Search</a></li>' : "");
+    .join("");
 }
 
 function renderSidebarItems(navigation, route) {
@@ -583,6 +608,10 @@ function renderSidebarInner(navigation, route) {
 
 function renderSidebar(navigation, route) {
   return `<section aria-label="Sidebar" class="col-xs-12 col-md-3 sidebar-section" role="complementary"><article aria-label="Sidebar Nav" class="main-content-nav" role="navigation">${renderSidebarInner(navigation, route)}</article></section>`;
+}
+
+function renderAboutMobileNav(navigation, route) {
+  return `<nav aria-label="About section navigation" class="about-mobile-section-nav"><details><summary>More in About</summary><ul class="navbar-list">${renderSidebarItems(navigation, route)}</ul></details></nav>`;
 }
 
 function renderLandingMobileSectionNav(navigation, route) {
@@ -640,15 +669,23 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const $ = load(shellHtml, { decodeEntities: false });
   $("body").addClass("agent-page");
   const landingHub = page.path === "/index.html" || page.landingHub === true;
+  const aboutSubpage = page.path.startsWith("/about/") && page.path !== "/about/index.html";
   if (landingHub) $("body").addClass("landing-hub-page");
+  if (aboutSubpage) $("body").addClass("about-subpage");
   const bannerImage = page.bannerImage || "https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg";
   const bannerPosition = page.bannerPosition || "center";
+  const bannerClass = page.bannerMode === "abstract" ? " landing-hub-hero--abstract" : "";
+  const subpageHero = aboutSubpage
+    ? `<div class="jumbotron jumbotron-fluid intro-banner about-subpage-hero" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="about-subpage-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div>`
+    : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">${escapeHtml(page.title)}</h1></div></div></div></div></div></div>`;
+  const subpageLayoutClass = aboutSubpage ? " about-subpage-layout" : "";
+  const mobileAboutNav = aboutSubpage ? renderAboutMobileNav(site.navigation, page.path) : "";
   const mainContent =
     page.path === "/index.html"
       ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
       : landingHub
-        ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-breadcrumbs"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div></div><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section>${renderLandingMobileSectionNav(site.navigation, page.path)}`
-      : `<div class="jumbotron jumbotron-fluid intro-banner" style="background-image:url(https://cdn.ucsd.edu/cms/decorator-5/img/blue-grit.jpg);"><div class="container"><div class="cr-item-container hr-banner-two-col"><div class="row"><div class="col-sm-12"><div class="text-indent text-indent-h1 animated fadeInUp"><h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row"><section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section>${renderSidebar(site.navigation, page.path)}</div></div>`;
+        ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero${bannerClass}" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-breadcrumbs"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div></div><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section>${renderLandingMobileSectionNav(site.navigation, page.path)}`
+      : `${subpageHero}<div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row${subpageLayoutClass}">${mobileAboutNav}<section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section>${renderSidebar(site.navigation, page.path)}</div></div>`;
   $("main#main-content").html(mainContent);
   return $.html();
 }
@@ -706,6 +743,31 @@ function upsertMeta($, selector, attributes) {
   element.attr(attributes);
 }
 
+function breadcrumbSchema($, canonicalUrl) {
+  const items = $("ol[aria-label='Breadcrumb'] li")
+    .toArray()
+    .map((element, index, elements) => {
+      const item = $(element);
+      const link = item.find("a[href]").first();
+      const name = item.text().replace(/\s+/g, " ").trim();
+      if (!name) return null;
+      const entry = {
+        "@type": "ListItem",
+        position: index + 1,
+        name,
+      };
+      if (link.length) entry.item = new URL(link.attr("href"), OFFICIAL_ORIGIN).href;
+      else if (index === elements.length - 1) entry.item = canonicalUrl;
+      return entry;
+    })
+    .filter(Boolean);
+  if (items.length < 2) return null;
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
+}
+
 function localAssetPath(value, relativePath) {
   if (!value || /^(?:data:|https?:|\/\/|#)/i.test(value)) return null;
   try {
@@ -747,6 +809,17 @@ function optimizeLocalImages($, relativePath, optimizedImages) {
     const optimizedDeclaration = `background-image:image-set(url('${optimized}') type('image/webp'), url('${match[2]}') type('image/${fallbackType}'));`;
     target.attr("style", style.replace(match[0], `${fallbackDeclaration}${optimizedDeclaration}`));
   });
+}
+
+function applyGoogleAnalytics($) {
+  $("script[src*='googletagmanager.com']").remove();
+  $("script:not([src])").each((_, element) => {
+    if (/gtag\s*\(/.test($(element).html() || "")) $(element).remove();
+  });
+  $("head").append(
+    `<script async data-tritonai-analytics src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"></script>` +
+      `<script data-tritonai-analytics>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GOOGLE_ANALYTICS_ID}',{'cookie_domain':'${GOOGLE_ANALYTICS_COOKIE_DOMAIN}'});</script>`,
+  );
 }
 
 function optimizeScriptLoading($) {
@@ -849,11 +922,19 @@ function transformHtml(html, relativePath, context) {
   const $ = load(html, { decodeEntities: false });
   const route = routeForRelativePath(relativePath);
   $("body").addClass("agent-page");
+  const aboutSubpage = relativePath.startsWith("about/") && relativePath !== "about/index.html";
+  if (aboutSubpage) $("body").addClass("about-subpage");
+  if (relativePath === "about/ai-updates.html") $("body").addClass("about-updates-page");
   const generated = context.generatedByPath.get(relativePath);
-  const title = generated?.title || $("meta[name='PAGETITLE']").attr("content") || $("title").text().trim() || context.site.name;
-  const description = generated?.description || $("meta[name='DESCRIPTION']").attr("content") || context.site.description;
+  const seo = context.seo.routes[route] || {};
+  const title = seo.title || generated?.title || $("meta[name='PAGETITLE']").attr("content") || $("title").text().trim() || context.site.name;
+  const description = seo.description || generated?.description || $("meta[name='DESCRIPTION']").attr("content") || context.site.description;
   const canonicalPath = generated?.canonicalUrl || route;
   const canonicalUrl = new URL(canonicalPath, OFFICIAL_ORIGIN).href;
+  const useCaseImage = generated?.slug ? USE_CASE_MEDIA[generated.slug]?.src : null;
+  const socialImagePath = seo.socialImage || generated?.socialImage || generated?.bannerImage || useCaseImage || context.seo.defaultSocialImage;
+  const socialImageUrl = new URL(socialImagePath, OFFICIAL_ORIGIN).href;
+  const socialImageAlt = seo.socialImageAlt || generated?.imageAlt || context.seo.defaultSocialImageAlt;
 
   $("title").text(title === context.site.name ? title : `${title} | ${context.site.name}`);
   upsertMeta($, "meta[name='description'], meta[name='DESCRIPTION']", { name: "description", content: description });
@@ -862,15 +943,32 @@ function transformHtml(html, relativePath, context) {
   upsertMeta($, "meta[property='og:description']", { property: "og:description", content: description });
   upsertMeta($, "meta[property='og:type']", { property: "og:type", content: "website" });
   upsertMeta($, "meta[property='og:url']", { property: "og:url", content: canonicalUrl });
-  upsertMeta($, "meta[name='twitter:card']", { name: "twitter:card", content: "summary" });
+  upsertMeta($, "meta[property='og:site_name']", { property: "og:site_name", content: context.site.name });
+  upsertMeta($, "meta[property='og:image']", { property: "og:image", content: socialImageUrl });
+  upsertMeta($, "meta[property='og:image:alt']", { property: "og:image:alt", content: socialImageAlt });
+  upsertMeta($, "meta[name='twitter:card']", { name: "twitter:card", content: "summary_large_image" });
+  upsertMeta($, "meta[name='twitter:title']", { name: "twitter:title", content: title });
+  upsertMeta($, "meta[name='twitter:description']", { name: "twitter:description", content: description });
+  upsertMeta($, "meta[name='twitter:image']", { name: "twitter:image", content: socialImageUrl });
+  upsertMeta($, "meta[name='twitter:image:alt']", { name: "twitter:image:alt", content: socialImageAlt });
+  upsertMeta($, "meta[name='robots']", { name: "robots", content: seo.robots || "index,follow" });
   if (relativePath === "404.html") upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,follow" });
   $("link[rel='canonical']").remove();
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
+  if (generated?.redirectTo) {
+    const redirectTarget = prefixInternalUrl(generated.redirectTo, relativePath);
+    $("meta[http-equiv='refresh']").remove();
+    $("head").append(`<meta http-equiv="refresh" content="0; url=${escapeHtml(redirectTarget)}">`);
+    upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,follow" });
+  }
   if (!$("link[rel~='icon']").length) $("head").append('<link rel="icon" href="https://www.ucsd.edu/favicon.ico">');
   if (!$("link[href*='/agent-site.css']").length) {
     $("head").append(`<link rel="stylesheet" href="/_resources/css/agent-site.css?v=${AGENT_SITE_CSS_VERSION}">`);
   }
-  if ($("body").hasClass("landing-hub-page") && !$("link[href*='/landing-hubs.css']").length) {
+  if (
+    ($("body").hasClass("landing-hub-page") || $("body").hasClass("about-subpage"))
+    && !$("link[href*='/landing-hubs.css']").length
+  ) {
     $("head").append(`<link rel="stylesheet" href="/_resources/css/landing-hubs.css?v=${LANDING_HUBS_CSS_VERSION}">`);
   }
   const connectionHints = PRECONNECT_ORIGINS.map(
@@ -878,22 +976,31 @@ function transformHtml(html, relativePath, context) {
   ).join("");
   $("head").prepend(`${connectionHints}<script data-tritonai-js-class>document.documentElement.className=document.documentElement.className.replace(/\\bno-js\\b/g,'js');</script>`);
   $("script[data-tritonai-schema]").remove();
-  const schema = JSON.stringify({
+  const pageSchema = {
     "@context": "https://schema.org",
     "@type": relativePath === "index.html" ? "WebSite" : "WebPage",
     name: title,
     description,
     url: canonicalUrl,
-    isPartOf: { "@type": "WebSite", name: context.site.name, url: OFFICIAL_ORIGIN },
-    dateModified: generated?.lastReviewed || context.site.lastReviewed,
-  }).replaceAll("</script", "<\\/script");
+    image: socialImageUrl,
+    dateModified: seo.lastModified || generated?.lastReviewed || context.site.lastReviewed,
+  };
+  if (relativePath === "index.html") pageSchema.alternateName = "Triton AI";
+  else pageSchema.isPartOf = { "@type": "WebSite", name: context.site.name, url: OFFICIAL_ORIGIN };
+  const breadcrumb = breadcrumbSchema($, canonicalUrl);
+  const schema = JSON.stringify(breadcrumb ? [pageSchema, { "@context": "https://schema.org", ...breadcrumb }] : pageSchema)
+    .replaceAll("</script", "<\\/script");
   $("head").append(`<script type="application/ld+json" data-tritonai-schema>${schema}</script>`);
+  applyGoogleAnalytics($);
 
   $(".navbar-nav-list").first().html(renderNavigation(context.site.navigation, route, false));
   $("ul.nav.navmenu-nav").first().html(renderNavigation(context.site.navigation, route, true));
   $("article.main-content-nav").each((_, element) => {
     $(element).html(renderSidebarInner(context.site.navigation, route));
   });
+  if (aboutSubpage && !$(".about-mobile-section-nav").length) {
+    $(".about-subpage-layout").first().prepend(renderAboutMobileNav(context.site.navigation, route));
+  }
   normalizeNavigationMarkup($);
 
   $("[data-newsletters='latest']").html(renderLatestNewsletters(context.newsletters));
@@ -1026,6 +1133,7 @@ const facts = await readJson(path.join(CONTENT_DIR, "facts/public-facts.json"));
 const skills = await readJson(SKILLS_FILE);
 const homeHero = await readJson(HOME_HERO_FILE);
 const gatewayUsage = await readJson(GATEWAY_USAGE_FILE);
+const seo = await readJson(SEO_FILE);
 requireFields(roadmap, ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"], "content/roadmap/milestones.json");
 roadmap.lastReviewed = isoDate(roadmap.lastReviewed);
 for (const [index, item] of roadmap.items.entries()) {
@@ -1049,6 +1157,11 @@ for (const [index, slide] of homeHero.slides.entries()) {
 requireFields(gatewayUsage, ["schemaVersion", "title", "summary", "owner", "source", "measurementPeriod", "generatedAt", "lastReviewed", "dataClassification", "canonicalUrl", "relatedSlides", "metrics", "monthly", "notes"], "content/facts/gateway-usage.json");
 requireFields(gatewayUsage.measurementPeriod, ["start", "end", "label"], "content/facts/gateway-usage.json measurement period");
 gatewayUsage.lastReviewed = isoDate(gatewayUsage.lastReviewed);
+requireFields(seo, ["schemaVersion", "defaultSocialImage", "defaultSocialImageAlt", "routes"], "content/seo.json");
+for (const [route, entry] of Object.entries(seo.routes)) {
+  if (!route.startsWith("/")) throw new Error(`content/seo.json route must start with /: ${route}`);
+  if (entry.lastModified) entry.lastModified = isoDate(entry.lastModified);
+}
 for (const [index, metric] of gatewayUsage.metrics.entries()) {
   requireFields(metric, ["id", "displayValue", "label", "definition", "value"], `gateway usage metric ${index + 1}`);
 }
@@ -1079,8 +1192,9 @@ const useCaseIndex = {
   lastReviewed: site.lastReviewed,
   canonicalUrl: "/use-cases/index.html",
   landingHub: true,
-  bannerImage: "/_images/callout-scripps-rainbow-dark.webp",
-  bannerPosition: "center 42%",
+  bannerImage: "/_images/hero-abstract/use-cases.webp",
+  bannerPosition: "center",
+  bannerMode: "abstract",
 };
 await writeGeneratedPage(shellHtml, useCaseIndex, renderUseCaseIndex(useCases), generatedByPath, homeHero);
 for (const useCase of useCases) {
@@ -1113,7 +1227,7 @@ const optimizedImages = new Set(
     .filter((file) => file.endsWith(".webp"))
     .map((file) => `/_images/${file.replaceAll(path.sep, "/")}`),
 );
-const context = { site, newsletters, useCases, facts, gatewayUsage, skills, generatedByPath, optimizedImages };
+const context = { site, newsletters, useCases, facts, gatewayUsage, skills, seo, generatedByPath, optimizedImages };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));
@@ -1123,12 +1237,16 @@ htmlFiles = (await listFiles(OUTPUT_DIR)).filter((file) => file.endsWith(".html"
 const routes = htmlFiles.map((relativePath) => ({
   path: routeForRelativePath(relativePath),
   canonicalUrl: new URL(generatedByPath.get(relativePath)?.canonicalUrl || routeForRelativePath(relativePath), OFFICIAL_ORIGIN).href,
+  redirectTo: generatedByPath.get(relativePath)?.redirectTo || null,
   source: generatedByPath.has(relativePath) ? "structured-content" : "cascade-snapshot",
-  lastReviewed: generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
+  lastModified: seo.routes[routeForRelativePath(relativePath)]?.lastModified || generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
+  indexable: relativePath !== "404.html"
+    && !generatedByPath.get(relativePath)?.redirectTo
+    && !/noindex/i.test(seo.routes[routeForRelativePath(relativePath)]?.robots || ""),
 }));
 const sitemapEntries = routes
-  .filter((route) => route.path !== "/404.html")
-  .map((route) => `<url><loc>${escapeHtml(route.canonicalUrl)}</loc><lastmod>${escapeHtml(route.lastReviewed)}</lastmod></url>`)
+  .filter((route) => route.indexable)
+  .map((route) => `<url><loc>${escapeHtml(route.canonicalUrl)}</loc><lastmod>${escapeHtml(route.lastModified)}</lastmod></url>`)
   .join("");
 await mkdir(path.join(OUTPUT_DIR, "_data"), { recursive: true });
 await writeFile(path.join(OUTPUT_DIR, "_data/routes.json"), `${JSON.stringify({ generatedAt: new Date().toISOString(), routes }, null, 2)}\n`);

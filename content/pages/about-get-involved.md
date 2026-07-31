@@ -8,7 +8,6 @@ audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public program intake, training, community pages, and memory architecture presentation
 canonicalUrl: /about/get-involved.html
 relatedSlides: [ai-engagement-at-scale, from-tritongpt-to-tritonai, campus-app-hosting-intake, harness-memory-architecture]
-landingHub: true
 bannerImage: /_images/callout-scripps-rainbow-dark.webp
 bannerPosition: center 52%
 ---
@@ -32,7 +31,7 @@ bannerPosition: center 52%
 
 <section class="hub-section" aria-labelledby="reusable-contribution-heading">
 <div class="row hub-split hub-split-align-center">
-<div class="col-md-6 hub-split-copy"><p class="home-kicker">Contribute to the ecosystem</p><h2 id="reusable-contribution-heading">Share something another team can reuse</h2><p>A reviewed skill, template, source guide, or evaluation checklist can shorten the next team’s path. Contributions need a named owner, intended audience, source, review date, and clear access boundaries.</p><p><a class="btn btn-primary" href="/skills/index.html">Explore reusable skills</a> <a class="btn btn-default" href="/about/workgroup.html">Learn about the Workgroup</a></p></div>
+<div class="col-md-6 hub-split-copy"><p class="home-kicker">Contribute to the ecosystem</p><h2 id="reusable-contribution-heading">Share something another team can reuse</h2><p>A reviewed skill, template, source guide, or evaluation checklist can shorten the next team’s path. Contributions need a named owner, intended audience, source, review date, and clear access boundaries.</p><p><a class="btn btn-primary" href="/skills/index.html">Explore reusable skills</a></p></div>
 <div class="col-md-6"><ul class="hub-path-list hub-path-list-light"><li><strong>Instruction</strong><span>Explain what the pattern does and when to use it.</span></li><li><strong>Evidence</strong><span>Show where it was tested and what the review found.</span></li><li><strong>Boundaries</strong><span>Name approved sources, users, actions, and review points.</span></li><li><strong>Maintenance</strong><span>Assign an owner and a date to review, update, or retire it.</span></li></ul></div>
 </div>
 </section>

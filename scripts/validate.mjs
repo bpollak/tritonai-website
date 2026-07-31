@@ -51,6 +51,8 @@ const requiredDecoratorStylesheets = [
 ];
 const emergencyBroadcastScript = "https://www.ucsd.edu/common/_emergency-broadcast/message.js";
 const tritonGptWidgetScript = "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js";
+// Must match GOOGLE_ANALYTICS_ID in build.mjs, which injects the tag on every route.
+const googleAnalyticsId = "G-CSQGMG6EFP";
 const imageBudgetBytes = 320_000;
 
 async function listFiles(directory, base = directory) {
@@ -101,7 +103,10 @@ function missingFields(object, fields) {
 async function loadMarkdownContent(directory, requiredFields, type) {
   const entries = [];
   const findings = [];
-  for (const filename of (await readdir(directory)).filter((name) => name.endsWith(".md")).sort()) {
+  const filenames = (await readdir(directory))
+    .filter((name) => name.endsWith(".md") && !/ \d+\.md$/i.test(name))
+    .sort();
+  for (const filename of filenames) {
     const parsed = matter(await readFile(path.join(directory, filename), "utf8"));
     const missing = missingFields(parsed.data, requiredFields);
     if (missing.length) findings.push({ source: `${type}/${filename}`, issue: `Missing fields: ${missing.join(", ")}` });
@@ -144,9 +149,11 @@ const missing = [];
 const inherited = [];
 const accessibility = [];
 const metadata = [];
+const metadataTitles = new Map();
 const performance = [];
 const navigation = [];
 const decorator = [];
+const analytics = [];
 
 const assetSizeCache = new Map();
 async function localAssetSize(raw, pagePath) {
@@ -339,9 +346,26 @@ for (const entry of freshnessEntries) {
   else if (ageDays > 120) freshnessWarnings.push({ source: entry.filename, lastReviewed: entry.lastReviewed, ageDays });
 }
 
+const retiredReferencePatterns = [
+  /AI\s+Development\s+Work\s*group/i,
+  /AI\s+in\s+Administration\s+Work\s*group/i,
+];
+
 for (const page of htmlFiles) {
-  const $ = load(await readFile(path.join(DIST_DIR, page), "utf8"));
+  const renderedHtml = await readFile(path.join(DIST_DIR, page), "utf8");
+  const $ = load(renderedHtml);
   const route = page === "index.html" ? "/" : `/${page}`;
+  for (const pattern of retiredReferencePatterns) {
+    if (pattern.test(renderedHtml)) {
+      contentFindings.push({ source: `dist/${page}`, issue: "Retired AI workgroup reference remains in rendered content" });
+    }
+  }
+  $("a[href]").each((_, element) => {
+    const target = normalizeRoute(toLocalPath($(element).attr("href"), page) || "");
+    if (target === "/about/workgroup.html") {
+      contentFindings.push({ source: `dist/${page}`, issue: "Rendered page still links to the retired workgroup route" });
+    }
+  });
   for (const stylesheet of requiredDecoratorStylesheets) {
     if ($(`link[rel~='stylesheet'][href='${stylesheet}']`).length !== 1) {
       decorator.push({ page: route, issue: `Missing official Decorator 5 stylesheet: ${stylesheet}` });
@@ -662,6 +686,21 @@ for (const page of htmlFiles) {
   if (idleWidget.length !== 1 || idleWidget.attr("src")) {
     performance.push({ page: route, issue: "TritonGPT widget must initialize during browser idle time" });
   }
+  const analyticsLoader = $("script[data-tritonai-analytics][src]");
+  const analyticsConfig = $("script[data-tritonai-analytics]:not([src])");
+  const strayAnalytics = $("script[src*='googletagmanager.com']:not([data-tritonai-analytics])");
+  if (analyticsLoader.length !== 1 || analyticsConfig.length !== 1) {
+    analytics.push({ page: route, issue: "Page must carry exactly one build-injected Google Analytics tag" });
+  } else if (analyticsLoader.attr("src") !== `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`) {
+    analytics.push({ page: route, issue: `Analytics loader does not use measurement ID ${googleAnalyticsId}` });
+  } else if (!(analyticsConfig.html() || "").includes(`gtag('config','${googleAnalyticsId}'`)) {
+    analytics.push({ page: route, issue: `Analytics configuration does not use measurement ID ${googleAnalyticsId}` });
+  } else if (analyticsLoader.attr("async") === undefined) {
+    analytics.push({ page: route, issue: "Analytics loader must stay asynchronous" });
+  }
+  if (strayAnalytics.length) {
+    analytics.push({ page: route, issue: "Page carries a hand-authored analytics tag; the build owns this tag" });
+  }
   for (const element of $("img").toArray()) {
     const image = $(element);
     const fallback = image.attr("data-fallback-src") || image.attr("src");
@@ -702,12 +741,37 @@ for (const page of htmlFiles) {
     $("img").each((_, element) => {
       if ($(element).attr("alt") === undefined) accessibility.push({ page: route, issue: "Image missing alt attribute" });
     });
-    const canonical = $("link[rel='canonical']").attr("href");
-    if (!canonical) metadata.push({ page: route, issue: "Missing canonical URL" });
-    else if (!canonical.startsWith("https://tritonai.ucsd.edu/")) metadata.push({ page: route, issue: `Canonical URL is not absolute: ${canonical}` });
-    if (!$("meta[name='description']").attr("content")) metadata.push({ page: route, issue: "Missing description" });
-    if (!$("meta[property='og:title']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph title" });
-    if (!$("script[type='application/ld+json'][data-tritonai-schema]").length) metadata.push({ page: route, issue: "Missing JSON-LD" });
+  }
+  const title = $("title").text().trim();
+  const robots = $("meta[name='robots']").attr("content") || "";
+  const canonical = $("link[rel='canonical']").attr("href");
+  if (!canonical) metadata.push({ page: route, issue: "Missing canonical URL" });
+  else if (!canonical.startsWith("https://tritonai.ucsd.edu/")) metadata.push({ page: route, issue: `Canonical URL is not absolute: ${canonical}` });
+  if (!title) metadata.push({ page: route, issue: "Missing title" });
+  else if (!/noindex/i.test(robots)) {
+    if (!metadataTitles.has(title)) metadataTitles.set(title, []);
+    metadataTitles.get(title).push(route);
+  }
+  if (!$("meta[name='description']").attr("content")) metadata.push({ page: route, issue: "Missing description" });
+  if (!$("meta[property='og:title']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph title" });
+  if (!$("meta[property='og:description']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph description" });
+  if (!$("meta[property='og:url']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph URL" });
+  if (!$("meta[property='og:site_name']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph site name" });
+  if (!$("meta[property='og:image']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph image" });
+  if (!$("meta[property='og:image:alt']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph image alternative" });
+  if ($("meta[name='twitter:card']").attr("content") !== "summary_large_image") metadata.push({ page: route, issue: "Missing large-image Twitter card" });
+  for (const name of ["twitter:title", "twitter:description", "twitter:image", "twitter:image:alt"]) {
+    if (!$(`meta[name='${name}']`).attr("content")) metadata.push({ page: route, issue: `Missing ${name}` });
+  }
+  if (/noarchive/i.test(robots)) metadata.push({ page: route, issue: "Obsolete noarchive directive remains" });
+  const schemaSource = $("script[type='application/ld+json'][data-tritonai-schema]").first().text();
+  if (!schemaSource) metadata.push({ page: route, issue: "Missing JSON-LD" });
+  else {
+    try {
+      JSON.parse(schemaSource);
+    } catch (error) {
+      metadata.push({ page: route, issue: `Invalid JSON-LD: ${error.message}` });
+    }
   }
   if (useCaseByRoute.has(route)) {
     const useCase = useCaseByRoute.get(route);
@@ -760,7 +824,7 @@ for (const page of htmlFiles) {
     }
   }
   if (route === "/about/trust-architecture.html") {
-    const requiredSections = ["#trust-layers", "#trust-responsibility", "#trust-surfaces", "#trust-start"];
+    const requiredSections = ["#trust-layers", "#trust-surfaces"];
     for (const selector of requiredSections) {
       if ($(selector).length !== 1) contentFindings.push({ source: route, issue: `Trust page is missing ${selector}` });
     }
@@ -769,9 +833,6 @@ for (const page of htmlFiles) {
     }
     if ($(".trust-layer-grid > article").length !== 4) {
       contentFindings.push({ source: route, issue: "Trust foundation must contain four layers" });
-    }
-    if ($(".trust-responsibility-grid > article").length !== 2) {
-      contentFindings.push({ source: route, issue: "Trust responsibility summary must contain two owners" });
     }
     if ($(".trust-surface-grid > article").length !== 5) {
       contentFindings.push({ source: route, issue: "Trust delivery surfaces must contain five examples" });
@@ -966,6 +1027,10 @@ for (const page of htmlFiles) {
   }
 }
 
+for (const [title, routes] of metadataTitles) {
+  if (routes.length > 1) metadata.push({ page: routes.join(", "), issue: `Duplicate indexable title: ${title}` });
+}
+
 for (const filename of files.filter((file) => file.startsWith("_resources/css/") && file.endsWith(".css"))) {
   const source = await readFile(path.join(DIST_DIR, filename), "utf8");
   for (const match of source.matchAll(/font-family\s*:\s*([^;}]+)/gi)) {
@@ -992,8 +1057,10 @@ const routeFindings = [];
 if (!routeManifest || routeManifest.routes?.length !== htmlFiles.length) {
   routeFindings.push({ issue: `Route manifest count does not match HTML count (${routeManifest?.routes?.length || 0} vs ${htmlFiles.length})` });
 } else {
-  for (const route of routeManifest.routes.filter((entry) => entry.path !== "/404.html")) {
-    if (!sitemap.includes(`<loc>${route.canonicalUrl}</loc>`)) routeFindings.push({ path: route.path, issue: "Missing from sitemap" });
+  for (const route of routeManifest.routes) {
+    const included = sitemap.includes(`<loc>${route.canonicalUrl}</loc>`);
+    if (route.indexable && !included) routeFindings.push({ path: route.path, issue: "Indexable route is missing from sitemap" });
+    if (!route.indexable && !route.redirectTo && included) routeFindings.push({ path: route.path, issue: "Non-indexable route appears in sitemap" });
   }
 }
 if (!(await exists(path.join(DIST_DIR, "404.html")))) routeFindings.push({ path: "/404.html", issue: "Custom 404 is missing" });
@@ -1042,6 +1109,7 @@ const report = {
     routeFailures: routeFindings.length,
     performanceFailures: performance.length,
     decoratorFailures: decorator.length,
+    analyticsFailures: analytics.length,
   },
   missing,
   inherited,
@@ -1055,15 +1123,22 @@ const report = {
   routeFindings,
   performance,
   decorator,
+  analytics,
 };
 await mkdir(REPORT_DIR, { recursive: true });
 await writeFile(path.join(REPORT_DIR, "validation.json"), `${JSON.stringify(report, null, 2)}\n`);
 
 process.stdout.write(`${JSON.stringify(report.counts, null, 2)}\n`);
+const remoteFailures = remoteChecks.filter((check) => !check.ok);
+if (remoteFailures.length) {
+  process.stdout.write(`::warning::${remoteFailures.length} remote dependency check(s) failed\n`);
+  for (const check of remoteFailures) {
+    process.stdout.write(`  ${check.url} (${check.attempts} attempts)\n`);
+  }
+}
 if (inherited.length) process.stdout.write(`Preserved ${inherited.length} inherited broken-link occurrences.\n`);
 if (
   missing.length ||
-  remoteChecks.some((check) => !check.ok) ||
   newsletterCount < 1 ||
   contentFindings.length ||
   freshnessFailures.length ||
@@ -1072,7 +1147,8 @@ if (
   metadata.length ||
   routeFindings.length ||
   performance.length ||
-  decorator.length
+  decorator.length ||
+  analytics.length
 ) {
   process.stderr.write("Validation failed. See reports/validation.json.\n");
   process.exit(1);

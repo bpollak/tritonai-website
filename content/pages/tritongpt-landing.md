@@ -9,15 +9,16 @@ source: TritonGPT public service, guide pages, and current public platform prese
 canonicalUrl: /tritongpt/index.html
 relatedSlides: [tritongpt-platform, tritongpt-secure-scalable-ai-platform, instructional-ai-socratic-tutor-faculty-assistant]
 landingHub: true
-bannerImage: /_images/homepage/TritonAI_Hero_2500.webp
-bannerPosition: center 46%
+bannerImage: /_images/hero-abstract/tritongpt.webp
+bannerPosition: center
+bannerMode: abstract
 ---
 
 <section class="tritongpt-intro" aria-labelledby="access-tritongpt-heading">
 <div class="container">
 <div class="tritongpt-intro-card row">
 <div class="col-md-7 tritongpt-intro-copy"><p class="home-kicker">Available to eligible campus users</p><h2 id="access-tritongpt-heading">Start in TritonGPT</h2><p class="tritongpt-intro-lede">Sign in with your UC San Diego account to chat, work with your own documents, choose a model, or open an assistant built for a campus task.</p><ul class="tritongpt-intro-points"><li><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>Campus sign-in</li><li><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Your own documents</li><li><span class="glyphicon glyphicon-random" aria-hidden="true"></span>Approved models</li></ul><div class="tritongpt-intro-actions"><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a><a class="btn btn-default btn-lg" href="/training-resources/tritongpt/index.html">Read the getting-started guide</a></div></div>
-<div class="col-md-5 tritongpt-intro-media"><img alt="Students collaborating with a laptop on the UC San Diego campus" class="img-responsive" src="/_images/smiling-students-collaborating.webp"></div>
+<div class="col-md-5 tritongpt-intro-media"><img alt="Abstract TritonGPT platform connecting chat, documents, approved models, and campus knowledge" class="img-responsive" src="/_images/editorial/tritongpt-platform-intro.webp"></div>
 </div>
 </div>
 </section>
@@ -60,7 +61,7 @@ bannerPosition: center 46%
 <div class="landing-section-heading"><p class="home-kicker">TritonGPT in practice</p><h2 id="assistant-examples-heading">How people use TritonGPT</h2><p>Ask a campus question, bring your own material, or open an assistant available in TritonGPT.</p></div>
 <div class="row cms-news-grid tritongpt-practice-grid">
 <div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/tritongpt/integrations.html"><img alt="Geisel Library on the UC San Diego campus" class="img-responsive" src="/_images/landing/geisel-library.webp"></a><div class="panel-body"><h3><a href="/tritongpt/integrations.html">Campus answers</a></h3><p>Look up a campus service or policy without hunting through Blink yourself.</p></div></article></div>
-<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/training-resources/tritongpt/index.html"><img alt="Students collaborating around a laptop" class="img-responsive" src="/_images/smiling-students-collaborating.webp"></a><div class="panel-body"><h3><a href="/training-resources/tritongpt/index.html">Document work</a></h3><p>Summarize, compare, and draft from files you upload. Check the result before you use it.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/training-resources/tritongpt/index.html"><img alt="Abstract documents moving through comparison and review" class="img-responsive" src="/_images/editorial/tritongpt-document-work.webp"></a><div class="panel-body"><h3><a href="/training-resources/tritongpt/index.html">Document work</a></h3><p>Summarize, compare, and draft from files you upload. Check the result before you use it.</p></div></article></div>
 <div class="col-md-4"><article class="panel panel-default cms-news-card"><a class="cms-news-image" href="/training-resources/tritongpt/assistants.html"><img alt="Class schedule options shown in the TritonGPT Class Scheduling Assistant" class="img-responsive" src="/_images/use-cases/tritongpt-class-planner-demo.webp"></a><div class="panel-body"><h3><a href="/training-resources/tritongpt/assistants.html">Class planning</a></h3><p>Compare course combinations around work, activities, and other commitments.</p></div></article></div>
 </div>
 </div>
@@ -81,5 +82,5 @@ bannerPosition: center 46%
 </section>
 
 <section class="tritongpt-recognition" aria-labelledby="recognition-heading">
-<div class="container"><div class="tritongpt-recognition-panel"><div><p class="home-kicker">Program impact</p><h2 id="recognition-heading">Recognition outside UC San Diego</h2><p>TritonGPT and the wider TritonAI program have been recognized by outside organizations for institutional technology and transformation.</p></div><a class="btn btn-default btn-lg" href="/about/impact.html">See evidence and recognition</a></div></div>
+<div class="container"><div class="tritongpt-recognition-panel"><div><p class="home-kicker">Program impact</p><h2 id="recognition-heading">Recognition outside UC San Diego</h2><p>TritonGPT and the wider TritonAI program have been recognized by outside organizations for institutional technology and transformation.</p></div></div></div>
 </section>

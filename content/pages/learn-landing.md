@@ -9,8 +9,9 @@ source: TritonAI training catalog and UC San Diego learning resources
 canonicalUrl: /training-resources/index.html
 relatedSlides: [Training, AI Foundations, Citizen Developer Ecosystem]
 landingHub: true
-bannerImage: /_images/building-branch-hero.webp
-bannerPosition: center 48%
+bannerImage: /_images/hero-abstract/learn.webp
+bannerPosition: center
+bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="learn-intro-heading">
@@ -27,7 +28,7 @@ bannerPosition: center 48%
 </section>
 
 <section class="hub-section" aria-labelledby="foundations-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-media"><figure class="hub-photo-frame"><img alt="UC San Diego students collaborating around a laptop" class="img-responsive" src="/_images/smiling-students-collaborating.webp"></figure></div><div class="col-md-6 hub-split-copy"><p class="home-kicker">A common foundation</p><h2 id="foundations-heading">Begin with AI Foundations</h2><p>The core concepts, what UC policy says, and where AI genuinely helps in higher education. It is self-paced, runs in UC Learning, and anyone on campus can take it.</p><p><a class="btn btn-primary" href="https://go.ucsd.edu/3FvH9Hf">Take AI Foundations</a></p></div></div>
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-media"><figure class="hub-photo-frame"><img alt="Abstract learning pathway connecting core concepts with review and verification" class="img-responsive" src="/_images/editorial/ai-foundations-learning.webp"></figure></div><div class="col-md-6 hub-split-copy"><p class="home-kicker">A common foundation</p><h2 id="foundations-heading">Begin with AI Foundations</h2><p>The core concepts, what UC policy says, and where AI genuinely helps in higher education. It is self-paced, runs in UC Learning, and anyone on campus can take it.</p><p><a class="btn btn-primary" href="https://go.ucsd.edu/3FvH9Hf">Take AI Foundations</a></p></div></div>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="practice-heading">

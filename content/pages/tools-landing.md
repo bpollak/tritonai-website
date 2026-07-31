@@ -9,8 +9,9 @@ source: UC San Diego public AI service pages
 canonicalUrl: /tools/index.html
 relatedSlides: [platform-at-uc-san-diego, citizen-developer-ecosystem]
 landingHub: true
-bannerImage: /_images/smiling-students-collaborating.webp
-bannerPosition: center 48%
+bannerImage: /_images/hero-abstract/ai-tools.webp
+bannerPosition: center
+bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="tools-intro-heading">

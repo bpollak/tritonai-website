@@ -54,7 +54,7 @@ test("syncs validated newsletter markup and sanitizes links", async () => {
   }
 });
 
-test("check mode reports a source edition that has not been synchronized", async () => {
+test("rejects a source edition that reports zero items", async () => {
   const workDir = await mkdtemp(path.join(tmpdir(), "tritonai-news-check-"));
   const sourceFile = path.join(workDir, "source.html");
   const outputDir = path.join(workDir, "newsletters");
@@ -71,7 +71,7 @@ test("check mode reports a source edition that has not been synchronized", async
       </article>`);
     const result = runSync(sourceFile, outputDir, "--check");
     assert.equal(result.status, 1);
-    assert.match(result.stdout, /ucsd-ai-newsletter-2026-07-27\.md/);
+    assert.match(result.stderr, /reports no items; refusing to synchronize an empty edition/);
   } finally {
     await rm(workDir, { recursive: true, force: true });
   }
