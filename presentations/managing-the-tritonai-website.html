@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Managing the TritonAI Website | Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --triton-navy: #182b49;
+  --triton-blue: #00629b;
+  --triton-bright-blue: #00c6d7;
+  --triton-gold: #ffcd00;
+  --triton-sand: #f5f0e6;
+  --triton-slate: #37474f;
+  --triton-border: #d5d9de;
+  --triton-dark-navy: #102b4e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  color: var(--triton-slate);
+  background: #fff;
+  overflow: hidden;
+}
+
+.deck {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header (matches UCSD Decorator two-tier layout) --- */
+.site-header {
+  flex-shrink: 0;
+  z-index: 10;
+}
+.layout-title {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 60px;
+  border-bottom: 1px solid var(--triton-border);
+}
+.title-brand {
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+}
+.title-brand span { font-weight: 700; }
+.title-ucsd {
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--triton-blue);
+  text-decoration: none;
+}
+.title-ucsd:hover { text-decoration: underline; }
+.layout-nav {
+  background: var(--triton-blue);
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  height: 44px;
+}
+.layout-nav span {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: .03em;
+}
+
+/* --- Slide viewport --- */
+.viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+  overflow-y: auto;
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.slide:focus-visible {
+  outline: 3px solid var(--triton-gold);
+  outline-offset: -3px;
+}
+
+/* --- Hero slides (navy background) --- */
+.slide-hero {
+  background: var(--triton-navy);
+  background-image: linear-gradient(135deg, var(--triton-dark-navy) 0%, var(--triton-navy) 50%, #1a3a5c 100%);
+  color: #fff;
+  justify-content: center;
+  padding: 60px;
+}
+.slide-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, rgba(0,198,215,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.slide-hero .kicker {
+  color: var(--triton-gold);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.slide-hero h1 {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(48px, 6vw, 84px);
+  line-height: 1;
+  font-weight: 600;
+  max-width: 900px;
+  text-shadow: 0 2px 18px rgba(0,0,0,.22);
+}
+.slide-hero .lede {
+  font-size: 22px;
+  line-height: 1.5;
+  max-width: 720px;
+  margin-top: 20px;
+  color: rgba(255,255,255,.82);
+}
+.slide-hero .presentation-meta {
+  margin-top: 36px;
+  display: flex;
+  gap: 40px;
+}
+.slide-hero .presentation-meta > div {
+  border-left: 3px solid var(--triton-gold);
+  padding-left: 14px;
+}
+.slide-hero .presentation-meta dt {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--triton-gold);
+  font-weight: 700;
+}
+.slide-hero .presentation-meta dd {
+  font-size: 16px;
+  color: rgba(255,255,255,.8);
+  margin-top: 2px;
+}
+
+/* --- Section divider slides --- */
+.slide-section {
+  background: var(--triton-blue);
+  color: #fff;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px;
+}
+.slide-section .section-number {
+  font-family: 'Teko', sans-serif;
+  font-size: 80px;
+  line-height: .8;
+  color: var(--triton-gold);
+  font-weight: 600;
+}
+.slide-section h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1;
+  margin-top: 8px;
+  max-width: 800px;
+}
+.slide-section p {
+  font-size: 20px;
+  margin-top: 16px;
+  max-width: 640px;
+  color: rgba(255,255,255,.8);
+}
+
+/* --- Content slides --- */
+.slide-content {
+  background: #fff;
+  padding: 54px 60px 60px;
+}
+.slide-content .kicker {
+  color: var(--triton-blue);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.slide-content h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.08;
+  color: var(--triton-blue);
+  margin-bottom: 24px;
+  max-width: 880px;
+}
+.slide-content h3 {
+  font-family: 'Teko', sans-serif;
+  font-size: 28px;
+  color: var(--triton-blue);
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+.slide-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 880px;
+  margin-bottom: 14px;
+}
+.slide-content ul, .slide-content ol {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 880px;
+  padding-left: 24px;
+  margin-bottom: 14px;
+}
+.slide-content li { margin-bottom: 6px; }
+.slide-content strong { color: var(--triton-blue); }
+.slide-content code {
+  background: var(--triton-sand);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  color: var(--triton-navy);
+}
+.slide-content pre {
+  background: var(--triton-navy);
+  color: #e8edf2;
+  padding: 20px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  max-width: 880px;
+  margin: 14px 0;
+}
+.slide-content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* --- Sand background variant --- */
+.slide-sand { background: var(--triton-sand); }
+
+/* --- Navy background variant for content --- */
+.slide-navy {
+  background: var(--triton-navy);
+  color: rgba(255,255,255,.85);
+}
+.slide-navy .kicker { color: var(--triton-gold); }
+.slide-navy h2 { color: #fff; }
+.slide-navy h3 { color: var(--triton-bright-blue); }
+.slide-navy p, .slide-navy li { color: rgba(255,255,255,.82); }
+.slide-navy strong { color: #fff; }
+.slide-navy code { background: rgba(255,255,255,.1); color: var(--triton-bright-blue); }
+.slide-navy pre { background: rgba(0,0,0,.3); }
+
+/* --- Cards grid --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+  max-width: 960px;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-radius: 8px;
+  padding: 22px;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.card:hover {
+  border-color: #9aa7b2;
+  box-shadow: 0 12px 28px rgba(24,43,73,.11);
+  transform: translateY(-3px);
+}
+.slide-sand .card { background: #fff; }
+.slide-navy .card {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.15);
+}
+.slide-navy .card:hover {
+  border-color: var(--triton-bright-blue);
+  box-shadow: 0 12px 28px rgba(0,0,0,.2);
+}
+.card .card-type {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.card-type-gold { background: rgba(255,205,0,.18); color: #b89400; }
+.card-type-blue { background: rgba(0,98,155,.12); color: var(--triton-blue); }
+.card-type-cyan { background: rgba(0,198,215,.12); color: #00838f; }
+.slide-navy .card-type-gold { background: rgba(255,205,0,.2); color: var(--triton-gold); }
+.slide-navy .card-type-blue { background: rgba(0,198,215,.15); color: var(--triton-bright-blue); }
+.slide-navy .card-type-cyan { background: rgba(0,198,215,.15); color: var(--triton-bright-blue); }
+.card h3 {
+  font-family: 'Teko', sans-serif;
+  font-size: 24px;
+  margin-top: 0;
+  color: var(--triton-blue);
+}
+.slide-navy .card h3 { color: #fff; }
+.card p { font-size: 15px; line-height: 1.5; margin: 0; }
+
+/* --- Table --- */
+.table-wrap { overflow-x: auto; max-width: 880px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-top: 12px;
+}
+th, td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--triton-border);
+}
+.slide-navy th, .slide-navy td { border-color: rgba(255,255,255,.15); }
+th {
+  font-weight: 700;
+  color: var(--triton-blue);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.slide-navy th { color: var(--triton-gold); }
+tbody tr:hover { background: var(--triton-sand); }
+.slide-navy tbody tr:hover { background: rgba(255,255,255,.04); }
+td code { font-size: 13px; }
+
+/* --- Comparison columns --- */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 900px;
+  margin-top: 16px;
+}
+.compare-col {
+  border-radius: 8px;
+  padding: 24px;
+}
+.compare-col h3 { margin-top: 0; }
+.compare-old {
+  background: #f0ede8;
+  border: 1px solid var(--triton-border);
+}
+.compare-old h3 { color: #6b7785; }
+.compare-new {
+  background: rgba(0,98,155,.06);
+  border: 1px solid rgba(0,98,155,.2);
+}
+.compare-new h3 { color: var(--triton-blue); }
+.compare-col ul { font-size: 16px; line-height: 1.65; padding-left: 20px; }
+.compare-col li { margin-bottom: 8px; }
+
+/* --- Flow diagram --- */
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 24px;
+  max-width: 920px;
+  flex-wrap: wrap;
+}
+.flow-step {
+  flex: 1;
+  min-width: 130px;
+  background: #fff;
+  border: 2px solid var(--triton-blue);
+  border-radius: 8px;
+  padding: 16px 14px;
+  text-align: center;
+  position: relative;
+}
+.slide-navy .flow-step {
+  background: rgba(255,255,255,.06);
+  border-color: var(--triton-bright-blue);
+}
+.flow-step .step-num {
+  font-family: 'Teko', sans-serif;
+  font-size: 32px;
+  color: var(--triton-gold);
+  line-height: 1;
+}
+.flow-step .step-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--triton-blue);
+  margin-top: 4px;
+}
+.slide-navy .flow-step .step-label { color: #fff; }
+.flow-step .step-desc {
+  font-size: 12px;
+  color: #6b7785;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.slide-navy .flow-step .step-desc { color: rgba(255,255,255,.6); }
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--triton-bright-blue);
+  font-size: 24px;
+  padding: 0 6px;
+}
+
+/* --- Badge --- */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.badge-green { background: #e8f5e9; color: #2e7d32; }
+.badge-blue { background: #e3f2fd; color: #1565c0; }
+.badge-gold { background: #fff8e1; color: #f57f17; }
+.slide-navy .badge-green { background: rgba(76,175,80,.15); color: #81c784; }
+.slide-navy .badge-blue { background: rgba(0,198,215,.15); color: var(--triton-bright-blue); }
+.slide-navy .badge-gold { background: rgba(255,205,0,.15); color: var(--triton-gold); }
+
+/* --- Callout --- */
+.callout {
+  border-left: 4px solid var(--triton-gold);
+  background: rgba(255,205,0,.07);
+  padding: 16px 22px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+  max-width: 880px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.slide-navy .callout {
+  background: rgba(255,205,0,.08);
+  color: rgba(255,255,255,.85);
+}
+
+/* --- Footer (matches UCSD Decorator footer) --- */
+.site-footer {
+  background: var(--triton-blue);
+  flex-shrink: 0;
+  height: 10px;
+}
+
+/* --- Bottom controls --- */
+.controls {
+  background: var(--triton-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 40px;
+  flex-shrink: 0;
+}
+.controls-left, .controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-btn {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+.nav-btn:hover { background: rgba(255,255,255,.2); }
+.nav-btn:disabled { opacity: .3; cursor: default; }
+.progress-text {
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: .04em;
+}
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,.1);
+  border-radius: 2px;
+  margin: 0 20px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--triton-gold);
+  border-radius: 2px;
+  transition: width .3s ease;
+}
+
+/* --- Two-column layout --- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  max-width: 920px;
+  margin-top: 12px;
+}
+
+/* --- Checklist --- */
+.checklist { list-style: none; padding: 0; max-width: 880px; }
+.checklist li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  font-size: 17px;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--triton-border);
+}
+.slide-navy .checklist li { border-color: rgba(255,255,255,.12); }
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  background: var(--triton-blue);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.slide-navy .checklist li::before { background: var(--triton-bright-blue); }
+.checklist li strong { display: block; }
+
+/* --- Keyboard hint --- */
+.kbd-hint {
+  position: absolute;
+  bottom: 16px;
+  right: 28px;
+  font-size: 11px;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .04em;
+}
+.slide-content .kbd-hint, .slide-sand .kbd-hint { color: rgba(0,0,0,.25); }
+
+@media (max-width: 768px) {
+  .slide-hero, .slide-section, .slide-content { padding: 32px 24px; }
+  .compare, .two-col { grid-template-columns: 1fr; }
+  .flow { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- Site header (UCSD Decorator two-tier) -->
+<header class="site-header">
+  <section class="layout-title">
+    <a class="title-brand" href="https://tritonai.ucsd.edu">Triton <span>AI</span></a>
+    <a class="title-ucsd" href="https://ucsd.edu">UC San Diego</a>
+  </section>
+  <nav class="layout-nav">
+    <span>Managing the TritonAI Website</span>
+  </nav>
+</header>
+
+<!-- Viewport -->
+<div class="viewport" id="viewport">
+
+<!-- SLIDE 1: Title -->
+<section class="slide slide-hero active" data-slide="1">
+  <p class="kicker">For Cascade Server CMS content staff</p>
+  <h1>Managing the TritonAI Website</h1>
+  <p class="lede">How the TritonAI site is built, updated, and published — without Cascade Server — using the TritonAI Harness and GitHub.</p>
+  <dl class="presentation-meta">
+    <div><dt>Audience</dt><dd>Web content staff managing Cascade CMS sites</dd></div>
+    <div><dt>Format</dt><dd>Walk-through with live examples</dd></div>
+    <div><dt>Source</dt><dd>docs/how-updates-and-publishing-work.md</dd></div>
+  </dl>
+  <div class="kbd-hint">Use ← → arrow keys to navigate</div>
+</section>
+
+<!-- SLIDE 2: Why this matters -->
+<section class="slide slide-content" data-slide="2">
+  <p class="kicker">Context</p>
+  <h2>Why we moved off Cascade</h2>
+  <div class="compare">
+    <div class="compare-col compare-old">
+      <h3>Before — Cascade Server</h3>
+      <ul>
+        <li>Edits made inside a CMS web interface</li>
+        <li>Publish runs through a server queue</li>
+        <li>Version history lives in Cascade</li>
+        <li>Preview requires a staging server</li>
+        <li>One person can edit a page at a time</li>
+      </ul>
+    </div>
+    <div class="compare-col compare-new">
+      <h3>Now — GitHub + TritonAI Harness</h3>
+      <ul>
+        <li>Edits made in Markdown and JSON files</li>
+        <li>A build script generates the finished HTML</li>
+        <li>Git tracks every change with a full history</li>
+        <li>Automated checks run before anything goes live</li>
+        <li>Multiple contributors work at the same time</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">The public URLs, UC San Diego Decorator look and feel, and browser integrations are all preserved. What changed is how content gets in.</div>
+</section>
+
+<!-- SLIDE 3: Section divider — Where content lives -->
+<section class="slide slide-section" data-slide="3">
+  <span class="section-number">01</span>
+  <h2>Where content lives</h2>
+  <p>Understand the file structure and you understand the site.</p>
+</section>
+
+<!-- SLIDE 4: Content locations -->
+<section class="slide slide-content" data-slide="4">
+  <p class="kicker">The repository</p>
+  <h2>Content is organized by type</h2>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-type card-type-blue">Pages</span>
+      <h3>content/pages/</h3>
+      <p>Homepage, strategy, trust architecture, tools — the pages people read often. Markdown files with frontmatter.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-gold">Newsletters</span>
+      <h3>content/newsletters/</h3>
+      <p>One Markdown file per week. The homepage and AI Updates page pick them up automatically.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-cyan">Use cases</span>
+      <h3>content/use-cases/</h3>
+      <p>Real campus AI workflows. Each carries a status, owner, and review date.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-blue">Media</span>
+      <h3>content/media/</h3>
+      <p>Article archive as JSON. Both media pages are generated from this file.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-gold">Structured data</span>
+      <h3>content/roadmap/, facts/, skills/</h3>
+      <p>Roadmap milestones, public claims, and the skills catalog — all JSON with required fields.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-cyan">Visual shell</span>
+      <h3>src/site/</h3>
+      <p>The UC San Diego Decorator header, footer, styles, and scripts. Loads from the UCSD CDN. Rarely edited.</p>
+    </div>
+  </div>
+  <div class="callout">If a file lives under <code>content/</code>, you edit the source and the build writes the page. If it lives under <code>src/site/</code>, it is a legacy page edited directly at its original path.</div>
+</section>
+
+<!-- SLIDE 5: Section divider — How a change becomes live -->
+<section class="slide slide-section" data-slide="5">
+  <span class="section-number">02</span>
+  <h2>How a change becomes a web page</h2>
+  <p>Six steps from edit to live — no CMS queue, no manual upload.</p>
+</section>
+
+<!-- SLIDE 6: The six-step flow -->
+<section class="slide slide-content slide-sand" data-slide="6">
+  <p class="kicker">The publishing pipeline</p>
+  <h2>From edit to live in six steps</h2>
+  <div class="flow">
+    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Edit</div><div class="step-desc">Change a content file</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Build</div><div class="step-desc">Script generates HTML</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Validate</div><div class="step-desc">Routes, links, metadata</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Test</div><div class="step-desc">A11y + language checks</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">5</div><div class="step-label">Review</div><div class="step-desc">Pull request</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">6</div><div class="step-label">Publish</div><div class="step-desc">Merge deploys</div></div>
+  </div>
+  <h3>What happens at each step</h3>
+  <ul>
+    <li><strong>Build</strong> — <code>scripts/build.mjs</code> reads every content file, applies the Decorator shell, injects the Google Analytics tag, and writes finished HTML to <code>dist/</code>.</li>
+    <li><strong>Validate</strong> — <code>scripts/validate.mjs</code> checks routes, links, metadata, analytics, freshness, and Decorator conformance.</li>
+    <li><strong>Test</strong> — An axe-based accessibility scan runs at mobile and desktop widths. A language check flags booster words and heading problems.</li>
+    <li><strong>Review</strong> — A pull request shows exactly what changed. Checks must pass before merge.</li>
+    <li><strong>Publish</strong> — Merging to <code>main</code> triggers GitHub Actions to build and deploy to GitHub Pages automatically.</li>
+  </ul>
+</section>
+
+<!-- SLIDE 7: Section divider — Multiple contributors -->
+<section class="slide slide-section" data-slide="7">
+  <span class="section-number">03</span>
+  <h2>How multiple contributors work together</h2>
+  <p>Branches, ownership tiers, and section markers keep concurrent work safe.</p>
+</section>
+
+<!-- SLIDE 8: Branching -->
+<section class="slide slide-content" data-slide="8">
+  <p class="kicker">Contribution mechanics</p>
+  <h2>Everyone works on a branch</h2>
+  <p>No one edits <code>main</code> directly. Every contributor — human or agent — creates a feature branch named for the work:</p>
+  <pre><code>content/update-strategy-2026-07-30     # a page edit
+content/newsletter-2026-07-27          # a weekly update
+automation/sync-ai-news                # an automated job</code></pre>
+  <p>Two people can edit different parts of the site at the same time. Each branch becomes a pull request. <code>main</code> only receives changes through a merge.</p>
+  <h3>Avoiding conflicts</h3>
+  <ul>
+    <li>Check open PRs before starting — if someone is already editing the same file, coordinate first</li>
+    <li>Keep PRs focused — one page or one task per PR</li>
+    <li>Pull <code>main</code> before merging and re-run <code>npm test</code> against the latest state</li>
+    <li>Stage only the files your PR is about — leave stray edits alone</li>
+  </ul>
+</section>
+
+<!-- SLIDE 9: Edit ownership -->
+<section class="slide slide-content slide-sand" data-slide="9">
+  <p class="kicker">Who can edit what</p>
+  <h2>Edit ownership tiers</h2>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-type card-type-cyan">Agent-owned</span>
+      <h3>Edit freely</h3>
+      <p>Newsletters, media archive, release notes, and metrics sections. Agents may open PRs without a content owner's sign-off.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-gold">Human-owned</span>
+      <h3>PR only, never direct commit</h3>
+      <p>Strategic narrative, roadmap, and sustainability policy. The content owner reviews before merge.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-blue">Shared</span>
+      <h3>PR with content-owner review</h3>
+      <p>Homepage, TritonGPT landing, tools listing, and developer page. Both agents and people can edit, but the owner reviews.</p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>File or area</th><th>Who can edit</th><th>Who reviews</th></tr></thead>
+      <tbody>
+        <tr><td>Newsletters, release notes, media archive</td><td>Agents and people</td><td>Any maintainer</td></tr>
+        <tr><td>Strategic narrative, roadmap, sustainability</td><td>PR only, never direct commit</td><td>Content owner</td></tr>
+        <tr><td>Homepage, TritonGPT landing, tools, developer page</td><td>PR required</td><td>Content owner</td></tr>
+        <tr><td>Automated job PRs (<code>automation/sync-*</code>)</td><td>The job opens the PR</td><td>A person merges</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SLIDE 10: Section markers -->
+<section class="slide slide-content" data-slide="10">
+  <p class="kicker">Conflict prevention</p>
+  <h2>Section markers protect generated regions</h2>
+  <p>Generated or agent-managed regions inside a file are wrapped in HTML comment markers:</p>
+  <pre><code>&lt;!-- AGENT_SECTION: media-articles --&gt;
+...generated content...
+&lt;!-- END_AGENT_SECTION --&gt;</code></pre>
+  <div class="two-col">
+    <div>
+      <h3>Inside the markers</h3>
+      <p>The build or sync job owns this region. It replaces only what is inside the markers on every run.</p>
+    </div>
+    <div>
+      <h3>Outside the markers</h3>
+      <p>A human can safely edit anything outside the markers in the same file without the build clobbering their work.</p>
+    </div>
+  </div>
+  <div class="callout">This lets a person and an automation edit the same file at the same time — each in their own region.</div>
+</section>
+
+<!-- SLIDE 11: Automated jobs + people -->
+<section class="slide slide-content slide-sand" data-slide="11">
+  <p class="kicker">When automation and people overlap</p>
+  <h2>Automated jobs and people can work in parallel</h2>
+  <ul>
+    <li>The job's PR and the person's PR are on separate branches</li>
+    <li>The job never force-pushes to a person's branch — only to its own <code>automation/sync-*</code> branch</li>
+    <li>If both PRs touch the same file, GitHub flags a merge conflict when the second one is merged</li>
+    <li>Rebase the second branch onto <code>main</code>, resolve the conflict, and re-run <code>npm test</code></li>
+    <li>Because the job is idempotent, re-running it after a merge produces a clean result with no duplicates</li>
+  </ul>
+</section>
+
+<!-- SLIDE 12: Section divider — Automated jobs -->
+<section class="slide slide-section" data-slide="12">
+  <span class="section-number">04</span>
+  <h2>Automated content jobs</h2>
+  <p>Three scheduled jobs find and add content — a human still reviews before publish.</p>
+</section>
+
+<!-- SLIDE 13: Jobs overview -->
+<section class="slide slide-content" data-slide="13">
+  <p class="kicker">Scheduled automation</p>
+  <h2>Three jobs that run on their own</h2>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-type card-type-blue">Mondays 18:15 UTC</span>
+      <h3>Newsletter sync</h3>
+      <p>Pulls new editions from the external newsletter source into <code>content/newsletters/</code>. Opens a PR on <code>automation/sync-ai-news</code>.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-cyan">Mondays 18:30 UTC</span>
+      <h3>Media coverage search</h3>
+      <p>Searches DuckDuckGo for TritonAI and TritonGPT articles, adds them to <code>content/media/articles.json</code>, regenerates both media pages. Opens a PR.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-gold">Hourly at :17</span>
+      <h3>Skills Library refresh</h3>
+      <p>Updates <code>content/skills/library.json</code> from the upstream GitHub repository. Builds in place — no PR needed.</p>
+    </div>
+  </div>
+  <div class="callout">None of these jobs publish directly. They open or refresh a PR, and a person merges it. Each job runs the full <code>npm test</code> suite before opening the PR.</div>
+</section>
+
+<!-- SLIDE 14: Section divider — Checks -->
+<section class="slide slide-section" data-slide="14">
+  <span class="section-number">05</span>
+  <h2>Checks that must pass</h2>
+  <p>Every change runs through five layers of automated review before it can merge.</p>
+</section>
+
+<!-- SLIDE 15: Checks overview -->
+<section class="slide slide-content" data-slide="15">
+  <p class="kicker">The <code>npm test</code> suite</p>
+  <h2>Five layers of automated review</h2>
+  <ul class="checklist">
+    <li><strong>Unit tests</strong> — UX-agent helpers, newsletter sync, and media coverage sync run first, before the build.</li>
+    <li><strong>Build</strong> — Reads all content, applies the Decorator shell, injects analytics, writes HTML + sitemap + routes.</li>
+    <li><strong>Validation</strong> — Content schema, broken links, remote dependencies, freshness, metadata, analytics, navigation, Decorator conformance, performance, routes, sitemap.</li>
+    <li><strong>Accessibility scan</strong> — axe-core at 390 px and 1440 px, horizontal overflow, keyboard behavior, button sizing.</li>
+    <li><strong>Language check</strong> — Booster words, manufactured contrast, heading sentence breaks, long lists, em dashes, repeated opening frames.</li>
+  </ul>
+  <div class="callout">Automated checks do not replace manual review. After changing a page, look at it at desktop and responsive widths and confirm headings, links, and keyboard focus behave.</div>
+</section>
+
+<!-- SLIDE 16: Validation detail -->
+<section class="slide slide-content slide-sand" data-slide="16">
+  <p class="kicker">Validation in detail</p>
+  <h2>What the validator checks</h2>
+  <div class="two-col">
+    <div>
+      <h3>Content and structure</h3>
+      <ul>
+        <li>Content schema — required fields on every page, use case, fact, milestone, and skill</li>
+        <li>Broken links — every internal link must resolve</li>
+        <li>Remote dependencies — Decorator, search, widget, and feed must respond over HTTPS</li>
+        <li>Freshness — warns after 120 days, fails after 365</li>
+        <li>Retired content — no links to retired routes or internal filenames</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Presentation and performance</h3>
+      <ul>
+        <li>Metadata — canonical URL, Open Graph, Twitter card, JSON-LD</li>
+        <li>Analytics — exactly one tag, correct ID, asynchronous</li>
+        <li>Navigation — ARIA relationships, active state, duplicate IDs</li>
+        <li>Decorator — stylesheets, extension class, no inline fonts</li>
+        <li>Performance — deferred video, lazy YouTube, preconnect, image budget</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 17: Accessibility detail -->
+<section class="slide slide-content slide-navy" data-slide="17">
+  <p class="kicker">Accessibility is a gate, not a suggestion</p>
+  <h2>The accessibility scan</h2>
+  <p>Every non-redirect route opens in headless Chromium at two widths — 390 px and 1440 px — and runs axe-core plus interaction checks:</p>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-type card-type-cyan">axe-core</span>
+      <h3>WCAG automated checks</h3>
+      <p>Color contrast, landmarks, headings, labels, names, and ARIA correctness.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-blue">Interaction</span>
+      <h3>Keyboard behavior</h3>
+      <p>Navigation dropdowns, toggles, and search controls must respond to keyboard focus and activation.</p>
+    </div>
+    <div class="card">
+      <span class="card-type card-type-gold">Layout</span>
+      <h3>Overflow and sizing</h3>
+      <p>No horizontal scroll at either width. Collapsed hub media and mismatched button sizes are flagged.</p>
+    </div>
+  </div>
+  <div class="callout">Results are written to <code>reports/accessibility.json</code> and uploaded as a GitHub Actions artifact that stays for 30 days.</div>
+</section>
+
+<!-- SLIDE 18: Language check -->
+<section class="slide slide-content" data-slide="18">
+  <p class="kicker">Voice and language</p>
+  <h2>The language check reads the source, not the HTML</h2>
+  <p>It reads Markdown in <code>content/</code> so a finding names the file an editor would open. It flags:</p>
+  <div class="two-col">
+    <div>
+      <ul>
+        <li><strong>Heading sentence breaks</strong> — a heading with two sentences reads as a slogan</li>
+        <li><strong>Count in a heading</strong> — when the list below already shows the count</li>
+        <li><strong>Manufactured contrast</strong> — "X, not Y", "rather than", "instead of"</li>
+        <li><strong>Booster adjectives</strong> — "practical", "seamless", "leverage" — words that do no work</li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li><strong>Long comma lists</strong> — five or more items should become a list element</li>
+        <li><strong>Em dashes</strong> — outside numeric ranges, use a period or comma</li>
+        <li><strong>Repeated opening frames</strong> — when sibling strings all start the same way</li>
+        <li><strong>Description length</strong> — frontmatter descriptions under 155 characters</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">Governance vocabulary — "approved", "bounded", "supervised", "named owner" — is never flagged. Those qualify real controls.</div>
+</section>
+
+<!-- SLIDE 19: Section divider — What to take home -->
+<section class="slide slide-section" data-slide="19">
+  <span class="section-number">06</span>
+  <h2>What to take home</h2>
+</section>
+
+<!-- SLIDE 20: Key takeaways -->
+<section class="slide slide-content slide-sand" data-slide="20">
+  <p class="kicker">Summary</p>
+  <h2>Key takeaways for Cascade content staff</h2>
+  <ul class="checklist">
+    <li><strong>Content lives in files, not in a CMS.</strong> Markdown and JSON under <code>content/</code> are the source. The build writes the HTML.</li>
+    <li><strong>Every change goes through a pull request.</strong> A branch, a review, a merge. No direct edits to <code>main</code>.</li>
+    <li><strong>Multiple contributors can work at once.</strong> Branches, ownership tiers, and section markers prevent conflicts.</li>
+    <li><strong>Three jobs find content automatically.</strong> Newsletters, media coverage, and the skills catalog — each opens a PR for review.</li>
+    <li><strong>Five check layers run before merge.</strong> Unit tests, build, validation, accessibility, and language. If any fails, the PR cannot merge.</li>
+    <li><strong>Merge to <code>main</code> publishes.</strong> GitHub Actions builds and deploys to GitHub Pages. No manual upload.</li>
+  </ul>
+</section>
+
+<!-- SLIDE 21: Quick reference -->
+<section class="slide slide-content" data-slide="21">
+  <p class="kicker">Quick reference</p>
+  <h2>Where to edit and how to publish</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Task</th><th>Where to edit</th><th>How to publish</th></tr></thead>
+      <tbody>
+        <tr><td>Weekly AI update</td><td><code>content/newsletters/</code></td><td>PR to <code>main</code></td></tr>
+        <tr><td>Strategy, trust, tools, or other page</td><td><code>content/pages/</code></td><td>PR to <code>main</code></td></tr>
+        <tr><td>Use case</td><td><code>content/use-cases/</code></td><td>PR to <code>main</code></td></tr>
+        <tr><td>Roadmap status</td><td><code>content/roadmap/milestones.json</code></td><td>PR to <code>main</code></td></tr>
+        <tr><td>Media coverage</td><td><code>content/media/articles.json</code></td><td>PR, or the weekly search job opens one</td></tr>
+        <tr><td>Navigation menu</td><td><code>content/site.json</code></td><td>PR to <code>main</code></td></tr>
+        <tr><td>Skills catalog</td><td><code>content/skills/library.json</code></td><td>Refreshed automatically</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Run the checks locally</h3>
+  <pre><code>npm test
+SITE_BASE_PATH=/tritonai-website npm run build
+SITE_BASE_PATH=/tritonai-website npm run validate</code></pre>
+</section>
+
+<!-- SLIDE 22: Closing -->
+<section class="slide slide-hero" data-slide="22">
+  <p class="kicker">Questions and discussion</p>
+  <h1>What would you like to know?</h1>
+  <p class="lede">Full details are in <code>docs/how-updates-and-publishing-work.md</code> in the repository. The TritonAI Harness can apply this same pattern to other sites currently in Cascade.</p>
+  <dl class="presentation-meta">
+    <div><dt>Documentation</dt><dd>docs/how-updates-and-publishing-work.md</dd></div>
+    <div><dt>Live site</dt><dd>tritonai.ucsd.edu</dd></div>
+    <div><dt>Repository</dt><dd>github.com/bpollak/tritonai-website</dd></div>
+  </dl>
+</section>
+
+</div><!-- /viewport -->
+
+<!-- Slide controls -->
+<div class="controls">
+  <div class="controls-left">
+    <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
+    <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
+    <span class="progress-text" id="slideCounter">1 / 22</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:4.5%"></div></div>
+  <div class="controls-right">
+    <span class="progress-text">← → to navigate · F for fullscreen</span>
+  </div>
+</div>
+
+<!-- Site footer (UCSD Decorator) -->
+<footer class="site-footer" aria-hidden="true"></footer>
+
+</div><!-- /deck -->
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const counter = document.getElementById('slideCounter');
+  const progressFill = document.getElementById('progressFill');
+
+  slides.forEach((slide, index) => {
+    slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+    slide.tabIndex = index === 0 ? 0 : -1;
+  });
+
+  function show(index) {
+    if (index < 0) index = 0;
+    if (index > total - 1) index = total - 1;
+    slides[current].classList.remove('active');
+    slides[current].setAttribute('aria-hidden', 'true');
+    slides[current].tabIndex = -1;
+    slides[index].classList.add('active');
+    slides[index].setAttribute('aria-hidden', 'false');
+    slides[index].tabIndex = 0;
+    current = index;
+    counter.textContent = (current + 1) + ' / ' + total;
+    progressFill.style.width = ((current + 1) / total * 100) + '%';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    slides[index].scrollTop = 0;
+  }
+
+  prevBtn.addEventListener('click', () => show(current - 1));
+  nextBtn.addEventListener('click', () => show(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      show(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      show(current - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      show(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      show(total - 1);
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  });
+
+  show(0);
+})();
+</script>
+</body>
+</html>

@@ -20,6 +20,12 @@
       "description": "Find answers about TritonAI API access, supported development paths, account setup, security, and help for UC San Diego builders.",
       "lastModified": "2026-07-29"
     },
+    "/presentations/managing-the-tritonai-website.html": {
+      "title": "Managing the TritonAI Website",
+      "description": "A walkthrough of how the TritonAI website is built, updated, validated, and published.",
+      "robots": "noindex,nofollow",
+      "lastModified": "2026-07-30"
+    },
     "/search/index.html": {
       "title": "Search TritonAI",
       "description": "Search TritonAI tools, training, use cases, developer resources, and program information.",
