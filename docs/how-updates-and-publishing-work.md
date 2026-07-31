@@ -152,15 +152,74 @@ You do not need to edit the homepage or the AI updates page by hand — the buil
 
 ## Checks that must pass
 
-Before any change merges, the full `npm test` suite runs:
+Before any change merges, the full `npm test` suite runs. It chains the steps below in order: unit tests, build, validate, accessibility, and language. If any step fails, the PR cannot merge.
 
-- **Build** — produces `dist/` with the GitHub Pages base path.
-- **Validate** — checks routes, links, metadata, analytics, freshness, and JSON-LD.
-- **Accessibility** — scans every page with axe at mobile and desktop widths, checks keyboard navigation, and flags horizontal overflow.
-- **Language** — flags booster words, manufactured contrasts, count-in-heading issues, and long sentence-level lists.
-- **Unit tests** — cover the newsletter sync, media coverage sync, and UX-agent helpers.
+### Unit tests
 
-Automated checks do not replace visual and keyboard spot-checks. After changing a page, look at it at desktop and responsive widths and confirm headings, links, and keyboard focus behave.
+Run first, before the build, so a broken helper never reaches a generated page.
+
+- **UX-agent helpers** — nine tests covering the helpers that audit and draft UX findings.
+- **Newsletter sync** — tests that the sync parses source markup, sanitizes links, and rejects empty editions.
+- **Media coverage sync** — nine tests covering URL deduplication, year-section insertion, rendering, markdown rewriting, relevance filtering, and the end-to-end discover flow with an injected search.
+
+### Build
+
+`scripts/build.mjs` produces `dist/` with the GitHub Pages base path. It:
+
+- Reads every Markdown page, use case, newsletter, roadmap milestone, fact, and skill entry.
+- Applies the shared UC San Diego Decorator shell to each generated page.
+- Injects the one canonical Google Analytics tag into every route and strips any hand-authored tag a page carried.
+- Writes finished HTML, `sitemap.xml`, `robots.txt`, `_data/routes.json`, and `_data/public-content.json`.
+
+You never commit `dist/`. GitHub builds it fresh on every deploy.
+
+### Validation
+
+`scripts/validate.mjs` reads the built `dist/` directory and writes `reports/validation.json`. It fails the build if any of these checks find a problem:
+
+- **Content schema** — every page, use case, roadmap milestone, fact, gateway-usage metric, skill, and hero slide must carry its required fields (owner, source, review date, audience, status, data classification, and more). Unknown statuses and duplicate names are rejected.
+- **Broken links** — every internal `href` and `src` must resolve to a file in `dist/`. Two inherited production broken links are preserved as warnings only; no new broken targets are allowed.
+- **Remote dependencies** — the UCSD Decorator stylesheets and scripts, emergency broadcast, search API, TritonGPT widget, and Today@UCSD feed must all respond over HTTPS.
+- **Freshness** — each page, use case, fact, roadmap milestone, and skill snapshot carries a `lastReviewed` date. The validator warns after 120 days and fails after 365. The skills snapshot fails if it is older than 14 days.
+- **Metadata** — every page must have a canonical URL, title, description, Open Graph tags (title, description, URL, site name, image, image alt), a large-image Twitter card, robots directives, and valid JSON-LD.
+- **Analytics** — every page must carry exactly one build-injected Google Analytics tag using the canonical measurement ID, loaded asynchronously. A hand-authored tag fails.
+- **Navigation** — primary navigation must be present, the active item must match the page's section, desktop dropdowns and mobile and search toggles must use valid ARIA relationships, and duplicate element IDs are rejected.
+- **Accessibility (markup-level)** — positive `tabindex` values, label targets that are missing or duplicated, and labels not in the same form as their control all fail.
+- **Decorator conformance** — every page must link the official Decorator 5 stylesheets, carry the shared extension class, avoid inline font-family overrides, and use the Decorator panel component for custom cards.
+- **Performance** — videos must defer loading (no eager autoplay, `preload=none`, sources in `data-src`), YouTube embeds must lazy-load, every external origin needs a `preconnect`, Decorator scripts must run after render, the emergency broadcast and TritonGPT widget must not block rendering, images over 320 KB must offer a WebP source, and the performance runtime must be present and deferred.
+- **Routes and sitemap** — the route manifest count must match the HTML file count, every indexable route must appear in `sitemap.xml`, non-indexable routes must not, and `404.html` and `robots.txt` must exist.
+- **Retired content** — rendered pages must not link to the retired workgroup route or expose internal filenames, presentation-deck framing, or other behind-the-scenes language.
+
+### Accessibility scan
+
+`scripts/accessibility-check.mjs` opens every non-redirect route in headless Chromium at two widths — 390 px (mobile) and 1440 px (desktop) — and runs axe-core plus interaction checks:
+
+- **axe-core** — WCAG-level automated checks for color contrast, landmarks, headings, labels, names, and ARIA correctness.
+- **Horizontal overflow** — the page must not scroll sideways at either width.
+- **Collapsed hub media** — at mobile widths, side-by-side hub media must not collapse to a sliver.
+- **Button size mismatches** — adjacent buttons on the same row must be the same size.
+- **Keyboard behavior** — shared navigation dropdowns, toggles, and search controls must respond to keyboard focus and activation.
+
+Results are written to `reports/accessibility.json` and uploaded as a GitHub Actions artifact that stays for 30 days.
+
+### Language check
+
+`scripts/language-check.mjs` reads the Markdown sources in `content/` (not the built HTML) so a finding names the file an editor would open. It flags:
+
+- **Heading sentence breaks** — a heading with two sentences reads as a slogan; say one thing.
+- **Count in a heading** — when the list is visible below, the count is redundant.
+- **Manufactured contrast** — "X, not Y", "rather than", "instead of" in headings and body copy.
+- **Booster adjectives** — words like "practical", "trusted", "seamless", "leverage" that do no work. Governance vocabulary ("approved", "bounded", "supervised", "named owner") is never flagged.
+- **Long comma lists** — five or more items in one sentence should become a list element.
+- **Em dashes outside numeric ranges** — use a period, comma, or conjunction instead.
+- **Repeated opening frames** — when sibling strings (headings, summaries, kickers) all start the same way, the check names the set so an editor can vary them.
+- **Description length** — frontmatter `description` values must stay under 155 characters and must not contain an em dash.
+
+Warnings do not fail the build; errors do. A `<!-- lang-ok: reason -->` comment suppresses a finding on the next line and stays visible in a diff for review.
+
+### Automated checks do not replace manual review
+
+After changing a page, look at it at desktop and responsive widths. Confirm headings, links, and keyboard focus behave. Automated checks catch structural and markup problems; they cannot judge whether a page reads well or communicates its purpose.
 
 ## What never gets committed
 
