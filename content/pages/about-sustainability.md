@@ -3,7 +3,7 @@ title: Sustainable AI at UC San Diego
 path: /about/sustainability.html
 description: How TritonAI considers model fit, hosting, reuse, cost, resource use, and evidence when designing campus AI services.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-27
+lastReviewed: 2026-07-30
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public architecture, memory architecture, and service design guidance
 canonicalUrl: /about/sustainability.html
@@ -31,7 +31,7 @@ bannerPosition: center 44%
 <section class="hub-section" aria-labelledby="hosting-context-heading">
 <div class="row hub-split hub-split-align-center">
 <div class="col-md-6 hub-split-copy"><p class="home-kicker">Hosting context</p><h2 id="hosting-context-heading">UC-controlled and enterprise cloud routes</h2><p>TritonAI supports approved enterprise cloud models and open models on UC-controlled infrastructure, including resources at the <a href="https://www.sdsc.edu/">San Diego Supercomputer Center</a>. The service, data, required capability, and approved controls determine which route is appropriate.</p><p>UC-controlled hosting can support shared capacity and local operational choices. Enterprise cloud routes can provide capabilities and scale under institutional agreements. Environmental comparisons still require workload-level evidence.</p><p><a class="btn btn-primary" href="/about/trust-architecture.html">Explore trust and hosting</a></p></div>
-<div class="col-md-6"><dl class="hub-measure-grid"><div><dt>Quality</dt><dd>Can the selected route complete the task reliably?</dd></div><div><dt>Latency</dt><dd>Does the experience respond within the service need?</dd></div><div><dt>Cost</dt><dd>What does the full service consume and require to operate?</dd></div><div><dt>Resources</dt><dd>What compute, storage, retrieval, and repeated processing does it use?</dd></div></dl></div>
+<div class="col-md-6"><figure class="triton-graphic triton-workload-compass" aria-describedby="workload-compass-caption"><p class="triton-graphic-label">Review the whole workload</p><div class="triton-workload-core"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><strong>Workload</strong><small>Task, data, demand, and controls</small></div><dl><div><dt>Quality</dt><dd>Can the route complete the task reliably?</dd></div><div><dt>Latency</dt><dd>Does it respond within the service need?</dd></div><div><dt>Cost</dt><dd>What does the full service require to operate?</dd></div><div><dt>Resources</dt><dd>What compute, storage, retrieval, and repeated processing does it use?</dd></div></dl><figcaption id="workload-compass-caption"><span>Measure</span><i aria-hidden="true"></i><span>Review</span><i aria-hidden="true"></i><span>Adjust or retire</span></figcaption></figure></div>
 </div>
 </section>
 
