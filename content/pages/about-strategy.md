@@ -3,7 +3,7 @@ title: TritonAI Strategy
 path: /about/strategy.html
 description: UC San Diego's plan for campus AI. Shared services anyone can use, plus supervised workflows built for specific jobs.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-27
+lastReviewed: 2026-07-30
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation
 canonicalUrl: /about/strategy.html
@@ -39,12 +39,16 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, tritongpt-to-tritonai-comparison,
 
 ## How an idea becomes a service
 
-<div class="row agent-card-grid">
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><h2 class="h3">Discover</h2><p>Name the people, workflow, approved data, service owner, review point, and result that should improve.</p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><h2 class="h3">Pilot</h2><p>Use a bounded environment, realistic examples, and close human review to test whether the approach fits.</p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-check" aria-hidden="true"></span><h2 class="h3">Prove</h2><p>Measure reach, efficiency, quality, and trust. Refine the workflow until the evidence supports wider use.</p></div></div></div>
-<div class="col-sm-6 col-md-3"><div class="panel panel-default agent-card"><div class="panel-body"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><h2 class="h3">Operate</h2><p>Establish approved hosting, accessibility, monitoring, and support. Name the escalation path and service owner before people depend on it.</p></div></div></div>
-</div>
+<figure class="triton-graphic triton-lifecycle" aria-describedby="strategy-lifecycle-caption">
+<p class="triton-graphic-label">A staged service path</p>
+<ol>
+<li><span>01</span><div><span class="glyphicon glyphicon-search" aria-hidden="true"></span><h3>Discover</h3><p>Name the people, workflow, approved data, service owner, review point, and result that should improve.</p></div></li>
+<li><span>02</span><div><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><h3>Pilot</h3><p>Use a bounded environment, realistic examples, and close human review to test whether the approach fits.</p></div></li>
+<li><span>03</span><div><span class="glyphicon glyphicon-check" aria-hidden="true"></span><h3>Prove</h3><p>Measure reach, efficiency, quality, and trust. Refine the workflow until the evidence supports wider use.</p></div></li>
+<li><span>04</span><div><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><h3>Operate</h3><p>Establish approved hosting, accessibility, monitoring, and support. Name the escalation path and service owner before people depend on it.</p></div></li>
+</ol>
+<figcaption id="strategy-lifecycle-caption"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Operating evidence returns to discovery so the owner can improve, narrow, or retire the service.</figcaption>
+</figure>
 
 ## Where AI meets the workflow
 

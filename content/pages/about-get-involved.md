@@ -3,7 +3,7 @@ title: Get Involved
 path: /about/get-involved.html
 description: Ways to use TritonAI, bring a campus workflow, build a service, join the community, and follow weekly updates.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-27
+lastReviewed: 2026-07-30
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public program intake, training, community pages, and memory architecture presentation
 canonicalUrl: /about/get-involved.html
@@ -25,7 +25,7 @@ bannerPosition: center 52%
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="workflow-intake-heading">
 <div class="container"><div class="row hub-split">
 <div class="col-md-5 hub-split-copy"><p class="home-kicker">Campus workflow intake</p><h2 id="workflow-intake-heading">Bring a recurring problem</h2><p>Start with the job and the people involved. The first conversation determines whether an existing service, a bounded pilot, a developer build, or another approach is the best fit.</p><p><a class="btn btn-primary" href="mailto:tritonai@ucsd.edu?subject=TritonAI%20use-case%20conversation">Start a use-case conversation</a></p></div>
-<div class="col-md-7"><ul class="hub-path-list"><li><strong>Need</strong><span>Who is doing the work, and what keeps slowing them down?</span></li><li><strong>Owner</strong><span>Who decides what good looks like and answers for the service?</span></li><li><strong>Data</strong><span>What information may the workflow read, create, or change?</span></li><li><strong>Review</strong><span>Where must a person check the result or approve an action?</span></li><li><strong>Outcome</strong><span>What evidence would show that the service helped?</span></li></ul></div>
+<div class="col-md-7"><figure class="triton-graphic triton-intake-map" aria-describedby="intake-map-caption"><p class="triton-graphic-label">Prepare for the first conversation</p><ol><li><span>01</span><div><strong>Need</strong><small>Who is doing the work, and what keeps slowing them down?</small></div></li><li><span>02</span><div><strong>Owner</strong><small>Who decides what good looks like and answers for the service?</small></div></li><li><span>03</span><div><strong>Data</strong><small>What information may the workflow read, create, or change?</small></div></li><li><span>04</span><div><strong>Review</strong><small>Where must a person check the result or approve an action?</small></div></li><li><span>05</span><div><strong>Outcome</strong><small>What evidence would show that the service helped?</small></div></li></ol><figcaption id="intake-map-caption"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Bring these five pieces. The technology choice comes after the problem and its boundaries are clear.</figcaption></figure></div>
 </div></div>
 </section>
 
