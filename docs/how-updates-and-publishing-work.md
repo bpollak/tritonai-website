@@ -95,6 +95,7 @@ Automated checks do not replace visual and keyboard spot-checks. After changing 
 | Navigation menu | `content/site.json` | PR to `main` |
 | Skills catalog | `content/skills/library.json` | Refreshed automatically |
 
+- [Automated content jobs](automated-content-jobs.md) — the scheduled jobs that find and add content automatically
 ## Further reading
 
 - [Content governance](content-governance.md) — what may be published and what stays out
