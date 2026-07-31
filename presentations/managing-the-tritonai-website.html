@@ -882,23 +882,49 @@ td code { font-size: 13px; }
   <div class="kbd-hint">Use ← → arrow keys to navigate</div>
 </section>
 
-<!-- SLIDE 2: Entry points -->
+<!-- SLIDE 2: Technical overview -->
 <section class="slide slide-content slide-sand" data-slide="2">
-  <p class="kicker">The end-to-end content update journey</p>
-  <h2>You guide the experience from the first request through ongoing maintenance</h2>
-  <p>The Harness keeps context, drafts, visuals, feedback, and review connected across the complete workflow.</p>
-  <div class="journey-flow" role="img" aria-label="The content updater journey has five stages: start with a prompt or approved trigger, shape the content experience with permitted context, review and refine a preview, approve and verify publishing, then maintain the content through freshness signals.">
-    <div class="journey-stage"><span class="journey-number">1</span><strong>Start</strong><span>Your prompt or an approved trigger identifies the content need.</span></div><div class="arch-arrow">→</div>
-    <div class="journey-stage"><span class="journey-number">2</span><strong>Shape</strong><span>Permitted context helps create the content, visual, or pathway.</span></div><div class="arch-arrow">→</div>
-    <div class="journey-stage"><span class="journey-number">3</span><strong>Review</strong><span>You preview, give feedback, and refine the audience experience.</span></div><div class="arch-arrow">→</div>
-    <div class="journey-stage"><span class="journey-number">4</span><strong>Publish</strong><span>You approve the result and verify the live experience.</span></div><div class="arch-arrow">→</div>
-    <div class="journey-stage"><span class="journey-number">5</span><strong>Maintain</strong><span>Freshness signals can begin the next review cycle.</span></div>
+  <p class="kicker">The end-to-end system</p>
+  <h2>Each stage has a clear human decision and a technical handoff</h2>
+  <p>The updater stays responsible for the audience and content while the Harness, automation, and site pipeline perform bounded technical work.</p>
+  <div class="swimlane" role="img" aria-label="A technical swimlane showing the updater, Harness and automation, and website platform across four stages: start, prepare, review, and release.">
+    <div class="lane-head"></div><div class="lane-head">Start</div><div class="lane-head">Prepare</div><div class="lane-head">Review</div><div class="lane-head">Release</div>
+    <div class="lane-label">Content updater</div><div>Define the audience, route, sources, and desired change.</div><div>Guide the draft, visual, and interaction.</div><div class="handoff">Approve content, behavior, and open decisions.</div><div>Confirm the live page matches the approved result.</div>
+    <div class="lane-label">Harness + automation</div><div>Receive a prompt or a known n8n trigger.</div><div>Assemble permitted context and create a working change.</div><div>Run focused revisions and prepare review evidence.</div><div>Carry approved decisions into the next maintenance cycle.</div>
+    <div class="lane-label">Website platform</div><div>Map the request to the source that owns the public route.</div><div>Build the static site and preserve shared integrations.</div><div>Run validators, browser checks, and human spot checks.</div><div class="handoff">Merge starts Cascade upload, publish, and live verification.</div>
   </div>
-  <div class="journey-owner"><span>You set direction</span><span>The Harness prepares and checks</span><span>You approve what reaches the audience</span></div>
+  <p class="mobile-scroll-hint">Swipe this table horizontally to follow each stage.</p>
 </section>
 
-<!-- SLIDE 3: Context -->
-<section class="slide slide-content slide-brand" data-slide="3">
+<!-- SLIDE 3: First-time setup -->
+<section class="slide slide-content slide-sand" data-slide="3">
+  <p class="kicker">First-time maintainer setup</p>
+  <h2>Start with identity, access, and a no-change readiness check</h2>
+  <p>The maintainer guide assumes the updater does not yet have a GitHub account or a prepared local workspace.</p>
+  <div class="layer-stack" role="img" aria-label="First-time site maintainer setup has two stages. Account and access includes creating and verifying a GitHub account, enabling two-factor authentication and storing recovery codes privately, accepting the repository invitation, and authenticating GitHub CLI. Local readiness includes installing the required tools, cloning the repository, and running the unchanged site checks.">
+    <div class="layer-row creative"><div class="layer-title">Account + access</div><div class="layer-items"><div class="arch-node"><strong>Create the account</strong><span>Sign up for GitHub and verify the email address</span></div><div class="arch-node"><strong>Protect the account</strong><span>Enable two-factor authentication and store recovery codes privately</span></div><div class="arch-node review"><strong>Accept access</strong><span>Accept the repository invitation; run <code>gh auth login --web</code>, then <code>gh auth status</code></span></div></div></div>
+    <div class="layer-connector">↓</div>
+    <div class="layer-row"><div class="layer-title">Local readiness</div><div class="layer-items"><div class="arch-node"><strong>Install the tools</strong><span>Git · GitHub CLI · Node 22 or later · TritonAI Harness</span></div><div class="arch-node core"><strong>Clone the site</strong><span>Use <code>git clone</code> with the repository’s SSH address in a working folder</span></div><div class="arch-node review"><strong>Prove the baseline</strong><span>Run <code>npm ci</code>, <code>npm test</code>, and the base-path build and validator before changing content</span></div></div></div>
+  </div>
+  <div class="callout">Complete account sign-in yourself. Never paste a password, token, recovery code, private key, or one-time code into the Harness.</div>
+</section>
+
+<!-- SLIDE 4: Technical entry paths -->
+<section class="slide slide-content slide-navy" data-slide="4">
+  <p class="kicker">How an update starts</p>
+  <h2>Interactive work and repeatable automation use different entry paths</h2>
+  <p>The path depends on whether the updater is shaping an idea or a known event should run defined steps.</p>
+  <div class="layer-stack" role="img" aria-label="Two technical entry paths: a direct prompt starts interactive work in the TritonAI Harness, while a schedule, webhook, email, or file event starts a repeatable n8n workflow. Both can stop for human review.">
+    <div class="layer-row creative"><div class="layer-title">Interactive path</div><div class="layer-items"><div class="arch-node"><strong>Prompt in the Harness</strong><span>Describe the audience, content need, source, and outcome</span></div><div class="arch-node core"><strong>Agent workspace</strong><span>Work across permitted files, browser tasks, skills, memory, and connected tools</span></div><div class="arch-node review"><strong>Working preview</strong><span>Review and refine the content experience in plain language</span></div></div></div>
+    <div class="layer-connector">↓</div>
+    <div class="layer-row"><div class="layer-title">Repeatable path</div><div class="layer-items"><div class="arch-node"><strong>Known trigger</strong><span>Schedule · webhook · email · file event</span></div><div class="arch-node core"><strong>n8n workflow</strong><span>Run defined application, API, and optional AI-assisted steps</span></div><div class="arch-node review"><strong>Review checkpoint</strong><span>Pause before selected actions that require human judgment</span></div></div></div>
+  </div>
+  <p class="pathway-note">A project can use both paths: the Harness for interactive design and n8n for recurring execution.</p>
+  <!-- [Sources] /content/pages/build-landing.md#workflow-automation-heading -->
+</section>
+
+<!-- SLIDE 5: Context -->
+<section class="slide slide-content slide-brand" data-slide="5">
   <p class="kicker">The Harness starts with context</p>
   <h2>You spend less time re-explaining how your team works</h2>
   <p>The Harness assembles the knowledge permitted for the update and keeps your current request at the center.</p>
@@ -920,8 +946,23 @@ td code { font-size: 13px; }
   <div class="callout">You choose what context is available and what becomes reusable or publishable.</div>
 </section>
 
-<!-- SLIDE 4: Core benefit -->
-<section class="slide slide-content slide-sand" data-slide="4">
+<!-- SLIDE 6: Canonical source and build -->
+<section class="slide slide-content" data-slide="6">
+  <p class="kicker">How a change becomes a page</p>
+  <h2>The public route is rebuilt from the source that owns its content</h2>
+  <p>The Harness first identifies the site’s content model, then changes the canonical source and lets the build reproduce the page.</p>
+  <div class="workflow-pipeline" role="img" aria-label="A page update moves from route and audience requirements to the canonical content source, through the static-site build, and into a dist artifact that mirrors public website routes.">
+    <div class="arch-node"><strong>Route + requirement</strong><span>Public URL · audience · owner · source · acceptance criteria</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Canonical source</strong><span>Structured page, use case, reusable fact, or maintained legacy HTML</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Static-site build</strong><span>Render pages, inject shared navigation and analytics, preserve integrations</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node review"><strong><code>dist/</code> artifact</strong><span>Generated files mirror the public route structure used by Cascade</span></div>
+  </div>
+  <div class="workflow-note"><div><strong>Examples of source ownership:</strong> generated pages live in <code>content/pages/</code>; maintained snapshot pages remain under <code>src/site/</code>.</div><div><strong>Why it matters:</strong> the agent changes the durable source, while generated output stays reproducible and out of the review diff.</div></div>
+  <!-- [Sources] /AGENTS.md; /scripts/build.mjs; /docs/content-governance.md -->
+</section>
+
+<!-- SLIDE 7: Core benefit -->
+<section class="slide slide-content slide-sand" data-slide="7">
   <p class="kicker">A larger creative range</p>
   <h2>You can choose the experience that best serves the audience</h2>
   <p>Start with the communication need. The Harness can help you explore several ways to deliver it.</p>
@@ -939,8 +980,8 @@ td code { font-size: 13px; }
   </div>
 </section>
 
-<!-- SLIDE 5: Branded and accessible draft -->
-<section class="slide slide-content slide-navy" data-slide="5">
+<!-- SLIDE 8: Branded and accessible draft -->
+<section class="slide slide-content slide-navy" data-slide="8">
   <p class="kicker">Your concept becomes a working experience</p>
   <h2>The Harness turns your idea into branded, accessible content</h2>
   <div class="flow">
@@ -955,8 +996,8 @@ td code { font-size: 13px; }
   <div class="workflow-note"><div><strong>Brand foundation:</strong> UC San Diego identity and existing site patterns travel with the work.</div><div><strong>Accessible foundation:</strong> headings, keyboard behavior, contrast, labels, and reflow are considered from the start.</div></div>
 </section>
 
-<!-- SLIDE 6: Preview and refine -->
-<section class="slide slide-content" data-slide="6">
+<!-- SLIDE 9: Preview and refine -->
+<section class="slide slide-content" data-slide="9">
   <p class="kicker">Preview and refine</p>
   <h2>You review a working experience and guide the next version</h2>
   <p>Feedback stays connected to the audience, the content, and the choices already made.</p>
@@ -969,28 +1010,21 @@ td code { font-size: 13px; }
   <div class="feedback-rail">↶ Your feedback returns to the same working context for the next focused revision</div>
 </section>
 
-<!-- SLIDE 7: Review summary -->
-<section class="slide slide-content slide-sand" data-slide="7">
-  <p class="kicker">Review with useful evidence</p>
-  <h2>You receive a clear picture of what is ready and what needs attention</h2>
-  <p>Automated checks support your judgment without replacing it.</p>
-  <div class="capability-map" role="img" aria-label="A working preview passes through brand, content, accessibility, link, and responsive checks, producing a review summary for the content updater's decision.">
-    <div class="arch-node"><strong>Working preview</strong><span>The audience experience you have reviewed</span></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-node core"><strong>Quality checks</strong><span>Brand · content · accessibility · links · responsive behavior</span></div>
-    <div class="arch-arrow">→</div>
-    <div class="capability-outputs">
-      <div class="arch-node"><strong>What passed</strong><span>Checks completed successfully</span></div>
-      <div class="arch-node"><strong>What changed</strong><span>Audience-facing changes summarized plainly</span></div>
-      <div class="arch-node"><strong>What needs review</strong><span>Open questions and judgment calls</span></div>
-      <div class="arch-node review"><strong>Your approval</strong><span>You accept the content and experience</span></div>
-    </div>
+<!-- SLIDE 10: Technical validation -->
+<section class="slide slide-content slide-sand" data-slide="10">
+  <p class="kicker">The release gate</p>
+  <h2>Deterministic tests and human review answer different questions</h2>
+  <p>The pipeline proves that the site still works; people decide whether the content and experience are right.</p>
+  <div class="layer-stack" role="img" aria-label="The technical release gate has automated checks and human checks. Automation builds and validates the site and runs browser accessibility tests. People review content, usability, and the final release decision.">
+    <div class="layer-row creative"><div class="layer-title">Automated</div><div class="layer-items"><div class="arch-node"><strong>Build + schema</strong><span><code>npm test</code> renders routes and checks structured content</span></div><div class="arch-node"><strong>Site validator</strong><span>Routes · metadata · analytics · integrations · broken targets</span></div><div class="arch-node"><strong>Browser sweep</strong><span>Axe at mobile and desktop widths · overflow · navigation behavior</span></div></div></div>
+    <div class="layer-connector">↓</div>
+    <div class="layer-row"><div class="layer-title">Human</div><div class="layer-items"><div class="arch-node"><strong>Content judgment</strong><span>Accuracy · source authority · audience fit · sensitive information</span></div><div class="arch-node"><strong>Experience review</strong><span>Responsive layout · keyboard and focus · zoom/reflow · assistive technology</span></div><div class="arch-node review"><strong>Release approval</strong><span>Accept the rendered result and unresolved warnings before commit or merge</span></div></div></div>
   </div>
-  <div class="callout">You remain responsible for accuracy, appropriateness, and the decision to publish.</div>
+  <div class="callout">The compatibility build also tests <code>SITE_BASE_PATH=/tritonai-website</code>; production is rebuilt at the Cascade site root.</div>
 </section>
 
-<!-- SLIDE 8: Risks and controls -->
-<section class="slide slide-content slide-sand slide-risk" data-slide="8">
+<!-- SLIDE 11: Risks and controls -->
+<section class="slide slide-content slide-sand slide-risk" data-slide="11">
   <p class="kicker">Risks and controls</p>
   <h2>People manage the risks that automation cannot decide</h2>
   <p>Clear sources, bounded context, human judgment, and live verification protect the audience and the institution.</p>
@@ -1004,36 +1038,37 @@ td code { font-size: 13px; }
   <div class="callout">The Harness is an early pilot and changes quickly. Confirm the current supported capabilities and service path before relying on a workflow.</div>
 </section>
 
-<!-- SLIDE 9: Publish -->
-<section class="slide slide-content slide-navy" data-slide="9">
-  <p class="kicker">Approve and publish</p>
-  <h2>Your approval moves the experience into the site’s publishing process</h2>
-  <div class="workflow-pipeline" role="img" aria-label="The content updater approves the experience, the established site process prepares and publishes it, the updater verifies the live page, and the audience receives the update.">
-    <div class="arch-node review"><strong>You approve</strong><span>Content, visuals, behavior, and open decisions</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Prepare</strong><span>The established site process packages the approved update</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><strong>Publish</strong><span>The approved experience moves to the public site</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Verify</strong><span>Confirm the live page matches what you approved</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Audience</strong><span>People receive the updated content experience</span></div>
+<!-- SLIDE 12: Technical publishing -->
+<section class="slide slide-content slide-navy" data-slide="12">
+  <p class="kicker">The production publishing path</p>
+  <h2>A merge to main starts a three-stage Cascade release</h2>
+  <div class="workflow-pipeline" role="img" aria-label="After human approval and merge to main, GitHub Actions builds and validates a root-path dist artifact and dry-runs the Cascade upload, uploads those exact files to Cascade, queues the Cascade publish, and then a person verifies the public URL.">
+    <div class="arch-node review"><strong>Approve + merge</strong><span>Focused pull request records the source diff, evidence, and human release decision</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Build + plan</strong><span><code>SITE_BASE_PATH=''</code> · build · validate · dry-run Cascade upload</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Upload exact artifact</strong><span>The reviewed <code>dist/</code> bytes are uploaded to the TritonAI site in Cascade</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Queue publish</strong><span>Cascade receives the folder publish request; queued does not mean finished</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node review"><strong>Verify production</strong><span>Open the public URL and compare content, controls, links, and behavior with approval</span></div>
   </div>
-  <p class="pathway-note">The publishing mechanism stays behind the experience. Content updaters focus on the audience, the message, and the approved result.</p>
+  <p class="pathway-note">GitHub is the source-control and review record. Cascade is the production publishing system. The public page is the final source of release truth.</p>
+  <!-- [Sources] /.github/workflows/cascade-upload.yml; /docs/updating-the-site-with-tritonai-harness.md -->
 </section>
 
-<!-- SLIDE 10: Keep current -->
-<section class="slide slide-content" data-slide="10">
+<!-- SLIDE 13: Keep current -->
+<section class="slide slide-content" data-slide="13">
   <p class="kicker">Keep content current</p>
   <h2>Publishing can become the start of the next update</h2>
   <p>Freshness signals and new information can bring content back to your attention before it becomes stale.</p>
   <div class="iteration-map" role="img" aria-label="A published experience is monitored for scheduled reviews, new information, audience needs, and team requests, which can start the next updater review in the Harness.">
     <div class="arch-node"><strong>Published experience</strong><span>The live page becomes the current source for the audience</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><strong>Freshness signals</strong><span>Schedule · new information · audience need · team request</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Prepared update</strong><span>The Harness gathers context and proposes what may need to change</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Freshness signals</strong><span>Review date · changed source · analytics finding · team request</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Prompt or n8n trigger</strong><span>The Harness gathers context interactively, or a defined workflow prepares the next review</span></div><div class="arch-arrow">→</div>
     <div class="arch-node review"><strong>Your review</strong><span>You decide whether to revise, defer, or publish</span></div>
   </div>
   <div class="feedback-rail">↶ Approved decisions and team knowledge support the next update</div>
 </section>
 
-<!-- SLIDE 11: Future enhancements -->
-<section class="slide slide-content slide-navy" data-slide="11">
+<!-- SLIDE 14: Future enhancements -->
+<section class="slide slide-content slide-navy" data-slide="14">
   <p class="kicker">Possible future enhancements</p>
   <h2>Content teams can explore new site features with the same workflow</h2>
   <p>These are directions to test with content owners, audiences, and the appropriate campus reviewers.</p>
@@ -1061,9 +1096,9 @@ td code { font-size: 13px; }
   <div class="controls-left">
     <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
     <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
-    <span class="progress-text" id="slideCounter">1 / 11</span>
+    <span class="progress-text" id="slideCounter">1 / 14</span>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:9.09%"></div></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:7.14%"></div></div>
   <div class="controls-right">
     <span class="progress-text">← → to navigate · F for fullscreen</span>
   </div>
