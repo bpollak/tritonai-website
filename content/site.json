@@ -14,7 +14,9 @@
         { "label": "Team & Responsibilities", "href": "/about/team.html" },
         { "label": "Sustainability", "href": "/about/sustainability.html" },
         { "label": "Get Involved", "href": "/about/get-involved.html" },
-        { "label": "AI Updates", "href": "/about/ai-updates.html" }
+        { "label": "AI Updates", "href": "/about/ai-updates.html" },
+        { "label": "Media & Recognition", "href": "/about/media.html" },
+        { "label": "Articles & Coverage", "href": "/about/media-articles.html" }
       ]
     },
     {

@@ -3,9 +3,9 @@ title: TritonGPT
 path: /tritongpt/index.html
 description: TritonGPT is UC San Diego's AI chat platform. Sign in with your campus account to use it with your own documents.
 eyebrow: The platform at the center of TritonAI
-lastReviewed: 2026-07-28
+lastReviewed: 2026-07-30
 audiences: [students, faculty, staff, developers]
-source: TritonGPT public service, guide pages, and current public platform presentation
+source: TritonGPT public service, guide pages, current public platform presentation, CIO, and Gartner
 canonicalUrl: /tritongpt/index.html
 relatedSlides: [tritongpt-platform, tritongpt-secure-scalable-ai-platform, instructional-ai-socratic-tutor-faculty-assistant]
 landingHub: true
@@ -86,5 +86,12 @@ bannerMode: abstract
 </section>
 
 <section class="tritongpt-recognition" aria-labelledby="recognition-heading">
-<div class="container"><div class="tritongpt-recognition-panel"><div><p class="home-kicker">Program impact</p><h2 id="recognition-heading">Recognition outside UC San Diego</h2><p>TritonGPT and the wider TritonAI program have been recognized by outside organizations for institutional technology and transformation.</p></div></div></div>
+<div class="container"><div class="tritongpt-recognition-panel">
+<div class="tritongpt-recognition-copy"><p class="home-kicker">Program impact</p><h2 id="recognition-heading">Recognition outside UC San Diego</h2><p>TritonGPT and the wider TritonAI program have been recognized by outside organizations for institutional technology and transformation.</p></div>
+<div class="tritongpt-recognition-links">
+<a class="tritongpt-recognition-card tritongpt-recognition-card-gold" href="https://www.cio.com/article/4032770/unpacking-uc-san-diegos-use-of-llms-to-boost-access-to-knowledge.html" rel="noopener noreferrer" target="_blank"><span class="tritongpt-recognition-meta">2025 award</span><h3>CIO 100</h3><p>CIO's case study follows TritonGPT from its first pilot through broader campus use.</p><span class="tritongpt-recognition-action">Read the CIO case study <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></span></a>
+<a class="tritongpt-recognition-card tritongpt-recognition-card-blue" href="https://www.gartner.com/en/about/awards/eye-on-innovation/education" rel="noopener noreferrer" target="_blank"><span class="tritongpt-recognition-meta">Education finalist</span><h3>Gartner Eye on Innovation</h3><p>The education awards highlight technology initiatives that improve institutional operations and experiences.</p><span class="tritongpt-recognition-action">Explore the award program <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></span></a>
+</div>
+<a class="tritongpt-recognition-all" href="/about/media.html">Browse all media and recognition <span aria-hidden="true">→</span></a>
+</div></div>
 </section>

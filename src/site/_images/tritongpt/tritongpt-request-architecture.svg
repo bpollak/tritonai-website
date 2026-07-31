@@ -22,11 +22,11 @@
   </g>
 
   <g filter="url(#shadow)">
-    <rect x="40" y="150" width="160" height="190" rx="18" fill="#fff"/>
-    <rect x="230" y="150" width="185" height="190" rx="18" fill="#fff"/>
+    <rect x="40" y="140" width="160" height="210" rx="18" fill="#fff"/>
+    <rect x="230" y="140" width="185" height="210" rx="18" fill="#fff"/>
     <rect x="445" y="140" width="220" height="210" rx="20" fill="url(#gateway)"/>
-    <rect x="695" y="150" width="225" height="190" rx="18" fill="#fff"/>
-    <rect x="950" y="150" width="210" height="190" rx="18" fill="#fff"/>
+    <rect x="695" y="140" width="225" height="210" rx="18" fill="#fff"/>
+    <rect x="950" y="140" width="210" height="210" rx="18" fill="#fff"/>
   </g>
 
   <g fill="none" stroke="#00629b" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)">
@@ -39,8 +39,9 @@
   <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
     <circle cx="120" cy="204" r="27" fill="#ffcd00"/>
     <path d="M103 249h34m-17-17v34" fill="none" stroke="#182b49" stroke-width="8" stroke-linecap="round"/>
-    <text x="120" y="295" fill="#182b49" font-size="21" font-weight="700">You sign in</text>
-    <text x="120" y="320" fill="#46535f" font-size="16">UC San Diego account</text>
+    <text x="120" y="286" fill="#182b49" font-size="21" font-weight="700">You sign in</text>
+    <text x="120" y="314" fill="#46535f" font-size="15">UC San Diego</text>
+    <text x="120" y="334" fill="#46535f" font-size="15">account</text>
 
     <rect x="291" y="180" width="63" height="48" rx="13" fill="#e7f3f8"/>
     <path d="M306 193h33v22h-33z" fill="none" stroke="#00629b" stroke-width="4"/>
@@ -57,9 +58,10 @@
 
     <circle cx="807" cy="202" r="28" fill="#e7f3f8"/>
     <path d="M790 204h34m-29-10 7-7m17 7-7-7m-17 25 7 7m17-7-7 7" fill="none" stroke="#00629b" stroke-width="4" stroke-linecap="round"/>
-    <text x="807" y="264" fill="#182b49" font-size="21" font-weight="700">Approved model route</text>
-    <text x="807" y="296" fill="#46535f" font-size="16">Enterprise cloud</text>
-    <text x="807" y="319" fill="#46535f" font-size="16">or SDSC-hosted</text>
+    <text x="807" y="256" fill="#182b49" font-size="21" font-weight="700">Approved model</text>
+    <text x="807" y="279" fill="#182b49" font-size="21" font-weight="700">route</text>
+    <text x="807" y="307" fill="#46535f" font-size="16">Enterprise cloud</text>
+    <text x="807" y="330" fill="#46535f" font-size="16">or SDSC-hosted</text>
 
     <circle cx="1055" cy="204" r="28" fill="#00c6d7"/>
     <path d="m1041 204 10 10 20-24" fill="none" stroke="#182b49" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -77,16 +79,17 @@
   <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
     <text x="555" y="390" fill="#182b49" font-size="18" font-weight="700">Included only when the task needs it and your access allows</text>
     <g filter="url(#shadow)">
-      <rect x="260" y="432" width="170" height="92" rx="16" fill="#fff"/>
-      <rect x="455" y="432" width="200" height="92" rx="16" fill="#fff"/>
-      <rect x="680" y="432" width="170" height="92" rx="16" fill="#fff"/>
+      <rect x="252.5" y="425" width="185" height="105" rx="16" fill="#fff"/>
+      <rect x="455" y="425" width="200" height="105" rx="16" fill="#fff"/>
+      <rect x="672.5" y="425" width="185" height="105" rx="16" fill="#fff"/>
     </g>
-    <text x="345" y="470" fill="#182b49" font-size="20" font-weight="700">Your files</text>
-    <text x="345" y="497" fill="#46535f" font-size="16">Files you provide</text>
-    <text x="555" y="470" fill="#182b49" font-size="20" font-weight="700">Campus sources</text>
-    <text x="555" y="497" fill="#46535f" font-size="16">Approved for the assistant</text>
-    <text x="765" y="470" fill="#182b49" font-size="20" font-weight="700">Assistant tools</text>
-    <text x="765" y="497" fill="#46535f" font-size="16">Bounded capabilities</text>
+    <text x="345" y="463" fill="#182b49" font-size="20" font-weight="700">Your files</text>
+    <text x="345" y="498" fill="#46535f" font-size="16">Files you provide</text>
+    <text x="555" y="463" fill="#182b49" font-size="20" font-weight="700">Campus sources</text>
+    <text x="555" y="487" fill="#46535f" font-size="15">Approved for</text>
+    <text x="555" y="507" fill="#46535f" font-size="15">the assistant</text>
+    <text x="765" y="463" fill="#182b49" font-size="20" font-weight="700">Assistant tools</text>
+    <text x="765" y="498" fill="#46535f" font-size="15">Bounded capabilities</text>
   </g>
 
   <g font-family="Arial, Helvetica, sans-serif">
