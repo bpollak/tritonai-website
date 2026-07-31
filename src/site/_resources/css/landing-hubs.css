@@ -534,6 +534,179 @@
   padding: 14px;
 }
 
+.tritonai-web-architecture {
+  background:
+    radial-gradient(circle at 94% 8%, rgba(0, 198, 215, .16), transparent 28%),
+    #f5f0e6;
+  border: 1px solid #d5dce2;
+  border-radius: 12px;
+  box-shadow: 0 18px 42px rgba(24, 43, 73, .16);
+  color: var(--triton-navy);
+  margin: 0;
+  overflow: hidden;
+  padding: 24px 22px 20px;
+}
+
+.tritonai-web-architecture-label {
+  color: var(--triton-blue);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  margin: 0 0 5px;
+  text-transform: uppercase;
+}
+
+.tritonai-web-architecture-summary {
+  color: #46535f;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 0 20px;
+}
+
+.tritonai-web-architecture-flow {
+  align-items: center;
+  display: grid;
+  gap: 6px;
+  grid-template-columns:
+    minmax(76px, .82fr) 18px
+    minmax(110px, 1.12fr) 18px
+    minmax(116px, 1.18fr) 18px
+    minmax(78px, .85fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tritonai-web-architecture-node,
+.tritonai-web-architecture-resources > ul > li {
+  background: #fff;
+  border: 1px solid #dbe1e5;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(24, 43, 73, .12);
+  min-width: 0;
+}
+
+.tritonai-web-architecture-node {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 142px;
+  padding: 13px 8px;
+  text-align: center;
+}
+
+.tritonai-web-architecture-icon {
+  align-items: center;
+  background: var(--triton-gold);
+  border-radius: 50%;
+  color: var(--triton-navy);
+  display: flex;
+  font-size: 19px;
+  height: 43px;
+  justify-content: center;
+  margin-bottom: 12px;
+  width: 43px;
+}
+
+.tritonai-web-architecture-node strong,
+.tritonai-web-architecture-resources strong,
+.tritonai-web-architecture-node small,
+.tritonai-web-architecture-resources small {
+  display: block;
+}
+
+.tritonai-web-architecture-node strong,
+.tritonai-web-architecture-resources strong {
+  color: var(--triton-navy);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.tritonai-web-architecture-node small,
+.tritonai-web-architecture-resources small {
+  color: #52616b;
+  font-size: 10px;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+.tritonai-web-architecture-gateway {
+  background: linear-gradient(145deg, var(--triton-blue), var(--triton-bright-blue));
+  border: 0;
+}
+
+.tritonai-web-architecture-gateway .tritonai-web-architecture-icon {
+  background: #fff;
+  color: var(--triton-blue);
+}
+
+.tritonai-web-architecture-gateway strong,
+.tritonai-web-architecture-gateway small {
+  color: #fff;
+}
+
+.tritonai-web-architecture-review .tritonai-web-architecture-icon {
+  background: var(--triton-bright-blue);
+}
+
+.tritonai-web-architecture-arrow {
+  background: var(--triton-blue);
+  height: 4px;
+  position: relative;
+}
+
+.tritonai-web-architecture-arrow::after {
+  border-bottom: 7px solid transparent;
+  border-left: 10px solid var(--triton-blue);
+  border-top: 7px solid transparent;
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -5px;
+}
+
+.tritonai-web-architecture-resources > ul {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tritonai-web-architecture-resources > ul > li {
+  border-left: 4px solid var(--triton-blue);
+  padding: 9px 8px;
+  text-align: left;
+}
+
+.tritonai-web-architecture-controls {
+  background: var(--triton-navy);
+  border-radius: 8px;
+  color: #fff;
+  margin-top: 20px;
+  padding: 13px 16px;
+}
+
+.tritonai-web-architecture-controls strong,
+.tritonai-web-architecture-controls span {
+  display: block;
+}
+
+.tritonai-web-architecture-controls strong {
+  color: var(--triton-gold);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.tritonai-web-architecture-controls span {
+  font-size: 11px;
+  line-height: 1.4;
+  margin-top: 3px;
+}
+
 .build-architecture {
   background:
     radial-gradient(circle at 96% 6%, rgba(0, 198, 215, .2), transparent 30%),
@@ -4947,6 +5120,56 @@
 
   .about-subpage .main-section > .hub-section:first-child {
     padding-top: 12px;
+  }
+
+  .tritonai-web-architecture {
+    padding: 22px 18px 18px;
+  }
+
+  .tritonai-web-architecture-flow {
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .tritonai-web-architecture-node {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .tritonai-web-architecture-arrow {
+    height: 28px;
+    justify-self: center;
+    width: 4px;
+  }
+
+  .tritonai-web-architecture-arrow::after {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid var(--triton-blue);
+    bottom: -1px;
+    left: -5px;
+    right: auto;
+    top: auto;
+  }
+
+  .tritonai-web-architecture-resources > ul {
+    gap: 7px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tritonai-web-architecture-resources > ul > li {
+    border-left: 0;
+    border-top: 4px solid var(--triton-blue);
+    padding: 11px 7px;
+    text-align: center;
+  }
+
+  .tritonai-web-architecture-resources strong {
+    font-size: 12px;
+  }
+
+  .tritonai-web-architecture-resources small {
+    font-size: 9px;
   }
 
   .about-subpage .agent-card-grid > .col-md-3,
