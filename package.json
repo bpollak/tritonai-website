@@ -18,7 +18,11 @@
     "test:ux": "node --test test/ux-agent/*.test.mjs",
     "test:language": "node scripts/language-check.mjs",
     "test:ai-news": "node --test test/sync-ai-news.test.mjs",
-    "test": "npm run test:ux && npm run test:ai-news && npm run build && npm run validate && npm run test:a11y && npm run test:language"
+    "test": "npm run test:ux && npm run test:ai-news && npm run test:media && npm run build && npm run validate && npm run test:a11y && npm run test:language",
+    "sync:media": "node scripts/sync-media-coverage.mjs",
+    "check:media": "node scripts/sync-media-coverage.mjs --check",
+    "render:media": "node --input-type=module -e \"import{loadArticles,renderAndWriteAll}from'./scripts/lib/media-articles.mjs';await renderAndWriteAll(await loadArticles())\"",
+    "test:media": "node --test test/sync-media-coverage.test.mjs"
   },
   "engines": {
     "node": ">=22"
