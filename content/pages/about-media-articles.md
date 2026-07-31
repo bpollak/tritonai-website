@@ -1,0 +1,58 @@
+---
+title: Articles and coverage
+path: /about/media-articles.html
+description: News stories, case studies, reports, and independent coverage about TritonAI and TritonGPT.
+eyebrow: Media and recognition
+lastReviewed: 2026-07-30
+audiences: [students, faculty, staff, developers, leaders, media]
+source: https://brettcpollak.com/media and linked original publications
+canonicalUrl: /about/media-articles.html
+relatedSlides: [tritongpt-platform, from-tritongpt-to-tritonai]
+bannerImage: /_images/hero-abstract/about-tritonai.webp
+bannerPosition: center
+---
+
+<p class="lead">Read reporting and case studies about TritonGPT, TritonAI, shared-campus deployments, and the people affected by the work. Links open the original publication.</p>
+
+<section class="media-article-section" aria-labelledby="articles-2026-heading">
+<div class="media-year-heading"><span>2026</span><div><h2 id="articles-2026-heading">Current program perspective</h2><p>Recent writing about adoption and the choices behind shared institutional AI.</p></div></div>
+<div class="media-article-list">
+<article><div class="media-article-date"><span>Jul</span><strong>13</strong></div><div><p class="media-article-source">Higher Ed AI Playbook</p><h3><a href="https://higheredaiplaybook.substack.com/p/adoption-without-authority-what-50000" rel="noopener noreferrer" target="_blank">Adoption Without Authority: What 50,000 Students and Faculty Just Revealed</a></h3><span class="media-article-kind">Article</span></div></article>
+</div>
+</section>
+
+<section class="media-article-section" aria-labelledby="articles-2025-heading">
+<div class="media-year-heading"><span>2025</span><div><h2 id="articles-2025-heading">Expansion and shared infrastructure</h2><p>Coverage of campus access, instructional use, partner deployments, and the program's operating model.</p></div></div>
+<div class="media-article-list">
+<article><div class="media-article-date"><span>Nov</span><strong>21</strong></div><div><p class="media-article-source">UC San Diego Magazine</p><h3><a href="https://today.ucsd.edu/story/tritongpt-is-here-and-ready-to-help" rel="noopener noreferrer" target="_blank">TritonGPT is Here and Ready to Help</a></h3><span class="media-article-kind">Campus story</span></div></article>
+<article><div class="media-article-date"><span>Nov</span><strong>03</strong></div><div><p class="media-article-source">The UCSD Guardian</p><h3><a href="https://ucsdguardian.org/2025/11/03/revisited-chatgpt-goes-to-college/" rel="noopener noreferrer" target="_blank">Revisited: ChatGPT Goes to College</a></h3><span class="media-article-kind">Student journalism</span></div></article>
+<article><div class="media-article-date"><span>Aug</span><strong>10</strong></div><div><p class="media-article-source">Forbes</p><h3><a href="https://www.forbes.com/sites/avivalegatt/2025/08/10/why-faculty-hold-the-keys-to-higher-ed-s-ai-digital-transformation/" rel="noopener noreferrer" target="_blank">Why Faculty Hold the Keys to Higher Ed's AI Digital Transformation</a></h3><span class="media-article-kind">Article</span></div></article>
+<article><div class="media-article-date"><span>Aug</span><strong>08</strong></div><div><p class="media-article-source">CIO.com</p><h3><a href="https://www.cio.com/article/4032770/unpacking-uc-san-diegos-use-of-llms-to-boost-access-to-knowledge.html" rel="noopener noreferrer" target="_blank">Unpacking UC San Diego's Use of LLMs to Boost Access to Knowledge</a></h3><span class="media-article-kind">Case study</span></div></article>
+<article><div class="media-article-date"><span>Jun</span><strong>01</strong></div><div><p class="media-article-source">UC Berkeley AI Hub</p><h3><a href="https://ai.berkeley.edu/beargpt" rel="noopener noreferrer" target="_blank">BearGPT Enterprise Assistants</a></h3><span class="media-article-kind">Partner deployment</span></div></article>
+<article><div class="media-article-date"><span>May</span><strong>22</strong></div><div><p class="media-article-source">EdTech Magazine</p><h3><a href="https://edtechmagazine.com/higher/article/2025/05/uc-san-diego-launches-tritongpt-generative-ai-tool" rel="noopener noreferrer" target="_blank">UC San Diego Launches TritonGPT Generative AI Tool</a></h3><span class="media-article-kind">News</span></div></article>
+<article><div class="media-article-date"><span>Apr</span><strong>22</strong></div><div><p class="media-article-source">GovTech Industry Insider</p><h3><a href="https://www.govtech.com/education/higher-ed/asu-gsv-2025-san-diego-area-colleges-band-together-on-ai" rel="noopener noreferrer" target="_blank">San Diego Area Colleges Band Together on AI</a></h3><span class="media-article-kind">News</span></div></article>
+<article><div class="media-article-date"><span>Apr</span><strong>03</strong></div><div><p class="media-article-source">Internet2 Community Blog</p><h3><a href="https://internet2.edu/discover-uc-san-diegos-tritongpt-journey/" rel="noopener noreferrer" target="_blank">Unlocking Institutional Insights: Discover UC San Diego's TritonGPT Journey</a></h3><span class="media-article-kind">Case study</span></div></article>
+<article><div class="media-article-date"><span>Mar</span><strong>20</strong></div><div><p class="media-article-source">GovTech</p><h3><a href="https://insider.govtech.com/california/news/uc-irvine-uc-san-diego-launch-campuswide-ai-programs" rel="noopener noreferrer" target="_blank">UC Irvine, UC San Diego Launch Campuswide AI Programs</a></h3><span class="media-article-kind">News</span></div></article>
+<article><div class="media-article-date"><span>Jan</span><strong>20</strong></div><div><p class="media-article-source">The Daily Californian</p><h3><a href="https://www.dailycal.org/news/campus/uc-berkeley-chatbot-beargpt-violated-worker-rights-gsi-union-alleges/article_67f64b7b-a584-4b44-82e9-15b92e0f3f43.html" rel="noopener noreferrer" target="_blank">UC Berkeley Chatbot BearGPT Violated Worker Rights, GSI Union Alleges</a></h3><span class="media-article-kind">Independent coverage</span></div></article>
+<article><div class="media-article-date"><span>Jan</span><strong>15</strong></div><div><p class="media-article-source">UAW Local 4811</p><h3><a href="https://www.uaw4811.org/2025-ulps" rel="noopener noreferrer" target="_blank">2025 Unfair Labor Practice Charges</a></h3><span class="media-article-kind">Stakeholder source</span></div></article>
+</div>
+</section>
+
+<section class="media-article-section" aria-labelledby="articles-2024-heading">
+<div class="media-year-heading"><span>2024</span><div><h2 id="articles-2024-heading">Launch and early adoption</h2><p>The first year of public coverage, from campus launch through regional collaboration.</p></div></div>
+<div class="media-article-list">
+<article><div class="media-article-date"><span>Nov</span><strong>25</strong></div><div><p class="media-article-source">SDSU News</p><h3><a href="https://aaai.sdsu.edu/initiatives/equitable-ai-alliance" rel="noopener noreferrer" target="_blank">SDSU, UC San Diego and SD Community College District's Equitable AI Alliance</a></h3><span class="media-article-kind">Partner announcement</span></div></article>
+<article><div class="media-article-date"><span>Sep</span><strong>27</strong></div><div><p class="media-article-source">UC Tech News</p><h3><a href="https://uctechnews.ucop.edu/tritongpt-webinar-recap-democratizing-ai-for-uc-san-diego-and-the-broader-higher-education-community/" rel="noopener noreferrer" target="_blank">TritonGPT Webinar Recap</a></h3><span class="media-article-kind">Event recap</span></div></article>
+<article><div class="media-article-date"><span>Jun</span><strong>04</strong></div><div><p class="media-article-source">IdeaScale</p><h3><a href="https://ideascale.com/blog/triton-gpt/" rel="noopener noreferrer" target="_blank">All About UC San Diego's In-House AI Assistant, Triton GPT</a></h3><span class="media-article-kind">Article</span></div></article>
+<article><div class="media-article-date"><span>May</span><strong>30</strong></div><div><p class="media-article-source">UC Tech News</p><h3><a href="https://uctechnews.ucop.edu/tritongpt-shaping-the-future-at-uc-san-diego-through-student-innovation/" rel="noopener noreferrer" target="_blank">TritonGPT: Shaping the Future at UC San Diego Through Student Innovation</a></h3><span class="media-article-kind">Campus story</span></div></article>
+<article><div class="media-article-date"><span>May</span><strong>24</strong></div><div><p class="media-article-source">GovTech</p><h3><a href="https://www.govtech.com/education/higher-ed/meet-tritongpt-ai-that-loves-tedious-university-tasks" rel="noopener noreferrer" target="_blank">Meet TritonGPT: AI That Loves Tedious University Tasks</a></h3><span class="media-article-kind">News</span></div></article>
+<article><div class="media-article-date"><span>Apr</span><strong>24</strong></div><div><p class="media-article-source">BestColleges</p><h3><a href="https://www.bestcolleges.com/news/uc-san-diego-irvine-design-specialized-ai-tools/" rel="noopener noreferrer" target="_blank">Campus-GPT: How Two University of California Campuses Are Designing Specialized AI Tools</a></h3><span class="media-article-kind">News</span></div></article>
+<article><div class="media-article-date"><span>Mar</span><strong>27</strong></div><div><p class="media-article-source">San Diego Reader</p><h3><a href="https://www.sandiegoreader.com/news/2024/mar/27/radar-adelas-big-fat-raises/" rel="noopener noreferrer" target="_blank">Artificial Intelligence Has Come to UC San Diego</a></h3><span class="media-article-kind">Local coverage</span></div></article>
+<article><div class="media-article-date"><span>Mar</span><strong>19</strong></div><div><p class="media-article-source">ScienceSprings</p><h3><a href="https://sciencesprings.wordpress.com/2024/03/19/from-the-university-of-california-san-diego-say-hello-to-tritongpt/" rel="noopener noreferrer" target="_blank">From UC San Diego: Say Hello to TritonGPT</a></h3><span class="media-article-kind">Syndicated coverage</span></div></article>
+<article><div class="media-article-date"><span>Mar</span><strong>19</strong></div><div><p class="media-article-source">UC San Diego Today</p><h3><a href="https://today.ucsd.edu/story/say-hello-to-tritongpt" rel="noopener noreferrer" target="_blank">Say Hello to TritonGPT</a></h3><span class="media-article-kind">Launch story</span></div></article>
+</div>
+</section>
+
+<section class="media-article-footer" aria-labelledby="article-source-heading">
+<div><p class="home-kicker">Source index</p><h2 id="article-source-heading">More public work</h2><p>This archive is limited to coverage directly connected to TritonAI, TritonGPT, and related deployments. The source index includes broader writing and appearances.</p></div><a class="btn btn-primary" href="https://brettcpollak.com/media" rel="noopener noreferrer" target="_blank">Open the full publication index</a>
+</section>

@@ -47,25 +47,26 @@
 
     <circle cx="74" cy="460" r="28" fill="#fff" opacity=".96"/>
     <path d="M58 460h32m-16-16v32" fill="none" stroke="#00629b" stroke-width="7" stroke-linecap="round"/>
-    <text x="122" y="448" fill="#fff" font-size="21" font-weight="700">TritonAI LLM Gateway</text>
-    <text x="122" y="478" fill="#fff" font-size="16">Identity · policy · routing</text>
+    <text x="122" y="443" fill="#fff" font-size="21" font-weight="700">TritonAI</text>
+    <text x="122" y="468" fill="#fff" font-size="21" font-weight="700">LLM Gateway</text>
+    <text x="122" y="495" fill="#fff" font-size="16">Identity · policy · routing</text>
   </g>
 
   <g font-family="Arial, Helvetica, sans-serif">
     <text x="25" y="558" fill="#182b49" font-size="17" font-weight="700">Included only when needed and allowed</text>
     <g filter="url(#shadow)">
-      <rect x="25" y="578" width="105" height="85" rx="14" fill="#fff"/>
-      <rect x="142" y="578" width="106" height="85" rx="14" fill="#fff"/>
-      <rect x="260" y="578" width="105" height="85" rx="14" fill="#fff"/>
+      <rect x="25" y="578" width="105" height="90" rx="14" fill="#fff"/>
+      <rect x="142" y="578" width="106" height="90" rx="14" fill="#fff"/>
+      <rect x="260" y="578" width="105" height="90" rx="14" fill="#fff"/>
     </g>
-    <text x="77" y="612" fill="#182b49" font-size="17" font-weight="700" text-anchor="middle">Your files</text>
-    <text x="77" y="638" fill="#46535f" font-size="16" text-anchor="middle">You provide</text>
-    <text x="195" y="608" fill="#182b49" font-size="17" font-weight="700" text-anchor="middle">Campus</text>
-    <text x="195" y="630" fill="#182b49" font-size="17" font-weight="700" text-anchor="middle">sources</text>
-    <text x="195" y="650" fill="#46535f" font-size="16" text-anchor="middle">Approved</text>
-    <text x="312" y="608" fill="#182b49" font-size="17" font-weight="700" text-anchor="middle">Assistant</text>
-    <text x="312" y="630" fill="#182b49" font-size="17" font-weight="700" text-anchor="middle">tools</text>
-    <text x="312" y="650" fill="#46535f" font-size="16" text-anchor="middle">Bounded</text>
+    <text x="77" y="612" fill="#182b49" font-size="16" font-weight="700" text-anchor="middle">Your files</text>
+    <text x="77" y="638" fill="#46535f" font-size="14" text-anchor="middle">You provide</text>
+    <text x="195" y="608" fill="#182b49" font-size="16" font-weight="700" text-anchor="middle">Campus</text>
+    <text x="195" y="630" fill="#182b49" font-size="16" font-weight="700" text-anchor="middle">sources</text>
+    <text x="195" y="651" fill="#46535f" font-size="14" text-anchor="middle">Approved</text>
+    <text x="312" y="608" fill="#182b49" font-size="16" font-weight="700" text-anchor="middle">Assistant</text>
+    <text x="312" y="630" fill="#182b49" font-size="16" font-weight="700" text-anchor="middle">tools</text>
+    <text x="312" y="651" fill="#46535f" font-size="14" text-anchor="middle">Bounded</text>
   </g>
 
   <g fill="none" stroke="#00629b" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)">
@@ -81,7 +82,8 @@
     <circle cx="74" cy="772" r="26" fill="#e7f3f8"/>
     <path d="M58 773h32m-27-10 7-7m15 7-7-7m-15 24 7 7m15-7-7 7" fill="none" stroke="#00629b" stroke-width="4" stroke-linecap="round"/>
     <text x="120" y="758" fill="#182b49" font-size="20" font-weight="700">Approved model route</text>
-    <text x="120" y="785" fill="#46535f" font-size="16">Enterprise cloud or SDSC-hosted</text>
+    <text x="120" y="784" fill="#46535f" font-size="16">Enterprise cloud</text>
+    <text x="120" y="807" fill="#46535f" font-size="16">or SDSC-hosted</text>
 
     <circle cx="74" cy="922" r="26" fill="#00c6d7"/>
     <path d="m61 922 10 10 19-23" fill="none" stroke="#182b49" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -95,7 +97,7 @@
 
   <g font-family="Arial, Helvetica, sans-serif">
     <rect x="25" y="1020" width="340" height="105" rx="17" fill="#182b49"/>
-    <text x="45" y="1053" fill="#ffcd00" font-size="16" font-weight="700" letter-spacing=".8">CONTROLS ACROSS THE REQUEST</text>
+    <text x="45" y="1053" fill="#ffcd00" font-size="15" font-weight="700" letter-spacing=".7">CONTROLS ACROSS THE REQUEST</text>
     <text x="45" y="1080" fill="#fff" font-size="16">Privacy · security · accessibility</text>
     <text x="45" y="1104" fill="#fff" font-size="16">Evaluation · monitoring · named owner</text>
   </g>
