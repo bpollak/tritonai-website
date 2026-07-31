@@ -1020,7 +1020,7 @@ td code { font-size: 13px; }
     <div class="layer-connector">↓</div>
     <div class="layer-row"><div class="layer-title">Human</div><div class="layer-items"><div class="arch-node"><strong>Content judgment</strong><span>Accuracy · source authority · audience fit · sensitive information</span></div><div class="arch-node"><strong>Experience review</strong><span>Responsive layout · keyboard and focus · zoom/reflow · assistive technology</span></div><div class="arch-node review"><strong>Release approval</strong><span>Accept the rendered result and unresolved warnings before commit or merge</span></div></div></div>
   </div>
-  <div class="callout">The compatibility build also tests <code>SITE_BASE_PATH=/tritonai-website</code>; production is rebuilt at the Cascade site root.</div>
+  <div class="callout">The compatibility build sets <code>SITE_BASE_PATH</code> to the repository preview prefix; production is rebuilt with an empty base path at the Cascade site root.</div>
 </section>
 
 <!-- SLIDE 11: Risks and controls -->
