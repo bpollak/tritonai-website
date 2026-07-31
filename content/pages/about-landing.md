@@ -58,7 +58,25 @@ bannerMode: abstract
 </section>
 
 <section class="hub-section" aria-labelledby="architecture-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-media"><figure class="hub-diagram-frame"><img alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" src="/_images/tritonai-architecture-public.svg"></figure></div><div class="col-md-6 hub-split-copy"><p class="home-kicker">Architecture</p><h2 id="architecture-heading">What sits around the model</h2><p>The model is one piece. Around it sit the routes it can call, the campus sources it can read, the accessibility and evaluation checks it has to pass, and the person answerable when it gets something wrong.</p><p><a class="btn btn-primary" href="/about/trust-architecture.html">See the trust architecture</a></p></div></div>
+<div class="row hub-split hub-split-align-center">
+<div class="col-md-6 hub-split-media">
+<figure class="tritonai-web-architecture">
+<p class="tritonai-web-architecture-label">TritonAI architecture</p>
+<p class="tritonai-web-architecture-summary">One governed route from a campus need to an accountable service</p>
+<ol class="tritonai-web-architecture-flow">
+<li class="tritonai-web-architecture-node tritonai-web-architecture-need"><span class="tritonai-web-architecture-icon"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span><strong>Campus need</strong></li>
+<li class="tritonai-web-architecture-arrow" aria-hidden="true"></li>
+<li class="tritonai-web-architecture-node tritonai-web-architecture-gateway"><span class="tritonai-web-architecture-icon"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></span><strong>TritonAI gateway</strong><small>Identity · routing · policy</small></li>
+<li class="tritonai-web-architecture-arrow" aria-hidden="true"></li>
+<li class="tritonai-web-architecture-resources"><span class="sr-only">Approved resources</span><ul><li><strong>Models</strong><small>Chosen for the task</small></li><li><strong>Knowledge</strong><small>Grounded at request time</small></li><li><strong>Tools</strong><small>Bounded capabilities</small></li></ul></li>
+<li class="tritonai-web-architecture-arrow" aria-hidden="true"></li>
+<li class="tritonai-web-architecture-node tritonai-web-architecture-review"><span class="tritonai-web-architecture-icon"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span><strong>Human review</strong><small>Ownership · evidence</small></li>
+</ol>
+<div class="tritonai-web-architecture-controls"><strong>Controls across the service</strong><span>Evaluation · accessibility · monitoring</span></div>
+</figure>
+</div>
+<div class="col-md-6 hub-split-copy"><p class="home-kicker">Architecture</p><h2 id="architecture-heading">What sits around the model</h2><p>The model is one piece. Around it sit the routes it can call, the campus sources it can read, the accessibility and evaluation checks it has to pass, and the person answerable when it gets something wrong.</p><p><a class="btn btn-primary" href="/about/trust-architecture.html">See the trust architecture</a></p></div>
+</div>
 </section>
 
 <nav class="hub-section hub-link-panel" aria-labelledby="explore-about-heading">
