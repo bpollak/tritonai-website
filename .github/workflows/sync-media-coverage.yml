@@ -1,0 +1,83 @@
+name: Sync media coverage
+
+on:
+  schedule:
+    - cron: "30 18 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-media-coverage
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Search for new TritonAI / TritonGPT coverage
+        run: npm run sync:media
+
+      - name: Detect content changes
+        id: changes
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain -- content/media content/pages/about-media-articles.md)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate the updated site
+        if: steps.changes.outputs.changed == 'true'
+        run: npm test
+
+      - name: Publish the sync branch
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          BRANCH_NAME: automation/sync-media-coverage
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH_NAME"
+          git add content/media content/pages/about-media-articles.md
+          git commit -m "Add discovered TritonAI / TritonGPT media coverage"
+          git push --force origin "HEAD:$BRANCH_NAME"
+
+      - name: Open or refresh the sync pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH_NAME: automation/sync-media-coverage
+        shell: bash
+        run: |
+          existing="$(gh pr list --base main --head "$BRANCH_NAME" --state open --json number --jq '.[0].number // empty')"
+          body="Searches the public web for new coverage of TritonAI and TritonGPT and appends what it finds to \`content/media/articles.json\`, then re-renders the article archive. Each auto-discovered item is tagged with \`discoveredAt\` and \`discoveredVia\` for review. The standard build, language, and accessibility checks passed before this pull request was opened. Searches the web via DuckDuckGo Lite (no API key required)."
+          if [[ -z "$existing" ]]; then
+            gh pr create \
+              --base main \
+              --head "$BRANCH_NAME" \
+              --title "Add discovered TritonAI / TritonGPT media coverage" \
+              --body "$body"
+          else
+            gh pr edit "$existing" \
+              --title "Add discovered TritonAI / TritonGPT media coverage" \
+              --body "$body"
+          fi
