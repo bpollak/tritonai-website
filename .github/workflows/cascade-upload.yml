@@ -80,11 +80,12 @@ jobs:
       # Empty SITE_BASE_PATH is required. GitHub Pages builds with
       # /tritonai-website, which would prefix every route and break every
       # link once uploaded to a Cascade site root.
-      - name: Build and validate
+      - name: Check language, build and validate
         if: steps.release_gate.outputs.should_deploy == 'true'
         env:
           SITE_BASE_PATH: ''
         run: |
+          npm run test:language
           npm run build
           npm run validate
 
