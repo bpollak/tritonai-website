@@ -1,13 +1,19 @@
 name: Publish to Cascade
 
-# Runs automatically on merge to main. The values below in `env` are the
-# single source of truth; the workflow_dispatch inputs are optional
-# overrides for one-off runs (for example pointing at a scratch folder or a
-# different instance) and are deliberately left without defaults so they
-# fall through to `env` when blank.
+# Runs automatically on merge to main, once per day for Skills Library
+# updates, or when the Skills Library sends its repository event. The values
+# below in `env` are the single source of truth; the workflow_dispatch inputs
+# are optional overrides for one-off runs (for example pointing at a scratch
+# folder or a different instance) and are deliberately left without defaults
+# so they fall through to `env` when blank.
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '27 13 * * *'
+  repository_dispatch:
+    types:
+      - skills-library-updated
   workflow_dispatch:
     inputs:
       site_name:
@@ -45,8 +51,11 @@ concurrency:
 
 jobs:
   build:
-    name: Build and plan
+    name: Refresh, build and plan
     runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.release_gate.outputs.should_deploy }}
+      skills_commit: ${{ steps.release_gate.outputs.skills_commit }}
     steps:
       - uses: actions/checkout@v4
 
@@ -57,17 +66,31 @@ jobs:
 
       - run: npm ci
 
+      - name: Refresh UCSD Skills Library catalog
+        env:
+          SKILLS_GITHUB_TOKEN: ${{ github.token }}
+        run: npm run sync:skills
+
+      - name: Decide whether production needs an update
+        id: release_gate
+        env:
+          LIVE_SKILLS_URL: https://tritonai.ucsd.edu/skills/index.html
+        run: node scripts/skills-release-gate.mjs
+
       # Empty SITE_BASE_PATH is required. GitHub Pages builds with
       # /tritonai-website, which would prefix every route and break every
       # link once uploaded to a Cascade site root.
-      - name: Build and validate
+      - name: Check language, build and validate
+        if: steps.release_gate.outputs.should_deploy == 'true'
         env:
           SITE_BASE_PATH: ''
         run: |
+          npm run test:language
           npm run build
           npm run validate
 
       - name: Fail if base path leaked into the build
+        if: steps.release_gate.outputs.should_deploy == 'true'
         run: |
           if grep -rl '/tritonai-website' dist >/dev/null 2>&1; then
             echo "::error::dist contains /tritonai-website; SITE_BASE_PATH was not empty"
@@ -77,12 +100,15 @@ jobs:
           echo "Base path clean. dist contains $(find dist -type f | wc -l) files."
 
       - uses: actions/setup-python@v5
+        if: steps.release_gate.outputs.should_deploy == 'true'
         with:
           python-version: '3.11'
 
-      - run: pip install requests urllib3
+      - if: steps.release_gate.outputs.should_deploy == 'true'
+        run: pip install requests urllib3
 
       - name: Dry-run upload
+        if: steps.release_gate.outputs.should_deploy == 'true'
         env:
           CASCADE_API_KEY: ${{ secrets.CASCADE_API_KEY }}
         run: |
@@ -97,13 +123,14 @@ jobs:
       # Deploy the exact bytes that were planned, rather than rebuilding and
       # hoping the second build matches the first.
       - uses: actions/upload-artifact@v4
+        if: steps.release_gate.outputs.should_deploy == 'true'
         with:
           name: cascade-dist
           path: dist
           retention-days: 7
 
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ always() && steps.release_gate.outputs.should_deploy == 'true' }}
         with:
           name: cascade-dry-run-log
           path: dry-run.log
@@ -112,6 +139,7 @@ jobs:
   deploy:
     name: Upload to Cascade
     needs: build
+    if: needs.build.outputs.should_deploy == 'true'
     runs-on: ubuntu-latest
     environment: cascade
     steps:
@@ -149,10 +177,10 @@ jobs:
 
   publish:
     name: Publish
-    needs: deploy
+    needs: [build, deploy]
     # Runs on every automatic deploy. Tick skip_publish on a manual run to
     # upload without publishing.
-    if: inputs.skip_publish != true
+    if: needs.build.outputs.should_deploy == 'true' && inputs.skip_publish != true
     runs-on: ubuntu-latest
     environment: cascade
     steps:
