@@ -841,6 +841,27 @@ td code { font-size: 13px; }
 .flywheel .arch-node { min-height: 105px; display: flex; flex-direction: column; justify-content: center; }
 .flywheel-return { margin-top: 14px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 16px; text-align: center; color: rgba(255,255,255,.8); font-size: 14px; position: relative; z-index: 1; }
 
+/* --- Demo video --- */
+.demo-video {
+  max-width: 820px;
+  margin: 10px 0 0;
+}
+.demo-video video {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--triton-border);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(24,43,73,.12);
+  background: #000;
+}
+.demo-video figcaption {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #66737d;
+  max-width: 820px;
+}
+
 /* --- Keyboard hint --- */
 .kbd-hint {
   position: absolute;
@@ -1094,8 +1115,21 @@ td code { font-size: 13px; }
   <!-- [Sources] /README.md; /AGENTS.md -->
 </section>
 
-<!-- SLIDE 9: Review and approval -->
-<section class="slide slide-content" data-slide="9">
+<!-- SLIDE 9: Recorded demo -->
+<section class="slide slide-content slide-sand" data-slide="9">
+  <p class="kicker">Inside the Harness · Recorded demo</p>
+  <h2>Watch one update travel from prompt to publish-ready</h2>
+  <p>This recording follows a single request through the workflow on this slide's neighbors: start the Harness, open the local site, edit the homepage feature section in <code>content/pages/home.md</code>, review the rebuilt page, then run the checks and commit that make the change ready for pull-request review.</p>
+  <figure class="demo-video">
+    <video controls muted playsinline preload="metadata" aria-label="Screen recording of a TritonAI Harness session. A terminal launches the Harness and receives the request to update and publish the homepage feature section. The local homepage appears before the change, the terminal shows the edit and rebuild, the reloaded page highlights the new sentence in gold, and the terminal finishes with passing checks, a commit, and the publish path through pull request, review, merge, and Cascade.">
+      <source src="media/editing-and-publishing-demo.mp4" type="video/mp4">
+    </video>
+    <figcaption>The Harness session and the local preview at <code>http://127.0.0.1:4173/</code>: prompt, build, the section before and after the edit, and the publish steps. The recording has no audio.</figcaption>
+  </figure>
+</section>
+
+<!-- SLIDE 10: Review and approval -->
+<section class="slide slide-content" data-slide="10">
   <p class="kicker">Review gate</p>
   <h2>Automated checks and human review prepare the change for release</h2>
   <div class="layer-stack" role="img" aria-label="Release review combines automated site tests with human content, accessibility, and approval decisions.">
@@ -1110,7 +1144,7 @@ td code { font-size: 13px; }
 </section>
 
 <!-- SLIDE 10: Automated content feeds -->
-<section class="slide slide-content slide-navy" data-slide="10">
+<section class="slide slide-content slide-navy" data-slide="11">
   <p class="kicker">Automated content feeds</p>
   <h2>Weekly jobs prepare AI updates and media coverage for review</h2>
   <div class="two-col">
@@ -1125,7 +1159,7 @@ td code { font-size: 13px; }
 </section>
 
 <!-- SLIDE 11: Automated maintenance -->
-<section class="slide slide-content slide-maintenance" data-slide="11">
+<section class="slide slide-content slide-maintenance" data-slide="12">
   <p class="kicker">Automated maintenance</p>
   <h2>Scheduled jobs refresh the Skills Library and audit the site</h2>
   <div class="two-col">
@@ -1140,7 +1174,7 @@ td code { font-size: 13px; }
 </section>
 
 <!-- SLIDE 12: Harness and GitHub -->
-<section class="slide slide-content slide-sand" data-slide="12">
+<section class="slide slide-content slide-sand" data-slide="13">
   <p class="kicker">Inside the Harness · Prepare GitHub review</p>
   <h2>Approve repository actions only after the page is ready</h2>
   <div class="workflow-pipeline" role="img" aria-label="Inside the TritonAI Harness, ask for the final status and diff, ask it to run every required check, approve only intended files for commit, authorize the push and pull request, and monitor GitHub checks before a person reviews and merges.">
@@ -1158,7 +1192,7 @@ td code { font-size: 13px; }
 </section>
 
 <!-- SLIDE 13: Publish -->
-<section class="slide slide-content slide-navy" data-slide="13">
+<section class="slide slide-content slide-navy" data-slide="14">
   <p class="kicker">Publishing workflow</p>
   <h2>GitHub records the decision; Cascade publishes the approved site</h2>
   <div class="workflow-pipeline" role="img" aria-label="Publishing begins with a focused pull request, continues through checks and human approval, merges to main, builds and publishes through Cascade, and ends with verification on the public website.">
@@ -1176,7 +1210,7 @@ td code { font-size: 13px; }
 </section>
 
 <!-- SLIDE 14: Contributor checklist -->
-<section class="slide slide-content slide-sand slide-checklist" data-slide="14">
+<section class="slide slide-content slide-sand slide-checklist" data-slide="15">
   <p class="kicker">Contributor checklist</p>
   <h2>Give direction while the skills handle the mechanics</h2>
   <div class="two-col">
@@ -1208,9 +1242,9 @@ td code { font-size: 13px; }
   <div class="controls-left">
     <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
     <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
-    <span class="progress-text" id="slideCounter">1 / 14</span>
+    <span class="progress-text" id="slideCounter">1 / 15</span>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:7.14%"></div></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:6.67%"></div></div>
   <div class="controls-right">
     <span class="progress-text">← → to navigate · F for fullscreen</span>
   </div>
@@ -1286,6 +1320,7 @@ td code { font-size: 13px; }
   }, { passive: true });
 
   document.addEventListener('keydown', (e) => {
+    if (e.target instanceof Element && e.target.closest('video')) return;
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
       e.preventDefault();
       show(current + 1);

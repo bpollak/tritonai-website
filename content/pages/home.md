@@ -16,7 +16,7 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, citizen-developer-ecosystem, plat
 <div class="col-md-6 hub-split-copy">
 <p class="home-kicker">For students, faculty, and staff</p>
 <h1 id="home-feature-heading">AI tools and support for UC San Diego</h1>
-<p class="hub-lede">TritonAI is the campus AI program. We run TritonGPT, review which AI tools are safe to use with university data, train people to use them well, and help teams build their own.</p>
+<p class="hub-lede">TritonAI is the campus AI program. We run TritonGPT, review which AI tools are safe to use with university data, train people to use them well, and help teams build their own. Fall quarter AI workshops are now open for registration.</p>
 <div class="home-feature-actions"><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a><a class="home-feature-link" href="/about/strategy.html">See the strategy <span aria-hidden="true">→</span></a></div>
 </div>
 <div class="col-md-6 hub-split-media"><figure class="hub-browser-frame"><img alt="Geisel Library beneath a rainbow over the UC San Diego campus" class="img-responsive" src="/_images/homepage/rainbow-over-geisel-library.webp"></figure></div>
