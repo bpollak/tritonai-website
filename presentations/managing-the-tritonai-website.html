@@ -759,6 +759,55 @@ td code { font-size: 13px; }
 .workflow-note { max-width: 1040px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .workflow-note div { border-left: 4px solid var(--triton-bright-blue); padding: 10px 16px; font-size: 15px; line-height: 1.45; }
 
+.responsibility-strip {
+  max-width: 1080px;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.responsibility-lane {
+  min-width: 0;
+  padding: 11px 16px;
+  border-left: 5px solid var(--triton-bright-blue);
+  background: rgba(0,98,155,.07);
+}
+.responsibility-lane.user-lane {
+  border-left-color: var(--triton-gold);
+  background: rgba(252,227,0,.12);
+}
+.responsibility-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--triton-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.responsibility-lane p {
+  margin: 0;
+  color: var(--triton-navy);
+  font-size: 16px;
+  line-height: 1.38;
+}
+.responsibility-lane code { font-size: .92em; }
+.slide-navy .responsibility-lane,
+.slide-hero .responsibility-lane {
+  background: rgba(255,255,255,.08);
+}
+.slide-navy .responsibility-lane.user-lane,
+.slide-hero .responsibility-lane.user-lane {
+  background: rgba(252,227,0,.1);
+}
+.slide-navy .responsibility-label,
+.slide-hero .responsibility-label { color: var(--triton-gold); }
+.slide-navy .responsibility-lane p,
+.slide-hero .responsibility-lane p { color: rgba(255,255,255,.88); }
+.slide-dense .responsibility-strip { margin-top: 11px; }
+.slide-dense .responsibility-lane { padding-top: 8px; padding-bottom: 8px; }
+.slide-dense .responsibility-lane p { font-size: 14px; }
+
 .iteration-map { display: grid; grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr; align-items: center; max-width: 1040px; margin-top: 22px; }
 .iteration-map .arch-node { min-height: 132px; }
 .feedback-rail { max-width: 1040px; margin-top: 16px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 18px; text-align: center; color: var(--triton-blue); font-size: 14px; font-weight: 700; }
@@ -821,7 +870,8 @@ td code { font-size: 13px; }
 .arch-node strong { font-size: 17px; }
 .arch-node span { font-size: 14px; }
 .layer-title { font-size: 18px; }
-.workflow-note div { font-size: 17px; }
+  .workflow-note div { font-size: 17px; }
+  .responsibility-lane p { font-size: 17px; }
 .pathway-note { font-size: 19px; }
 
 @media (max-height: 760px) and (min-width: 769px) {
@@ -841,6 +891,9 @@ td code { font-size: 13px; }
   .arch-node span { font-size: 11px; }
   .workflow-pipeline .arch-node { min-height: 88px; }
   .iteration-map .arch-node { min-height: 102px; }
+  .responsibility-strip { margin-top: 10px; }
+  .responsibility-lane { padding: 8px 12px; }
+  .responsibility-lane p { font-size: 13px; }
 }
 
 @media (max-width: 768px) {
@@ -864,6 +917,7 @@ td code { font-size: 13px; }
   .risk-head { display: none; }
   .workflow-pipeline .arch-arrow, .iteration-map .arch-arrow, .flywheel .arch-arrow { transform: rotate(90deg); }
   .workflow-note { grid-template-columns: 1fr; }
+  .responsibility-strip { grid-template-columns: 1fr; }
   .swimlane { grid-template-columns: 92px repeat(4, minmax(150px,1fr)); overflow-x: auto; }
   .mobile-scroll-hint { display: block; margin: 8px 0 0; font-size: 13px !important; color: var(--triton-blue); font-weight: 700; }
   .flow { flex-direction: column; }
@@ -899,10 +953,10 @@ td code { font-size: 13px; }
 <section class="slide slide-hero active" data-slide="1">
   <p class="kicker">For TritonAI content contributors</p>
   <h1>Editing and Publishing the TritonAI Website</h1>
-  <p class="lede">Use TritonAI to capture an idea, create an on-brand update, and move it through review to live verification.</p>
+  <p class="lede">Relevant skills handle the website mechanics. Your prompts shape the content, design, and final decision.</p>
   <div class="presentation-meta">
-    <div><span class="meta-label">Editing</span><span class="meta-value">Change the source that owns the page</span></div>
-    <div><span class="meta-label">Publishing</span><span class="meta-value">The Harness opens a GitHub pull request; people approve and merge</span></div>
+    <div><span class="meta-label">Automatic after a trigger</span><span class="meta-value">Inspect, edit, preview, test, and prepare review</span></div>
+    <div><span class="meta-label">You prompt and decide</span><span class="meta-value">Set the goal, improve the result, and approve release</span></div>
   </div>
   <div class="kbd-hint">Use ← → arrow keys to navigate</div>
 </section>
@@ -910,7 +964,7 @@ td code { font-size: 13px; }
 <!-- SLIDE 2: Advantages -->
 <section class="slide slide-content slide-sand slide-dense" data-slide="2">
   <p class="kicker">Why use TritonAI for website content</p>
-  <h2>TritonAI turns ideas and recurring sources into reviewed updates</h2>
+  <h2>Skills handle the workflow while your prompts shape the result</h2>
   <div class="benefit-pairs benefit-pairs-compact benefit-pairs-wide">
     <div class="benefit-pair"><h3>Automate recurring updates</h3><p>Scheduled jobs collect newsletters, media coverage, skills, and UX findings, then prepare reviewable results.</p></div>
     <div class="benefit-pair"><h3>Stay flexible and on brand</h3><p>Templates can change with the content while UC San Diego structure, typography, navigation, and accessibility rules remain in force.</p></div>
@@ -919,13 +973,16 @@ td code { font-size: 13px; }
     <div class="benefit-pair"><h3>Bring in personal context</h3><p>When connected, the TritonAI Personal Context Engine can supply approved preferences, ongoing priorities, voice, and source context.</p></div>
     <div class="benefit-pair"><h3>Keep every result reviewable</h3><p>Diffs, previews, tests, pull requests, commit history, and live checks show what changed and preserve a rollback path.</p></div>
   </div>
-  <div class="callout">TritonAI accelerates the work. People retain content authority, accessibility judgment, pull-request approval, merge authority, and the final live decision.</div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>Matching skills find the source, apply repository and brand rules, preserve integrations, build the preview, and run checks.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask for a clearer story, a different on-brand layout, an accessible workflow visual, stronger mobile order, or a sharper audience action.</p></div>
+  </div>
 </section>
 
 <!-- SLIDE 3: Roles -->
 <section class="slide slide-content slide-sand" data-slide="3">
   <p class="kicker">Roles in the workflow</p>
-  <h2>People remain responsible for content and release decisions</h2>
+  <h2>Automation carries the work between human decisions</h2>
   <div class="flow" role="img" aria-label="A content contributor defines and reviews the change, the TritonAI Harness edits and checks the site, a content owner approves the result, and the website pipeline publishes the approved change.">
     <div class="flow-step"><div class="step-num">1</div><div class="step-label">Contributor</div><div class="step-desc">Defines the audience, route, source, and requested change</div></div>
     <div class="flow-arrow">→</div>
@@ -935,22 +992,28 @@ td code { font-size: 13px; }
     <div class="flow-arrow">→</div>
     <div class="flow-step"><div class="step-num">4</div><div class="step-label">Site pipeline</div><div class="step-desc">Validates, publishes through Cascade, and supports live verification</div></div>
   </div>
-  <div class="callout">The Harness uses Git in the working copy and GitHub CLI for repository actions. A person with repository authority approves the pull request and merge in GitHub.</div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The Harness uses the relevant skills, Git, browser tools, and repository checks to edit, validate, and prepare a focused pull request.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Provide the audience and approved source, direct revisions, judge accessibility and accuracy, then approve the pull request and merge.</p></div>
+  </div>
 </section>
 
 <!-- SLIDE 4: Harness skills -->
 <section class="slide slide-content slide-dense" data-slide="4">
   <p class="kicker">TritonAI capabilities</p>
-  <h2>Models, skills, context, and tools work together on each update</h2>
+  <h2>The Harness activates relevant skills as the task unfolds</h2>
   <div class="benefit-pairs benefit-pairs-compact benefit-pairs-wide">
     <div class="benefit-pair"><h3>Managed workspace</h3><p>The Harness brings approved models, campus configuration, and permissioned connectors into one supported workspace.</p></div>
-    <div class="benefit-pair"><h3>Campus Skills Library</h3><p>Reusable skills provide reviewed patterns for UC San Diego branding, accessibility, content, data, and common workflows.</p></div>
+    <div class="benefit-pair"><h3>Campus Skills Library</h3><p>When a task matches, the Harness applies reviewed patterns for UC San Diego branding, accessibility, content, data, and common workflows.</p></div>
     <div class="benefit-pair"><h3>Personal Context Engine</h3><p>Approved personal context can ground the task in the contributor's priorities, sources, working style, and previous decisions.</p></div>
-    <div class="benefit-pair"><h3>Website maintenance skill</h3><p>Discovers repository governance, canonical sources, integrations, required checks, deployment, and live-verification rules.</p></div>
+    <div class="benefit-pair"><h3>Website maintenance skill</h3><p>Automatically discovers repository governance, canonical sources, integrations, required checks, deployment, and live-verification rules.</p></div>
     <div class="benefit-pair"><h3>Git and GitHub execution</h3><p>Inspects existing work, creates the branch, shows the diff, and prepares the approved commit, push, pull request, and checks.</p></div>
     <div class="benefit-pair"><h3>Browser and accessibility review</h3><p>Renders desktop and phone views and supports visual, keyboard, focus, zoom, reflow, and screen-reader spot checks.</p></div>
   </div>
-  <div class="callout">Repository instructions control the implementation. Personal context and connected tools remain bounded by the permissions granted for the task.</div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The Harness selects matching skills and follows repository instructions. You do not need to name each file, command, or check.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Describe the outcome and ask for content, visual, tone, or interaction alternatives. Personal context and tools stay within granted permissions.</p></div>
+  </div>
   <!-- [Sources] /content/pages/build-landing.md; UC San Diego Website Maintainer skill; /AGENTS.md; /.github/workflows/pages.yml -->
 </section>
 
@@ -963,21 +1026,27 @@ td code { font-size: 13px; }
     <div class="layer-connector">↓</div>
     <div class="layer-row"><div class="layer-title">Working copy</div><div class="layer-items"><div class="arch-node"><strong>Install the tools</strong><span>Git · GitHub CLI · Node 22 or later · TritonAI Harness</span></div><div class="arch-node core"><strong>Authenticate and clone</strong><span>The Harness starts <code>gh auth login --web</code>; you finish browser sign-in; the Harness confirms access and runs <code>git clone</code></span></div><div class="arch-node review"><strong>Check the baseline</strong><span>The Harness installs dependencies and runs the documented tests before making a change</span></div></div></div>
   </div>
-  <div class="callout">Complete account sign-in yourself. Keep passwords, tokens, recovery codes, private keys, and one-time codes out of the Harness.</div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after access</span><p>The website skill verifies repository access, clones the working copy, installs dependencies, inventories the site, and runs the baseline.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Create the account, accept access, and finish sign-in yourself. Then ask: “Verify my setup and report any blockers.” Keep secrets out of the Harness.</p></div>
+  </div>
 </section>
 
 <!-- SLIDE 6: Choose the source -->
 <section class="slide slide-content slide-navy" data-slide="6">
   <p class="kicker">Inside the Harness · Start the update</p>
   <h2>Open one task and describe the complete update</h2>
-  <div class="workflow-pipeline" role="img" aria-label="Inside the TritonAI Harness, open the website working copy, start a new task, identify the public page and audience, provide the approved source and requested result, and ask the Harness to inspect before editing.">
-    <div class="arch-node"><strong>Open the working copy</strong><span>Launch TritonAI Harness and open the TritonAI website repository</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Start a new task</strong><span>Keep one focused website update in each task</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Name the page</strong><span>Give the public URL or route and the intended audience</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><strong>Add source + result</strong><span>Provide the approved source and the exact change you want</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node review"><strong>Ask it to inspect first</strong><span>Find the canonical file, read repository rules, and report the plan</span></div>
+  <div class="workflow-pipeline" role="img" aria-label="The contributor starts with a focused prompt. The TritonAI Harness then finds the canonical source, reads repository rules, checks overlapping work, and proposes an implementation plan.">
+    <div class="arch-node review"><strong>Your prompt</strong><span>Name the page, audience, approved source, and desired result</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Find the source</strong><span>The skill locates the canonical file that owns the public page</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Read the rules</strong><span>It discovers ownership, brand, accessibility, integration, and release requirements</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Check current work</strong><span>It inspects Git status, branches, and pull requests before editing</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Propose the plan</strong><span>It reports scope, files, checks, risks, and the next human gate</span></div>
   </div>
-  <p class="pathway-note"><strong>Copy-paste request:</strong> “Update <code>[page]</code> for <code>[audience]</code> using <code>[approved source]</code>. Change <code>[desired result]</code>. Preserve routes, UC San Diego brand, accessibility, and integrations. Inspect first, then show me the preview and diff. Wait for my approval before commit, push, or pull-request creation.”</p>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>Matching skills perform discovery and apply the repository’s standing rules without requiring a list of commands.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt to start</span><p>“Update <code>[page]</code> for <code>[audience]</code> using <code>[approved source]</code>. Create <code>[desired result]</code>. Show me the preview and diff before publishing.”</p></div>
+  </div>
   <!-- [Sources] /AGENTS.md; /README.md; /docs/content-governance.md -->
 </section>
 
@@ -994,7 +1063,10 @@ td code { font-size: 13px; }
     <div class="flow-arrow">→</div>
     <div class="flow-step"><div class="step-num">4</div><div class="step-label">Request evidence</div><div class="step-desc">Ask for the diff, changed files, test results, warnings, and rollback path</div></div>
   </div>
-  <div class="workflow-note"><div><strong>Useful feedback:</strong> “Shorten the introduction,” “use a clearer heading,” “try a different on-brand layout,” or “make the mobile order easier to scan.”</div><div><strong>Before approval:</strong> check wording, links, images, headings, audience action, desktop and phone layouts, keyboard behavior, and open warnings.</div></div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The Harness updates the canonical source, preserves required structure, rebuilds the page, refreshes responsive previews, and tracks the complete diff.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt to enhance</span><p>“Shorten the opening,” “make the workflow visual,” “try another on-brand composition,” “improve the mobile reading order,” or “make the next action clearer.”</p></div>
+  </div>
 </section>
 
 <!-- SLIDE 8: Review a local copy -->
@@ -1010,7 +1082,10 @@ td code { font-size: 13px; }
     <div class="flow-arrow">→</div>
     <div class="flow-step"><div class="step-num">4</div><div class="step-label">Revise or finish</div><div class="step-desc">Give feedback while the preview runs. When finished, ask the Harness to stop the server and show the final diff</div></div>
   </div>
-  <div class="workflow-note"><div><strong>Useful request:</strong> “Open the local copy of <code>[route]</code> at desktop and phone widths and leave it running while I review.”</div><div><strong>State boundary:</strong> localhost is a private preview. Nothing is published until the approved pull request is merged, Cascade finishes, and the public URL is verified.</div></div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after your request</span><p>The Harness builds the site, starts the preview server, opens the route at desktop and phone widths, and keeps the preview current as it revises.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / review</span><p>“Open <code>[route]</code> at desktop and phone widths and leave it running.” Review the page and describe the changes you want. Localhost remains private.</p></div>
+  </div>
   <!-- [Sources] /README.md; /AGENTS.md -->
 </section>
 
@@ -1023,6 +1098,10 @@ td code { font-size: 13px; }
     <div class="layer-connector">↓</div>
     <div class="layer-row"><div class="layer-title">Human review</div><div class="layer-items"><div class="arch-node"><strong>Content owner</strong><span>Confirms accuracy, source authority, audience fit, and public suitability</span></div><div class="arch-node"><strong>Experience review</strong><span>Checks responsive layout, keyboard use, focus, zoom, and screen-reader behavior</span></div><div class="arch-node review"><strong>Approve PR preparation</strong><span>Reviews the complete diff and rendered result in the Harness before commit, push, and pull-request creation</span></div></div></div>
   </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The skill runs every required build, validation, language, compatibility, and accessibility check and reports failures and warnings.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask it to fix accepted findings and rerun the gates. You judge meaning, visual quality, keyboard and screen-reader experience, and the final diff.</p></div>
+  </div>
 </section>
 
 <!-- SLIDE 10: Automated content feeds -->
@@ -1033,7 +1112,10 @@ td code { font-size: 13px; }
     <article class="card"><span class="card-type card-type-gold">Monday · 18:15 UTC</span><h3>UC San Diego AI Weekly</h3><p>Fetches published editions, validates required sections, removes unsafe markup, and writes newsletter Markdown. The build updates the homepage and AI Updates archive. The job opens or refreshes a pull request.</p></article>
     <article class="card"><span class="card-type card-type-blue">Monday · 18:30 UTC</span><h3>Media coverage</h3><p>Searches the public web for new TritonAI and TritonGPT coverage, tags discovered items for review, updates the article data, and re-renders the archive. The job opens or refreshes a pull request.</p></article>
   </div>
-  <div class="callout">Each job runs the full site test suite before it opens or refreshes a pull request. A person reviews and merges the change before Cascade can publish it.</div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic on schedule</span><p>The jobs collect candidates, sanitize or filter them, update canonical content, run tests, and open or refresh a pull request.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask for stronger headlines, clearer summaries, better placement, or an accessible supporting visual. Confirm the sources and merge only approved items.</p></div>
+  </div>
   <!-- [Sources] /.github/workflows/sync-ai-news.yml; /.github/workflows/sync-media-coverage.yml; /docs/ai-news-sync.md -->
 </section>
 
@@ -1045,7 +1127,10 @@ td code { font-size: 13px; }
     <article class="card"><span class="card-type card-type-cyan">PR · main · hourly · dispatch</span><h3>Pages validation and Skills Library</h3><p>Refreshes the approved public Skills Library catalog, then builds and checks routes, language, and accessibility. Pull requests get validation; main, hourly, and dispatched runs also update the GitHub Pages staging site.</p></article>
     <article class="card"><span class="card-type card-type-gold">Monday · 16:17 UTC</span><h3>CMS UX review</h3><p>Audits generated pages against approved layout rules, publishes a tracking issue, and may open constrained draft pull requests. Content-owner, responsive, keyboard, zoom, and screen-reader review remain required.</p></article>
   </div>
-  <div class="callout">The Skills Library refresh and Pages deployment update staging, not Cascade production. UX proposals do not merge automatically. Both remain inside the human-controlled release boundary.</div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic on trigger</span><p>Skills refresh, staging validation, and bounded UX audits run from schedules, repository events, or manual dispatch and produce review evidence.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask the Harness to implement an accepted finding, compare before and after, or explore a stronger design. Staging and proposals do not publish production.</p></div>
+  </div>
   <!-- [Sources] /.github/workflows/pages.yml; /.github/workflows/ux-review.yml; /docs/skills-library-sync.md -->
 </section>
 
@@ -1060,7 +1145,10 @@ td code { font-size: 13px; }
     <div class="arch-node review"><strong>“Push and open the PR”</strong><span>The Harness pushes the branch and creates a focused pull request with evidence</span></div><div class="arch-arrow">→</div>
     <div class="arch-node"><strong>“Monitor the checks”</strong><span>It reports passed, failed, cancelled, or blocked GitHub checks without merging</span></div>
   </div>
-  <div class="callout"><strong>Human decisions:</strong> complete account authentication, authorize the content, approve the diff and rendered result, review and merge the pull request in GitHub, and confirm the public page. Only an authorized person merges.</div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after authorization</span><p>The Harness stages only approved files, commits, pushes, opens the focused pull request, and monitors checks without merging.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>“Commit these files,” “push and open the PR,” and “monitor the checks.” You authorize the content, approve the rendered result, and merge in GitHub.</p></div>
+  </div>
   <!-- [Sources] /AGENTS.md; /docs/content-governance.md -->
 </section>
 
@@ -1075,31 +1163,34 @@ td code { font-size: 13px; }
     <div class="arch-node core"><strong>GitHub Actions</strong><span>The merge triggers <code>cascade-upload.yml</code> to build, validate, upload, and queue Cascade publishing</span></div><div class="arch-arrow">→</div>
     <div class="arch-node review"><strong>Verify live</strong><span>Open the public URL and compare it with the approved version</span></div>
   </div>
-  <p class="pathway-note">A merged pull request, successful upload, or queued Cascade publish is an intermediate state. The change is live only after the public page shows the approved result.</p>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after merge</span><p>GitHub Actions builds, validates, uploads, and queues Cascade publishing. The Harness can monitor the release record and compare the public page.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Merge the approved pull request, then ask: “Monitor Cascade and verify the public URL.” Confirm the live page matches what you approved.</p></div>
+  </div>
   <!-- [Sources] /.github/workflows/cascade-upload.yml -->
 </section>
 
 <!-- SLIDE 14: Contributor checklist -->
 <section class="slide slide-content slide-sand slide-checklist" data-slide="14">
   <p class="kicker">Contributor checklist</p>
-  <h2>Move one focused change from source to live</h2>
+  <h2>Give direction while the skills handle the mechanics</h2>
   <div class="two-col">
     <div>
-      <h3>Prepare and edit</h3>
+      <h3>You prompt and decide</h3>
       <ul class="checklist">
-        <li><strong>Confirm access</strong>Finish browser sign-in; the Harness confirms access, clones, and runs the baseline.</li>
-        <li><strong>Start the Harness task</strong>Name the route, audience, approved source, desired result, and approval boundary.</li>
-        <li><strong>Edit the canonical source</strong>The Harness creates a focused Git branch and preserves existing routes and integrations.</li>
-        <li><strong>Review the page</strong>Inspect desktop and responsive layouts and refine the result.</li>
+        <li><strong>Set the content goal</strong>Name the route, audience, approved source, desired result, and any open decisions.</li>
+        <li><strong>Improve the story</strong>Ask for clearer structure, stronger headings, useful examples, or a more direct audience action.</li>
+        <li><strong>Improve the design</strong>Ask for an on-brand composition, accessible workflow visual, or better responsive reading order.</li>
+        <li><strong>Approve the result</strong>Review the preview, diff, evidence, pull request, and live page. An authorized person merges.</li>
       </ul>
     </div>
     <div>
-      <h3>Review and publish</h3>
+      <h3>Skills handle after the trigger</h3>
       <ul class="checklist">
-        <li><strong>Run every required check</strong>Record passed checks, warnings, and anything blocked.</li>
-        <li><strong>Open a focused pull request</strong>After approval, the Harness commits, pushes, and opens the PR with evidence and rollback.</li>
-        <li><strong>Wait for human approval</strong>The reviewer checks the diff and CI, then approves and merges.</li>
-        <li><strong>Verify production</strong>Confirm the public page matches the approved result.</li>
+        <li><strong>Discover the rules</strong>Select matching skills, find the canonical source, and preserve routes, brand, accessibility, and integrations.</li>
+        <li><strong>Implement and preview</strong>Create the branch, edit the source, build the site, and keep responsive previews current.</li>
+        <li><strong>Validate and prepare review</strong>Run required checks and prepare the approved commit, push, and pull request.</li>
+        <li><strong>Follow the release</strong>After the human merge, monitor Cascade and compare production with the approved result.</li>
       </ul>
     </div>
   </div>
