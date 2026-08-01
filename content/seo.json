@@ -21,8 +21,8 @@
       "lastModified": "2026-07-29"
     },
     "/presentations/managing-the-tritonai-website.html": {
-      "title": "Updating Content with the TritonAI Harness",
-      "description": "Follow the content updater journey from first-time setup through Harness and n8n triggers, source routing, validation, Cascade publishing, maintenance, risks, benefits, and future site features.",
+      "title": "Editing and Publishing the TritonAI Website",
+      "description": "Learn how new TritonAI content contributors set up access, edit the canonical source, review changes, publish through Cascade, and verify the live page.",
       "robots": "noindex,nofollow",
       "lastModified": "2026-07-31"
     },
