@@ -1004,7 +1004,7 @@ td code { font-size: 13px; }
   <h2>The Harness activates relevant skills as the task unfolds</h2>
   <div class="benefit-pairs benefit-pairs-compact benefit-pairs-wide">
     <div class="benefit-pair"><h3>Managed workspace</h3><p>The Harness brings approved models, campus configuration, and permissioned connectors into one supported workspace.</p></div>
-    <div class="benefit-pair"><h3>Campus Skills Library</h3><p>When a task matches, the Harness applies reviewed patterns for UC San Diego branding, accessibility, content, data, and common workflows.</p></div>
+    <div class="benefit-pair"><h3>Campus Skills Library</h3><p>When a task matches, the Harness applies reviewed patterns from a catalog refreshed automatically from the approved public source.</p></div>
     <div class="benefit-pair"><h3>Personal Context Engine</h3><p>Approved personal context can ground the task in the contributor's priorities, sources, working style, and previous decisions.</p></div>
     <div class="benefit-pair"><h3>Website maintenance skill</h3><p>Automatically discovers repository governance, canonical sources, integrations, required checks, deployment, and live-verification rules.</p></div>
     <div class="benefit-pair"><h3>Git and GitHub execution</h3><p>Inspects existing work, creates the branch, shows the diff, and prepares the approved commit, push, pull request, and checks.</p></div>
@@ -1014,7 +1014,7 @@ td code { font-size: 13px; }
     <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The Harness selects matching skills and follows repository instructions. You do not need to name each file, command, or check.</p></div>
     <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Describe the outcome and ask for content, visual, tone, or interaction alternatives. Personal context and tools stay within granted permissions.</p></div>
   </div>
-  <!-- [Sources] /content/pages/build-landing.md; UC San Diego Website Maintainer skill; /AGENTS.md; /.github/workflows/pages.yml -->
+  <!-- [Sources] /content/pages/build-landing.md; UC San Diego Website Maintainer skill; /AGENTS.md; /.github/workflows/pages.yml; /.github/workflows/cascade-upload.yml; /docs/skills-library-sync.md -->
 </section>
 
 <!-- SLIDE 5: Contributor onboarding -->
@@ -1122,16 +1122,16 @@ td code { font-size: 13px; }
 <!-- SLIDE 11: Automated maintenance -->
 <section class="slide slide-content" data-slide="11">
   <p class="kicker">Automated maintenance</p>
-  <h2>Validation and review jobs keep the staging site current</h2>
+  <h2>Scheduled jobs refresh the Skills Library and audit the site</h2>
   <div class="two-col">
-    <article class="card"><span class="card-type card-type-cyan">PR · main · hourly · dispatch</span><h3>Pages validation and Skills Library</h3><p>Refreshes the approved public Skills Library catalog, then builds and checks routes, language, and accessibility. Pull requests get validation; main, hourly, and dispatched runs also update the GitHub Pages staging site.</p></article>
+    <article class="card"><span class="card-type card-type-cyan">PR · hourly staging · daily production</span><h3>Skills Library refresh</h3><p>The Pages workflow refreshes the approved catalog and checks routes, language, and accessibility. Pull requests produce review evidence; main, hourly, and dispatched runs update staging. Cascade refreshes on main and manual releases. Daily and upstream-triggered runs publish only when the live catalog is behind.</p></article>
     <article class="card"><span class="card-type card-type-gold">Monday · 16:17 UTC</span><h3>CMS UX review</h3><p>Audits generated pages against approved layout rules, publishes a tracking issue, and may open constrained draft pull requests. Content-owner, responsive, keyboard, zoom, and screen-reader review remain required.</p></article>
   </div>
   <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic on trigger</span><p>Skills refresh, staging validation, and bounded UX audits run from schedules, repository events, or manual dispatch and produce review evidence.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask the Harness to implement an accepted finding, compare before and after, or explore a stronger design. Staging and proposals do not publish production.</p></div>
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic on trigger</span><p>Workflows refresh the catalog and run their assigned validations. Daily production checks compare source and live commit IDs, skipping the Cascade build and publish when current.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Review changes in the Skills Library source. Ask the Harness to implement accepted UX findings, compare before and after, or explore a stronger design; people still approve proposed page changes.</p></div>
   </div>
-  <!-- [Sources] /.github/workflows/pages.yml; /.github/workflows/ux-review.yml; /docs/skills-library-sync.md -->
+  <!-- [Sources] /.github/workflows/pages.yml; /.github/workflows/cascade-upload.yml; /.github/workflows/ux-review.yml; /docs/skills-library-sync.md -->
 </section>
 
 <!-- SLIDE 12: Harness and GitHub -->
