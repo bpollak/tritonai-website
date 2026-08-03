@@ -40,40 +40,40 @@ bannerMode: abstract
 
 <!-- AGENT_SECTION: model-catalog -->
 <section class="hub-section" id="model-catalog" aria-labelledby="model-catalog-heading">
-<div class="hub-heading"><p class="home-kicker">Shared AI platform</p><h2 id="model-catalog-heading">Models available through the gateway</h2><p>The gateway lists these models today, spanning approved enterprise cloud models and UC-hosted open models. Context length is the amount of input a request can carry. Rates and full details stay in the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a>.</p></div>
+<div class="hub-heading"><p class="home-kicker">Shared AI platform</p><h2 id="model-catalog-heading">Models available through the gateway</h2><p>The gateway lists these models today, spanning approved enterprise cloud models and UC-hosted open models. The code under each name is the request ID to use through the gateway, and context length is the amount of input a request can carry. Rates and full details stay in the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a>.</p></div>
 <div class="table-responsive" role="region" aria-label="Current model catalog" tabindex="0"><table class="table table-striped model-catalog-table">
 <caption class="sr-only">Models currently listed by the TritonAI gateway with their hosting, type, and context length</caption>
 <thead><tr><th scope="col">Model</th><th scope="col">Hosting</th><th scope="col">Type</th><th scope="col">Context length</th></tr></thead>
 <tbody>
-<tr><td><code>claude-opus-4-6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>claude-opus-4-6-v1</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>200K tokens</td></tr>
-<tr><td><code>claude-opus-4-7</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>claude-opus-4-8</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>claude-opus-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>claude-sonnet-4-6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>claude-sonnet-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>gemini-3.5-flash</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
-<tr><td><code>gemini-3.5-flash-lite</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
-<tr><td><code>gemini-3.6-flash</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
-<tr><td><code>gpt-5.4</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
-<tr><td><code>gpt-5.5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
-<tr><td><code>gpt-5.6-luna</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
-<tr><td><code>gpt-5.6-sol</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
-<tr><td><code>gpt-5.6-terra</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
-<tr><td><code>kimi-k2.6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>See Model Hub</td></tr>
-<tr><td><code>minimax.minimax-m2</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
-<tr><td><code>mistral.mistral-large-3-675b-instruct</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
-<tr><td><code>moonshotai.kimi-k2.5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>262K tokens</td></tr>
-<tr><td><code>us.amazon.nova-2-lite-v1:0</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>us.amazon.nova-premier-v1:0</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>api-tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>33K tokens</td></tr>
-<tr><td><code>tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>See Model Hub</td></tr>
-<tr><td><code>api-deepseek-v4-flash</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><code>api-gemma-4-31b</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>256K tokens</td></tr>
-<tr><td><code>api-glm-5.2</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>320K tokens</td></tr>
-<tr><td><code>api-gpt-oss-120b</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
-<tr><td><code>api-lightonocr-1b</code></td><td>UC-hosted</td><td>Document OCR</td><td>8K tokens</td></tr>
-<tr><td><code>api-cohere-transcribe</code></td><td>UC-hosted</td><td>Speech to text</td><td>See Model Hub</td></tr>
+<tr><td><strong>Claude Opus 4.6</strong><br><code class="model-catalog-request-id">claude-opus-4-6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Claude Opus 4.6</strong><br><code class="model-catalog-request-id">claude-opus-4-6-v1</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>200K tokens</td></tr>
+<tr><td><strong>Claude Opus 4.7</strong><br><code class="model-catalog-request-id">claude-opus-4-7</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Claude Opus 4.8</strong><br><code class="model-catalog-request-id">claude-opus-4-8</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Claude Opus 5</strong><br><code class="model-catalog-request-id">claude-opus-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Claude Sonnet 4.6</strong><br><code class="model-catalog-request-id">claude-sonnet-4-6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Claude Sonnet 5</strong><br><code class="model-catalog-request-id">claude-sonnet-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Gemini 3.5 Flash</strong><br><code class="model-catalog-request-id">gemini-3.5-flash</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
+<tr><td><strong>Gemini 3.5 Flash Lite</strong><br><code class="model-catalog-request-id">gemini-3.5-flash-lite</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
+<tr><td><strong>Gemini 3.6 Flash</strong><br><code class="model-catalog-request-id">gemini-3.6-flash</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
+<tr><td><strong>GPT-5.4</strong><br><code class="model-catalog-request-id">gpt-5.4</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
+<tr><td><strong>GPT-5.5</strong><br><code class="model-catalog-request-id">gpt-5.5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
+<tr><td><strong>GPT-5.6 Luna</strong><br><code class="model-catalog-request-id">gpt-5.6-luna</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
+<tr><td><strong>GPT-5.6 Sol</strong><br><code class="model-catalog-request-id">gpt-5.6-sol</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
+<tr><td><strong>GPT-5.6 Terra</strong><br><code class="model-catalog-request-id">gpt-5.6-terra</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
+<tr><td><strong>Kimi K2.6</strong><br><code class="model-catalog-request-id">kimi-k2.6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>See Model Hub</td></tr>
+<tr><td><strong>MiniMax M2</strong><br><code class="model-catalog-request-id">minimax.minimax-m2</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
+<tr><td><strong>Mistral Large 3</strong><br><code class="model-catalog-request-id">mistral.mistral-large-3-675b-instruct</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
+<tr><td><strong>Kimi K2.5</strong><br><code class="model-catalog-request-id">moonshotai.kimi-k2.5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>262K tokens</td></tr>
+<tr><td><strong>Amazon Nova 2 Lite</strong><br><code class="model-catalog-request-id">us.amazon.nova-2-lite-v1:0</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Amazon Nova Premier</strong><br><code class="model-catalog-request-id">us.amazon.nova-premier-v1:0</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>TritonGPT Embeddings</strong><br><code class="model-catalog-request-id">api-tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>33K tokens</td></tr>
+<tr><td><strong>Tgpt Embeddings</strong><br><code class="model-catalog-request-id">tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>See Model Hub</td></tr>
+<tr><td><strong>DeepSeek V4 Flash</strong><br><code class="model-catalog-request-id">api-deepseek-v4-flash</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><strong>Gemma 4 31B</strong><br><code class="model-catalog-request-id">api-gemma-4-31b</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>256K tokens</td></tr>
+<tr><td><strong>GLM 5.2</strong><br><code class="model-catalog-request-id">api-glm-5.2</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>320K tokens</td></tr>
+<tr><td><strong>GPT-OSS 120B</strong><br><code class="model-catalog-request-id">api-gpt-oss-120b</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
+<tr><td><strong>LightOn OCR 1B</strong><br><code class="model-catalog-request-id">api-lightonocr-1b</code></td><td>UC-hosted</td><td>Document OCR</td><td>8K tokens</td></tr>
+<tr><td><strong>Cohere Transcribe</strong><br><code class="model-catalog-request-id">api-cohere-transcribe</code></td><td>UC-hosted</td><td>Speech to text</td><td>See Model Hub</td></tr>
 </tbody>
 </table></div>
 <p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-08-03. Test registrations and TritonGPT-internal serving entries are excluded.</p>
