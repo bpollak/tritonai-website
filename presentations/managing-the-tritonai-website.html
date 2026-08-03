@@ -4,1391 +4,234 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Editing and Publishing the TritonAI Website | Presentation</title>
+<title>TritonAI Harness Editing and Publishing Workflow | Video</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --triton-navy: #182b49;
   --triton-blue: #00629b;
-  --triton-bright-blue: #00c6d7;
   --triton-gold: #ffcd00;
-  --triton-sand: #f5f0e6;
-  --triton-slate: #37474f;
   --triton-border: #d5d9de;
-  --triton-dark-navy: #102b4e;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html, body {
+html,
+body {
   height: 100%;
-  font-family: Roboto, sans-serif;
-  color: var(--triton-slate);
+}
+
+body {
   background: #fff;
+  color: var(--triton-navy);
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   overflow: hidden;
 }
 
 .deck {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
-/* --- Header (matches UCSD Decorator two-tier layout) --- */
-.site-header {
-  flex-shrink: 0;
-  z-index: 10;
-}
-.layout-title {
-  background: #fff;
-  display: flex;
+.viewport {
   align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 0;
+  overflow: auto;
+  padding: clamp(12px, 2vw, 28px);
+}
+
+.video-only {
+  display: grid;
+  gap: clamp(12px, 1.5vw, 22px);
+  grid-template-rows: minmax(0, 1fr) auto;
+  margin: auto;
+  max-width: 1600px;
+  width: 100%;
+}
+
+.video-only video {
+  background: #000;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(24, 43, 73, .16);
+  display: block;
+  max-height: calc(100vh - 220px);
+  object-fit: contain;
+  width: 100%;
+}
+
+.video-transcript {
+  color: var(--triton-navy);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 2.8em;
+  text-align: center;
+}
+
+.controls {
+  align-items: center;
+  background: var(--triton-navy);
+  color: #fff;
+  display: flex;
+  flex-shrink: 0;
+  gap: 18px;
+  height: 54px;
   justify-content: space-between;
   padding: 0 28px;
-  height: 60px;
-  border-bottom: 1px solid var(--triton-border);
 }
-.title-brand {
-  font-family: Roboto, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #000;
-  text-decoration: none;
-}
-.title-brand span { font-weight: 700; }
-.title-ucsd {
-  display: inline-flex;
+
+.controls-left {
   align-items: center;
-  text-decoration: none;
-}
-.title-ucsd img {
-  display: block;
-  width: 170px;
-  height: auto;
-}
-.title-ucsd:hover { opacity: .85; }
-.layout-nav {
-  background: var(--triton-blue);
   display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
   align-items: center;
-  padding: 0 28px;
-  height: 44px;
-}
-.layout-nav span {
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: .03em;
-}
-
-/* --- Slide viewport --- */
-.viewport {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-.slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .35s ease;
-  overflow-y: auto;
-}
-.slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.slide:focus-visible {
-  outline: 3px solid var(--triton-gold);
-  outline-offset: -3px;
-}
-
-/* --- Hero slides (navy background) --- */
-.slide-hero {
-  background: var(--triton-navy);
-  background-image: linear-gradient(135deg, var(--triton-dark-navy) 0%, var(--triton-navy) 50%, #1a3a5c 100%);
-  color: #fff;
-  justify-content: center;
-  padding: 60px;
-}
-.slide-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 70% 40%, rgba(0,198,215,.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-.slide-hero .kicker {
-  color: var(--triton-gold);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.slide-hero h1 {
-  font-family: 'Teko', sans-serif;
-  font-size: clamp(48px, 6vw, 84px);
-  line-height: 1;
-  font-weight: 600;
-  max-width: 900px;
-  text-shadow: 0 2px 18px rgba(0,0,0,.22);
-}
-.slide-hero .lede {
-  font-size: 22px;
-  line-height: 1.5;
-  max-width: 720px;
-  margin-top: 20px;
-  color: rgba(255,255,255,.82);
-}
-.slide-hero .presentation-meta {
-  margin-top: 36px;
-  display: flex;
-  gap: 40px;
-}
-.slide-hero .presentation-meta > div {
-  border-left: 3px solid var(--triton-gold);
-  padding-left: 14px;
-}
-.slide-hero .presentation-meta .meta-label {
-  display: block;
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--triton-gold);
-  font-weight: 700;
-}
-.slide-hero .presentation-meta .meta-value {
-  display: block;
-  font-size: 16px;
-  color: rgba(255,255,255,.8);
-  margin-top: 2px;
-}
-
-/* --- Content slides --- */
-.slide-content {
-  background: #fff;
-  padding: 54px 60px 60px;
-}
-.slide-content .kicker {
-  color: var(--triton-blue);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.slide-content h2 {
-  font-family: 'Teko', sans-serif;
-  font-size: clamp(34px, 4vw, 46px);
-  line-height: 1.08;
-  color: var(--triton-blue);
-  margin-bottom: 24px;
-  max-width: 880px;
-}
-.slide-content h3 {
-  font-family: 'Teko', sans-serif;
-  font-size: 28px;
-  color: var(--triton-blue);
-  margin-top: 28px;
-  margin-bottom: 10px;
-}
-.slide-content p {
-  font-size: 18px;
-  line-height: 1.6;
-  max-width: 880px;
-  margin-bottom: 14px;
-}
-.slide-content ul, .slide-content ol {
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 880px;
-  padding-left: 24px;
-  margin-bottom: 14px;
-}
-.slide-content li { margin-bottom: 6px; }
-.slide-content strong { color: var(--triton-blue); }
-.slide-content code {
-  background: var(--triton-sand);
-  padding: 2px 7px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .55);
   border-radius: 4px;
-  font-size: 15px;
-  font-family: 'SF Mono', 'Menlo', monospace;
-  color: var(--triton-navy);
-}
-.slide-content pre {
-  background: var(--triton-navy);
-  color: #e8edf2;
-  padding: 20px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  line-height: 1.6;
-  overflow-x: auto;
-  max-width: 880px;
-  margin: 14px 0;
-}
-.slide-content pre code {
-  background: none;
-  color: inherit;
-  padding: 0;
-  font-size: inherit;
-}
-
-/* --- Sand background variant --- */
-.slide-sand { background: var(--triton-sand); }
-
-/* --- Navy background variant for content --- */
-.slide-navy {
-  background: var(--triton-navy);
-  color: rgba(255,255,255,.85);
-}
-.slide-navy .kicker { color: var(--triton-gold); }
-.slide-navy h2 { color: #fff; }
-.slide-navy h3 { color: var(--triton-bright-blue); }
-.slide-navy p, .slide-navy li { color: rgba(255,255,255,.82); }
-.slide-navy strong { color: #fff; }
-.slide-navy code { background: rgba(255,255,255,.1); color: var(--triton-bright-blue); }
-.slide-navy pre { background: rgba(0,0,0,.3); }
-
-/* --- Cards grid --- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 16px;
-  max-width: 960px;
-}
-.card {
-  background: #fff;
-  border: 1px solid var(--triton-border);
-  border-radius: 8px;
-  padding: 22px;
-  transition: border-color .2s, box-shadow .2s, transform .2s;
-}
-.card:hover {
-  border-color: #9aa7b2;
-  box-shadow: 0 12px 28px rgba(24,43,73,.11);
-  transform: translateY(-3px);
-}
-.slide-sand .card { background: #fff; }
-.slide-navy .card {
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.15);
-}
-.slide-navy .card:hover {
-  border-color: var(--triton-bright-blue);
-  box-shadow: 0 12px 28px rgba(0,0,0,.2);
-}
-.card .card-type {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
-.card-type-gold { background: rgba(255,205,0,.18); color: #b89400; }
-.card-type-blue { background: rgba(0,98,155,.12); color: var(--triton-blue); }
-.card-type-cyan { background: rgba(0,198,215,.12); color: #00838f; }
-.slide-navy .card-type-gold { background: rgba(255,205,0,.2); color: var(--triton-gold); }
-.slide-navy .card-type-blue { background: rgba(0,198,215,.15); color: var(--triton-bright-blue); }
-.slide-navy .card-type-cyan { background: rgba(0,198,215,.15); color: var(--triton-bright-blue); }
-.card h3 {
-  font-family: 'Teko', sans-serif;
+  color: #fff;
+  display: inline-flex;
   font-size: 24px;
-  margin-top: 0;
-  color: var(--triton-blue);
-}
-.slide-navy .card h3 { color: #fff; }
-.card p { font-size: 15px; line-height: 1.5; margin: 0; }
-
-/* --- Table --- */
-.table-wrap { overflow-x: auto; max-width: 880px; }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-  margin-top: 12px;
-}
-th, td {
-  text-align: left;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--triton-border);
-}
-.slide-navy th, .slide-navy td { border-color: rgba(255,255,255,.15); }
-th {
-  font-weight: 700;
-  color: var(--triton-blue);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-.slide-navy th { color: var(--triton-gold); }
-tbody tr:hover { background: var(--triton-sand); }
-.slide-navy tbody tr:hover { background: rgba(255,255,255,.04); }
-td code { font-size: 13px; }
-
-/* --- Comparison columns --- */
-.compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  max-width: 900px;
-  margin-top: 16px;
-}
-.compare-col {
-  border-radius: 8px;
-  padding: 24px;
-}
-.compare-col h3 { margin-top: 0; }
-.compare-old {
-  background: #f0ede8;
-  border: 1px solid var(--triton-border);
-}
-.compare-old h3 { color: #6b7785; }
-.compare-new {
-  background: rgba(0,98,155,.06);
-  border: 1px solid rgba(0,98,155,.2);
-}
-.compare-new h3 { color: var(--triton-blue); }
-.compare-col ul { font-size: 16px; line-height: 1.65; padding-left: 20px; }
-.compare-col li { margin-bottom: 8px; }
-
-/* --- Flow diagram --- */
-.flow {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  margin-top: 24px;
-  max-width: 920px;
-  flex-wrap: wrap;
-}
-.flow-step {
-  flex: 1;
-  min-width: 130px;
-  background: #fff;
-  border: 2px solid var(--triton-blue);
-  border-radius: 8px;
-  padding: 16px 14px;
-  text-align: center;
-  position: relative;
-}
-.slide-navy .flow-step {
-  background: rgba(255,255,255,.06);
-  border-color: var(--triton-bright-blue);
-}
-.flow-step .step-num {
-  font-family: 'Teko', sans-serif;
-  font-size: 32px;
-  color: var(--triton-gold);
+  height: 34px;
+  justify-content: center;
   line-height: 1;
-}
-.flow-step .step-label {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--triton-blue);
-  margin-top: 4px;
-}
-.slide-navy .flow-step .step-label { color: #fff; }
-.flow-step .step-desc {
-  font-size: 12px;
-  color: #6b7785;
-  margin-top: 4px;
-  line-height: 1.4;
-}
-.flow-step code { font-size: 12px; padding: 2px 4px; white-space: normal; overflow-wrap: anywhere; }
-.slide-navy .flow-step .step-desc { color: rgba(255,255,255,.6); }
-.flow-arrow {
-  display: flex;
-  align-items: center;
-  color: var(--triton-bright-blue);
-  font-size: 24px;
-  padding: 0 6px;
+  width: 40px;
 }
 
-/* --- Badge --- */
-.badge {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.badge-green { background: #e8f5e9; color: #2e7d32; }
-.badge-blue { background: #e3f2fd; color: #1565c0; }
-.badge-gold { background: #fff8e1; color: #f57f17; }
-.slide-navy .badge-green { background: rgba(76,175,80,.15); color: #81c784; }
-.slide-navy .badge-blue { background: rgba(0,198,215,.15); color: var(--triton-bright-blue); }
-.slide-navy .badge-gold { background: rgba(255,205,0,.15); color: var(--triton-gold); }
-
-/* --- Callout --- */
-.callout {
-  border-left: 4px solid var(--triton-gold);
-  background: rgba(255,205,0,.07);
-  padding: 16px 22px;
-  border-radius: 0 8px 8px 0;
-  margin: 16px 0;
-  max-width: 880px;
-  font-size: 17px;
-  line-height: 1.55;
-}
-.slide-navy .callout {
-  background: rgba(255,205,0,.08);
-  color: rgba(255,255,255,.85);
+.nav-btn:focus-visible {
+  outline: 3px solid var(--triton-gold);
+  outline-offset: 2px;
 }
 
-/* --- Footer (matches UCSD Decorator footer) --- */
+.nav-btn:disabled {
+  cursor: default;
+  opacity: .42;
+}
+
+.progress-text {
+  font-size: 13px;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, .25);
+  flex: 1;
+  height: 4px;
+  max-width: 540px;
+}
+
+.progress-fill {
+  background: var(--triton-gold);
+  height: 100%;
+  width: 100%;
+}
+
 .site-footer {
   background: var(--triton-blue);
   flex-shrink: 0;
   height: 10px;
 }
 
-/* --- Bottom controls --- */
-.controls {
-  background: var(--triton-blue);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  height: 40px;
-  flex-shrink: 0;
-}
-.controls-left, .controls-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.nav-btn {
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.2);
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background .2s;
-}
-.nav-btn:hover { background: rgba(255,255,255,.2); }
-.nav-btn:disabled { opacity: .3; cursor: default; }
-.progress-text {
-  color: #fff;
-  font-size: 13px;
-  letter-spacing: .04em;
-}
-.progress-bar {
-  flex: 1;
-  height: 4px;
-  background: rgba(255,255,255,.1);
-  border-radius: 2px;
-  margin: 0 20px;
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
   overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  background: var(--triton-gold);
-  border-radius: 2px;
-  transition: width .3s ease;
-}
-
-/* --- Two-column layout --- */
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  max-width: 920px;
-  margin-top: 12px;
-}
-
-/* --- Checklist --- */
-.checklist { list-style: none; padding: 0; max-width: 880px; }
-.checklist li {
-  padding: 10px 0 10px 32px;
-  position: relative;
-  font-size: 17px;
-  line-height: 1.5;
-  border-bottom: 1px solid var(--triton-border);
-}
-.slide-navy .checklist li { border-color: rgba(255,255,255,.12); }
-.checklist li::before {
-  content: "✓";
+  padding: 0;
   position: absolute;
-  left: 0;
-  top: 10px;
-  width: 22px;
-  height: 22px;
-  background: var(--triton-blue);
-  color: #fff;
-  border-radius: 50%;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-}
-.slide-navy .checklist li::before { background: var(--triton-bright-blue); }
-.checklist li strong { display: block; }
-
-/* --- Benefit-led presentation elements --- */
-.benefit-lead {
-  font-family: 'Teko', sans-serif;
-  font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.15;
-  color: var(--triton-navy);
-  max-width: 900px;
-  margin: 12px 0 28px;
-}
-.slide-navy .benefit-lead { color: #fff; }
-.benefit-pairs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 40px;
-  max-width: 920px;
-  border-top: 1px solid var(--triton-border);
-}
-.benefit-pair {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--triton-border);
-}
-.benefit-pair h3 { margin: 0 0 4px; }
-.benefit-pair p { font-size: 16px; margin: 0; }
-.benefit-pairs-compact .benefit-pair { padding: 13px 0; }
-.benefit-pairs-compact .benefit-pair p { line-height: 1.42; }
-.benefit-pairs-wide { grid-template-columns: repeat(3, 1fr); gap: 0 28px; max-width: 1100px; }
-.slide-dense { padding: 38px 60px 27px; }
-.slide-dense h2 { margin-bottom: 14px; }
-.slide-onboarding { padding-bottom: 8px; }
-.slide-checklist { padding: 34px 60px 28px; }
-.slide-checklist h2 { margin-bottom: 4px; }
-.slide-checklist .two-col { margin-top: 0; }
-.slide-checklist h3 { margin-top: 6px; margin-bottom: 4px; }
-.slide-checklist .checklist li { padding-top: 7px; padding-bottom: 7px; line-height: 1.35; }
-.slide-checklist .checklist li::before { top: 7px; }
-.slide-local-review .flow { max-width: 1080px; }
-.slide-local-review .workflow-note { max-width: 1080px; }
-.trigger-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  max-width: 980px;
-  margin-top: 22px;
-}
-.trigger-item {
-  border-top: 5px solid var(--triton-gold);
-  padding: 18px 4px 0;
-}
-.trigger-item h3 { margin: 0 0 6px; }
-.trigger-item p { font-size: 15px; margin: 0; }
-.guardrail {
-  border-left: 4px solid var(--triton-bright-blue);
-  padding-left: 22px;
-}
-.guardrail h3 { margin-top: 0; }
-.pathway-note {
-  max-width: 920px;
-  margin-top: 24px;
-  font-size: 17px;
-  color: rgba(255,255,255,.82);
-}
-.slide-brand { padding-bottom: 40px; }
-
-/* --- Architecture and workflow visuals --- */
-.arch-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--triton-blue);
-}
-.slide-navy .arch-label, .slide-hero .arch-label { color: var(--triton-gold); }
-.arch-node {
-  background: #fff;
-  border: 2px solid var(--triton-blue);
-  border-radius: 10px;
-  padding: 14px 16px;
-  min-width: 0;
-  box-shadow: 0 5px 14px rgba(24,43,73,.08);
-}
-.arch-node strong { display: block; font-size: 15px; color: var(--triton-navy); }
-.arch-node span { display: block; margin-top: 4px; font-size: 12px; line-height: 1.35; color: #66737d; }
-.arch-node.core { background: var(--triton-blue); border-color: var(--triton-blue); }
-.arch-node.core strong, .arch-node.core span { color: #fff; }
-.arch-node.review { border-color: var(--triton-gold); }
-.slide-navy .arch-node, .slide-hero .arch-node {
-  background: rgba(255,255,255,.07);
-  border-color: var(--triton-bright-blue);
-  box-shadow: none;
-}
-.slide-navy .arch-node strong, .slide-hero .arch-node strong { color: #fff; }
-.slide-navy .arch-node span, .slide-hero .arch-node span { color: rgba(255,255,255,.68); }
-.slide-navy .arch-node.core, .slide-hero .arch-node.core {
-  background: var(--triton-blue);
-  border-color: var(--triton-gold);
-}
-.arch-arrow { color: var(--triton-blue); font-size: 25px; font-weight: 700; text-align: center; align-self: center; }
-.slide-navy .arch-arrow, .slide-hero .arch-arrow { color: var(--triton-bright-blue); }
-
-.hero-architecture {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr);
-  align-items: center;
-  gap: 48px;
-  position: relative;
-  z-index: 1;
-}
-.hero-copy { min-width: 0; }
-.hero-system {
-  display: grid;
-  grid-template-columns: 1fr 28px 1.18fr 28px 1fr;
-  align-items: center;
-  gap: 6px;
-}
-.hero-system .arch-column { display: grid; gap: 10px; }
-.hero-system .arch-label { text-align: center; margin-bottom: 4px; }
-
-.capability-map {
-  display: grid;
-  grid-template-columns: minmax(150px,.7fr) 34px minmax(180px,.85fr) 34px minmax(340px,1.6fr);
-  align-items: center;
-  gap: 8px;
-  max-width: 1040px;
-  margin-top: 18px;
-}
-.capability-outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.entry-sources { display: grid; gap: 12px; }
-
-.journey-flow {
-  display: grid;
-  grid-template-columns: repeat(9, auto);
-  align-items: stretch;
-  gap: 8px;
-  max-width: 1080px;
-  margin-top: 24px;
-}
-.journey-stage {
-  min-width: 0;
-  min-height: 156px;
-  padding: 18px 16px;
-  border-top: 6px solid var(--triton-blue);
-  background: #fff;
-  box-shadow: 0 8px 22px rgba(24,43,73,.1);
-  display: flex;
-  flex-direction: column;
-}
-.journey-stage:nth-of-type(7) { border-color: var(--triton-gold); }
-.journey-stage:nth-of-type(9) { border-color: var(--triton-bright-blue); }
-.journey-number {
-  font-family: 'Teko', sans-serif;
-  font-size: 38px;
-  line-height: 1;
-  color: var(--triton-blue);
-}
-.journey-stage strong { color: var(--triton-navy); font-size: 17px; margin-top: 6px; }
-.journey-stage span:last-child { color: #66737d; font-size: 13px; line-height: 1.4; margin-top: 8px; }
-.journey-owner {
-  max-width: 1080px;
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border-top: 2px solid var(--triton-bright-blue);
-  padding-top: 10px;
-  color: var(--triton-blue);
-  font-size: 14px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.risk-matrix {
-  max-width: 1060px;
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: .8fr 34px 1.2fr;
-  gap: 10px 12px;
-  align-items: stretch;
-}
-.slide-risk { padding-bottom: 12px; }
-.slide-maintenance { padding-top: 42px; padding-bottom: 40px; }
-.slide-maintenance h2 { margin-bottom: 18px; }
-.slide-risk .risk-matrix { margin-top: 12px; row-gap: 8px; }
-.risk-head {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--triton-blue);
-  padding: 0 14px 3px;
-}
-.risk-item, .control-item {
-  border-radius: 9px;
-  padding: 12px 16px;
-  min-height: 72px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.risk-item { background: #fff; border-left: 5px solid #d75b43; }
-.control-item { background: rgba(0,98,155,.07); border-left: 5px solid var(--triton-blue); }
-.risk-item strong, .control-item strong { color: var(--triton-navy); font-size: 15px; }
-.risk-item span, .control-item span { color: #66737d; font-size: 12px; line-height: 1.35; margin-top: 3px; }
-.risk-matrix .arch-arrow { font-size: 20px; }
-
-.layer-stack { max-width: 1020px; display: grid; gap: 12px; margin-top: 12px; }
-.layer-row { display: grid; grid-template-columns: 160px 1fr; gap: 18px; align-items: stretch; }
-.layer-title { display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; border-radius: 10px; background: var(--triton-navy); color: #fff; font-weight: 700; }
-.layer-items { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-.layer-row.creative .layer-title { background: var(--triton-blue); }
-.layer-row.creative .arch-node { border-color: var(--triton-bright-blue); }
-.layer-connector { text-align: center; font-size: 22px; color: var(--triton-blue); line-height: 1; }
-
-.workflow-pipeline { display: grid; grid-template-columns: repeat(9,auto); align-items: stretch; gap: 8px; max-width: 1080px; margin-top: 18px; }
-.workflow-pipeline .arch-node { display: flex; flex-direction: column; justify-content: center; min-height: 112px; }
-.workflow-pipeline .arch-arrow { padding: 0 2px; }
-.skill-pipeline { display: grid; grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr); align-items: stretch; gap: 8px; max-width: 1080px; margin-top: 18px; }
-.skill-pipeline .arch-node { min-height: 174px; display: flex; flex-direction: column; justify-content: center; }
-.skill-pipeline .arch-arrow { padding: 0 2px; }
-.arch-node span.skill-stage-label { margin: 0 0 9px; color: var(--triton-blue); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.arch-node.core span.skill-stage-label { color: var(--triton-gold); }
-.skill-invocation .arch-node { min-height: 214px; justify-content: flex-start; }
-.skill-invocation .arch-node strong { margin-bottom: 7px; }
-.skill-invocation .skill-name { margin-top: 6px; color: var(--triton-navy); font-size: 13px; line-height: 1.35; }
-.skill-invocation .skill-name code { overflow-wrap: anywhere; }
-.skill-kind-note { max-width: 1080px; margin: 10px 0 0; font-size: 13px; color: var(--triton-slate); }
-.workflow-note { max-width: 1040px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.workflow-note div { border-left: 4px solid var(--triton-bright-blue); padding: 10px 16px; font-size: 15px; line-height: 1.45; }
-
-.responsibility-strip {
-  max-width: 1080px;
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.responsibility-lane {
-  min-width: 0;
-  padding: 11px 16px;
-  border-left: 5px solid var(--triton-bright-blue);
-  background: rgba(0,98,155,.07);
-}
-.responsibility-lane.user-lane {
-  border-left-color: var(--triton-gold);
-  background: rgba(252,227,0,.12);
-}
-.responsibility-label {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--triton-blue);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-.responsibility-lane p {
-  margin: 0;
-  color: var(--triton-navy);
-  font-size: 16px;
-  line-height: 1.38;
-}
-.responsibility-lane code { font-size: .92em; }
-.slide-navy .responsibility-lane,
-.slide-hero .responsibility-lane {
-  background: rgba(255,255,255,.08);
-}
-.slide-navy .responsibility-lane.user-lane,
-.slide-hero .responsibility-lane.user-lane {
-  background: rgba(252,227,0,.1);
-}
-.slide-navy .responsibility-label,
-.slide-hero .responsibility-label { color: var(--triton-gold); }
-.slide-navy .responsibility-lane p,
-.slide-hero .responsibility-lane p { color: rgba(255,255,255,.88); }
-.slide-dense .responsibility-strip { margin-top: 11px; }
-.slide-dense .responsibility-lane { padding-top: 8px; padding-bottom: 8px; }
-.slide-dense .responsibility-lane p { font-size: 14px; }
-
-.iteration-map { display: grid; grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr; align-items: center; max-width: 1040px; margin-top: 22px; }
-.iteration-map .arch-node { min-height: 132px; }
-.feedback-rail { max-width: 1040px; margin-top: 16px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 18px; text-align: center; color: var(--triton-blue); font-size: 14px; font-weight: 700; }
-
-.context-map { display: grid; grid-template-columns: 1.05fr 38px .8fr 38px 1.05fr; align-items: center; gap: 10px; max-width: 1040px; margin-top: 12px; }
-.context-sources { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.context-map .boundary { border: 2px dashed var(--triton-blue); border-radius: 12px; padding: 14px; display: grid; gap: 10px; background: rgba(255,255,255,.55); }
-.context-map .boundary-label { text-align: center; font-size: 12px; font-weight: 700; color: var(--triton-blue); }
-.context-actions { display: grid; gap: 10px; }
-
-.branch-map { display: grid; grid-template-columns: 150px 34px 1fr 34px 180px 34px 180px; align-items: center; gap: 8px; max-width: 1060px; margin-top: 22px; }
-.branch-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-.branch-options .arch-node { min-height: 104px; }
-
-.swimlane { max-width: 1080px; margin-top: 14px; display: grid; grid-template-columns: 120px repeat(4,1fr); border: 1px solid var(--triton-border); border-radius: 10px; overflow: hidden; }
-.swimlane > div { padding: 12px; border-right: 1px solid var(--triton-border); border-bottom: 1px solid var(--triton-border); font-size: 13px; line-height: 1.35; }
-.swimlane > div:nth-child(5n) { border-right: 0; }
-.swimlane .lane-head { background: var(--triton-navy); color: #fff; font-weight: 700; text-align: center; }
-.swimlane .lane-label { background: var(--triton-sand); color: var(--triton-blue); font-weight: 700; display: flex; align-items: center; }
-.swimlane .handoff { color: var(--triton-blue); font-weight: 700; }
-.mobile-scroll-hint { display: none; }
-
-.flywheel { display: grid; grid-template-columns: repeat(9,auto); align-items: center; gap: 7px; margin-top: 28px; position: relative; z-index: 1; }
-.flywheel .arch-node { min-height: 105px; display: flex; flex-direction: column; justify-content: center; }
-.flywheel-return { margin-top: 14px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 16px; text-align: center; color: rgba(255,255,255,.8); font-size: 14px; position: relative; z-index: 1; }
-
-/* --- Harness demonstration --- */
-.slide-demo { padding: 20px 46px; }
-.slide-demo h2 {
-  max-width: none;
-  margin-bottom: 6px;
-  font-size: clamp(36px, 4vw, 48px);
   white-space: nowrap;
-}
-.harness-demo {
-  width: min(1040px, 100%);
-  margin: 0 auto;
-}
-.harness-demo video {
-  display: block;
-  width: min(1040px, calc((100vh - 430px) * 16 / 9), 100%);
-  max-height: min(590px, calc(100vh - 430px));
-  margin: 0 auto;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  background: #000;
-  border: 4px solid var(--triton-navy);
-  border-radius: 10px;
-  box-shadow: 0 14px 32px rgba(16,43,78,.2);
-}
-.harness-page-caption {
-  width: min(760px, 100%);
-  min-height: 62px;
-  margin: 9px auto 0;
-  padding: 9px 14px;
-  border-left: 5px solid var(--triton-gold);
-  background: rgba(24,43,73,.07);
-  color: var(--triton-navy);
-  font-size: 16px;
-  line-height: 1.35;
-}
-.harness-page-caption-label {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--triton-blue);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .09em;
-  text-transform: uppercase;
-}
-.harness-page-caption-text { display: block; }
-.harness-demo figcaption {
-  max-width: none;
-  margin: 6px auto 0;
-  font-size: 16px;
-  line-height: 1.4;
-  color: var(--triton-slate);
+  width: 1px;
 }
 
-/* --- Keyboard hint --- */
-.kbd-hint {
-  position: absolute;
-  bottom: 16px;
-  right: 28px;
-  font-size: 11px;
-  color: rgba(255,255,255,.35);
-  letter-spacing: .04em;
-}
-.slide-content .kbd-hint, .slide-sand .kbd-hint { color: rgba(0,0,0,.25); }
-
-/* --- Presentation-scale typography --- */
-.layout-nav span { font-size: 16px; }
-.slide-hero .kicker { font-size: 16px; }
-.slide-hero .lede { font-size: 24px; }
-.slide-hero .presentation-meta .meta-label { font-size: 13px; }
-.slide-hero .presentation-meta .meta-value { font-size: 18px; }
-.slide-content .kicker { font-size: 15px; }
-.slide-content h2 { font-size: clamp(40px, 4.3vw, 52px); }
-.slide-content h3 { font-size: 31px; }
-.slide-content p, .slide-content ul, .slide-content ol { font-size: 20px; }
-.slide-content code { font-size: 17px; }
-.card .card-type { font-size: 13px; }
-.card h3 { font-size: 28px; }
-.card p { font-size: 18px; }
-.flow-step .step-num { font-size: 36px; }
-.flow-step .step-label { font-size: 17px; }
-.flow-step .step-desc { font-size: 14px; }
-.callout { font-size: 19px; }
-.progress-text { font-size: 15px; }
-.checklist li { font-size: 19px; }
-.benefit-pair p { font-size: 18px; }
-.arch-label { font-size: 13px; }
-.arch-node strong { font-size: 17px; }
-.arch-node span { font-size: 14px; }
-.layer-title { font-size: 18px; }
-  .workflow-note div { font-size: 17px; }
-  .responsibility-lane p { font-size: 17px; }
-.pathway-note { font-size: 19px; }
-
-@media (max-height: 760px) and (min-width: 769px) {
-  .slide-content { padding: 34px 60px 44px; }
-  .slide-brand { padding-bottom: 12px; }
-  .slide-content h2 { font-size: clamp(32px, 3.4vw, 40px); margin-bottom: 16px; }
-  .slide-content h3 { font-size: 24px; margin-top: 18px; margin-bottom: 6px; }
-  .slide-content p, .slide-content ul, .slide-content ol { font-size: 16px; line-height: 1.5; }
-  .benefit-lead { font-size: 28px; margin: 8px 0 18px; }
-  .benefit-pair { padding: 12px 0; }
-  .benefit-pair p, .trigger-item p { font-size: 14px; }
-  .checklist li { padding-top: 7px; padding-bottom: 7px; font-size: 15px; }
-  .checklist li::before { top: 7px; }
-  .callout { padding-top: 11px; padding-bottom: 11px; margin: 10px 0; }
-  .arch-node { padding: 10px 12px; }
-  .arch-node strong { font-size: 13px; }
-  .arch-node span { font-size: 11px; }
-  .workflow-pipeline .arch-node { min-height: 88px; }
-  .iteration-map .arch-node { min-height: 102px; }
-  .responsibility-strip { margin-top: 10px; }
-  .responsibility-lane { padding: 8px 12px; }
-  .responsibility-lane p { font-size: 13px; }
+h1.sr-only {
+  font-family: Teko-SemiBold, sans-serif;
 }
 
-@media (max-width: 768px) {
-  .slide-hero, .slide-content { padding: 32px 24px; }
-  .slide-hero { justify-content: flex-start; }
-  .slide-hero h1 { font-size: 44px; }
-  .slide-hero .lede { font-size: 18px; line-height: 1.45; }
-  .hero-architecture { gap: 24px; }
-  .compare, .two-col, .benefit-pairs, .trigger-list { grid-template-columns: 1fr; }
-  .hero-architecture, .capability-map, .layer-row, .context-map, .branch-map { grid-template-columns: 1fr; gap: 12px; }
-  .hero-system { grid-template-columns: 1fr; }
-  .hero-system .arch-arrow, .capability-map > .arch-arrow, .context-map > .arch-arrow, .branch-map > .arch-arrow { transform: rotate(90deg); }
-  .capability-outputs, .layer-items, .context-sources, .branch-options { grid-template-columns: 1fr; }
-  .workflow-pipeline, .skill-pipeline, .iteration-map, .flywheel { grid-template-columns: 1fr; gap: 8px; }
-  .journey-flow { grid-template-columns: 1fr; gap: 8px; }
-  .journey-flow .arch-arrow { transform: rotate(90deg); }
-  .journey-stage { min-height: 112px; }
-  .journey-owner { grid-template-columns: 1fr; gap: 8px; text-align: left; }
-  .risk-matrix { grid-template-columns: 1fr; }
-  .risk-matrix .arch-arrow { transform: rotate(90deg); }
-  .risk-head { display: none; }
-  .workflow-pipeline .arch-arrow, .skill-pipeline .arch-arrow, .iteration-map .arch-arrow, .flywheel .arch-arrow { transform: rotate(90deg); }
-  .workflow-note { grid-template-columns: 1fr; }
-  .responsibility-strip { grid-template-columns: 1fr; }
-  .swimlane { grid-template-columns: 92px repeat(4, minmax(150px,1fr)); overflow-x: auto; }
-  .mobile-scroll-hint { display: block; margin: 8px 0 0; font-size: 13px !important; color: var(--triton-blue); font-weight: 700; }
-  .slide-demo { padding: 28px 24px; }
-  .slide-demo h2 { white-space: normal; }
-  .harness-demo video { width: 100%; max-height: none; }
-  .harness-page-caption { min-height: 72px; font-size: 15px; }
-  .harness-demo figcaption { font-size: 15px; }
-  .flow { flex-direction: column; }
-  .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
-  .controls { height: 48px; padding: 0 12px; }
-  .nav-btn { width: 44px; height: 44px; }
-  .progress-bar { margin: 0 12px; }
-  .controls-right { display: none; }
+@media (max-width: 640px) {
+  .viewport {
+    padding: 10px;
+  }
+
+  .video-only {
+    gap: 12px;
+  }
+
+  .video-transcript {
+    font-size: 18px;
+    min-height: 4.2em;
+  }
+
+  .controls {
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .controls-right {
+    display: none;
+  }
 }
-@media (max-width: 480px) {
-  .title-ucsd img { width: 140px; }
-}
-@media (min-width: 769px) {
-  .slide-content.slide-onboarding { padding-bottom: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
 }
 </style>
 </head>
 <body>
 <div class="deck">
+  <main class="viewport" id="viewport">
+    <h1 class="sr-only">TritonAI Harness editing and publishing workflow</h1>
+    <figure class="video-only">
+      <video controls muted playsinline preload="metadata" poster="_resources/tritonai-harness-editing-demo-poster.jpg" aria-describedby="harness-demo-caption" data-silent-demo="true" data-caption-src="_resources/tritonai-harness-editing-publishing-demo.vtt" data-caption-target="harness-demo-caption">
+        <source src="_resources/tritonai-harness-editing-publishing-demo.mp4" type="video/mp4">
+        Your browser does not support embedded video.
+      </video>
+      <figcaption class="video-transcript" id="harness-demo-caption" aria-live="polite" aria-atomic="true">
+        <span class="video-transcript-text">The TritonAI Harness shows files on the left, the update request in the center, and the private preview on the right.</span>
+      </figcaption>
+    </figure>
+  </main>
 
-<!-- Site header (UCSD Decorator two-tier) -->
-<header class="site-header">
-  <section class="layout-title">
-    <a class="title-brand" href="https://tritonai.ucsd.edu">Triton <span>AI</span></a>
-    <a class="title-ucsd" href="https://ucsd.edu"><img alt="UC San Diego" src="https://www.ucsd.edu/_resources/img/logo_UCSD.png"></a>
-  </section>
-  <nav class="layout-nav">
-    <span>Editing and Publishing the TritonAI Website</span>
+  <nav class="controls" aria-label="Presentation navigation">
+    <div class="controls-left">
+      <button class="nav-btn" id="prevBtn" type="button" aria-label="Previous slide" disabled>‹</button>
+      <button class="nav-btn" id="nextBtn" type="button" aria-label="Next slide" disabled>›</button>
+      <span class="progress-text" id="slideCounter">1 / 1</span>
+    </div>
+    <div class="progress-bar" aria-hidden="true"><div class="progress-fill"></div></div>
+    <div class="controls-right">
+      <span class="progress-text">F for fullscreen</span>
+    </div>
   </nav>
-</header>
 
-<!-- Viewport -->
-<div class="viewport" id="viewport">
-
-<!-- SLIDE 1: Title -->
-<section class="slide slide-hero active" data-slide="1">
-  <p class="kicker">For TritonAI content contributors</p>
-  <h1>Editing and Publishing the TritonAI Website</h1>
-  <p class="lede">Relevant skills handle the website mechanics. Your prompts shape the content, design, and final decision.</p>
-  <div class="presentation-meta">
-    <div><span class="meta-label">Automatic after a trigger</span><span class="meta-value">Inspect, edit, preview, test, and prepare review</span></div>
-    <div><span class="meta-label">You prompt and decide</span><span class="meta-value">Set the goal, improve the result, and approve release</span></div>
-  </div>
-  <div class="kbd-hint">Use ← → arrow keys to navigate</div>
-</section>
-
-<!-- SLIDE 2: Advantages -->
-<section class="slide slide-content slide-sand slide-dense" data-slide="2">
-  <p class="kicker">Why use TritonAI for website content</p>
-  <h2>Skills handle the workflow while your prompts shape the result</h2>
-  <div class="benefit-pairs benefit-pairs-compact benefit-pairs-wide">
-    <div class="benefit-pair"><h3>Automate recurring updates</h3><p>Scheduled jobs collect newsletters, media coverage, skills, and UX findings, then prepare reviewable results.</p></div>
-    <div class="benefit-pair"><h3>Stay flexible and on brand</h3><p>Templates can change with the content while UC San Diego structure, typography, navigation, and accessibility rules remain in force.</p></div>
-    <div class="benefit-pair"><h3>Turn concepts into clear visuals</h3><p>The agent can pair concise text with accessible architecture and workflow graphics that make a process easier to understand.</p></div>
-    <div class="benefit-pair"><h3>Keep the writing human</h3><p>Voice matching followed by a humanization pass removes generic patterns while preserving names, facts, and technical precision.</p></div>
-    <div class="benefit-pair"><h3>Bring in personal and team context</h3><p>When connected, approved context can supply priorities, source material, working preferences, and previous team decisions.</p></div>
-    <div class="benefit-pair"><h3>Keep every result reviewable</h3><p>Diffs, previews, tests, pull requests, commit history, and live checks show what changed and preserve a rollback path.</p></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after direction</span><p>Matching skills find the source, apply standing rules, preserve integrations, create the preview, and run the required checks.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Choose institutional or approved personal voice. Ask for a humanized pass, an on-brand layout, an accessible workflow visual, or a clearer audience action.</p></div>
-  </div>
-</section>
-
-<!-- SLIDE 3: Roles and capabilities -->
-<section class="slide slide-content slide-sand slide-dense" data-slide="3">
-  <p class="kicker">Roles and TritonAI capabilities</p>
-  <h2>Each stage pairs a human owner with Harness skills</h2>
-  <div class="skill-pipeline" role="img" aria-label="A contributor defines the request and approved context. The TritonAI Harness finds the source, creates a branch, shapes the content, and runs checks. A content owner judges accuracy, audience fit, accessibility, and open decisions. An authorized approver merges in GitHub, then the site pipeline publishes through Cascade and supports live verification.">
-    <div class="arch-node review"><span class="skill-stage-label">Direction</span><strong>Contributor</strong><span>Audience · route · approved source · goal</span><span>Prompt, schedule, or permissioned context</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><span class="skill-stage-label">Create</span><strong>Harness</strong><span>Find source · create branch · edit content</span><span>Voice match · humanize · UC San Diego brand</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><span class="skill-stage-label">Review</span><strong>Content owner</strong><span>Accuracy · audience fit · accessibility</span><span>Automated checks plus human judgment</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><span class="skill-stage-label">Release</span><strong>Approver + site pipeline</strong><span>GitHub review and human merge</span><span>Cascade publish · live comparison · rollback evidence</span></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after direction</span><p>The Harness selects skills, edits the canonical source, checks the result, prepares GitHub review, and follows the release.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Choose the audience, context, voice, and visual; direct revisions; judge the evidence; approve the pull request and merge.</p></div>
-  </div>
-  <!-- [Sources] Configured TritonAI Harness skills; /docs/voice-and-language.md; /AGENTS.md; /.github/workflows/cascade-upload.yml; /docs/skills-library-sync.md -->
-</section>
-
-<!-- SLIDE 4: Skill invocation -->
-<section class="slide slide-content slide-sand slide-dense" data-slide="4">
-  <p class="kicker">Skills invoked by the Harness</p>
-  <h2>Each update assembles a visible skill stack</h2>
-  <div class="skill-pipeline skill-invocation" role="img" aria-label="The Harness invokes the UCSD website maintainer skill to locate and edit the canonical source. With approved voice context, it invokes voice match followed by humanizer, and uses UCSD branding for visual work. It invokes UCSD accessibility compliance for accessibility review, UCSD data classification when relevant, and TritonAI auto-review before release. Browser and GitHub skills handle preview, live verification, and an authorized pull-request handoff; the Cascade workflow runs only after human merge.">
-    <div class="arch-node review"><span class="skill-stage-label">Discover and edit</span><strong>Find the source and rules</strong><span class="skill-name"><code>ucsd-website-maintainer</code></span><span>Invoked for every repository-backed website update.</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><span class="skill-stage-label">Write and design</span><strong>Shape the content</strong><span class="skill-name"><code>voice-match</code> → <code>humanizer</code></span><span class="skill-name"><code>ucsd-branding</code></span><span>Voice skills require approved context; branding is added for layout or template work.</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><span class="skill-stage-label">Check and review</span><strong>Test the result</strong><span class="skill-name"><code>ucsd-accessibility-compliance</code></span><span class="skill-name"><code>ucsd-data-classification</code> · <code>tritonai-autoreview</code></span><span>Data classification is conditional; accessibility and closeout review support the release gate.</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><span class="skill-stage-label">Preview and release</span><strong>Prepare the handoffs</strong><span class="skill-name"><code>browser</code> · <code>github:yeet</code></span><span class="skill-name"><code>cascade-upload.yml</code></span><span>Browser verifies local and live pages. GitHub prepares review. Cascade runs after human merge.</span></div>
-  </div>
-  <p class="skill-kind-note"><strong>How selection works:</strong> the website skill is the base layer; the Harness adds matching public or permissioned skills from the request and page content, announces what it is using, and reports the evidence. You approve permissioned voice context and the GitHub handoff. The Cascade item is a repository job, not a skill.</p>
-  <!-- [Sources] Configured ucsd-website-maintainer skill; /content/skills/library.json; configured permissioned voice-match and humanizer skills; browser and GitHub Harness plugins; /.github/workflows/cascade-upload.yml -->
-</section>
-
-<!-- SLIDE 5: Contributor onboarding -->
-<section class="slide slide-content slide-sand slide-dense slide-onboarding" data-slide="5">
-  <p class="kicker">New contributor onboarding</p>
-  <h2>The repository owner grants access before the Harness connects</h2>
-  <div class="layer-stack" role="img" aria-label="The contributor creates and secures a GitHub account, then sends the username to the repository owner. The owner opens the TritonAI repository settings, selects Collaborators and Add people, and invites that account. The contributor accepts the invitation, which grants collaborator push access. The Harness then starts GitHub browser authentication, verifies write access, clones the repository, installs dependencies, and runs the baseline checks.">
-    <div class="layer-row creative"><div class="layer-title">Repository access</div><div class="layer-items"><div class="arch-node"><strong>Contributor prepares</strong><span>Create the account, verify email, enable two-factor authentication, and send the GitHub username to the repository owner</span></div><div class="arch-node core"><strong>Owner sends the invite</strong><span><code>bpollak<span aria-hidden="true">/</span><span class="sr-only"> slash </span>tritonai-website</code> → Settings → Collaborators → Add people</span></div><div class="arch-node review"><strong>Contributor accepts</strong><span>Open the GitHub email or notification and accept. Collaborator access includes push/write access.</span></div></div></div>
-    <div class="layer-connector">↓</div>
-    <div class="layer-row"><div class="layer-title">Harness setup</div><div class="layer-items"><div class="arch-node"><strong>Install the tools</strong><span>Git · GitHub CLI · Node 22 or later · TritonAI Harness</span></div><div class="arch-node core"><strong>Authenticate and verify</strong><span>The Harness starts <code>gh auth login --web</code>; the contributor finishes sign-in; the Harness confirms write access</span></div><div class="arch-node review"><strong>Clone and test</strong><span>The Harness clones the repository, installs dependencies, inventories the site, and runs the baseline checks</span></div></div></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after access</span><p>The website skill verifies the authenticated account and write permission, prepares the working copy, and reports any setup blockers.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Human access gates</span><p>The owner invites the named account. The contributor accepts, enables two-factor authentication, and completes browser sign-in. Keep credentials and recovery codes private.</p></div>
-  </div>
-  <!-- [Sources] https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository; https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository; GitHub repository owned by bpollak and named tritonai-website; /AGENTS.md; /README.md -->
-</section>
-
-<!-- SLIDE 6: Choose the source -->
-<section class="slide slide-content slide-navy" data-slide="6">
-  <p class="kicker">Inside the Harness · Start the update</p>
-  <h2>Open one task and describe the complete update</h2>
-  <div class="workflow-pipeline" role="img" aria-label="The contributor or an approved source event starts the update. The TritonAI Harness then finds the canonical source, reads repository rules, checks overlapping work, and proposes an implementation plan.">
-    <div class="arch-node review"><strong>Your trigger</strong><span>Prompt, schedule, or approved source event names the desired result</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Find the source</strong><span>The skill locates the canonical file that owns the public page</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Read the rules</strong><span>It discovers ownership, brand, accessibility, integration, and release requirements</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><strong>Check current work</strong><span>It inspects Git status, branches, and pull requests before editing</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Propose the plan</strong><span>It reports scope, files, checks, risks, and the next human gate</span></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>Matching skills perform discovery and apply the repository’s standing rules without requiring a list of commands.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt to start</span><p>“Update <code>[page]</code> for <code>[audience]</code> using <code>[approved source]</code>. Use <code>[institutional / my approved]</code> voice, humanize the copy, and create <code>[visual]</code>. Show the preview and diff.”</p></div>
-  </div>
-  <!-- [Sources] /AGENTS.md; /README.md; /docs/content-governance.md -->
-</section>
-
-<!-- SLIDE 7: Edit and preview -->
-<section class="slide slide-content slide-sand" data-slide="7">
-  <p class="kicker">Inside the Harness · Review and revise</p>
-  <h2>Respond to the preview until the update is ready</h2>
-  <div class="flow" role="img" aria-label="The contributor reviews the Harness scope, opens the rendered page, gives plain-language revision instructions, and requests the complete diff and validation evidence before approval.">
-    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Confirm the scope</div><div class="step-desc">Check the page, source, files, branch name, and anything the Harness says it will preserve</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Open the preview</div><div class="step-desc">Review the real page at desktop and phone widths inside the browser preview</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Give feedback</div><div class="step-desc">Describe revisions in plain language and ask the Harness to update the preview</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Request evidence</div><div class="step-desc">Ask for the diff, changed files, test results, warnings, and rollback path</div></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after direction</span><p>The Harness updates the canonical source, applies the selected voice and humanization skills, rebuilds responsive previews, and tracks the complete diff.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt to enhance</span><p>“Use institutional voice and humanize the copy,” “match my approved voice,” “turn this into a workflow visual,” or “improve the mobile reading order.”</p></div>
-  </div>
-</section>
-
-<!-- SLIDE 8: Harness demonstration -->
-<section class="slide slide-content slide-sand slide-demo" data-slide="8">
-  <p class="kicker">Inside the Harness · Recorded workflow</p>
-  <h2>Follow an update from local edit to live verification</h2>
-  <figure class="harness-demo">
-    <video controls muted playsinline preload="metadata" poster="_resources/tritonai-harness-editing-demo-poster.jpg" aria-describedby="harness-demo-description" data-silent-demo="true" data-caption-src="_resources/tritonai-harness-editing-publishing-demo.vtt" data-caption-target="harness-demo-caption">
-      <source src="_resources/tritonai-harness-editing-publishing-demo.mp4" type="video/mp4">
-      Your browser does not support embedded video. Open the MP4 file in the presentation resources folder to view the demonstration.
-    </video>
-    <div class="harness-page-caption" id="harness-demo-caption" aria-live="polite" aria-atomic="true">
-      <span class="harness-page-caption-label">What is happening</span>
-      <span class="harness-page-caption-text">Press play to follow the editing and publishing workflow.</span>
-    </div>
-    <figcaption id="harness-demo-description"><strong>Silent demonstration.</strong> Timed workflow captions appear below the player. The recording begins with a local Harness edit, then uses completed pull request 120 to show human merge, Cascade build, upload, publish, and public-page verification. <a href="_resources/tritonai-harness-editing-publishing-demo.vtt">Open the full transcript</a>.</figcaption>
-  </figure>
-  <!-- [Sources] Local TritonAI Harness recording created for this presentation; GitHub pull request 120; GitHub Actions run 30675732145; https://tritonai.ucsd.edu/presentations/managing-the-tritonai-website.html -->
-</section>
-
-<!-- SLIDE 9: Review a local copy -->
-<section class="slide slide-content slide-navy slide-local-review" data-slide="9">
-  <p class="kicker">Inside the Harness · Review a local copy</p>
-  <h2>Serve the site locally and inspect the affected route</h2>
-  <div class="flow" role="img" aria-label="To review a local copy, ask the Harness to build and serve the site, open the localhost URL it returns, inspect the affected route at desktop and phone widths, then give revision feedback or ask the Harness to stop the preview server.">
-    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Build and serve</div><div class="step-desc">Say: “Build the site and start the documented local preview.” The Harness prepares <code>dist</code> and starts the server</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Open localhost</div><div class="step-desc">Open <code>http://127.0.0.1:4173/</code>, then add the affected route to the URL</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Review the page</div><div class="step-desc">Check content, links, navigation, images, desktop and phone layouts, keyboard use, focus, and zoom</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Revise or finish</div><div class="step-desc">Give feedback while the preview runs. When finished, ask the Harness to stop the server and show the final diff</div></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after your request</span><p>The Harness builds the site, starts the preview server, opens the route at desktop and phone widths, and keeps the preview current as it revises.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / review</span><p>“Open <code>[route]</code> at desktop and phone widths and leave it running.” Review the page and describe the changes you want. Localhost remains private.</p></div>
-  </div>
-  <!-- [Sources] /README.md; /AGENTS.md -->
-</section>
-
-<!-- SLIDE 10: Review and approval -->
-<section class="slide slide-content" data-slide="10">
-  <p class="kicker">Review gate</p>
-  <h2>Automated checks and human review prepare the change for release</h2>
-  <div class="layer-stack" role="img" aria-label="Release review combines automated site tests with human content, accessibility, and approval decisions.">
-    <div class="layer-row creative"><div class="layer-title">Automated checks</div><div class="layer-items"><div class="arch-node"><strong>Build and validate</strong><span>Run <code>npm test</code> across routes, metadata, integrations, and content rules</span></div><div class="arch-node"><strong>Language and auto-review</strong><span>Flag mechanical writing patterns and report bounded content or design findings</span></div><div class="arch-node review"><strong>Accessibility and compatibility</strong><span>Check mobile and desktop views, overflow, axe findings, and the preview prefix</span></div></div></div>
-    <div class="layer-connector">↓</div>
-    <div class="layer-row"><div class="layer-title">Human review</div><div class="layer-items"><div class="arch-node"><strong>Content and voice</strong><span>Confirms accuracy, source authority, audience fit, natural language, and public suitability</span></div><div class="arch-node"><strong>Experience review</strong><span>Checks responsive layout, keyboard use, focus, zoom, and screen-reader behavior</span></div><div class="arch-node review"><strong>Approve PR preparation</strong><span>Reviews the complete diff and rendered result in the Harness before commit, push, and pull-request creation</span></div></div></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The language gate flags mechanical patterns without rewriting approved copy. Build, compatibility, accessibility, and auto-review checks report evidence.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask for voice matching and humanization during drafting. You judge meaning, natural language, visual quality, accessibility, and the final diff.</p></div>
-  </div>
-</section>
-
-<!-- SLIDE 11: Automated content feeds -->
-<section class="slide slide-content slide-navy" data-slide="11">
-  <p class="kicker">Automated content feeds</p>
-  <h2>Weekly jobs prepare AI updates and media coverage for review</h2>
-  <div class="two-col">
-    <article class="card"><span class="card-type card-type-gold">Monday · 18:15 UTC</span><h3>UC San Diego AI Weekly</h3><p>Fetches published editions, validates required sections, removes unsafe markup, and writes newsletter Markdown. The build updates the homepage and AI Updates archive. The job opens or refreshes a pull request.</p></article>
-    <article class="card"><span class="card-type card-type-blue">Monday · 18:30 UTC</span><h3>Media coverage</h3><p>Searches the public web for new TritonAI and TritonGPT coverage, tags discovered items for review, updates the article data, and re-renders the archive. The job opens or refreshes a pull request.</p></article>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic on schedule</span><p>The jobs collect candidates, sanitize or filter them, update canonical content, run tests, and open or refresh a pull request.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask for stronger headlines, clearer summaries, better placement, or an accessible supporting visual. Confirm the sources and merge only approved items.</p></div>
-  </div>
-  <!-- [Sources] /.github/workflows/sync-ai-news.yml; /.github/workflows/sync-media-coverage.yml; /docs/ai-news-sync.md -->
-</section>
-
-<!-- SLIDE 12: Automated maintenance -->
-<section class="slide slide-content slide-maintenance" data-slide="12">
-  <p class="kicker">Automated maintenance</p>
-  <h2>Scheduled jobs refresh the Skills Library and audit the site</h2>
-  <div class="two-col">
-    <article class="card"><span class="card-type card-type-cyan">PR · hourly staging · daily production</span><h3>Skills Library refresh</h3><p>Pages refreshes the approved public catalog for pull-request and staging validation. Cascade compares the upstream commit with production each day and after an upstream event, then publishes only when the live catalog is behind. Permissioned team and personal skills remain outside the public feed.</p></article>
-    <article class="card"><span class="card-type card-type-gold">Monday · 16:17 UTC</span><h3>CMS UX review</h3><p>Audits generated pages against approved layout rules, publishes a tracking issue, and may open constrained draft pull requests. Content-owner, responsive, keyboard, zoom, and screen-reader review remain required.</p></article>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic on trigger</span><p>Workflows refresh the catalog and run their assigned validations. Daily production checks compare source and live commit IDs, skipping the Cascade build and publish when current.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Review changes in the Skills Library source. Ask the Harness to implement accepted UX findings, compare before and after, or explore a stronger design; people still approve proposed page changes.</p></div>
-  </div>
-  <!-- [Sources] /.github/workflows/pages.yml; /.github/workflows/cascade-upload.yml; /.github/workflows/ux-review.yml; /docs/skills-library-sync.md -->
-</section>
-
-<!-- SLIDE 13: Harness and GitHub -->
-<section class="slide slide-content slide-sand" data-slide="13">
-  <p class="kicker">Inside the Harness · Prepare GitHub review</p>
-  <h2>Approve repository actions only after the page is ready</h2>
-  <div class="workflow-pipeline" role="img" aria-label="Inside the TritonAI Harness, ask for the final status and diff, ask it to run every required check, approve only intended files for commit, authorize the push and pull request, and monitor GitHub checks before a person reviews and merges.">
-    <div class="arch-node"><strong>“Show final status and diff”</strong><span>The Harness lists changed files, scope, preview, warnings, and rollback</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>“Run every required check”</strong><span>It runs the repository test, compatibility, language, and accessibility gates</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><strong>“Commit these files”</strong><span>Name the approved files and confirm the proposed commit message</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node review"><strong>“Push and open the PR”</strong><span>The Harness pushes the branch and creates a focused pull request with evidence</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>“Monitor the checks”</strong><span>It reports passed, failed, cancelled, or blocked GitHub checks without merging</span></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after authorization</span><p>The Harness stages only approved files, commits, pushes, opens the focused pull request, and monitors checks without merging.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>“Commit these files,” “push and open the PR,” and “monitor the checks.” You authorize the content, approve the rendered result, and merge in GitHub.</p></div>
-  </div>
-  <!-- [Sources] /AGENTS.md; /docs/content-governance.md -->
-</section>
-
-<!-- SLIDE 14: Publish -->
-<section class="slide slide-content slide-navy" data-slide="14">
-  <p class="kicker">Publishing workflow</p>
-  <h2>GitHub records the decision; Cascade publishes the approved site</h2>
-  <div class="workflow-pipeline" role="img" aria-label="Publishing begins with a focused pull request, continues through checks and human approval, merges to main, builds and publishes through Cascade, and ends with verification on the public website.">
-    <div class="arch-node"><strong>Open pull request</strong><span>The Harness runs <code>gh pr create</code> from the feature branch to <code>main</code></span></div><div class="arch-arrow">→</div>
-    <div class="arch-node review"><strong>Review in GitHub</strong><span>People inspect Files changed and Checks, then submit approval</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><strong>Merge to main</strong><span>An authorized person merges the approved pull request in GitHub</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><strong>GitHub Actions</strong><span>The merge triggers <code>cascade-upload.yml</code> to check language, build, validate, upload, and queue publishing</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node review"><strong>Verify live</strong><span>Open the public URL and compare it with the approved version</span></div>
-  </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after merge</span><p>GitHub Actions checks language, builds, validates, uploads, and queues Cascade publishing. The Harness can monitor the release and compare the public page.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Merge the approved pull request, then ask: “Monitor Cascade and verify the public URL.” Confirm the live page matches what you approved.</p></div>
-  </div>
-  <!-- [Sources] /.github/workflows/cascade-upload.yml -->
-</section>
-
-<!-- SLIDE 15: Contributor checklist -->
-<section class="slide slide-content slide-sand slide-checklist" data-slide="15">
-  <p class="kicker">Contributor checklist</p>
-  <h2>Give direction while the skills handle the mechanics</h2>
-  <div class="two-col">
-    <div>
-      <h3>You prompt and decide</h3>
-      <ul class="checklist">
-        <li><strong>Set the content goal</strong>Name the route, audience, approved source, desired result, and any open decisions.</li>
-        <li><strong>Choose context and voice</strong>Name the approved personal or team context. Select institutional or approved personal voice.</li>
-        <li><strong>Improve the design</strong>Ask for an on-brand composition, accessible workflow visual, or better responsive reading order.</li>
-        <li><strong>Approve the result</strong>Review the preview, diff, evidence, pull request, and live page. An authorized person merges.</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Skills handle after the trigger</h3>
-      <ul class="checklist">
-        <li><strong>Discover the rules</strong>Select matching skills, find the canonical source, and preserve routes, brand, accessibility, and integrations.</li>
-        <li><strong>Draft and humanize</strong>Edit the source, apply the selected voice, run the final humanization pass, and keep responsive previews current.</li>
-        <li><strong>Validate and prepare review</strong>Run brand, language, accessibility, data, and repository checks, then prepare the approved pull request.</li>
-        <li><strong>Follow the release</strong>After the human merge, monitor Cascade and compare production with the approved result.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-</div><!-- /viewport -->
-
-<!-- Slide controls -->
-<div class="controls">
-  <div class="controls-left">
-    <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
-    <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
-    <span class="progress-text" id="slideCounter">1 / 15</span>
-  </div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:6.67%"></div></div>
-  <div class="controls-right">
-    <span class="progress-text">← → to navigate · F for fullscreen</span>
-  </div>
+  <footer class="site-footer" aria-hidden="true"></footer>
 </div>
-
-<!-- Site footer (UCSD Decorator) -->
-<footer class="site-footer" aria-hidden="true"></footer>
-
-</div><!-- /deck -->
 
 <script>
 (function() {
-  const slides = document.querySelectorAll('.slide');
-  const total = slides.length;
-  let current = 0;
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const counter = document.getElementById('slideCounter');
-  const progressFill = document.getElementById('progressFill');
-  const viewport = document.getElementById('viewport');
-  let touchStartX = null;
-  let touchStartY = null;
-
-  slides.forEach((slide, index) => {
-    slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
-    slide.tabIndex = index === 0 ? 0 : -1;
-  });
-
-  function show(index) {
-    if (index < 0) index = 0;
-    if (index > total - 1) index = total - 1;
-    slides[current].querySelectorAll('video').forEach((video) => video.pause());
-    slides[current].classList.remove('active');
-    slides[current].setAttribute('aria-hidden', 'true');
-    slides[current].tabIndex = -1;
-    slides[index].classList.add('active');
-    slides[index].setAttribute('aria-hidden', 'false');
-    slides[index].tabIndex = 0;
-    current = index;
-    counter.textContent = (current + 1) + ' / ' + total;
-    progressFill.style.width = ((current + 1) / total * 100) + '%';
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === total - 1;
-    slides[index].scrollTop = 0;
-  }
-
-  prevBtn.addEventListener('click', () => show(current - 1));
-  nextBtn.addEventListener('click', () => show(current + 1));
-
-  viewport.addEventListener('touchstart', (event) => {
-    if (event.touches.length !== 1) return;
-    if (event.target instanceof Element && event.target.closest('.swimlane')) {
-      touchStartX = null;
-      touchStartY = null;
-      return;
-    }
-    touchStartX = event.touches[0].clientX;
-    touchStartY = event.touches[0].clientY;
-  }, { passive: true });
-
-  viewport.addEventListener('touchend', (event) => {
-    if (touchStartX === null || touchStartY === null || event.changedTouches.length !== 1) return;
-    const deltaX = event.changedTouches[0].clientX - touchStartX;
-    const deltaY = event.changedTouches[0].clientY - touchStartY;
-    touchStartX = null;
-    touchStartY = null;
-    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.25) return;
-    show(current + (deltaX < 0 ? 1 : -1));
-  }, { passive: true });
-
-  viewport.addEventListener('touchcancel', () => {
-    touchStartX = null;
-    touchStartY = null;
-  }, { passive: true });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.target instanceof Element && e.target.closest('video, button, a, input, select, textarea')) return;
-    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-      e.preventDefault();
-      show(current + 1);
-    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-      e.preventDefault();
-      show(current - 1);
-    } else if (e.key === 'Home') {
-      e.preventDefault();
-      show(0);
-    } else if (e.key === 'End') {
-      e.preventDefault();
-      show(total - 1);
-    } else if (e.key === 'f' || e.key === 'F') {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else {
-        document.exitFullscreen();
-      }
-    }
-  });
+  const video = document.querySelector('video[data-caption-src]');
+  const target = document.getElementById(video?.dataset.captionTarget || '');
+  const textNode = target?.querySelector('.video-transcript-text');
 
   const parseVttTime = (value) => {
     const parts = value.trim().split(':').map(Number);
@@ -1396,10 +239,8 @@ td code { font-size: 13px; }
     return (parts[0] * 60) + parts[1];
   };
 
-  document.querySelectorAll('video[data-caption-src]').forEach(async (video) => {
-    const target = document.getElementById(video.dataset.captionTarget);
-    const textNode = target?.querySelector('.harness-page-caption-text');
-    if (!target || !textNode) return;
+  const loadTranscript = async () => {
+    if (!video || !textNode) return;
 
     try {
       const response = await fetch(video.dataset.captionSrc);
@@ -1418,27 +259,38 @@ td code { font-size: 13px; }
           text: lines.slice(timingIndex + 1).join(' ').trim()
         }];
       });
+      const firstCue = cues[0]?.text || textNode.textContent;
       let lastText = '';
-      const renderCaption = () => {
+
+      const renderTranscript = () => {
         const cue = cues.find((item) => video.currentTime >= item.start && video.currentTime < item.end);
-        const nextText = cue?.text || (video.ended
-          ? 'The workflow is complete. Open the transcript to review every step.'
-          : 'Press play to follow the editing and publishing workflow.');
+        const nextText = cue?.text || firstCue;
         if (nextText !== lastText) {
           textNode.textContent = nextText;
           lastText = nextText;
         }
       };
+
       ['loadedmetadata', 'timeupdate', 'seeked', 'play', 'pause', 'ended'].forEach((eventName) => {
-        video.addEventListener(eventName, renderCaption);
+        video.addEventListener(eventName, renderTranscript);
       });
-      renderCaption();
+      renderTranscript();
     } catch {
-      textNode.textContent = 'Timed captions are unavailable. Open the full transcript below.';
+      textNode.textContent = 'Timed transcription is unavailable.';
+    }
+  };
+
+  document.addEventListener('keydown', (event) => {
+    if ((event.key === 'f' || event.key === 'F') && !(event.target instanceof Element && event.target.closest('video, button, a, input, select, textarea'))) {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
     }
   });
 
-  show(0);
+  loadTranscript();
 })();
 </script>
 </body>
