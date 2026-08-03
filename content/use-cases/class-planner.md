@@ -33,7 +33,7 @@ Getting a workable class schedule means checking course requirements against mee
 
 The TritonGPT Class Scheduling Assistant asks which courses you need and when you are unavailable, checks for conflicts, and proposes a combination to review. Add a work shift or anything else and ask it to try again.
 
-This assistant is distinct from the standalone Class Planner web app. Planning happens in TritonGPT; official course review and booking remain in the student system.
+This assistant is distinct from the standalone <a href="/use-cases/class-planner-app.html">Class Planner web app</a>. Planning happens in TritonGPT; official course review and booking remain in the student system.
 
 ## Current status
 
