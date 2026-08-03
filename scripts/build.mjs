@@ -452,7 +452,7 @@ function renderTrainingVideoQuiz(video) {
       return `<fieldset class="video-quiz-question" data-quiz-block="${qIndex}"><legend>${escapeHtml(item.question)}</legend><ul class="video-quiz-options">${options}</ul><p class="video-quiz-result" data-quiz-result aria-live="polite"></p>${item.explanation ? `<p class="video-quiz-explanation" data-quiz-explanation hidden>${escapeHtml(item.explanation)}</p>` : ""}</fieldset>`;
     })
     .join("");
-  return `<section class="landing-section video-quiz-section" data-video-quiz="${escapeHtml(video.slug)}" aria-labelledby="${escapeHtml(video.slug)}-quiz-heading"><div class="container video-theater-about-inner"><div class="landing-section-heading"><p class="home-kicker">Check yourself</p><h2 id="${escapeHtml(video.slug)}-quiz-heading">Test your knowledge</h2><p>Select an answer to see whether it is correct. Incorrect answers stay open so you can try again.</p></div>${questions}<p class="video-quiz-score" data-quiz-score aria-live="polite" hidden></p></div></section>`;
+  return `<section class="landing-section video-quiz-section" data-video-quiz="${escapeHtml(video.slug)}" aria-labelledby="${escapeHtml(video.slug)}-quiz-heading"><div class="container video-theater-about-inner"><div class="landing-section-heading"><h2 id="${escapeHtml(video.slug)}-quiz-heading">Test your knowledge</h2><p>Select an answer to see whether it is correct. Incorrect answers stay open so you can try again.</p></div>${questions}<p class="video-quiz-score" data-quiz-score aria-live="polite" hidden></p></div></section>`;
 }
 
 function renderTrainingVideoDiscussion(video) {
