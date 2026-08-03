@@ -573,6 +573,7 @@ td code { font-size: 13px; }
 .benefit-pairs-wide { grid-template-columns: repeat(3, 1fr); gap: 0 28px; max-width: 1100px; }
 .slide-dense { padding: 38px 60px 27px; }
 .slide-dense h2 { margin-bottom: 14px; }
+.slide-onboarding { padding-bottom: 8px; }
 .slide-checklist { padding: 34px 60px 28px; }
 .slide-checklist h2 { margin-bottom: 4px; }
 .slide-checklist .two-col { margin-top: 0; }
@@ -763,6 +764,11 @@ td code { font-size: 13px; }
 .skill-pipeline .arch-arrow { padding: 0 2px; }
 .arch-node span.skill-stage-label { margin: 0 0 9px; color: var(--triton-blue); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .arch-node.core span.skill-stage-label { color: var(--triton-gold); }
+.skill-invocation .arch-node { min-height: 214px; justify-content: flex-start; }
+.skill-invocation .arch-node strong { margin-bottom: 7px; }
+.skill-invocation .skill-name { margin-top: 6px; color: var(--triton-navy); font-size: 13px; line-height: 1.35; }
+.skill-invocation .skill-name code { overflow-wrap: anywhere; }
+.skill-kind-note { max-width: 1080px; margin: 10px 0 0; font-size: 13px; color: var(--triton-slate); }
 .workflow-note { max-width: 1040px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .workflow-note div { border-left: 4px solid var(--triton-bright-blue); padding: 10px 16px; font-size: 15px; line-height: 1.45; }
 
@@ -841,25 +847,57 @@ td code { font-size: 13px; }
 .flywheel .arch-node { min-height: 105px; display: flex; flex-direction: column; justify-content: center; }
 .flywheel-return { margin-top: 14px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 16px; text-align: center; color: rgba(255,255,255,.8); font-size: 14px; position: relative; z-index: 1; }
 
-/* --- Demo video --- */
-.demo-video {
-  max-width: 820px;
-  margin: 10px 0 0;
+/* --- Harness demonstration --- */
+.slide-demo { padding: 20px 46px; }
+.slide-demo h2 {
+  max-width: none;
+  margin-bottom: 6px;
+  font-size: clamp(36px, 4vw, 48px);
+  white-space: nowrap;
 }
-.demo-video video {
+.harness-demo {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+}
+.harness-demo video {
   display: block;
-  width: 100%;
-  border: 1px solid var(--triton-border);
-  border-radius: 10px;
-  box-shadow: 0 12px 28px rgba(24,43,73,.12);
+  width: min(1040px, calc((100vh - 430px) * 16 / 9), 100%);
+  max-height: min(590px, calc(100vh - 430px));
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
   background: #000;
+  border: 4px solid var(--triton-navy);
+  border-radius: 10px;
+  box-shadow: 0 14px 32px rgba(16,43,78,.2);
 }
-.demo-video figcaption {
-  margin-top: 10px;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #66737d;
-  max-width: 820px;
+.harness-page-caption {
+  width: min(760px, 100%);
+  min-height: 62px;
+  margin: 9px auto 0;
+  padding: 9px 14px;
+  border-left: 5px solid var(--triton-gold);
+  background: rgba(24,43,73,.07);
+  color: var(--triton-navy);
+  font-size: 16px;
+  line-height: 1.35;
+}
+.harness-page-caption-label {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--triton-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.harness-page-caption-text { display: block; }
+.harness-demo figcaption {
+  max-width: none;
+  margin: 6px auto 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--triton-slate);
 }
 
 /* --- Keyboard hint --- */
@@ -948,6 +986,11 @@ td code { font-size: 13px; }
   .responsibility-strip { grid-template-columns: 1fr; }
   .swimlane { grid-template-columns: 92px repeat(4, minmax(150px,1fr)); overflow-x: auto; }
   .mobile-scroll-hint { display: block; margin: 8px 0 0; font-size: 13px !important; color: var(--triton-blue); font-weight: 700; }
+  .slide-demo { padding: 28px 24px; }
+  .slide-demo h2 { white-space: normal; }
+  .harness-demo video { width: 100%; max-height: none; }
+  .harness-page-caption { min-height: 72px; font-size: 15px; }
+  .harness-demo figcaption { font-size: 15px; }
   .flow { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
   .controls { height: 48px; padding: 0 12px; }
@@ -957,6 +1000,9 @@ td code { font-size: 13px; }
 }
 @media (max-width: 480px) {
   .title-ucsd img { width: 140px; }
+}
+@media (min-width: 769px) {
+  .slide-content.slide-onboarding { padding-bottom: 8px; }
 }
 </style>
 </head>
@@ -1007,55 +1053,51 @@ td code { font-size: 13px; }
   </div>
 </section>
 
-<!-- SLIDE 3: Roles -->
-<section class="slide slide-content slide-sand" data-slide="3">
-  <p class="kicker">Roles in the workflow</p>
-  <h2>Automation carries the work between human decisions</h2>
-  <div class="flow" role="img" aria-label="A content contributor defines and reviews the change, the TritonAI Harness edits and checks the site, a content owner approves the result, and the website pipeline publishes the approved change.">
-    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Contributor</div><div class="step-desc">Defines the audience, route, source, and requested change</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Harness</div><div class="step-desc">Creates the branch, edits the source, runs checks, and prepares the pull request</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Content owner</div><div class="step-desc">Checks accuracy, audience fit, accessibility, and open decisions</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Site pipeline</div><div class="step-desc">Validates, publishes through Cascade, and supports live verification</div></div>
+<!-- SLIDE 3: Roles and capabilities -->
+<section class="slide slide-content slide-sand slide-dense" data-slide="3">
+  <p class="kicker">Roles and TritonAI capabilities</p>
+  <h2>Each stage pairs a human owner with Harness skills</h2>
+  <div class="skill-pipeline" role="img" aria-label="A contributor defines the request and approved context. The TritonAI Harness finds the source, creates a branch, shapes the content, and runs checks. A content owner judges accuracy, audience fit, accessibility, and open decisions. An authorized approver merges in GitHub, then the site pipeline publishes through Cascade and supports live verification.">
+    <div class="arch-node review"><span class="skill-stage-label">Direction</span><strong>Contributor</strong><span>Audience · route · approved source · goal</span><span>Prompt, schedule, or permissioned context</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Create</span><strong>Harness</strong><span>Find source · create branch · edit content</span><span>Voice match · humanize · UC San Diego brand</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Review</span><strong>Content owner</strong><span>Accuracy · audience fit · accessibility</span><span>Automated checks plus human judgment</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><span class="skill-stage-label">Release</span><strong>Approver + site pipeline</strong><span>GitHub review and human merge</span><span>Cascade publish · live comparison · rollback evidence</span></div>
   </div>
   <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The Harness uses the relevant skills, Git, browser tools, and repository checks to edit, validate, and prepare a focused pull request.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Provide the audience and approved source, direct revisions, judge accessibility and accuracy, then approve the pull request and merge.</p></div>
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after direction</span><p>The Harness selects skills, edits the canonical source, checks the result, prepares GitHub review, and follows the release.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Choose the audience, context, voice, and visual; direct revisions; judge the evidence; approve the pull request and merge.</p></div>
   </div>
+  <!-- [Sources] Configured TritonAI Harness skills; /docs/voice-and-language.md; /AGENTS.md; /.github/workflows/cascade-upload.yml; /docs/skills-library-sync.md -->
 </section>
 
-<!-- SLIDE 4: Harness skills -->
-<section class="slide slide-content slide-dense" data-slide="4">
-  <p class="kicker">TritonAI capabilities</p>
-  <h2>The Harness connects each trigger to the right skills and controls</h2>
-  <div class="skill-pipeline" role="img" aria-label="The Harness workflow begins with a prompt, schedule, or approved source event and permissioned context. It then creates and improves content with website guidance, voice matching, humanization, branding, and accessible visuals. Quality controls cover accessibility, data classification, language checks, automatic review, and human judgment. Approved work moves through GitHub, Cascade, and live verification.">
-    <div class="arch-node review"><span class="skill-stage-label">Trigger and context</span><strong>Start with the request</strong><span>Prompt · schedule · approved source event</span><span>Permissioned personal and team context</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><span class="skill-stage-label">Create and improve</span><strong>Shape the content</strong><span>Website guidance · voice match → humanize</span><span>UC San Diego brand · accessible visuals</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node"><span class="skill-stage-label">Risk and quality</span><strong>Check the result</strong><span>Accessibility · data classification · language</span><span>Automatic review · human judgment</span></div><div class="arch-arrow">→</div>
-    <div class="arch-node core"><span class="skill-stage-label">Publish and verify</span><strong>Release approved work</strong><span>Git and GitHub · Cascade publishing</span><span>Public-page comparison and rollback evidence</span></div>
+<!-- SLIDE 4: Skill invocation -->
+<section class="slide slide-content slide-sand slide-dense" data-slide="4">
+  <p class="kicker">Skills invoked by the Harness</p>
+  <h2>Each update assembles a visible skill stack</h2>
+  <div class="skill-pipeline skill-invocation" role="img" aria-label="The Harness invokes the UCSD website maintainer skill to locate and edit the canonical source. With approved voice context, it invokes voice match followed by humanizer, and uses UCSD branding for visual work. It invokes UCSD accessibility compliance for accessibility review, UCSD data classification when relevant, and TritonAI auto-review before release. Browser and GitHub skills handle preview, live verification, and an authorized pull-request handoff; the Cascade workflow runs only after human merge.">
+    <div class="arch-node review"><span class="skill-stage-label">Discover and edit</span><strong>Find the source and rules</strong><span class="skill-name"><code>ucsd-website-maintainer</code></span><span>Invoked for every repository-backed website update.</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Write and design</span><strong>Shape the content</strong><span class="skill-name"><code>voice-match</code> → <code>humanizer</code></span><span class="skill-name"><code>ucsd-branding</code></span><span>Voice skills require approved context; branding is added for layout or template work.</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Check and review</span><strong>Test the result</strong><span class="skill-name"><code>ucsd-accessibility-compliance</code></span><span class="skill-name"><code>ucsd-data-classification</code> · <code>tritonai-autoreview</code></span><span>Data classification is conditional; accessibility and closeout review support the release gate.</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><span class="skill-stage-label">Preview and release</span><strong>Prepare the handoffs</strong><span class="skill-name"><code>browser</code> · <code>github:yeet</code></span><span class="skill-name"><code>cascade-upload.yml</code></span><span>Browser verifies local and live pages. GitHub prepares review. Cascade runs after human merge.</span></div>
   </div>
-  <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The Harness selects matching public and configured skills. Public catalog refreshes do not publish permissioned personal or team skills.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Choose the audience, approved context, voice, and desired visual. Ask for alternatives and a humanized pass, then approve the result.</p></div>
-  </div>
-  <!-- [Sources] Configured TritonAI Harness skills; /docs/voice-and-language.md; /AGENTS.md; /.github/workflows/pages.yml; /.github/workflows/cascade-upload.yml; /docs/skills-library-sync.md -->
+  <p class="skill-kind-note"><strong>How selection works:</strong> the website skill is the base layer; the Harness adds matching public or permissioned skills from the request and page content, announces what it is using, and reports the evidence. You approve permissioned voice context and the GitHub handoff. The Cascade item is a repository job, not a skill.</p>
+  <!-- [Sources] Configured ucsd-website-maintainer skill; /content/skills/library.json; configured permissioned voice-match and humanizer skills; browser and GitHub Harness plugins; /.github/workflows/cascade-upload.yml -->
 </section>
 
 <!-- SLIDE 5: Contributor onboarding -->
-<section class="slide slide-content slide-sand" data-slide="5">
+<section class="slide slide-content slide-sand slide-dense slide-onboarding" data-slide="5">
   <p class="kicker">New contributor onboarding</p>
-  <h2>Set up identity, repository access, and a working copy</h2>
-  <div class="layer-stack" role="img" aria-label="New contributor onboarding covers GitHub identity and security, repository access, local tools and cloning, and a no-change readiness check.">
-    <div class="layer-row creative"><div class="layer-title">GitHub identity</div><div class="layer-items"><div class="arch-node"><strong>Create and verify</strong><span>Open a GitHub account and verify the email address</span></div><div class="arch-node"><strong>Protect the account</strong><span>Enable two-factor authentication and store recovery codes privately</span></div><div class="arch-node review"><strong>Accept the invitation</strong><span>Open the GitHub email or notification and accept access to the TritonAI repository</span></div></div></div>
+  <h2>The repository owner grants access before the Harness connects</h2>
+  <div class="layer-stack" role="img" aria-label="The contributor creates and secures a GitHub account, then sends the username to the repository owner. The owner opens the TritonAI repository settings, selects Collaborators and Add people, and invites that account. The contributor accepts the invitation, which grants collaborator push access. The Harness then starts GitHub browser authentication, verifies write access, clones the repository, installs dependencies, and runs the baseline checks.">
+    <div class="layer-row creative"><div class="layer-title">Repository access</div><div class="layer-items"><div class="arch-node"><strong>Contributor prepares</strong><span>Create the account, verify email, enable two-factor authentication, and send the GitHub username to the repository owner</span></div><div class="arch-node core"><strong>Owner sends the invite</strong><span><code>bpollak<span aria-hidden="true">/</span><span class="sr-only"> slash </span>tritonai-website</code> → Settings → Collaborators → Add people</span></div><div class="arch-node review"><strong>Contributor accepts</strong><span>Open the GitHub email or notification and accept. Collaborator access includes push/write access.</span></div></div></div>
     <div class="layer-connector">↓</div>
-    <div class="layer-row"><div class="layer-title">Working copy</div><div class="layer-items"><div class="arch-node"><strong>Install the tools</strong><span>Git · GitHub CLI · Node 22 or later · TritonAI Harness</span></div><div class="arch-node core"><strong>Authenticate and clone</strong><span>The Harness starts <code>gh auth login --web</code>; you finish browser sign-in; the Harness confirms access and runs <code>git clone</code></span></div><div class="arch-node review"><strong>Check the baseline</strong><span>The Harness installs dependencies and runs the documented tests before making a change</span></div></div></div>
+    <div class="layer-row"><div class="layer-title">Harness setup</div><div class="layer-items"><div class="arch-node"><strong>Install the tools</strong><span>Git · GitHub CLI · Node 22 or later · TritonAI Harness</span></div><div class="arch-node core"><strong>Authenticate and verify</strong><span>The Harness starts <code>gh auth login --web</code>; the contributor finishes sign-in; the Harness confirms write access</span></div><div class="arch-node review"><strong>Clone and test</strong><span>The Harness clones the repository, installs dependencies, inventories the site, and runs the baseline checks</span></div></div></div>
   </div>
   <div class="responsibility-strip">
-    <div class="responsibility-lane"><span class="responsibility-label">Automatic after access</span><p>The website skill verifies repository access, clones the working copy, installs dependencies, inventories the site, and runs the baseline.</p></div>
-    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Create the account, accept access, and finish sign-in yourself. Then ask: “Verify my setup and report any blockers.” Keep secrets out of the Harness.</p></div>
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after access</span><p>The website skill verifies the authenticated account and write permission, prepares the working copy, and reports any setup blockers.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Human access gates</span><p>The owner invites the named account. The contributor accepts, enables two-factor authentication, and completes browser sign-in. Keep credentials and recovery codes private.</p></div>
   </div>
+  <!-- [Sources] https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository; https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository; GitHub repository owned by bpollak and named tritonai-website; /AGENTS.md; /README.md -->
 </section>
 
 <!-- SLIDE 6: Choose the source -->
@@ -1095,8 +1137,26 @@ td code { font-size: 13px; }
   </div>
 </section>
 
-<!-- SLIDE 8: Review a local copy -->
-<section class="slide slide-content slide-navy slide-local-review" data-slide="8">
+<!-- SLIDE 8: Harness demonstration -->
+<section class="slide slide-content slide-sand slide-demo" data-slide="8">
+  <p class="kicker">Inside the Harness · Recorded workflow</p>
+  <h2>Follow an update from local edit to live verification</h2>
+  <figure class="harness-demo">
+    <video controls muted playsinline preload="metadata" poster="_resources/tritonai-harness-editing-demo-poster.jpg" aria-describedby="harness-demo-description" data-silent-demo="true" data-caption-src="_resources/tritonai-harness-editing-publishing-demo.vtt" data-caption-target="harness-demo-caption">
+      <source src="_resources/tritonai-harness-editing-publishing-demo.mp4" type="video/mp4">
+      Your browser does not support embedded video. Open the MP4 file in the presentation resources folder to view the demonstration.
+    </video>
+    <div class="harness-page-caption" id="harness-demo-caption" aria-live="polite" aria-atomic="true">
+      <span class="harness-page-caption-label">What is happening</span>
+      <span class="harness-page-caption-text">Press play to follow the editing and publishing workflow.</span>
+    </div>
+    <figcaption id="harness-demo-description"><strong>Silent demonstration.</strong> Timed workflow captions appear below the player. The recording begins with a local Harness edit, then uses completed pull request 120 to show human merge, Cascade build, upload, publish, and public-page verification. <a href="_resources/tritonai-harness-editing-publishing-demo.vtt">Open the full transcript</a>.</figcaption>
+  </figure>
+  <!-- [Sources] Local TritonAI Harness recording created for this presentation; GitHub pull request 120; GitHub Actions run 30675732145; https://tritonai.ucsd.edu/presentations/managing-the-tritonai-website.html -->
+</section>
+
+<!-- SLIDE 9: Review a local copy -->
+<section class="slide slide-content slide-navy slide-local-review" data-slide="9">
   <p class="kicker">Inside the Harness · Review a local copy</p>
   <h2>Serve the site locally and inspect the affected route</h2>
   <div class="flow" role="img" aria-label="To review a local copy, ask the Harness to build and serve the site, open the localhost URL it returns, inspect the affected route at desktop and phone widths, then give revision feedback or ask the Harness to stop the preview server.">
@@ -1115,19 +1175,6 @@ td code { font-size: 13px; }
   <!-- [Sources] /README.md; /AGENTS.md -->
 </section>
 
-<!-- SLIDE 9: Recorded demo -->
-<section class="slide slide-content slide-sand" data-slide="9">
-  <p class="kicker">Inside the Harness · Recorded demo</p>
-  <h2>Watch one update travel from prompt to publish-ready</h2>
-  <p>This recording follows a single request through the workflow on this slide's neighbors: start the Harness, open the local site, edit the homepage feature section in <code>content/pages/home.md</code>, review the rebuilt page, then run the checks and commit that make the change ready for pull-request review.</p>
-  <figure class="demo-video">
-    <video controls muted playsinline preload="metadata" aria-label="Screen recording of a TritonAI Harness session. A terminal launches the Harness and receives the request to update and publish the homepage feature section. The local homepage appears before the change, the terminal shows the edit and rebuild, the reloaded page highlights the new sentence in gold, and the terminal finishes with passing checks, a commit, and the publish path through pull request, review, merge, and Cascade.">
-      <source src="media/editing-and-publishing-demo.mp4" type="video/mp4">
-    </video>
-    <figcaption>The Harness session and the local preview at <code>http://127.0.0.1:4173/</code>: prompt, build, the section before and after the edit, and the publish steps. The recording has no audio.</figcaption>
-  </figure>
-</section>
-
 <!-- SLIDE 10: Review and approval -->
 <section class="slide slide-content" data-slide="10">
   <p class="kicker">Review gate</p>
@@ -1143,7 +1190,7 @@ td code { font-size: 13px; }
   </div>
 </section>
 
-<!-- SLIDE 10: Automated content feeds -->
+<!-- SLIDE 11: Automated content feeds -->
 <section class="slide slide-content slide-navy" data-slide="11">
   <p class="kicker">Automated content feeds</p>
   <h2>Weekly jobs prepare AI updates and media coverage for review</h2>
@@ -1158,7 +1205,7 @@ td code { font-size: 13px; }
   <!-- [Sources] /.github/workflows/sync-ai-news.yml; /.github/workflows/sync-media-coverage.yml; /docs/ai-news-sync.md -->
 </section>
 
-<!-- SLIDE 11: Automated maintenance -->
+<!-- SLIDE 12: Automated maintenance -->
 <section class="slide slide-content slide-maintenance" data-slide="12">
   <p class="kicker">Automated maintenance</p>
   <h2>Scheduled jobs refresh the Skills Library and audit the site</h2>
@@ -1173,7 +1220,7 @@ td code { font-size: 13px; }
   <!-- [Sources] /.github/workflows/pages.yml; /.github/workflows/cascade-upload.yml; /.github/workflows/ux-review.yml; /docs/skills-library-sync.md -->
 </section>
 
-<!-- SLIDE 12: Harness and GitHub -->
+<!-- SLIDE 13: Harness and GitHub -->
 <section class="slide slide-content slide-sand" data-slide="13">
   <p class="kicker">Inside the Harness · Prepare GitHub review</p>
   <h2>Approve repository actions only after the page is ready</h2>
@@ -1191,7 +1238,7 @@ td code { font-size: 13px; }
   <!-- [Sources] /AGENTS.md; /docs/content-governance.md -->
 </section>
 
-<!-- SLIDE 13: Publish -->
+<!-- SLIDE 14: Publish -->
 <section class="slide slide-content slide-navy" data-slide="14">
   <p class="kicker">Publishing workflow</p>
   <h2>GitHub records the decision; Cascade publishes the approved site</h2>
@@ -1209,7 +1256,7 @@ td code { font-size: 13px; }
   <!-- [Sources] /.github/workflows/cascade-upload.yml -->
 </section>
 
-<!-- SLIDE 14: Contributor checklist -->
+<!-- SLIDE 15: Contributor checklist -->
 <section class="slide slide-content slide-sand slide-checklist" data-slide="15">
   <p class="kicker">Contributor checklist</p>
   <h2>Give direction while the skills handle the mechanics</h2>
@@ -1276,6 +1323,7 @@ td code { font-size: 13px; }
   function show(index) {
     if (index < 0) index = 0;
     if (index > total - 1) index = total - 1;
+    slides[current].querySelectorAll('video').forEach((video) => video.pause());
     slides[current].classList.remove('active');
     slides[current].setAttribute('aria-hidden', 'true');
     slides[current].tabIndex = -1;
@@ -1320,7 +1368,7 @@ td code { font-size: 13px; }
   }, { passive: true });
 
   document.addEventListener('keydown', (e) => {
-    if (e.target instanceof Element && e.target.closest('video')) return;
+    if (e.target instanceof Element && e.target.closest('video, button, a, input, select, textarea')) return;
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
       e.preventDefault();
       show(current + 1);
@@ -1339,6 +1387,54 @@ td code { font-size: 13px; }
       } else {
         document.exitFullscreen();
       }
+    }
+  });
+
+  const parseVttTime = (value) => {
+    const parts = value.trim().split(':').map(Number);
+    if (parts.length === 3) return (parts[0] * 3600) + (parts[1] * 60) + parts[2];
+    return (parts[0] * 60) + parts[1];
+  };
+
+  document.querySelectorAll('video[data-caption-src]').forEach(async (video) => {
+    const target = document.getElementById(video.dataset.captionTarget);
+    const textNode = target?.querySelector('.harness-page-caption-text');
+    if (!target || !textNode) return;
+
+    try {
+      const response = await fetch(video.dataset.captionSrc);
+      if (!response.ok) throw new Error('Caption transcript unavailable');
+      const blocks = (await response.text()).replace(/\r/g, '').split(/\n{2,}/);
+      const cues = blocks.flatMap((block) => {
+        const lines = block.trim().split('\n');
+        const timingIndex = lines.findIndex((line) => line.includes('-->'));
+        if (timingIndex < 0) return [];
+        const [startRaw, endRaw] = lines[timingIndex]
+          .split('-->')
+          .map((part) => part.trim().split(/\s+/)[0]);
+        return [{
+          start: parseVttTime(startRaw),
+          end: parseVttTime(endRaw),
+          text: lines.slice(timingIndex + 1).join(' ').trim()
+        }];
+      });
+      let lastText = '';
+      const renderCaption = () => {
+        const cue = cues.find((item) => video.currentTime >= item.start && video.currentTime < item.end);
+        const nextText = cue?.text || (video.ended
+          ? 'The workflow is complete. Open the transcript to review every step.'
+          : 'Press play to follow the editing and publishing workflow.');
+        if (nextText !== lastText) {
+          textNode.textContent = nextText;
+          lastText = nextText;
+        }
+      };
+      ['loadedmetadata', 'timeupdate', 'seeked', 'play', 'pause', 'ended'].forEach((eventName) => {
+        video.addEventListener(eventName, renderCaption);
+      });
+      renderCaption();
+    } catch {
+      textNode.textContent = 'Timed captions are unavailable. Open the full transcript below.';
     }
   });
 
