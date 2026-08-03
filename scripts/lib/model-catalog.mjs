@@ -8,18 +8,24 @@ import path from "node:path";
 
 export const CATALOG_JSON = path.resolve("content/models/catalog.json");
 export const CATALOG_MARKDOWN = path.resolve("content/pages/build-landing.md");
-export const MODELS_ENDPOINT = "https://tritonai-api.ucsd.edu/v1/models";
+export const MODELS_ENDPOINT = "https://tritonai-api.ucsd.edu/public/model_hub";
 
 export const SECTION_START = "<!-- AGENT_SECTION: model-catalog -->";
 export const SECTION_END = "<!-- END_AGENT_SECTION -->";
 
-// Entries that never belong in the public list: test registrations and the
-// TritonGPT-internal serving variants.
+// Entries that never belong in the public list: test and template
+// registrations, dev fallbacks, and the TritonGPT-internal serving variants.
 export function isPublicModel(id) {
   if (!id) return false;
-  if (id.startsWith("test-") || id.includes("-test-")) return false;
-  if (id.startsWith("onyx-")) return false;
-  return true;
+  return !/^(?:onyx-|dev-|templ|test-)/.test(id) && !id.includes("-test-");
+}
+
+const CLOUD_PROVIDERS = new Set(["azure", "azure_ai", "bedrock", "vertex_ai", "gemini", "anthropic"]);
+
+export function hostingFor(providers = []) {
+  return providers.some((provider) => CLOUD_PROVIDERS.has(provider))
+    ? "Approved enterprise cloud"
+    : "UC-hosted";
 }
 
 const TYPE_RULES = [
@@ -29,7 +35,10 @@ const TYPE_RULES = [
   [/tts/i, "Text to speech"],
 ];
 
-export function modelType(id) {
+export function modelType(id, mode) {
+  if (mode === "embedding") return "Embeddings";
+  if (mode === "audio_transcription") return "Speech to text";
+  if (mode === "audio_speech") return "Text to speech";
   for (const [pattern, label] of TYPE_RULES) {
     if (pattern.test(id)) return label;
   }
@@ -51,22 +60,27 @@ export function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-export async function fetchCatalog(apiKey) {
-  const response = await fetch(MODELS_ENDPOINT, {
-    headers: { Authorization: `Bearer ${apiKey}` },
-  });
+export async function fetchCatalog() {
+  const response = await fetch(MODELS_ENDPOINT);
   if (!response.ok) {
     throw new Error(`Model Hub request failed: HTTP ${response.status}`);
   }
   const payload = await response.json();
-  const models = (payload.data ?? [])
-    .filter((model) => isPublicModel(model.id))
+  const models = (Array.isArray(payload) ? payload : [])
+    .filter((model) => isPublicModel(model.model_group))
     .map((model) => ({
-      id: model.id,
-      type: modelType(model.id),
+      id: model.model_group,
+      type: modelType(model.model_group, model.mode),
+      hosting: hostingFor(model.providers),
       maxInputTokens: Number.isFinite(model.max_input_tokens) ? model.max_input_tokens : null,
     }))
-    .sort((a, b) => (a.type === b.type ? a.id.localeCompare(b.id) : a.type.localeCompare(b.type)));
+    .sort((a, b) =>
+      a.hosting === b.hosting
+        ? a.type === b.type
+          ? a.id.localeCompare(b.id)
+          : a.type.localeCompare(b.type)
+        : a.hosting.localeCompare(b.hosting),
+    );
   return models;
 }
 
@@ -78,7 +92,7 @@ export function renderSection(catalog) {
   const rows = catalog.models
     .map(
       (model) =>
-        `<tr><td><code>${escapeHtml(model.id)}</code></td><td>${escapeHtml(model.type)}</td><td>${escapeHtml(
+        `<tr><td><code>${escapeHtml(model.id)}</code></td><td>${escapeHtml(model.hosting)}</td><td>${escapeHtml(model.type)}</td><td>${escapeHtml(
           formatContext(model.maxInputTokens),
         )}</td></tr>`,
     )
@@ -86,15 +100,15 @@ export function renderSection(catalog) {
   const refreshed = escapeHtml(catalog.lastSynced.slice(0, 10));
   return `${SECTION_START}
 <section class="hub-section" id="model-catalog" aria-labelledby="model-catalog-heading">
-<div class="hub-heading"><p class="home-kicker">Shared AI platform</p><h2 id="model-catalog-heading">Models available through the gateway</h2><p>The gateway lists these models today. Context length is the amount of input a request can carry. Rates and full details stay in the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a>.</p></div>
+<div class="hub-heading"><p class="home-kicker">Shared AI platform</p><h2 id="model-catalog-heading">Models available through the gateway</h2><p>The gateway lists these models today, spanning approved enterprise cloud models and UC-hosted open models. Context length is the amount of input a request can carry. Rates and full details stay in the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a>.</p></div>
 <div class="table-responsive" role="region" aria-label="Current model catalog" tabindex="0"><table class="table table-striped model-catalog-table">
-<caption class="sr-only">Models currently listed by the TritonAI gateway with their type and context length</caption>
-<thead><tr><th scope="col">Model</th><th scope="col">Type</th><th scope="col">Context length</th></tr></thead>
+<caption class="sr-only">Models currently listed by the TritonAI gateway with their hosting, type, and context length</caption>
+<thead><tr><th scope="col">Model</th><th scope="col">Hosting</th><th scope="col">Type</th><th scope="col">Context length</th></tr></thead>
 <tbody>
 ${rows}
 </tbody>
 </table></div>
-<p class="model-catalog-refreshed">List refreshed from the gateway on ${refreshed}. Test registrations and TritonGPT-internal serving entries are excluded.</p>
+<p class="model-catalog-refreshed">List refreshed from the public Model Hub on ${refreshed}. Test registrations and TritonGPT-internal serving entries are excluded.</p>
 </section>
 ${SECTION_END}`;
 }

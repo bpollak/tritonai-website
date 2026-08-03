@@ -6,21 +6,16 @@ import {
   renderAndWrite,
 } from "./lib/model-catalog.mjs";
 
-// Refresh the public model catalog from the TritonAI gateway.
+// Refresh the public model catalog from the TritonAI Model Hub.
 //   node scripts/sync-model-hub.mjs           fetch, update JSON, re-render page
 //   node scripts/sync-model-hub.mjs --check   fetch and report drift, write nothing
 //
-// The gateway key comes from TRITONAI_API_KEY (the TritonAI Harness environment
-// provides it). The script never prints the key.
+// Uses the unauthenticated public Model Hub endpoint, which lists the full
+// catalog: approved enterprise cloud models and UC-hosted open models.
 
 const checkOnly = process.argv.includes("--check");
-const apiKey = process.env.TRITONAI_API_KEY;
-if (!apiKey) {
-  console.error("TRITONAI_API_KEY is not set; source the Harness env first.");
-  process.exit(2);
-}
 
-const models = await fetchCatalog(apiKey);
+const models = await fetchCatalog();
 if (models.length === 0) {
   console.error("Gateway returned no public models; refusing to write an empty catalog.");
   process.exit(1);
