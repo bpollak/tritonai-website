@@ -390,6 +390,9 @@ function formatCueTime(seconds) {
 
 const TRAINING_VIDEO_SERIES_ORDER = ["Foundations", "Using the tools", "Building", "Faculty stream"];
 
+// Swap for the updated team-training intake form URL when it is ready.
+const TRAINING_INTAKE_URL = "/about/get-involved.html";
+
 const TRAINING_VIDEO_SERIES_DESCRIPTIONS = {
   Foundations:
     "Start here for the shared ground: what AI is, the strategy behind it at UC San Diego, and the data, ethics, and governance guardrails that apply to every tool. Watch these first if you are new to campus AI.",
@@ -436,6 +439,32 @@ function splitTrainingVideoBody(html) {
   return { learn: html.slice(0, index), transcript: html.slice(index + match[0].length) };
 }
 
+function renderTrainingVideoQuiz(video) {
+  if (!video.quiz || !video.quiz.length) return "";
+  const questions = video.quiz
+    .map((item, qIndex) => {
+      const options = item.options
+        .map(
+          (option, oIndex) =>
+            `<li><button type="button" class="video-quiz-option" data-quiz-question="${qIndex}" data-quiz-option="${oIndex}" data-quiz-correct="${oIndex === item.answer}">${escapeHtml(option)}</button></li>`,
+        )
+        .join("");
+      return `<fieldset class="video-quiz-question" data-quiz-block="${qIndex}"><legend>${escapeHtml(item.question)}</legend><ul class="video-quiz-options">${options}</ul><p class="video-quiz-result" data-quiz-result aria-live="polite"></p>${item.explanation ? `<p class="video-quiz-explanation" data-quiz-explanation hidden>${escapeHtml(item.explanation)}</p>` : ""}</fieldset>`;
+    })
+    .join("");
+  return `<section class="landing-section video-quiz-section" data-video-quiz="${escapeHtml(video.slug)}" aria-labelledby="${escapeHtml(video.slug)}-quiz-heading"><div class="container video-theater-about-inner"><div class="landing-section-heading"><p class="home-kicker">Check yourself</p><h2 id="${escapeHtml(video.slug)}-quiz-heading">Test your knowledge</h2><p>Select an answer to see whether it is correct. Incorrect answers stay open so you can try again.</p></div>${questions}<p class="video-quiz-score" data-quiz-score aria-live="polite" hidden></p></div></section>`;
+}
+
+function renderTrainingVideoDiscussion(video) {
+  if (!video.discussionPoints || !video.discussionPoints.length) return "";
+  const points = video.discussionPoints.map((point) => `<li>${escapeHtml(point)}</li>`).join("");
+  return `<section class="landing-section landing-section-sand video-discussion-section" aria-labelledby="${escapeHtml(video.slug)}-discussion-heading"><div class="container video-theater-about-inner"><div class="landing-section-heading"><p class="home-kicker">For team meetings</p><h2 id="${escapeHtml(video.slug)}-discussion-heading">Suggested discussion points</h2><p>Leaders can use these prompts when a team watches together.</p></div><ul class="video-discussion-list">${points}</ul></div></section>`;
+}
+
+function renderTrainingVideoCta(video) {
+  return `<section class="landing-section video-training-cta" aria-labelledby="${escapeHtml(video.slug)}-cta-heading"><div class="container video-theater-about-inner"><div class="video-training-cta-panel"><div><p class="home-kicker">Next step</p><h2 id="${escapeHtml(video.slug)}-cta-heading">Bring this training to your team</h2><p>Request a guided session for your department, with discussion time and campus examples for your work.</p></div><a class="btn btn-primary btn-lg" href="${escapeHtml(TRAINING_INTAKE_URL)}">Start the team training intake</a></div></div></section>`;
+}
+
 async function renderTrainingVideoPage(video, siblings = []) {
   const { learn, transcript } = splitTrainingVideoBody(video.html);
   const cues = video.videoCaptionsSrc ? await parseVttCues(video.videoCaptionsSrc) : [];
@@ -462,7 +491,7 @@ async function renderTrainingVideoPage(video, siblings = []) {
     : "";
   const captionNoteHtml = "";
   const theaterHtml = `<section class="video-theater" aria-label="${escapeHtml(video.title)} viewing area"><div class="video-theater-layout"><div class="video-theater-primary"><h1 class="video-theater-title">${escapeHtml(video.title)}</h1><p class="video-theater-kicker">${escapeHtml(video.series)} · ${escapeHtml(String(video.durationMinutes))} min · ${escapeHtml(formatAudiences(video.audiences))}</p><p class="video-theater-description">${escapeHtml(video.summary)}</p>${renderTrainingVideoBlock(video)}${followHtml}${transcriptFallbackHtml}${captionNoteHtml}</div>${railHtml}</div></section>`;
-  return theaterHtml;
+  return `${theaterHtml}${renderTrainingVideoQuiz(video)}${renderTrainingVideoDiscussion(video)}${renderTrainingVideoCta(video)}`;
 }
 
 function renderTrainingVideoIndex(videos) {
@@ -1205,6 +1234,9 @@ function transformHtml(html, relativePath, context) {
   if (!$("script[src$='site-performance.js']").length) $("body").append('<script defer src="/_resources/js/site-performance.js"></script>');
   if ($("[data-video-progress]").length && !$("script[src$='video-progress.js']").length) {
     $("body").append('<script defer src="/_resources/js/video-progress.js"></script>');
+  }
+  if ($("[data-video-quiz]").length && !$("script[src$='video-quiz.js']").length) {
+    $("body").append('<script defer src="/_resources/js/video-quiz.js"></script>');
   }
 
   $("a[href^='/cdn-cgi/l/email-protection#']").each((_, element) => {

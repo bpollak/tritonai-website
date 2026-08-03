@@ -3844,3 +3844,106 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
 .training-video-continue-strip + .landing-section {
   padding-top: 26px;
 }
+
+/* Training videos: knowledge check, discussion points, and team CTA */
+.video-quiz-section .video-theater-about-inner,
+.video-discussion-section .video-theater-about-inner,
+.video-training-cta .video-theater-about-inner {
+  max-width: 880px;
+}
+.video-quiz-question {
+  border: 1px solid #d5d9de;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 0 0 16px;
+}
+.video-quiz-question legend {
+  font-size: 18px;
+  font-weight: 700;
+  color: #182b49;
+  padding: 0 6px;
+}
+.video-quiz-options {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.video-quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  padding: 10px 14px;
+  border: 1px solid #d5d9de;
+  border-radius: 6px;
+  background: #fff;
+  color: #37474f;
+  cursor: pointer;
+}
+.video-quiz-option:hover:not(:disabled) {
+  border-color: #00629b;
+  background: rgba(0, 98, 155, 0.05);
+}
+.video-quiz-option:focus-visible {
+  outline: 3px solid #ffcd00;
+  outline-offset: 1px;
+}
+.video-quiz-option.is-correct {
+  border-color: #1a7a3c;
+  background: #e8f5e9;
+  color: #14532d;
+  font-weight: 700;
+}
+.video-quiz-option.is-incorrect {
+  border-color: #b42318;
+  background: #fde8e8;
+  color: #8a1c12;
+}
+.video-quiz-option.is-muted {
+  opacity: 0.55;
+}
+.video-quiz-result {
+  margin: 10px 0 0;
+  font-weight: 700;
+}
+.video-quiz-result.is-correct {
+  color: #1a7a3c;
+}
+.video-quiz-result.is-incorrect {
+  color: #b42318;
+}
+.video-quiz-explanation {
+  margin: 6px 0 0;
+  color: #37474f;
+}
+.video-quiz-score {
+  font-weight: 700;
+  color: #182b49;
+}
+.video-discussion-list {
+  font-size: 17px;
+  line-height: 1.65;
+  padding-left: 22px;
+}
+.video-discussion-list li {
+  margin-bottom: 10px;
+}
+.video-training-cta-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border: 2px solid #00629b;
+  border-radius: 10px;
+  padding: 26px 30px;
+  flex-wrap: wrap;
+}
+.video-training-cta-panel h2 {
+  margin: 2px 0 6px;
+}
+.video-training-cta-panel p {
+  margin: 0;
+  max-width: 56ch;
+}
