@@ -2075,6 +2075,96 @@
   }
 }
 
+/* Training video pages: covers list, resume button, timestamped transcript */
+.training-video-learn,
+.training-video-transcript {
+  margin-bottom: 54px;
+}
+
+.training-video-learn ul {
+  color: var(--triton-slate);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 760px;
+  padding-left: 22px;
+}
+
+.training-video-learn li {
+  margin-bottom: 6px;
+}
+
+.video-resume-button {
+  margin-top: 14px;
+}
+
+.training-video-transcript-details {
+  background: #f7f8f9;
+  border: 1px solid var(--triton-border);
+  border-left: 6px solid var(--triton-bright-blue);
+}
+
+.training-video-transcript-details summary {
+  color: var(--triton-navy);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 16px 20px;
+}
+
+.training-video-transcript-details summary:hover,
+.training-video-transcript-details summary:focus {
+  color: var(--triton-blue);
+}
+
+.training-video-transcript-details > p {
+  padding: 0 20px;
+}
+
+.training-video-transcript-details > p:last-of-type {
+  padding-bottom: 16px;
+}
+
+.training-video-cue-list {
+  list-style: none;
+  margin: 0;
+  padding: 2px 20px 16px;
+}
+
+.training-video-cue {
+  border-top: 1px solid #e1e5e8;
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.training-video-cue:first-child {
+  border-top: 0;
+}
+
+.training-video-cue-time {
+  background: none;
+  border: 0;
+  color: var(--triton-blue);
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: inherit;
+  min-width: 44px;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.training-video-cue-time:hover,
+.training-video-cue-time:focus {
+  color: var(--triton-navy);
+}
+
+.training-video-cue span {
+  color: var(--triton-slate);
+  line-height: 1.55;
+}
+
 /* Strategy page: principle icon badges */
 .agent-page .strategy-principle .panel-body {
   display: flex;
@@ -3123,4 +3213,634 @@
   .public-fact-meta {
     grid-template-columns: 1fr;
   }
+}
+
+/* Training videos: follow-along transcript beneath the player */
+.training-video-follow-wrap {
+  max-width: 880px;
+  margin-top: 18px;
+}
+.training-video-follow-hint {
+  font-size: 14px;
+  color: #52616b;
+  margin-bottom: 10px;
+}
+.training-video-follow {
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid #d5d9de;
+  border-left: 4px solid #00c6d7;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  font-size: 17px;
+  line-height: 1.85;
+  background: #fff;
+}
+.training-video-follow:focus-visible {
+  outline: 3px solid #ffcd00;
+  outline-offset: 2px;
+}
+.training-video-sentence {
+  display: inline;
+  border: 0;
+  background: none;
+  padding: 1px 2px;
+  margin: 0;
+  font: inherit;
+  color: #37474f;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.training-video-sentence:hover {
+  color: #00629b;
+  background: rgba(0, 98, 155, 0.08);
+}
+.training-video-sentence:focus-visible {
+  outline: 2px solid #00629b;
+  outline-offset: 1px;
+}
+.training-video-sentence.is-current {
+  background: rgba(255, 205, 0, 0.35);
+  color: #182b49;
+}
+
+/* Training videos: theater layout for individual watch pages */
+.video-theater-page .video-theater-breadcrumbs .breadcrumbs-list {
+  margin: 10px 0 6px;
+}
+.video-theater {
+  background: #182b49;
+  background-image: linear-gradient(150deg, #102b4e 0%, #182b49 55%, #1a3a5c 100%);
+  padding: 30px 24px 36px;
+}
+.video-theater-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.video-theater-kicker {
+  color: #ffcd00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.video-theater-title {
+  color: #fff;
+  font-size: 30px;
+  margin: 0 0 18px;
+}
+.video-theater .use-case-demo {
+  margin: 0;
+}
+.video-theater .use-case-demo-frame {
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.video-theater .use-case-demo-frame video {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 320px);
+  min-height: 320px;
+  object-fit: contain;
+  margin: 0 auto;
+  background: #000;
+}
+.video-theater .use-case-demo-caption {
+  color: rgba(255, 255, 255, 0.75);
+}
+.video-theater .video-resume-host {
+  margin-top: 10px;
+}
+.video-theater .training-video-follow-wrap {
+  max-width: none;
+  margin-top: 16px;
+}
+.video-theater .training-video-follow-hint {
+  color: rgba(255, 255, 255, 0.72);
+}
+.video-theater .training-video-follow {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba(255, 255, 255, 0.25);
+  max-height: 200px;
+}
+.video-theater-about {
+  background: #fff;
+  padding: 34px 24px 30px;
+}
+.video-theater-about-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.video-theater-about-covers h2 {
+  font-size: 24px;
+  margin: 18px 0 8px;
+}
+.video-theater-upnext {
+  display: block;
+  border-left: 4px solid #ffcd00;
+  background: rgba(255, 205, 0, 0.08);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+  margin: 18px 0;
+  text-decoration: none;
+}
+.video-theater-upnext:hover,
+.video-theater-upnext:focus {
+  background: rgba(255, 205, 0, 0.16);
+  text-decoration: none;
+}
+.video-theater-upnext-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #52616b;
+}
+.video-theater-upnext-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #00629b;
+  margin-top: 2px;
+}
+@media (max-width: 768px) {
+  .video-theater {
+    padding: 18px 12px 24px;
+  }
+  .video-theater-title {
+    font-size: 24px;
+  }
+  .video-theater .use-case-demo-frame video {
+    max-height: none;
+    min-height: 0;
+  }
+}
+
+/* Training videos: series progression bar */
+.video-theater-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  border-bottom: 1px solid #d5d9de;
+  flex-wrap: wrap;
+}
+.video-theater-nav-all {
+  font-weight: 700;
+  white-space: nowrap;
+}
+.video-theater-nav-position {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #37474f;
+  text-align: center;
+}
+.video-theater-nav-next {
+  text-align: right;
+  text-decoration: none;
+  max-width: 46%;
+}
+.video-theater-nav-next-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #37474f;
+}
+.video-theater-nav-next-title {
+  display: block;
+  font-weight: 700;
+  color: #00629b;
+}
+a.video-theater-nav-next:hover .video-theater-nav-next-title,
+a.video-theater-nav-next:focus .video-theater-nav-next-title {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .video-theater-nav {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+  .video-theater-nav-next {
+    max-width: none;
+    text-align: left;
+  }
+}
+
+/* After the video ends, the next step presents itself without navigating */
+a.video-theater-nav-next.is-suggested {
+  border-right: 4px solid #ffcd00;
+  padding-right: 10px;
+}
+a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
+  color: #b89400;
+}
+
+/* Theater main region: neutralize grid float so sections stack and paint normally */
+.video-theater-page .video-theater-main {
+  float: none;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.video-theater-nav {
+  background: #fff;
+  position: relative;
+}
+
+/* TED-style order inside the theater: player first, then title and meta */
+.video-theater .video-theater-title {
+  margin: 16px 0 2px;
+}
+.video-theater .video-theater-kicker {
+  margin-bottom: 12px;
+}
+
+/* Theater layout: dominant player with a watch-next rail on the right */
+.video-theater-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 28px;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+.video-theater-primary {
+  min-width: 0;
+}
+.video-theater .use-case-demo-frame video {
+  max-height: calc(100vh - 260px);
+}
+.video-theater-rail {
+  color: rgba(255, 255, 255, 0.85);
+}
+.video-theater-rail-heading {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+.video-theater-rail-position {
+  color: #ffcd00;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.video-rail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  display: grid;
+  gap: 10px;
+}
+.video-rail-card {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+}
+.video-rail-card:hover,
+.video-rail-card:focus {
+  background: rgba(255, 255, 255, 0.14);
+  text-decoration: none;
+}
+.video-rail-card img {
+  width: 108px;
+  height: 62px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.video-rail-card-copy {
+  min-width: 0;
+}
+.video-rail-card-flag {
+  display: block;
+  color: #ffcd00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.video-rail-card-title {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.video-rail-card-meta {
+  display: block;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  margin-top: 2px;
+}
+.video-rail-card-next.is-suggested {
+  outline: 2px solid #ffcd00;
+}
+.video-theater-rail-all {
+  color: #00c6d7;
+  font-weight: 700;
+}
+.video-theater-rail-all:hover,
+.video-theater-rail-all:focus {
+  color: #fff;
+}
+.video-theater-rail-done {
+  color: rgba(255, 255, 255, 0.75);
+}
+@media (max-width: 991px) {
+  .video-theater-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TED-scale stage: player anchors near the left edge and dominates the row */
+.video-theater {
+  padding: 22px 28px 30px;
+}
+.video-theater-layout {
+  max-width: 1760px;
+  margin: 0;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 32px;
+}
+.video-theater .use-case-demo-frame video {
+  max-height: calc(100vh - 230px);
+  min-height: 380px;
+}
+@media (min-width: 1500px) {
+  .video-theater-layout {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+}
+@media (max-width: 991px) {
+  .video-theater {
+    padding: 16px 12px 22px;
+  }
+  .video-theater .use-case-demo-frame video {
+    min-height: 0;
+  }
+}
+
+/* Light stage: white background per the TED reference; navy retires to accents */
+.video-theater {
+  background: #fff;
+  background-image: none;
+  border-bottom: 1px solid #d5d9de;
+}
+.video-theater-title {
+  color: #182b49;
+}
+.video-theater-kicker {
+  color: #00629b;
+}
+.video-theater .use-case-demo-caption {
+  color: #52616b;
+}
+.video-theater .training-video-follow-hint {
+  color: #52616b;
+}
+.video-theater .training-video-follow {
+  background: #fff;
+  border-color: #d5d9de;
+  border-left-color: #00c6d7;
+}
+.video-theater-rail {
+  color: #37474f;
+}
+.video-theater-rail-heading {
+  color: #182b49;
+}
+.video-theater-rail-position {
+  color: #00629b;
+}
+.video-rail-card {
+  background: #f5f7f9;
+}
+.video-rail-card:hover,
+.video-rail-card:focus {
+  background: #e8eef3;
+}
+.video-rail-card-flag {
+  color: #b8000e;
+}
+.video-rail-card-flag {
+  color: #00629b;
+}
+.video-rail-card-title {
+  color: #182b49;
+}
+.video-rail-card-meta {
+  color: #52616b;
+}
+.video-rail-card-next.is-suggested {
+  outline: 2px solid #00629b;
+}
+.video-theater-rail-all {
+  color: #00629b;
+}
+.video-theater-rail-all:hover,
+.video-theater-rail-all:focus {
+  color: #182b49;
+}
+.video-theater-rail-done {
+  color: #52616b;
+}
+
+/* TED-style description directly under the title */
+.video-theater-description {
+  max-width: 76ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #37474f;
+  margin: 0 0 16px;
+}
+
+/* Bezel-less player: no frame chrome, square corners, natural aspect ratio */
+.video-theater .use-case-demo-frame {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+.video-theater .use-case-demo-frame video {
+  border-radius: 0;
+  background: transparent;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  object-fit: fill;
+}
+
+/* Resume overlays the player; title leads the page; transcript hugs the video */
+.video-theater .use-case-demo-frame {
+  position: relative;
+}
+.video-theater .video-resume-host {
+  position: absolute;
+  left: 14px;
+  bottom: 56px;
+  z-index: 2;
+  margin: 0;
+}
+.video-theater .video-resume-host .video-resume-button {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+.video-theater .video-theater-title {
+  margin: 0 0 2px;
+}
+.video-theater .video-theater-kicker {
+  margin-bottom: 12px;
+}
+.video-theater .training-video-follow-wrap {
+  margin-top: 12px;
+}
+.video-theater .training-video-follow-hint {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+.video-theater .video-theater-description {
+  margin-top: 16px;
+}
+
+/* Library: slim continue-watching bar; thumbnails lead the page */
+.training-video-continue-bar {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  padding: 12px 0 2px;
+  border-bottom: 1px solid #d5d9de;
+  margin-bottom: 8px;
+}
+.training-video-continue-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #37474f;
+}
+.training-video-continue-bar .training-video-continue-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.training-video-continue-bar .training-video-continue-list li {
+  border: 0;
+  padding: 0;
+}
+.training-video-continue-bar .training-video-continue-list a {
+  font-weight: 700;
+}
+
+/* Continue-watching strip: aligned with the series sections, quiet typography */
+.training-video-continue-strip {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+.training-video-continue-strip .training-video-continue-bar {
+  padding: 0 0 10px;
+  margin-bottom: 0;
+  align-items: center;
+}
+.training-video-continue-strip .training-video-continue-list a {
+  font-size: 14px;
+  font-weight: 600;
+}
+.training-video-continue-strip .training-video-continue-list li {
+  max-width: 46ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Watch page: description sits between meta line and player */
+.video-theater .video-theater-description {
+  margin: 6px 0 14px;
+}
+
+/* Watch pages: wordmark moves above the title; nav links hide, blue strip stays */
+.video-theater-page .layout-title .title-header {
+  display: none;
+}
+.video-theater-page .navbar .navbar-collapse,
+.video-theater-page .navbar .navbar-header,
+.video-theater-page .navbar .navbar-nav,
+.video-theater-page .navbar .msearch {
+  display: none !important;
+}
+.video-theater-page .navbar.navbar-static-top {
+  min-height: 14px;
+}
+.video-theater-brand {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #182b49;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+.video-theater-brand span {
+  font-weight: 700;
+}
+.video-theater-brand:hover,
+.video-theater-brand:focus {
+  color: #00629b;
+  text-decoration: none;
+}
+
+/* Watch pages: wordmark returns to the header, aligned to the theater's left edge */
+.video-theater-page .layout-title {
+  position: relative;
+}
+.video-theater-page .layout-title .title-header {
+  display: block;
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+
+/* Watch pages, phone widths: mobile menu and search stay operable */
+@media (max-width: 991px) {
+  .video-theater-page .navbar .navbar-collapse,
+  .video-theater-page .navbar .navbar-header,
+  .video-theater-page .navbar .navbar-nav,
+  .video-theater-page .navbar .msearch {
+    display: block !important;
+  }
+  .video-theater-page .navbar.navbar-static-top {
+    min-height: 42px;
+  }
+}
+
+/* Continue strip: compact band; first series pulls up close behind it */
+.landing-section.training-video-continue-strip {
+  padding-top: 14px;
+  padding-bottom: 10px;
+}
+.training-video-continue-strip + .landing-section {
+  padding-top: 26px;
 }
