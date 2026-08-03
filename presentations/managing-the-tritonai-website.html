@@ -1089,7 +1089,7 @@ td code { font-size: 13px; }
   <p class="kicker">New contributor onboarding</p>
   <h2>The repository owner grants access before the Harness connects</h2>
   <div class="layer-stack" role="img" aria-label="The contributor creates and secures a GitHub account, then sends the username to the repository owner. The owner opens the TritonAI repository settings, selects Collaborators and Add people, and invites that account. The contributor accepts the invitation, which grants collaborator push access. The Harness then starts GitHub browser authentication, verifies write access, clones the repository, installs dependencies, and runs the baseline checks.">
-    <div class="layer-row creative"><div class="layer-title">Repository access</div><div class="layer-items"><div class="arch-node"><strong>Contributor prepares</strong><span>Create the account, verify email, enable two-factor authentication, and send the GitHub username to the repository owner</span></div><div class="arch-node core"><strong>Owner sends the invite</strong><span><code>bpollak/tritonai-website</code> → Settings → Collaborators → Add people</span></div><div class="arch-node review"><strong>Contributor accepts</strong><span>Open the GitHub email or notification and accept. Collaborator access includes push/write access.</span></div></div></div>
+    <div class="layer-row creative"><div class="layer-title">Repository access</div><div class="layer-items"><div class="arch-node"><strong>Contributor prepares</strong><span>Create the account, verify email, enable two-factor authentication, and send the GitHub username to the repository owner</span></div><div class="arch-node core"><strong>Owner sends the invite</strong><span><code>bpollak<span aria-hidden="true">/</span><span class="sr-only"> slash </span>tritonai-website</code> → Settings → Collaborators → Add people</span></div><div class="arch-node review"><strong>Contributor accepts</strong><span>Open the GitHub email or notification and accept. Collaborator access includes push/write access.</span></div></div></div>
     <div class="layer-connector">↓</div>
     <div class="layer-row"><div class="layer-title">Harness setup</div><div class="layer-items"><div class="arch-node"><strong>Install the tools</strong><span>Git · GitHub CLI · Node 22 or later · TritonAI Harness</span></div><div class="arch-node core"><strong>Authenticate and verify</strong><span>The Harness starts <code>gh auth login --web</code>; the contributor finishes sign-in; the Harness confirms write access</span></div><div class="arch-node review"><strong>Clone and test</strong><span>The Harness clones the repository, installs dependencies, inventories the site, and runs the baseline checks</span></div></div></div>
   </div>
@@ -1097,7 +1097,7 @@ td code { font-size: 13px; }
     <div class="responsibility-lane"><span class="responsibility-label">Automatic after access</span><p>The website skill verifies the authenticated account and write permission, prepares the working copy, and reports any setup blockers.</p></div>
     <div class="responsibility-lane user-lane"><span class="responsibility-label">Human access gates</span><p>The owner invites the named account. The contributor accepts, enables two-factor authentication, and completes browser sign-in. Keep credentials and recovery codes private.</p></div>
   </div>
-  <!-- [Sources] https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository; https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository; https://github.com/bpollak/tritonai-website; /AGENTS.md; /README.md -->
+  <!-- [Sources] https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository; https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository; GitHub repository owned by bpollak and named tritonai-website; /AGENTS.md; /README.md -->
 </section>
 
 <!-- SLIDE 6: Choose the source -->
@@ -1152,7 +1152,7 @@ td code { font-size: 13px; }
     </div>
     <figcaption id="harness-demo-description"><strong>Silent demonstration.</strong> Timed workflow captions appear below the player. The recording begins with a local Harness edit, then uses completed pull request 120 to show human merge, Cascade build, upload, publish, and public-page verification. <a href="_resources/tritonai-harness-editing-publishing-demo.vtt">Open the full transcript</a>.</figcaption>
   </figure>
-  <!-- [Sources] Local TritonAI Harness recording created for this presentation; https://github.com/bpollak/tritonai-website/pull/120; https://github.com/bpollak/tritonai-website/actions/runs/30675732145; https://tritonai.ucsd.edu/presentations/managing-the-tritonai-website.html -->
+  <!-- [Sources] Local TritonAI Harness recording created for this presentation; GitHub pull request 120; GitHub Actions run 30675732145; https://tritonai.ucsd.edu/presentations/managing-the-tritonai-website.html -->
 </section>
 
 <!-- SLIDE 9: Review a local copy -->
