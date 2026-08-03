@@ -22,6 +22,76 @@ export function isPublicModel(id) {
 
 const CLOUD_PROVIDERS = new Set(["azure", "azure_ai", "bedrock", "vertex_ai", "gemini", "anthropic"]);
 
+blis// Keep publishers in a stable, reviewable order. A model can be served by a
+// different infrastructure provider (for example, Anthropic through Vertex AI
+// or Bedrock), so the public model id is the reliable publisher signal here.
+const MODEL_PUBLISHERS = [
+  ["Anthropic", /^claude-/],
+  ["Google", /^(?:gemini-|api-gemma-)/],
+  ["OpenAI", /^(?:gpt-|api-gpt-oss-)/],
+  ["Moonshot AI", /^(?:kimi-|moonshotai\.kimi-)/],
+  ["MiniMax", /^minimax\./],
+  ["Mistral AI", /^(?:mistral\.|api-mistral-)/],
+  ["Amazon", /^us\.amazon\.nova-/],
+  ["TritonAI", /^(?:api-)?tgpt-embeddings$/],
+  ["DeepSeek", /^api-deepseek-/],
+  ["Z.ai", /^api-glm-/],
+  ["LightOn", /^api-lighton/],
+  ["Cohere", /^api-cohere-/],
+];
+
+// Relative launch sequence within each publisher. These values only establish
+// order; they are not dates. Review this map when a sync PR introduces a new
+// model so a newly added family is placed correctly against existing families.
+const MODEL_RECENCY = new Map([
+  ["claude-opus-5", 700],
+  ["claude-sonnet-5", 690],
+  ["claude-opus-4-8", 680],
+  ["claude-opus-4-7", 670],
+  ["claude-sonnet-4-6", 660],
+  ["claude-opus-4-6", 650],
+  ["claude-opus-4-6-v1", 640],
+  ["gemini-3.6-flash", 700],
+  ["gemini-3.5-flash", 690],
+  ["gemini-3.5-flash-lite", 680],
+  ["api-gemma-4-31b", 670],
+  ["api-gemma-4-26b", 660],
+  ["gpt-5.6-luna", 700],
+  ["gpt-5.6-sol", 700],
+  ["gpt-5.6-terra", 700],
+  ["gpt-5.5", 690],
+  ["gpt-5.4", 680],
+  ["api-gpt-oss-120b", 670],
+  ["kimi-k2.6", 700],
+  ["moonshotai.kimi-k2.5", 690],
+  ["us.amazon.nova-2-lite-v1:0", 700],
+  ["us.amazon.nova-premier-v1:0", 690],
+  ["api-tgpt-embeddings", 700],
+  ["tgpt-embeddings", 690],
+]);
+
+export function modelPublisher(id) {
+  const match = MODEL_PUBLISHERS.find(([, pattern]) => pattern.test(id));
+  return match?.[0] ?? "Other";
+}
+
+export function sortModelsByPublisherAndRecency(models) {
+  const publisherOrder = new Map(MODEL_PUBLISHERS.map(([publisher], index) => [publisher, index]));
+  return [...models].sort((a, b) => {
+    const publisherA = modelPublisher(a.id);
+    const publisherB = modelPublisher(b.id);
+    const publisherDifference =
+      (publisherOrder.get(publisherA) ?? MODEL_PUBLISHERS.length) -
+      (publisherOrder.get(publisherB) ?? MODEL_PUBLISHERS.length);
+    if (publisherDifference !== 0) return publisherDifference;
+
+    const recencyDifference = (MODEL_RECENCY.get(b.id) ?? 0) - (MODEL_RECENCY.get(a.id) ?? 0);
+    if (recencyDifference !== 0) return recencyDifference;
+
+    return a.id.localeCompare(b.id, "en", { numeric: true });
+  });
+}
+
 export function hostingFor(providers = []) {
   return providers.some((provider) => CLOUD_PROVIDERS.has(provider))
     ? "Approved enterprise cloud"
@@ -122,15 +192,8 @@ export async function fetchCatalog() {
       type: modelType(model.model_group, model.mode),
       hosting: hostingFor(model.providers),
       maxInputTokens: Number.isFinite(model.max_input_tokens) ? model.max_input_tokens : null,
-    }))
-    .sort((a, b) =>
-      a.hosting === b.hosting
-        ? a.type === b.type
-          ? a.id.localeCompare(b.id)
-          : a.type.localeCompare(b.type)
-        : a.hosting.localeCompare(b.hosting),
-    );
-  return models;
+    }));
+  return sortModelsByPublisherAndRecency(models);
 }
 
 export async function loadCatalog() {
