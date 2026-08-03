@@ -3947,3 +3947,14 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
   margin: 0;
   max-width: 56ch;
 }
+
+/* Quiz, discussion, and CTA align to the theater's left edge */
+.video-quiz-section .video-theater-about-inner,
+.video-discussion-section .video-theater-about-inner,
+.video-training-cta .video-theater-about-inner {
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 28px;
+  max-width: 908px;
+  width: auto;
+}
