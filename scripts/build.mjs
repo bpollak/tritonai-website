@@ -216,6 +216,7 @@ const USE_CASE_ICON_MAP = {
   "instructional-ai": "blackboard",
   "research-alignment": "search",
   "class-planner": "calendar",
+  "class-planner-app": "calendar",
   "voice-agent": "earphone",
   "passport-app": "check",
 };
@@ -244,6 +245,10 @@ const USE_CASE_MEDIA = {
   "class-planner": {
     src: "/_images/use-cases/class-planner-public.webp",
     alt: "Color-coded course blocks arranged on a weekly planner, with unavailable times and three schedule options for comparison",
+  },
+  "class-planner-app": {
+    src: "/_images/use-cases/class-planner-public.webp",
+    alt: "Weekly planner grid of color-coded course sections compared across schedule options before enrollment",
   },
   "dissertation-formatter": {
     src: "/_images/use-cases/dissertation-formatter-public.webp",

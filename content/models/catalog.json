@@ -1,0 +1,66 @@
+{
+  "lastSynced": "2026-08-03T04:36:04.736Z",
+  "source": "tritonai-api.ucsd.edu /v1/models",
+  "models": [
+    {
+      "id": "api-deepseek-v4-flash",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "api-gemma-4-26b",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 128000
+    },
+    {
+      "id": "api-gemma-4-31b",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 256000
+    },
+    {
+      "id": "api-glm-5.2",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 320000
+    },
+    {
+      "id": "api-gpt-oss-120b",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 128000
+    },
+    {
+      "id": "api-mistral-small-3.2-2506",
+      "type": "Chat and reasoning",
+      "maxInputTokens": null
+    },
+    {
+      "id": "deepseek-v4-flash-high",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "deepseek-v4-flash-high-em",
+      "type": "Chat and reasoning",
+      "maxInputTokens": null
+    },
+    {
+      "id": "deepseek-v4-flash-max",
+      "type": "Chat and reasoning",
+      "maxInputTokens": null
+    },
+    {
+      "id": "api-lightonocr-1b",
+      "type": "Document OCR",
+      "maxInputTokens": 8192
+    },
+    {
+      "id": "api-tgpt-embeddings",
+      "type": "Embeddings",
+      "maxInputTokens": 32768
+    },
+    {
+      "id": "api-cohere-transcribe",
+      "type": "Speech to text",
+      "maxInputTokens": null
+    }
+  ]
+}

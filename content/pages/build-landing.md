@@ -38,6 +38,31 @@ bannerMode: abstract
 </div></div>
 </section>
 
+<!-- AGENT_SECTION: model-catalog -->
+<section class="hub-section" id="model-catalog" aria-labelledby="model-catalog-heading">
+<div class="hub-heading"><p class="home-kicker">Shared AI platform</p><h2 id="model-catalog-heading">Models available through the gateway</h2><p>The gateway lists these models today. Context length is the amount of input a request can carry. Rates and full details stay in the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a>.</p></div>
+<div class="table-responsive" role="region" aria-label="Current model catalog" tabindex="0"><table class="table table-striped model-catalog-table">
+<caption class="sr-only">Models currently listed by the TritonAI gateway with their type and context length</caption>
+<thead><tr><th scope="col">Model</th><th scope="col">Type</th><th scope="col">Context length</th></tr></thead>
+<tbody>
+<tr><td><code>api-deepseek-v4-flash</code></td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><code>api-gemma-4-26b</code></td><td>Chat and reasoning</td><td>128K tokens</td></tr>
+<tr><td><code>api-gemma-4-31b</code></td><td>Chat and reasoning</td><td>256K tokens</td></tr>
+<tr><td><code>api-glm-5.2</code></td><td>Chat and reasoning</td><td>320K tokens</td></tr>
+<tr><td><code>api-gpt-oss-120b</code></td><td>Chat and reasoning</td><td>128K tokens</td></tr>
+<tr><td><code>api-mistral-small-3.2-2506</code></td><td>Chat and reasoning</td><td>See Model Hub</td></tr>
+<tr><td><code>deepseek-v4-flash-high</code></td><td>Chat and reasoning</td><td>1M tokens</td></tr>
+<tr><td><code>deepseek-v4-flash-high-em</code></td><td>Chat and reasoning</td><td>See Model Hub</td></tr>
+<tr><td><code>deepseek-v4-flash-max</code></td><td>Chat and reasoning</td><td>See Model Hub</td></tr>
+<tr><td><code>api-lightonocr-1b</code></td><td>Document OCR</td><td>8K tokens</td></tr>
+<tr><td><code>api-tgpt-embeddings</code></td><td>Embeddings</td><td>33K tokens</td></tr>
+<tr><td><code>api-cohere-transcribe</code></td><td>Speech to text</td><td>See Model Hub</td></tr>
+</tbody>
+</table></div>
+<p class="model-catalog-refreshed">List refreshed from the gateway on 2026-08-03. Test registrations and TritonGPT-internal serving entries are excluded.</p>
+</section>
+<!-- END_AGENT_SECTION -->
+
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
 <div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Use TritonAI Harness for desktop agent work</h2><p>The Harness is UC San Diego’s main supported desktop workspace for building and running AI agents. Installation, model access, campus skills, and permissions all come set up together, so you are not assembling them yourself. Claude Code and the Codex desktop app are also supported if you already prefer one of those.</p></div>
 <div class="build-tool-grid">

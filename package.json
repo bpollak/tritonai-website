@@ -20,6 +20,8 @@
     "test:ai-news": "node --test test/sync-ai-news.test.mjs",
     "test:skills-release": "node --test test/skills-release-gate.test.mjs",
     "test": "npm run test:ux && npm run test:ai-news && npm run test:media && npm run test:skills-release && npm run build && npm run validate && npm run test:a11y && npm run test:language",
+    "sync:models": "node scripts/sync-model-hub.mjs",
+    "check:models": "node scripts/sync-model-hub.mjs --check",
     "sync:media": "node scripts/sync-media-coverage.mjs",
     "check:media": "node scripts/sync-media-coverage.mjs --check",
     "render:media": "node --input-type=module -e \"import{loadArticles,renderAndWriteAll}from'./scripts/lib/media-articles.mjs';await renderAndWriteAll(await loadArticles())\"",
