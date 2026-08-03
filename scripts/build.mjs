@@ -390,6 +390,17 @@ function formatCueTime(seconds) {
 
 const TRAINING_VIDEO_SERIES_ORDER = ["Foundations", "Using the tools", "Building", "Faculty stream"];
 
+const TRAINING_VIDEO_SERIES_DESCRIPTIONS = {
+  Foundations:
+    "Start here for the shared ground: what AI is, the strategy behind it at UC San Diego, and the data, ethics, and governance guardrails that apply to every tool. Watch these first if you are new to campus AI.",
+  "Using the tools":
+    "Hands-on walkthroughs of the approved tools, from TritonGPT to Gemini, NotebookLM, Copilot, and Zoom. Each video pairs one tool with campus use cases you can repeat at your own desk.",
+  Building:
+    "For people ready to move from using AI to creating with it. These videos cover harnesses, automation, and the review path that turns an idea into a supported service.",
+  "Faculty stream":
+    "Made for instructors: student perspectives on AI, assessment at scale, course design, and the teaching assistant experience. Pair these with the Foundations series when weighing classroom decisions.",
+};
+
 function trainingVideoSeriesRank(name) {
   const index = TRAINING_VIDEO_SERIES_ORDER.indexOf(name);
   return index === -1 ? TRAINING_VIDEO_SERIES_ORDER.length : index;
@@ -470,7 +481,7 @@ function renderTrainingVideoIndex(videos) {
         .join("");
       const sectionId = `series-${series.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
       const sand = index % 2 === 1 ? " landing-section-sand" : "";
-      return `<section aria-labelledby="${sectionId}" class="landing-section cms-news-module${sand}"><div class="container"><div class="landing-section-heading"><p class="home-kicker">Series</p><h2 id="${sectionId}">${escapeHtml(series)}</h2></div><div class="row cms-news-grid">${cards}</div></div></section>`;
+      return `<section aria-labelledby="${sectionId}" class="landing-section cms-news-module${sand}"><div class="container"><div class="landing-section-heading"><p class="home-kicker">Series</p><h2 id="${sectionId}">${escapeHtml(series)}</h2>${TRAINING_VIDEO_SERIES_DESCRIPTIONS[series] ? `<p>${escapeHtml(TRAINING_VIDEO_SERIES_DESCRIPTIONS[series])}</p>` : ""}</div><div class="row cms-news-grid">${cards}</div></div></section>`;
     })
     .join("");
   const continueHtml = `<section class="landing-section training-video-continue-strip" data-continue-watching data-video-progress hidden aria-label="Continue watching"><div class="container"><div class="training-video-continue-bar"><span class="training-video-continue-label">Continue watching</span><ul class="training-video-continue-list"></ul></div></div></section>`;
