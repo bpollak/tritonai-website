@@ -1,65 +1,179 @@
 {
-  "lastSynced": "2026-08-03T04:36:04.736Z",
+  "lastSynced": "2026-08-03T05:55:13.629Z",
   "source": "tritonai-api.ucsd.edu /v1/models",
   "models": [
     {
-      "id": "api-deepseek-v4-flash",
+      "id": "claude-opus-4-6",
       "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
       "maxInputTokens": 1000000
     },
     {
-      "id": "api-gemma-4-26b",
+      "id": "claude-opus-4-6-v1",
       "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 200000
+    },
+    {
+      "id": "claude-opus-4-7",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "claude-opus-4-8",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "claude-opus-5",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "claude-sonnet-5",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "gemini-3.5-flash",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1048576
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1048576
+    },
+    {
+      "id": "gemini-3.6-flash",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1048576
+    },
+    {
+      "id": "gpt-5.4",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1050000
+    },
+    {
+      "id": "gpt-5.5",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1050000
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1050000
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1050000
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1050000
+    },
+    {
+      "id": "kimi-k2.6",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": null
+    },
+    {
+      "id": "minimax.minimax-m2",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
       "maxInputTokens": 128000
+    },
+    {
+      "id": "mistral.mistral-large-3-675b-instruct",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 128000
+    },
+    {
+      "id": "moonshotai.kimi-k2.5",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 262144
+    },
+    {
+      "id": "us.amazon.nova-2-lite-v1:0",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "us.amazon.nova-premier-v1:0",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
+    },
+    {
+      "id": "api-tgpt-embeddings",
+      "type": "Embeddings",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 32768
+    },
+    {
+      "id": "tgpt-embeddings",
+      "type": "Embeddings",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": null
+    },
+    {
+      "id": "api-deepseek-v4-flash",
+      "type": "Chat and reasoning",
+      "hosting": "UC-hosted",
+      "maxInputTokens": 1000000
     },
     {
       "id": "api-gemma-4-31b",
       "type": "Chat and reasoning",
+      "hosting": "UC-hosted",
       "maxInputTokens": 256000
     },
     {
       "id": "api-glm-5.2",
       "type": "Chat and reasoning",
+      "hosting": "UC-hosted",
       "maxInputTokens": 320000
     },
     {
       "id": "api-gpt-oss-120b",
       "type": "Chat and reasoning",
+      "hosting": "UC-hosted",
       "maxInputTokens": 128000
-    },
-    {
-      "id": "api-mistral-small-3.2-2506",
-      "type": "Chat and reasoning",
-      "maxInputTokens": null
-    },
-    {
-      "id": "deepseek-v4-flash-high",
-      "type": "Chat and reasoning",
-      "maxInputTokens": 1000000
-    },
-    {
-      "id": "deepseek-v4-flash-high-em",
-      "type": "Chat and reasoning",
-      "maxInputTokens": null
-    },
-    {
-      "id": "deepseek-v4-flash-max",
-      "type": "Chat and reasoning",
-      "maxInputTokens": null
     },
     {
       "id": "api-lightonocr-1b",
       "type": "Document OCR",
+      "hosting": "UC-hosted",
       "maxInputTokens": 8192
-    },
-    {
-      "id": "api-tgpt-embeddings",
-      "type": "Embeddings",
-      "maxInputTokens": 32768
     },
     {
       "id": "api-cohere-transcribe",
       "type": "Speech to text",
+      "hosting": "UC-hosted",
       "maxInputTokens": null
     }
   ]
