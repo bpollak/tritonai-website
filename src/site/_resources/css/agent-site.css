@@ -3789,7 +3789,7 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
   display: none !important;
 }
 .video-theater-page .navbar.navbar-static-top {
-  min-height: 14px;
+  min-height: 6px;
 }
 .video-theater-brand {
   display: inline-block;
@@ -3846,10 +3846,6 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
 }
 
 /* Training videos: knowledge check, discussion points, and team CTA */
-.video-quiz-section {
-  padding-top: 20px;
-}
-
 .video-quiz-section .video-theater-about-inner,
 .video-discussion-section .video-theater-about-inner,
 .video-training-cta .video-theater-about-inner {
@@ -3961,4 +3957,8 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
   padding-left: 28px;
   max-width: 908px;
   width: auto;
+}
+
+.video-quiz-section {
+  padding-top: 20px;
 }
