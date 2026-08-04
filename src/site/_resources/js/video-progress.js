@@ -164,8 +164,8 @@
       .filter((entry) => !entry.completed && entry.seconds > 15 && entry.href && entry.title)
       .sort((a, b) => b.updated - a.updated)
       .slice(0, 4);
+    const list = strip.querySelector("ul");
     if (items.length) {
-      const list = strip.querySelector("ul");
       items.forEach((entry) => {
         const item = document.createElement("li");
         const link = document.createElement("a");
@@ -175,6 +175,28 @@
         list.append(item);
       });
       strip.hidden = false;
+    } else {
+      // Nothing mid-play, but a returning viewer who finished their last
+      // video should land on the next unwatched one, not back at square one.
+      const cards = Array.from(document.querySelectorAll("[data-video-card]"));
+      const finishedAny = cards.some((card) => store[card.dataset.videoCard] && store[card.dataset.videoCard].completed);
+      const nextCard = finishedAny
+        ? cards.find((card) => !store[card.dataset.videoCard] || !store[card.dataset.videoCard].completed)
+        : null;
+      if (nextCard) {
+        const title = nextCard.querySelector("h3 a");
+        if (title) {
+          const label = strip.querySelector("[data-continue-label]");
+          if (label) label.textContent = "Welcome back";
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = title.getAttribute("href");
+          link.textContent = `Up next for you: ${title.textContent}`;
+          item.append(link);
+          list.append(item);
+          strip.hidden = false;
+        }
+      }
     }
   }
   document.querySelectorAll("[data-video-card]").forEach((card) => {

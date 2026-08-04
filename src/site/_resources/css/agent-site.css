@@ -3947,6 +3947,41 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
   margin: 0;
   max-width: 56ch;
 }
+.video-training-cta-panel .video-training-cta-meta {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #4a5560;
+}
+.video-training-cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.video-theater-presenter {
+  margin: -6px 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+.training-video-card-presenter {
+  margin: -4px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #182b49;
+}
+.video-rail-card-presenter {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  margin-top: 2px;
+}
+.training-video-journey-intro {
+  padding-bottom: 8px;
+}
+.training-video-completion .video-training-cta-panel {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Quiz, discussion, and CTA align to the theater's left edge */
 .video-quiz-section .video-theater-about-inner,
