@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Managing the TritonAI Website | Presentation</title>
+<title>Editing and Publishing the TritonAI Website | Presentation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -61,13 +61,16 @@ html, body {
 }
 .title-brand span { font-weight: 700; }
 .title-ucsd {
-  font-family: Roboto, sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--triton-blue);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
 }
-.title-ucsd:hover { text-decoration: underline; }
+.title-ucsd img {
+  display: block;
+  width: 170px;
+  height: auto;
+}
+.title-ucsd:hover { opacity: .85; }
 .layout-nav {
   background: var(--triton-blue);
   display: flex;
@@ -102,6 +105,10 @@ html, body {
 .slide.active {
   opacity: 1;
   pointer-events: auto;
+}
+.slide:focus-visible {
+  outline: 3px solid var(--triton-gold);
+  outline-offset: -3px;
 }
 
 /* --- Hero slides (navy background) --- */
@@ -151,46 +158,19 @@ html, body {
   border-left: 3px solid var(--triton-gold);
   padding-left: 14px;
 }
-.slide-hero .presentation-meta dt {
+.slide-hero .presentation-meta .meta-label {
+  display: block;
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--triton-gold);
   font-weight: 700;
 }
-.slide-hero .presentation-meta dd {
+.slide-hero .presentation-meta .meta-value {
+  display: block;
   font-size: 16px;
   color: rgba(255,255,255,.8);
   margin-top: 2px;
-}
-
-/* --- Section divider slides --- */
-.slide-section {
-  background: var(--triton-blue);
-  color: #fff;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 60px;
-}
-.slide-section .section-number {
-  font-family: 'Teko', sans-serif;
-  font-size: 80px;
-  line-height: .8;
-  color: var(--triton-gold);
-  font-weight: 600;
-}
-.slide-section h2 {
-  font-family: 'Teko', sans-serif;
-  font-size: clamp(42px, 5vw, 64px);
-  line-height: 1;
-  margin-top: 8px;
-  max-width: 800px;
-}
-.slide-section p {
-  font-size: 20px;
-  margin-top: 16px;
-  max-width: 640px;
-  color: rgba(255,255,255,.8);
 }
 
 /* --- Content slides --- */
@@ -426,6 +406,7 @@ td code { font-size: 13px; }
   margin-top: 4px;
   line-height: 1.4;
 }
+.flow-step code { font-size: 12px; padding: 2px 4px; white-space: normal; overflow-wrap: anywhere; }
 .slide-navy .flow-step .step-desc { color: rgba(255,255,255,.6); }
 .flow-arrow {
   display: flex;
@@ -507,7 +488,7 @@ td code { font-size: 13px; }
 .nav-btn:hover { background: rgba(255,255,255,.2); }
 .nav-btn:disabled { opacity: .3; cursor: default; }
 .progress-text {
-  color: rgba(255,255,255,.6);
+  color: #fff;
   font-size: 13px;
   letter-spacing: .04em;
 }
@@ -564,6 +545,359 @@ td code { font-size: 13px; }
 .slide-navy .checklist li::before { background: var(--triton-bright-blue); }
 .checklist li strong { display: block; }
 
+/* --- Benefit-led presentation elements --- */
+.benefit-lead {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  color: var(--triton-navy);
+  max-width: 900px;
+  margin: 12px 0 28px;
+}
+.slide-navy .benefit-lead { color: #fff; }
+.benefit-pairs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  max-width: 920px;
+  border-top: 1px solid var(--triton-border);
+}
+.benefit-pair {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--triton-border);
+}
+.benefit-pair h3 { margin: 0 0 4px; }
+.benefit-pair p { font-size: 16px; margin: 0; }
+.benefit-pairs-compact .benefit-pair { padding: 13px 0; }
+.benefit-pairs-compact .benefit-pair p { line-height: 1.42; }
+.benefit-pairs-wide { grid-template-columns: repeat(3, 1fr); gap: 0 28px; max-width: 1100px; }
+.slide-dense { padding: 38px 60px 27px; }
+.slide-dense h2 { margin-bottom: 14px; }
+.slide-onboarding { padding-bottom: 8px; }
+.slide-checklist { padding: 34px 60px 28px; }
+.slide-checklist h2 { margin-bottom: 4px; }
+.slide-checklist .two-col { margin-top: 0; }
+.slide-checklist h3 { margin-top: 6px; margin-bottom: 4px; }
+.slide-checklist .checklist li { padding-top: 7px; padding-bottom: 7px; line-height: 1.35; }
+.slide-checklist .checklist li::before { top: 7px; }
+.slide-local-review .flow { max-width: 1080px; }
+.slide-local-review .workflow-note { max-width: 1080px; }
+.trigger-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 980px;
+  margin-top: 22px;
+}
+.trigger-item {
+  border-top: 5px solid var(--triton-gold);
+  padding: 18px 4px 0;
+}
+.trigger-item h3 { margin: 0 0 6px; }
+.trigger-item p { font-size: 15px; margin: 0; }
+.guardrail {
+  border-left: 4px solid var(--triton-bright-blue);
+  padding-left: 22px;
+}
+.guardrail h3 { margin-top: 0; }
+.pathway-note {
+  max-width: 920px;
+  margin-top: 24px;
+  font-size: 17px;
+  color: rgba(255,255,255,.82);
+}
+.slide-brand { padding-bottom: 40px; }
+
+/* --- Architecture and workflow visuals --- */
+.arch-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--triton-blue);
+}
+.slide-navy .arch-label, .slide-hero .arch-label { color: var(--triton-gold); }
+.arch-node {
+  background: #fff;
+  border: 2px solid var(--triton-blue);
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-width: 0;
+  box-shadow: 0 5px 14px rgba(24,43,73,.08);
+}
+.arch-node strong { display: block; font-size: 15px; color: var(--triton-navy); }
+.arch-node span { display: block; margin-top: 4px; font-size: 12px; line-height: 1.35; color: #66737d; }
+.arch-node.core { background: var(--triton-blue); border-color: var(--triton-blue); }
+.arch-node.core strong, .arch-node.core span { color: #fff; }
+.arch-node.review { border-color: var(--triton-gold); }
+.slide-navy .arch-node, .slide-hero .arch-node {
+  background: rgba(255,255,255,.07);
+  border-color: var(--triton-bright-blue);
+  box-shadow: none;
+}
+.slide-navy .arch-node strong, .slide-hero .arch-node strong { color: #fff; }
+.slide-navy .arch-node span, .slide-hero .arch-node span { color: rgba(255,255,255,.68); }
+.slide-navy .arch-node.core, .slide-hero .arch-node.core {
+  background: var(--triton-blue);
+  border-color: var(--triton-gold);
+}
+.arch-arrow { color: var(--triton-blue); font-size: 25px; font-weight: 700; text-align: center; align-self: center; }
+.slide-navy .arch-arrow, .slide-hero .arch-arrow { color: var(--triton-bright-blue); }
+
+.hero-architecture {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr);
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+.hero-copy { min-width: 0; }
+.hero-system {
+  display: grid;
+  grid-template-columns: 1fr 28px 1.18fr 28px 1fr;
+  align-items: center;
+  gap: 6px;
+}
+.hero-system .arch-column { display: grid; gap: 10px; }
+.hero-system .arch-label { text-align: center; margin-bottom: 4px; }
+
+.capability-map {
+  display: grid;
+  grid-template-columns: minmax(150px,.7fr) 34px minmax(180px,.85fr) 34px minmax(340px,1.6fr);
+  align-items: center;
+  gap: 8px;
+  max-width: 1040px;
+  margin-top: 18px;
+}
+.capability-outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.entry-sources { display: grid; gap: 12px; }
+
+.journey-flow {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  align-items: stretch;
+  gap: 8px;
+  max-width: 1080px;
+  margin-top: 24px;
+}
+.journey-stage {
+  min-width: 0;
+  min-height: 156px;
+  padding: 18px 16px;
+  border-top: 6px solid var(--triton-blue);
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(24,43,73,.1);
+  display: flex;
+  flex-direction: column;
+}
+.journey-stage:nth-of-type(7) { border-color: var(--triton-gold); }
+.journey-stage:nth-of-type(9) { border-color: var(--triton-bright-blue); }
+.journey-number {
+  font-family: 'Teko', sans-serif;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--triton-blue);
+}
+.journey-stage strong { color: var(--triton-navy); font-size: 17px; margin-top: 6px; }
+.journey-stage span:last-child { color: #66737d; font-size: 13px; line-height: 1.4; margin-top: 8px; }
+.journey-owner {
+  max-width: 1080px;
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 2px solid var(--triton-bright-blue);
+  padding-top: 10px;
+  color: var(--triton-blue);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.risk-matrix {
+  max-width: 1060px;
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: .8fr 34px 1.2fr;
+  gap: 10px 12px;
+  align-items: stretch;
+}
+.slide-risk { padding-bottom: 12px; }
+.slide-maintenance { padding-top: 42px; padding-bottom: 40px; }
+.slide-maintenance h2 { margin-bottom: 18px; }
+.slide-risk .risk-matrix { margin-top: 12px; row-gap: 8px; }
+.risk-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--triton-blue);
+  padding: 0 14px 3px;
+}
+.risk-item, .control-item {
+  border-radius: 9px;
+  padding: 12px 16px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.risk-item { background: #fff; border-left: 5px solid #d75b43; }
+.control-item { background: rgba(0,98,155,.07); border-left: 5px solid var(--triton-blue); }
+.risk-item strong, .control-item strong { color: var(--triton-navy); font-size: 15px; }
+.risk-item span, .control-item span { color: #66737d; font-size: 12px; line-height: 1.35; margin-top: 3px; }
+.risk-matrix .arch-arrow { font-size: 20px; }
+
+.layer-stack { max-width: 1020px; display: grid; gap: 12px; margin-top: 12px; }
+.layer-row { display: grid; grid-template-columns: 160px 1fr; gap: 18px; align-items: stretch; }
+.layer-title { display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; border-radius: 10px; background: var(--triton-navy); color: #fff; font-weight: 700; }
+.layer-items { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.layer-row.creative .layer-title { background: var(--triton-blue); }
+.layer-row.creative .arch-node { border-color: var(--triton-bright-blue); }
+.layer-connector { text-align: center; font-size: 22px; color: var(--triton-blue); line-height: 1; }
+
+.workflow-pipeline { display: grid; grid-template-columns: repeat(9,auto); align-items: stretch; gap: 8px; max-width: 1080px; margin-top: 18px; }
+.workflow-pipeline .arch-node { display: flex; flex-direction: column; justify-content: center; min-height: 112px; }
+.workflow-pipeline .arch-arrow { padding: 0 2px; }
+.skill-pipeline { display: grid; grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr); align-items: stretch; gap: 8px; max-width: 1080px; margin-top: 18px; }
+.skill-pipeline .arch-node { min-height: 174px; display: flex; flex-direction: column; justify-content: center; }
+.skill-pipeline .arch-arrow { padding: 0 2px; }
+.arch-node span.skill-stage-label { margin: 0 0 9px; color: var(--triton-blue); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.arch-node.core span.skill-stage-label { color: var(--triton-gold); }
+.skill-invocation .arch-node { min-height: 214px; justify-content: flex-start; }
+.skill-invocation .arch-node strong { margin-bottom: 7px; }
+.skill-invocation .skill-name { margin-top: 6px; color: var(--triton-navy); font-size: 13px; line-height: 1.35; }
+.skill-invocation .skill-name code { overflow-wrap: anywhere; }
+.skill-kind-note { max-width: 1080px; margin: 10px 0 0; font-size: 13px; color: var(--triton-slate); }
+.workflow-note { max-width: 1040px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.workflow-note div { border-left: 4px solid var(--triton-bright-blue); padding: 10px 16px; font-size: 15px; line-height: 1.45; }
+
+.responsibility-strip {
+  max-width: 1080px;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.responsibility-lane {
+  min-width: 0;
+  padding: 11px 16px;
+  border-left: 5px solid var(--triton-bright-blue);
+  background: rgba(0,98,155,.07);
+}
+.responsibility-lane.user-lane {
+  border-left-color: var(--triton-gold);
+  background: rgba(252,227,0,.12);
+}
+.responsibility-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--triton-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.responsibility-lane p {
+  margin: 0;
+  color: var(--triton-navy);
+  font-size: 16px;
+  line-height: 1.38;
+}
+.responsibility-lane code { font-size: .92em; }
+.slide-navy .responsibility-lane,
+.slide-hero .responsibility-lane {
+  background: rgba(255,255,255,.08);
+}
+.slide-navy .responsibility-lane.user-lane,
+.slide-hero .responsibility-lane.user-lane {
+  background: rgba(252,227,0,.1);
+}
+.slide-navy .responsibility-label,
+.slide-hero .responsibility-label { color: var(--triton-gold); }
+.slide-navy .responsibility-lane p,
+.slide-hero .responsibility-lane p { color: rgba(255,255,255,.88); }
+.slide-dense .responsibility-strip { margin-top: 11px; }
+.slide-dense .responsibility-lane { padding-top: 8px; padding-bottom: 8px; }
+.slide-dense .responsibility-lane p { font-size: 14px; }
+
+.iteration-map { display: grid; grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr; align-items: center; max-width: 1040px; margin-top: 22px; }
+.iteration-map .arch-node { min-height: 132px; }
+.feedback-rail { max-width: 1040px; margin-top: 16px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 18px; text-align: center; color: var(--triton-blue); font-size: 14px; font-weight: 700; }
+
+.context-map { display: grid; grid-template-columns: 1.05fr 38px .8fr 38px 1.05fr; align-items: center; gap: 10px; max-width: 1040px; margin-top: 12px; }
+.context-sources { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.context-map .boundary { border: 2px dashed var(--triton-blue); border-radius: 12px; padding: 14px; display: grid; gap: 10px; background: rgba(255,255,255,.55); }
+.context-map .boundary-label { text-align: center; font-size: 12px; font-weight: 700; color: var(--triton-blue); }
+.context-actions { display: grid; gap: 10px; }
+
+.branch-map { display: grid; grid-template-columns: 150px 34px 1fr 34px 180px 34px 180px; align-items: center; gap: 8px; max-width: 1060px; margin-top: 22px; }
+.branch-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.branch-options .arch-node { min-height: 104px; }
+
+.swimlane { max-width: 1080px; margin-top: 14px; display: grid; grid-template-columns: 120px repeat(4,1fr); border: 1px solid var(--triton-border); border-radius: 10px; overflow: hidden; }
+.swimlane > div { padding: 12px; border-right: 1px solid var(--triton-border); border-bottom: 1px solid var(--triton-border); font-size: 13px; line-height: 1.35; }
+.swimlane > div:nth-child(5n) { border-right: 0; }
+.swimlane .lane-head { background: var(--triton-navy); color: #fff; font-weight: 700; text-align: center; }
+.swimlane .lane-label { background: var(--triton-sand); color: var(--triton-blue); font-weight: 700; display: flex; align-items: center; }
+.swimlane .handoff { color: var(--triton-blue); font-weight: 700; }
+.mobile-scroll-hint { display: none; }
+
+.flywheel { display: grid; grid-template-columns: repeat(9,auto); align-items: center; gap: 7px; margin-top: 28px; position: relative; z-index: 1; }
+.flywheel .arch-node { min-height: 105px; display: flex; flex-direction: column; justify-content: center; }
+.flywheel-return { margin-top: 14px; border: 2px dashed var(--triton-bright-blue); border-radius: 10px; padding: 10px 16px; text-align: center; color: rgba(255,255,255,.8); font-size: 14px; position: relative; z-index: 1; }
+
+/* --- Harness demonstration --- */
+.deck.video-slide-active .site-header { display: none; }
+.deck.video-slide-active .slide-demo {
+  background: #fff;
+  padding: 12px;
+}
+.slide-demo { padding: 12px; }
+.harness-demo {
+  display: grid;
+  gap: 12px;
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: 100%;
+  margin: auto;
+  max-width: 1600px;
+  min-height: 0;
+  width: 100%;
+}
+.harness-demo video {
+  background: #000;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(24,43,73,.16);
+  display: block;
+  margin: 0 auto;
+  max-height: calc(100vh - 170px);
+  object-fit: contain;
+  width: min(100%, calc((100vh - 170px) * 16 / 9));
+}
+.harness-page-caption {
+  color: var(--triton-navy);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 2.8em;
+  text-align: center;
+}
+.harness-page-caption-text { display: block; }
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 /* --- Keyboard hint --- */
 .kbd-hint {
   position: absolute;
@@ -575,11 +909,97 @@ td code { font-size: 13px; }
 }
 .slide-content .kbd-hint, .slide-sand .kbd-hint { color: rgba(0,0,0,.25); }
 
+/* --- Presentation-scale typography --- */
+.layout-nav span { font-size: 16px; }
+.slide-hero .kicker { font-size: 16px; }
+.slide-hero .lede { font-size: 24px; }
+.slide-hero .presentation-meta .meta-label { font-size: 13px; }
+.slide-hero .presentation-meta .meta-value { font-size: 18px; }
+.slide-content .kicker { font-size: 15px; }
+.slide-content h2 { font-size: clamp(40px, 4.3vw, 52px); }
+.slide-content h3 { font-size: 31px; }
+.slide-content p, .slide-content ul, .slide-content ol { font-size: 20px; }
+.slide-content code { font-size: 17px; }
+.card .card-type { font-size: 13px; }
+.card h3 { font-size: 28px; }
+.card p { font-size: 18px; }
+.flow-step .step-num { font-size: 36px; }
+.flow-step .step-label { font-size: 17px; }
+.flow-step .step-desc { font-size: 14px; }
+.callout { font-size: 19px; }
+.progress-text { font-size: 15px; }
+.checklist li { font-size: 19px; }
+.benefit-pair p { font-size: 18px; }
+.arch-label { font-size: 13px; }
+.arch-node strong { font-size: 17px; }
+.arch-node span { font-size: 14px; }
+.layer-title { font-size: 18px; }
+  .workflow-note div { font-size: 17px; }
+  .responsibility-lane p { font-size: 17px; }
+.pathway-note { font-size: 19px; }
+
+@media (max-height: 760px) and (min-width: 769px) {
+  .slide-content { padding: 34px 60px 44px; }
+  .slide-brand { padding-bottom: 12px; }
+  .slide-content h2 { font-size: clamp(32px, 3.4vw, 40px); margin-bottom: 16px; }
+  .slide-content h3 { font-size: 24px; margin-top: 18px; margin-bottom: 6px; }
+  .slide-content p, .slide-content ul, .slide-content ol { font-size: 16px; line-height: 1.5; }
+  .benefit-lead { font-size: 28px; margin: 8px 0 18px; }
+  .benefit-pair { padding: 12px 0; }
+  .benefit-pair p, .trigger-item p { font-size: 14px; }
+  .checklist li { padding-top: 7px; padding-bottom: 7px; font-size: 15px; }
+  .checklist li::before { top: 7px; }
+  .callout { padding-top: 11px; padding-bottom: 11px; margin: 10px 0; }
+  .arch-node { padding: 10px 12px; }
+  .arch-node strong { font-size: 13px; }
+  .arch-node span { font-size: 11px; }
+  .workflow-pipeline .arch-node { min-height: 88px; }
+  .iteration-map .arch-node { min-height: 102px; }
+  .responsibility-strip { margin-top: 10px; }
+  .responsibility-lane { padding: 8px 12px; }
+  .responsibility-lane p { font-size: 13px; }
+}
+
 @media (max-width: 768px) {
-  .slide-hero, .slide-section, .slide-content { padding: 32px 24px; }
-  .compare, .two-col { grid-template-columns: 1fr; }
+  .slide-hero, .slide-content { padding: 32px 24px; }
+  .slide-hero { justify-content: flex-start; }
+  .slide-hero h1 { font-size: 44px; }
+  .slide-hero .lede { font-size: 18px; line-height: 1.45; }
+  .hero-architecture { gap: 24px; }
+  .compare, .two-col, .benefit-pairs, .trigger-list { grid-template-columns: 1fr; }
+  .hero-architecture, .capability-map, .layer-row, .context-map, .branch-map { grid-template-columns: 1fr; gap: 12px; }
+  .hero-system { grid-template-columns: 1fr; }
+  .hero-system .arch-arrow, .capability-map > .arch-arrow, .context-map > .arch-arrow, .branch-map > .arch-arrow { transform: rotate(90deg); }
+  .capability-outputs, .layer-items, .context-sources, .branch-options { grid-template-columns: 1fr; }
+  .workflow-pipeline, .skill-pipeline, .iteration-map, .flywheel { grid-template-columns: 1fr; gap: 8px; }
+  .journey-flow { grid-template-columns: 1fr; gap: 8px; }
+  .journey-flow .arch-arrow { transform: rotate(90deg); }
+  .journey-stage { min-height: 112px; }
+  .journey-owner { grid-template-columns: 1fr; gap: 8px; text-align: left; }
+  .risk-matrix { grid-template-columns: 1fr; }
+  .risk-matrix .arch-arrow { transform: rotate(90deg); }
+  .risk-head { display: none; }
+  .workflow-pipeline .arch-arrow, .skill-pipeline .arch-arrow, .iteration-map .arch-arrow, .flywheel .arch-arrow { transform: rotate(90deg); }
+  .workflow-note { grid-template-columns: 1fr; }
+  .responsibility-strip { grid-template-columns: 1fr; }
+  .swimlane { grid-template-columns: 92px repeat(4, minmax(150px,1fr)); overflow-x: auto; }
+  .mobile-scroll-hint { display: block; margin: 8px 0 0; font-size: 13px !important; color: var(--triton-blue); font-weight: 700; }
+  .slide-demo { padding: 10px; }
+  .deck.video-slide-active .slide-demo { padding: 10px; }
+  .harness-demo { gap: 12px; }
+  .harness-page-caption { font-size: 18px; min-height: 4.2em; }
   .flow { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+  .controls { height: 48px; padding: 0 12px; }
+  .nav-btn { width: 44px; height: 44px; }
+  .progress-bar { margin: 0 12px; }
+  .controls-right { display: none; }
+}
+@media (max-width: 480px) {
+  .title-ucsd img { width: 140px; }
+}
+@media (min-width: 769px) {
+  .slide-content.slide-onboarding { padding-bottom: 8px; }
 }
 </style>
 </head>
@@ -590,10 +1010,10 @@ td code { font-size: 13px; }
 <header class="site-header">
   <section class="layout-title">
     <a class="title-brand" href="https://tritonai.ucsd.edu">Triton <span>AI</span></a>
-    <a class="title-ucsd" href="https://ucsd.edu">UC San Diego</a>
+    <a class="title-ucsd" href="https://ucsd.edu"><img alt="UC San Diego" src="https://www.ucsd.edu/_resources/img/logo_UCSD.png"></a>
   </section>
   <nav class="layout-nav">
-    <span>Managing the TritonAI Website</span>
+    <span>Editing and Publishing the TritonAI Website</span>
   </nav>
 </header>
 
@@ -602,404 +1022,258 @@ td code { font-size: 13px; }
 
 <!-- SLIDE 1: Title -->
 <section class="slide slide-hero active" data-slide="1">
-  <p class="kicker">For Cascade Server CMS content staff</p>
-  <h1>Managing the TritonAI Website</h1>
-  <p class="lede">How the TritonAI site is built, updated, and published — without Cascade Server — using the TritonAI Harness and GitHub.</p>
-  <dl class="presentation-meta">
-    <div><dt>Audience</dt><dd>Web content staff managing Cascade CMS sites</dd></div>
-    <div><dt>Format</dt><dd>Walk-through with live examples</dd></div>
-    <div><dt>Source</dt><dd>docs/how-updates-and-publishing-work.md</dd></div>
-  </dl>
+  <p class="kicker">For TritonAI content contributors</p>
+  <h1>Editing and Publishing the TritonAI Website</h1>
+  <p class="lede">Relevant skills handle the website mechanics. Your prompts shape the content, design, and final decision.</p>
+  <div class="presentation-meta">
+    <div><span class="meta-label">Automatic after a trigger</span><span class="meta-value">Inspect, edit, preview, test, and prepare review</span></div>
+    <div><span class="meta-label">You prompt and decide</span><span class="meta-value">Set the goal, improve the result, and approve release</span></div>
+  </div>
   <div class="kbd-hint">Use ← → arrow keys to navigate</div>
 </section>
 
-<!-- SLIDE 2: Why this matters -->
-<section class="slide slide-content" data-slide="2">
-  <p class="kicker">Context</p>
-  <h2>Why we moved off Cascade</h2>
-  <div class="compare">
-    <div class="compare-col compare-old">
-      <h3>Before — Cascade Server</h3>
-      <ul>
-        <li>Edits made inside a CMS web interface</li>
-        <li>Publish runs through a server queue</li>
-        <li>Version history lives in Cascade</li>
-        <li>Preview requires a staging server</li>
-        <li>One person can edit a page at a time</li>
-      </ul>
-    </div>
-    <div class="compare-col compare-new">
-      <h3>Now — GitHub + TritonAI Harness</h3>
-      <ul>
-        <li>Edits made in Markdown and JSON files</li>
-        <li>A build script generates the finished HTML</li>
-        <li>Git tracks every change with a full history</li>
-        <li>Automated checks run before anything goes live</li>
-        <li>Multiple contributors work at the same time</li>
-      </ul>
-    </div>
+<!-- SLIDE 2: Advantages -->
+<section class="slide slide-content slide-sand slide-dense" data-slide="2">
+  <p class="kicker">Why use TritonAI for website content</p>
+  <h2>Skills handle the workflow while your prompts shape the result</h2>
+  <div class="benefit-pairs benefit-pairs-compact benefit-pairs-wide">
+    <div class="benefit-pair"><h3>Automate recurring updates</h3><p>Scheduled jobs collect newsletters, media coverage, skills, and UX findings, then prepare reviewable results.</p></div>
+    <div class="benefit-pair"><h3>Stay flexible and on brand</h3><p>Templates can change with the content while UC San Diego structure, typography, navigation, and accessibility rules remain in force.</p></div>
+    <div class="benefit-pair"><h3>Turn concepts into clear visuals</h3><p>The agent can pair concise text with accessible architecture and workflow graphics that make a process easier to understand.</p></div>
+    <div class="benefit-pair"><h3>Keep the writing human</h3><p>Voice matching followed by a humanization pass removes generic patterns while preserving names, facts, and technical precision.</p></div>
+    <div class="benefit-pair"><h3>Bring in personal and team context</h3><p>When connected, approved context can supply priorities, source material, working preferences, and previous team decisions.</p></div>
+    <div class="benefit-pair"><h3>Keep every result reviewable</h3><p>Diffs, previews, tests, pull requests, commit history, and live checks show what changed and preserve a rollback path.</p></div>
   </div>
-  <div class="callout">The public URLs, UC San Diego Decorator look and feel, and browser integrations are all preserved. What changed is how content gets in.</div>
-</section>
-
-<!-- SLIDE 3: Section divider — Where content lives -->
-<section class="slide slide-section" data-slide="3">
-  <span class="section-number">01</span>
-  <h2>Where content lives</h2>
-  <p>Understand the file structure and you understand the site.</p>
-</section>
-
-<!-- SLIDE 4: Content locations -->
-<section class="slide slide-content" data-slide="4">
-  <p class="kicker">The repository</p>
-  <h2>Content is organized by type</h2>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-blue">Pages</span>
-      <h3>content/pages/</h3>
-      <p>Homepage, strategy, trust architecture, tools — the pages people read often. Markdown files with frontmatter.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Newsletters</span>
-      <h3>content/newsletters/</h3>
-      <p>One Markdown file per week. The homepage and AI Updates page pick them up automatically.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-cyan">Use cases</span>
-      <h3>content/use-cases/</h3>
-      <p>Real campus AI workflows. Each carries a status, owner, and review date.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-blue">Media</span>
-      <h3>content/media/</h3>
-      <p>Article archive as JSON. Both media pages are generated from this file.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Structured data</span>
-      <h3>content/roadmap/, facts/, skills/</h3>
-      <p>Roadmap milestones, public claims, and the skills catalog — all JSON with required fields.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-cyan">Visual shell</span>
-      <h3>src/site/</h3>
-      <p>The UC San Diego Decorator header, footer, styles, and scripts. Loads from the UCSD CDN. Rarely edited.</p>
-    </div>
-  </div>
-  <div class="callout">If a file lives under <code>content/</code>, you edit the source and the build writes the page. If it lives under <code>src/site/</code>, it is a legacy page edited directly at its original path.</div>
-</section>
-
-<!-- SLIDE 5: Section divider — How a change becomes live -->
-<section class="slide slide-section" data-slide="5">
-  <span class="section-number">02</span>
-  <h2>How a change becomes a web page</h2>
-  <p>Six steps from edit to live — no CMS queue, no manual upload.</p>
-</section>
-
-<!-- SLIDE 6: The six-step flow -->
-<section class="slide slide-content slide-sand" data-slide="6">
-  <p class="kicker">The publishing pipeline</p>
-  <h2>From edit to live in six steps</h2>
-  <div class="flow">
-    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Edit</div><div class="step-desc">Change a content file</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Build</div><div class="step-desc">Script generates HTML</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Validate</div><div class="step-desc">Routes, links, metadata</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Test</div><div class="step-desc">A11y + language checks</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">5</div><div class="step-label">Review</div><div class="step-desc">Pull request</div></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><div class="step-num">6</div><div class="step-label">Publish</div><div class="step-desc">Merge deploys</div></div>
-  </div>
-  <h3>What happens at each step</h3>
-  <ul>
-    <li><strong>Build</strong> — <code>scripts/build.mjs</code> reads every content file, applies the Decorator shell, injects the Google Analytics tag, and writes finished HTML to <code>dist/</code>.</li>
-    <li><strong>Validate</strong> — <code>scripts/validate.mjs</code> checks routes, links, metadata, analytics, freshness, and Decorator conformance.</li>
-    <li><strong>Test</strong> — An axe-based accessibility scan runs at mobile and desktop widths. A language check flags booster words and heading problems.</li>
-    <li><strong>Review</strong> — A pull request shows exactly what changed. Checks must pass before merge.</li>
-    <li><strong>Publish</strong> — Merging to <code>main</code> triggers GitHub Actions to build and deploy to GitHub Pages automatically.</li>
-  </ul>
-</section>
-
-<!-- SLIDE 7: Section divider — Multiple contributors -->
-<section class="slide slide-section" data-slide="7">
-  <span class="section-number">03</span>
-  <h2>How multiple contributors work together</h2>
-  <p>Branches, ownership tiers, and section markers keep concurrent work safe.</p>
-</section>
-
-<!-- SLIDE 8: Branching -->
-<section class="slide slide-content" data-slide="8">
-  <p class="kicker">Contribution mechanics</p>
-  <h2>Everyone works on a branch</h2>
-  <p>No one edits <code>main</code> directly. Every contributor — human or agent — creates a feature branch named for the work:</p>
-  <pre><code>content/update-strategy-2026-07-30     # a page edit
-content/newsletter-2026-07-27          # a weekly update
-automation/sync-ai-news                # an automated job</code></pre>
-  <p>Two people can edit different parts of the site at the same time. Each branch becomes a pull request. <code>main</code> only receives changes through a merge.</p>
-  <h3>Avoiding conflicts</h3>
-  <ul>
-    <li>Check open PRs before starting — if someone is already editing the same file, coordinate first</li>
-    <li>Keep PRs focused — one page or one task per PR</li>
-    <li>Pull <code>main</code> before merging and re-run <code>npm test</code> against the latest state</li>
-    <li>Stage only the files your PR is about — leave stray edits alone</li>
-  </ul>
-</section>
-
-<!-- SLIDE 9: Edit ownership -->
-<section class="slide slide-content slide-sand" data-slide="9">
-  <p class="kicker">Who can edit what</p>
-  <h2>Edit ownership tiers</h2>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-cyan">Agent-owned</span>
-      <h3>Edit freely</h3>
-      <p>Newsletters, media archive, release notes, and metrics sections. Agents may open PRs without a content owner's sign-off.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Human-owned</span>
-      <h3>PR only, never direct commit</h3>
-      <p>Strategic narrative, roadmap, and sustainability policy. The content owner reviews before merge.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-blue">Shared</span>
-      <h3>PR with content-owner review</h3>
-      <p>Homepage, TritonGPT landing, tools listing, and developer page. Both agents and people can edit, but the owner reviews.</p>
-    </div>
-  </div>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>File or area</th><th>Who can edit</th><th>Who reviews</th></tr></thead>
-      <tbody>
-        <tr><td>Newsletters, release notes, media archive</td><td>Agents and people</td><td>Any maintainer</td></tr>
-        <tr><td>Strategic narrative, roadmap, sustainability</td><td>PR only, never direct commit</td><td>Content owner</td></tr>
-        <tr><td>Homepage, TritonGPT landing, tools, developer page</td><td>PR required</td><td>Content owner</td></tr>
-        <tr><td>Automated job PRs (<code>automation/sync-*</code>)</td><td>The job opens the PR</td><td>A person merges</td></tr>
-      </tbody>
-    </table>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after direction</span><p>Matching skills find the source, apply standing rules, preserve integrations, create the preview, and run the required checks.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Choose institutional or approved personal voice. Ask for a humanized pass, an on-brand layout, an accessible workflow visual, or a clearer audience action.</p></div>
   </div>
 </section>
 
-<!-- SLIDE 10: Section markers -->
+<!-- SLIDE 3: Roles and capabilities -->
+<section class="slide slide-content slide-sand slide-dense" data-slide="3">
+  <p class="kicker">Roles and TritonAI capabilities</p>
+  <h2>Each stage pairs a human owner with Harness skills</h2>
+  <div class="skill-pipeline" role="img" aria-label="A contributor defines the request and approved context. The TritonAI Harness finds the source, creates a branch, shapes the content, and runs checks. A content owner judges accuracy, audience fit, accessibility, and open decisions. An authorized approver merges in GitHub, then the site pipeline publishes through Cascade and supports live verification.">
+    <div class="arch-node review"><span class="skill-stage-label">Direction</span><strong>Contributor</strong><span>Audience · route · approved source · goal</span><span>Prompt, schedule, or permissioned context</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Create</span><strong>Harness</strong><span>Find source · create branch · edit content</span><span>Voice match · humanize · UC San Diego brand</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Review</span><strong>Content owner</strong><span>Accuracy · audience fit · accessibility</span><span>Automated checks plus human judgment</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><span class="skill-stage-label">Release</span><strong>Approver + site pipeline</strong><span>GitHub review and human merge</span><span>Cascade publish · live comparison · rollback evidence</span></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after direction</span><p>The Harness selects skills, edits the canonical source, checks the result, prepares GitHub review, and follows the release.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Choose the audience, context, voice, and visual; direct revisions; judge the evidence; approve the pull request and merge.</p></div>
+  </div>
+  <!-- [Sources] Configured TritonAI Harness skills; /docs/voice-and-language.md; /AGENTS.md; /.github/workflows/cascade-upload.yml; /docs/skills-library-sync.md -->
+</section>
+
+<!-- SLIDE 4: Skill invocation -->
+<section class="slide slide-content slide-sand slide-dense" data-slide="4">
+  <p class="kicker">Skills invoked by the Harness</p>
+  <h2>Each update assembles a visible skill stack</h2>
+  <div class="skill-pipeline skill-invocation" role="img" aria-label="The Harness invokes the UCSD website maintainer skill to locate and edit the canonical source. With approved voice context, it invokes voice match followed by humanizer, and uses UCSD branding for visual work. It invokes UCSD accessibility compliance for accessibility review, UCSD data classification when relevant, and TritonAI auto-review before release. Browser and GitHub skills handle preview, live verification, and an authorized pull-request handoff; the Cascade workflow runs only after human merge.">
+    <div class="arch-node review"><span class="skill-stage-label">Discover and edit</span><strong>Find the source and rules</strong><span class="skill-name"><code>ucsd-website-maintainer</code></span><span>Invoked for every repository-backed website update.</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Write and design</span><strong>Shape the content</strong><span class="skill-name"><code>voice-match</code> → <code>humanizer</code></span><span class="skill-name"><code>ucsd-branding</code></span><span>Voice skills require approved context; branding is added for layout or template work.</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><span class="skill-stage-label">Check and review</span><strong>Test the result</strong><span class="skill-name"><code>ucsd-accessibility-compliance</code></span><span class="skill-name"><code>ucsd-data-classification</code> · <code>tritonai-autoreview</code></span><span>Data classification is conditional; accessibility and closeout review support the release gate.</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><span class="skill-stage-label">Preview and release</span><strong>Prepare the handoffs</strong><span class="skill-name"><code>browser</code> · <code>github:yeet</code></span><span class="skill-name"><code>cascade-upload.yml</code></span><span>Browser verifies local and live pages. GitHub prepares review. Cascade runs after human merge.</span></div>
+  </div>
+  <p class="skill-kind-note"><strong>How selection works:</strong> the website skill is the base layer; the Harness adds matching public or permissioned skills from the request and page content, announces what it is using, and reports the evidence. You approve permissioned voice context and the GitHub handoff. The Cascade item is a repository job, not a skill.</p>
+  <!-- [Sources] Configured ucsd-website-maintainer skill; /content/skills/library.json; configured permissioned voice-match and humanizer skills; browser and GitHub Harness plugins; /.github/workflows/cascade-upload.yml -->
+</section>
+
+<!-- SLIDE 5: Contributor onboarding -->
+<section class="slide slide-content slide-sand slide-dense slide-onboarding" data-slide="5">
+  <p class="kicker">New contributor onboarding</p>
+  <h2>The repository owner grants access before the Harness connects</h2>
+  <div class="layer-stack" role="img" aria-label="The contributor creates and secures a GitHub account, then sends the username to the repository owner. The owner opens the TritonAI repository settings, selects Collaborators and Add people, and invites that account. The contributor accepts the invitation, which grants collaborator push access. The Harness then starts GitHub browser authentication, verifies write access, clones the repository, installs dependencies, and runs the baseline checks.">
+    <div class="layer-row creative"><div class="layer-title">Repository access</div><div class="layer-items"><div class="arch-node"><strong>Contributor prepares</strong><span>Create the account, verify email, enable two-factor authentication, and send the GitHub username to the repository owner</span></div><div class="arch-node core"><strong>Owner sends the invite</strong><span><code>bpollak<span aria-hidden="true">/</span><span class="sr-only"> slash </span>tritonai-website</code> → Settings → Collaborators → Add people</span></div><div class="arch-node review"><strong>Contributor accepts</strong><span>Open the GitHub email or notification and accept. Collaborator access includes push/write access.</span></div></div></div>
+    <div class="layer-connector">↓</div>
+    <div class="layer-row"><div class="layer-title">Harness setup</div><div class="layer-items"><div class="arch-node"><strong>Install the tools</strong><span>Git · GitHub CLI · Node 22 or later · TritonAI Harness</span></div><div class="arch-node core"><strong>Authenticate and verify</strong><span>The Harness starts <code>gh auth login --web</code>; the contributor finishes sign-in; the Harness confirms write access</span></div><div class="arch-node review"><strong>Clone and test</strong><span>The Harness clones the repository, installs dependencies, inventories the site, and runs the baseline checks</span></div></div></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after access</span><p>The website skill verifies the authenticated account and write permission, prepares the working copy, and reports any setup blockers.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Human access gates</span><p>The owner invites the named account. The contributor accepts, enables two-factor authentication, and completes browser sign-in. Keep credentials and recovery codes private.</p></div>
+  </div>
+  <!-- [Sources] https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository; https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository; GitHub repository owned by bpollak and named tritonai-website; /AGENTS.md; /README.md -->
+</section>
+
+<!-- SLIDE 6: Choose the source -->
+<section class="slide slide-content slide-navy" data-slide="6">
+  <p class="kicker">Inside the Harness · Start the update</p>
+  <h2>Open one task and describe the complete update</h2>
+  <div class="workflow-pipeline" role="img" aria-label="The contributor or an approved source event starts the update. The TritonAI Harness then finds the canonical source, reads repository rules, checks overlapping work, and proposes an implementation plan.">
+    <div class="arch-node review"><strong>Your trigger</strong><span>Prompt, schedule, or approved source event names the desired result</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Find the source</strong><span>The skill locates the canonical file that owns the public page</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Read the rules</strong><span>It discovers ownership, brand, accessibility, integration, and release requirements</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>Check current work</strong><span>It inspects Git status, branches, and pull requests before editing</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Propose the plan</strong><span>It reports scope, files, checks, risks, and the next human gate</span></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>Matching skills perform discovery and apply the repository’s standing rules without requiring a list of commands.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt to start</span><p>“Update <code>[page]</code> for <code>[audience]</code> using <code>[approved source]</code>. Use <code>[institutional / my approved]</code> voice, humanize the copy, and create <code>[visual]</code>. Show the preview and diff.”</p></div>
+  </div>
+  <!-- [Sources] /AGENTS.md; /README.md; /docs/content-governance.md -->
+</section>
+
+<!-- SLIDE 7: Edit and preview -->
+<section class="slide slide-content slide-sand" data-slide="7">
+  <p class="kicker">Inside the Harness · Review and revise</p>
+  <h2>Respond to the preview until the update is ready</h2>
+  <div class="flow" role="img" aria-label="The contributor reviews the Harness scope, opens the rendered page, gives plain-language revision instructions, and requests the complete diff and validation evidence before approval.">
+    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Confirm the scope</div><div class="step-desc">Check the page, source, files, branch name, and anything the Harness says it will preserve</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Open the preview</div><div class="step-desc">Review the real page at desktop and phone widths inside the browser preview</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Give feedback</div><div class="step-desc">Describe revisions in plain language and ask the Harness to update the preview</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Request evidence</div><div class="step-desc">Ask for the diff, changed files, test results, warnings, and rollback path</div></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after direction</span><p>The Harness updates the canonical source, applies the selected voice and humanization skills, rebuilds responsive previews, and tracks the complete diff.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt to enhance</span><p>“Use institutional voice and humanize the copy,” “match my approved voice,” “turn this into a workflow visual,” or “improve the mobile reading order.”</p></div>
+  </div>
+</section>
+
+<!-- SLIDE 8: Harness demonstration -->
+<section class="slide slide-content slide-sand slide-demo" data-slide="8">
+  <h2 class="sr-only">Follow an update from local edit to live verification</h2>
+  <figure class="harness-demo">
+    <video controls muted playsinline preload="metadata" poster="_resources/tritonai-harness-editing-demo-poster.jpg?v=20260803" aria-describedby="harness-demo-caption" data-silent-demo="true" data-caption-src="_resources/tritonai-harness-editing-publishing-demo.vtt?v=20260803" data-caption-target="harness-demo-caption">
+      <source src="_resources/tritonai-harness-editing-publishing-demo.mp4?v=20260803" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+    <figcaption class="harness-page-caption" id="harness-demo-caption" aria-live="polite" aria-atomic="true">
+      <span class="harness-page-caption-text">The TritonAI Harness shows files on the left, the update request in the center, and the private preview on the right.</span>
+    </figcaption>
+  </figure>
+  <!-- [Sources] Local TritonAI Harness recording created for this presentation; GitHub pull request 120; GitHub Actions run 30675732145; https://tritonai.ucsd.edu/presentations/managing-the-tritonai-website.html -->
+</section>
+
+<!-- SLIDE 9: Review a local copy -->
+<section class="slide slide-content slide-navy slide-local-review" data-slide="9">
+  <p class="kicker">Inside the Harness · Review a local copy</p>
+  <h2>Serve the site locally and inspect the affected route</h2>
+  <div class="flow" role="img" aria-label="To review a local copy, ask the Harness to build and serve the site, open the localhost URL it returns, inspect the affected route at desktop and phone widths, then give revision feedback or ask the Harness to stop the preview server.">
+    <div class="flow-step"><div class="step-num">1</div><div class="step-label">Build and serve</div><div class="step-desc">Say: “Build the site and start the documented local preview.” The Harness prepares <code>dist</code> and starts the server</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">2</div><div class="step-label">Open localhost</div><div class="step-desc">Open <code>http://127.0.0.1:4173/</code>, then add the affected route to the URL</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">3</div><div class="step-label">Review the page</div><div class="step-desc">Check content, links, navigation, images, desktop and phone layouts, keyboard use, focus, and zoom</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="step-num">4</div><div class="step-label">Revise or finish</div><div class="step-desc">Give feedback while the preview runs. When finished, ask the Harness to stop the server and show the final diff</div></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after your request</span><p>The Harness builds the site, starts the preview server, opens the route at desktop and phone widths, and keeps the preview current as it revises.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / review</span><p>“Open <code>[route]</code> at desktop and phone widths and leave it running.” Review the page and describe the changes you want. Localhost remains private.</p></div>
+  </div>
+  <!-- [Sources] /README.md; /AGENTS.md -->
+</section>
+
+<!-- SLIDE 10: Review and approval -->
 <section class="slide slide-content" data-slide="10">
-  <p class="kicker">Conflict prevention</p>
-  <h2>Section markers protect generated regions</h2>
-  <p>Generated or agent-managed regions inside a file are wrapped in HTML comment markers:</p>
-  <pre><code>&lt;!-- AGENT_SECTION: media-articles --&gt;
-...generated content...
-&lt;!-- END_AGENT_SECTION --&gt;</code></pre>
+  <p class="kicker">Review gate</p>
+  <h2>Automated checks and human review prepare the change for release</h2>
+  <div class="layer-stack" role="img" aria-label="Release review combines automated site tests with human content, accessibility, and approval decisions.">
+    <div class="layer-row creative"><div class="layer-title">Automated checks</div><div class="layer-items"><div class="arch-node"><strong>Build and validate</strong><span>Run <code>npm test</code> across routes, metadata, integrations, and content rules</span></div><div class="arch-node"><strong>Language and auto-review</strong><span>Flag mechanical writing patterns and report bounded content or design findings</span></div><div class="arch-node review"><strong>Accessibility and compatibility</strong><span>Check mobile and desktop views, overflow, axe findings, and the preview prefix</span></div></div></div>
+    <div class="layer-connector">↓</div>
+    <div class="layer-row"><div class="layer-title">Human review</div><div class="layer-items"><div class="arch-node"><strong>Content and voice</strong><span>Confirms accuracy, source authority, audience fit, natural language, and public suitability</span></div><div class="arch-node"><strong>Experience review</strong><span>Checks responsive layout, keyboard use, focus, zoom, and screen-reader behavior</span></div><div class="arch-node review"><strong>Approve PR preparation</strong><span>Reviews the complete diff and rendered result in the Harness before commit, push, and pull-request creation</span></div></div></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic</span><p>The language gate flags mechanical patterns without rewriting approved copy. Build, compatibility, accessibility, and auto-review checks report evidence.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask for voice matching and humanization during drafting. You judge meaning, natural language, visual quality, accessibility, and the final diff.</p></div>
+  </div>
+</section>
+
+<!-- SLIDE 11: Automated content feeds -->
+<section class="slide slide-content slide-navy" data-slide="11">
+  <p class="kicker">Automated content feeds</p>
+  <h2>Weekly jobs prepare AI updates and media coverage for review</h2>
+  <div class="two-col">
+    <article class="card"><span class="card-type card-type-gold">Monday · 18:15 UTC</span><h3>UC San Diego AI Weekly</h3><p>Fetches published editions, validates required sections, removes unsafe markup, and writes newsletter Markdown. The build updates the homepage and AI Updates archive. The job opens or refreshes a pull request.</p></article>
+    <article class="card"><span class="card-type card-type-blue">Monday · 18:30 UTC</span><h3>Media coverage</h3><p>Searches the public web for new TritonAI and TritonGPT coverage, tags discovered items for review, updates the article data, and re-renders the archive. The job opens or refreshes a pull request.</p></article>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic on schedule</span><p>The jobs collect candidates, sanitize or filter them, update canonical content, run tests, and open or refresh a pull request.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Ask for stronger headlines, clearer summaries, better placement, or an accessible supporting visual. Confirm the sources and merge only approved items.</p></div>
+  </div>
+  <!-- [Sources] /.github/workflows/sync-ai-news.yml; /.github/workflows/sync-media-coverage.yml; /docs/ai-news-sync.md -->
+</section>
+
+<!-- SLIDE 12: Automated maintenance -->
+<section class="slide slide-content slide-maintenance" data-slide="12">
+  <p class="kicker">Automated maintenance</p>
+  <h2>Scheduled jobs refresh the Skills Library and audit the site</h2>
+  <div class="two-col">
+    <article class="card"><span class="card-type card-type-cyan">PR · hourly staging · daily production</span><h3>Skills Library refresh</h3><p>Pages refreshes the approved public catalog for pull-request and staging validation. Cascade compares the upstream commit with production each day and after an upstream event, then publishes only when the live catalog is behind. Permissioned team and personal skills remain outside the public feed.</p></article>
+    <article class="card"><span class="card-type card-type-gold">Monday · 16:17 UTC</span><h3>CMS UX review</h3><p>Audits generated pages against approved layout rules, publishes a tracking issue, and may open constrained draft pull requests. Content-owner, responsive, keyboard, zoom, and screen-reader review remain required.</p></article>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic on trigger</span><p>Workflows refresh the catalog and run their assigned validations. Daily production checks compare source and live commit IDs, skipping the Cascade build and publish when current.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Review changes in the Skills Library source. Ask the Harness to implement accepted UX findings, compare before and after, or explore a stronger design; people still approve proposed page changes.</p></div>
+  </div>
+  <!-- [Sources] /.github/workflows/pages.yml; /.github/workflows/cascade-upload.yml; /.github/workflows/ux-review.yml; /docs/skills-library-sync.md -->
+</section>
+
+<!-- SLIDE 13: Harness and GitHub -->
+<section class="slide slide-content slide-sand" data-slide="13">
+  <p class="kicker">Inside the Harness · Prepare GitHub review</p>
+  <h2>Approve repository actions only after the page is ready</h2>
+  <div class="workflow-pipeline" role="img" aria-label="Inside the TritonAI Harness, ask for the final status and diff, ask it to run every required check, approve only intended files for commit, authorize the push and pull request, and monitor GitHub checks before a person reviews and merges.">
+    <div class="arch-node"><strong>“Show final status and diff”</strong><span>The Harness lists changed files, scope, preview, warnings, and rollback</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>“Run every required check”</strong><span>It runs the repository test, compatibility, language, and accessibility gates</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>“Commit these files”</strong><span>Name the approved files and confirm the proposed commit message</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node review"><strong>“Push and open the PR”</strong><span>The Harness pushes the branch and creates a focused pull request with evidence</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>“Monitor the checks”</strong><span>It reports passed, failed, cancelled, or blocked GitHub checks without merging</span></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after authorization</span><p>The Harness stages only approved files, commits, pushes, opens the focused pull request, and monitors checks without merging.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>“Commit these files,” “push and open the PR,” and “monitor the checks.” You authorize the content, approve the rendered result, and merge in GitHub.</p></div>
+  </div>
+  <!-- [Sources] /AGENTS.md; /docs/content-governance.md -->
+</section>
+
+<!-- SLIDE 14: Publish -->
+<section class="slide slide-content slide-navy" data-slide="14">
+  <p class="kicker">Publishing workflow</p>
+  <h2>GitHub records the decision; Cascade publishes the approved site</h2>
+  <div class="workflow-pipeline" role="img" aria-label="Publishing begins with a focused pull request, continues through checks and human approval, merges to main, builds and publishes through Cascade, and ends with verification on the public website.">
+    <div class="arch-node"><strong>Open pull request</strong><span>The Harness runs <code>gh pr create</code> from the feature branch to <code>main</code></span></div><div class="arch-arrow">→</div>
+    <div class="arch-node review"><strong>Review in GitHub</strong><span>People inspect Files changed and Checks, then submit approval</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node"><strong>Merge to main</strong><span>An authorized person merges the approved pull request in GitHub</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node core"><strong>GitHub Actions</strong><span>The merge triggers <code>cascade-upload.yml</code> to check language, build, validate, upload, and queue publishing</span></div><div class="arch-arrow">→</div>
+    <div class="arch-node review"><strong>Verify live</strong><span>Open the public URL and compare it with the approved version</span></div>
+  </div>
+  <div class="responsibility-strip">
+    <div class="responsibility-lane"><span class="responsibility-label">Automatic after merge</span><p>GitHub Actions checks language, builds, validates, uploads, and queues Cascade publishing. The Harness can monitor the release and compare the public page.</p></div>
+    <div class="responsibility-lane user-lane"><span class="responsibility-label">Prompt / decide</span><p>Merge the approved pull request, then ask: “Monitor Cascade and verify the public URL.” Confirm the live page matches what you approved.</p></div>
+  </div>
+  <!-- [Sources] /.github/workflows/cascade-upload.yml -->
+</section>
+
+<!-- SLIDE 15: Contributor checklist -->
+<section class="slide slide-content slide-sand slide-checklist" data-slide="15">
+  <p class="kicker">Contributor checklist</p>
+  <h2>Give direction while the skills handle the mechanics</h2>
   <div class="two-col">
     <div>
-      <h3>Inside the markers</h3>
-      <p>The build or sync job owns this region. It replaces only what is inside the markers on every run.</p>
-    </div>
-    <div>
-      <h3>Outside the markers</h3>
-      <p>A human can safely edit anything outside the markers in the same file without the build clobbering their work.</p>
-    </div>
-  </div>
-  <div class="callout">This lets a person and an automation edit the same file at the same time — each in their own region.</div>
-</section>
-
-<!-- SLIDE 11: Automated jobs + people -->
-<section class="slide slide-content slide-sand" data-slide="11">
-  <p class="kicker">When automation and people overlap</p>
-  <h2>Automated jobs and people can work in parallel</h2>
-  <ul>
-    <li>The job's PR and the person's PR are on separate branches</li>
-    <li>The job never force-pushes to a person's branch — only to its own <code>automation/sync-*</code> branch</li>
-    <li>If both PRs touch the same file, GitHub flags a merge conflict when the second one is merged</li>
-    <li>Rebase the second branch onto <code>main</code>, resolve the conflict, and re-run <code>npm test</code></li>
-    <li>Because the job is idempotent, re-running it after a merge produces a clean result with no duplicates</li>
-  </ul>
-</section>
-
-<!-- SLIDE 12: Section divider — Automated jobs -->
-<section class="slide slide-section" data-slide="12">
-  <span class="section-number">04</span>
-  <h2>Automated content jobs</h2>
-  <p>Three scheduled jobs find and add content — a human still reviews before publish.</p>
-</section>
-
-<!-- SLIDE 13: Jobs overview -->
-<section class="slide slide-content" data-slide="13">
-  <p class="kicker">Scheduled automation</p>
-  <h2>Three jobs that run on their own</h2>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-blue">Mondays 18:15 UTC</span>
-      <h3>Newsletter sync</h3>
-      <p>Pulls new editions from the external newsletter source into <code>content/newsletters/</code>. Opens a PR on <code>automation/sync-ai-news</code>.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-cyan">Mondays 18:30 UTC</span>
-      <h3>Media coverage search</h3>
-      <p>Searches DuckDuckGo for TritonAI and TritonGPT articles, adds them to <code>content/media/articles.json</code>, regenerates both media pages. Opens a PR.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Hourly at :17</span>
-      <h3>Skills Library refresh</h3>
-      <p>Updates <code>content/skills/library.json</code> from the upstream GitHub repository. Builds in place — no PR needed.</p>
-    </div>
-  </div>
-  <div class="callout">None of these jobs publish directly. They open or refresh a PR, and a person merges it. Each job runs the full <code>npm test</code> suite before opening the PR.</div>
-</section>
-
-<!-- SLIDE 14: Section divider — Checks -->
-<section class="slide slide-section" data-slide="14">
-  <span class="section-number">05</span>
-  <h2>Checks that must pass</h2>
-  <p>Every change runs through five layers of automated review before it can merge.</p>
-</section>
-
-<!-- SLIDE 15: Checks overview -->
-<section class="slide slide-content" data-slide="15">
-  <p class="kicker">The <code>npm test</code> suite</p>
-  <h2>Five layers of automated review</h2>
-  <ul class="checklist">
-    <li><strong>Unit tests</strong> — UX-agent helpers, newsletter sync, and media coverage sync run first, before the build.</li>
-    <li><strong>Build</strong> — Reads all content, applies the Decorator shell, injects analytics, writes HTML + sitemap + routes.</li>
-    <li><strong>Validation</strong> — Content schema, broken links, remote dependencies, freshness, metadata, analytics, navigation, Decorator conformance, performance, routes, sitemap.</li>
-    <li><strong>Accessibility scan</strong> — axe-core at 390 px and 1440 px, horizontal overflow, keyboard behavior, button sizing.</li>
-    <li><strong>Language check</strong> — Booster words, manufactured contrast, heading sentence breaks, long lists, em dashes, repeated opening frames.</li>
-  </ul>
-  <div class="callout">Automated checks do not replace manual review. After changing a page, look at it at desktop and responsive widths and confirm headings, links, and keyboard focus behave.</div>
-</section>
-
-<!-- SLIDE 16: Validation detail -->
-<section class="slide slide-content slide-sand" data-slide="16">
-  <p class="kicker">Validation in detail</p>
-  <h2>What the validator checks</h2>
-  <div class="two-col">
-    <div>
-      <h3>Content and structure</h3>
-      <ul>
-        <li>Content schema — required fields on every page, use case, fact, milestone, and skill</li>
-        <li>Broken links — every internal link must resolve</li>
-        <li>Remote dependencies — Decorator, search, widget, and feed must respond over HTTPS</li>
-        <li>Freshness — warns after 120 days, fails after 365</li>
-        <li>Retired content — no links to retired routes or internal filenames</li>
+      <h3>You prompt and decide</h3>
+      <ul class="checklist">
+        <li><strong>Set the content goal</strong>Name the route, audience, approved source, desired result, and any open decisions.</li>
+        <li><strong>Choose context and voice</strong>Name the approved personal or team context. Select institutional or approved personal voice.</li>
+        <li><strong>Improve the design</strong>Ask for an on-brand composition, accessible workflow visual, or better responsive reading order.</li>
+        <li><strong>Approve the result</strong>Review the preview, diff, evidence, pull request, and live page. An authorized person merges.</li>
       </ul>
     </div>
     <div>
-      <h3>Presentation and performance</h3>
-      <ul>
-        <li>Metadata — canonical URL, Open Graph, Twitter card, JSON-LD</li>
-        <li>Analytics — exactly one tag, correct ID, asynchronous</li>
-        <li>Navigation — ARIA relationships, active state, duplicate IDs</li>
-        <li>Decorator — stylesheets, extension class, no inline fonts</li>
-        <li>Performance — deferred video, lazy YouTube, preconnect, image budget</li>
+      <h3>Skills handle after the trigger</h3>
+      <ul class="checklist">
+        <li><strong>Discover the rules</strong>Select matching skills, find the canonical source, and preserve routes, brand, accessibility, and integrations.</li>
+        <li><strong>Draft and humanize</strong>Edit the source, apply the selected voice, run the final humanization pass, and keep responsive previews current.</li>
+        <li><strong>Validate and prepare review</strong>Run brand, language, accessibility, data, and repository checks, then prepare the approved pull request.</li>
+        <li><strong>Follow the release</strong>After the human merge, monitor Cascade and compare production with the approved result.</li>
       </ul>
     </div>
   </div>
-</section>
-
-<!-- SLIDE 17: Accessibility detail -->
-<section class="slide slide-content slide-navy" data-slide="17">
-  <p class="kicker">Accessibility is a gate, not a suggestion</p>
-  <h2>The accessibility scan</h2>
-  <p>Every non-redirect route opens in headless Chromium at two widths — 390 px and 1440 px — and runs axe-core plus interaction checks:</p>
-  <div class="card-grid">
-    <div class="card">
-      <span class="card-type card-type-cyan">axe-core</span>
-      <h3>WCAG automated checks</h3>
-      <p>Color contrast, landmarks, headings, labels, names, and ARIA correctness.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-blue">Interaction</span>
-      <h3>Keyboard behavior</h3>
-      <p>Navigation dropdowns, toggles, and search controls must respond to keyboard focus and activation.</p>
-    </div>
-    <div class="card">
-      <span class="card-type card-type-gold">Layout</span>
-      <h3>Overflow and sizing</h3>
-      <p>No horizontal scroll at either width. Collapsed hub media and mismatched button sizes are flagged.</p>
-    </div>
-  </div>
-  <div class="callout">Results are written to <code>reports/accessibility.json</code> and uploaded as a GitHub Actions artifact that stays for 30 days.</div>
-</section>
-
-<!-- SLIDE 18: Language check -->
-<section class="slide slide-content" data-slide="18">
-  <p class="kicker">Voice and language</p>
-  <h2>The language check reads the source, not the HTML</h2>
-  <p>It reads Markdown in <code>content/</code> so a finding names the file an editor would open. It flags:</p>
-  <div class="two-col">
-    <div>
-      <ul>
-        <li><strong>Heading sentence breaks</strong> — a heading with two sentences reads as a slogan</li>
-        <li><strong>Count in a heading</strong> — when the list below already shows the count</li>
-        <li><strong>Manufactured contrast</strong> — "X, not Y", "rather than", "instead of"</li>
-        <li><strong>Booster adjectives</strong> — "practical", "seamless", "leverage" — words that do no work</li>
-      </ul>
-    </div>
-    <div>
-      <ul>
-        <li><strong>Long comma lists</strong> — five or more items should become a list element</li>
-        <li><strong>Em dashes</strong> — outside numeric ranges, use a period or comma</li>
-        <li><strong>Repeated opening frames</strong> — when sibling strings all start the same way</li>
-        <li><strong>Description length</strong> — frontmatter descriptions under 155 characters</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout">Governance vocabulary — "approved", "bounded", "supervised", "named owner" — is never flagged. Those qualify real controls.</div>
-</section>
-
-<!-- SLIDE 19: Section divider — What to take home -->
-<section class="slide slide-section" data-slide="19">
-  <span class="section-number">06</span>
-  <h2>What to take home</h2>
-</section>
-
-<!-- SLIDE 20: Key takeaways -->
-<section class="slide slide-content slide-sand" data-slide="20">
-  <p class="kicker">Summary</p>
-  <h2>Key takeaways for Cascade content staff</h2>
-  <ul class="checklist">
-    <li><strong>Content lives in files, not in a CMS.</strong> Markdown and JSON under <code>content/</code> are the source. The build writes the HTML.</li>
-    <li><strong>Every change goes through a pull request.</strong> A branch, a review, a merge. No direct edits to <code>main</code>.</li>
-    <li><strong>Multiple contributors can work at once.</strong> Branches, ownership tiers, and section markers prevent conflicts.</li>
-    <li><strong>Three jobs find content automatically.</strong> Newsletters, media coverage, and the skills catalog — each opens a PR for review.</li>
-    <li><strong>Five check layers run before merge.</strong> Unit tests, build, validation, accessibility, and language. If any fails, the PR cannot merge.</li>
-    <li><strong>Merge to <code>main</code> publishes.</strong> GitHub Actions builds and deploys to GitHub Pages. No manual upload.</li>
-  </ul>
-</section>
-
-<!-- SLIDE 21: Quick reference -->
-<section class="slide slide-content" data-slide="21">
-  <p class="kicker">Quick reference</p>
-  <h2>Where to edit and how to publish</h2>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Task</th><th>Where to edit</th><th>How to publish</th></tr></thead>
-      <tbody>
-        <tr><td>Weekly AI update</td><td><code>content/newsletters/</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Strategy, trust, tools, or other page</td><td><code>content/pages/</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Use case</td><td><code>content/use-cases/</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Roadmap status</td><td><code>content/roadmap/milestones.json</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Media coverage</td><td><code>content/media/articles.json</code></td><td>PR, or the weekly search job opens one</td></tr>
-        <tr><td>Navigation menu</td><td><code>content/site.json</code></td><td>PR to <code>main</code></td></tr>
-        <tr><td>Skills catalog</td><td><code>content/skills/library.json</code></td><td>Refreshed automatically</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <h3>Run the checks locally</h3>
-  <pre><code>npm test
-SITE_BASE_PATH=/tritonai-website npm run build
-SITE_BASE_PATH=/tritonai-website npm run validate</code></pre>
-</section>
-
-<!-- SLIDE 22: Closing -->
-<section class="slide slide-hero" data-slide="22">
-  <p class="kicker">Questions and discussion</p>
-  <h1>What would you like to know?</h1>
-  <p class="lede">Full details are in <code>docs/how-updates-and-publishing-work.md</code> in the repository. The TritonAI Harness can apply this same pattern to other sites currently in Cascade.</p>
-  <dl class="presentation-meta">
-    <div><dt>Documentation</dt><dd>docs/how-updates-and-publishing-work.md</dd></div>
-    <div><dt>Live site</dt><dd>tritonai.ucsd.edu</dd></div>
-    <div><dt>Repository</dt><dd>github.com/bpollak/tritonai-website</dd></div>
-  </dl>
 </section>
 
 </div><!-- /viewport -->
@@ -1009,9 +1283,9 @@ SITE_BASE_PATH=/tritonai-website npm run validate</code></pre>
   <div class="controls-left">
     <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
     <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
-    <span class="progress-text" id="slideCounter">1 / 22</span>
+    <span class="progress-text" id="slideCounter">1 / 15</span>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:4.5%"></div></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:6.67%"></div></div>
   <div class="controls-right">
     <span class="progress-text">← → to navigate · F for fullscreen</span>
   </div>
@@ -1031,13 +1305,28 @@ SITE_BASE_PATH=/tritonai-website npm run validate</code></pre>
   const nextBtn = document.getElementById('nextBtn');
   const counter = document.getElementById('slideCounter');
   const progressFill = document.getElementById('progressFill');
+  const viewport = document.getElementById('viewport');
+  const deck = document.querySelector('.deck');
+  let touchStartX = null;
+  let touchStartY = null;
+
+  slides.forEach((slide, index) => {
+    slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+    slide.tabIndex = index === 0 ? 0 : -1;
+  });
 
   function show(index) {
     if (index < 0) index = 0;
     if (index > total - 1) index = total - 1;
+    slides[current].querySelectorAll('video').forEach((video) => video.pause());
     slides[current].classList.remove('active');
+    slides[current].setAttribute('aria-hidden', 'true');
+    slides[current].tabIndex = -1;
     slides[index].classList.add('active');
+    slides[index].setAttribute('aria-hidden', 'false');
+    slides[index].tabIndex = 0;
     current = index;
+    deck.classList.toggle('video-slide-active', current === 7);
     counter.textContent = (current + 1) + ' / ' + total;
     progressFill.style.width = ((current + 1) / total * 100) + '%';
     prevBtn.disabled = current === 0;
@@ -1048,7 +1337,34 @@ SITE_BASE_PATH=/tritonai-website npm run validate</code></pre>
   prevBtn.addEventListener('click', () => show(current - 1));
   nextBtn.addEventListener('click', () => show(current + 1));
 
+  viewport.addEventListener('touchstart', (event) => {
+    if (event.touches.length !== 1) return;
+    if (event.target instanceof Element && event.target.closest('.swimlane')) {
+      touchStartX = null;
+      touchStartY = null;
+      return;
+    }
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', (event) => {
+    if (touchStartX === null || touchStartY === null || event.changedTouches.length !== 1) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX;
+    const deltaY = event.changedTouches[0].clientY - touchStartY;
+    touchStartX = null;
+    touchStartY = null;
+    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.25) return;
+    show(current + (deltaX < 0 ? 1 : -1));
+  }, { passive: true });
+
+  viewport.addEventListener('touchcancel', () => {
+    touchStartX = null;
+    touchStartY = null;
+  }, { passive: true });
+
   document.addEventListener('keydown', (e) => {
+    if (e.target instanceof Element && e.target.closest('video, button, a, input, select, textarea')) return;
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
       e.preventDefault();
       show(current + 1);
@@ -1067,6 +1383,54 @@ SITE_BASE_PATH=/tritonai-website npm run validate</code></pre>
       } else {
         document.exitFullscreen();
       }
+    }
+  });
+
+  const parseVttTime = (value) => {
+    const parts = value.trim().split(':').map(Number);
+    if (parts.length === 3) return (parts[0] * 3600) + (parts[1] * 60) + parts[2];
+    return (parts[0] * 60) + parts[1];
+  };
+
+  document.querySelectorAll('video[data-caption-src]').forEach(async (video) => {
+    const target = document.getElementById(video.dataset.captionTarget);
+    const textNode = target?.querySelector('.harness-page-caption-text');
+    if (!target || !textNode) return;
+
+    try {
+      const response = await fetch(video.dataset.captionSrc);
+      if (!response.ok) throw new Error('Caption transcript unavailable');
+      const blocks = (await response.text()).replace(/\r/g, '').split(/\n{2,}/);
+      const cues = blocks.flatMap((block) => {
+        const lines = block.trim().split('\n');
+        const timingIndex = lines.findIndex((line) => line.includes('-->'));
+        if (timingIndex < 0) return [];
+        const [startRaw, endRaw] = lines[timingIndex]
+          .split('-->')
+          .map((part) => part.trim().split(/\s+/)[0]);
+        return [{
+          start: parseVttTime(startRaw),
+          end: parseVttTime(endRaw),
+          text: lines.slice(timingIndex + 1).join(' ').trim()
+        }];
+      });
+      let lastText = '';
+      const renderCaption = () => {
+        const cue = cues.find((item) => video.currentTime >= item.start && video.currentTime < item.end);
+        const nextText = cue?.text || (video.ended
+          ? 'The workflow is complete. Open the transcript to review every step.'
+          : 'Press play to follow the editing and publishing workflow.');
+        if (nextText !== lastText) {
+          textNode.textContent = nextText;
+          lastText = nextText;
+        }
+      };
+      ['loadedmetadata', 'timeupdate', 'seeked', 'play', 'pause', 'ended'].forEach((eventName) => {
+        video.addEventListener(eventName, renderCaption);
+      });
+      renderCaption();
+    } catch {
+      textNode.textContent = 'Timed captions are unavailable. Open the full transcript below.';
     }
   });
 

@@ -26,6 +26,9 @@ const LANDING_HUBS_CSS_VERSION = createHash("sha256")
   .slice(0, 12);
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
+const UNLISTED_ROUTES = new Set([
+  "/presentations/managing-the-tritonai-website.html",
+]);
 const AFTER_RENDER_SCRIPTS = new Set([
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/modernizr.min.js",
   "https://cdn.ucsd.edu/cms/decorator-5/scripts/jquery.min.js",
@@ -213,6 +216,7 @@ const USE_CASE_ICON_MAP = {
   "instructional-ai": "blackboard",
   "research-alignment": "search",
   "class-planner": "calendar",
+  "class-planner-app": "calendar",
   "voice-agent": "earphone",
   "passport-app": "check",
 };
@@ -241,6 +245,10 @@ const USE_CASE_MEDIA = {
   "class-planner": {
     src: "/_images/use-cases/class-planner-public.webp",
     alt: "Color-coded course blocks arranged on a weekly planner, with unavailable times and three schedule options for comparison",
+  },
+  "class-planner-app": {
+    src: "/_images/use-cases/class-planner-public.webp",
+    alt: "Weekly planner grid of color-coded course sections compared across schedule options before enrollment",
   },
   "dissertation-formatter": {
     src: "/_images/use-cases/dissertation-formatter-public.webp",
@@ -523,7 +531,7 @@ function renderSkillsLibrary(library) {
       return `<div class="col-xs-12" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="skills-entry"><div class="skills-entry-icon"><span class="glyphicon ${escapeHtml(presentation.icon)}" aria-hidden="true"></span></div><div class="skills-entry-main"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h3>${escapeHtml(presentation.title)}</h3><p class="skills-entry-id"><code>${escapeHtml(skill.name)}</code></p><p class="skills-entry-summary">${escapeHtml(presentation.summary)}</p><div class="skills-entry-meta"><span>${escapeHtml(presentation.category)}</span><span>${escapeHtml(resourceLabel)}</span>${skill.maintainer ? `<span>Maintained by ${escapeHtml(skill.maintainer)}</span>` : ""}</div><details class="skills-details"><summary>When to use this skill</summary><p>${escapeHtml(skill.description)}</p><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p><p><a href="${escapeHtml(skill.directoryUrl)}">Browse source files</a></p></details></div><div class="skills-entry-action"><a href="${escapeHtml(skill.sourceUrl)}" aria-label="Open instructions for ${escapeHtml(presentation.title)}">Open instructions <span aria-hidden="true">→</span></a></div></article></div>`;
     })
     .join("");
-  return `<div data-skills-catalog><ul class="skills-summary" aria-label="Skills Library summary"><li><strong>${library.skills.length}</strong><span>skills ready to use</span></li><li><strong>${activeCollectionCount}</strong><span>active ${activeCollectionCount === 1 ? "collection" : "collections"}</span></li><li><strong>Hourly</strong><span>source refresh</span></li></ul><div class="skills-sync-notice"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><p><strong>Live from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong> Synced at commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}.</p></div><div class="skills-section-heading"><p class="home-kicker">Available now</p><h2>Find a skill for the work in front of you</h2><p>Search by outcome or browse the maintained collection. Open a skill when you are ready to give its instructions to an agent.</p></div><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-7"><label for="skills-search">What do you need help with?</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="skills-search" type="search" autocomplete="off" placeholder="Try accessibility, data, review, or memory" data-skills-search></div></div><div class="col-sm-5"><label for="skills-collection">Collection</label><select class="form-control" id="skills-collection" data-skills-collection><option value="">All collections (${library.skills.length})</option>${collectionOptions}</select></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row skills-grid">${cards}</div><div class="panel panel-default skills-install"><div class="panel-heading"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory—not its <code>tritonai/</code> or <code>community/</code> wrapper—into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
+  return `<div data-skills-catalog><ul class="skills-summary" aria-label="Skills Library summary"><li><strong>${library.skills.length}</strong><span>skills ready to use</span></li><li><strong>${activeCollectionCount}</strong><span>active ${activeCollectionCount === 1 ? "collection" : "collections"}</span></li><li><strong>Automated</strong><span>source refresh</span></li></ul><div class="skills-sync-notice"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><p><strong>Live from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong> Synced at commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}.</p></div><div class="skills-section-heading"><p class="home-kicker">Available now</p><h2>Find a skill for the work in front of you</h2><p>Search by outcome or browse the maintained collection. Open a skill when you are ready to give its instructions to an agent.</p></div><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-7"><label for="skills-search">What do you need help with?</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="skills-search" type="search" autocomplete="off" placeholder="Try accessibility, data, review, or memory" data-skills-search></div></div><div class="col-sm-5"><label for="skills-collection">Collection</label><select class="form-control" id="skills-collection" data-skills-collection><option value="">All collections (${library.skills.length})</option>${collectionOptions}</select></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row skills-grid">${cards}</div><div class="panel panel-default skills-install"><div class="panel-heading"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory—not its <code>tritonai/</code> or <code>community/</code> wrapper—into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
 mkdir -p ~/.agents/skills
 cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>Review the skill and its supporting files before installation. The public library excludes restricted operational procedures and credentials.</p><p><a class="btn btn-default" href="${escapeHtml(library.source.url)}#installing-a-skill">Read the repository instructions</a></p></div></div></div>`;
 }
@@ -1237,16 +1245,18 @@ for (const relativePath of htmlFiles) {
 }
 
 htmlFiles = (await listFiles(OUTPUT_DIR)).filter((file) => file.endsWith(".html")).sort();
-const routes = htmlFiles.map((relativePath) => ({
-  path: routeForRelativePath(relativePath),
-  canonicalUrl: new URL(generatedByPath.get(relativePath)?.canonicalUrl || routeForRelativePath(relativePath), OFFICIAL_ORIGIN).href,
-  redirectTo: generatedByPath.get(relativePath)?.redirectTo || null,
-  source: generatedByPath.has(relativePath) ? "structured-content" : "cascade-snapshot",
-  lastModified: seo.routes[routeForRelativePath(relativePath)]?.lastModified || generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
-  indexable: relativePath !== "404.html"
-    && !generatedByPath.get(relativePath)?.redirectTo
-    && !/noindex/i.test(seo.routes[routeForRelativePath(relativePath)]?.robots || ""),
-}));
+const routes = htmlFiles
+  .map((relativePath) => ({
+    path: routeForRelativePath(relativePath),
+    canonicalUrl: new URL(generatedByPath.get(relativePath)?.canonicalUrl || routeForRelativePath(relativePath), OFFICIAL_ORIGIN).href,
+    redirectTo: generatedByPath.get(relativePath)?.redirectTo || null,
+    source: generatedByPath.has(relativePath) ? "structured-content" : "cascade-snapshot",
+    lastModified: seo.routes[routeForRelativePath(relativePath)]?.lastModified || generatedByPath.get(relativePath)?.lastReviewed || site.lastReviewed,
+    indexable: relativePath !== "404.html"
+      && !generatedByPath.get(relativePath)?.redirectTo
+      && !/noindex/i.test(seo.routes[routeForRelativePath(relativePath)]?.robots || ""),
+  }))
+  .filter((route) => !UNLISTED_ROUTES.has(route.path));
 const sitemapEntries = routes
   .filter((route) => route.indexable)
   .map((route) => `<url><loc>${escapeHtml(route.canonicalUrl)}</loc><lastmod>${escapeHtml(route.lastModified)}</lastmod></url>`)

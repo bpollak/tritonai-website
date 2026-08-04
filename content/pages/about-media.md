@@ -25,7 +25,7 @@ bannerMode: abstract
 
 <section class="landing-section media-featured" aria-labelledby="media-featured-heading">
 <div class="container">
-<div class="landing-section-heading"><p class="home-kicker">Start here</p><h2 id="media-featured-heading">Featured coverage</h2><p>Three perspectives on the platform, the architecture, and the higher-education collaboration behind it.</p></div>
+<div class="landing-section-heading"><p class="home-kicker">Start here</p><h2 id="media-featured-heading">Featured coverage</h2><p>Three perspectives on TritonAI's platform, architecture, and higher-education collaboration.</p></div>
 <div class="media-feature-grid">
 <a class="media-feature-card media-feature-card-gold" href="https://www.cio.com/article/4032770/unpacking-uc-san-diegos-use-of-llms-to-boost-access-to-knowledge.html" rel="noopener noreferrer" target="_blank"><span class="media-type">Case study</span><h3>Unpacking UC San Diego's use of LLMs to boost access to knowledge</h3><p>CIO.com · August 8, 2025</p><span class="media-action">Read the case study <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></span></a>
 <a class="media-feature-card media-feature-card-blue" href="https://higheredaiplaybook.substack.com/p/adoption-without-authority-what-50000" rel="noopener noreferrer" target="_blank"><span class="media-type">Interview</span><h3>Inside TritonGPT: Build the Control Layer, Buy the Horsepower</h3><p>Higher Ed AI Playbook · July 30, 2026</p><span class="media-action">Open the interview <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></span></a>
