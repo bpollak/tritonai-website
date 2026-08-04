@@ -14,6 +14,7 @@ const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
 const SEO_FILE = path.join(CONTENT_DIR, "seo.json");
+const PRESENTATION_DIR = path.resolve("presentations");
 const OUTPUT_DIR = path.resolve("dist");
 const AGENT_SITE_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/agent-site.css")))
@@ -1179,6 +1180,7 @@ const homeShellHtml = await readFile(path.join(SOURCE_DIR, "index.html"), "utf8"
 await rm(OUTPUT_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
 await mkdir(OUTPUT_DIR, { recursive: true });
 await cp(SOURCE_DIR, OUTPUT_DIR, { recursive: true });
+await cp(PRESENTATION_DIR, path.join(OUTPUT_DIR, "presentations"), { recursive: true });
 
 const generatedByPath = new Map();
 for (const page of pages) {

@@ -29,10 +29,6 @@ bannerMode: abstract
 </div></div>
 </section>
 
-<section class="hub-section hub-subscribe" aria-labelledby="build-tools-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Build with TritonAI</p><h2 id="build-tools-heading">Need a tool that is not listed?</h2><p>The Build page covers TritonAI Harness, Claude Code, and the Codex desktop app, along with campus model access, reusable skills, and supported hosting paths.</p><ul class="tools-build-workspaces" aria-label="Supported desktop workspaces"><li class="tools-build-workspace-primary"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span><strong>TritonAI Harness</strong><small>Primary supported workspace</small></span></li><li><span class="glyphicon glyphicon-console" aria-hidden="true"></span><span><strong>Claude Code</strong><small>Supported</small></span></li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><span><strong>Codex desktop app</strong><small>Supported</small></span></li></ul></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/index.html">Explore the Build page</a></div></div>
-</section>
-
 <section class="hub-section" aria-labelledby="choose-task-heading">
 <div class="hub-heading"><p class="home-kicker">A better question to ask</p><h2 id="choose-task-heading">What needs to happen next?</h2><p>Start with the work you need to get done. Use the questions below to narrow the choices.</p></div>
 <div class="row hub-action-grid hub-action-grid-three">
@@ -47,3 +43,7 @@ bannerMode: abstract
 </section>
 
 <section class="hub-section hub-subscribe" aria-labelledby="tool-idea-heading"><div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Tell us about the task</p><h2 id="tool-idea-heading">Have a recurring campus task?</h2><p>Tell us who owns it, what information it uses, where a person needs to check the work, and what should get better.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="mailto:tritonai@ucsd.edu">Email the TritonAI team</a></div></div></section>
+
+<section class="hub-section hub-subscribe" aria-labelledby="build-tools-heading">
+<div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Build with TritonAI</p><h2 id="build-tools-heading">Need a tool that is not listed?</h2><p>The Build page covers TritonAI Harness, Claude Code, and the Codex desktop app, along with campus model access, reusable skills, and supported hosting paths.</p><ul class="tools-build-workspaces" aria-label="Supported desktop workspaces"><li class="tools-build-workspace-primary"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span><strong>TritonAI Harness</strong><small>Primary supported workspace</small></span></li><li><span class="glyphicon glyphicon-console" aria-hidden="true"></span><span><strong>Claude Code</strong><small>Supported</small></span></li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><span><strong>Codex desktop app</strong><small>Supported</small></span></li></ul></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/index.html">Explore the Build page</a></div></div>
+</section>
