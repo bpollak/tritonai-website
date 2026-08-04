@@ -3,7 +3,7 @@ title: AI Tools
 path: /tools/index.html
 description: The AI services UC San Diego supports, what each one is for, and how to get access.
 eyebrow: Supported services and capabilities
-lastReviewed: 2026-07-30
+lastReviewed: 2026-08-04
 audiences: [students, faculty, staff, researchers]
 source: UC San Diego public AI service pages
 canonicalUrl: /tools/index.html
@@ -25,7 +25,7 @@ bannerMode: abstract
 <div class="col-sm-6"><article><div class="hub-service-mark">Z</div><div><h3>Zoom AI Companion</h3><p>Meeting transcription, summaries, questions, and other enabled Zoom experiences.</p><a href="https://blink.ucsd.edu/technology/file-sharing/zoom/zoom-ai-companion.html">Review Zoom guidance <span aria-hidden="true">→</span></a></div></article></div>
 <div class="col-sm-6"><article><div class="hub-service-mark">C</div><div><h3>Copilot with Data Protection</h3><p>Protected chat for drafting, summarizing, generating images, and looking things up.</p><a href="https://portal.office.com">Open Microsoft 365 <span aria-hidden="true">→</span></a></div></article></div>
 <div class="col-sm-6"><article><div class="hub-service-mark">M</div><div><h3>Copilot for Microsoft 365</h3><p>AI built into Word, Excel, Outlook, and the rest of the supported Microsoft 365 apps.</p><a href="https://blink.ucsd.edu/technology/computers/software-acms/available-software/microsoft-individual.html#Copilot-for-Microsoft-365">Review access details <span aria-hidden="true">→</span></a></div></article></div>
-<div class="col-sm-6"><article><div class="hub-service-mark">G</div><div><h3>Gemini and NotebookLM</h3><p>Google's tools. Gemini for general work, NotebookLM for research and notes tied to sources you supply.</p><a href="https://blink.ucsd.edu/technology/file-sharing/google/gemini-notebooklm.html">Review Google guidance <span aria-hidden="true">→</span></a></div></article></div>
+<div class="col-sm-6"><article><div class="hub-service-mark">G</div><div><h3>Gemini and Gemini Notebook</h3><p>Google's tools. Gemini for general work, Gemini Notebook for research and notes tied to sources you supply.</p><a href="https://blink.ucsd.edu/technology/file-sharing/google/gemini-notebooklm.html">Review Google guidance <span aria-hidden="true">→</span></a></div></article></div>
 </div></div>
 </section>
 
