@@ -3978,6 +3978,88 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
 .training-video-journey-intro {
   padding-bottom: 8px;
 }
+.training-video-journey-panel {
+  background: #182b49;
+  border-radius: 12px;
+  padding: 34px 38px 30px;
+}
+.training-video-journey-panel .home-kicker,
+.training-video-journey-panel .landing-section-heading .home-kicker {
+  color: #ffcd00;
+}
+.training-video-journey-intro .training-video-journey-panel .landing-section-heading h2,
+.training-video-journey-intro .training-video-journey-panel .landing-section-heading > p:last-child,
+.training-video-journey-panel .landing-section-heading p {
+  color: #fff;
+}
+.training-video-journey-panel .landing-section-heading {
+  margin-bottom: 22px;
+}
+.training-journey-map {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.training-journey-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.training-journey-step + .training-journey-step::before {
+  content: "\2192";
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 18px;
+}
+.training-journey-step a {
+  display: block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+.training-journey-step a:hover,
+.training-journey-step a:focus {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #00c6d7;
+}
+.training-journey-step-range {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #00c6d7;
+}
+.training-journey-step-name {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+.training-journey-branch {
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.training-journey-branch a {
+  color: #00c6d7;
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  .training-video-journey-panel {
+    padding: 24px 20px;
+  }
+  .training-journey-map {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .training-journey-step + .training-journey-step::before {
+    content: "\2193";
+  }
+}
 .training-video-completion .video-training-cta-panel {
   margin-left: auto;
   margin-right: auto;

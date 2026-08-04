@@ -543,8 +543,25 @@ function renderTrainingVideoIndex(videos) {
     })
     .join("");
   const continueHtml = `<section class="landing-section training-video-continue-strip" data-continue-watching data-video-progress hidden aria-label="Continue watching"><div class="container"><div class="training-video-continue-bar"><span class="training-video-continue-label" data-continue-label>Continue watching</span><ul class="training-video-continue-list"></ul></div></div></section>`;
+  const generalSeriesNames = seriesNames.filter((series) => series !== "Faculty stream");
+  const journeySteps = generalSeriesNames
+    .map((series) => {
+      const numbers = videos
+        .filter((video) => video.series === series)
+        .map((video) => journeyNumber.get(video.slug))
+        .filter(Boolean);
+      const first = Math.min(...numbers);
+      const last = Math.max(...numbers);
+      const sectionId = `series-${series.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+      return `<li class="training-journey-step"><a href="#${sectionId}"><span class="training-journey-step-range">Videos ${first}–${last}</span><span class="training-journey-step-name">${escapeHtml(series)}</span></a></li>`;
+    })
+    .join("");
+  const hasFacultyStream = seriesNames.includes("Faculty stream");
+  const journeyMapHtml = journeySteps
+    ? `<ol class="training-journey-map" aria-label="The journey in order">${journeySteps}</ol>${hasFacultyStream ? `<p class="training-journey-branch">Instructors: the <a href="#series-faculty-stream">faculty stream</a> branches off after the general journey.</p>` : ""}`
+    : "";
   const journeyIntroHtml = videos.length
-    ? `<section class="landing-section training-video-journey-intro" aria-labelledby="video-journey-heading"><div class="container"><div class="landing-section-heading"><p class="home-kicker">How to use this series</p><h2 id="video-journey-heading">One journey, watched in order</h2><p>These videos build on each other, so start at video 1 and follow the numbers. Watched end to end, the general journey takes about ${Math.max(1, Math.round(totalMinutes / 60))} hour${Math.round(totalMinutes / 60) > 1 ? "s" : ""}. Teams can also spread the series across regular meetings: watch one video together, then use the discussion points beneath it. Your spot is saved on this browser, so leaving and returning picks up where you stopped.</p></div></div></section>`
+    ? `<section class="landing-section training-video-journey-intro" aria-labelledby="video-journey-heading"><div class="container"><div class="training-video-journey-panel"><div class="landing-section-heading"><p class="home-kicker">How to use this series</p><h2 id="video-journey-heading">One journey, watched in order</h2><p>These videos build on each other, so start at video 1 and follow the numbers. Watched end to end, the general journey takes about ${Math.max(1, Math.round(totalMinutes / 60))} hour${Math.round(totalMinutes / 60) > 1 ? "s" : ""}. Teams can also spread the series across regular meetings: watch one video together, then use the discussion points beneath it. Your spot is saved on this browser, so leaving and returning picks up where you stopped.</p></div>${journeyMapHtml}</div></div></section>`
     : "";
   const completionHtml = videos.length
     ? `<section class="landing-section video-training-cta training-video-completion" aria-labelledby="video-completion-heading"><div class="container"><div class="video-training-cta-panel"><div><p class="home-kicker">After the videos</p><h2 id="video-completion-heading">Design what comes next</h2><p>Once you have been through the series, tell us where your team wants to go deeper and we will design a session around your work. Asking us to revisit topics from these videos is a normal request; the point is that now you know what to ask for.</p></div><div class="video-training-cta-actions"><a class="btn btn-primary btn-lg" href="${escapeHtml(TRAINING_INTAKE_URL)}">Start the team training intake</a><a class="btn btn-default btn-lg" href="#series-faculty-stream">I teach: see the faculty stream</a></div></div></div></section>`
