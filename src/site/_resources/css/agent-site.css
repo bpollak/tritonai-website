@@ -3828,12 +3828,20 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
   margin: 0;
 }
 
-/* Watch pages, phone widths: mobile menu and search stay operable */
+/* Watch pages, phone widths: mobile menu and search stay operable. The
+   collapse container must honor Bootstrap's open/closed state — forcing it
+   to block leaves the whole menu permanently expanded above the player. */
 @media (max-width: 991px) {
-  .video-theater-page .navbar .navbar-collapse,
   .video-theater-page .navbar .navbar-header,
   .video-theater-page .navbar .navbar-nav,
   .video-theater-page .navbar .msearch {
+    display: block !important;
+  }
+  .video-theater-page .navbar .navbar-collapse {
+    display: none !important;
+  }
+  .video-theater-page .navbar .navbar-collapse.collapsing,
+  .video-theater-page .navbar .navbar-collapse.in {
     display: block !important;
   }
   .video-theater-page .navbar.navbar-static-top {
