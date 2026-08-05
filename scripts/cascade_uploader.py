@@ -14,7 +14,7 @@ import os
 import sys
 import time
 from pathlib import Path
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -321,7 +321,12 @@ class CascadeUploader:
         logger.error("%s | file | FAILED: %s", cascade_path, message)
         return False
 
-    def publish(self, asset_id: Optional[str] = None, asset_type: str = "folder") -> bool:
+    def publish(
+        self,
+        asset_id: Optional[str] = None,
+        asset_type: str = "folder",
+        destination_ids: Optional[List[str]] = None,
+    ) -> bool:
         """
         Queue an asset for publishing.
 
@@ -339,7 +344,16 @@ class CascadeUploader:
             endpoint = f"/api/v1/publish/{asset_type}/{self.site_name}{self.root_path}"
             target = f"{asset_type} {self.root_path}"
 
-        payload = {"publishInformation": {"unpublish": False}}
+        payload: Dict[str, Any] = {"publishInformation": {"unpublish": False}}
+        if destination_ids:
+            # Publishing the same content tree to a named destination. Omitting
+            # this publishes to every destination configured on the site.
+            payload["publishInformation"]["destinations"] = [
+                {"id": destination_id, "type": "destination"}
+                for destination_id in destination_ids
+            ]
+            target += f" -> {', '.join(destination_ids)}"
+
         result = self._post(endpoint, payload, f"publish {target}")
         if result and result.get("success"):
             logger.info("Queued for publish: %s", target)
@@ -447,6 +461,14 @@ def main() -> None:
              "Needed for a site root, which does not resolve by path.",
     )
     parser.add_argument(
+        "--destination-id",
+        action="append",
+        default=[],
+        metavar="ID",
+        help="Cascade destination id to publish to; repeatable. "
+             "Omit to publish to every destination configured on the site.",
+    )
+    parser.add_argument(
         "--publish-type",
         default="folder",
         choices=["folder", "file", "page", "site"],
@@ -504,7 +526,7 @@ def main() -> None:
     summary = uploader.upload(args.source_dir, changed)
 
     if args.publish and summary.failed == 0:
-        uploader.publish(args.publish_id, args.publish_type)
+        uploader.publish(args.publish_id, args.publish_type, args.destination_id)
     elif args.publish:
         logger.warning("Skipping publish: %d failures during upload.", summary.failed)
 

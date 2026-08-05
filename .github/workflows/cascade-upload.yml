@@ -1,32 +1,35 @@
 name: Publish to Cascade
 
-# Runs automatically on merge to main, once per day for Skills Library
-# updates, or when the Skills Library sends its repository event. The values
-# below in `env` are the single source of truth; the workflow_dispatch inputs
-# are optional overrides for one-off runs (for example pointing at a scratch
-# folder or a different instance) and are deliberately left without defaults
-# so they fall through to `env` when blank.
+# main    -> publishes to the Production destination
+# preview -> publishes to the Stage destination
+#
+# Both branches upload to the SAME content tree in Cascade. Only the publish
+# destination differs. See the note in the config job.
 on:
   push:
-    branches: [main]
-  schedule:
-    - cron: '27 13 * * *'
-  repository_dispatch:
-    types:
-      - skills-library-updated
+    branches: [main, preview]
   workflow_dispatch:
     inputs:
+      target:
+        description: 'Which destination to publish to'
+        required: false
+        type: choice
+        options: ['', 'main', 'preview']
+        default: ''
       site_name:
-        description: 'Override site name (blank uses the workflow default)'
+        description: 'Override site name'
         required: false
       root_path:
-        description: 'Override target folder (blank uses the workflow default)'
+        description: 'Override target folder'
         required: false
       base_url:
-        description: 'Override Cascade host (blank uses the workflow default)'
+        description: 'Override Cascade host'
         required: false
       publish_id:
-        description: 'Override publish target asset id (blank uses the workflow default)'
+        description: 'Override publish target asset id'
+        required: false
+      destination_id:
+        description: 'Override Cascade destination id'
         required: false
       skip_publish:
         description: 'Upload without publishing'
@@ -34,24 +37,96 @@ on:
         type: boolean
         default: false
 
-env:
-  # Change these to retarget the pipeline. Everything else reads from here.
-  CASCADE_SITE: ${{ inputs.site_name || 'TritonAI' }}
-  CASCADE_ROOT: ${{ inputs.root_path || '/' }}
-  CASCADE_HOST: ${{ inputs.base_url || 'https://ucsd.cascadecms.com' }}
-  # Root folder of TritonAI-Test on ucsd-dev. Asset ids are per instance:
-  # a prod root will have a different id.
-  CASCADE_PUBLISH_ID: ${{ inputs.publish_id || '1b1cf53b0aaf69f5520d3d68d7e754fe' }}
-
-# One deploy at a time. Queued rather than cancelled, so a run that is
-# already writing to Cascade is never interrupted part way through.
+# Queue per target so a main deploy and a preview deploy never block each
+# other, but two deploys to the same target never overlap.
 concurrency:
-  group: cascade-publish
+  group: cascade-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
+  config:
+    name: Resolve target
+    runs-on: ubuntu-latest
+    outputs:
+      site: ${{ steps.resolve.outputs.site }}
+      root: ${{ steps.resolve.outputs.root }}
+      host: ${{ steps.resolve.outputs.host }}
+      publish_id: ${{ steps.resolve.outputs.publish_id }}
+      destination_id: ${{ steps.resolve.outputs.destination_id }}
+      environment: ${{ steps.resolve.outputs.environment }}
+      target: ${{ steps.resolve.outputs.target }}
+    steps:
+      - id: resolve
+        env:
+          IN_TARGET: ${{ inputs.target }}
+          IN_SITE: ${{ inputs.site_name }}
+          IN_ROOT: ${{ inputs.root_path }}
+          IN_HOST: ${{ inputs.base_url }}
+          IN_PUBLISH: ${{ inputs.publish_id }}
+          IN_DEST: ${{ inputs.destination_id }}
+        run: |
+          # Branch decides the destination unless a manual run names one.
+          target="$IN_TARGET"
+          if [ -z "$target" ]; then
+            case "${{ github.ref }}" in
+              refs/heads/preview) target=preview ;;
+              refs/heads/main)    target=main ;;
+              *) echo "::error::No target mapped for ${{ github.ref }}"; exit 1 ;;
+            esac
+          fi
+
+          # Shared for every target: one server, one site, one content tree.
+          host='https://ucsd.cascadecms.com'
+          site='TritonAI'
+          root='/'
+          publish_id='1b1cf53b0aaf69f5520d3d68d7e754fe'
+
+          # ---- Only the publish destination differs. ----
+          case "$target" in
+            main)
+              destination_id='1b1d1f4f0aaf69f5520d3d68a0c21f0e'   # Production
+              environment='cascade-prod'
+              ;;
+            preview)
+              destination_id='1b1d1f300aaf69f5520d3d682aa44c68'   # Stage
+              environment='cascade-preview'
+              ;;
+            *)
+              echo "::error::Unknown target: $target"; exit 1 ;;
+          esac
+          # -----------------------------------------------
+
+          # Manual overrides win over the defaults above.
+          if [ -n "$IN_SITE" ];    then site="$IN_SITE"; fi
+          if [ -n "$IN_ROOT" ];    then root="$IN_ROOT"; fi
+          if [ -n "$IN_HOST" ];    then host="$IN_HOST"; fi
+          if [ -n "$IN_PUBLISH" ]; then publish_id="$IN_PUBLISH"; fi
+          if [ -n "$IN_DEST" ];    then destination_id="$IN_DEST"; fi
+
+          case "$site$publish_id" in
+            *REPLACE*)
+              echo "::error::Workflow still has placeholder values for site or root folder id"
+              exit 1 ;;
+          esac
+
+          {
+            echo "site=$site"
+            echo "root=$root"
+            echo "host=$host"
+            echo "publish_id=$publish_id"
+            echo "destination_id=$destination_id"
+            echo "environment=$environment"
+            echo "target=$target"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "Target:      $target"
+          echo "Site:        $site $root on $host"
+          echo "Destination: $destination_id"
+          echo "Environment: $environment"
+
   build:
-    name: Refresh, build and plan
+    name: Build and plan
+    needs: config
     runs-on: ubuntu-latest
     outputs:
       should_deploy: ${{ steps.release_gate.outputs.should_deploy }}
@@ -113,11 +188,10 @@ jobs:
           CASCADE_API_KEY: ${{ secrets.CASCADE_API_KEY }}
         run: |
           test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
-          echo "Target: $CASCADE_SITE $CASCADE_ROOT on $CASCADE_HOST"
           python scripts/cascade_uploader.py ./dist \
-            --site-name "$CASCADE_SITE" \
-            --root-path "$CASCADE_ROOT" \
-            --base-url "$CASCADE_HOST" \
+            --site-name "${{ needs.config.outputs.site }}" \
+            --root-path "${{ needs.config.outputs.root }}" \
+            --base-url "${{ needs.config.outputs.host }}" \
             2>&1 | tee dry-run.log
 
       # Deploy the exact bytes that were planned, rather than rebuilding and
@@ -138,10 +212,9 @@ jobs:
 
   deploy:
     name: Upload to Cascade
-    needs: build
-    if: needs.build.outputs.should_deploy == 'true'
+    needs: [config, build]
     runs-on: ubuntu-latest
-    environment: cascade
+    environment: ${{ needs.config.outputs.environment }}
     steps:
       - uses: actions/checkout@v4
 
@@ -162,9 +235,9 @@ jobs:
         run: |
           test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
           python scripts/cascade_uploader.py ./dist \
-            --site-name "$CASCADE_SITE" \
-            --root-path "$CASCADE_ROOT" \
-            --base-url "$CASCADE_HOST" \
+            --site-name "${{ needs.config.outputs.site }}" \
+            --root-path "${{ needs.config.outputs.root }}" \
+            --base-url "${{ needs.config.outputs.host }}" \
             --no-dry-run \
             2>&1 | tee upload.log
 
@@ -177,12 +250,10 @@ jobs:
 
   publish:
     name: Publish
-    needs: [build, deploy]
-    # Runs on every automatic deploy. Tick skip_publish on a manual run to
-    # upload without publishing.
-    if: needs.build.outputs.should_deploy == 'true' && inputs.skip_publish != true
+    needs: [config, deploy]
+    if: inputs.skip_publish != true
     runs-on: ubuntu-latest
-    environment: cascade
+    environment: ${{ needs.config.outputs.environment }}
     steps:
       - uses: actions/checkout@v4
 
@@ -201,11 +272,12 @@ jobs:
           test -n "$CASCADE_API_KEY" || { echo "::error::CASCADE_API_KEY not set"; exit 1; }
           mkdir -p empty
           python scripts/cascade_uploader.py ./empty \
-            --site-name "$CASCADE_SITE" \
-            --root-path "$CASCADE_ROOT" \
-            --base-url "$CASCADE_HOST" \
+            --site-name "${{ needs.config.outputs.site }}" \
+            --root-path "${{ needs.config.outputs.root }}" \
+            --base-url "${{ needs.config.outputs.host }}" \
             --no-dry-run \
             --publish \
-            --publish-id "$CASCADE_PUBLISH_ID" \
-            --publish-type folder
+            --publish-id "${{ needs.config.outputs.publish_id }}" \
+            --publish-type folder \
+            --destination-id "${{ needs.config.outputs.destination_id }}"
           echo "Queued, not finished. Watch the publish queue in Cascade."
