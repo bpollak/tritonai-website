@@ -173,6 +173,67 @@
   }
 }
 
+/* Mobile drawer: the build renders every section open, so give the list a
+   readable hierarchy — navy search block, bold section rows, indented
+   children — and drop the carets that imply the sections can collapse. */
+.agent-page #mobile-navigation {
+  background: #fff;
+}
+.agent-page #mobile-navigation .msearch {
+  margin: 0;
+  padding: 12px 16px 14px;
+  background: #182b49;
+}
+.agent-page #mobile-navigation .msearch .search-toggle {
+  display: none;
+}
+.agent-page #mobile-navigation .msearch form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/* The decorator's screen-reader Close Nav button is a floated 20px box;
+   absolute positioning takes it out of flow so it stops indenting the
+   first menu row's line box (it stays clipped and focusable). */
+.agent-page #mobile-navigation .navbar-toggle[data-tritonai-mobile-close] {
+  position: absolute;
+}
+.agent-page #mobile-navigation .msearch .search-scope,
+.agent-page #mobile-navigation .msearch .search-term {
+  width: 100%;
+  max-width: 100%;
+  min-height: 42px;
+  border: 1px solid #c7ccd1;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 16px;
+  background: #fff;
+  color: #182b49;
+}
+.agent-page #mobile-navigation .msearch .input-group {
+  display: block;
+  width: 100%;
+}
+.agent-page #mobile-navigation .navmenu-nav > li > a {
+  padding: 13px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #182b49;
+  background: #eef1f4;
+  border-top: 1px solid #d5d9de;
+}
+.agent-page #mobile-navigation .navmenu-nav > li > a .caret {
+  display: none;
+}
+.agent-page #mobile-navigation .dropdown-menu.navmenu-nav a {
+  padding: 10px 16px 10px 30px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #00629b;
+  background: #fff;
+  border-top: 1px solid #eceff2;
+}
+
 .agent-page .btn-primary {
   background-color: var(--triton-blue);
   border-color: var(--triton-blue);
