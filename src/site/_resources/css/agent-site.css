@@ -3593,6 +3593,11 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
   .video-theater {
     padding: 16px 12px 22px;
   }
+  /* Re-assert the single-column stack: the TED-scale block above re-sets
+     two columns unconditionally and would otherwise win by source order. */
+  .video-theater-layout {
+    grid-template-columns: 1fr;
+  }
   .video-theater .use-case-demo-frame video {
     min-height: 0;
   }
