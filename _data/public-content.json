@@ -1,0 +1,1271 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-06T21:12:32.591Z",
+  "lastReviewed": "2026-07-27",
+  "facts": [
+    {
+      "id": "website-widget-reach",
+      "claim": "The TritonGPT website widget is live on 16 UC San Diego websites.",
+      "status": "public",
+      "owner": "TritonGPT service team",
+      "lastReviewed": "2026-07-24",
+      "source": "TritonAI strategy presentation and public widget service inventory",
+      "measurementPeriod": "FY 2025-26 service inventory",
+      "dataClassification": "Public aggregate",
+      "canonicalUrl": "/tritongpt/chatbot-widget.html",
+      "relatedSlides": [
+        "website-widget-the-public-front-door"
+      ]
+    },
+    {
+      "id": "tritongpt-assistant-breadth",
+      "claim": "TritonGPT includes 18 named assistant patterns across campus knowledge, teaching, research, administrative work, development, security, and review.",
+      "status": "public",
+      "owner": "TritonGPT service team",
+      "lastReviewed": "2026-07-24",
+      "source": "TritonGPT Platform slide in the TritonAI strategy presentation",
+      "measurementPeriod": "Service inventory reviewed July 24, 2026",
+      "dataClassification": "Public service inventory; not a guarantee of universal access",
+      "canonicalUrl": "/tritongpt/index.html",
+      "relatedSlides": [
+        "tritongpt-platform"
+      ]
+    },
+    {
+      "id": "contract-review-time",
+      "claim": "The Procurement contract-review workflow reduced average review time from 120 minutes to 11 minutes, a 91% reduction, for the measured NDA and terms-and-conditions workflow.",
+      "status": "public",
+      "owner": "UC San Diego Procurement service owner and TritonAI solutions team",
+      "lastReviewed": "2026-07-24",
+      "source": "TritonAI strategy presentation and Contract Review production workflow",
+      "measurementPeriod": "FY 2025-26 production workflow",
+      "dataClassification": "Public aggregate",
+      "canonicalUrl": "/use-cases/contract-review.html",
+      "relatedSlides": [
+        "contract-reviewer-consolidated",
+        "ai-contract-reviewer"
+      ]
+    },
+    {
+      "id": "transcript-matching-validation",
+      "claim": "Transcript Matching achieved 99.86% accuracy across more than 3,700 records, with five errors in the validation sample.",
+      "status": "public",
+      "owner": "Enrollment Management service owner and TritonAI solutions team",
+      "lastReviewed": "2026-07-24",
+      "source": "/tritongpt/release-notes/index.html",
+      "measurementPeriod": "Production validation sample",
+      "dataClassification": "Public aggregate; no student records",
+      "canonicalUrl": "/use-cases/transcript-matching.html",
+      "relatedSlides": [
+        "transcript-matching-validation"
+      ]
+    },
+    {
+      "id": "instructional-ai-understanding",
+      "claim": "In the 2026 Instructional AI pilot survey, 81% of respondents said the tool helped them understand concepts.",
+      "status": "public",
+      "owner": "Participating instructors and TritonAI instructional AI team",
+      "lastReviewed": "2026-07-24",
+      "source": "2026 Instructional AI pilot survey reported in the TritonAI strategy presentation",
+      "measurementPeriod": "2026 course pilots",
+      "dataClassification": "Public aggregate survey result",
+      "canonicalUrl": "/use-cases/instructional-ai.html",
+      "relatedSlides": [
+        "instructional-ai-socratic-tutor-faculty-assistant"
+      ]
+    },
+    {
+      "id": "hosting-choice",
+      "claim": "TritonAI supports approved enterprise cloud models and UC-hosted open models through a common gateway.",
+      "status": "public",
+      "owner": "TritonAI platform team",
+      "lastReviewed": "2026-07-24",
+      "source": "/developer-apis/index.html",
+      "measurementPeriod": "Current service architecture",
+      "dataClassification": "Public",
+      "canonicalUrl": "/about/trust-architecture.html",
+      "relatedSlides": [
+        "platform-architecture"
+      ]
+    },
+    {
+      "id": "human-oversight",
+      "claim": "Campus workflow agents are designed around accountable human review, with oversight matched to risk and maturity.",
+      "status": "public",
+      "owner": "TritonAI solutions team",
+      "lastReviewed": "2026-07-24",
+      "source": "TritonAI strategy presentation",
+      "measurementPeriod": "2026 operating model",
+      "dataClassification": "Public",
+      "canonicalUrl": "/about/strategy.html",
+      "relatedSlides": [
+        "from-chat-to-agents",
+        "six-principles-for-enterprise-ai"
+      ]
+    },
+    {
+      "id": "impact-measurement",
+      "claim": "Quantitative impact claims are scoped to an owner, definition, measurement period, and review date.",
+      "status": "public",
+      "owner": "TritonAI program",
+      "lastReviewed": "2026-07-24",
+      "source": "Website content governance policy",
+      "measurementPeriod": "Ongoing",
+      "dataClassification": "Public",
+      "canonicalUrl": "/about/strategy.html",
+      "relatedSlides": [
+        "use-cases"
+      ]
+    }
+  ],
+  "gatewayUsage": {
+    "schemaVersion": 1,
+    "title": "Gateway usage at a glance",
+    "summary": "Aggregate TritonAI LLM Gateway activity shows the scale of shared model access across UC San Diego.",
+    "owner": "TritonAI platform team",
+    "source": "Raw gateway usage export (all_model_usage.csv) and Triton GPT API usage report v4",
+    "measurementPeriod": {
+      "start": "2026-01-01",
+      "end": "2026-06-30",
+      "label": "January 1–June 30, 2026"
+    },
+    "generatedAt": "2026-07-15",
+    "lastReviewed": "2026-07-25",
+    "dataClassification": "Public aggregate; no user-level records",
+    "canonicalUrl": "/developer-apis/index.html#gateway-usage",
+    "relatedSlides": [
+      "llm-api-usage-attribution"
+    ],
+    "metrics": [
+      {
+        "id": "tokens-processed",
+        "displayValue": "309.4B",
+        "label": "tokens processed",
+        "definition": "Total input and output tokens recorded by the gateway during the measurement period.",
+        "value": 309358904950
+      },
+      {
+        "id": "api-requests",
+        "displayValue": "105.1M",
+        "label": "API requests",
+        "definition": "Completed gateway request records during the measurement period.",
+        "value": 105100000
+      },
+      {
+        "id": "self-hosted-share",
+        "displayValue": "95.3%",
+        "label": "served by self-hosted models",
+        "definition": "Share of recorded tokens served by open-weight models running on UC-controlled infrastructure.",
+        "value": 95.25381241720741
+      },
+      {
+        "id": "peak-month",
+        "displayValue": "73.2B",
+        "label": "tokens in June",
+        "definition": "Highest monthly token volume recorded in the six-month measurement period.",
+        "value": 73192378690
+      }
+    ],
+    "monthly": [
+      {
+        "month": "2026-01",
+        "label": "January",
+        "selfHostedTokens": 43824959128,
+        "cloudTokens": 459894700
+      },
+      {
+        "month": "2026-02",
+        "label": "February",
+        "selfHostedTokens": 48264731656,
+        "cloudTokens": 699033204
+      },
+      {
+        "month": "2026-03",
+        "label": "March",
+        "selfHostedTokens": 43741108447,
+        "cloudTokens": 1018688464
+      },
+      {
+        "month": "2026-04",
+        "label": "April",
+        "selfHostedTokens": 48545072711,
+        "cloudTokens": 1519665510
+      },
+      {
+        "month": "2026-05",
+        "label": "May",
+        "selfHostedTokens": 42462989692,
+        "cloudTokens": 5630382748
+      },
+      {
+        "month": "2026-06",
+        "label": "June",
+        "selfHostedTokens": 67837289383,
+        "cloudTokens": 5355089307
+      }
+    ],
+    "notes": [
+      "Commercial API model families are classified as cloud; open-weight model families running on UC-controlled infrastructure are classified as self-hosted.",
+      "Approximately 0.15 billion unattributed probe and test tokens are included in the aggregate total but not in audience-level breakdowns."
+    ]
+  },
+  "roadmap": {
+    "title": "TritonAI Roadmap",
+    "description": "A public, status-based view of the TritonAI ecosystem from the 2023 chatbot launch through the 2026 governed builder path. Recent milestones include initiative-level detail drawn from the public TritonAI Ecosystem Timeline and 2026 quarterly roadmap.",
+    "owner": "TritonAI program",
+    "lastReviewed": "2026-07-27",
+    "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 Q1-Q3 (presentation-test/ucsd-presentation, public-safe excerpts) and public product pages",
+    "canonicalUrl": "/about/roadmap.html",
+    "audiences": [
+      "students",
+      "faculty",
+      "staff",
+      "developers",
+      "leaders"
+    ],
+    "items": [
+      {
+        "period": "2023 — Alpha",
+        "title": "Beta & Training",
+        "status": "Shipped",
+        "summary": "Secured Chancellor's Office funding, invited 400+ staff to the campus beta, and launched AI Essentials I in the UC Learning Center.",
+        "owner": "TritonAI program",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q1 2024 — Rollout",
+        "title": "Early Launch",
+        "status": "Shipped",
+        "summary": "Began the phased rollout and launched the UC San Diego Assistant and Job Description Helper.",
+        "owner": "TritonAI platform team",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q2 2024 — Live",
+        "title": "Campus-Wide",
+        "status": "Shipped",
+        "summary": "Opened campus-wide availability for ~37K employees, upgraded to Llama 3 with campus SSO, and refreshed the UI with file upload.",
+        "owner": "TritonAI platform team",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline and TritonGPT release notes",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q3–Q4 2024 — Growth",
+        "title": "Adoption",
+        "status": "Shipped",
+        "summary": "Grew Fund Manager Coach adoption, expanded departmental use cases, and began infrastructure planning for the next platform phase.",
+        "owner": "TritonAI solutions team",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q1 2025 — Build",
+        "title": "Platform Prep",
+        "status": "Shipped",
+        "summary": "Upgraded the platform architecture for scale and prepared the model gateway for both commercial and local LLMs.",
+        "owner": "TritonAI platform team",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q2 2025 — Students",
+        "title": "Universal Access",
+        "status": "Shipped",
+        "summary": "Onboarded 45K students, made GPT-4o and Llama 4 Scout the default models, and launched the 128K context window with My Documents.",
+        "owner": "TritonAI platform team",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline and public release notes",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q3 2025 — Integrate",
+        "title": "Widget & Infra",
+        "status": "Shipped",
+        "summary": "Deployed the Blink AI widget without a login requirement and integrated LiteLLM to enable model choice.",
+        "owner": "TritonAI platform team",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q4 2025 — Next-Gen",
+        "title": "Advanced Tools",
+        "status": "Shipped",
+        "summary": "Launched AI-powered search and the Blink AI overview, expanded model choice for higher-value use cases, and began the Deep Research and chat UI refresh.",
+        "owner": "TritonAI platform team",
+        "lastReviewed": "2026-07-21",
+        "source": "TritonAI Ecosystem Timeline and public release notes",
+        "relatedSlides": [
+          "TritonGPT Initiative"
+        ]
+      },
+      {
+        "period": "Q1 2026 — Agents",
+        "title": "Ecosystem Expansion",
+        "status": "Pilot",
+        "summary": "Launched transcript OCR and student record matching, expanded instructional AI to 8 courses with scheduling assistant pilots, and opened the TritonAI site with API access and early N8N workflows.",
+        "details": [
+          "Transcript verification moved from an OCR and matching proof of concept toward an OnBase handoff for enrollment operations.",
+          "Instructional AI added one-click assistant creation while scheduling and spring-course pilots continued.",
+          "Contract review expanded as a supervised Procurement workflow with configurable, policy-backed redlining.",
+          "The TritonAI site and Developer APIs opened governed model access for campus builders.",
+          "Research proposal risk and research alignment proofs of concept tested focused research-support workflows."
+        ],
+        "links": [
+          {
+            "label": "Transcript matching",
+            "href": "/use-cases/transcript-matching.html"
+          },
+          {
+            "label": "Instructional AI",
+            "href": "/use-cases/instructional-ai.html"
+          },
+          {
+            "label": "Developer APIs",
+            "href": "/developer-apis/index.html"
+          }
+        ],
+        "owner": "TritonAI solutions team and sponsoring units",
+        "lastReviewed": "2026-07-27",
+        "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 1",
+        "relatedSlides": [
+          "TritonGPT Initiative",
+          "AI Roadmap 2026 — Quarter 1",
+          "Use Cases"
+        ]
+      },
+      {
+        "period": "Q2 2026 — Refine",
+        "title": "Process Automation",
+        "status": "Pilot",
+        "summary": "The builder path expanded, and TritonGPT moved into the campus mobile app. A Canvas-integrated instructional assistant shipped. Teams also advanced pilots in finance, transcript processing, and contract review. Research, BioBib, and observability pilots moved ahead as well.",
+        "details": [
+          "Developer API access and N8N Agent Builder broadened the path from model access to supervised workflow orchestration.",
+          "TritonGPT extended into the campus mobile experience and began surfacing live campus signals with stronger response traceability.",
+          "A Canvas-integrated instructional assistant established a reusable delivery pattern for course support.",
+          "Transcript matching advanced toward admissions launch readiness while contract review added adjustable rule sets.",
+          "BioBib formatting, risk-based proposal review, and AI IT observability expanded the bounded prototype portfolio."
+        ],
+        "links": [
+          {
+            "label": "Contract review",
+            "href": "/use-cases/contract-review.html"
+          },
+          {
+            "label": "BioBib formatter",
+            "href": "/use-cases/biobib.html"
+          },
+          {
+            "label": "AI tools",
+            "href": "/tools/index.html"
+          }
+        ],
+        "owner": "TritonAI solutions team",
+        "lastReviewed": "2026-07-27",
+        "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 2",
+        "relatedSlides": [
+          "TritonGPT Initiative",
+          "AI Roadmap 2026 — Quarter 2",
+          "Use Cases"
+        ]
+      },
+      {
+        "period": "Q3 2026 — Ecosystem",
+        "title": "Governed Builder Path",
+        "status": "In development",
+        "summary": "Launching the TritonAI Harness pilot and initial hosted applications, organizing reusable skills and connector patterns, and preparing governance and observability for broader agentic development.",
+        "details": [
+          "A bounded Citizen Developer pilot is testing a gateway-connected harness, tiered model access, and early project accountability patterns.",
+          "The TritonGPT Class Planner is moving through a supervised student rollout tied to registration readiness.",
+          "Campus App Hosting is beginning with limited-scope proof-of-concept apps and a shared-responsibility path to support.",
+          "The skills pipeline is organizing reusable UC San Diego skills, MCP integrations, and data-source patterns.",
+          "Shared knowledge work is testing reviewed promotion, source provenance, freshness checks, and scoped retrieval before context can be reused.",
+          "Academic advising remains in a scoped prototype and build phase.",
+          "Governance and observability work is documenting data, security, reliability, and operational requirements before broader access."
+        ],
+        "links": [
+          {
+            "label": "Skills library",
+            "href": "/skills/index.html"
+          },
+          {
+            "label": "TritonGPT Class Planner",
+            "href": "/use-cases/class-planner.html"
+          },
+          {
+            "label": "Build with TritonAI",
+            "href": "/developer-apis/index.html"
+          },
+          {
+            "label": "Trust and architecture",
+            "href": "/about/trust-architecture.html"
+          }
+        ],
+        "owner": "TritonAI platform and solutions teams",
+        "lastReviewed": "2026-07-27",
+        "source": "TritonAI Ecosystem Timeline, AI Roadmap 2026 — Quarter 3, and TritonAI memory architecture presentation",
+        "relatedSlides": [
+          "TritonGPT Initiative",
+          "AI Roadmap 2026 — Quarter 3",
+          "Citizen Developer Ecosystem",
+          "Campus App Hosting",
+          "harness-memory-architecture",
+          "harness-memory-scale-ucsd"
+        ]
+      },
+      {
+        "period": "Beyond Q3 2026",
+        "title": "Governed agency at campus scale",
+        "status": "Exploring",
+        "summary": "Evaluating repeatable, supervised agent workflows that can use approved tools and connectors while retaining accountable human review.",
+        "details": [
+          "Agents would retrieve approved data and call approved tools only within bounded workflows.",
+          "Shared context would move from private task context to reviewed team or service knowledge through explicit promotion.",
+          "Human review would remain at consequential decisions and actions.",
+          "Observability would capture the reliability, usage, and evidence needed to operate services responsibly.",
+          "Successful pilots would graduate through a named service owner, governance review, support model, and approved hosting path."
+        ],
+        "links": [
+          {
+            "label": "Read the strategy",
+            "href": "/about/strategy.html"
+          },
+          {
+            "label": "Start a conversation",
+            "href": "/about/get-involved.html"
+          }
+        ],
+        "owner": "TritonAI program and campus governance partners",
+        "lastReviewed": "2026-07-27",
+        "source": "TritonAI strategy presentation and From Chat to Agents",
+        "relatedSlides": [
+          "From Chat to Agents",
+          "Strategy"
+        ]
+      }
+    ]
+  },
+  "useCases": [
+    {
+      "title": "AI Use-Case Meeting",
+      "slug": "ai-use-case-meeting",
+      "summary": "Biweekly sessions where campus staff bring an AI idea and leave with a scoped use case and a recommendation on whether to proceed.",
+      "status": "Production",
+      "owner": "TritonAI program and solutions teams",
+      "lastReviewed": "2026-07-24",
+      "audiences": [
+        "staff",
+        "faculty",
+        "leaders"
+      ],
+      "source": "TritonAI strategy presentation and current service status",
+      "measurementPeriod": "Production as of July 2026",
+      "dataClassification": "Public description; discovery notes follow the meeting's approved handling",
+      "canonicalUrl": "/use-cases/ai-use-case-meeting.html",
+      "videoSrc": "https://tritongpt-deck.vercel.app/media/product-previews/ai-use-case-meeting-preview.mp4",
+      "videoPoster": "https://tritongpt-deck.vercel.app/media/product-previews/ai-use-case-meeting-poster.png",
+      "videoLabel": "AI Use-Case Meeting demo",
+      "videoDescription": "Silent screen recording showing presenter intake, agenda generation, and the recording archive.",
+      "stats": [
+        {
+          "value": "Biweekly",
+          "label": "Cadence",
+          "sub": "Every other Friday"
+        },
+        {
+          "value": "5-60",
+          "label": "Minutes",
+          "sub": "Presenter-selected"
+        },
+        {
+          "value": "All",
+          "label": "Audience",
+          "sub": "Staff, faculty, researchers"
+        }
+      ],
+      "toolHighlights": [
+        "Presenter Intake",
+        "Agenda Generation",
+        "Recording Archive"
+      ],
+      "relatedSlides": [
+        "the-flywheel-in-action-ai-use-case-meeting"
+      ],
+      "humanOversight": "A TritonAI facilitator and campus service owner confirm the scope and recommendation.",
+      "measurableOutcome": "Time to decision, completeness of intake, appropriate routing, and participant usefulness.",
+      "featured": false
+    },
+    {
+      "title": "BioBib",
+      "slug": "biobib",
+      "summary": "Faculty pull approved activity data into a BioBib draft, then check every section before it goes anywhere.",
+      "status": "Pilot",
+      "owner": "TritonAI solutions team and the sponsoring academic service owner",
+      "lastReviewed": "2026-07-25",
+      "audiences": [
+        "faculty",
+        "staff"
+      ],
+      "source": "TritonAI strategy presentation",
+      "measurementPeriod": "2026 pilot",
+      "dataClassification": "Public description; faculty records follow approved service controls",
+      "canonicalUrl": "/use-cases/biobib.html",
+      "videoSrc": "https://tritongpt-deck.vercel.app/media/product-previews/biobib-formatter-preview.mp4",
+      "videoPoster": "https://tritongpt-deck.vercel.app/media/product-previews/biobib-formatter-poster.png",
+      "videoLabel": "BioBib Formatter demo",
+      "videoDescription": "Silent screen recording showing a Word CV upload, section-level review, TritonAI routing, and a downloadable BioBib draft.",
+      "stats": [
+        {
+          "value": "20",
+          "label": "Review parts",
+          "sub": "Section-level routing"
+        },
+        {
+          "value": ".docx",
+          "label": "Output",
+          "sub": "BioBib draft"
+        },
+        {
+          "value": "UCSD",
+          "label": "Workflow",
+          "sub": "Academic personnel"
+        }
+      ],
+      "toolHighlights": [
+        "Word CV Input",
+        "Section Review",
+        "TritonAI Routing"
+      ],
+      "relatedSlides": [
+        "the-flywheel-in-action-biobib-formatter"
+      ],
+      "humanOversight": "The faculty member or authorized reviewer validates every section before submission.",
+      "measurableOutcome": "Draft completion time, missing items, corrections, and reviewer satisfaction.",
+      "featured": false
+    },
+    {
+      "title": "Class Planner App",
+      "slug": "class-planner-app",
+      "summary": "Undergraduates build conflict-free schedule options from live section data, compare them side by side, and hand the finished plan to TSS for booking.",
+      "status": "Production",
+      "owner": "Class Planner service and the sponsoring enrollment-management team",
+      "lastReviewed": "2026-08-02",
+      "audiences": [
+        "students"
+      ],
+      "source": "Production application at classplanner.apps.ucsd.edu and the Class Planner guide",
+      "measurementPeriod": "Production service reviewed in August 2026",
+      "dataClassification": "Public description; course selections and personal commitments follow the production service's approved controls",
+      "canonicalUrl": "/use-cases/class-planner-app.html",
+      "relatedSlides": [],
+      "humanOversight": "Students choose the courses, review every proposed schedule, and complete official enrollment in TSS; the planner never books a seat.",
+      "measurableOutcome": "Schedule drafts created, alternatives compared, preference constraints honored, and handoffs to TSS completed.",
+      "featured": false,
+      "stats": [
+        {
+          "value": "Live",
+          "label": "Section data",
+          "sub": "Seats, waitlists, and meeting times"
+        },
+        {
+          "value": "Multiple",
+          "label": "Schedule options",
+          "sub": "Compared before enrolling"
+        },
+        {
+          "value": "TSS",
+          "label": "Booking handoff",
+          "sub": "Enrollment stays in the student system"
+        }
+      ],
+      "toolHighlights": [
+        "Preference-aware schedules",
+        "Side-by-side comparison",
+        "Campus map with walk times"
+      ],
+      "resourceLinks": [
+        {
+          "label": "Open Class Planner",
+          "href": "https://classplanner.apps.ucsd.edu/",
+          "description": "Read the guide, then build and compare schedules for the current term."
+        }
+      ]
+    },
+    {
+      "title": "TritonGPT Class Planner",
+      "slug": "class-planner",
+      "summary": "Students say which courses they need and when they cannot meet, and the assistant drafts a schedule without conflicts for them to review.",
+      "status": "Production",
+      "owner": "TritonGPT service and the sponsoring enrollment-management team",
+      "lastReviewed": "2026-07-25",
+      "audiences": [
+        "students",
+        "staff"
+      ],
+      "source": "TritonGPT Class Scheduling Assistant demonstration and current service status",
+      "measurementPeriod": "Production as of July 2026",
+      "dataClassification": "Public description; student prompts and course information follow approved TritonGPT controls",
+      "canonicalUrl": "/use-cases/class-planner.html",
+      "videoSrc": "https://tritongpt-deck.vercel.app/media/TritonGPT%20Class%20Scheduling%20Agent%20-%20LinkedIn%20Horizontal.mp4",
+      "videoPoster": "/_images/use-cases/tritongpt-class-planner-demo.webp",
+      "videoLabel": "TritonGPT Class Scheduling Assistant demo",
+      "videoDescription": "One-minute screen recording with on-screen callouts showing the assistant interpreting course requirements, building a conflict-aware schedule, adapting to a work schedule, and preparing a plan for review before official booking.",
+      "relatedSlides": [
+        "video-tritongpt-class-scheduling-agent"
+      ],
+      "humanOversight": "Students confirm requirements and constraints, review every proposed course and meeting time, and complete official booking in the student system.",
+      "measurableOutcome": "Successful draft creation, conflict identification, constraint handling, student corrections, and usefulness before official booking.",
+      "featured": false,
+      "toolHighlights": [
+        "Course Requirements",
+        "Conflict Checking",
+        "Work-Schedule Constraints"
+      ],
+      "resourceLinks": [
+        {
+          "label": "Open TritonGPT",
+          "href": "https://tritongpt.ucsd.edu/",
+          "description": "Sign in and open the Class Scheduling Assistant in TritonGPT."
+        }
+      ]
+    },
+    {
+      "title": "Contract Review",
+      "slug": "contract-review",
+      "summary": "Procurement staff get contract language compared against approved UC legal positions, marked up and ready for a qualified reviewer.",
+      "status": "Production",
+      "owner": "TritonAI solutions team and the sponsoring legal service owner",
+      "lastReviewed": "2026-07-25",
+      "audiences": [
+        "staff",
+        "leaders"
+      ],
+      "source": "TritonAI strategy presentation",
+      "measurementPeriod": "Production — 91% time savings (120 min to 11 min average)",
+      "dataClassification": "Public description; contract data follows the approved production controls",
+      "canonicalUrl": "/use-cases/contract-review.html",
+      "videoSrc": "https://tritongpt-deck.vercel.app/media/media7.mp4",
+      "videoPoster": "/_images/use-cases/contract-review-public.webp",
+      "videoLabel": "Contract Review workflow demo",
+      "videoDescription": "Silent screen recording showing monitored intake, processing status, and delivery of a redlined document for human review.",
+      "relatedSlides": [
+        "contract-reviewer-consolidated",
+        "ai-contract-reviewer"
+      ],
+      "humanOversight": "A qualified reviewer approves findings and every proposed change before use.",
+      "measurableOutcome": "Review time, completeness, reviewer agreement, rework, and escalations.",
+      "featured": true,
+      "stats": [
+        {
+          "value": "120→11 min",
+          "label": "Review time",
+          "sub": "91% time savings"
+        },
+        {
+          "value": "50+",
+          "label": "Risk categories",
+          "sub": "Liability, IP, data, SLAs"
+        },
+        {
+          "value": "3",
+          "label": "Contract types",
+          "sub": "NDA, T&C, Software"
+        }
+      ],
+      "toolHighlights": [
+        "UC Legal Position",
+        "Policy-backed Redlines",
+        "Tracked Changes"
+      ]
+    },
+    {
+      "title": "Dissertation Formatter",
+      "slug": "dissertation-formatter",
+      "summary": "Checks a dissertation against the graduate formatting rules, fixes what it safely can, and flags the rest for the student to decide.",
+      "status": "Pilot",
+      "owner": "TritonAI solutions team and the sponsoring graduate-education service owner",
+      "lastReviewed": "2026-07-24",
+      "audiences": [
+        "students",
+        "staff"
+      ],
+      "source": "TritonAI strategy presentation",
+      "measurementPeriod": "2026 pilot",
+      "dataClassification": "Public description; submitted documents follow approved service controls",
+      "canonicalUrl": "/use-cases/dissertation-formatter.html",
+      "relatedSlides": [
+        "the-flywheel-in-action-dissertation-formatter"
+      ],
+      "humanOversight": "The student and graduate-education reviewer retain responsibility for the final document.",
+      "measurableOutcome": "Rules checked, issues resolved, review cycles, time to acceptance, and false findings.",
+      "featured": true,
+      "videoSrc": "https://tritongpt-deck.vercel.app/media/product-previews/dissertation-formatter-preview.mp4",
+      "videoPoster": "https://tritongpt-deck.vercel.app/media/product-previews/dissertation-formatter-poster.png",
+      "videoLabel": "Dissertation Formatter demo",
+      "videoDescription": "Silent screen recording showing document upload, automated rule checks, auto-fixes, and the fixed/action/verify results breakdown.",
+      "stats": [
+        {
+          "value": "84",
+          "label": "Rules checked",
+          "sub": "13 categories"
+        },
+        {
+          "value": "17+",
+          "label": "Auto-fixes",
+          "sub": "Common issues"
+        },
+        {
+          "value": "3",
+          "label": "Result buckets",
+          "sub": "Fixed, action, verify"
+        }
+      ],
+      "toolHighlights": [
+        "GEPA Rules",
+        "Auto-Corrections",
+        "Review Report"
+      ]
+    },
+    {
+      "title": "Instructional AI",
+      "slug": "instructional-ai",
+      "summary": "Course assistants that answer from the material an instructor approved, inside the limits that instructor sets.",
+      "status": "Pilot",
+      "owner": "Participating instructors and the TritonAI instructional AI team",
+      "lastReviewed": "2026-07-25",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "source": "TritonAI Instructional AI public page and strategy presentation",
+      "measurementPeriod": "2026 course pilots",
+      "dataClassification": "Public description; course data follows approved instructional controls",
+      "canonicalUrl": "/use-cases/instructional-ai.html",
+      "stats": [
+        {
+          "value": "81%",
+          "label": "Helped understanding",
+          "sub": "Said it helped explain concepts"
+        },
+        {
+          "value": "86%",
+          "label": "Ease of use",
+          "sub": "Found it easy to use"
+        },
+        {
+          "value": "67%",
+          "label": "Want more",
+          "sub": "Want it in more courses"
+        }
+      ],
+      "toolHighlights": [
+        "Course-grounded AI Tutor",
+        "Instructor-selected sources",
+        "Canvas access"
+      ],
+      "screenshots": [
+        {
+          "src": "/_images/tritongpt/instructional-ai/student-assistant.jpg",
+          "alt": "TritonGPT course assistant interface for a bioinformatics lab",
+          "caption": "A student-facing course assistant starts from instructor-selected course context and suggested questions."
+        },
+        {
+          "src": "/_images/tritongpt/instructional-ai/instructor-assistant.jpg",
+          "alt": "TritonGPT instructor assistant interface for a bioinformatics course",
+          "caption": "An instructor-only assistant supports course preparation within faculty-defined source and use boundaries."
+        }
+      ],
+      "relatedSlides": [
+        "instructional-ai-socratic-tutor-faculty-assistant"
+      ],
+      "humanOversight": "Instructors define the learning purpose, content boundaries, and acceptable use.",
+      "measurableOutcome": "Student usefulness, learning evidence, answer quality, instructor workload, and escalations.",
+      "featured": true
+    },
+    {
+      "title": "Passport Visitor Management",
+      "slug": "passport-app",
+      "summary": "Visitors check in for Passport Services at CSC or the UCSD Bookstore while staff manage each location from a shared queue dashboard.",
+      "status": "Production",
+      "owner": "UC San Diego Passport Services and IPPS Technology and Project Management",
+      "lastReviewed": "2026-07-27",
+      "audiences": [
+        "staff",
+        "students",
+        "visitors"
+      ],
+      "source": "Production application, public repository, and the June–July 2026 project handoff",
+      "measurementPeriod": "Production service reviewed in July 2026",
+      "dataClassification": "Public description; visitor contact and visit details follow the production service's approved controls",
+      "canonicalUrl": "/use-cases/passport-app.html",
+      "relatedSlides": [],
+      "humanOversight": "Passport Services staff manage each queue, update visitor status, review readiness questions, and make all service decisions.",
+      "measurableOutcome": "Check-in completion, wait-time visibility, queue accuracy, staff workflow efficiency, and service reliability.",
+      "featured": false,
+      "stats": [
+        {
+          "value": "2",
+          "label": "Check-in locations",
+          "sub": "CSC and UCSD Bookstore"
+        },
+        {
+          "value": "Public",
+          "label": "Visitor check-in",
+          "sub": "Shared device or personal phone"
+        },
+        {
+          "value": "Staff",
+          "label": "Queue management",
+          "sub": "Location-specific dashboards"
+        }
+      ],
+      "toolHighlights": [
+        "Public check-in",
+        "Location dashboards",
+        "Operational reporting"
+      ],
+      "resourceLinks": [
+        {
+          "label": "Open the Passport App",
+          "href": "https://passports.apps.ucsd.edu/",
+          "description": "Choose the CSC or UCSD Bookstore check-in flow in the production service."
+        },
+        {
+          "label": "View the public repository",
+          "href": "https://github.com/IPPS-TechPM-BSA/passports-app",
+          "description": "Review the source code, technical documentation, and release history maintained by IPPS."
+        }
+      ]
+    },
+    {
+      "title": "PDF Remediator",
+      "slug": "pdf-remediation",
+      "summary": "Finds the document-accessibility problems software can catch reliably, and hands a qualified remediator the evidence for the rest.",
+      "status": "Pilot",
+      "owner": "TritonAI solutions team and campus accessibility partners",
+      "lastReviewed": "2026-07-24",
+      "audiences": [
+        "staff",
+        "faculty",
+        "developers"
+      ],
+      "source": "TritonAI strategy presentation",
+      "measurementPeriod": "2026 pilot",
+      "dataClassification": "Public description; document handling depends on source data",
+      "canonicalUrl": "/use-cases/pdf-remediation.html",
+      "videoSrc": "https://tritongpt-deck.vercel.app/media/pdf-remediator-1.6x.mov",
+      "videoPoster": "https://tritongpt-deck.vercel.app/media/pdf-remediator-poster.png",
+      "videoLabel": "PDF Remediator accessibility review demo",
+      "videoDescription": "Silent screen recording showing a PDF upload, automated accessibility findings, remediation progress, and the reviewable results.",
+      "stats": [
+        {
+          "value": "17+",
+          "label": "Automated checks",
+          "sub": "9 categories"
+        },
+        {
+          "value": "Human",
+          "label": "Final review",
+          "sub": "Required for every document"
+        },
+        {
+          "value": "Reviewable",
+          "label": "Evidence package",
+          "sub": "Findings and remaining work"
+        }
+      ],
+      "toolHighlights": [
+        "veraPDF Validation",
+        "PDF/UA Standard",
+        "Evidence Packs"
+      ],
+      "relatedSlides": [
+        "the-flywheel-in-action-pdf-remediator"
+      ],
+      "humanOversight": "A qualified human validates reading order, semantics, alternatives, and the final accessible document.",
+      "measurableOutcome": "Issues detected, remediation time, residual accessibility findings, and reviewer agreement.",
+      "featured": false
+    },
+    {
+      "title": "Research Alignment",
+      "slug": "research-alignment",
+      "summary": "Matches researcher profiles against outside funding and collaboration opportunities, and explains why each one surfaced.",
+      "status": "In development",
+      "owner": "TritonAI solutions team and prospective research-service partners",
+      "lastReviewed": "2026-07-24",
+      "audiences": [
+        "faculty",
+        "staff",
+        "leaders"
+      ],
+      "source": "TritonAI strategy presentation and current development status",
+      "measurementPeriod": "2026 development cycle",
+      "dataClassification": "Public description; any profile integration requires source-specific approval",
+      "canonicalUrl": "/use-cases/research-alignment.html",
+      "stats": [
+        {
+          "value": "Prototype",
+          "label": "Delivery stage",
+          "sub": "Sources and ownership under review"
+        },
+        {
+          "value": "Explainable",
+          "label": "Design goal",
+          "sub": "Show why each match appeared"
+        },
+        {
+          "value": "Cross-school",
+          "label": "Intended scope",
+          "sub": "Within or across divisions"
+        }
+      ],
+      "toolHighlights": [
+        "Employee Activity Hub",
+        "NIH RePORTER",
+        "NSF Awards",
+        "PubMed",
+        "ORCID",
+        "Semantic Scholar"
+      ],
+      "relatedSlides": [
+        "research-alignment-poc"
+      ],
+      "humanOversight": "Researchers and research administrators validate relevance and decide whether to act.",
+      "measurableOutcome": "Relevant opportunities surfaced, false matches, follow-through, and researcher usefulness.",
+      "featured": false
+    },
+    {
+      "title": "Transcript Matching",
+      "slug": "transcript-matching",
+      "summary": "Matches incoming transcripts to student records, scores its own confidence, and sends the uncertain ones to staff.",
+      "status": "Production",
+      "owner": "TritonAI solutions team and the sponsoring student-services owner",
+      "lastReviewed": "2026-07-25",
+      "audiences": [
+        "staff",
+        "leaders"
+      ],
+      "source": "TritonGPT release notes and TritonAI strategy presentation",
+      "measurementPeriod": "Production service; accuracy result from the published validation sample of 3,700+ transcript records",
+      "dataClassification": "Public description; student records require approved protected-data controls",
+      "canonicalUrl": "/use-cases/transcript-matching.html",
+      "videoSrc": "https://tritongpt-deck.vercel.app/media/tms-onbase-demo.mp4",
+      "videoPoster": "/_images/use-cases/transcript-matching-public.webp",
+      "videoLabel": "Transcript Matching staff review demo",
+      "videoDescription": "Silent screen recording showing confidence-based matching and the staff review interface used to resolve uncertain records.",
+      "relatedSlides": [
+        "transcript-matching-validation"
+      ],
+      "humanOversight": "Staff review uncertain matches and monitor quality before any broader use.",
+      "measurableOutcome": "Match precision and recall, review volume, processing time, and exception rate.",
+      "featured": true,
+      "stats": [
+        {
+          "value": "60,000",
+          "label": "Annual workflow volume",
+          "sub": "Approximate transcripts per year"
+        },
+        {
+          "value": "225/hr",
+          "label": "Processing throughput",
+          "sub": "Reported workflow rate"
+        },
+        {
+          "value": "99.86%",
+          "label": "Published accuracy",
+          "sub": "3,700+ records; five reported errors"
+        }
+      ],
+      "toolHighlights": [
+        "OCR Extraction",
+        "Confidence Scoring",
+        "Human Review Queue"
+      ]
+    },
+    {
+      "title": "Voice Agent",
+      "slug": "voice-agent",
+      "summary": "Consent-based voice interviews capture how work happens and turn the evidence into reviewable process records, themes, and automation opportunities.",
+      "status": "Pilot",
+      "owner": "TritonAI program and participating service owners",
+      "lastReviewed": "2026-07-27",
+      "audiences": [
+        "staff",
+        "leaders"
+      ],
+      "source": "Voice Agent Fable repository and public application documentation",
+      "measurementPeriod": "Repository and public service reviewed in July 2026",
+      "dataClassification": "Public description; interview consent, transcripts, recordings, and retention follow the approved pilot controls",
+      "canonicalUrl": "/use-cases/voice-agent.html",
+      "relatedSlides": [],
+      "humanOversight": "Participants consent before interviews, and authorized reviewers validate evidence and decide which opportunities should proceed.",
+      "measurableOutcome": "Interview completion, evidence quality, opportunity usefulness, reviewer agreement, and appropriate routing.",
+      "featured": false,
+      "stats": [
+        {
+          "value": "Consent",
+          "label": "Participant control",
+          "sub": "Written and spoken confirmation"
+        },
+        {
+          "value": "Evidence",
+          "label": "Reviewable findings",
+          "sub": "Source-linked process records"
+        },
+        {
+          "value": "Human",
+          "label": "Final decisions",
+          "sub": "Service owners review opportunities"
+        }
+      ],
+      "toolHighlights": [
+        "Interview templates",
+        "Consent-based voice sessions",
+        "Transcript redaction",
+        "Evidence-backed backlog"
+      ],
+      "screenshots": [
+        {
+          "src": "/_images/use-cases/voice-agent-app-overview.png",
+          "alt": "Public UCSD Process Discovery overview showing the participant and analysis workflow",
+          "caption": "The public app overview traces the path from invitation and consent through the voice interview, redaction, analysis, and evidence-review views."
+        }
+      ],
+      "resourceLinks": [
+        {
+          "label": "View the public app overview",
+          "href": "https://voice-agent-fable.vercel.app/admin/about",
+          "description": "Review the platform workflow, privacy boundaries, analysis stages, and operating model."
+        },
+        {
+          "label": "Read the public guide",
+          "href": "https://voice-agent-fable.vercel.app/admin/guide",
+          "description": "See how teams prepare interview templates, run campaigns, and review the resulting evidence."
+        }
+      ]
+    }
+  ],
+  "skillsLibrary": {
+    "schemaVersion": 1,
+    "syncedAt": "2026-08-03T03:35:30.130Z",
+    "source": {
+      "repository": "dbalders/UCSD-Skills-Library",
+      "url": "https://github.com/dbalders/UCSD-Skills-Library",
+      "description": "Agent skills for UC San Diego and TritonAI",
+      "defaultBranch": "main",
+      "commitSha": "4d4c48be70156d1d18c80576037f8770f5a68c34",
+      "commitUrl": "https://github.com/dbalders/UCSD-Skills-Library/commit/4d4c48be70156d1d18c80576037f8770f5a68c34",
+      "commitDate": "2026-07-14T20:58:14Z",
+      "pushedAt": "2026-07-14T20:58:14Z",
+      "license": "MIT"
+    },
+    "collections": [
+      {
+        "id": "tritonai",
+        "label": "TritonAI maintained",
+        "count": 9
+      },
+      {
+        "id": "community",
+        "label": "Community maintained",
+        "count": 0
+      }
+    ],
+    "skills": [
+      {
+        "name": "tritonai-autoreview",
+        "description": "Use for TritonAI Harness or UCSD AI Tools code-review closeout before commit, pull request update, merge, release, or ship. Trigger when the user says use tritonai-autoreview, run TritonAI autoreview, autoreview this, auto review, Codex review, second-model review, review this branch, review this PR, review this commit, before merge, before ship, closeout review, run tests plus review, or fix accepted review findings.",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/tritonai-autoreview/SKILL.md",
+        "directory": "tritonai/tritonai-autoreview",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-autoreview/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-autoreview",
+        "resources": {
+          "references": 0,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "tritonai-feedback",
+        "description": "Use when a user wants to send feedback, bug reports, support requests, improvement ideas, or agent-experience notes to the TritonAI team. Trigger on explicit requests such as /tritonai, /feedback, /feed-back, /feed back, TritonAI feedback, email TritonAI, report this to TritonAI, or send this to tritonai@ucsd.edu.",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/tritonai-feedback/SKILL.md",
+        "directory": "tritonai/tritonai-feedback",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-feedback/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-feedback",
+        "resources": {
+          "references": 0,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "tritonai-harness-config",
+        "description": "Investigate and explain the live TritonAI Harness environment using sanitized runtime and source evidence. Use for Harness config files, CODEX_HOME or TRITONAI_HOME, permissions or sandbox modes, models and providers, skills, logs, installation paths, or comparisons with personal Codex or Codex Desktop. Also use for explicit T3 Code or t3code configuration/runtime questions, Harness-versus-T3 Code comparisons, or questions about a t3code identifier in a Harness diagnostic; not unrelated source-code mentions.",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/tritonai-harness-config/SKILL.md",
+        "directory": "tritonai/tritonai-harness-config",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-harness-config/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-harness-config",
+        "resources": {
+          "references": 0,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "ucsd-accessibility-compliance",
+        "description": "Use for UC San Diego digital accessibility work across websites, web apps, Campus CMS or Simple Sites pages, LMS content, forms, documents, PDFs, presentations, email campaigns, social posts, images, graphics, audio, and video. Helps implement, audit, or remediate content against official UCSD accessibility guidance, UCSD Digital Accessibility Standards, WCAG 2.1 AA expectations, ADA Title II and UC policy context, keyboard and screen-reader usability, semantic HTML, forms, contrast, alt text, captions, transcripts, accessible documents, and practical manual review steps. Trigger on /ucsd-accessibility, accessibility review, a11y, WCAG, ADA Title II, Siteimprove, screen reader, keyboard access, alt text, captions, transcripts, PDF remediation, or \"is this accessible at UCSD\".",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/ucsd-accessibility-compliance/SKILL.md",
+        "directory": "tritonai/ucsd-accessibility-compliance",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-accessibility-compliance/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-accessibility-compliance",
+        "resources": {
+          "references": 1,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "ucsd-branding",
+        "description": "Apply the UC San Diego Developer/Decorator 5 visual system to web pages. Use when asked to match UCSD/UC San Diego web branding, campus page chrome, current Decorator 5 documentation pages, or the components shown in the official Decorator 5 kitchen sink. This skill is intentionally limited to current developer.ucsd.edu sitemap pages plus the linked Decorator 5 kitchen-sink examples.",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/ucsd-branding/SKILL.md",
+        "directory": "tritonai/ucsd-branding",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-branding/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-branding",
+        "resources": {
+          "references": 1,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "ucsd-cms",
+        "description": "Use when authoring, editing, publishing, or reviewing content on a UC San Diego website running on Hannon Hill Cascade CMS (Blink, department sites, *.ucsd.edu sites managed in the campus CMS) — to follow the correct workflow, pick the right template/module, write valid metadata, meet accessibility and SEO requirements, and publish safely. Trigger when the user mentions Cascade, Blink, \"the CMS\", a `.ucsd.edu` page, templates, modules, drawers, tabs, metadata, display names, system names, SiteImprove, publish/unpublish, or asks \"how do I add/edit/publish a page\", \"what template should I use\", \"why is my page not showing\", \"how do I get CMS access\". Also /ucsd-cms.",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/ucsd-cms/SKILL.md",
+        "directory": "tritonai/ucsd-cms",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-cms/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-cms",
+        "resources": {
+          "references": 0,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "ucsd-data-classification",
+        "description": "Use when building or reviewing a UC San Diego application, automation, script, database, API, or data pipeline that stores, transmits, logs, or displays data — to classify that data under UC's IS-3 Protection Levels (P1–P4) and apply the handling controls each level requires. Trigger when defining data models or database schemas, choosing where to store data, writing logging, building forms or endpoints that collect personal/financial/health/student data, or whenever fields like SSN, credit card, PHI, FERPA student records, passwords, API keys, or other PII appear. Also /ucsd-data-classification, \"classify this data\", \"what protection level\", \"can I store this\", \"is this allowed at UCSD\".",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/ucsd-data-classification/SKILL.md",
+        "directory": "tritonai/ucsd-data-classification",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-data-classification/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-data-classification",
+        "resources": {
+          "references": 3,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "ucsd-memory",
+        "description": "Use and maintain an existing local TritonAI memory vault. Trigger on $memory, remember this, forget this, search memory, what do we know about, summarize this into memory, memory status, or requests to add, update, remove, query, or cite Obsidian-style TritonAI memory notes.",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/ucsd-memory/SKILL.md",
+        "directory": "tritonai/ucsd-memory",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory",
+        "resources": {
+          "references": 0,
+          "scripts": 0,
+          "assets": 0,
+          "other": 0
+        }
+      },
+      {
+        "name": "ucsd-memory-create",
+        "description": "Create and maintain a local TritonAI memory vault. Use when a user asks for $memory-create, memory setup, an Obsidian-style memory graph, daily conversation sync, weekly memory cleanup, or cross-platform background memory jobs for TritonAI Harness.",
+        "collection": "tritonai",
+        "collectionLabel": "TritonAI maintained",
+        "maintainer": null,
+        "path": "tritonai/ucsd-memory-create/SKILL.md",
+        "directory": "tritonai/ucsd-memory-create",
+        "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory-create/SKILL.md",
+        "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory-create",
+        "resources": {
+          "references": 1,
+          "scripts": 0,
+          "assets": 2,
+          "other": 0
+        }
+      }
+    ]
+  },
+  "homeHero": {
+    "schemaVersion": 1,
+    "owner": "TritonAI",
+    "source": "https://tritonai.ucsd.edu/",
+    "lastReviewed": "2026-07-22",
+    "rotationIntervalMs": 7000,
+    "slides": [
+      {
+        "id": "tritonai-hub",
+        "title": "TritonAI",
+        "accent": "Campus AI at UC San Diego",
+        "description": "TritonGPT is the assistant most people start with. Sign in with your campus account.",
+        "image": "/_images/homepage/TritonAI_Hero_2500.png",
+        "optimizedImage": "/_images/homepage/TritonAI_Hero_2500.webp",
+        "imageAlt": "Colorful blue and gold grit pattern",
+        "link": "/tritongpt/index.html",
+        "linkLabel": "Start with TritonGPT"
+      }
+    ]
+  }
+}

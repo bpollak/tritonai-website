@@ -1,0 +1,355 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en-US"><head><link rel="preconnect" href="https://cdn.ucsd.edu" crossorigin=""><link rel="dns-prefetch" href="//cdn.ucsd.edu"><link rel="preconnect" href="https://www.ucsd.edu" crossorigin=""><link rel="dns-prefetch" href="//www.ucsd.edu"><link rel="preconnect" href="https://tritongpt-deck.vercel.app" crossorigin=""><link rel="dns-prefetch" href="//tritongpt-deck.vercel.app"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin=""><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link rel="dns-prefetch" href="//fonts.gstatic.com"><script data-tritonai-js-class="">document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'js');</script>
+		
+
+
+
+ 
+
+
+
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="initial-scale=1.0" name="viewport">
+    <meta content="7MiYjX2ZghMOWvtKRWlar--c6mD2ose5EcbQFQ6szFA" name="google-site-verification">
+    
+    <title>NotebookLM overview | TritonAI</title>
+    <meta content="University of California San Diego" name="ORGANIZATION">
+    <meta content="index,follow" name="robots">
+    <meta content="TritonAI" name="SITE">
+    <meta content="NotebookLM overview" name="PAGETITLE">
+    <meta content="Practical campus use cases for NotebookLM, from source-grounded research to study guides." name="description">
+    <meta content="4b0006f20aaf6b3a5a9e0374a995b965" name="id">
+
+   
+    
+
+
+    
+
+		
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link href="https://cdn.ucsd.edu/cms/decorator-5/styles/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.ucsd.edu/cms/decorator-5/styles/base.min.css" rel="stylesheet">
+
+
+        
+    
+
+
+
+<!-- Site-specific CSS files -->
+    
+    
+    
+<!-- Other CSS files -->
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="https://cdn.ucsd.edu/cms/decorator-5/styles/ie-support.css" />
+<![endif]-->
+
+<!-- Other JS files -->
+
+
+<script data-after-render-src="https://cdn.ucsd.edu/cms/decorator-5/scripts/modernizr.min.js" type="application/x-tritonai-after-render-script"></script>
+
+
+        
+    
+    
+
+
+<!-- Site-specific javascript files -->
+
+
+    
+
+<!--[if lt IE 9]>
+<script src="https://cdn.ucsd.edu/cms/decorator-5/scripts/respond.min.js"></script>
+<link href="https://cdn.ucsd.edu/cms/decorator-5/scripts/cross-domain/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+<link href="/_resources/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+<script src="/_resources/cross-domain/respond.proxy.js"></script>
+<![endif]-->
+
+
+	<meta property="og:title" content="NotebookLM overview"><meta property="og:description" content="Practical campus use cases for NotebookLM, from source-grounded research to study guides."><meta property="og:type" content="website"><meta property="og:url" content="https://tritonai.ucsd.edu/training-resources/videos/notebooklm-overview.html"><meta property="og:site_name" content="TritonAI"><meta property="og:image" content="https://tritonai.ucsd.edu/_images/homepage/TritonAI_Hero_2500.webp"><meta property="og:image:alt" content="Blue and gold TritonAI pattern"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="NotebookLM overview"><meta name="twitter:description" content="Practical campus use cases for NotebookLM, from source-grounded research to study guides."><meta name="twitter:image" content="https://tritonai.ucsd.edu/_images/homepage/TritonAI_Hero_2500.webp"><meta name="twitter:image:alt" content="Blue and gold TritonAI pattern"><link rel="canonical" href="https://tritonai.ucsd.edu/training-resources/videos/notebooklm-overview.html"><link rel="icon" href="https://www.ucsd.edu/favicon.ico"><link rel="stylesheet" href="/tritonai-website/_resources/css/agent-site.css?v=808b1780390a"><script type="application/ld+json" data-tritonai-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"NotebookLM overview","description":"Practical campus use cases for NotebookLM, from source-grounded research to study guides.","url":"https://tritonai.ucsd.edu/training-resources/videos/notebooklm-overview.html","image":"https://tritonai.ucsd.edu/_images/homepage/TritonAI_Hero_2500.webp","dateModified":"2026-08-03","isPartOf":{"@type":"WebSite","name":"TritonAI","url":"https://tritonai.ucsd.edu"}}</script><script async="" data-tritonai-analytics="" src="https://www.googletagmanager.com/gtag/js?id=G-CSQGMG6EFP"></script><script data-tritonai-analytics="">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CSQGMG6EFP',{'cookie_domain':'tritonai.ucsd.edu'});</script></head>
+	<body class="agent-page video-theater-page">
+	    
+
+
+
+    
+
+		<header class="layout-header">
+			<a class="sr-only skip-to-main" href="#main-content">Skip to main content</a>
+			<div id="uc-emergency"></div>
+			<!-- title section -->
+			<section aria-label="Site Name" class="layout-title">
+				<div class="layout-container container">
+					
+
+
+
+
+<a class="title-header title-header-large" href="/tritonai-website/">
+            Triton AI
+    </a>
+    
+<a class="title-header title-header-short" href="/tritonai-website/">
+            Triton AI
+    </a>
+
+    <a class="title-logo" href="http://www.ucsd.edu" target="_blank" rel="noopener noreferrer">UC San Diego</a>
+
+
+
+				</div>
+			</section>
+		</header>
+		
+		<div class="navmenu navmenu-default navmenu-fixed-left offcanvas" style="" id="mobile-navigation" aria-hidden="true" aria-label="Site navigation">
+		
+
+
+
+
+
+
+<ul class="nav navbar-nav navbar-right msearch">
+		    <li>
+			    <div class="search">
+		            <button aria-label="search" class="search-toggle btn-default">
+		                <span class="glyphicon glyphicon-search"></span> <span class="caret"></span>
+		            </button>
+
+		            <div class="search-content" id="search-m">
+
+                        <form action="/tritonai-website/search/index.html" method="get">
+                            
+                            <label class="sr-only" for="search-scope-mobile">Search scope</label><select class="search-scope" id="search-scope-mobile" name="search-scope">
+                                                                    <option selected="selected" value="tritonai">This Site</option>
+                                                                <option value="default_collection">All UCSD Sites</option>
+                                <option value="faculty-staff">Faculty/Staff</option>
+                            </select>
+                        
+                            <div class="input-group">
+                                
+                                <label class="sr-only" for="search-term-mobile">Search term</label><input class="form-control search-term" id="search-term-mobile" name="search-term-m" placeholder="Search..." type="search">
+                            </div>
+                            <input class="sr-only" type="submit" value="Submit">
+                        </form>
+
+                    </div>
+        </div>
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+  
+<button aria-controls="mobile-navigation" class="navbar-toggle sr-only" data-canvas="body" data-target=".navmenu" data-toggle="offcanvas" type="button" aria-label="Close navigation" data-tritonai-mobile-close="">Close Nav</button>
+
+<ul class="nav navmenu-nav"><li class="dropdown open "><a href="/tritonai-website/about/index.html">About <span class="caret"></span></a><ul class="dropdown-menu navmenu-nav"><li><a href="/tritonai-website/about/strategy.html">Strategy</a></li><li><a href="/tritonai-website/about/roadmap.html">Roadmap</a></li><li><a href="/tritonai-website/about/trust-architecture.html">Trust, Privacy &amp; Hosting</a></li><li><a href="/tritonai-website/about/team.html">Team &amp; Responsibilities</a></li><li><a href="/tritonai-website/about/sustainability.html">Sustainability</a></li><li><a href="/tritonai-website/about/get-involved.html">Get Involved</a></li><li><a href="/tritonai-website/about/ai-updates.html">AI Updates</a></li><li><a href="/tritonai-website/about/media.html">Media &amp; Recognition</a></li><li><a href="/tritonai-website/about/media-articles.html">Articles &amp; Coverage</a></li></ul></li><li class="dropdown open "><a href="/tritonai-website/tritongpt/index.html">TritonGPT <span class="caret"></span></a><ul class="dropdown-menu navmenu-nav"><li><a href="/tritonai-website/tritongpt/index.html">Overview</a></li><li><a href="/tritonai-website/tritongpt/integrations.html">Where TritonGPT Appears</a></li><li><a href="/tritonai-website/training-resources/tritongpt/index.html">Guides</a></li><li><a href="/tritonai-website/tritongpt/instruction.html">Instructional AI Pilot</a></li><li><a href="/tritonai-website/tritongpt/chatbot-widget.html">Chatbot Widget</a></li><li><a href="/tritonai-website/tritongpt/release-notes/index.html">Release Notes</a></li><li><a href="/tritonai-website/tritongpt/terms.html">Terms of Use</a></li><li><a href="/tritonai-website/tritongpt/privacy.html">Privacy Statement</a></li></ul></li><li class=""><a href="/tritonai-website/use-cases/index.html">Use Cases</a></li><li class="dropdown open active"><a href="/tritonai-website/training-resources/index.html">Learn <span class="caret"></span></a><ul class="dropdown-menu navmenu-nav"><li><a href="/tritonai-website/training-resources/pathways.html">Learning Paths</a></li><li><a href="/tritonai-website/training-resources/videos/index.html">Learning Videos</a></li><li><a href="/tritonai-website/training-resources/tritongpt/index.html">TritonGPT Guides</a></li><li><a href="/tritonai-website/training-resources/prompting/index.html">Prompting</a></li><li><a href="/tritonai-website/training-resources/webinars.html">AI Webinars</a></li><li><a href="/tritonai-website/training-resources/faculty-ai-symposium.html">Faculty AI Symposium</a></li><li><a href="/tritonai-website/training-resources/faq.html">FAQ</a></li></ul></li><li class="dropdown open "><a href="/tritonai-website/developer-apis/index.html">Build <span class="caret"></span></a><ul class="dropdown-menu navmenu-nav"><li><a href="/tritonai-website/developer-apis/index.html">Build Overview</a></li><li><a href="/tritonai-website/developer-apis/dsmlp-datahub.html">DSMLP &amp; DataHub</a></li><li><a href="/tritonai-website/skills/index.html">Skills Library</a></li><li><a href="/tritonai-website/developer-apis/start.html">Get Started</a></li><li><a href="/tritonai-website/developer-apis/faq.html">Developer FAQs</a></li></ul></li><li class=""><a href="/tritonai-website/tools/index.html">AI Tools</a></li></ul>
+
+		</div>
+		
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+			    
+                <div class="navbar-header">
+        			<button aria-controls="mobile-navigation" aria-expanded="false" class="navbar-toggle" data-canvas="body" data-target=".navmenu" data-toggle="offcanvas" type="button" data-tritonai-mobile-toggle="">
+          			    <span class="sr-only">Toggle navigation</span>
+    
+          					<div class="col-sm-1 mobile-nav-bars">
+          				    <span class="icon-bar"></span>
+          				    <span class="icon-bar"></span>
+          				    <span class="icon-bar"></span>
+             				</div>
+              			<div class="col-sm-1 mobile-nav-icon">
+                          MENU
+          			    </div>
+          			    
+                    </button>
+                    
+                    <div class="col-sm-4 pull-right visible-xs-block">
+                        <img alt="UC San Diego Logo" class="img-responsive header-logo" src="https://cdn.ucsd.edu/cms/decorator-5/styles/img/ucsd-footer-logo-white.png">
+                    </div>
+                    
+                </div>
+                
+                <div class="navbar-collapse collapse" id="navbar">
+			    
+    	            
+
+
+
+
+
+
+
+
+<ul class="nav navbar-nav navbar-nav-list"><li class="dropdown "><a aria-controls="nav-submenu-0" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-tritonai-nav-dropdown="" href="/tritonai-website/about/index.html">About <span class="caret"></span></a><ul class="dropdown-menu" id="nav-submenu-0"><li><a href="/tritonai-website/about/strategy.html">Strategy</a></li><li><a href="/tritonai-website/about/roadmap.html">Roadmap</a></li><li><a href="/tritonai-website/about/trust-architecture.html">Trust, Privacy &amp; Hosting</a></li><li><a href="/tritonai-website/about/team.html">Team &amp; Responsibilities</a></li><li><a href="/tritonai-website/about/sustainability.html">Sustainability</a></li><li><a href="/tritonai-website/about/get-involved.html">Get Involved</a></li><li><a href="/tritonai-website/about/ai-updates.html">AI Updates</a></li><li><a href="/tritonai-website/about/media.html">Media &amp; Recognition</a></li><li><a href="/tritonai-website/about/media-articles.html">Articles &amp; Coverage</a></li></ul></li><li class="dropdown "><a aria-controls="nav-submenu-1" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-tritonai-nav-dropdown="" href="/tritonai-website/tritongpt/index.html">TritonGPT <span class="caret"></span></a><ul class="dropdown-menu" id="nav-submenu-1"><li><a href="/tritonai-website/tritongpt/index.html">Overview</a></li><li><a href="/tritonai-website/tritongpt/integrations.html">Where TritonGPT Appears</a></li><li><a href="/tritonai-website/training-resources/tritongpt/index.html">Guides</a></li><li><a href="/tritonai-website/tritongpt/instruction.html">Instructional AI Pilot</a></li><li><a href="/tritonai-website/tritongpt/chatbot-widget.html">Chatbot Widget</a></li><li><a href="/tritonai-website/tritongpt/release-notes/index.html">Release Notes</a></li><li><a href="/tritonai-website/tritongpt/terms.html">Terms of Use</a></li><li><a href="/tritonai-website/tritongpt/privacy.html">Privacy Statement</a></li></ul></li><li class=""><a href="/tritonai-website/use-cases/index.html">Use Cases</a></li><li class="dropdown active"><a aria-controls="nav-submenu-3" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-tritonai-nav-dropdown="" href="/tritonai-website/training-resources/index.html">Learn <span class="caret"></span></a><ul class="dropdown-menu" id="nav-submenu-3"><li><a href="/tritonai-website/training-resources/pathways.html">Learning Paths</a></li><li><a href="/tritonai-website/training-resources/videos/index.html">Learning Videos</a></li><li><a href="/tritonai-website/training-resources/tritongpt/index.html">TritonGPT Guides</a></li><li><a href="/tritonai-website/training-resources/prompting/index.html">Prompting</a></li><li><a href="/tritonai-website/training-resources/webinars.html">AI Webinars</a></li><li><a href="/tritonai-website/training-resources/faculty-ai-symposium.html">Faculty AI Symposium</a></li><li><a href="/tritonai-website/training-resources/faq.html">FAQ</a></li></ul></li><li class="dropdown "><a aria-controls="nav-submenu-4" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-tritonai-nav-dropdown="" href="/tritonai-website/developer-apis/index.html">Build <span class="caret"></span></a><ul class="dropdown-menu" id="nav-submenu-4"><li><a href="/tritonai-website/developer-apis/index.html">Build Overview</a></li><li><a href="/tritonai-website/developer-apis/dsmlp-datahub.html">DSMLP &amp; DataHub</a></li><li><a href="/tritonai-website/skills/index.html">Skills Library</a></li><li><a href="/tritonai-website/developer-apis/start.html">Get Started</a></li><li><a href="/tritonai-website/developer-apis/faq.html">Developer FAQs</a></li></ul></li><li class=""><a href="/tritonai-website/tools/index.html">AI Tools</a></li></ul>
+
+    	            
+    	            <div class="btn-nav"></div>
+    		
+    				
+
+
+
+
+
+<ul class="nav navbar-nav navbar-right">
+		    <li>
+			    <div class="search">
+		            <button aria-label="search" class="search-toggle btn-default" aria-controls="search" aria-expanded="false" data-tritonai-search-toggle="">
+		                <span class="glyphicon glyphicon-search"></span> <span class="caret"></span>
+		            </button>
+
+		            <div class="search-content" id="search" aria-hidden="true">
+
+                        <form action="/tritonai-website/search/index.html" id="cse-search-box" method="get">
+                            
+                            <label class="sr-only" for="search-scope-desktop">Search scope</label><select class="search-scope" id="search-scope-desktop" name="search-scope">
+                                                                    <option selected="selected" value="tritonai">This Site</option>
+                                                                <option value="default_collection">All UCSD Sites</option>
+                                <option value="faculty-staff">Faculty/Staff</option>
+                            </select>
+                        
+                            <div class="input-group">
+                                
+                                <label class="sr-only" for="search-term-desktop">Search term</label><input class="form-control search-term" id="search-term-desktop" name="search-term" placeholder="Search..." type="search">
+                            </div>
+                            <input class="sr-only" type="submit" value="Submit">
+                        </form>
+
+                    </div>
+        </div>
+    </li>
+</ul>
+
+
+
+				
+				</div><!--end nav collapse -->
+
+			</div>
+		</nav>
+		<main class="layout-main" id="main-content"><section aria-label="Main Content" class="col-xs-12 main-section video-theater-main"><section class="video-theater" aria-label="NotebookLM overview viewing area"><div class="video-theater-layout"><div class="video-theater-primary"><h1 class="video-theater-title">NotebookLM overview</h1><p class="video-theater-kicker">Using the tools · 10 min · Faculty, staff</p><p class="video-theater-description">Practical campus use cases for NotebookLM, from source-grounded research to study guides.</p><div class="use-case-demo" data-video-progress=""><div class="use-case-demo-frame"><video class="img-responsive" controls="" playsinline="" preload="metadata" data-progress-slug="notebooklm-overview" data-progress-title="NotebookLM overview" poster="/tritonai-website/presentations/_resources/tritonai-harness-editing-demo-poster.jpg" aria-label="NotebookLM overview"><source src="/tritonai-website/presentations/_resources/tritonai-harness-editing-publishing-demo.mp4" type="video/mp4"><track kind="captions" src="/tritonai-website/presentations/_resources/tritonai-harness-editing-publishing-demo.vtt" srclang="en" label="English" default="">Your browser does not support the video element.</video><div class="video-resume-host" data-resume-for="notebooklm-overview"></div></div></div><details class="training-video-transcript-details training-video-follow-details"><summary>Show transcript</summary><div class="training-video-follow-wrap"><div class="training-video-follow" data-follow-for="notebooklm-overview" role="region" aria-label="Follow-along transcript. The current sentence is highlighted during playback, and any sentence plays the video from that point." tabindex="0"><button type="button" class="training-video-sentence" data-seek="0" data-cue-index="0" data-seek-target="notebooklm-overview" aria-label="Play from 0:00">The TritonAI Harness shows files on the left, the update request in the center, and the private preview on the right.</button> <button type="button" class="training-video-sentence" data-seek="7" data-cue-index="1" data-seek-target="notebooklm-overview" aria-label="Play from 0:07">The contributor requests one change: revise Where to start, keep both links, run checks, refresh the preview, and stop before GitHub or publishing.</button> <button type="button" class="training-video-sentence" data-seek="15" data-cue-index="2" data-seek-target="notebooklm-overview" aria-label="Play from 0:15">The website maintenance skill, called ucsd-website-maintainer, finds the file that controls the page, reads its update rules, and checks the existing links before editing.</button> <button type="button" class="training-video-sentence" data-seek="25" data-cue-index="3" data-seek-target="notebooklm-overview" aria-label="Play from 0:25">With approved voice context, voice-match follows the intended voice and humanizer removes generic AI phrasing. The branding skill keeps layout work aligned with UC San Diego.</button> <button type="button" class="training-video-sentence" data-seek="36" data-cue-index="4" data-seek-target="notebooklm-overview" aria-label="Play from 0:36">The accessibility skill, called ucsd-accessibility-compliance, checks headings and structure, keyboard use, phone layouts, and common automated accessibility problems while other required checks run.</button> <button type="button" class="training-video-sentence" data-seek="48" data-cue-index="5" data-seek-target="notebooklm-overview" aria-label="Play from 0:48">The browser skill refreshes the private preview, compares computer and phone layouts, confirms the updated text, and checks that both existing links still work.</button> <button type="button" class="training-video-sentence" data-seek="59" data-cue-index="6" data-seek-target="notebooklm-overview" aria-label="Play from 0:59">The local edit is ready for human review. Nothing has been committed, pushed, submitted as a pull request, merged, or published; the contributor decides whether to continue.</button> <button type="button" class="training-video-sentence" data-seek="70" data-cue-index="7" data-seek-target="notebooklm-overview" aria-label="Play from 1:10">After approval, the auto-review skill, tritonai-autoreview, checks for missed issues. The GitHub skill, github:yeet, prepares the pull request and monitors checks without merging.</button> <button type="button" class="training-video-sentence" data-seek="80" data-cue-index="8" data-seek-target="notebooklm-overview" aria-label="Play from 1:20">Pull request 120 shows the change, passed checks, affected page, and recovery steps. An authorized person decides whether to merge it.</button> <button type="button" class="training-video-sentence" data-seek="88" data-cue-index="9" data-seek-target="notebooklm-overview" aria-label="Play from 1:28">The Files changed tab shows every edited file and line. Reviewers confirm that it contains only the approved website change.</button> <button type="button" class="training-video-sentence" data-seek="95" data-cue-index="10" data-seek-target="notebooklm-overview" aria-label="Play from 1:35">The merge starts the website publishing workflow, called cascade-upload.yml. It runs three steps in order: build and plan, upload to Cascade, and publish.</button> <button type="button" class="training-video-sentence" data-seek="103" data-cue-index="11" data-seek-target="notebooklm-overview" aria-label="Play from 1:43">The first step prepares the software, builds and checks the site, confirms production settings, and tests the Cascade transfer without changing the live site.</button> <button type="button" class="training-video-sentence" data-seek="111" data-cue-index="12" data-seek-target="notebooklm-overview" aria-label="Play from 1:51">The second step sends approved files to Cascade. Delivery means Cascade received them; the public site may not have changed yet.</button> <button type="button" class="training-video-sentence" data-seek="118" data-cue-index="13" data-seek-target="notebooklm-overview" aria-label="Play from 1:58">The final step asks Cascade to publish. A successful workflow still does not prove that the public page changed.</button> <button type="button" class="training-video-sentence" data-seek="125" data-cue-index="14" data-seek-target="notebooklm-overview" aria-label="Play from 2:05">Finally, the Harness or contributor opens the production URL and compares it with the approved preview. Only after the public page matches is the update reported as live verified.</button></div></div></details></div><aside class="video-theater-rail" aria-label="Watch next"><p class="video-theater-rail-heading">Watch next</p><p class="video-theater-rail-position">Training video 6 of 9 in Using the tools</p><ul class="video-rail-list"><li><a class="video-rail-card video-rail-card-next" href="/tritonai-website/training-resources/videos/microsoft-copilot-overview.html" data-upnext-first="true"><img alt="" src="/tritonai-website/presentations/_resources/tritonai-harness-editing-demo-poster.jpg" loading="lazy"><span class="video-rail-card-copy"><span class="video-rail-card-flag">Up next</span><span class="video-rail-card-title">Microsoft Copilot overview</span><span class="video-rail-card-meta">Using the tools · 10 min</span></span></a></li><li><a class="video-rail-card" href="/tritonai-website/training-resources/videos/zoom-ai-overview.html"><img alt="" src="/tritonai-website/presentations/_resources/tritonai-harness-editing-demo-poster.jpg" loading="lazy"><span class="video-rail-card-copy"><span class="video-rail-card-title">Zoom AI overview</span><span class="video-rail-card-meta">Using the tools · 10 min</span></span></a></li><li><a class="video-rail-card" href="/tritonai-website/training-resources/videos/example-prompting-basics.html"><img alt="" src="/tritonai-website/presentations/_resources/tritonai-harness-editing-demo-poster.jpg" loading="lazy"><span class="video-rail-card-copy"><span class="video-rail-card-title">Example: Prompting basics for campus work</span><span class="video-rail-card-meta">Using the tools · 5 min</span></span></a></li><li><a class="video-rail-card" href="/tritonai-website/training-resources/videos/citizen-developer-harnesses.html"><img alt="" src="/tritonai-website/presentations/_resources/tritonai-harness-editing-demo-poster.jpg" loading="lazy"><span class="video-rail-card-copy"><span class="video-rail-card-title">Citizen developer harnesses and automation</span><span class="video-rail-card-meta">Building · 15 min</span></span></a></li><li><a class="video-rail-card" href="/tritonai-website/training-resources/videos/example-editing-with-harness.html"><img alt="" src="/tritonai-website/presentations/_resources/tritonai-harness-editing-demo-poster.jpg" loading="lazy"><span class="video-rail-card-copy"><span class="video-rail-card-title">Example: Editing the website with the TritonAI Harness</span><span class="video-rail-card-meta">Building · 2 min</span></span></a></li></ul><a class="video-theater-rail-all" href="/tritonai-website/training-resources/videos/index.html">All learning videos <span aria-hidden="true">→</span></a></aside></div></section><section class="landing-section video-quiz-section" data-video-quiz="notebooklm-overview" data-post-video="" hidden="" aria-labelledby="notebooklm-overview-quiz-heading"><div class="container video-theater-about-inner"><div class="landing-section-heading"><h2 id="notebooklm-overview-quiz-heading">Test your knowledge</h2><p>Select an answer to see whether it is correct. Incorrect answers stay open so you can try again.</p></div><fieldset class="video-quiz-question" data-quiz-block="0"><legend>What is the main focus of this video?</legend><ul class="video-quiz-options"><li><button type="button" class="video-quiz-option" data-quiz-question="0" data-quiz-option="0" data-quiz-correct="false">Purchasing procedures for campus software</button></li><li><button type="button" class="video-quiz-option" data-quiz-question="0" data-quiz-option="1" data-quiz-correct="true">Understanding campus use cases for NotebookLM, from source-grounded research to study guides</button></li><li><button type="button" class="video-quiz-option" data-quiz-question="0" data-quiz-option="2" data-quiz-correct="false">Configuring your campus email account</button></li></ul><p class="video-quiz-result" data-quiz-result="" aria-live="polite"></p><p class="video-quiz-explanation" data-quiz-explanation="" hidden="">This video centers on campus use cases for NotebookLM, from source-grounded research to study guides.</p></fieldset><fieldset class="video-quiz-question" data-quiz-block="1"><legend>Who stays responsible for consequential decisions when AI supports campus work?</legend><ul class="video-quiz-options"><li><button type="button" class="video-quiz-option" data-quiz-question="1" data-quiz-option="0" data-quiz-correct="false">The AI tool that produced the output</button></li><li><button type="button" class="video-quiz-option" data-quiz-question="1" data-quiz-option="1" data-quiz-correct="true">A person who reviews the output</button></li><li><button type="button" class="video-quiz-option" data-quiz-question="1" data-quiz-option="2" data-quiz-correct="false">Nobody; reviewed output is automatic</button></li></ul><p class="video-quiz-result" data-quiz-result="" aria-live="polite"></p><p class="video-quiz-explanation" data-quiz-explanation="" hidden="">Campus AI work keeps a person accountable for reviewing output before it matters.</p></fieldset><p class="video-quiz-score" data-quiz-score="" aria-live="polite" hidden=""></p></div></section><section class="landing-section landing-section-sand video-discussion-section" data-post-video="" hidden="" aria-labelledby="notebooklm-overview-discussion-heading"><div class="container video-theater-about-inner"><div class="landing-section-heading"><p class="home-kicker">For team meetings</p><h2 id="notebooklm-overview-discussion-heading">Suggested discussion points</h2><p>Leaders can use these prompts when a team watches together.</p></div><ul class="video-discussion-list"><li>Where does NotebookLM already show up in your team's work, and where could it help next?</li><li>What would need to be true before your team relied on AI for this, and who would review the results?</li><li>Pick one workflow from this discussion to try within two weeks, and name who owns the follow-up.</li></ul></div></section><section class="landing-section video-training-cta" aria-labelledby="notebooklm-overview-cta-heading"><div class="container video-theater-about-inner"><div class="video-training-cta-panel"><div><p class="home-kicker">Up next</p><h2 id="notebooklm-overview-cta-heading">Microsoft Copilot overview</h2><p>Practical campus use cases for Microsoft Copilot across the tools you already use.</p><p class="video-training-cta-meta">Using the tools · 10 min</p></div><a class="btn btn-primary btn-lg" href="/tritonai-website/training-resources/videos/microsoft-copilot-overview.html">Watch the next video</a></div></div></section></section></main>
+		<footer class="footer">
+		    
+			
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+        <p>
+        <span>UC San Diego 9500 Gilman Dr. La Jolla, CA 92093 (858) 534-2230</span>
+        <br>
+        <span>
+        Copyright © <span class="footer-copyright-year">2026</span> Regents of the University of California.
+        All rights reserved.
+        </span>
+        </p>
+            <ul class="footer-links">
+                <li><a href="https://accessibility.ucsd.edu/" target="_blank" rel="noopener noreferrer">Accessibility</a></li>
+                <li><a href="https://ucsd.edu/about/privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+                <li><a href="https://ucsd.edu/about/terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a></li>
+                <li>
+                        <a href="mailto:tritonai@ucsd.edu">Feedback</a>
+            </li>
+            </ul>
+        </div>
+        
+        <div class="col-sm-4">
+            <a href="https://ucsd.edu/" target="_blank" rel="noopener noreferrer"><img alt="UCSD homepage" class="img-responsive footer-logo" src="https://cdn.ucsd.edu/developer/decorator/5.0.2/img/ucsd-footer-logo-white.png"></a>
+        </div>
+    </div>
+</div>
+
+
+
+<script data-after-render-src="https://cdn.ucsd.edu/cms/decorator-5/scripts/jquery.min.js" type="application/x-tritonai-after-render-script"></script>
+<script data-after-render-src="https://cdn.ucsd.edu/cms/decorator-5/scripts/bootstrap.min.js" type="application/x-tritonai-after-render-script"></script>
+<script src="https://www.ucsd.edu/common/_emergency-broadcast/message.js" async=""></script>
+<script data-after-render-src="https://cdn.ucsd.edu/cms/decorator-5/scripts/vendor.min.js" type="application/x-tritonai-after-render-script"></script>
+<script data-after-render-src="https://cdn.ucsd.edu/cms/decorator-5/scripts/base.min.js" type="application/x-tritonai-after-render-script"></script>
+
+
+        
+        
+    
+
+
+<!-- Site-specific javascript files -->
+
+
+
+
+                                <script type="application/x-tritonai-after-render-script" data-after-render-src="/tritonai-website/_resources/js/datatables.min.js"></script>
+            
+
+
+
+
+<script type="application/x-tritonai-after-render-inline">if (window.jQuery) {
+
+    $(document).ready(function() {
+      if (window.jQuery && jQuery.fn.dropdownHover && jQuery.fn.dropdown) $('.js-activated').dropdownHover().dropdown();
+    });
+  
+}</script>
+
+        
+    <script type="application/x-tritonai-after-render-script" data-after-render-src="https://cdn.ucsd.edu/cms/decorator-5/scripts/decorator.js"></script>
+    
+    <script type="application/x-tritonai-after-render-inline">if (window.jQuery) {
+
+    (function($) {
+        $(document).ready(function() {
+            if (typeof initCopyright === 'function') initCopyright();
+        });
+    })(jQuery);
+    
+}</script>
+    
+
+
+
+
+
+ 
+
+
+
+
+  <script type="application/x-tritonai-idle-script" data-idle-src="https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js"></script>
+
+
+		</footer>
+	
+
+<script defer="" src="/tritonai-website/_resources/js/site-navigation.js"></script><script defer="" src="/tritonai-website/_resources/js/site-performance.js"></script><script defer="" src="/tritonai-website/_resources/js/video-progress.js"></script><script defer="" src="/tritonai-website/_resources/js/video-quiz.js"></script></body></html>

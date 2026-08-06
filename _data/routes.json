@@ -1,0 +1,605 @@
+{
+  "generatedAt": "2026-08-06T21:12:32.591Z",
+  "routes": [
+    {
+      "path": "/404.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/404.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": false
+    },
+    {
+      "path": "/about/ai-updates.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/ai-updates.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/about/get-involved.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/get-involved.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-30",
+      "indexable": true
+    },
+    {
+      "path": "/about/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/about/media-articles.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/media-articles.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-30",
+      "indexable": true
+    },
+    {
+      "path": "/about/media.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/media.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-30",
+      "indexable": true
+    },
+    {
+      "path": "/about/roadmap.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/roadmap.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/about/strategy.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/strategy.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-30",
+      "indexable": true
+    },
+    {
+      "path": "/about/sustainability.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/sustainability.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-30",
+      "indexable": true
+    },
+    {
+      "path": "/about/team.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/team.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/about/trust-architecture.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/trust-architecture.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/about/workgroup.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/about/index.html",
+      "redirectTo": "/about/index.html",
+      "source": "structured-content",
+      "lastModified": "2026-07-28",
+      "indexable": false
+    },
+    {
+      "path": "/developer-apis/dsmlp-datahub.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/developer-apis/dsmlp-datahub.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-26",
+      "indexable": true
+    },
+    {
+      "path": "/developer-apis/faq.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/developer-apis/faq.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/developer-apis/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/developer-apis/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-30",
+      "indexable": true
+    },
+    {
+      "path": "/developer-apis/start.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/developer-apis/start.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/",
+      "canonicalUrl": "https://tritonai.ucsd.edu/",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/search/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/search/index.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": false
+    },
+    {
+      "path": "/skills/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/skills/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-22",
+      "indexable": true
+    },
+    {
+      "path": "/tools/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tools/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-04",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/faculty-ai-symposium.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/faculty-ai-symposium.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/faq.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/faq.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/pathways.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/pathways.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-22",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/prompting/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/prompting/index.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/prompting/prompt-library.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/prompting/prompt-library.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/tritongpt/assistants.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/tritongpt/assistants.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/tritongpt/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/tritongpt/index.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/ai-data-privacy-security.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/ai-data-privacy-security.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/ai-for-daily-tasks.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/ai-for-daily-tasks.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/ai-for-data-decisions-communications.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/ai-for-data-decisions-communications.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/ai-sustainability.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/ai-sustainability.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/ai-tools-at-uc-san-diego.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/ai-tools-at-uc-san-diego.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/citizen-developer-harnesses.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/citizen-developer-harnesses.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/ethics-responsible-ai.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/ethics-responsible-ai.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/example-ai-review-gates.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/example-ai-review-gates.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/example-editing-with-harness.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/example-editing-with-harness.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/example-prompting-basics.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/example-prompting-basics.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/google-gemini-overview.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/google-gemini-overview.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/human-in-the-loop.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/human-in-the-loop.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/microsoft-copilot-overview.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/microsoft-copilot-overview.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/notebooklm-overview.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/notebooklm-overview.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/process-before-ai.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/process-before-ai.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/prompting-essentials.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/prompting-essentials.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/tritongpt-overview.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/tritongpt-overview.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/uc-san-diego-ai-vision.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/uc-san-diego-ai-vision.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/what-is-ai.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/what-is-ai.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/videos/zoom-ai-overview.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/videos/zoom-ai-overview.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-03",
+      "indexable": true
+    },
+    {
+      "path": "/training-resources/webinars.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/training-resources/webinars.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/chatbot-widget.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/chatbot-widget.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-30",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/instruction.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/instruction.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/integrations.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/integrations.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/privacy.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/privacy.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/release-notes/11-24-2025-release.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/11-24-2025-release.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/release-notes/4-14-2026-release.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/4-14-2026-release.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/release-notes/4-2-2025-release.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/4-2-2025-release.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/release-notes/8-13-24-release.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/8-13-24-release.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/release-notes/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/index.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/release-notes/models.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/release-notes/models.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/tritongpt/terms.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/tritongpt/terms.html",
+      "redirectTo": null,
+      "source": "cascade-snapshot",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/ai-use-case-meeting.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/ai-use-case-meeting.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-24",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/biobib.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/biobib.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-25",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/class-planner-app.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/class-planner-app.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-08-02",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/class-planner.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/class-planner.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-25",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/contract-review.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/contract-review.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-25",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/dissertation-formatter.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/dissertation-formatter.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-24",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/index.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/index.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/instructional-ai.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/instructional-ai.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-29",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/passport-app.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/passport-app.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/pdf-remediation.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/pdf-remediation.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-24",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/research-alignment.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/research-alignment.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-24",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/transcript-matching.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/transcript-matching.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-25",
+      "indexable": true
+    },
+    {
+      "path": "/use-cases/voice-agent.html",
+      "canonicalUrl": "https://tritonai.ucsd.edu/use-cases/voice-agent.html",
+      "redirectTo": null,
+      "source": "structured-content",
+      "lastModified": "2026-07-27",
+      "indexable": true
+    }
+  ]
+}

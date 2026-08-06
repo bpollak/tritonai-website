@@ -1,0 +1,46 @@
+WEBVTT
+
+00:00.000 --> 00:07.000
+The TritonAI Harness shows files on the left, the update request in the center, and the private preview on the right.
+
+00:07.000 --> 00:15.000
+The contributor requests one change: revise Where to start, keep both links, run checks, refresh the preview, and stop before GitHub or publishing.
+
+00:15.000 --> 00:25.000
+The website maintenance skill, called ucsd-website-maintainer, finds the file that controls the page, reads its update rules, and checks the existing links before editing.
+
+00:25.000 --> 00:36.000
+With approved voice context, voice-match follows the intended voice and humanizer removes generic AI phrasing. The branding skill keeps layout work aligned with UC San Diego.
+
+00:36.000 --> 00:48.000
+The accessibility skill, called ucsd-accessibility-compliance, checks headings and structure, keyboard use, phone layouts, and common automated accessibility problems while other required checks run.
+
+00:48.000 --> 00:59.000
+The browser skill refreshes the private preview, compares computer and phone layouts, confirms the updated text, and checks that both existing links still work.
+
+00:59.000 --> 01:10.500
+The local edit is ready for human review. Nothing has been committed, pushed, submitted as a pull request, merged, or published; the contributor decides whether to continue.
+
+01:10.500 --> 01:20.166
+After approval, the auto-review skill, tritonai-autoreview, checks for missed issues. The GitHub skill, github:yeet, prepares the pull request and monitors checks without merging.
+
+01:20.166 --> 01:28.166
+Pull request 120 shows the change, passed checks, affected page, and recovery steps. An authorized person decides whether to merge it.
+
+01:28.166 --> 01:35.166
+The Files changed tab shows every edited file and line. Reviewers confirm that it contains only the approved website change.
+
+01:35.166 --> 01:43.166
+The merge starts the website publishing workflow, called cascade-upload.yml. It runs three steps in order: build and plan, upload to Cascade, and publish.
+
+01:43.166 --> 01:51.166
+The first step prepares the software, builds and checks the site, confirms production settings, and tests the Cascade transfer without changing the live site.
+
+01:51.166 --> 01:58.166
+The second step sends approved files to Cascade. Delivery means Cascade received them; the public site may not have changed yet.
+
+01:58.166 --> 02:05.166
+The final step asks Cascade to publish. A successful workflow still does not prove that the public page changed.
+
+02:05.166 --> 02:15.166
+Finally, the Harness or contributor opens the production URL and compares it with the approved preview. Only after the public page matches is the update reported as live verified.

@@ -1,0 +1,21 @@
+/*
+ * Cascade homepage compatibility styles.
+ * Agent-authored homepage components live in agent-site.css and use semantic
+ * classes so presentation does not depend on generated utility-class strings.
+ */
+
+.ai-upates {
+  border: 1px solid #182b49;
+  padding: 25px;
+}
+
+.panel-body > .text-link {
+  color: #fff !important;
+}
+
+a.text-link {
+  display: inline-block;
+  font-weight: 700;
+  margin: 20px 0;
+  text-transform: uppercase;
+}

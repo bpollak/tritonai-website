@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "ai-data-privacy-security",
+    "title": "AI data, privacy, and security",
+    "canonicalUrl": "/training-resources/videos/ai-data-privacy-security.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "ai-for-daily-tasks",
+    "title": "AI for daily tasks",
+    "canonicalUrl": "/training-resources/videos/ai-for-daily-tasks.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "ai-for-data-decisions-communications",
+    "title": "AI for data, decisions, and communications",
+    "canonicalUrl": "/training-resources/videos/ai-for-data-decisions-communications.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "ai-sustainability",
+    "title": "AI and sustainability",
+    "canonicalUrl": "/training-resources/videos/ai-sustainability.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "ai-tools-at-uc-san-diego",
+    "title": "AI tools at UC San Diego",
+    "canonicalUrl": "/training-resources/videos/ai-tools-at-uc-san-diego.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "citizen-developer-harnesses",
+    "title": "Citizen developer harnesses and automation",
+    "canonicalUrl": "/training-resources/videos/citizen-developer-harnesses.html",
+    "series": "Building",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "ethics-responsible-ai",
+    "title": "Ethics and responsible AI use",
+    "canonicalUrl": "/training-resources/videos/ethics-responsible-ai.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "example-ai-review-gates",
+    "title": "Example: Review gates every AI change passes through",
+    "canonicalUrl": "/training-resources/videos/example-ai-review-gates.html",
+    "series": "Foundations",
+    "transcript": "This example entry reuses the Harness demonstration footage while the first training recordings are in production. The recording follows a single website change through every gate: automated checks run while the work is local, a person reviews the complete diff and rendered preview, a pull request records the decision, and an authorized person merges. Publishing runs as a separate workflow, and the final step is comparing the public page against the approved preview before reporting the change as live."
+  },
+  {
+    "slug": "example-editing-with-harness",
+    "title": "Example: Editing the website with the TritonAI Harness",
+    "canonicalUrl": "/training-resources/videos/example-editing-with-harness.html",
+    "series": "Building",
+    "transcript": "The TritonAI Harness shows files on the left, the update request in the center, and the private preview on the right. The contributor requests one change: revise Where to start, keep both links, run checks, refresh the preview, and stop before GitHub or publishing. The website maintenance skill finds the file that controls the page, reads its update rules, and checks the existing links before editing. With approved voice context, voice-match follows the intended voice and humanizer removes generic AI phrasing. The branding skill keeps layout work aligned with UC San Diego. The accessibility skill checks headings and structure, keyboard use, phone layouts, and common automated accessibility problems while other required checks run. The browser skill refreshes the private preview, compares computer and phone layouts, confirms the updated text, and checks that both existing links still work. The local edit is ready for human review. Nothing has been committed, pushed, submitted as a pull request, merged, or published; the contributor decides whether to continue. After approval, the auto-review skill checks for missed issues. The GitHub skill prepares the pull request and monitors checks without merging. The pull request shows the change, passed checks, affected page, and recovery steps. An authorized person decides whether to merge it. The merge starts the website publishing workflow. It builds and checks the site, sends approved files to Cascade, and asks Cascade to publish. Finally, the Harness or contributor opens the production URL and compares it with the approved preview. Only after the public page matches is the update reported as live verified."
+  },
+  {
+    "slug": "example-prompting-basics",
+    "title": "Example: Prompting basics for campus work",
+    "canonicalUrl": "/training-resources/videos/example-prompting-basics.html",
+    "series": "Using the tools",
+    "transcript": "Draft placeholder. The recorded transcript lands here when the video is produced."
+  },
+  {
+    "slug": "google-gemini-overview",
+    "title": "Google Gemini overview",
+    "canonicalUrl": "/training-resources/videos/google-gemini-overview.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "human-in-the-loop",
+    "title": "Human in the loop",
+    "canonicalUrl": "/training-resources/videos/human-in-the-loop.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "microsoft-copilot-overview",
+    "title": "Microsoft Copilot overview",
+    "canonicalUrl": "/training-resources/videos/microsoft-copilot-overview.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "notebooklm-overview",
+    "title": "NotebookLM overview",
+    "canonicalUrl": "/training-resources/videos/notebooklm-overview.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "process-before-ai",
+    "title": "Look at the process before the AI",
+    "canonicalUrl": "/training-resources/videos/process-before-ai.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "prompting-essentials",
+    "title": "Prompting essentials",
+    "canonicalUrl": "/training-resources/videos/prompting-essentials.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "tritongpt-overview",
+    "title": "TritonGPT overview",
+    "canonicalUrl": "/training-resources/videos/tritongpt-overview.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "uc-san-diego-ai-vision",
+    "title": "UC San Diego AI vision",
+    "canonicalUrl": "/training-resources/videos/uc-san-diego-ai-vision.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "what-is-ai",
+    "title": "What is AI?",
+    "canonicalUrl": "/training-resources/videos/what-is-ai.html",
+    "series": "Foundations",
+    "transcript": "Recorded transcript lands here at production time."
+  },
+  {
+    "slug": "zoom-ai-overview",
+    "title": "Zoom AI overview",
+    "canonicalUrl": "/training-resources/videos/zoom-ai-overview.html",
+    "series": "Using the tools",
+    "transcript": "Recorded transcript lands here at production time."
+  }
+]
