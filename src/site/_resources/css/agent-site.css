@@ -4189,16 +4189,42 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
 /* Transcript details in the theater context */
 .video-theater .training-video-follow-details {
   margin-top: 16px;
-  background: transparent;
 }
 .video-theater .training-video-follow-details > summary {
+  list-style: none;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 600;
+  font-size: 15px;
   color: #fff;
-  padding: 8px 0;
+  background: #2a4a73;
+  border: 1px solid #3d6ba3;
+  border-radius: 6px;
+  padding: 10px 18px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.video-theater .training-video-follow-details > summary::-webkit-details-marker {
+  display: none;
+}
+.video-theater .training-video-follow-details > summary:hover,
+.video-theater .training-video-follow-details > summary:focus {
+  background: #355a8c;
+  border-color: #00c6d7;
+  outline: none;
+}
+.video-theater .training-video-follow-details > summary::before {
+  content: "\25B8";
+  font-size: 14px;
+  color: #00c6d7;
+}
+.video-theater .training-video-follow-details[open] > summary::before {
+  content: "\25BE";
 }
 .training-video-follow-details .training-video-follow-wrap {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 /* Presenter photo bubble on cards */

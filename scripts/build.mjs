@@ -473,7 +473,7 @@ async function renderTrainingVideoPage(video, siblings = []) {
   const { learn, transcript } = splitTrainingVideoBody(video.html);
   const cues = video.videoCaptionsSrc ? await parseVttCues(video.videoCaptionsSrc) : [];
   const followHtml = cues.length
-    ? `<details class="training-video-transcript-details training-video-follow-details"><summary>Transcript</summary><div class="training-video-follow-wrap">${renderInteractiveTranscript(video, cues)}</div></details>`
+    ? `<details class="training-video-transcript-details training-video-follow-details"><summary>Show transcript</summary><div class="training-video-follow-wrap">${renderInteractiveTranscript(video, cues)}</div></details>`
     : "";
   const byOrder = (a, b) => (a.order ?? 999) - (b.order ?? 999);
   const seriesSiblings = siblings.filter((entry) => entry.series === video.series).sort(byOrder);
