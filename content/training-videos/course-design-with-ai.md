@@ -3,7 +3,7 @@ title: Course design using AI
 slug: course-design-with-ai
 summary: Ways instructors can apply AI while designing a course, with human judgment at the center.
 series: Faculty stream
-status: Published
+status: Draft
 owner: TritonAI training program
 lastReviewed: 2026-08-02
 audiences: [faculty]

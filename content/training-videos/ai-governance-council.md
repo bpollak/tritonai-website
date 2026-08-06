@@ -3,7 +3,7 @@ title: "AI governance at UC San Diego"
 slug: ai-governance-council
 summary: Who reviews AI decisions on campus and how the governance process works.
 series: Foundations
-status: Published
+status: Draft
 owner: TritonAI training program
 lastReviewed: 2026-08-03
 audiences: [faculty, staff]

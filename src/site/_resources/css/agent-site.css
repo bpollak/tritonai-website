@@ -4134,10 +4134,113 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
     content: "\2193";
   }
 }
+
 .training-video-completion .video-training-cta-panel {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Pace list inside the journey panel */
+.training-video-pace-list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.training-video-pace-list li {
+  margin: 10px 0;
+  padding-left: 28px;
+  position: relative;
+  color: #fff;
+}
+.training-video-pace-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #00c6d7;
+  font-weight: 700;
+}
+.training-video-pace-list strong {
+  color: #ffcd00;
+}
+
+/* Go further section */
+.training-video-go-further {
+  background: #f4f6f9;
+}
+.training-video-go-further .landing-section-heading {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.training-video-go-further-links {
+  margin-top: 18px;
+}
+.training-video-go-further-links a {
+  font-weight: 700;
+}
+
+/* Post-video gated sections: smooth reveal */
+[data-post-video][hidden] {
+  display: none;
+}
+
+/* Transcript details in the theater context */
+.video-theater .training-video-follow-details {
+  margin-top: 16px;
+  background: transparent;
+}
+.video-theater .training-video-follow-details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 0;
+}
+.training-video-follow-details .training-video-follow-wrap {
+  margin-top: 10px;
+}
+
+/* Presenter photo bubble on cards */
+.training-video-card-presenter-bubble {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: -4px 0 8px;
+}
+.training-video-card-presenter-bubble img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.training-video-card-presenter-bubble .training-video-card-presenter-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #182b49;
+}
+
+/* Presenter photo bubble on watch pages */
+.video-theater-presenter-bubble {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: -6px 0 10px;
+}
+.video-theater-presenter-bubble img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.video-theater-presenter-bubble .video-theater-presenter-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 
 /* Quiz, discussion, and CTA align to the theater's left edge */
 .video-quiz-section .video-theater-about-inner,

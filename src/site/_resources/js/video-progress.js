@@ -93,11 +93,21 @@
     video.addEventListener("ended", () => {
       save();
       track("video_complete", eventBase());
-      const nextLink = document.querySelector("[data-upnext-first]");
-      if (nextLink) {
-        nextLink.classList.add("is-suggested");
+      // Reveal gated post-video sections (quiz, discussion) on completion.
+      document.querySelectorAll("[data-post-video]").forEach((section) => {
+        section.hidden = false;
+      });
+      const quizSection = document.querySelector("[data-post-video].video-quiz-section");
+      if (quizSection) {
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        nextLink.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+        quizSection.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      } else {
+        const nextLink = document.querySelector("[data-upnext-first]");
+        if (nextLink) {
+          nextLink.classList.add("is-suggested");
+          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          nextLink.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+        }
       }
     });
     if (video.textTracks && video.textTracks.length) {

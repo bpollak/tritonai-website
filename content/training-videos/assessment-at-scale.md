@@ -3,7 +3,7 @@ title: "Assessment at scale with AI"
 slug: assessment-at-scale
 summary: Approaches for assessing student work at scale with AI assistance while keeping academic judgment with the instructor.
 series: Faculty stream
-status: Published
+status: Draft
 owner: TritonAI training program
 lastReviewed: 2026-08-03
 audiences: [faculty]

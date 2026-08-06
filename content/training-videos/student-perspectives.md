@@ -3,7 +3,7 @@ title: "Student perspectives on AI"
 slug: student-perspectives
 summary: Hear how UC San Diego students use AI in their coursework and daily academic life.
 series: Faculty stream
-status: Published
+status: Draft
 owner: TritonAI training program
 lastReviewed: 2026-08-03
 audiences: [faculty]

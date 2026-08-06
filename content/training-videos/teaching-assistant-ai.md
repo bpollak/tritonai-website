@@ -3,7 +3,7 @@ title: "AI in the teaching assistant experience"
 slug: teaching-assistant-ai
 summary: Where AI fits in the instructional support role, and what stays with the person.
 series: Faculty stream
-status: Published
+status: Draft
 owner: TritonAI training program
 lastReviewed: 2026-08-03
 audiences: [faculty]
