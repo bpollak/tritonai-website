@@ -13,6 +13,7 @@ import {
   loadChromeSelectors,
   regionElements,
 } from "./lib/chrome-contract.mjs";
+import { loadSkillsSource } from "./lib/skills-source.mjs";
 
 const DIST_DIR = path.resolve("dist");
 const REPORT_DIR = path.resolve("reports");
@@ -178,6 +179,8 @@ const chromeByRoute = new Map();
 const { rules: chromeSelectorRules, expired: expiredChromeExceptions } = await loadChromeSelectors();
 chrome.push(...expiredChromeExceptions);
 
+const skillsSource = await loadSkillsSource();
+
 const assetSizeCache = new Map();
 async function localAssetSize(raw, pagePath) {
   const target = toLocalPath(raw, pagePath);
@@ -259,11 +262,14 @@ const skillsMissing = missingFields(skillsContent, skillsRequired);
 if (skillsMissing.length) contentFindings.push({ source: "skills/library.json", issue: `Missing fields: ${skillsMissing.join(", ")}` });
 const skillsSourceMissing = missingFields(skillsContent.source || {}, ["repository", "url", "defaultBranch", "commitSha", "commitUrl", "commitDate"]);
 if (skillsSourceMissing.length) contentFindings.push({ source: "skills/library.json#source", issue: `Missing fields: ${skillsSourceMissing.join(", ")}` });
-if (skillsContent.source?.repository !== "dbalders/UCSD-Skills-Library") {
-  contentFindings.push({ source: "skills/library.json#source", issue: `Unexpected repository: ${skillsContent.source?.repository || "missing"}` });
+if (skillsContent.source?.repository !== skillsSource.slug) {
+  contentFindings.push({
+    source: "skills/library.json#source",
+    issue: `Snapshot came from ${skillsContent.source?.repository || "(missing)"}, but config/skills-source.json expects ${skillsSource.slug}. Re-run \`npm run sync:skills\` after changing the configured repository.`,
+  });
 }
 if (!(skillsContent.skills || []).length) contentFindings.push({ source: "skills/library.json", issue: "No public skills found" });
-const allowedSkillCollections = new Set(["tritonai", "community"]);
+const allowedSkillCollections = new Set(skillsSource.collections);
 const skillNames = new Set();
 const skillPaths = new Set();
 for (const [index, skill] of (skillsContent.skills || []).entries()) {

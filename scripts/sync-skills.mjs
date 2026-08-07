@@ -1,9 +1,11 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
+import { loadSkillsSource, skillPathPattern } from "./lib/skills-source.mjs";
 
-const OWNER = process.env.SKILLS_REPOSITORY_OWNER || "dbalders";
-const REPOSITORY = process.env.SKILLS_REPOSITORY_NAME || "UCSD-Skills-Library";
+const source = await loadSkillsSource();
+const OWNER = source.owner;
+const REPOSITORY = source.repository;
 const TOKEN = process.env.SKILLS_GITHUB_TOKEN || process.env.GITHUB_TOKEN || "";
 const OUTPUT_FILE = path.resolve("content/skills/library.json");
 const API_ROOT = `https://api.github.com/repos/${OWNER}/${REPOSITORY}`;
@@ -41,7 +43,7 @@ const tree = await githubJson(`/git/trees/${commit.sha}?recursive=1`);
 if (tree.truncated) throw new Error("Skills repository tree was truncated; refusing to publish an incomplete catalog.");
 
 const skillPaths = tree.tree
-  .filter((entry) => entry.type === "blob" && /^(?:tritonai|community)\/[^/]+\/SKILL\.md$/.test(entry.path))
+  .filter((entry) => entry.type === "blob" && skillPathPattern(source.collections).test(entry.path))
   .map((entry) => entry.path)
   .sort();
 if (!skillPaths.length) throw new Error("No public SKILL.md entrypoints were found.");
@@ -82,7 +84,7 @@ const skills = await Promise.all(
 );
 
 skills.sort((left, right) => left.collection.localeCompare(right.collection) || left.name.localeCompare(right.name));
-const collections = ["tritonai", "community"].map((id) => ({
+const collections = source.collections.map((id) => ({
   id,
   label: id === "tritonai" ? "TritonAI maintained" : "Community maintained",
   count: skills.filter((skill) => skill.collection === id).length,
