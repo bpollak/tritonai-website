@@ -61,6 +61,12 @@ markup change. A structural violation is not acceptable that way —
 the golden would record the regression as the new baseline. Restore the markup
 from `vendor/decorator-5/templates/` instead.
 
+The full Decorator contract — protected-region markup, component extraction,
+navigation, accessibility, security — lives in the `ucsd-decorator` skill in
+[`ucsd-decorator-kit`](https://github.com/chorta/ucsd-decorator-kit). Install it
+as a Claude Code plugin, or copy `skills/ucsd-decorator/` into `.claude/skills/`
+(untracked here). Read it before touching anything outside the canvas.
+
 Two rules that cover how these regressions actually happen:
 
 - **Never reconstruct chrome markup from a rendered DOM or a browser
