@@ -4,7 +4,7 @@ This guide explains, in plain language, how changes move from an idea to the liv
 
 ## The short version
 
-You write or edit content in the repository. An automated build turns it into finished web pages. A pull request lets someone review the change. When the request is merged into `main`, GitHub publishes the site automatically. Some updates — newsletters, media coverage, and the skills catalog — can also be found and added by scheduled jobs without a person doing it by hand.
+You write or edit content in the repository. An automated build turns it into finished web pages. A pull request lets someone review the change. Merging the request updates source control, but it does not publish to Cascade. Review previews and production publishing are separate workflows. An authorized maintainer starts production publishing after approval. Some updates — newsletters, media coverage, and the skills catalog — can also be found and proposed by scheduled jobs.
 
 ## Where content lives
 
@@ -24,7 +24,7 @@ If a file lives under `content/`, you edit the source. The build writes the fina
 3. **The validator checks the result.** `scripts/validate.mjs` confirms that every route exists, internal links resolve, metadata is present, analytics tags are correct, and pages are not stale (it warns after 120 days without review and fails after 365).
 4. **Accessibility and language checks run.** An axe-based scan tests every page at mobile and desktop widths. A language check flags booster words, manufactured contrasts, and heading problems.
 5. **You open a pull request.** A reviewer sees what changed before it goes live.
-6. **Merge to `main` publishes.** GitHub Actions builds the site with the Pages base path and deploys it. No manual upload, no Cascade Server.
+6. **Merge to `main` prepares the source.** GitHub Pages review publishing and Cascade production publishing remain separate actions.
 
 ## The pull request workflow
 
@@ -33,8 +33,19 @@ Every change goes through a pull request (PR). This keeps a record of who change
 - Work on a branch named for what you are doing, such as `content/update-strategy-2026-07-30`.
 - Open the PR against `main`.
 - The same build, validate, accessibility, and language checks that run locally also run in GitHub Actions on the PR. They must pass before merge.
-- When you merge, GitHub Pages deploys automatically within a minute or two.
+- A merge never starts Cascade. Use the prototype preview workflow for shareable review and the manual Cascade workflow for an approved release.
 - Keep generated `dist/` files out of commits. GitHub builds them.
+
+### Publishing to Cascade
+
+Production and Stage releases are manual-only:
+
+1. Open the **Publish to Cascade** workflow in GitHub Actions.
+2. Select `main` with target `main` for Production, or `preview` with target `preview` for Stage.
+3. For Production, select **confirm production**. The workflow fails closed without it.
+4. Review the workflow result and Cascade publish queue before reporting the release as live.
+
+Selecting a mismatched branch and target fails before build, upload, or publish. Repository pushes and pull-request merges do not start this workflow.
 
 Some pages are owned by people and require their review before merge — for example, the strategic narrative, roadmap, and sustainability policy. Others, like newsletters and release notes, agents may edit freely. The `AGENTS.md` file in the repository lists who owns what.
 
@@ -200,7 +211,7 @@ Remove the `on: schedule` block from the workflow file. The `workflow_dispatch` 
 2. Include frontmatter with the title, date, source filename, and item count.
 3. Write the newsletter body in Markdown.
 4. Run `npm test` locally.
-5. Open a PR. Merging to `main` deploys.
+5. Open a PR. Merging updates source control. Production requires the separate manual Cascade workflow.
 
 You do not need to edit the homepage or the AI updates page by hand — the build places the three newest newsletters on the homepage and all of them on `/about/ai-updates.html`.
 

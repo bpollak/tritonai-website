@@ -1,6 +1,6 @@
 # TritonAI static website
 
-This repository is a static, agent-maintainable migration of the public website at [tritonai.ucsd.edu](https://tritonai.ucsd.edu/). It preserves the current URL structure, visual presentation, and browser-side integrations while removing Cascade Server from the publishing workflow.
+This repository is a static, agent-maintainable source for the public website at [tritonai.ucsd.edu](https://tritonai.ucsd.edu/). It preserves the current URL structure, visual presentation, and browser-side integrations. Cascade remains the controlled production publishing path.
 
 ## Architecture
 
@@ -51,7 +51,7 @@ SITE_BASE_PATH=/tritonai-website npm run validate
 
 3. Write the newsletter body in Markdown.
 4. Run `npm test` and open the homepage plus `/about/ai-updates.html` locally.
-5. Submit the change through a pull request. A merge to `main` deploys GitHub Pages automatically.
+5. Submit the change through a pull request. A merge updates source control; it does not publish to Cascade. Review previews and production publishing use separate workflows. Production requires a manual run from `main` with explicit confirmation.
 
 Newsletter files are sorted by `date`, so agents do not need to edit the homepage HTML or archive page directly.
 
