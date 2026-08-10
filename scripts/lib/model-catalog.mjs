@@ -22,7 +22,7 @@ export function isPublicModel(id) {
 
 const CLOUD_PROVIDERS = new Set(["azure", "azure_ai", "bedrock", "vertex_ai", "gemini", "anthropic"]);
 
-blis// Keep publishers in a stable, reviewable order. A model can be served by a
+// Keep publishers in a stable, reviewable order. A model can be served by a
 // different infrastructure provider (for example, Anthropic through Vertex AI
 // or Bedrock), so the public model id is the reliable publisher signal here.
 const MODEL_PUBLISHERS = [
