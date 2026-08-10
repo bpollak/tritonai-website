@@ -21,7 +21,19 @@ import { load } from "cheerio";
 
 const execFileAsync = promisify(execFile);
 
+// UCSD now publishes the Decorator to npm, which is the first channel that
+// carries a version number. Pin from it, and keep the ZIP as a fallback for
+// when the registry is unreachable (`--source=zip`).
+//
+// The package ships the repository working tree, so templates live under
+// `app/` and still contain gulp-useref `<!--build:css-->` directives; the ZIP
+// ships the post-build output. Verified: after stripping comments, every
+// protected chrome region is byte-identical between the two, so the derived
+// selector contract is unaffected by the switch.
+const PACKAGE_NAME = "ucsd-decorator-v5";
+const REGISTRY = "https://registry.npmjs.org";
 const ARCHIVE_URL = "https://developer.ucsd.edu/_files/decorator-downloads/v5/Decorator-V5.zip";
+const PACKAGE_ROOT = "package/app";
 const VENDOR_DIR = path.resolve("vendor/decorator-5");
 const LOCKFILE = path.join(VENDOR_DIR, "decorator.lock.json");
 const SELECTORS_JSON = path.resolve("config/chrome-selectors.json");
@@ -55,6 +67,56 @@ async function readLockfile() {
     if (error.code === "ENOENT") return null;
     throw new Error(`vendor/decorator-5/decorator.lock.json is not valid JSON: ${error.message}`);
   }
+}
+
+function useZipSource() {
+  return process.argv.includes("--source=zip");
+}
+
+async function fetchPackage(previous) {
+  const metadata = await fetch(`${REGISTRY}/${PACKAGE_NAME}/latest`, {
+    headers: { "User-Agent": "tritonai-website-decorator-sync", Accept: "application/json" },
+    signal: AbortSignal.timeout(60000),
+  });
+  if (!metadata.ok) throw new Error(`npm registry responded ${metadata.status} for ${PACKAGE_NAME}`);
+  const manifest = await metadata.json();
+  const version = manifest.version;
+  const tarball = manifest.dist?.tarball;
+  if (!version || !tarball) throw new Error(`${PACKAGE_NAME} metadata is missing a version or tarball URL.`);
+  if (previous?.version === version && previous?.upstream?.integrity === manifest.dist?.integrity) {
+    return { unchanged: true, version };
+  }
+
+  const response = await fetch(tarball, {
+    headers: { "User-Agent": "tritonai-website-decorator-sync" },
+    signal: AbortSignal.timeout(180000),
+  });
+  if (!response.ok) throw new Error(`npm tarball responded ${response.status} for ${tarball}`);
+  const buffer = Buffer.from(await response.arrayBuffer());
+  return {
+    unchanged: false,
+    buffer,
+    version,
+    upstream: {
+      source: "npm",
+      package: PACKAGE_NAME,
+      url: tarball,
+      integrity: manifest.dist?.integrity ?? null,
+      shasum: manifest.dist?.shasum ?? null,
+      bytes: buffer.length,
+      sha256: sha256(buffer),
+    },
+  };
+}
+
+async function extractPackage(buffer) {
+  const workdir = await mkdtemp(path.join(tmpdir(), "decorator-npm-"));
+  const tarball = path.join(workdir, "package.tgz");
+  await writeFile(tarball, buffer);
+  const extracted = path.join(workdir, "extracted");
+  await mkdir(extracted, { recursive: true });
+  await execFileAsync("tar", ["-xzf", tarball, "-C", extracted], { maxBuffer: 128 * 1024 * 1024 });
+  return { workdir, root: path.join(extracted, PACKAGE_ROOT) };
 }
 
 async function fetchArchive(previous) {
@@ -105,17 +167,22 @@ async function collectTree(root, tree) {
 
 async function syncVendorTree() {
   const previous = await readLockfile();
-  const result = await fetchArchive(previous);
+  const zip = useZipSource();
+  const result = zip ? await fetchArchive(previous) : await fetchPackage(previous);
   if (result.unchanged) {
-    console.log("Decorator archive is unchanged upstream (HTTP 304). Nothing to do.");
+    console.log(
+      zip
+        ? "Decorator archive is unchanged upstream (HTTP 304). Nothing to do."
+        : `${PACKAGE_NAME}@${result.version} is already pinned. Nothing to do.`,
+    );
     return { changed: false };
   }
   if (previous?.upstream?.sha256 === result.upstream.sha256) {
-    console.log("Decorator archive is byte-identical to the pinned copy. Nothing to do.");
+    console.log("Decorator source is byte-identical to the pinned copy. Nothing to do.");
     return { changed: false };
   }
 
-  const { workdir, root } = await extractArchive(result.buffer);
+  const { workdir, root } = zip ? await extractArchive(result.buffer) : await extractPackage(result.buffer);
   try {
     const files = [];
     for (const tree of VENDORED_TREES) files.push(...(await collectTree(root, tree)));
@@ -138,16 +205,21 @@ async function syncVendorTree() {
     const lockfile = {
       schemaVersion: 1,
       fetchedAt: new Date().toISOString(),
-      // UCSD ships no version number in the archive. These upstream headers are
-      // the only version identity available; see the note at the top of the file.
-      version: null,
+      // Populated when pinning from npm. The ZIP still carries no version
+      // marker, so a --source=zip pin records null and falls back to the
+      // upstream ETag and sha256 for identity.
+      version: result.version ?? null,
       upstream: result.upstream,
       referenceTemplate: REFERENCE_TEMPLATE,
       assets,
     };
     await writeFile(LOCKFILE, `${JSON.stringify(lockfile, null, 2)}\n`);
     console.log(`Vendored ${assets.length} Decorator files into ${path.relative(process.cwd(), VENDOR_DIR)}.`);
-    console.log(`Upstream Last-Modified: ${result.upstream.lastModified ?? "(none)"}  sha256: ${result.upstream.sha256.slice(0, 16)}…`);
+    console.log(
+      zip
+        ? `Upstream Last-Modified: ${result.upstream.lastModified ?? "(none)"}  sha256: ${result.upstream.sha256.slice(0, 16)}…`
+        : `Pinned ${PACKAGE_NAME}@${result.version}  integrity: ${(result.upstream.integrity ?? "").slice(0, 24)}…`,
+    );
     return { changed: true, lockfile };
   } finally {
     await rm(workdir, { recursive: true, force: true });
@@ -161,6 +233,28 @@ async function checkUpstream() {
     process.exitCode = 1;
     return;
   }
+  // Check against whichever channel the pin actually came from. Probing the
+  // ZIP while pinned to npm reports drift on every run, because the two are
+  // different builds of the same release and never share a checksum.
+  if (previous.upstream?.source === "npm" && !useZipSource()) {
+    const metadata = await fetch(`${REGISTRY}/${PACKAGE_NAME}/latest`, {
+      headers: { "User-Agent": "tritonai-website-decorator-sync", Accept: "application/json" },
+      signal: AbortSignal.timeout(60000),
+    });
+    if (!metadata.ok) throw new Error(`npm registry responded ${metadata.status} for ${PACKAGE_NAME}`);
+    const manifest = await metadata.json();
+    if (manifest.version === previous.version && manifest.dist?.integrity === previous.upstream?.integrity) {
+      console.log(`${PACKAGE_NAME}@${previous.version} is current.`);
+      return;
+    }
+    console.error(`${PACKAGE_NAME} changed upstream.`);
+    console.error(`  pinned:  ${previous.version ?? "(none)"}`);
+    console.error(`  current: ${manifest.version ?? "(none)"}`);
+    console.error("Run `npm run sync:decorator` and `npm run sync:decorator -- --derive`, then review the selector diff.");
+    process.exitCode = 1;
+    return;
+  }
+
   const response = await fetch(ARCHIVE_URL, {
     method: "HEAD",
     headers: { "User-Agent": "tritonai-website-decorator-sync" },

@@ -11,8 +11,13 @@
     <meta name="PAGETITLE" content="School of Global Policy & Strategy">
     <meta name="DESCRIPTION" content="A community dedicated to the advancement of knowledge through teaching, research and engagement.">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/base.min.css">
+    <!--build:css ../css/bootstrap.min.css-->
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <!--endbuild-->
+    <!--build:css ../css/base.min.css-->
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../vendor/jasny-bootstrap/css/jasny-bootstrap.css"/>
+    <!--endbuild-->
 
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="styles/ie-support.css"/>
@@ -22,7 +27,9 @@
 
     <!-- End site-specific CSS files -->
 
-    <script src="../scripts/modernizr.min.js"></script>
+    <!--build:js ../scripts/modernizr.min.js-->
+    <script src="../vendor/modernizr/modernizr.js"></script>
+    <!--endbuild-->
 
     <!--[if lt IE 9]>
     <script src="vendor/respond/dest/respond.min.js"></script>
@@ -296,7 +303,25 @@
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
                   </div>
+
+                <h2>Legacy Alert Styles</h2>
+
+                <div class="msg alert">
+                    <h2>Alert</h2>
+                    This is an alert message.
+                </div>
+
+                <div class="msg info">
+                    <h2>Note</h2>
+                    This is a information message.
+                </div>
+
               </div>
+
+            <div class="styled">
+                <h2>Call out box</h2>
+                Applying class="styled" to a div gives you a box with a different background.
+            </div>
 
 
         </section>
@@ -310,6 +335,8 @@
 			    </figure>
 
             <article class="main-content-nav">
+
+                
 	            <h2>Decorator V5</h2>
               <ul class="navbar-list">
                 <li>
@@ -367,6 +394,12 @@
                 </li>
               </ul>
             </article>
+
+            <div class="msg alert">
+                <h2>Alert</h2>
+                This is an alert message.
+            </div>
+
         </section>
     </div>
     </div>
@@ -396,15 +429,34 @@
   </div>
 </footer>
 
-<script src="../scripts/jquery.min.js"></script>
+<!--build:js ../scripts/jquery.min.js -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<!-- endbuild -->
 
-<script src="../scripts/bootstrap.min.js"></script>
+<!--build:js ../scripts/bootstrap.min.js -->
+<script src="../vendor/bootstrap/assets/javascripts/bootstrap.min.js"></script>
+<!-- endbuild -->
 
 <script src="https://www.ucsd.edu/common/_emergency-broadcast/message.js"></script>
 
 
-<script src="../scripts/vendor.min.js"></script>
-<script src="../scripts/base.min.js"></script>
+<!--build:js ../scripts/vendor.min.js -->
+<script src="../vendor/fastclick/lib/fastclick.js"></script>
+<script src="../vendor/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script src="../vendor/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+<script src="../vendor/jquery-match-height/jquery.matchHeight.js"></script>
+<!-- endbuild -->
+<!--build:js ../scripts/base.min.js -->
+<script src="../scripts/ucsd/rotator.js"></script>
+<script src="../scripts/ucsd/nav.js"></script>
+<script src="../scripts/ucsd/match-height.js"></script>
+<script src="../scripts/ucsd/drawer.js"></script>
+<script src="../scripts/ucsd/copyright.js"></script>
+<script src="../scripts/ucsd/footer.js"></script>
+<script src="../scripts/ucsd/logout.js"></script>
+<script src="../scripts/ucsd/social.js"></script>
+<script src="../scripts/ucsd/profile-template.js"></script>
+<!-- endbuild -->
 
 </body>
 </html>
