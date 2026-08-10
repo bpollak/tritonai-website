@@ -8,7 +8,7 @@ The TritonAI homepage and AI Updates archive use Markdown files in `content/news
 2. `npm run sync:ai-news` fetches the archive page, accepts only files named `ucsd-ai-newsletter-YYYY-MM-DD.md`, validates the required sections and a positive item count, removes executable markup, normalizes links, and writes new or changed editions to `content/newsletters/`.
 3. The normal site build replaces the newsletter panels on `/` and `/about/ai-updates.html`.
 4. The scheduled GitHub workflow runs on Monday after the source's normal publishing window. When content changes, it opens or refreshes a focused pull request.
-5. Merge the pull request after the standard site, language, and accessibility checks pass. The merge to `main` deploys the updated GitHub Pages site.
+5. Merge the pull request after the standard site, language, and accessibility checks pass. The merge updates source control. Production requires a separate, approved manual Cascade release.
 
 ## Manual refresh
 
