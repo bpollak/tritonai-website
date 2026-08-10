@@ -113,6 +113,18 @@ Do not add new broken internal targets.
 
 Use focused pull requests. Keep generated `dist/` files out of commits; GitHub Actions builds them. A merge to `main` deploys the Pages staging site.
 
+### Commit identity
+
+Never pass `-c user.name` or `-c user.email` to `git commit`. The repository and
+global git config already resolve to `Cristian Horta <chorta@ucsd.edu>`; let them
+apply.
+
+GitHub attributes commits to accounts by email address. `chorta@ucsd.edu` maps to
+the `chorta` account. Any other address for this author — in particular
+`hortacristian@gmail.com` — maps somewhere else, and the commits land under the
+wrong contributor on every repository they reach. Overriding a correct config
+with an address taken from conversation context is how that happens.
+
 ## Edit Ownership
 
 ### Agent-owned (agents may edit freely)
