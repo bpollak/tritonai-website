@@ -3136,6 +3136,40 @@
   padding-left: 20px;
 }
 
+.gateway-usage-monthly-drivers {
+  margin: 22px 0 0;
+}
+
+.gateway-usage-monthly-drivers h3 {
+  color: var(--triton-navy);
+}
+
+.gateway-usage-monthly-drivers-intro {
+  color: #52616b;
+  margin: 4px 0 0;
+}
+
+.gateway-usage-monthly-drivers ul {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.gateway-usage-monthly-drivers li {
+  border-top: 1px solid #e3e8ec;
+  padding: 12px 0;
+}
+
+.gateway-usage-monthly-drivers li strong {
+  color: var(--triton-navy);
+  display: block;
+}
+
+.gateway-usage-monthly-drivers li p {
+  color: #52616b;
+  margin: 4px 0 0;
+}
+
 .hub-quote-card,
 .hub-note-card {
   background: var(--triton-sand);

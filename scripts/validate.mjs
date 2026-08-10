@@ -222,9 +222,26 @@ const gatewaySelfHostedTotal = gatewayMonths.reduce((total, month) => total + Nu
 const gatewayCloudTotal = gatewayMonths.reduce((total, month) => total + Number(month.cloudTokens || 0), 0);
 const gatewayTokenTotal = gatewaySelfHostedTotal + gatewayCloudTotal;
 const gatewaySelfHostedShare = gatewayTokenTotal ? (gatewaySelfHostedTotal / gatewayTokenTotal) * 100 : 0;
-const gatewayPeakMonth = gatewayMonths.reduce((peak, month) => Math.max(peak, Number(month.selfHostedTokens || 0) + Number(month.cloudTokens || 0)), 0);
-if (gatewayMonths.length !== 6 || new Set(gatewayMonths.map((month) => month.month)).size !== gatewayMonths.length) {
-  contentFindings.push({ source: "facts/gateway-usage.json", issue: "Gateway usage must contain six unique monthly records for the stated period" });
+const gatewayLatestMonth = gatewayMonths.at(-1);
+const gatewayLatestMonthTotal = gatewayLatestMonth
+  ? Number(gatewayLatestMonth.selfHostedTokens || 0) + Number(gatewayLatestMonth.cloudTokens || 0)
+  : 0;
+const gatewayStart = gatewayUsageContent.measurementPeriod?.start?.match(/^(\d{4})-(\d{2})/);
+const gatewayEnd = gatewayUsageContent.measurementPeriod?.end?.match(/^(\d{4})-(\d{2})/);
+const gatewayExpectedMonths = [];
+if (gatewayStart && gatewayEnd) {
+  const startIndex = Number(gatewayStart[1]) * 12 + Number(gatewayStart[2]) - 1;
+  const endIndex = Number(gatewayEnd[1]) * 12 + Number(gatewayEnd[2]) - 1;
+  for (let index = startIndex; index <= endIndex; index += 1) {
+    gatewayExpectedMonths.push(`${Math.floor(index / 12)}-${String((index % 12) + 1).padStart(2, "0")}`);
+  }
+}
+if (
+  gatewayExpectedMonths.length === 0 ||
+  gatewayMonths.length !== gatewayExpectedMonths.length ||
+  gatewayMonths.some((month, index) => month.month !== gatewayExpectedMonths[index])
+) {
+  contentFindings.push({ source: "facts/gateway-usage.json", issue: "Gateway usage monthly records must uniquely cover the stated measurement period in chronological order" });
 }
 if (gatewayMetricById.get("tokens-processed")?.value !== gatewayTokenTotal) {
   contentFindings.push({ source: "facts/gateway-usage.json#tokens-processed", issue: "Token headline does not equal the monthly self-hosted and cloud totals" });
@@ -232,8 +249,8 @@ if (gatewayMetricById.get("tokens-processed")?.value !== gatewayTokenTotal) {
 if (Math.abs(Number(gatewayMetricById.get("self-hosted-share")?.value || 0) - gatewaySelfHostedShare) > 0.001) {
   contentFindings.push({ source: "facts/gateway-usage.json#self-hosted-share", issue: "Self-hosted percentage does not reconcile with monthly token totals" });
 }
-if (gatewayMetricById.get("peak-month")?.value !== gatewayPeakMonth) {
-  contentFindings.push({ source: "facts/gateway-usage.json#peak-month", issue: "Peak-month headline does not match the monthly series" });
+if (gatewayMetricById.get("latest-month")?.value !== gatewayLatestMonthTotal) {
+  contentFindings.push({ source: "facts/gateway-usage.json#latest-month", issue: "Latest-month headline does not match the final monthly record" });
 }
 const skillsRequired = ["schemaVersion", "syncedAt", "source", "collections", "skills"];
 const skillsMissing = missingFields(skillsContent, skillsRequired);
