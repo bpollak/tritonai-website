@@ -136,10 +136,12 @@
       "period": "Q2–Q3 2026 — Expand",
       "title": "Multi-Institution Expansion",
       "status": "In development",
-      "summary": "The platform is expanding beyond UC San Diego as a governed multi-tenant instance: BearGPT is live at UC Berkeley, and SDSU-GPT is in progress.",
+      "summary": "The platform is expanding beyond UC San Diego as a governed multi-tenant service shared across UC and partner institutions.",
       "details": [
         "BearGPT is live at UC Berkeley as a partner deployment of the shared TritonAI gateway and governance model.",
-        "SDSU-GPT is in progress as a second campus instance.",
+        "ANR AI serves staff at UC Agriculture and Natural Resources under a renewed multi-year services agreement.",
+        "FredGPT is live at Fairleigh Dickinson University as a research-oriented institution instance.",
+        "UC Merced is actively deploying its instance of the shared platform.",
         "Partner instances inherit the same hosting, model choice, trust, and observability controls as the UC San Diego deployment.",
         "The expansion reuses the existing platform rather than duplicating governance and infrastructure per campus."
       ],
@@ -149,7 +151,7 @@
       ],
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-08-10",
-      "source": "TritonAI About page and public partner announcement (UC Berkeley AI Hub)",
+      "source": "TritonAI about page, UC Berkeley AI Hub partner announcement, and UC ANR services agreement renewal",
       "relatedSlides": ["TritonGPT Initiative", "Multi-Tenant"]
     },
     {
