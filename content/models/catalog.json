@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-08-03T19:50:40.539Z",
+  "lastSynced": "2026-08-11T21:21:00.264Z",
   "source": "tritonai-api.ucsd.edu /v1/models",
   "models": [
     {
@@ -118,7 +118,7 @@
       "id": "api-gpt-oss-120b",
       "displayName": "GPT-OSS 120B",
       "type": "Chat and reasoning",
-      "hosting": "UC-hosted",
+      "hosting": "Approved enterprise cloud",
       "maxInputTokens": 128000
     },
     {
