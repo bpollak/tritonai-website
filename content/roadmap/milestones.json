@@ -5,7 +5,13 @@
   "lastReviewed": "2026-08-10",
   "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 Q1-Q3 (presentation-test/ucsd-presentation, public-safe excerpts) and public product pages",
   "canonicalUrl": "/about/roadmap.html",
-  "audiences": ["students", "faculty", "staff", "developers", "leaders"],
+  "audiences": [
+    "students",
+    "faculty",
+    "staff",
+    "developers",
+    "leaders"
+  ],
   "items": [
     {
       "period": "2023 — Alpha",
@@ -15,7 +21,10 @@
       "owner": "TritonAI program",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "education"
     },
     {
       "period": "Q1 2024 — Rollout",
@@ -25,7 +34,10 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "user"
     },
     {
       "period": "Q2 2024 — Live",
@@ -35,7 +47,10 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and TritonGPT release notes",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "globe"
     },
     {
       "period": "Q3–Q4 2024 — Growth",
@@ -45,7 +60,10 @@
       "owner": "TritonAI solutions team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "signal"
     },
     {
       "period": "Q1 2025 — Build",
@@ -55,7 +73,10 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "cog"
     },
     {
       "period": "Q2 2025 — Students",
@@ -65,7 +86,10 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and public release notes",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "thumbs-up"
     },
     {
       "period": "Q3 2025 — Integrate",
@@ -75,7 +99,10 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "star"
     },
     {
       "period": "Q4 2025 — Next-Gen",
@@ -85,74 +112,160 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and public release notes",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": [
+        "TritonGPT Initiative"
+      ],
+      "icon": "wrench"
     },
     {
       "period": "Q1 2026 — Agents",
       "title": "Ecosystem Expansion",
       "status": "Pilot",
-      "summary": "Launched transcript OCR and student record matching, expanded instructional AI to 8 courses with scheduling assistant pilots, and opened the TritonAI site with API access and early N8N workflows.",
+      "summary": "Transcript verification now hands matched records to enrollment operations, instructional AI serves eight courses, and campus builders can call governed model APIs.",
       "details": [
-        "Transcript verification moved from an OCR and matching proof of concept toward an OnBase handoff for enrollment operations.",
-        "Instructional AI added one-click assistant creation while scheduling and spring-course pilots continued.",
-        "Contract review expanded as a supervised Procurement workflow with configurable, policy-backed redlining.",
-        "The TritonAI site and Developer APIs opened governed model access for campus builders.",
+        "Transcript OCR and record matching now route verification results to an OnBase handoff for enrollment.",
+        "Instructional AI gives faculty one-click assistant creation, with scheduling assistant pilots underway.",
+        "Contract review gives Procurement a supervised, policy-backed redlining workflow.",
+        "The TritonAI site and Developer APIs give campus builders governed model access.",
         "Research proposal risk and research alignment proofs of concept tested focused research-support workflows."
       ],
       "links": [
-        { "label": "Transcript matching", "href": "/use-cases/transcript-matching.html" },
-        { "label": "Instructional AI", "href": "/use-cases/instructional-ai.html" },
-        { "label": "Developer APIs", "href": "/developer-apis/index.html" }
+        {
+          "label": "Transcript matching",
+          "href": "/use-cases/transcript-matching.html"
+        },
+        {
+          "label": "Instructional AI",
+          "href": "/use-cases/instructional-ai.html"
+        },
+        {
+          "label": "Developer APIs",
+          "href": "/developer-apis/index.html"
+        }
       ],
       "owner": "TritonAI solutions team and sponsoring units",
       "lastReviewed": "2026-07-27",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 1",
-      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 1", "Use Cases"]
+      "relatedSlides": [
+        "TritonGPT Initiative",
+        "AI Roadmap 2026 — Quarter 1",
+        "Use Cases"
+      ],
+      "icon": "search",
+      "highlights": [
+        {
+          "value": "OnBase handoff",
+          "label": "Transcript verification"
+        },
+        {
+          "value": "8 courses",
+          "label": "Instructional AI"
+        },
+        {
+          "value": "Governed API",
+          "label": "Campus builders"
+        }
+      ]
     },
     {
       "period": "Q2 2026 — Refine",
       "title": "Process Automation",
       "status": "Pilot",
-      "summary": "The builder path expanded, and TritonGPT moved into the campus mobile app. A Canvas-integrated instructional assistant shipped. Teams also advanced pilots in finance, transcript processing, and contract review. Research, BioBib, and observability pilots moved ahead as well.",
+      "summary": "TritonGPT is now in the campus mobile app with live campus signals, a Canvas-integrated instructional assistant is in service, and transcript matching and contract review run as production workflows.",
       "details": [
-        "Developer API access and N8N Agent Builder broadened the path from model access to supervised workflow orchestration.",
-        "TritonGPT extended into the campus mobile experience and began surfacing live campus signals with stronger response traceability.",
-        "A Canvas-integrated instructional assistant established a reusable delivery pattern for course support.",
-        "Transcript matching reached production with an OnBase handoff for enrollment while contract review graduated to a supervised Production workflow.",
-        "BioBib formatting, risk-based proposal review, and AI IT observability expanded the bounded prototype portfolio."
+        "Developers can build supervised, multi-step workflows through the N8N Agent Builder and Developer APIs.",
+        "Campus users get live campus signals in TritonGPT, with stronger response traceability.",
+        "A Canvas-integrated instructional assistant delivers a reusable course-support pattern.",
+        "Transcript matching is live for enrollment through an OnBase handoff; contract review runs as a supervised production workflow.",
+        "BioBib formatting, risk-based proposal review, and AI IT observability continue as bounded pilots."
       ],
       "links": [
-        { "label": "Contract review", "href": "/use-cases/contract-review.html" },
-        { "label": "BioBib formatter", "href": "/use-cases/biobib.html" },
-        { "label": "Class Planner App", "href": "/use-cases/class-planner-app.html" },
-        { "label": "AI tools", "href": "/tools/index.html" }
+        {
+          "label": "Contract review",
+          "href": "/use-cases/contract-review.html"
+        },
+        {
+          "label": "BioBib formatter",
+          "href": "/use-cases/biobib.html"
+        },
+        {
+          "label": "Class Planner App",
+          "href": "/use-cases/class-planner-app.html"
+        },
+        {
+          "label": "AI tools",
+          "href": "/tools/index.html"
+        }
       ],
       "owner": "TritonAI solutions team",
       "lastReviewed": "2026-08-10",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 2",
-      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 2", "Use Cases"]
+      "relatedSlides": [
+        "TritonGPT Initiative",
+        "AI Roadmap 2026 — Quarter 2",
+        "Use Cases"
+      ],
+      "icon": "flash",
+      "highlights": [
+        {
+          "value": "Mobile + live signals",
+          "label": "TritonGPT"
+        },
+        {
+          "value": "Production",
+          "label": "Transcript matching"
+        },
+        {
+          "value": "Canvas",
+          "label": "Instructional assistant"
+        }
+      ]
     },
     {
       "period": "Q2–Q3 2026 — Expand",
       "title": "Multi-Institution Expansion",
       "status": "In development",
-      "summary": "The platform is expanding beyond UC San Diego as a governed multi-tenant service shared across UC and partner institutions.",
+      "summary": "The UC San Diego platform now serves partner institutions as a governed multi-tenant service, with live instances at UC Berkeley, UC ANR, and Fairleigh Dickinson University.",
       "details": [
-        "BearGPT is live at UC Berkeley as a partner deployment of the shared TritonAI gateway and governance model.",
-        "ANR AI serves staff at UC Agriculture and Natural Resources under a renewed multi-year services agreement.",
+        "BearGPT is live at UC Berkeley as a partner deployment of the shared gateway and governance model.",
+        "ANR AI serves UC Agriculture and Natural Resources staff under a renewed multi-year services agreement.",
         "FredGPT is live at Fairleigh Dickinson University as a research-oriented institution instance.",
-        "UC Merced is actively deploying its instance of the shared platform.",
+        "UC Merced is deploying its instance of the shared platform.",
         "Partner instances inherit the same hosting, model choice, trust, and observability controls as the UC San Diego deployment.",
-        "The expansion reuses the existing platform rather than duplicating governance and infrastructure per campus."
+        "The expansion reuses the existing platform instead of duplicating governance and infrastructure per campus."
       ],
       "links": [
-        { "label": "About TritonAI", "href": "/about/index.html" },
-        { "label": "BearGPT at UC Berkeley", "href": "/about/media-articles.html" }
+        {
+          "label": "About TritonAI",
+          "href": "/about/index.html"
+        },
+        {
+          "label": "BearGPT at UC Berkeley",
+          "href": "/about/media-articles.html"
+        }
       ],
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-08-10",
       "source": "TritonAI about page, UC Berkeley AI Hub partner announcement, and UC ANR services agreement renewal",
-      "relatedSlides": ["TritonGPT Initiative", "Multi-Tenant"]
+      "relatedSlides": [
+        "TritonGPT Initiative",
+        "Multi-Tenant"
+      ],
+      "icon": "globe",
+      "highlights": [
+        {
+          "value": "Live",
+          "label": "UC Berkeley, UC ANR, FDU"
+        },
+        {
+          "value": "Deploying",
+          "label": "UC Merced"
+        },
+        {
+          "value": "Shared",
+          "label": "Hosting and governance"
+        }
+      ]
     },
     {
       "period": "Q3 2026 — Ecosystem",
@@ -169,15 +282,49 @@
         "Governance and observability work is documenting data, security, reliability, and operational requirements before broader access."
       ],
       "links": [
-        { "label": "Skills library", "href": "/skills/index.html" },
-        { "label": "TritonGPT Class Planner", "href": "/use-cases/class-planner.html" },
-        { "label": "Build with TritonAI", "href": "/developer-apis/index.html" },
-        { "label": "Trust and architecture", "href": "/about/trust-architecture.html" }
+        {
+          "label": "Skills library",
+          "href": "/skills/index.html"
+        },
+        {
+          "label": "TritonGPT Class Planner",
+          "href": "/use-cases/class-planner.html"
+        },
+        {
+          "label": "Build with TritonAI",
+          "href": "/developer-apis/index.html"
+        },
+        {
+          "label": "Trust and architecture",
+          "href": "/about/trust-architecture.html"
+        }
       ],
       "owner": "TritonAI platform and solutions teams",
       "lastReviewed": "2026-08-10",
       "source": "TritonAI Ecosystem Timeline, AI Roadmap 2026 — Quarter 3, and TritonAI memory architecture presentation",
-      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting", "harness-memory-architecture", "harness-memory-scale-ucsd"]
+      "relatedSlides": [
+        "TritonGPT Initiative",
+        "AI Roadmap 2026 — Quarter 3",
+        "Citizen Developer Ecosystem",
+        "Campus App Hosting",
+        "harness-memory-architecture",
+        "harness-memory-scale-ucsd"
+      ],
+      "icon": "wrench",
+      "highlights": [
+        {
+          "value": "In pilot",
+          "label": "Citizen Developer"
+        },
+        {
+          "value": "Reusable",
+          "label": "Skills pipeline"
+        },
+        {
+          "value": "Hosted",
+          "label": "Campus apps"
+        }
+      ]
     },
     {
       "period": "Beyond Q3 2026",
@@ -192,13 +339,23 @@
         "Successful pilots would graduate through a named service owner, governance review, support model, and approved hosting path."
       ],
       "links": [
-        { "label": "Read the strategy", "href": "/about/strategy.html" },
-        { "label": "Start a conversation", "href": "/about/get-involved.html" }
+        {
+          "label": "Read the strategy",
+          "href": "/about/strategy.html"
+        },
+        {
+          "label": "Start a conversation",
+          "href": "/about/get-involved.html"
+        }
       ],
       "owner": "TritonAI program and campus governance partners",
       "lastReviewed": "2026-07-27",
       "source": "TritonAI strategy presentation and From Chat to Agents",
-      "relatedSlides": ["From Chat to Agents", "Strategy"]
+      "relatedSlides": [
+        "From Chat to Agents",
+        "Strategy"
+      ],
+      "icon": "lock"
     }
   ]
 }
