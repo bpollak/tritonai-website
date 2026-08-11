@@ -1,0 +1,1307 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-07T19:36:12.082Z",
+  "generatedFrom": {
+    "routeCount": 54,
+    "siteBasePath": ""
+  },
+  "vendor": null,
+  "regions": {
+    "skip-link": {
+      "sha256": "0202b600f3251623a98a6d0fbe6b2e74c43cee04b389b87d0d1c94876b503df8",
+      "canonical": {
+        "k": "e",
+        "g": "a",
+        "a": [
+          [
+            "class",
+            "skip-to-main sr-only"
+          ],
+          [
+            "href",
+            "#main-content"
+          ]
+        ],
+        "c": [
+          {
+            "k": "t",
+            "v": "Skip to main content"
+          }
+        ]
+      }
+    },
+    "emergency": {
+      "sha256": "38557a0c0480356c107ccb9e7c02d05c4b2f059352dac756bdc1af8f39e97e49",
+      "canonical": {
+        "k": "e",
+        "g": "div",
+        "a": [
+          [
+            "id",
+            "uc-emergency"
+          ]
+        ],
+        "c": []
+      }
+    },
+    "site-title": {
+      "sha256": "c3af9fdd641f6ad3cb3da2c3568afacfde72f5c4cdddfb4bafbc5c795d74ee7b",
+      "canonical": {
+        "k": "e",
+        "g": "section",
+        "a": [
+          [
+            "aria-label",
+            "Site Name"
+          ],
+          [
+            "class",
+            "layout-title"
+          ]
+        ],
+        "c": [
+          {
+            "k": "e",
+            "g": "div",
+            "a": [
+              [
+                "class",
+                "container layout-container"
+              ]
+            ],
+            "c": [
+              {
+                "k": "e",
+                "g": "a",
+                "a": [
+                  [
+                    "class",
+                    "title-header title-header-large"
+                  ],
+                  [
+                    "href",
+                    "/"
+                  ]
+                ],
+                "c": [
+                  {
+                    "k": "t",
+                    "v": "Triton AI"
+                  }
+                ]
+              },
+              {
+                "k": "e",
+                "g": "a",
+                "a": [
+                  [
+                    "class",
+                    "title-header title-header-short"
+                  ],
+                  [
+                    "href",
+                    "/"
+                  ]
+                ],
+                "c": [
+                  {
+                    "k": "t",
+                    "v": "Triton AI"
+                  }
+                ]
+              },
+              {
+                "k": "e",
+                "g": "a",
+                "a": [
+                  [
+                    "class",
+                    "title-logo"
+                  ],
+                  [
+                    "href",
+                    "http://www.ucsd.edu"
+                  ],
+                  [
+                    "rel",
+                    "noopener noreferrer"
+                  ],
+                  [
+                    "target",
+                    "_blank"
+                  ]
+                ],
+                "c": [
+                  {
+                    "k": "t",
+                    "v": "UC San Diego"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mobile-drawer": {
+      "sha256": "5a38a816241a6beec9261334a4c425d4caa6ca313eeeb588255bcbff9f3fb5b8",
+      "canonical": {
+        "k": "e",
+        "g": "div",
+        "a": [
+          [
+            "aria-hidden",
+            "true"
+          ],
+          [
+            "aria-label",
+            "Site navigation"
+          ],
+          [
+            "class",
+            "navmenu navmenu-default navmenu-fixed-left offcanvas"
+          ],
+          [
+            "id",
+            "mobile-navigation"
+          ]
+        ],
+        "c": [
+          {
+            "k": "e",
+            "g": "ul",
+            "a": [
+              [
+                "class",
+                "msearch nav navbar-nav navbar-right"
+              ]
+            ],
+            "c": [
+              {
+                "k": "e",
+                "g": "li",
+                "a": [],
+                "c": [
+                  {
+                    "k": "e",
+                    "g": "div",
+                    "a": [
+                      [
+                        "class",
+                        "search"
+                      ]
+                    ],
+                    "c": [
+                      {
+                        "k": "e",
+                        "g": "button",
+                        "a": [
+                          [
+                            "aria-label",
+                            "search"
+                          ],
+                          [
+                            "class",
+                            "btn-default search-toggle"
+                          ]
+                        ],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "span",
+                            "a": [
+                              [
+                                "class",
+                                "glyphicon glyphicon-search"
+                              ]
+                            ],
+                            "c": []
+                          },
+                          {
+                            "k": "e",
+                            "g": "span",
+                            "a": [
+                              [
+                                "class",
+                                "caret"
+                              ]
+                            ],
+                            "c": []
+                          }
+                        ]
+                      },
+                      {
+                        "k": "e",
+                        "g": "div",
+                        "a": [
+                          [
+                            "class",
+                            "search-content"
+                          ],
+                          [
+                            "id",
+                            "search-m"
+                          ]
+                        ],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "form",
+                            "a": [
+                              [
+                                "action",
+                                "/search/index.html"
+                              ],
+                              [
+                                "method",
+                                "get"
+                              ]
+                            ],
+                            "c": [
+                              {
+                                "k": "e",
+                                "g": "label",
+                                "a": [
+                                  [
+                                    "class",
+                                    "sr-only"
+                                  ],
+                                  [
+                                    "for",
+                                    "search-scope-mobile"
+                                  ]
+                                ],
+                                "c": [
+                                  {
+                                    "k": "t",
+                                    "v": "Search scope"
+                                  }
+                                ]
+                              },
+                              {
+                                "k": "e",
+                                "g": "select",
+                                "a": [
+                                  [
+                                    "class",
+                                    "search-scope"
+                                  ],
+                                  [
+                                    "id",
+                                    "search-scope-mobile"
+                                  ],
+                                  [
+                                    "name",
+                                    "search-scope"
+                                  ]
+                                ],
+                                "c": [
+                                  {
+                                    "k": "e",
+                                    "g": "option",
+                                    "a": [
+                                      [
+                                        "selected",
+                                        "selected"
+                                      ],
+                                      [
+                                        "value",
+                                        "tritonai"
+                                      ]
+                                    ],
+                                    "c": [
+                                      {
+                                        "k": "t",
+                                        "v": "This Site"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "k": "e",
+                                    "g": "option",
+                                    "a": [
+                                      [
+                                        "value",
+                                        "default_collection"
+                                      ]
+                                    ],
+                                    "c": [
+                                      {
+                                        "k": "t",
+                                        "v": "All UCSD Sites"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "k": "e",
+                                    "g": "option",
+                                    "a": [
+                                      [
+                                        "value",
+                                        "faculty-staff"
+                                      ]
+                                    ],
+                                    "c": [
+                                      {
+                                        "k": "t",
+                                        "v": "Faculty/Staff"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "k": "e",
+                                "g": "div",
+                                "a": [
+                                  [
+                                    "class",
+                                    "input-group"
+                                  ]
+                                ],
+                                "c": [
+                                  {
+                                    "k": "e",
+                                    "g": "label",
+                                    "a": [
+                                      [
+                                        "class",
+                                        "sr-only"
+                                      ],
+                                      [
+                                        "for",
+                                        "search-term-mobile"
+                                      ]
+                                    ],
+                                    "c": [
+                                      {
+                                        "k": "t",
+                                        "v": "Search term"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "k": "e",
+                                    "g": "input",
+                                    "a": [
+                                      [
+                                        "class",
+                                        "form-control search-term"
+                                      ],
+                                      [
+                                        "id",
+                                        "search-term-mobile"
+                                      ],
+                                      [
+                                        "name",
+                                        "search-term-m"
+                                      ],
+                                      [
+                                        "placeholder",
+                                        "Search..."
+                                      ],
+                                      [
+                                        "type",
+                                        "search"
+                                      ]
+                                    ],
+                                    "c": []
+                                  }
+                                ]
+                              },
+                              {
+                                "k": "e",
+                                "g": "input",
+                                "a": [
+                                  [
+                                    "class",
+                                    "sr-only"
+                                  ],
+                                  [
+                                    "type",
+                                    "submit"
+                                  ],
+                                  [
+                                    "value",
+                                    "Submit"
+                                  ]
+                                ],
+                                "c": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "k": "e",
+            "g": "button",
+            "a": [
+              [
+                "aria-controls",
+                "mobile-navigation"
+              ],
+              [
+                "aria-label",
+                "Close navigation"
+              ],
+              [
+                "class",
+                "navbar-toggle sr-only"
+              ],
+              [
+                "data-canvas",
+                "body"
+              ],
+              [
+                "data-target",
+                ".navmenu"
+              ],
+              [
+                "data-toggle",
+                "offcanvas"
+              ],
+              [
+                "data-tritonai-mobile-close",
+                ""
+              ],
+              [
+                "type",
+                "button"
+              ]
+            ],
+            "c": [
+              {
+                "k": "t",
+                "v": "Close Nav"
+              }
+            ]
+          },
+          {
+            "k": "e",
+            "g": "ul",
+            "a": [
+              [
+                "class",
+                "nav navmenu-nav"
+              ]
+            ],
+            "c": []
+          }
+        ]
+      }
+    },
+    "navbar": {
+      "sha256": "4367d188cb308787898dab76929894a8a9cb3de65dded30a89d7276707b5d3d6",
+      "canonical": {
+        "k": "e",
+        "g": "nav",
+        "a": [
+          [
+            "class",
+            "navbar navbar-default navbar-static-top"
+          ]
+        ],
+        "c": [
+          {
+            "k": "e",
+            "g": "div",
+            "a": [
+              [
+                "class",
+                "container"
+              ]
+            ],
+            "c": [
+              {
+                "k": "e",
+                "g": "div",
+                "a": [
+                  [
+                    "class",
+                    "navbar-header"
+                  ]
+                ],
+                "c": [
+                  {
+                    "k": "e",
+                    "g": "button",
+                    "a": [
+                      [
+                        "aria-controls",
+                        "mobile-navigation"
+                      ],
+                      [
+                        "aria-expanded",
+                        "false"
+                      ],
+                      [
+                        "class",
+                        "navbar-toggle"
+                      ],
+                      [
+                        "data-canvas",
+                        "body"
+                      ],
+                      [
+                        "data-target",
+                        ".navmenu"
+                      ],
+                      [
+                        "data-toggle",
+                        "offcanvas"
+                      ],
+                      [
+                        "data-tritonai-mobile-toggle",
+                        ""
+                      ],
+                      [
+                        "type",
+                        "button"
+                      ]
+                    ],
+                    "c": [
+                      {
+                        "k": "e",
+                        "g": "span",
+                        "a": [
+                          [
+                            "class",
+                            "sr-only"
+                          ]
+                        ],
+                        "c": [
+                          {
+                            "k": "t",
+                            "v": "Toggle navigation"
+                          }
+                        ]
+                      },
+                      {
+                        "k": "e",
+                        "g": "div",
+                        "a": [
+                          [
+                            "class",
+                            "col-sm-1 mobile-nav-bars"
+                          ]
+                        ],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "span",
+                            "a": [
+                              [
+                                "class",
+                                "icon-bar"
+                              ]
+                            ],
+                            "c": []
+                          },
+                          {
+                            "k": "e",
+                            "g": "span",
+                            "a": [
+                              [
+                                "class",
+                                "icon-bar"
+                              ]
+                            ],
+                            "c": []
+                          },
+                          {
+                            "k": "e",
+                            "g": "span",
+                            "a": [
+                              [
+                                "class",
+                                "icon-bar"
+                              ]
+                            ],
+                            "c": []
+                          }
+                        ]
+                      },
+                      {
+                        "k": "e",
+                        "g": "div",
+                        "a": [
+                          [
+                            "class",
+                            "col-sm-1 mobile-nav-icon"
+                          ]
+                        ],
+                        "c": [
+                          {
+                            "k": "t",
+                            "v": "MENU"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "k": "e",
+                    "g": "div",
+                    "a": [
+                      [
+                        "class",
+                        "col-sm-4 pull-right visible-xs-block"
+                      ]
+                    ],
+                    "c": [
+                      {
+                        "k": "e",
+                        "g": "img",
+                        "a": [
+                          [
+                            "alt",
+                            "UC San Diego Logo"
+                          ],
+                          [
+                            "class",
+                            "header-logo img-responsive"
+                          ],
+                          [
+                            "src",
+                            "https://cdn.ucsd.edu/cms/decorator-5/styles/img/ucsd-footer-logo-white.png"
+                          ]
+                        ],
+                        "c": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "k": "e",
+                "g": "div",
+                "a": [
+                  [
+                    "class",
+                    "collapse navbar-collapse"
+                  ],
+                  [
+                    "id",
+                    "navbar"
+                  ]
+                ],
+                "c": [
+                  {
+                    "k": "e",
+                    "g": "ul",
+                    "a": [
+                      [
+                        "class",
+                        "nav navbar-nav navbar-nav-list"
+                      ]
+                    ],
+                    "c": []
+                  },
+                  {
+                    "k": "e",
+                    "g": "div",
+                    "a": [
+                      [
+                        "class",
+                        "btn-nav"
+                      ]
+                    ],
+                    "c": []
+                  },
+                  {
+                    "k": "e",
+                    "g": "ul",
+                    "a": [
+                      [
+                        "class",
+                        "nav navbar-nav navbar-right"
+                      ]
+                    ],
+                    "c": [
+                      {
+                        "k": "e",
+                        "g": "li",
+                        "a": [],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "div",
+                            "a": [
+                              [
+                                "class",
+                                "search"
+                              ]
+                            ],
+                            "c": [
+                              {
+                                "k": "e",
+                                "g": "button",
+                                "a": [
+                                  [
+                                    "aria-controls",
+                                    "search"
+                                  ],
+                                  [
+                                    "aria-expanded",
+                                    "false"
+                                  ],
+                                  [
+                                    "aria-label",
+                                    "search"
+                                  ],
+                                  [
+                                    "class",
+                                    "btn-default search-toggle"
+                                  ],
+                                  [
+                                    "data-tritonai-search-toggle",
+                                    ""
+                                  ]
+                                ],
+                                "c": [
+                                  {
+                                    "k": "e",
+                                    "g": "span",
+                                    "a": [
+                                      [
+                                        "class",
+                                        "glyphicon glyphicon-search"
+                                      ]
+                                    ],
+                                    "c": []
+                                  },
+                                  {
+                                    "k": "e",
+                                    "g": "span",
+                                    "a": [
+                                      [
+                                        "class",
+                                        "caret"
+                                      ]
+                                    ],
+                                    "c": []
+                                  }
+                                ]
+                              },
+                              {
+                                "k": "e",
+                                "g": "div",
+                                "a": [
+                                  [
+                                    "aria-hidden",
+                                    "true"
+                                  ],
+                                  [
+                                    "class",
+                                    "search-content"
+                                  ],
+                                  [
+                                    "id",
+                                    "search"
+                                  ]
+                                ],
+                                "c": [
+                                  {
+                                    "k": "e",
+                                    "g": "form",
+                                    "a": [
+                                      [
+                                        "action",
+                                        "/search/index.html"
+                                      ],
+                                      [
+                                        "id",
+                                        "cse-search-box"
+                                      ],
+                                      [
+                                        "method",
+                                        "get"
+                                      ]
+                                    ],
+                                    "c": [
+                                      {
+                                        "k": "e",
+                                        "g": "label",
+                                        "a": [
+                                          [
+                                            "class",
+                                            "sr-only"
+                                          ],
+                                          [
+                                            "for",
+                                            "search-scope-desktop"
+                                          ]
+                                        ],
+                                        "c": [
+                                          {
+                                            "k": "t",
+                                            "v": "Search scope"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "k": "e",
+                                        "g": "select",
+                                        "a": [
+                                          [
+                                            "class",
+                                            "search-scope"
+                                          ],
+                                          [
+                                            "id",
+                                            "search-scope-desktop"
+                                          ],
+                                          [
+                                            "name",
+                                            "search-scope"
+                                          ]
+                                        ],
+                                        "c": [
+                                          {
+                                            "k": "e",
+                                            "g": "option",
+                                            "a": [
+                                              [
+                                                "selected",
+                                                "selected"
+                                              ],
+                                              [
+                                                "value",
+                                                "tritonai"
+                                              ]
+                                            ],
+                                            "c": [
+                                              {
+                                                "k": "t",
+                                                "v": "This Site"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "k": "e",
+                                            "g": "option",
+                                            "a": [
+                                              [
+                                                "value",
+                                                "default_collection"
+                                              ]
+                                            ],
+                                            "c": [
+                                              {
+                                                "k": "t",
+                                                "v": "All UCSD Sites"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "k": "e",
+                                            "g": "option",
+                                            "a": [
+                                              [
+                                                "value",
+                                                "faculty-staff"
+                                              ]
+                                            ],
+                                            "c": [
+                                              {
+                                                "k": "t",
+                                                "v": "Faculty/Staff"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "k": "e",
+                                        "g": "div",
+                                        "a": [
+                                          [
+                                            "class",
+                                            "input-group"
+                                          ]
+                                        ],
+                                        "c": [
+                                          {
+                                            "k": "e",
+                                            "g": "label",
+                                            "a": [
+                                              [
+                                                "class",
+                                                "sr-only"
+                                              ],
+                                              [
+                                                "for",
+                                                "search-term-desktop"
+                                              ]
+                                            ],
+                                            "c": [
+                                              {
+                                                "k": "t",
+                                                "v": "Search term"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "k": "e",
+                                            "g": "input",
+                                            "a": [
+                                              [
+                                                "class",
+                                                "form-control search-term"
+                                              ],
+                                              [
+                                                "id",
+                                                "search-term-desktop"
+                                              ],
+                                              [
+                                                "name",
+                                                "search-term"
+                                              ],
+                                              [
+                                                "placeholder",
+                                                "Search..."
+                                              ],
+                                              [
+                                                "type",
+                                                "search"
+                                              ]
+                                            ],
+                                            "c": []
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "k": "e",
+                                        "g": "input",
+                                        "a": [
+                                          [
+                                            "class",
+                                            "sr-only"
+                                          ],
+                                          [
+                                            "type",
+                                            "submit"
+                                          ],
+                                          [
+                                            "value",
+                                            "Submit"
+                                          ]
+                                        ],
+                                        "c": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "footer": {
+      "sha256": "e6f927591d0a4b14f0a580bacb3281189ba8145608af201acb1711f3e024f673",
+      "canonical": {
+        "k": "e",
+        "g": "div",
+        "a": [
+          [
+            "class",
+            "container"
+          ]
+        ],
+        "c": [
+          {
+            "k": "e",
+            "g": "div",
+            "a": [
+              [
+                "class",
+                "row"
+              ]
+            ],
+            "c": [
+              {
+                "k": "e",
+                "g": "div",
+                "a": [
+                  [
+                    "class",
+                    "col-sm-8"
+                  ]
+                ],
+                "c": [
+                  {
+                    "k": "e",
+                    "g": "p",
+                    "a": [],
+                    "c": [
+                      {
+                        "k": "e",
+                        "g": "span",
+                        "a": [],
+                        "c": [
+                          {
+                            "k": "t",
+                            "v": "UC San Diego 9500 Gilman Dr. La Jolla, CA 92093 (858) 534-2230"
+                          }
+                        ]
+                      },
+                      {
+                        "k": "e",
+                        "g": "br",
+                        "a": [],
+                        "c": []
+                      },
+                      {
+                        "k": "e",
+                        "g": "span",
+                        "a": [],
+                        "c": [
+                          {
+                            "k": "t",
+                            "v": "Copyright ©"
+                          },
+                          {
+                            "k": "e",
+                            "g": "span",
+                            "a": [
+                              [
+                                "class",
+                                "footer-copyright-year"
+                              ]
+                            ],
+                            "c": [
+                              {
+                                "k": "t",
+                                "v": "\u0000"
+                              }
+                            ]
+                          },
+                          {
+                            "k": "t",
+                            "v": "Regents of the University of California. All rights reserved."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "k": "e",
+                    "g": "ul",
+                    "a": [
+                      [
+                        "class",
+                        "footer-links"
+                      ]
+                    ],
+                    "c": [
+                      {
+                        "k": "e",
+                        "g": "li",
+                        "a": [],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "a",
+                            "a": [
+                              [
+                                "href",
+                                "https://accessibility.ucsd.edu/"
+                              ],
+                              [
+                                "rel",
+                                "noopener noreferrer"
+                              ],
+                              [
+                                "target",
+                                "_blank"
+                              ]
+                            ],
+                            "c": [
+                              {
+                                "k": "t",
+                                "v": "Accessibility"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "k": "e",
+                        "g": "li",
+                        "a": [],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "a",
+                            "a": [
+                              [
+                                "href",
+                                "https://ucsd.edu/about/privacy.html"
+                              ],
+                              [
+                                "rel",
+                                "noopener noreferrer"
+                              ],
+                              [
+                                "target",
+                                "_blank"
+                              ]
+                            ],
+                            "c": [
+                              {
+                                "k": "t",
+                                "v": "Privacy"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "k": "e",
+                        "g": "li",
+                        "a": [],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "a",
+                            "a": [
+                              [
+                                "href",
+                                "https://ucsd.edu/about/terms-of-use.html"
+                              ],
+                              [
+                                "rel",
+                                "noopener noreferrer"
+                              ],
+                              [
+                                "target",
+                                "_blank"
+                              ]
+                            ],
+                            "c": [
+                              {
+                                "k": "t",
+                                "v": "Terms of Use"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "k": "e",
+                        "g": "li",
+                        "a": [],
+                        "c": [
+                          {
+                            "k": "e",
+                            "g": "a",
+                            "a": [
+                              [
+                                "href",
+                                "mailto:tritonai@ucsd.edu"
+                              ]
+                            ],
+                            "c": [
+                              {
+                                "k": "t",
+                                "v": "Feedback"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "k": "e",
+                "g": "div",
+                "a": [
+                  [
+                    "class",
+                    "col-sm-4"
+                  ]
+                ],
+                "c": [
+                  {
+                    "k": "e",
+                    "g": "a",
+                    "a": [
+                      [
+                        "href",
+                        "https://ucsd.edu/"
+                      ],
+                      [
+                        "rel",
+                        "noopener noreferrer"
+                      ],
+                      [
+                        "target",
+                        "_blank"
+                      ]
+                    ],
+                    "c": [
+                      {
+                        "k": "e",
+                        "g": "img",
+                        "a": [
+                          [
+                            "alt",
+                            "UCSD homepage"
+                          ],
+                          [
+                            "class",
+                            "footer-logo img-responsive"
+                          ],
+                          [
+                            "src",
+                            "https://cdn.ucsd.edu/developer/decorator/5.0.2/img/ucsd-footer-logo-white.png"
+                          ]
+                        ],
+                        "c": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gpt-loader": {
+      "sha256": "208f3f0ae5595c3449d85bb0a32a77a78a4a63da91fe5a4489c4ade27a87a037",
+      "canonical": {
+        "k": "e",
+        "g": "script",
+        "a": [
+          [
+            "data-idle-src",
+            "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js"
+          ],
+          [
+            "type",
+            "application/x-tritonai-idle-script"
+          ]
+        ],
+        "c": []
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "note": "Hand-maintained rules that cannot be derived from the pristine Decorator templates. Two kinds live here: values this site legitimately customizes away from upstream (the search index it queries, the ids the build assigns), and products that are not part of the Decorator tree at all (the TritonGPT widget). Rules here override same-id rules in config/chrome-selectors.json.",
+  "rules": [
+    {
+      "id": "mobile-drawer.search-target",
+      "region": "mobile-drawer",
+      "within": ".search-content",
+      "source": "hand-maintained: TritonAI search index",
+      "require": [
+        { "selector": "form", "attribute": "action", "equalsUrl": "/search/index.html" },
+        { "selector": "form select.search-scope option[value='tritonai']", "count": 1 },
+        { "selector": "form select.search-scope option[value='default_collection']", "count": 1 },
+        { "selector": "form select.search-scope option[value='faculty-staff']", "count": 1 },
+        { "selector": "form input.search-term[name='search-term-m']", "count": 1 },
+        { "selector": "form input[type='submit']", "count": 1 }
+      ],
+      "remedy": "The mobile input is name=\"search-term-m\" and the desktop input is name=\"search-term\"; only the ids were normalized by the build. Changing the mobile name silently breaks the hosted search API with nothing visible on the page."
+    },
+    {
+      "id": "mobile-drawer.accessible-labels",
+      "region": "mobile-drawer",
+      "within": ".search-content",
+      "source": "hand-maintained: build-owned ids from normalizeNavigationMarkup()",
+      "require": [
+        { "selector": "label[for='search-scope-mobile']", "count": 1 },
+        { "selector": "label[for='search-term-mobile']", "count": 1 },
+        { "selector": "select#search-scope-mobile", "count": 1 },
+        { "selector": "input#search-term-mobile", "count": 1 }
+      ],
+      "remedy": "scripts/build.mjs normalizeNavigationMarkup() assigns these ids and re-inserts the paired labels. If they are absent the build stopped running over this markup."
+    },
+    {
+      "id": "navbar.search-target",
+      "region": "navbar",
+      "within": ".search-content",
+      "source": "hand-maintained: TritonAI search index",
+      "require": [
+        { "selector": "form", "attribute": "action", "equalsUrl": "/search/index.html" },
+        { "selector": "form input.search-term[name='search-term']", "count": 1 },
+        { "selector": "label[for='search-scope-desktop']", "count": 1 },
+        { "selector": "label[for='search-term-desktop']", "count": 1 }
+      ]
+    },
+    {
+      "id": "gpt-loader.embed",
+      "region": "gpt-loader",
+      "source": "hand-maintained: TritonGPT is a separate UCSD product, not part of the Decorator archive",
+      "require": [
+        {
+          "attribute": "data-idle-src",
+          "equals": "https://cdn.ucsd.edu/tritongpt/widget/js/tgpt-loader.js"
+        },
+        { "attribute": "type", "equals": "application/x-tritonai-idle-script" },
+        { "attribute": "src", "absent": true }
+      ],
+      "remedy": "The widget is loaded verbatim from the UCSD CDN. scripts/build.mjs optimizeScriptLoading() defers it to idle by moving src to data-idle-src; site-performance.js loads it. Do not rewrite, inline, self-host, or reconfigure the loader."
+    }
+  ]
+}

@@ -2,6 +2,18 @@ import { access, mkdir, readFile, readdir, stat, writeFile } from "node:fs/promi
 import path from "node:path";
 import { load } from "cheerio";
 import matter from "gray-matter";
+import {
+  checkCrossPageConsistency,
+  checkGoldenFingerprint,
+  checkStructuralRules,
+  extractChrome,
+  foldByRule,
+  formatFindings,
+  loadChromeContract,
+  loadChromeSelectors,
+  regionElements,
+} from "./lib/chrome-contract.mjs";
+import { loadSkillsSource } from "./lib/skills-source.mjs";
 
 const DIST_DIR = path.resolve("dist");
 const REPORT_DIR = path.resolve("reports");
@@ -159,6 +171,16 @@ const navigation = [];
 const decorator = [];
 const analytics = [];
 
+// Page chrome integrity. `decorator` holds stylistic conformance findings;
+// these are shaped differently (rule, diff, markup, remedy) and pin the shared
+// Decorator shell itself. See scripts/lib/chrome-contract.mjs.
+const chrome = [];
+const chromeByRoute = new Map();
+const { rules: chromeSelectorRules, expired: expiredChromeExceptions } = await loadChromeSelectors();
+chrome.push(...expiredChromeExceptions);
+
+const skillsSource = await loadSkillsSource();
+
 const assetSizeCache = new Map();
 async function localAssetSize(raw, pagePath) {
   const target = toLocalPath(raw, pagePath);
@@ -257,11 +279,14 @@ const skillsMissing = missingFields(skillsContent, skillsRequired);
 if (skillsMissing.length) contentFindings.push({ source: "skills/library.json", issue: `Missing fields: ${skillsMissing.join(", ")}` });
 const skillsSourceMissing = missingFields(skillsContent.source || {}, ["repository", "url", "defaultBranch", "commitSha", "commitUrl", "commitDate"]);
 if (skillsSourceMissing.length) contentFindings.push({ source: "skills/library.json#source", issue: `Missing fields: ${skillsSourceMissing.join(", ")}` });
-if (skillsContent.source?.repository !== "dbalders/UCSD-Skills-Library") {
-  contentFindings.push({ source: "skills/library.json#source", issue: `Unexpected repository: ${skillsContent.source?.repository || "missing"}` });
+if (skillsContent.source?.repository !== skillsSource.slug) {
+  contentFindings.push({
+    source: "skills/library.json#source",
+    issue: `Snapshot came from ${skillsContent.source?.repository || "(missing)"}, but config/skills-source.json expects ${skillsSource.slug}. Re-run \`npm run sync:skills\` after changing the configured repository.`,
+  });
 }
 if (!(skillsContent.skills || []).length) contentFindings.push({ source: "skills/library.json", issue: "No public skills found" });
-const allowedSkillCollections = new Set(["tritonai", "community"]);
+const allowedSkillCollections = new Set(skillsSource.collections);
 const skillNames = new Set();
 const skillPaths = new Set();
 for (const [index, skill] of (skillsContent.skills || []).entries()) {
@@ -393,6 +418,12 @@ for (const page of htmlFiles) {
       if ($(`link[rel~='stylesheet'][href='${stylesheet}']`).length !== 1) {
         decorator.push({ page: route, issue: `Missing official Decorator 5 stylesheet: ${stylesheet}` });
       }
+    }
+    // Tier 3 needs the live cheerio nodes, so it runs here; tiers 1 and 2 need
+    // the whole corpus and run after the loop.
+    chromeByRoute.set(route, extractChrome($, { route, basePath: SITE_BASE_PATH }));
+    for (const finding of checkStructuralRules($, regionElements($), chromeSelectorRules, { route, basePath: SITE_BASE_PATH })) {
+      chrome.push({ page: route, ...finding });
     }
   }
   if (!$("body").hasClass("agent-page")) {
@@ -1059,6 +1090,16 @@ for (const [title, routes] of metadataTitles) {
   if (routes.length > 1) metadata.push({ page: routes.join(", "), issue: `Duplicate indexable title: ${title}` });
 }
 
+// Chrome tiers 1 and 2 compare routes against each other and against the
+// recorded contract, so they need every route collected first. Tier 3 findings
+// are folded here because one shell edit otherwise reports on every route.
+{
+  const structural = chrome.splice(0, chrome.length);
+  chrome.push(...foldByRule(structural));
+  chrome.push(...checkCrossPageConsistency(chromeByRoute));
+  chrome.push(...checkGoldenFingerprint(chromeByRoute, await loadChromeContract()));
+}
+
 for (const filename of files.filter((file) => file.startsWith("_resources/css/") && file.endsWith(".css"))) {
   const source = await readFile(path.join(DIST_DIR, filename), "utf8");
   for (const match of source.matchAll(/font-family\s*:\s*([^;}]+)/gi)) {
@@ -1146,6 +1187,7 @@ const report = {
     routeFailures: routeFindings.length,
     performanceFailures: performance.length,
     decoratorFailures: decorator.length,
+    chromeFailures: chrome.length,
     analyticsFailures: analytics.length,
   },
   missing,
@@ -1160,6 +1202,7 @@ const report = {
   routeFindings,
   performance,
   decorator,
+  chrome,
   analytics,
 };
 await mkdir(REPORT_DIR, { recursive: true });
@@ -1185,8 +1228,12 @@ if (
   routeFindings.length ||
   performance.length ||
   decorator.length ||
+  chrome.length ||
   analytics.length
 ) {
+  // Chrome findings carry the markup and the source of truth, so print them in
+  // full rather than making the reader open the JSON report to self-correct.
+  if (chrome.length) process.stderr.write(`${formatFindings(chrome)}\n\n`);
   process.stderr.write("Validation failed. See reports/validation.json.\n");
   process.exit(1);
 } else {

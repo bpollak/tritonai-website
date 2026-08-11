@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "syncedAt": "2026-08-03T03:35:30.130Z",
+  "syncedAt": "2026-08-10T23:24:28.687Z",
   "source": {
-    "repository": "dbalders/UCSD-Skills-Library",
-    "url": "https://github.com/dbalders/UCSD-Skills-Library",
+    "repository": "UCSD/UCSD-Skills-Library",
+    "url": "https://github.com/UCSD/UCSD-Skills-Library",
     "description": "Agent skills for UC San Diego and TritonAI",
     "defaultBranch": "main",
-    "commitSha": "4d4c48be70156d1d18c80576037f8770f5a68c34",
-    "commitUrl": "https://github.com/dbalders/UCSD-Skills-Library/commit/4d4c48be70156d1d18c80576037f8770f5a68c34",
-    "commitDate": "2026-07-14T20:58:14Z",
-    "pushedAt": "2026-07-14T20:58:14Z",
+    "commitSha": "43bc2695a2bf0bb70d34192f2292ba4de385260b",
+    "commitUrl": "https://github.com/UCSD/UCSD-Skills-Library/commit/43bc2695a2bf0bb70d34192f2292ba4de385260b",
+    "commitDate": "2026-08-10T19:15:43Z",
+    "pushedAt": "2026-08-10T19:15:43Z",
     "license": "MIT"
   },
   "collections": [
     {
       "id": "tritonai",
       "label": "TritonAI maintained",
-      "count": 9
+      "count": 10
     },
     {
       "id": "community",
@@ -33,8 +33,8 @@
       "maintainer": null,
       "path": "tritonai/tritonai-autoreview/SKILL.md",
       "directory": "tritonai/tritonai-autoreview",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-autoreview/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-autoreview",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/tritonai-autoreview/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/tritonai-autoreview",
       "resources": {
         "references": 0,
         "scripts": 0,
@@ -50,8 +50,8 @@
       "maintainer": null,
       "path": "tritonai/tritonai-feedback/SKILL.md",
       "directory": "tritonai/tritonai-feedback",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-feedback/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-feedback",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/tritonai-feedback/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/tritonai-feedback",
       "resources": {
         "references": 0,
         "scripts": 0,
@@ -67,8 +67,8 @@
       "maintainer": null,
       "path": "tritonai/tritonai-harness-config/SKILL.md",
       "directory": "tritonai/tritonai-harness-config",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-harness-config/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/tritonai-harness-config",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/tritonai-harness-config/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/tritonai-harness-config",
       "resources": {
         "references": 0,
         "scripts": 0,
@@ -84,8 +84,8 @@
       "maintainer": null,
       "path": "tritonai/ucsd-accessibility-compliance/SKILL.md",
       "directory": "tritonai/ucsd-accessibility-compliance",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-accessibility-compliance/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-accessibility-compliance",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-accessibility-compliance/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-accessibility-compliance",
       "resources": {
         "references": 1,
         "scripts": 0,
@@ -95,16 +95,16 @@
     },
     {
       "name": "ucsd-branding",
-      "description": "Apply the UC San Diego Developer/Decorator 5 visual system to web pages. Use when asked to match UCSD/UC San Diego web branding, campus page chrome, current Decorator 5 documentation pages, or the components shown in the official Decorator 5 kitchen sink. This skill is intentionally limited to current developer.ucsd.edu sitemap pages plus the linked Decorator 5 kitchen-sink examples.",
+      "description": "Retired. Superseded by the ucsd-decorator skill, which covers the UC San Diego Decorator 5 page shell, kitchen-sink components, widgets, modules, accessibility, and security. Load ucsd-decorator instead for any UCSD web branding, campus page chrome, Decorator template, or kitchen-sink work.",
       "collection": "tritonai",
       "collectionLabel": "TritonAI maintained",
       "maintainer": null,
       "path": "tritonai/ucsd-branding/SKILL.md",
       "directory": "tritonai/ucsd-branding",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-branding/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-branding",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-branding/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-branding",
       "resources": {
-        "references": 1,
+        "references": 0,
         "scripts": 0,
         "assets": 0,
         "other": 0
@@ -118,8 +118,8 @@
       "maintainer": null,
       "path": "tritonai/ucsd-cms/SKILL.md",
       "directory": "tritonai/ucsd-cms",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-cms/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-cms",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-cms/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-cms",
       "resources": {
         "references": 0,
         "scripts": 0,
@@ -135,10 +135,27 @@
       "maintainer": null,
       "path": "tritonai/ucsd-data-classification/SKILL.md",
       "directory": "tritonai/ucsd-data-classification",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-data-classification/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-data-classification",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-data-classification/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-data-classification",
       "resources": {
         "references": 3,
+        "scripts": 0,
+        "assets": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "ucsd-decorator",
+      "description": "Build and edit UC San Diego web pages on the Decorator 5 design system without damaging the page chrome. Use when working on any ucsd.edu site, campus page shell, Decorator template, or kitchen-sink component — and specifically when a task touches the header, navbar, mobile offcanvas drawer, search forms, footer, or an embedded UCSD widget. Enforces one writable canvas, a pinned source of truth for markup, and a CI-checkable chrome contract.",
+      "collection": "tritonai",
+      "collectionLabel": "TritonAI maintained",
+      "maintainer": null,
+      "path": "tritonai/ucsd-decorator/SKILL.md",
+      "directory": "tritonai/ucsd-decorator",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-decorator/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-decorator",
+      "resources": {
+        "references": 8,
         "scripts": 0,
         "assets": 0,
         "other": 0
@@ -152,8 +169,8 @@
       "maintainer": null,
       "path": "tritonai/ucsd-memory/SKILL.md",
       "directory": "tritonai/ucsd-memory",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-memory/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-memory",
       "resources": {
         "references": 0,
         "scripts": 0,
@@ -169,8 +186,8 @@
       "maintainer": null,
       "path": "tritonai/ucsd-memory-create/SKILL.md",
       "directory": "tritonai/ucsd-memory-create",
-      "sourceUrl": "https://github.com/dbalders/UCSD-Skills-Library/blob/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory-create/SKILL.md",
-      "directoryUrl": "https://github.com/dbalders/UCSD-Skills-Library/tree/4d4c48be70156d1d18c80576037f8770f5a68c34/tritonai/ucsd-memory-create",
+      "sourceUrl": "https://github.com/UCSD/UCSD-Skills-Library/blob/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-memory-create/SKILL.md",
+      "directoryUrl": "https://github.com/UCSD/UCSD-Skills-Library/tree/43bc2695a2bf0bb70d34192f2292ba4de385260b/tritonai/ucsd-memory-create",
       "resources": {
         "references": 1,
         "scripts": 0,

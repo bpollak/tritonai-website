@@ -1,0 +1,105 @@
+name: Sync UCSD Decorator templates
+
+# Watches the published UC San Diego Decorator 5 archive and opens a pull
+# request when it moves. The pinned copy in vendor/decorator-5/ is what the
+# chrome integrity gate derives its structural rules from, so an upstream change
+# that this site has not adopted should surface as a reviewable diff rather than
+# as a surprise in production.
+#
+# The gate failing on this pull request is the point, not a problem: it means
+# UCSD changed the shell and someone has to decide whether to adopt it.
+
+on:
+  schedule:
+    - cron: "45 18 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-decorator
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download and pin the current Decorator archive
+        run: npm run sync:decorator
+
+      - name: Detect vendor changes
+        id: changes
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain -- vendor/decorator-5 config/chrome-selectors.json)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Deliberately not `continue-on-error: false`. If the new upstream markup
+      # no longer matches this site's shell, the gate fails and that failure is
+      # carried into the pull request body for a human to resolve.
+      - name: Check the site against the new templates
+        if: steps.changes.outputs.changed == 'true'
+        id: gate
+        continue-on-error: true
+        run: |
+          npm run build
+          npm run chrome:check
+
+      - name: Publish the sync branch
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          BRANCH_NAME: automation/sync-decorator
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH_NAME"
+          git add vendor/decorator-5 config/chrome-selectors.json
+          git commit -m "Pin the current UC San Diego Decorator 5 templates"
+          git push --force origin "HEAD:$BRANCH_NAME"
+
+      - name: Open or refresh the sync pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH_NAME: automation/sync-decorator
+          GATE: ${{ steps.gate.outcome }}
+        shell: bash
+        run: |
+          if [[ "$GATE" == "success" ]]; then
+            status="The chrome integrity gate still passes against the new templates. This is a documentation-only refresh of the pinned copy."
+          else
+            status="**The chrome integrity gate fails against the new templates.** Upstream changed markup this site pins. Either update \`src/site/about/index.html\` and \`src/site/index.html\` to match and run \`npm run chrome:accept\`, or record a dated exception in \`config/chrome-selectors.overrides.json\`."
+          fi
+          body="Pins the current UC San Diego Decorator 5 archive into \`vendor/decorator-5/\` and regenerates \`config/chrome-selectors.json\` from it.
+
+          $status
+
+          UCSD publishes no version manifest for Decorator 5, so the lockfile records the upstream ETag, Last-Modified, and archive sha256 as the version identity."
+          existing="$(gh pr list --base main --head "$BRANCH_NAME" --state open --json number --jq '.[0].number // empty')"
+          if [[ -z "$existing" ]]; then
+            gh pr create --base main --head "$BRANCH_NAME" \
+              --title "Pin the current UC San Diego Decorator 5 templates" --body "$body"
+          else
+            gh pr edit "$existing" \
+              --title "Pin the current UC San Diego Decorator 5 templates" --body "$body"
+          fi

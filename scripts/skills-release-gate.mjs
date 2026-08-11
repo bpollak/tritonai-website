@@ -1,5 +1,6 @@
 import { appendFile, readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+import { loadSkillsSource } from "./lib/skills-source.mjs";
 
 const AUTOMATED_SKILLS_EVENTS = new Set(["schedule", "repository_dispatch"]);
 const COMMIT_PATTERN = /^[0-9a-f]{40}$/i;
@@ -15,7 +16,10 @@ export function snapshotCommit(snapshot) {
 }
 
 export function liveCommitFromHtml(html, repository) {
-  const repositoryPattern = escapeRegExp(String(repository || "dbalders/UCSD-Skills-Library"));
+  // The repository always arrives from the synced snapshot, which records where
+  // it actually came from. Only the unit tests call this without one.
+  const repositoryPattern = escapeRegExp(String(repository || ""));
+  if (!repositoryPattern) return "";
   const match = String(html).match(new RegExp(`${repositoryPattern}/commit/([0-9a-f]{40})`, "i"));
   return match?.[1]?.toLowerCase() || "";
 }
@@ -36,7 +40,7 @@ async function fetchLiveCommit(url, repository) {
 
 async function main() {
   const snapshotPath = process.env.SKILLS_SNAPSHOT_PATH || "content/skills/library.json";
-  const liveUrl = process.env.LIVE_SKILLS_URL || "https://tritonai.ucsd.edu/skills/index.html";
+  const liveUrl = (await loadSkillsSource()).liveUrl;
   const eventName = process.env.GITHUB_EVENT_NAME || "workflow_dispatch";
   const snapshot = JSON.parse(await readFile(snapshotPath, "utf8"));
   const localCommit = snapshotCommit(snapshot);
