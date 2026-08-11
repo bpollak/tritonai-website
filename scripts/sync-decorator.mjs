@@ -33,7 +33,10 @@ const execFileAsync = promisify(execFile);
 const PACKAGE_NAME = "ucsd-decorator-v5";
 const REGISTRY = "https://registry.npmjs.org";
 const ARCHIVE_URL = "https://developer.ucsd.edu/_files/decorator-downloads/v5/Decorator-V5.zip";
-const PACKAGE_ROOT = "package/app";
+// 5.0.3 onward ships dist/ — the built output, with useref directives resolved.
+// Earlier releases shipped app/, the pre-build source. dist/ is what the ZIP has
+// always contained and what actually renders.
+const PACKAGE_ROOT = "package/dist";
 const VENDOR_DIR = path.resolve("vendor/decorator-5");
 const LOCKFILE = path.join(VENDOR_DIR, "decorator.lock.json");
 const SELECTORS_JSON = path.resolve("config/chrome-selectors.json");

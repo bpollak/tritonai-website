@@ -1,207 +1,207 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-08-10T23:26:30.695Z",
-  "version": "5.0.2",
+  "fetchedAt": "2026-08-11T16:34:39.622Z",
+  "version": "5.0.3",
   "upstream": {
     "source": "npm",
     "package": "ucsd-decorator-v5",
-    "url": "https://registry.npmjs.org/ucsd-decorator-v5/-/ucsd-decorator-v5-5.0.2.tgz",
-    "integrity": "sha512-2oNlvzJqj/GQRLGHRYUN8w1i8Hp9aBWqjclV3DsRtfe6LBjXEzVS8u7L/Lo5+b1cWiqnZGURtIwjgEZlUS/VtA==",
-    "shasum": "3f044c14299cc81809ea237cb7d95a8c50ccb16c",
-    "bytes": 17418268,
-    "sha256": "592be470cefe277ae48ff280ceef7ef47db3573ddc59186a042e3250a71add10"
+    "url": "https://registry.npmjs.org/ucsd-decorator-v5/-/ucsd-decorator-v5-5.0.3.tgz",
+    "integrity": "sha512-WrZSwWztNJxvA6NNhRwyGb/JtvencqSPyTV5l3EVtJLxJV5NDCuZdBj8icwd8ThHITyWGD3C41Zt1987MT2T2w==",
+    "shasum": "92e568f1d1d0c5f450c95f12088e982b2b37561e",
+    "bytes": 29192652,
+    "sha256": "e66ede5b50bce49bc8698a1264ec6a50fd4f1da686c2c6104b3084cded712bcb"
   },
   "referenceTemplate": "templates/two-column.html",
   "assets": [
     {
       "path": "templates/blank-slate.html",
-      "bytes": 10692,
-      "sha256": "d82a790e0006eaabff00cc1ec4ba8738a7daadaf94c485fac882cb76942d5ebf"
+      "bytes": 9102,
+      "sha256": "fa98ef0d056fbad02178877aeb893ee69b8973dad906f17575216a5ec2734226"
     },
     {
       "path": "templates/event-detail.html",
-      "bytes": 13934,
-      "sha256": "bbe96f39e0270c81603b6528bb6e48ee0ae3b3d4f2a907ef1d867cfe2b189ce7"
+      "bytes": 11134,
+      "sha256": "980936df258a019e2463521ef76c10a7866eda6932aff3a09770a616d4129627"
     },
     {
       "path": "templates/homepage.html",
-      "bytes": 23845,
-      "sha256": "3e58746deb627bace0a69efa1042c8b30604bb2e5fe156eb60238456b3ee8bb9"
+      "bytes": 22109,
+      "sha256": "05596b2df2f766faa4d4fb9072515cbb3908c359f9c2e79e068e2d1961a9ddc2"
     },
     {
       "path": "templates/index.html",
-      "bytes": 10949,
-      "sha256": "f50a1d327b530329eeb4907df7340f57a65a42ffe60a08d17f174e0ab4c7560e"
+      "bytes": 9351,
+      "sha256": "bae4a26b701b6d40f4eb868eaeaee1744ebf216600a1ee3817eb66a58052573b"
     },
     {
       "path": "templates/modules.html",
-      "bytes": 56406,
-      "sha256": "148c8d9bd3c9517a0088486f43ba22bab4f3244635b38e73e2413c653b59d7d5"
+      "bytes": 55996,
+      "sha256": "01f5e2cf0d333a9e441ccd69511a3a8f8fa45608c828e3a2147ae2562c1b738b"
     },
     {
       "path": "templates/profile-drawer.html",
-      "bytes": 17495,
-      "sha256": "554767ac37516ef87792fe3be873efd76caaf9fe8a40737f2f784d7c50a407b4"
+      "bytes": 18972,
+      "sha256": "b2eef62d52201dd853be5c1b154968ad81347f2d487eb0aac04a200b362bda1e"
     },
     {
       "path": "templates/profile-grid.html",
-      "bytes": 16795,
-      "sha256": "be9472e628db38cd775660ef5b842b51f3511880c6c874eceb7bc7a059059467"
+      "bytes": 18493,
+      "sha256": "a4d176cb9196b72312b75ed3e39d916af0b46dc165e3942444253693d8d220e3"
     },
     {
       "path": "templates/profile-listing.html",
-      "bytes": 20509,
-      "sha256": "0e003f305f3cf2f8bf82190e3f52f73049d2c1c7eb59ce364109a91fd858ed8f"
+      "bytes": 23057,
+      "sha256": "547e4436a51f3d1b541257f6ab5e0d79f2aecf455ff2ef2981fb9e44d579d8d5"
     },
     {
       "path": "templates/profile-test.html",
-      "bytes": 20327,
-      "sha256": "8cade203af1ad9f60dc7832f85175e54c9f8de99612d2079cc2adb714a554478"
+      "bytes": 22459,
+      "sha256": "6c407e3f6b7b8de33969b87f131aff129180037562b07d34871d724f79f48c15"
     },
     {
       "path": "templates/three-column.html",
-      "bytes": 12242,
-      "sha256": "8f5fb6ae68498ce803838c2f54dfe0ce470f870e7409b1b38b8d0e4aa0ea4f54"
+      "bytes": 12789,
+      "sha256": "33fce9919558876e208f022d142a15d27dff21a6498d38f1070c69420f36e915"
     },
     {
       "path": "templates/two-column.html",
-      "bytes": 36688,
-      "sha256": "7388f2b20bf4314a2e10f70b93fd16ebf193293da37f6c902d31031828746015"
+      "bytes": 33931,
+      "sha256": "8a0b71023dd90fd7bbc7aeb2ee9afea27eee27d7122fa9b3a9f5877204900f10"
     },
     {
       "path": "kitchen-sink/alerts.html",
-      "bytes": 20533,
-      "sha256": "6219e610e79839bfa5e5a04188b7baac243ee6d14933484990551b84163a754e"
+      "bytes": 22301,
+      "sha256": "c21cfec4ba0d6449935025d032118beaea9c93a267bd8812093e3ae8b1215ac7"
     },
     {
       "path": "kitchen-sink/badges.html",
-      "bytes": 16415,
-      "sha256": "68bc6747d57beceae7fc9a646e74437c2024775990de4a898a6875add2bdcab5"
+      "bytes": 17872,
+      "sha256": "794afcc5f4081520d47afe4869208a0a77873151ca150a53477b9df13e8f8592"
     },
     {
       "path": "kitchen-sink/breadcrumbs.html",
-      "bytes": 14721,
-      "sha256": "4bf030216bae4b1dd8edbed8452729f6e2ee033c486be2aa769766c169248042"
+      "bytes": 15770,
+      "sha256": "3e360e5748ef4b75da187880155aea94c6a09f10b7d448696ce3d12d5a75a242"
     },
     {
       "path": "kitchen-sink/button_dropdowns.html",
-      "bytes": 23466,
-      "sha256": "b9625b24964d5af7e6b4ec55c15f88693dfbbd563694a00c4f04fdea87daa0d1"
+      "bytes": 25543,
+      "sha256": "ae282b0b341ea0e50fbf58d0a44809e78c4cae1a3d129384230e07ebf983e9f0"
     },
     {
       "path": "kitchen-sink/buttons.html",
-      "bytes": 28289,
-      "sha256": "2e165a8e6e96f19c00b9272814336349620c9db84c6d38e313646bf6dd8f2dbf"
+      "bytes": 30976,
+      "sha256": "438fbddd1b4864e5bc07ccfb8f079219d3b5f2af29953cd28e5802127ba432ac"
     },
     {
       "path": "kitchen-sink/code.html",
-      "bytes": 14996,
-      "sha256": "278869553ae9355dc5e0f3d6e379de5e5c73a508a7cc90737bbe345f3b7712db"
+      "bytes": 16196,
+      "sha256": "3ff7ecada8af592420da721bf8601cce4dbeca4f93f903f1bef774fded8488bd"
     },
     {
       "path": "kitchen-sink/dropdowns.html",
-      "bytes": 24830,
-      "sha256": "42b1279ac9c774912428d631ce6c4b252b01ffd4cfbd2a4ede93bcd6578826f7"
+      "bytes": 27227,
+      "sha256": "646371a02c6ee23ea7ce3cd09c4800bd25ac3c61e9be7d3eb903e912ec8d24e4"
     },
     {
       "path": "kitchen-sink/equal_column_layout.html",
-      "bytes": 19743,
-      "sha256": "ed7e32167dbd9e1750f491fe850eb3e3643f5ce3cbb2e1031cb7dd184f646403"
+      "bytes": 18112,
+      "sha256": "f7e4485e1524c1becb76c6346475b541114b719daff6c01e1c6c6202477434c5"
     },
     {
       "path": "kitchen-sink/forms.html",
-      "bytes": 65991,
-      "sha256": "0108669b447f88185a7f43977f11f8725686225353bd494d22a7bd9828359033"
+      "bytes": 62530,
+      "sha256": "cadce4a2383d03cfe8ea83cf736da218a73ea57e72c7e2e10ba12d529046f03e"
     },
     {
       "path": "kitchen-sink/helper_classes.html",
-      "bytes": 23693,
-      "sha256": "ad7bbb576d64d96835fb5e4749463e0a410e5fbf80aab0938c0b9f53c12aa4fb"
+      "bytes": 22024,
+      "sha256": "b64dd7f3dd05a494b65f0224552882c3154173068811e91515b83c1c4c676118"
     },
     {
       "path": "kitchen-sink/icons.html",
-      "bytes": 73964,
-      "sha256": "62ead68a3076118d456c5d5dbbc289273d0a65e3ac6ff5f827a4dbe8576c035b"
+      "bytes": 83765,
+      "sha256": "5a6cc5e1959f43a9858b64db05d65619c3eee4ae9ef77cb4e1407dbb1e634556"
     },
     {
       "path": "kitchen-sink/images.html",
-      "bytes": 20430,
-      "sha256": "85354c7a6528f44757a4e5b381c5fe2edaae691f9f677a3abe576638c5f0aa94"
+      "bytes": 22835,
+      "sha256": "82d9b3ee0a273e95e92e8eb5681bfb95b6cd036ec619efb585ce6c2c11d495ff"
     },
     {
       "path": "kitchen-sink/index.html",
-      "bytes": 14219,
-      "sha256": "fdce5da0aefac9eb47536c72398407a5c24940b12039d63cb31a207f753c7989"
+      "bytes": 15231,
+      "sha256": "327c443849b10ec66b054ebb6f1d160fc719fa3369143a985c89aa9acebcb884"
     },
     {
       "path": "kitchen-sink/input_groups.html",
-      "bytes": 37223,
-      "sha256": "94e4d8292c7a61d98f8dddc3cc0acab26d3ef8c398f0606a6ccf9cb753159171"
+      "bytes": 34267,
+      "sha256": "d426e0afab2f1d7bd30f7cef2910f4967fdb9181af98706c4c82a636e9515453"
     },
     {
       "path": "kitchen-sink/javascript_components.html",
-      "bytes": 50522,
-      "sha256": "45600183de41e55a988c2b3adba1644e1fbcdc70a53c813629bb4b0bdfff3675"
+      "bytes": 60880,
+      "sha256": "af5e932a058120e8f45b9daccd831942389bb3cc18f60ee9895bfaec42e11d5c"
     },
     {
       "path": "kitchen-sink/pagination.html",
-      "bytes": 22411,
-      "sha256": "61f8163850fb118cb0d9307e10e4ceb6b665d1fedf52e0c0e35ec75aef4462d5"
+      "bytes": 24062,
+      "sha256": "1a90476926de7339b63922ce96117753372c2f83f4c76ffdf69980cd3f0e339e"
     },
     {
       "path": "kitchen-sink/panels.html",
-      "bytes": 19252,
-      "sha256": "4d5075fc643cf8e24aef9f0e5a4e81605660f7e2bdcb08585024ace509fb25dd"
+      "bytes": 20934,
+      "sha256": "8e58354476e22c110bb419f909f09203a7cb158decd5f490dfb71e58f77a14a2"
     },
     {
       "path": "kitchen-sink/progress_bars.html",
-      "bytes": 16685,
-      "sha256": "f35a7097c9f82a6dcc65e3436cb33bbe5c8655ab0b4d353ed56c97e9799d5e24"
+      "bytes": 17977,
+      "sha256": "5c0ed6f038c9825cfe754439473e326927ca0c1d6c406655d9a1921265c948a3"
     },
     {
       "path": "kitchen-sink/tables.html",
-      "bytes": 34170,
-      "sha256": "dcc2d767c95da07fcc675172b55e3983437e7c30328c28bdeff3e6bfc6576166"
+      "bytes": 39862,
+      "sha256": "fc444217c81bfe9af71062761eb6b23921e0fccd5949cf66ac1746589c24ff38"
     },
     {
       "path": "kitchen-sink/typography.html",
-      "bytes": 44495,
-      "sha256": "bfc005809fbf28596b4a779c52d68e5f1cfc270042615b612524cabf77e7801c"
+      "bytes": 50129,
+      "sha256": "f640b49d515ef51f5687dba18ebb2baba2713c1136f5b624153b04ae1e6fe81b"
     },
     {
       "path": "widgets/MaxChar.html",
-      "bytes": 17597,
-      "sha256": "91c1e74d9411b667f7744d679c93990fda6e6b02ebe9ed6d2335d5b82be83714"
+      "bytes": 18321,
+      "sha256": "39fb050e925194d957a7d5b3d345737dc5d323dc7b71442f630435833eefa468"
     },
     {
       "path": "widgets/datatables.html",
-      "bytes": 33045,
-      "sha256": "69d0c4ed0c05e9fee4c74cc60e93e4b954c03c35dd469c091a00ace45634c314"
+      "bytes": 36996,
+      "sha256": "4d5bc1a706696dcce0890f6f675e62d6f08ada7d4a5980208a61e912addf346e"
     },
     {
       "path": "widgets/fullcalendar.html",
-      "bytes": 14161,
-      "sha256": "618a586ff52ec0ca2bbef6ae9efa6d630430841898644d72528ad7c36c121f69"
+      "bytes": 12241,
+      "sha256": "6b5372b36d0ec5a27f8563b79e6e5023c034ca839216a1d3f2666994d3ff88eb"
     },
     {
       "path": "widgets/index.html",
-      "bytes": 12228,
-      "sha256": "9d9a95946fa959102c9945a2b63d3e0736a49834ddb3fa2b8e9a30b5d2240786"
+      "bytes": 10371,
+      "sha256": "ec29b29242fdc2c6eaca4d6fce370df553a9c4956ef34825c692447e5b1c6315"
     },
     {
       "path": "widgets/wizard.html",
-      "bytes": 12490,
-      "sha256": "718425fe327a75eb79e2a117720f5878550c19cd4c037c05d6ada4c3d07d7907"
+      "bytes": 10520,
+      "sha256": "2d3d55adb0e831f8375ba396edd654d0f413f3c22f37ea0d4bf2d8b1a23fe9d8"
     },
     {
       "path": "styles/base.css",
-      "bytes": 125184,
-      "sha256": "d999a103963b81ff1a95c9c0fc0017c652e47ebfa6d2aec67540e104ef7c4f39"
+      "bytes": 125843,
+      "sha256": "b10a377b346b1b61ae430e78496e9a0fc1ea2a1d681960e49a4ca9f6ad13a23e"
     },
     {
       "path": "index.html",
-      "bytes": 10823,
-      "sha256": "518a1ae92e21336dfd82e3c303deb102be5980ee271b2884992adfeaf7c25d60"
+      "bytes": 8486,
+      "sha256": "6535f6193c5c691c8bc6f7e8b42f6f7b9df346778ff7bdfde9bc7ce3b3bc4d85"
     }
   ]
 }
