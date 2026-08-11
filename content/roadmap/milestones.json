@@ -1,8 +1,8 @@
 {
   "title": "TritonAI Roadmap",
-  "description": "A public, status-based view of the TritonAI ecosystem from the 2023 chatbot launch through the 2026 governed builder path. Recent milestones include initiative-level detail drawn from the public TritonAI Ecosystem Timeline and 2026 quarterly roadmap.",
+  "description": "A public, status-based view of the TritonAI ecosystem from the 2023 chatbot launch through the 2026 governed builder path. The platform now serves 73,000+ students, faculty, and staff. Recent milestones include initiative-level detail drawn from the public TritonAI Ecosystem Timeline and 2026 quarterly roadmap.",
   "owner": "TritonAI program",
-  "lastReviewed": "2026-07-27",
+  "lastReviewed": "2026-08-10",
   "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 Q1-Q3 (presentation-test/ucsd-presentation, public-safe excerpts) and public product pages",
   "canonicalUrl": "/about/roadmap.html",
   "audiences": ["students", "faculty", "staff", "developers", "leaders"],
@@ -118,18 +118,41 @@
         "Developer API access and N8N Agent Builder broadened the path from model access to supervised workflow orchestration.",
         "TritonGPT extended into the campus mobile experience and began surfacing live campus signals with stronger response traceability.",
         "A Canvas-integrated instructional assistant established a reusable delivery pattern for course support.",
-        "Transcript matching advanced toward admissions launch readiness while contract review added adjustable rule sets.",
+        "Transcript matching reached production with an OnBase handoff for enrollment while contract review graduated to a supervised Production workflow.",
         "BioBib formatting, risk-based proposal review, and AI IT observability expanded the bounded prototype portfolio."
       ],
       "links": [
         { "label": "Contract review", "href": "/use-cases/contract-review.html" },
         { "label": "BioBib formatter", "href": "/use-cases/biobib.html" },
+        { "label": "Class Planner App", "href": "/use-cases/class-planner-app.html" },
         { "label": "AI tools", "href": "/tools/index.html" }
       ],
       "owner": "TritonAI solutions team",
-      "lastReviewed": "2026-07-27",
+      "lastReviewed": "2026-08-10",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 2",
       "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 2", "Use Cases"]
+    },
+    {
+      "period": "Q2–Q3 2026 — Expand",
+      "title": "Multi-Institution Expansion",
+      "status": "In development",
+      "summary": "The platform is expanding beyond UC San Diego as a governed multi-tenant service shared across UC and partner institutions.",
+      "details": [
+        "BearGPT is live at UC Berkeley as a partner deployment of the shared TritonAI gateway and governance model.",
+        "ANR AI serves staff at UC Agriculture and Natural Resources under a renewed multi-year services agreement.",
+        "FredGPT is live at Fairleigh Dickinson University as a research-oriented institution instance.",
+        "UC Merced is actively deploying its instance of the shared platform.",
+        "Partner instances inherit the same hosting, model choice, trust, and observability controls as the UC San Diego deployment.",
+        "The expansion reuses the existing platform rather than duplicating governance and infrastructure per campus."
+      ],
+      "links": [
+        { "label": "About TritonAI", "href": "/about/index.html" },
+        { "label": "BearGPT at UC Berkeley", "href": "/about/media-articles.html" }
+      ],
+      "owner": "TritonAI platform team",
+      "lastReviewed": "2026-08-10",
+      "source": "TritonAI about page, UC Berkeley AI Hub partner announcement, and UC ANR services agreement renewal",
+      "relatedSlides": ["TritonGPT Initiative", "Multi-Tenant"]
     },
     {
       "period": "Q3 2026 — Ecosystem",
@@ -152,7 +175,7 @@
         { "label": "Trust and architecture", "href": "/about/trust-architecture.html" }
       ],
       "owner": "TritonAI platform and solutions teams",
-      "lastReviewed": "2026-07-27",
+      "lastReviewed": "2026-08-10",
       "source": "TritonAI Ecosystem Timeline, AI Roadmap 2026 — Quarter 3, and TritonAI memory architecture presentation",
       "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting", "harness-memory-architecture", "harness-memory-scale-ucsd"]
     },
