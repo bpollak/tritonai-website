@@ -3,14 +3,14 @@
   "title": "Gateway usage at a glance",
   "summary": "Aggregate TritonAI LLM Gateway activity shows the scale of shared model access across UC San Diego.",
   "owner": "TritonAI platform team",
-  "source": "Raw gateway usage export (all_model_usage.csv) and Triton GPT API usage report v4",
+  "source": "TritonAI Statistics run 20260810T112319-0700-27a039, raw gateway usage export and reviewed V3 route classification",
   "measurementPeriod": {
     "start": "2026-01-01",
-    "end": "2026-06-30",
-    "label": "January 1–June 30, 2026"
+    "end": "2026-07-31",
+    "label": "January 1–July 31, 2026"
   },
-  "generatedAt": "2026-07-15",
-  "lastReviewed": "2026-07-25",
+  "generatedAt": "2026-08-10",
+  "lastReviewed": "2026-08-10",
   "dataClassification": "Public aggregate; no user-level records",
   "canonicalUrl": "/developer-apis/index.html#gateway-usage",
   "relatedSlides": [
@@ -19,73 +19,89 @@
   "metrics": [
     {
       "id": "tokens-processed",
-      "displayValue": "309.4B",
+      "displayValue": "376.4B",
       "label": "tokens processed",
       "definition": "Total input and output tokens recorded by the gateway during the measurement period.",
-      "value": 309358904950
+      "value": 376433425278
     },
     {
       "id": "api-requests",
-      "displayValue": "105.1M",
+      "displayValue": "124.9M",
       "label": "API requests",
       "definition": "Completed gateway request records during the measurement period.",
-      "value": 105100000
+      "value": 124937969
     },
     {
       "id": "self-hosted-share",
-      "displayValue": "95.3%",
-      "label": "served by self-hosted models",
-      "definition": "Share of recorded tokens served by open-weight models running on UC-controlled infrastructure.",
-      "value": 95.25381241720741
+      "displayValue": "94.8%",
+      "label": "self-hosted and internal routes",
+      "definition": "Share of recorded tokens not classified as commercial cloud, including internal TritonAI routes.",
+      "value": 94.8480646933312
     },
     {
-      "id": "peak-month",
-      "displayValue": "73.2B",
-      "label": "tokens in June",
-      "definition": "Highest monthly token volume recorded in the six-month measurement period.",
-      "value": 73192378690
+      "id": "latest-month",
+      "displayValue": "67.1B",
+      "label": "tokens in July",
+      "definition": "Total token volume recorded in the latest complete month.",
+      "value": 67074520328
     }
   ],
   "monthly": [
     {
       "month": "2026-01",
       "label": "January",
-      "selfHostedTokens": 43824959128,
-      "cloudTokens": 459894700
+      "selfHostedTokens": 43823578111,
+      "cloudTokens": 461275717,
+      "note": "Usage was driven primarily by embedding and automated background-processing workloads, establishing the baseline for the reporting period."
     },
     {
       "month": "2026-02",
       "label": "February",
-      "selfHostedTokens": 48264731656,
-      "cloudTokens": 699033204
+      "selfHostedTokens": 48256624512,
+      "cloudTokens": 707140348,
+      "note": "Usage increased as application, widget, and shared API activity expanded across the platform."
     },
     {
       "month": "2026-03",
       "label": "March",
-      "selfHostedTokens": 43741108447,
-      "cloudTokens": 1018688464
+      "selfHostedTokens": 43712369023,
+      "cloudTokens": 1047427888,
+      "note": "Usage moderated as widget and automated processing activity declined, partially offset by growth through newer model routes."
     },
     {
       "month": "2026-04",
       "label": "April",
-      "selfHostedTokens": 48545072711,
-      "cloudTokens": 1519665510
+      "selfHostedTokens": 48662696509,
+      "cloudTokens": 1402041712,
+      "note": "Usage rebounded with increased embedding, background-processing, and application activity."
     },
     {
       "month": "2026-05",
       "label": "May",
-      "selfHostedTokens": 42462989692,
-      "cloudTokens": 5630382748
+      "selfHostedTokens": 42809512637,
+      "cloudTokens": 5283859803,
+      "note": "Overall usage remained relatively steady while workloads shifted toward newer self-hosted and cloud model routes."
     },
     {
       "month": "2026-06",
       "label": "June",
-      "selfHostedTokens": 67837289383,
-      "cloudTokens": 5355089307
+      "selfHostedTokens": 68314520505,
+      "cloudTokens": 4877858185,
+      "note": "June reached the highest volume in the reporting period, driven by broad growth across production applications, embeddings, and automated services."
+    },
+    {
+      "month": "2026-07",
+      "label": "July",
+      "selfHostedTokens": 61460517438,
+      "cloudTokens": 5614002890,
+      "note": "Usage remained elevated but declined from June as application requests, embeddings, and background processing slowed. Growth through newer model routes offset part of the reduction. Lower summer instructional activity accounted for approximately 0.8B tokens, or 12.7% of the decline, so most of the reduction came from application and platform workloads."
     }
   ],
   "notes": [
-    "Commercial API model families are classified as cloud; open-weight model families running on UC-controlled infrastructure are classified as self-hosted.",
-    "Approximately 0.15 billion unattributed probe and test tokens are included in the aggregate total but not in audience-level breakdowns."
-  ]
+    "Cloud follows the reviewed V3 model-route classification. Self-hosted and internal includes all remaining recorded tokens, including internal TritonAI routes.",
+    "The monthly series reconciles to 376,433,425,278 tokens and 124,937,969 request records for January through July 2026.",
+    "The export does not expose cache-read or cache-write token fields, so an upstream token-definition change cannot be completely ruled out.",
+    "July token volume was 6.1 billion tokens, or 8.4%, below June. Gateway requests declined 13.0%. The data-quality review found no meaningful evidence that July excluded token-bearing actions."
+  ],
+  "monthlyDriversIntro": "Month-to-month changes reflect the mix of campus applications, automated services, model routing, and instructional activity using the TritonAI Gateway."
 }

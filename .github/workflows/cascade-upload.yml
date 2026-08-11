@@ -1,21 +1,24 @@
 name: Publish to Cascade
 
-# main    -> publishes to the Production destination
-# preview -> publishes to the Stage destination
+# Manual only. Repository pushes and pull-request merges never upload or publish.
+# Run this workflow from main for Production or preview for Stage.
 #
 # Both branches upload to the SAME content tree in Cascade. Only the publish
 # destination differs. See the note in the config job.
 on:
-  push:
-    branches: [main, preview]
   workflow_dispatch:
     inputs:
       target:
-        description: 'Which destination to publish to'
-        required: false
+        description: 'Which destination to publish to (must match the selected branch)'
+        required: true
         type: choice
-        options: ['', 'main', 'preview']
-        default: ''
+        options: ['preview', 'main']
+        default: 'preview'
+      confirm_production:
+        description: 'Required confirmation when target is main (Production)'
+        required: false
+        type: boolean
+        default: false
       site_name:
         description: 'Override site name'
         required: false
@@ -37,8 +40,8 @@ on:
         type: boolean
         default: false
 
-# Queue per target so a main deploy and a preview deploy never block each
-# other, but two deploys to the same target never overlap.
+# Queue manual runs per selected branch. Two releases to the same target never
+# overlap.
 concurrency:
   group: cascade-${{ github.ref }}
   cancel-in-progress: false
@@ -59,21 +62,30 @@ jobs:
       - id: resolve
         env:
           IN_TARGET: ${{ inputs.target }}
+          IN_CONFIRM_PRODUCTION: ${{ inputs.confirm_production }}
           IN_SITE: ${{ inputs.site_name }}
           IN_ROOT: ${{ inputs.root_path }}
           IN_HOST: ${{ inputs.base_url }}
           IN_PUBLISH: ${{ inputs.publish_id }}
           IN_DEST: ${{ inputs.destination_id }}
         run: |
-          # Branch decides the destination unless a manual run names one.
           target="$IN_TARGET"
-          if [ -z "$target" ]; then
-            case "${{ github.ref }}" in
-              refs/heads/preview) target=preview ;;
-              refs/heads/main)    target=main ;;
-              *) echo "::error::No target mapped for ${{ github.ref }}"; exit 1 ;;
-            esac
-          fi
+          confirm_production="$IN_CONFIRM_PRODUCTION"
+
+          case "$target:${{ github.ref }}" in
+            main:refs/heads/main)
+              if [ "$confirm_production" != "true" ]; then
+                echo "::error::Production publishing requires confirm_production=true"
+                exit 1
+              fi
+              ;;
+            preview:refs/heads/preview) ;;
+            *)
+              echo "::error::Target '$target' does not match selected ref '${{ github.ref }}'"
+              echo "::error::Use main + target=main for Production or preview + target=preview for Stage"
+              exit 1
+              ;;
+          esac
 
           # Shared for every target: one server, one site, one content tree.
           host='https://ucsd.cascadecms.com'
@@ -213,6 +225,7 @@ jobs:
   deploy:
     name: Upload to Cascade
     needs: [config, build]
+    if: needs.build.outputs.should_deploy == 'true'
     runs-on: ubuntu-latest
     environment: ${{ needs.config.outputs.environment }}
     steps:

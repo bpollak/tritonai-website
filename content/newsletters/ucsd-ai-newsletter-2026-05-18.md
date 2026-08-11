@@ -20,7 +20,7 @@ _Monday, May 18, 2026_
 
 ### Microsoft Copilot with Data Protection
 
--   **[Federated Copilot connectors now available](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/federated-copilot-connectors---bringing-real-time-enterprise-data-within-microso/4515993)** — Copilot can connect to external data sources such as HubSpot and Notion. Staff can ask for the data in natural language from Copilot.
+-   **[Federated Copilot connectors now available](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/federated-copilot-connectors---bringing-real-time-enterprise-data-within-microso/4515993)** — Connect Copilot to external data sources like HubSpot, Notion, and more. Ask questions using natural language instead of navigating dashboards.
 
 ### Copilot for Microsoft 365
 
@@ -41,7 +41,7 @@ _Monday, May 18, 2026_
 -   **[AI Webinar #6 — One Year of Innovation with TritonGPT](https://youtu.be/qaRfaAzmBEs)** — Covers "My Documents", model switching, and chat features
 -   **[AI Webinar #5 — Lean Six Sigma vs. AI](https://youtu.be/tAnnUlRP2uo)** — How TritonGPT can support process improvement workflows
 
-**Self-paced:** [UC Learning Module 1: AI Foundations](https://go.ucsd.edu/3FvH9Hf)
+**Self-paced:** [UC Learning Module 1 — AI Foundations](https://go.ucsd.edu/3FvH9Hf)
 
 * * *
 
@@ -49,9 +49,9 @@ _Monday, May 18, 2026_
 
 -   **TritonAI model hub now contains 17 models**: GPT-5.5, Claude Opus, Gemini 3.1, Llama 4 Scout, and Kimi K2.5 are available. Swap models in User Settings to find the right fit for your task.
 
--   **API model hub update:** The hub added two self-hosted models: api-gemma-4-26b for low-cost local inference and api-mistral-small-3.2-2506 for fast completions.
+-   **API model hub update:** New self-hosted models added — api-gemma-4-26b for low-cost local inference and api-mistral-small-3.2-2506 for fast completions.
 
--   **UC San Diego Assistant now has live data tools** — Ask about parking availability or library crowd levels. The Assistant checks current data for its answer.
+-   **UC San Diego Assistant now has live data tools** — Ask about parking lot availability or library crowd levels and get current information, not stale articles.
 
 * * *
 

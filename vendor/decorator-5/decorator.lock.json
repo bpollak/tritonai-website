@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-08-11T16:34:39.622Z",
-  "version": "5.0.3",
+  "fetchedAt": "2026-08-11T22:22:02.751Z",
+  "version": "5.0.4",
   "upstream": {
     "source": "npm",
     "package": "ucsd-decorator-v5",
-    "url": "https://registry.npmjs.org/ucsd-decorator-v5/-/ucsd-decorator-v5-5.0.3.tgz",
-    "integrity": "sha512-WrZSwWztNJxvA6NNhRwyGb/JtvencqSPyTV5l3EVtJLxJV5NDCuZdBj8icwd8ThHITyWGD3C41Zt1987MT2T2w==",
-    "shasum": "92e568f1d1d0c5f450c95f12088e982b2b37561e",
-    "bytes": 29192652,
-    "sha256": "e66ede5b50bce49bc8698a1264ec6a50fd4f1da686c2c6104b3084cded712bcb"
+    "url": "https://registry.npmjs.org/ucsd-decorator-v5/-/ucsd-decorator-v5-5.0.4.tgz",
+    "integrity": "sha512-W3AVj4oo0uSmeHVNpjTDWDdQTCY6MfEP+VOQ2A0lPltmgInt4xsdyOQmI1+qqoOX7+NiX8TkMdOOUrsVJBfohg==",
+    "shasum": "246a2c797e2a38d72285d76ce7b32d5114e6a236",
+    "bytes": 14427137,
+    "sha256": "afa46020d3d57835ed98a2c76d1e805a52b6506bec759a412876b17d6a9fa5ed"
   },
   "referenceTemplate": "templates/two-column.html",
   "assets": [

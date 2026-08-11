@@ -389,6 +389,11 @@ function formatBillions(value) {
 
 function renderGatewayUsage(usage) {
   const maxMonthlyTotal = Math.max(...usage.monthly.map((month) => month.selfHostedTokens + month.cloudTokens));
+  const peakMonth = usage.monthly.reduce((peak, month) => {
+    const total = month.selfHostedTokens + month.cloudTokens;
+    return !peak || total > peak.total ? { ...month, total } : peak;
+  }, null);
+  const latestMonth = usage.monthly.at(-1);
   const metrics = usage.metrics
     .map(
       (metric) =>
@@ -401,16 +406,25 @@ function renderGatewayUsage(usage) {
       const totalWidth = (total / maxMonthlyTotal) * 100;
       const selfHostedWidth = (month.selfHostedTokens / total) * 100;
       const cloudWidth = (month.cloudTokens / total) * 100;
-      return `<li class="gateway-usage-month"><span class="gateway-usage-month-label">${escapeHtml(month.label)}</span><div class="gateway-usage-bar-track" role="img" aria-label="${escapeHtml(month.label)}: ${formatBillions(total)} total tokens; ${formatBillions(month.selfHostedTokens)} self-hosted and ${formatBillions(month.cloudTokens)} cloud"><span class="gateway-usage-bar-total" style="width:${totalWidth.toFixed(4)}%"><span class="gateway-usage-bar-self-hosted" style="width:${selfHostedWidth.toFixed(4)}%"></span><span class="gateway-usage-bar-cloud" style="width:${cloudWidth.toFixed(4)}%"></span></span></div><strong>${formatBillions(total)}</strong></li>`;
+      return `<li class="gateway-usage-month"><span class="gateway-usage-month-label">${escapeHtml(month.label)}</span><div class="gateway-usage-bar-track" role="img" aria-label="${escapeHtml(month.label)}: ${formatBillions(total)} total tokens; ${formatBillions(month.selfHostedTokens)} self-hosted and internal and ${formatBillions(month.cloudTokens)} cloud"><span class="gateway-usage-bar-total" style="width:${totalWidth.toFixed(4)}%"><span class="gateway-usage-bar-self-hosted" style="width:${selfHostedWidth.toFixed(4)}%"></span><span class="gateway-usage-bar-cloud" style="width:${cloudWidth.toFixed(4)}%"></span></span></div><strong>${formatBillions(total)}</strong></li>`;
     })
     .join("");
   const tableRows = usage.monthly
     .map((month) => {
       const total = month.selfHostedTokens + month.cloudTokens;
-      return `<tr><th scope="row">${escapeHtml(month.label)} 2026</th><td>${formatBillions(month.selfHostedTokens)}</td><td>${formatBillions(month.cloudTokens)}</td><td>${formatBillions(total)}</td></tr>`;
+      return `<tr><th scope="row">${escapeHtml(month.label)} ${escapeHtml(month.month.slice(0, 4))}</th><td>${formatBillions(month.selfHostedTokens)}</td><td>${formatBillions(month.cloudTokens)}</td><td>${formatBillions(total)}</td></tr>`;
     })
     .join("");
-  return `<div class="hub-heading gateway-usage-heading"><p class="home-kicker">Gateway usage</p><h2 id="gateway-usage-heading">${escapeHtml(usage.title)}</h2><p>${escapeHtml(usage.summary)}</p></div><ul class="gateway-usage-metrics" aria-label="Gateway usage summary">${metrics}</ul><div class="gateway-usage-trend"><div class="gateway-usage-trend-heading"><div><h3>Monthly token volume</h3><p>Usage rose to a six-month high in June.</p></div><ul class="gateway-usage-legend" aria-label="Chart legend"><li><span class="gateway-usage-key-self-hosted" aria-hidden="true"></span>Self-hosted</li><li><span class="gateway-usage-key-cloud" aria-hidden="true"></span>Cloud</li></ul></div><ol class="gateway-usage-months">${monthRows}</ol></div><details class="gateway-usage-details"><summary>View monthly data and measurement notes</summary><div class="table-responsive"><table class="table"><caption>Gateway token volume by model route, January through June 2026</caption><thead><tr><th scope="col">Month</th><th scope="col">Self-hosted</th><th scope="col">Cloud</th><th scope="col">Total tokens</th></tr></thead><tbody>${tableRows}</tbody></table></div><dl class="gateway-usage-meta"><div><dt>Measurement period</dt><dd>${escapeHtml(usage.measurementPeriod.label)}</dd></div><div><dt>Owner</dt><dd>${escapeHtml(usage.owner)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(usage.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(usage.lastReviewed)}</dd></div></dl><ul class="gateway-usage-notes">${usage.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></details>`;
+  const hasMonthlyDrivers = usage.monthly.some((month) => month.note || month.description);
+  const monthlyDrivers = hasMonthlyDrivers
+    ? `<div class="gateway-usage-monthly-drivers"><h3>Monthly drivers</h3><p class="gateway-usage-monthly-drivers-intro">${escapeHtml(usage.monthlyDriversIntro || "")}</p><ul>${usage.monthly
+        .map((month) => {
+          const total = month.selfHostedTokens + month.cloudTokens;
+          return `<li><strong>${escapeHtml(month.label)}: ${formatBillions(total)} tokens</strong><p>${escapeHtml(month.note || month.description || "")}</p></li>`;
+        })
+        .join("")}</ul></div>`
+    : "";
+  return `<div class="hub-heading gateway-usage-heading"><p class="home-kicker">Gateway usage</p><h2 id="gateway-usage-heading">${escapeHtml(usage.title)}</h2><p>${escapeHtml(usage.summary)}</p></div><ul class="gateway-usage-metrics" aria-label="Gateway usage summary">${metrics}</ul><div class="gateway-usage-trend"><div class="gateway-usage-trend-heading"><div><h3>Monthly token volume</h3><p>${escapeHtml(peakMonth.label)} was the highest-volume month through ${escapeHtml(latestMonth.label)}.</p></div><ul class="gateway-usage-legend" aria-label="Chart legend"><li><span class="gateway-usage-key-self-hosted" aria-hidden="true"></span>Self-hosted and internal</li><li><span class="gateway-usage-key-cloud" aria-hidden="true"></span>Cloud</li></ul></div><ol class="gateway-usage-months">${monthRows}</ol></div><details class="gateway-usage-details"><summary>View monthly data and measurement notes</summary><div class="table-responsive"><table class="table"><caption>Gateway token volume by model route, ${escapeHtml(usage.measurementPeriod.label)}</caption><thead><tr><th scope="col">Month</th><th scope="col">Self-hosted and internal</th><th scope="col">Cloud</th><th scope="col">Total tokens</th></tr></thead><tbody>${tableRows}</tbody></table></div>${monthlyDrivers}<dl class="gateway-usage-meta"><div><dt>Measurement period</dt><dd>${escapeHtml(usage.measurementPeriod.label)}</dd></div><div><dt>Owner</dt><dd>${escapeHtml(usage.owner)}</dd></div><div><dt>Data classification</dt><dd>${escapeHtml(usage.dataClassification)}</dd></div><div><dt>Last reviewed</dt><dd>${escapeHtml(usage.lastReviewed)}</dd></div></dl><ul class="gateway-usage-notes">${usage.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></details>`;
 }
 
 function renderHomeHero(hero) {

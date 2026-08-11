@@ -63,7 +63,7 @@ from `vendor/decorator-5/templates/` instead.
 
 The full Decorator contract — protected-region markup, component extraction,
 navigation, accessibility, security — lives in the `ucsd-decorator` skill in
-[`ucsd-decorator-kit`](https://github.com/chorta/ucsd-decorator-kit). Install it
+[`decorator-kit`](https://github.com/UCSD/decorator-kit). Install it
 as a Claude Code plugin, or copy `skills/ucsd-decorator/` into `.claude/skills/`
 (untracked here). Read it before touching anything outside the canvas.
 
@@ -112,6 +112,8 @@ Do not add new broken internal targets.
 ## Publishing
 
 Use focused pull requests. Keep generated `dist/` files out of commits; GitHub Actions builds them. A merge to `main` deploys the Pages staging site.
+
+**Never deploy to Vercel.** This repo publishes exclusively through its own pipeline (GitHub Actions → Pages staging on merge to `main`, then a manual confirmed production run from `main`). Do not run the `vercel` CLI, do not push to a Vercel git integration, and do not wire Vercel into this repo — even though a `vercel` CLI happens to be installed on the working machine. Deployment is the content owner's action, never the agent's. When a change is ready, open a PR and stop; review, merge, and publishing belong to the human owner.
 
 ### Commit identity
 

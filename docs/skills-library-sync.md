@@ -28,13 +28,13 @@ The first production release after a migration will not short-circuit: the relea
 1. `npm run sync:skills` resolves the source repository's current default-branch commit.
 2. The script validates the required skill frontmatter, inventories supporting files, and writes `content/skills/library.json`.
 3. The site build renders the catalog with links pinned to that exact source commit.
-4. The GitHub Pages workflow runs the sync for pull requests, main pushes, its hourly staging schedule, repository events, and manual runs.
-5. The Cascade workflow runs the sync before main-branch and manual production releases. It also checks production once per day and when the Skills Library sends a `skills-library-updated` repository event.
-6. Daily and repository-triggered production runs compare the refreshed source commit with the commit shown on the live catalog. They build, validate, upload, and publish through Cascade only when production needs the update.
+4. The GitHub Pages workflow refreshes the catalog for review builds according to its configured preview triggers.
+5. The manual Cascade workflow runs the sync before an approved Production or Stage release.
+6. The release gate compares the refreshed source commit with the commit shown on the live catalog and stops before upload when production already has that version.
 
-The daily production check runs at 13:27 UTC. Normal source-repository changes enter the standard Cascade publishing path on the next check and do not require a site commit. For an immediate refresh, dispatch a `skills-library-updated` repository event to `bpollak/tritonai-website` or start the Cascade workflow manually.
+Normal source-repository changes remain in source control and the review site until an authorized maintainer starts the Cascade workflow manually.
 
-If synchronization or validation fails, the workflow stops before deployment and the last successful site remains live. If production already carries the current source commit, the daily job stops before the build and Cascade upload. The committed JSON snapshot also permits deterministic local builds without making GitHub API requests.
+If synchronization or validation fails, the workflow stops before deployment and the last successful site remains live. If production already carries the current source commit, the manual release stops before the build and Cascade upload. The committed JSON snapshot also permits deterministic local builds without making GitHub API requests.
 
 ## Source contract
 
