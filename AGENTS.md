@@ -111,9 +111,44 @@ Do not add new broken internal targets.
 
 ## Publishing
 
-Use focused pull requests. Keep generated `dist/` files out of commits; GitHub Actions builds them. A merge to `main` deploys the Pages staging site.
+The branch is the destination. Push to it and it publishes; nothing else starts
+a release.
 
-**Never deploy to Vercel.** This repo publishes exclusively through its own pipeline (GitHub Actions → Pages staging on merge to `main`, then a manual confirmed production run from `main`). Do not run the `vercel` CLI, do not push to a Vercel git integration, and do not wire Vercel into this repo — even though a `vercel` CLI happens to be installed on the working machine. Deployment is the content owner's action, never the agent's. When a change is ready, open a PR and stop; review, merge, and publishing belong to the human owner.
+| Branch | Publishes to | For |
+|---|---|---|
+| `playground` | GitHub Pages | Experiments. Safe to break, not campus facing. |
+| `preview` | Cascade **Stage** | The real CMS, for looking at before it counts. |
+| `main` | Cascade **Production** | `tritonai.ucsd.edu`. |
+
+Keep generated `dist/` files out of commits; GitHub Actions builds them.
+
+No pull request is required. Reviewing diffs is not how this site is checked —
+what matters is the rendered page on the rung below. Work on `playground` or
+`preview`, look at the result, and move it up when it reads correctly.
+
+**The gate is what stands between a change and publication.** Every push runs
+the full validation suite, and a failure means nothing is uploaded, so the
+previously published site stays up. It does not stop the commit from landing on
+the branch, so a red build leaves that branch unpublishable until it is fixed.
+Fix forward on the same branch rather than leaving it broken.
+
+After pushing, confirm the run rather than assuming it passed:
+
+```bash
+gh run watch --exit-status
+```
+
+Report the published URL when it succeeds, or the failing rule when it does not.
+Never report a change as live without checking.
+
+**Never deploy to Vercel**, and do not wire it into this repo — even though a
+`vercel` CLI happens to be installed on the working machine. This repo publishes
+only through the branches above. Do not add deployment integrations, and do not
+publish by any route other than pushing to a branch.
+
+**Promoting is a human decision.** An agent may push to `playground` freely. It
+moves work to `preview` or `main` only when asked to, because those rungs are
+what people look at and what the campus sees.
 
 ### Commit identity
 
