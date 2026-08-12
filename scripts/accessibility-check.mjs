@@ -125,6 +125,11 @@ for (const result of pages) {
     }
     if (viewport.interactions?.mobileToggle === "fail") failures.push(`${label}: mobile navigation keyboard check failed`);
     if (viewport.interactions?.mobileSearch === "fail") failures.push(`${label}: mobile navigation search check failed`);
+    if (viewport.interactions?.drawerSearchBreakpoint === "fail") {
+      failures.push(
+        `${label}: drawer search does not match the Decorator across 768px — below it the panel must be #search and laid out, above it #search-m and hidden. Check for site CSS or JS reaching into the shell (npm run chrome:check).`,
+      );
+    }
     if (viewport.interactions?.desktopDropdown === "fail") failures.push(`${label}: desktop navigation keyboard check failed`);
   }
 }

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "note": "Exceptions to chrome/styling/*, the rule that site-authored CSS and JS may not target the Decorator shell. The protected token set is derived on every run from the built pages — every class and id that appears inside a chrome region and nowhere inside main#main-content — so this file holds only what cannot be derived: tokens for campus widgets that inject themselves at runtime, and reviewed exceptions. Every exception carries a reason and a reviewOn date; past that date it stops applying and reports itself.",
+  "widgetTokens": [
+    "#chat-bubble",
+    "#chat-widget",
+    "#chat-header",
+    "#chat-messages",
+    "#chat-input",
+    "#chat-footer",
+    "#message-input",
+    "#send-btn",
+    "#close-btn",
+    "#menu-btn",
+    "#menu-close-btn",
+    "#info-menu",
+    "#info-menu-container"
+  ],
+  "widgetTokensNote": "Ids owned by the TritonGPT widget's own stylesheet (cdn.ucsd.edu/tritongpt/widget/css/tgpt.css). The widget builds its launcher and panel after load, so these never appear in the built markup and cannot be derived from it. The site takes what the loader renders. Only ids are listed: the widget's class names include generic words like .message and .user that a canvas component may legitimately own.",
+  "allow": [
+    {
+      "file": "src/site/_resources/css/agent-site.css",
+      "selector": ".agent-page #mobile-navigation .navbar-toggle[data-tritonai-mobile-close]",
+      "reason": "The drawer's screen-reader Close Nav button is a floated 20px box that indents the first menu row's line box. position:absolute takes it out of flow and leaves it clipped and focusable. It repairs layout rather than restyling the shell, and the button is site markup that the pristine Decorator templates do not carry.",
+      "reviewOn": "2027-02-12"
+    },
+    {
+      "file": "src/site/_resources/js/site-navigation.js",
+      "selector": "function:removeClonedNavigationIds",
+      "reason": "Jasny Bootstrap clones the offcanvas drawer into the body on open. The clone duplicates every id in the drawer, including the ones the Decorator manages. Stripping ids from the clone only — never from the original — is what keeps the originals resolvable.",
+      "reviewOn": "2027-02-12"
+    }
+  ]
+}

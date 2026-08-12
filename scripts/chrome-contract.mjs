@@ -17,6 +17,13 @@ import {
   loadChromeSelectors,
   regionElements,
 } from "./lib/chrome-contract.mjs";
+import {
+  collectTokens,
+  deriveProtectedTokens,
+  loadStylingPolicy,
+  scanScript,
+  scanStylesheet,
+} from "./lib/chrome-styling.mjs";
 
 // Standalone runner for the chrome integrity gate. `npm run validate` runs the
 // same checks as part of the full suite; this exists so an agent that trips the
@@ -31,6 +38,10 @@ import {
 const DIST_DIR = path.resolve("dist");
 const SITE_BASE_PATH = (process.env.SITE_BASE_PATH || "").replace(/^\/+|\/+$/g, "");
 const STANDALONE_ROUTES = new Set(["/presentations/managing-the-tritonai-website.html"]);
+// Tier 4 reads the sources rather than dist, so a finding points at the file to
+// edit. The copies under dist/_resources are byte-identical.
+const SITE_CSS_DIR = path.resolve("src/site/_resources/css");
+const SITE_JS_DIR = path.resolve("src/site/_resources/js");
 
 function hasFlag(name) {
   return process.argv.includes(`--${name}`);
@@ -57,6 +68,8 @@ export async function collectChrome(distDir = DIST_DIR, basePath = SITE_BASE_PAT
   const files = (await listFiles(distDir)).filter((file) => file.endsWith(".html"));
   const regionsByRoute = new Map();
   const structural = [...expired];
+  const chromeTokens = new Set();
+  const canvasTokens = new Set();
 
   for (const file of files) {
     const route = file === "index.html" ? "/" : `/${file}`;
@@ -66,23 +79,50 @@ export async function collectChrome(distDir = DIST_DIR, basePath = SITE_BASE_PAT
     for (const finding of checkStructuralRules($, regionElements($), rules, { route, basePath })) {
       structural.push({ page: route, ...finding });
     }
+    for (const node of Object.values(regionElements($))) collectTokens($, node, chromeTokens);
+    const canvas = $(CANVAS_SELECTOR).first();
+    if (canvas.length) collectTokens($, canvas, canvasTokens);
   }
-  return { regionsByRoute, structural, ruleCount: rules.length };
+  return { regionsByRoute, structural, ruleCount: rules.length, chromeTokens, canvasTokens };
+}
+
+/**
+ * Tier 4: no site-authored stylesheet or script may reach into the shell.
+ * Derives the protected token set from what the pages actually render, so it
+ * tracks the Decorator instead of a hand-maintained list.
+ */
+export async function collectStyling({ chromeTokens, canvasTokens }) {
+  const { allow, expired, widgetTokens } = await loadStylingPolicy();
+  const tokens = deriveProtectedTokens({ chromeTokens, canvasTokens, widgetTokens });
+  const findings = [...expired];
+
+  for (const file of (await readdir(SITE_CSS_DIR)).filter((name) => name.endsWith(".css"))) {
+    const relative = `src/site/_resources/css/${file}`;
+    findings.push(...scanStylesheet(await readFile(path.join(SITE_CSS_DIR, file), "utf8"), relative, tokens, allow));
+  }
+  for (const file of (await readdir(SITE_JS_DIR)).filter((name) => name.endsWith(".js") && !name.endsWith(".min.js"))) {
+    const relative = `src/site/_resources/js/${file}`;
+    findings.push(...scanScript(await readFile(path.join(SITE_JS_DIR, file), "utf8"), relative, tokens, allow));
+  }
+  return { findings, tokenCount: tokens.size };
 }
 
 export async function runTiers(distDir = DIST_DIR, basePath = SITE_BASE_PATH) {
-  const { regionsByRoute, structural, ruleCount } = await collectChrome(distDir, basePath);
+  const { regionsByRoute, structural, ruleCount, chromeTokens, canvasTokens } = await collectChrome(distDir, basePath);
   const contract = await loadChromeContract();
+  const styling = await collectStyling({ chromeTokens, canvasTokens });
   return {
     regionsByRoute,
     ruleCount,
+    tokenCount: styling.tokenCount,
     tier1: checkCrossPageConsistency(regionsByRoute),
     tier2: checkGoldenFingerprint(regionsByRoute, contract),
     tier3: foldByRule(structural),
+    tier4: styling.findings,
   };
 }
 
-function explain(ruleCount) {
+function explain(ruleCount, tokenCount) {
   const lines = [
     "Protected page chrome — these regions are shared by every route and are not editable as content:",
     "",
@@ -95,16 +135,24 @@ function explain(ruleCount) {
   lines.push(`Writable canvas: ${CANVAS_SELECTOR}`);
   lines.push("");
   lines.push("Everything a page says belongs inside the canvas. The chrome comes from the");
-  lines.push("shared UC San Diego Decorator shell and is pinned by three checks:");
+  lines.push("shared UC San Diego Decorator shell and is pinned by four checks:");
   lines.push("");
   lines.push("  chrome/consistent/*  every route must carry identical chrome");
   lines.push("  chrome/golden/*      the chrome must match config/chrome-contract.json");
   lines.push(`  chrome/structure/*   the chrome must satisfy ${ruleCount} selector rules derived`);
   lines.push("                       from the pristine templates in vendor/decorator-5/");
+  lines.push(`  chrome/styling/*     no site CSS or JS may target the shell (${tokenCount} protected`);
+  lines.push("                       class and id tokens, derived from the built pages)");
   lines.push("");
   lines.push("A golden mismatch can be accepted with `npm run chrome:accept` once a human");
-  lines.push("has reviewed the diff. A structural violation cannot — restore the markup from");
-  lines.push("the vendor template instead.");
+  lines.push("has reviewed the diff. A structural or styling violation cannot — restore the");
+  lines.push("markup from the vendor template, or move the rule inside the canvas.");
+  lines.push("");
+  lines.push("CSS and JS for main#main-content are yours. The shell carries its own");
+  lines.push("presentation and its own responsive behavior from cdn.ucsd.edu; an override");
+  lines.push("here does not follow it across a breakpoint. Record a reviewed exception in");
+  lines.push("config/chrome-styling.json only when a rule repairs layout rather than");
+  lines.push("restyling the shell.");
   lines.push("");
   lines.push("If a task genuinely requires a chrome change, say so and stop. Do not edit the");
   lines.push("shell to make a content change fit.");
@@ -114,14 +162,16 @@ function explain(ruleCount) {
 async function main() {
   if (hasFlag("explain")) {
     const { rules } = await loadChromeSelectors();
-    console.log(explain(rules.length));
+    const { chromeTokens, canvasTokens } = await collectChrome();
+    const { tokenCount } = await collectStyling({ chromeTokens, canvasTokens });
+    console.log(explain(rules.length, tokenCount));
     return;
   }
 
-  const { regionsByRoute, tier1, tier2, tier3, ruleCount } = await runTiers();
+  const { regionsByRoute, tier1, tier2, tier3, tier4, ruleCount, tokenCount } = await runTiers();
 
   if (hasFlag("accept")) {
-    const blocking = [...tier1, ...tier3];
+    const blocking = [...tier1, ...tier3, ...tier4];
     if (blocking.length) {
       console.error(formatFindings(blocking));
       console.error("");
@@ -129,7 +179,9 @@ async function main() {
       console.error(
         tier1.length
           ? "Routes disagree about the chrome. Accepting now would bake one route's drift into the contract."
-          : "The chrome violates a structural rule. Accepting now would record the regression as the new baseline.",
+          : tier3.length
+            ? "The chrome violates a structural rule. Accepting now would record the regression as the new baseline."
+            : "Site CSS or JS targets the shell. The golden records markup, so accepting would not make that rule legitimate — move it inside the canvas.",
       );
       process.exitCode = 1;
       return;
@@ -150,10 +202,10 @@ async function main() {
     return;
   }
 
-  const findings = [...tier1, ...tier2, ...tier3];
+  const findings = [...tier1, ...tier2, ...tier3, ...tier4];
   if (!findings.length) {
     console.log(
-      `Chrome integrity gate passed: ${regionsByRoute.size} routes, ${CHROME_REGIONS.length} protected regions, ${ruleCount} structural rules.`,
+      `Chrome integrity gate passed: ${regionsByRoute.size} routes, ${CHROME_REGIONS.length} protected regions, ${ruleCount} structural rules, ${tokenCount} protected style tokens.`,
     );
     return;
   }

@@ -45,7 +45,7 @@ the title band, the mobile offcanvas drawer (including its search form), the
 desktop navbar (including its search form and the mobile toggle), the footer,
 and the TritonGPT widget loader. Run `npm run chrome:explain` for the selectors.
 
-Three checks run inside `npm run validate` and fail the build:
+Four checks run inside `npm run validate` and fail the build:
 
 - `chrome/consistent/*` — every route must carry identical chrome.
 - `chrome/golden/*` — the chrome must match `config/chrome-contract.json`.
@@ -53,6 +53,8 @@ Three checks run inside `npm run validate` and fail the build:
   `config/chrome-selectors.json`, derived from the pristine templates in
   `vendor/decorator-5/`, plus the site-specific rules in
   `config/chrome-selectors.local.json`.
+- `chrome/styling/*` — no site-authored stylesheet or script may target the
+  shell. See "The shell is not yours to style" below.
 
 A golden mismatch is an intentional presentation change once a human has read
 the diff: run `npm run chrome:accept` and commit the config diff alongside the
@@ -76,6 +78,46 @@ Two rules that cover how these regressions actually happen:
 - **If a task appears to require a chrome change, stop and say so.** Do not
   reshape the shell to make a content change fit.
 
+### The shell is not yours to style
+
+CSS and JavaScript for `main#main-content` are the point of this repository.
+Write as much of both as the work needs. The shell is different: it arrives
+styled and scripted from `cdn.ucsd.edu`, including responsive behavior that an
+override in this repository will not follow.
+
+The Decorator's `base.min.js` runs `toggleIdsAndClassesBasedOnScreenWidth()` on
+load and on every resize. Below 768px it renames the drawer search panel from
+`#search-m` to `#search` and the term input's class and name from
+`search-term-m` to `search-term`; above 768px it puts them back. Its own
+stylesheet then styles the drawer search through
+`.offcanvas > ul.nav.navbar-nav.navbar-right #search`. That id is the hook. None
+of it is visible from `vendor/decorator-5/`, which pins templates and `base.css`
+but not the CDN scripts.
+
+So `chrome/styling/*` fails the build on:
+
+- a selector in `src/site/_resources/css/*.css` that targets a protected token —
+  every class and id that appears inside a chrome region on a built page and
+  nowhere inside the canvas, derived on each run, plus the campus-widget ids in
+  `config/chrome-styling.json`;
+- an id rewrite (`removeAttribute("id")`, `setAttribute("id", …)`, `.id =`) in a
+  script under `src/site/_resources/js/` that references the shell.
+
+A token the canvas also uses is a shared Bootstrap primitive and is not
+protected, so a content component adopting `.dropdown` releases it without
+anyone editing a list.
+
+`npm run test:a11y` additionally asserts the rendered result at both viewports:
+below 768px the drawer search panel is `#search`, laid out, and at least 49px
+tall; above it the panel is `#search-m` and hidden. A markup-only check cannot
+see either failure — all three chrome regressions that reached production in
+2026 passed tiers 1 through 3 with a green build.
+
+If a rule genuinely repairs layout rather than restyling the shell, add it to
+the `allow` list in `config/chrome-styling.json` with a reason and a `reviewOn`
+date. The exception stops applying on that date and reports itself. An agent may
+not add one on its own — ask the content owner, quote the rule, and wait.
+
 ### If the gate fails
 
 Every failure names its rule. Read the prefix first — it determines what to do,
@@ -92,6 +134,12 @@ from memory and do not copy it out of a browser.
 message names a reference route that still has it right; make the odd one match.
 This usually means a shell edit was made without updating the 31 legacy pages
 under `src/site/`, so the fix is to finish the edit rather than revert it.
+
+**`chrome/styling/…`** — a site stylesheet or script reached into the shell. The
+message names the file, the line, and which protected tokens the selector hit.
+`npm run chrome:accept` refuses while one is outstanding, because the golden
+records markup and the markup is fine. Move the rule inside `main#main-content`,
+or delete it and let the Decorator's own stylesheet render the region.
 
 **`chrome/golden/…`** alone, with neither of the above — the shared chrome moved
 away from `config/chrome-contract.json`. This is the only failure that can be a

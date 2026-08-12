@@ -80,8 +80,55 @@ export async function visit(page, url, { settleMs = 600 } = {}) {
   await preparePage(page);
 }
 
+/**
+ * The Decorator owns the drawer search across 768px, and it does so through an
+ * id it rewrites at runtime: `base.min.js` renames `#search-m` to `#search`
+ * below the breakpoint, and `base.min.css` styles the panel through
+ * `.offcanvas > ul.nav.navbar-nav.navbar-right #search`. Site CSS that reaches
+ * in, or site JS that touches those ids, breaks the drawer with the markup
+ * still intact — so this asserts the rendered result on both sides of the
+ * breakpoint rather than the markup.
+ */
+async function drawerSearchBreakpoint(page, width) {
+  // The Decorator rewrites these ids in its own resize handler, which only runs
+  // once base.min.js has loaded. Measuring before that reads the build's markup
+  // rather than the rendered result.
+  await page.waitForFunction(
+    () => typeof window.toggleIdsAndClassesBasedOnScreenWidth === "function",
+    null,
+    { timeout: 3000 },
+  ).catch(() => {});
+  return page.evaluate((viewportWidth) => {
+    const drawer = document.getElementById("mobile-navigation");
+    const panel = drawer?.querySelector(".msearch .search-content");
+    const term = drawer?.querySelector(".msearch input[type='search']");
+    if (!panel || !term) return "not-present";
+    const display = getComputedStyle(panel).display;
+    if (viewportWidth >= 768) {
+      // Above the breakpoint the Decorator hands the ids back and its own
+      // stylesheet hides the panel. A site override would keep it laid out.
+      return display === "none" && panel.id === "search-m" && term.classList.contains("search-term-m")
+        ? "pass"
+        : "fail";
+    }
+    // Below it, the panel is laid out inside the open drawer. The caller has the
+    // drawer open, so height is measurable here.
+    return display !== "none"
+      && panel.id === "search"
+      && term.classList.contains("search-term")
+      && panel.getBoundingClientRect().height >= 49
+      ? "pass"
+      : "fail";
+  }, width);
+}
+
 export async function interactionChecks(page, width) {
-  const outcome = { mobileToggle: "not-present", mobileSearch: "not-applicable", desktopDropdown: "not-present" };
+  const outcome = {
+    mobileToggle: "not-present",
+    mobileSearch: "not-applicable",
+    desktopDropdown: "not-present",
+    drawerSearchBreakpoint: "not-present",
+  };
   const mobileToggle = page.locator("[data-tritonai-mobile-toggle]").first();
   if (await mobileToggle.count()) {
     const before = await mobileToggle.getAttribute("aria-expanded");
@@ -130,6 +177,9 @@ export async function interactionChecks(page, width) {
         && await scope.evaluate((element) => element === document.activeElement)
       ) ? "pass" : "fail";
     }
+    // Measured with the drawer open below 768px, closed above it — which is the
+    // state each side of the breakpoint is supposed to be in.
+    outcome.drawerSearchBreakpoint = await drawerSearchBreakpoint(page, width);
     if (width < 768 && after === "true") await mobileToggle.press("Escape");
   }
   const dropdown = page.locator("[data-tritonai-nav-dropdown]").first();

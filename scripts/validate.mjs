@@ -13,6 +13,8 @@ import {
   loadChromeSelectors,
   regionElements,
 } from "./lib/chrome-contract.mjs";
+import { collectTokens } from "./lib/chrome-styling.mjs";
+import { collectStyling } from "./chrome-contract.mjs";
 import { loadSkillsSource } from "./lib/skills-source.mjs";
 
 const DIST_DIR = path.resolve("dist");
@@ -176,6 +178,10 @@ const analytics = [];
 // Decorator shell itself. See scripts/lib/chrome-contract.mjs.
 const chrome = [];
 const chromeByRoute = new Map();
+// Tier 4 needs the class and id tokens each route renders inside the shell and
+// inside the canvas, so they are collected in the same pass as tier 3.
+const chromeTokens = new Set();
+const canvasTokens = new Set();
 const { rules: chromeSelectorRules, expired: expiredChromeExceptions } = await loadChromeSelectors();
 chrome.push(...expiredChromeExceptions);
 
@@ -428,9 +434,13 @@ for (const page of htmlFiles) {
     // Tier 3 needs the live cheerio nodes, so it runs here; tiers 1 and 2 need
     // the whole corpus and run after the loop.
     chromeByRoute.set(route, extractChrome($, { route, basePath: SITE_BASE_PATH }));
-    for (const finding of checkStructuralRules($, regionElements($), chromeSelectorRules, { route, basePath: SITE_BASE_PATH })) {
+    const regions = regionElements($);
+    for (const finding of checkStructuralRules($, regions, chromeSelectorRules, { route, basePath: SITE_BASE_PATH })) {
       chrome.push({ page: route, ...finding });
     }
+    for (const node of Object.values(regions)) collectTokens($, node, chromeTokens);
+    const canvas = $("main#main-content").first();
+    if (canvas.length) collectTokens($, canvas, canvasTokens);
   }
   if (!$("body").hasClass("agent-page")) {
     decorator.push({ page: route, issue: "Page is missing the shared Decorator extension class" });
@@ -1136,6 +1146,10 @@ for (const [title, routes] of metadataTitles) {
   chrome.push(...foldByRule(structural));
   chrome.push(...checkCrossPageConsistency(chromeByRoute));
   chrome.push(...checkGoldenFingerprint(chromeByRoute, await loadChromeContract()));
+  // Tier 4 reads the site's own stylesheets and scripts rather than the routes:
+  // the shell's markup can be intact while site CSS restyles it and site JS
+  // rewrites its ids.
+  chrome.push(...(await collectStyling({ chromeTokens, canvasTokens })).findings);
 }
 
 for (const filename of files.filter((file) => file.startsWith("_resources/css/") && file.endsWith(".css"))) {
