@@ -217,6 +217,12 @@ const gatewayUsageContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "fa
 const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/library.json"), "utf8"));
 const homeHeroContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "home/hero.json"), "utf8"));
 const siteContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "site.json"), "utf8"));
+const seoContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "seo.json"), "utf8"));
+for (const [route, settings] of Object.entries(seoContent.routes || {})) {
+  if (settings.schemaAbout !== undefined && (!Array.isArray(settings.schemaAbout) || !settings.schemaAbout.length || settings.schemaAbout.some((name) => typeof name !== "string" || !name.trim()))) {
+    contentFindings.push({ source: `seo.json#${route}`, issue: "schemaAbout must contain one or more non-empty topic names" });
+  }
+}
 const roadmapRequired = ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"];
 const roadmapMissing = missingFields(roadmapContent, roadmapRequired);
 if (roadmapMissing.length) contentFindings.push({ source: "roadmap/milestones.json", issue: `Missing fields: ${roadmapMissing.join(", ")}` });
@@ -762,6 +768,11 @@ for (const page of htmlFiles) {
   }
   for (const element of $("img").toArray()) {
     const image = $(element);
+    const localImagePath = toLocalPath(image.attr("src"), page);
+    if (localImagePath?.startsWith("/_images/") && !image.hasClass("first-slide")) {
+      if (image.attr("loading") !== "lazy") performance.push({ page: route, issue: `Local image must load lazily: ${localImagePath}` });
+      if (image.attr("decoding") !== "async") performance.push({ page: route, issue: `Local image must decode asynchronously: ${localImagePath}` });
+    }
     const fallback = image.attr("data-fallback-src") || image.attr("src");
     const fallbackSize = await localAssetSize(fallback, page);
     if (!fallbackSize || fallbackSize <= imageBudgetBytes) continue;
@@ -810,8 +821,11 @@ for (const page of htmlFiles) {
   else if (!/noindex/i.test(robots)) {
     if (!metadataTitles.has(title)) metadataTitles.set(title, []);
     metadataTitles.get(title).push(route);
+    if (title.length > 65) metadata.push({ page: route, issue: `Indexable title exceeds 65 characters: ${title.length}` });
   }
-  if (!$("meta[name='description']").attr("content")) metadata.push({ page: route, issue: "Missing description" });
+  const metaDescription = $("meta[name='description']").attr("content") || "";
+  if (!metaDescription) metadata.push({ page: route, issue: "Missing description" });
+  else if (!/noindex/i.test(robots) && metaDescription.length > 155) metadata.push({ page: route, issue: `Indexable description exceeds 155 characters: ${metaDescription.length}` });
   if (!$("meta[property='og:title']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph title" });
   if (!$("meta[property='og:description']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph description" });
   if (!$("meta[property='og:url']").attr("content")) metadata.push({ page: route, issue: "Missing Open Graph URL" });
@@ -827,7 +841,23 @@ for (const page of htmlFiles) {
   if (!schemaSource) metadata.push({ page: route, issue: "Missing JSON-LD" });
   else {
     try {
-      JSON.parse(schemaSource);
+      const parsedSchema = JSON.parse(schemaSource);
+      const schemaNodes = Array.isArray(parsedSchema) ? parsedSchema : [parsedSchema];
+      const pageSchema = schemaNodes.find((node) => node?.["@type"] === "WebSite" || node?.["@type"] === "WebPage");
+      if (!pageSchema) metadata.push({ page: route, issue: "JSON-LD is missing a WebSite or WebPage node" });
+      else {
+        if (pageSchema.inLanguage !== "en-US") metadata.push({ page: route, issue: "JSON-LD must identify en-US content" });
+        if (pageSchema.publisher?.["@id"] !== `${OFFICIAL_ORIGIN}/#organization`) metadata.push({ page: route, issue: "JSON-LD publisher must reference UC San Diego" });
+        const expectedTopics = seoContent.routes?.[route]?.schemaAbout || [];
+        const renderedTopics = (pageSchema.about || []).map((entry) => entry?.name).filter(Boolean);
+        if (expectedTopics.some((topic) => !renderedTopics.includes(topic))) metadata.push({ page: route, issue: "JSON-LD is missing configured search topics" });
+      }
+      if (route === "/") {
+        const website = schemaNodes.find((node) => node?.["@type"] === "WebSite");
+        const organization = schemaNodes.find((node) => node?.["@type"] === "Organization");
+        if (website?.name !== siteContent.name || website?.["@id"] !== `${OFFICIAL_ORIGIN}/#website`) metadata.push({ page: route, issue: "Homepage WebSite schema must identify TritonAI" });
+        if (organization?.["@id"] !== `${OFFICIAL_ORIGIN}/#organization` || organization?.name !== "University of California San Diego") metadata.push({ page: route, issue: "Homepage schema must identify UC San Diego as publisher" });
+      }
     } catch (error) {
       metadata.push({ page: route, issue: `Invalid JSON-LD: ${error.message}` });
     }
@@ -1070,6 +1100,14 @@ for (const page of htmlFiles) {
     const inactiveHeroImages = $("#heroslider .item:not(.active) img.first-slide");
     if (multipleHeroSlides && (!inactiveHeroImages.length || inactiveHeroImages.filter("[data-src$='.webp']").length !== inactiveHeroImages.length)) {
       performance.push({ page: route, issue: "Inactive hero images must use deferred optimized sources" });
+    }
+    const activeHeroImage = $("#heroslider .item.active img.first-slide");
+    const desktopHeroSource = $("#heroslider .item.active picture source[media='(min-width: 768px)']");
+    if (!/TritonAI_Hero_828\.webp(?:$|[?#])/.test(activeHeroImage.attr("src") || "") || activeHeroImage.attr("fetchpriority") !== "high") {
+      performance.push({ page: route, issue: "Homepage must prioritize the mobile-sized hero image" });
+    }
+    if (!/TritonAI_Hero_2500\.webp(?:$|[?#])/.test(desktopHeroSource.attr("srcset") || "")) {
+      performance.push({ page: route, issue: "Homepage hero must provide the full-width source at the desktop breakpoint" });
     }
     if ($("[data-today-news]").length !== 1 || $("[data-today-news-cards]").length !== 1 || $("[data-today-news-status]").length !== 1) {
       contentFindings.push({ source: route, issue: "Today@UCSD news module is missing required hooks" });

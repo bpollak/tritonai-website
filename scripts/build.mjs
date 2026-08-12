@@ -283,7 +283,7 @@ function renderUseCaseCards(useCases) {
     .map((useCase) => {
       const image = USE_CASE_MEDIA[useCase.slug];
       const imageHtml = image
-        ? `<a class="use-case-card-image" href="${escapeHtml(useCase.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a>`
+        ? `<a class="use-case-card-image" href="${escapeHtml(useCase.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(useCaseCardSource(image.src))}" width="768" height="432"></a>`
         : "";
       return `<div class="col-sm-6 col-md-4"><article class="panel panel-default agent-card use-case-card">${imageHtml}<div class="panel-body"><span class="glyphicon glyphicon-${USE_CASE_ICON_MAP[useCase.slug] || "star"} use-case-card-icon" aria-hidden="true"></span>${renderStatus(useCase.status)}<h2 class="h3"><a href="${escapeHtml(useCase.canonicalUrl)}">${escapeHtml(useCase.title)}</a></h2><p>${escapeHtml(useCase.summary)}</p><p><strong>Measure:</strong> ${escapeHtml(useCase.measurableOutcome)}</p></div></article></div>`;
     })
@@ -296,19 +296,23 @@ function featuredUseCases(useCases) {
   return FEATURED_USE_CASE_SLUGS.map((slug) => useCases.find((entry) => entry.slug === slug)).filter(Boolean);
 }
 
+function useCaseCardSource(source) {
+  return source.replace(/\.webp$/i, "-768.webp");
+}
+
 function renderUseCaseIndex(useCases) {
   const featured = featuredUseCases(useCases);
   const remaining = useCases.filter((entry) => !FEATURED_USE_CASE_SLUGS.includes(entry.slug));
   const featuredHtml = featured
     .map((entry) => {
       const image = USE_CASE_MEDIA[entry.slug];
-      return `<div class="col-md-4"><article class="panel panel-default cms-news-card cms-use-case-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
+      return `<div class="col-md-4"><article class="panel panel-default cms-news-card cms-use-case-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(useCaseCardSource(image.src))}" width="768" height="432"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
     })
     .join("");
   const remainingHtml = remaining
     .map((entry) => {
       const image = USE_CASE_MEDIA[entry.slug];
-      return `<div class="col-sm-6 col-md-4"><article class="panel panel-default cms-news-card cms-use-case-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(image.src)}"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
+      return `<div class="col-sm-6 col-md-4"><article class="panel panel-default cms-news-card cms-use-case-card"><a class="cms-news-image" href="${escapeHtml(entry.canonicalUrl)}"><img alt="${escapeHtml(image.alt)}" class="img-responsive" src="${escapeHtml(useCaseCardSource(image.src))}" width="768" height="432"></a><div class="panel-body">${renderStatus(entry.status)}<h3><a href="${escapeHtml(entry.canonicalUrl)}">${escapeHtml(entry.title)}</a></h3><p>${escapeHtml(entry.summary)}</p><p><a class="text-link" href="${escapeHtml(entry.canonicalUrl)}">Explore ${escapeHtml(entry.title)}</a></p></div></article></div>`;
     })
     .join("");
   const anatomyHtml = `<section aria-labelledby="use-case-anatomy-heading" class="landing-section use-case-anatomy-section"><div class="container"><div class="landing-section-heading"><p class="home-kicker">A shared operating pattern</p><h2 id="use-case-anatomy-heading">Anatomy of a supervised workflow</h2><p>Each service solves a different problem. Supported workflows still share the same accountability points.</p></div><figure class="triton-graphic triton-workflow-anatomy" aria-describedby="use-case-anatomy-caption"><ol><li><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span><strong>Campus need</strong><small>A bounded problem with a named owner</small></li><li><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><strong>Approved inputs</strong><small>Data and sources cleared for the task</small></li><li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><strong>AI-supported work</strong><small>Models, rules, skills, or automation</small></li><li><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><strong>Human review</strong><small>A person checks consequential results or actions</small></li><li><span class="glyphicon glyphicon-stats" aria-hidden="true"></span><strong>Outcome and evidence</strong><small>Measure quality, usefulness, and exceptions</small></li></ol><figcaption id="use-case-anatomy-caption">The service owner remains responsible from the first need through review of the measured outcome.</figcaption></figure></div></section>`;
@@ -451,7 +455,7 @@ function renderHomeHero(hero) {
           : `src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="${escapeHtml(imageSource)}" loading="lazy"`;
       const fallback = slide.optimizedImage ? ` data-fallback-src="${escapeHtml(slide.image)}"` : "";
       const mobileSource = slide.mobileImage && index === 0
-        ? `<source media="(min-width: 768px)" data-srcset="${escapeHtml(imageSource)}">`
+        ? `<source media="(min-width: 768px)" srcset="${escapeHtml(imageSource)}">`
         : "";
       const responsiveImageAttributes = slide.mobileImage && index === 0
         ? `src="${escapeHtml(slide.mobileImage)}" fetchpriority="high"`
@@ -818,11 +822,13 @@ function optimizedImageFor(value, relativePath, optimizedImages) {
 function optimizeLocalImages($, relativePath, optimizedImages) {
   $("img[src]").each((_, element) => {
     const image = $(element);
-    if (image.hasClass("first-slide") || image.parent("picture").length) return;
+    if (image.hasClass("first-slide")) return;
     const source = image.attr("src");
+    if (!localAssetPath(source, relativePath)) return;
+    image.attr("loading", "lazy").attr("decoding", "async");
+    if (image.parent("picture").length) return;
     const optimized = optimizedImageFor(source, relativePath, optimizedImages);
     if (!optimized) return;
-    image.attr("loading", "lazy").attr("decoding", "async");
     image.wrap('<picture class="tritonai-optimized-image"></picture>');
     image.before(`<source srcset="${escapeHtml(optimized)}" type="image/webp">`);
   });
@@ -1013,19 +1019,41 @@ function transformHtml(html, relativePath, context) {
   ).join("");
   $("head").prepend(`${connectionHints}<script data-tritonai-js-class>document.documentElement.className=document.documentElement.className.replace(/\\bno-js\\b/g,'js');</script>`);
   $("script[data-tritonai-schema]").remove();
+  const websiteId = `${OFFICIAL_ORIGIN}/#website`;
+  const organizationId = `${OFFICIAL_ORIGIN}/#organization`;
+  const isWebsite = relativePath === "index.html";
   const pageSchema = {
     "@context": "https://schema.org",
-    "@type": relativePath === "index.html" ? "WebSite" : "WebPage",
-    name: title,
+    "@type": isWebsite ? "WebSite" : "WebPage",
+    "@id": isWebsite ? websiteId : `${canonicalUrl}#webpage`,
+    name: isWebsite ? context.site.name : title,
     description,
     url: canonicalUrl,
     image: socialImageUrl,
+    inLanguage: "en-US",
+    publisher: { "@id": organizationId },
     dateModified: seo.lastModified || generated?.lastReviewed || context.site.lastReviewed,
   };
-  if (relativePath === "index.html") pageSchema.alternateName = "Triton AI";
-  else pageSchema.isPartOf = { "@type": "WebSite", name: context.site.name, url: OFFICIAL_ORIGIN };
+  if (Array.isArray(seo.schemaAbout) && seo.schemaAbout.length) {
+    pageSchema.about = seo.schemaAbout.map((name) => ({ "@type": "Thing", name }));
+  }
+  if (isWebsite) pageSchema.alternateName = ["Triton AI", "UC San Diego TritonAI"];
+  else pageSchema.isPartOf = { "@type": "WebSite", "@id": websiteId, name: context.site.name, url: OFFICIAL_ORIGIN };
+  const organizationSchema = isWebsite
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": organizationId,
+        name: "University of California San Diego",
+        alternateName: ["UC San Diego", "UCSD"],
+        url: "https://ucsd.edu/",
+      }
+    : null;
   const breadcrumb = breadcrumbSchema($, canonicalUrl);
-  const schema = JSON.stringify(breadcrumb ? [pageSchema, { "@context": "https://schema.org", ...breadcrumb }] : pageSchema)
+  const schemaNodes = [pageSchema];
+  if (organizationSchema) schemaNodes.push(organizationSchema);
+  if (breadcrumb) schemaNodes.push({ "@context": "https://schema.org", ...breadcrumb });
+  const schema = JSON.stringify(schemaNodes.length > 1 ? schemaNodes : pageSchema)
     .replaceAll("</script", "<\\/script");
   $("head").append(`<script type="application/ld+json" data-tritonai-schema>${schema}</script>`);
   applyGoogleAnalytics($);

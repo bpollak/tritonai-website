@@ -1,9 +1,9 @@
 ---
-title: Build with TritonAI
+title: Build AI Services at UC San Diego
 path: /developer-apis/index.html
-description: Personal productivity, workflow automation, application building, reusable skills, approved connections, hosting, and support through TritonAI.
+description: Build generative AI applications and workflows with TritonAI APIs, campus skills, approved model access, and supported hosting.
 eyebrow: Developer tools and resources
-lastReviewed: 2026-07-30
+lastReviewed: 2026-08-12
 audiences: [developers, researchers, staff, leaders]
 source: TritonAI developer documentation, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, and ITS-TritonAI n8n service documentation reviewed July 30, 2026
 canonicalUrl: /developer-apis/index.html

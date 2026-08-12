@@ -1,9 +1,9 @@
 ---
-title: Learn AI
+title: AI Training and Resources
 path: /training-resources/index.html
-description: Training, guides, webinars, and role-based pathways for using AI well at UC San Diego.
+description: Generative AI training, prompting guides, webinars, and role-based learning paths for the UC San Diego community.
 eyebrow: Training and resources
-lastReviewed: 2026-07-30
+lastReviewed: 2026-08-12
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI training catalog and UC San Diego learning resources
 canonicalUrl: /training-resources/index.html
@@ -15,7 +15,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="learn-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Learn by doing</p><h2 id="learn-intro-heading">Learn how to check what the model gives you</h2><p class="hub-lede">Getting good at AI is mostly judgment. Write a clear request, give it the right source material, check the answer against something you trust, and know when the task needs a person instead.</p><p><a class="btn btn-primary" href="/training-resources/pathways.html">Compare learning pathways</a></p></div><div class="col-md-6"><figure class="triton-graphic triton-review-loop" aria-describedby="review-loop-caption"><p class="triton-graphic-label">The verification habit</p><ol><li><span>01</span><strong>Frame</strong><small>Name the task and intended result.</small></li><li><span>02</span><strong>Context</strong><small>Provide the sources and constraints.</small></li><li><span>03</span><strong>Inspect</strong><small>Read the result closely.</small></li><li><span>04</span><strong>Verify</strong><small>Check what matters against a source.</small></li><li><span>05</span><strong>Improve</strong><small>Revise the request or process.</small></li></ol><figcaption id="review-loop-caption"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> If the result does not hold up, return to the task, context, or method before using it.</figcaption></figure></div></div>
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Learn by doing</p><h2 id="learn-intro-heading">Learn how to check what the model gives you</h2><p class="hub-lede">UC San Diego's generative AI training focuses on judgment. Write a clear request, give it the right source material, check the answer against something you trust, and know when the task needs a person.</p><p><a class="btn btn-primary" href="/training-resources/pathways.html">Compare learning pathways</a></p></div><div class="col-md-6"><figure class="triton-graphic triton-review-loop" aria-describedby="review-loop-caption"><p class="triton-graphic-label">The verification habit</p><ol><li><span>01</span><strong>Frame</strong><small>Name the task and intended result.</small></li><li><span>02</span><strong>Context</strong><small>Provide the sources and constraints.</small></li><li><span>03</span><strong>Inspect</strong><small>Read the result closely.</small></li><li><span>04</span><strong>Verify</strong><small>Check what matters against a source.</small></li><li><span>05</span><strong>Improve</strong><small>Revise the request or process.</small></li></ol><figcaption id="review-loop-caption"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> If the result does not hold up, return to the task, context, or method before using it.</figcaption></figure></div></div>
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="role-pathways-heading">

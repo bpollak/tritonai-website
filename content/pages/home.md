@@ -1,9 +1,9 @@
 ---
 title: TritonAI
 path: /index.html
-description: AI tools, training, and developer services for UC San Diego students, faculty, and staff.
+description: Artificial intelligence tools, training, and developer services for UC San Diego students, faculty, and staff.
 eyebrow: AI at UC San Diego
-lastReviewed: 2026-07-30
+lastReviewed: 2026-08-12
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI public services and strategy presentation
 canonicalUrl: /
@@ -15,11 +15,11 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, citizen-developer-ecosystem, plat
 <div class="row hub-split hub-split-align-center">
 <div class="col-md-6 hub-split-copy">
 <p class="home-kicker">For students, faculty, and staff</p>
-<h1 id="home-feature-heading">AI tools and support for UC San Diego</h1>
-<p class="hub-lede">TritonAI is the campus AI program. We run TritonGPT, review which AI tools are safe to use with university data, train people to use them well, and help teams build their own.</p>
+<h1 id="home-feature-heading">AI tools, training, and support for UC San Diego</h1>
+<p class="hub-lede">TritonAI is UC San Diego's campus artificial intelligence program. We run TritonGPT, review which generative AI tools can be used with university data, train people to use them well, and help teams build their own.</p>
 <div class="home-feature-actions"><a class="btn btn-primary btn-lg" href="https://tritongpt.ucsd.edu/">Open TritonGPT</a><a class="home-feature-link" href="/about/strategy.html">See the strategy <span aria-hidden="true">→</span></a></div>
 </div>
-<div class="col-md-6 hub-split-media"><figure class="hub-browser-frame"><img alt="Geisel Library beneath a rainbow over the UC San Diego campus" class="img-responsive" src="/_images/homepage/rainbow-over-geisel-library.webp"></figure></div>
+<div class="col-md-6 hub-split-media"><figure class="hub-browser-frame"><img alt="Geisel Library beneath a rainbow over the UC San Diego campus" class="img-responsive" src="/_images/homepage/rainbow-over-geisel-library-768.webp" srcset="/_images/homepage/rainbow-over-geisel-library-768.webp 768w, /_images/homepage/rainbow-over-geisel-library.webp 1200w" sizes="(max-width: 767px) calc(100vw - 108px), 50vw" width="1200" height="410"></figure></div>
 </div>
 </section>
 <!-- END_AGENT_SECTION -->
@@ -64,9 +64,9 @@ relatedSlides: [uc-san-diego-ai-strategy-2026, citizen-developer-ecosystem, plat
 <section class="hub-section" aria-labelledby="home-work-heading">
 <div class="hub-heading"><p class="home-kicker">Campus work in focus</p><h2 id="home-work-heading">What campus teams have built</h2><p>One of these runs in production; two are bounded pilots. A person reviews the output in all three.</p></div>
 <div class="row hub-story-grid">
-<div class="col-md-4"><article class="panel panel-default hub-story-card"><a href="/use-cases/contract-review.html"><img alt="Open contract with original clauses beside tracked revisions as a reviewer completes the final approval" class="img-responsive" src="/_images/use-cases/contract-review-public.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-shipped">Production</span><h3><a href="/use-cases/contract-review.html">Contract Review</a></h3><p>Procurement staff get a marked-up contract that flags where the language departs from UC's approved positions.</p></div></article></div>
-<div class="col-md-4"><article class="panel panel-default hub-story-card"><a href="/use-cases/dissertation-formatter.html"><img alt="Dissertation page on a technical drafting table with margin, hierarchy, and alignment guides" class="img-responsive" src="/_images/use-cases/dissertation-formatter-public.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-pilot">Pilot</span><h3><a href="/use-cases/dissertation-formatter.html">Dissertation Formatter</a></h3><p>Students see which formatting rules their dissertation breaks, and which fixes still need a person to decide.</p></div></article></div>
-<div class="col-md-4"><article class="panel panel-default hub-story-card"><a href="/use-cases/biobib.html"><img alt="Faculty publications, teaching, service, and awards branching into a review-ready academic portfolio" class="img-responsive" src="/_images/use-cases/biobib-public.webp"></a><div class="hub-story-body"><span class="agent-status agent-status-pilot">Pilot</span><h3><a href="/use-cases/biobib.html">BioBib</a></h3><p>Faculty receive a BioBib draft assembled from approved activity data, ready for their review.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default hub-story-card"><a href="/use-cases/contract-review.html"><img alt="Open contract with original clauses beside tracked revisions as a reviewer completes the final approval" class="img-responsive" src="/_images/use-cases/contract-review-public-768.webp" width="768" height="432"></a><div class="hub-story-body"><span class="agent-status agent-status-shipped">Production</span><h3><a href="/use-cases/contract-review.html">Contract Review</a></h3><p>Procurement staff get a marked-up contract that flags where the language departs from UC's approved positions.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default hub-story-card"><a href="/use-cases/dissertation-formatter.html"><img alt="Dissertation page on a technical drafting table with margin, hierarchy, and alignment guides" class="img-responsive" src="/_images/use-cases/dissertation-formatter-public-768.webp" width="768" height="432"></a><div class="hub-story-body"><span class="agent-status agent-status-pilot">Pilot</span><h3><a href="/use-cases/dissertation-formatter.html">Dissertation Formatter</a></h3><p>Students see which formatting rules their dissertation breaks, and which fixes still need a person to decide.</p></div></article></div>
+<div class="col-md-4"><article class="panel panel-default hub-story-card"><a href="/use-cases/biobib.html"><img alt="Faculty publications, teaching, service, and awards branching into a review-ready academic portfolio" class="img-responsive" src="/_images/use-cases/biobib-public-768.webp" width="768" height="432"></a><div class="hub-story-body"><span class="agent-status agent-status-pilot">Pilot</span><h3><a href="/use-cases/biobib.html">BioBib</a></h3><p>Faculty receive a BioBib draft assembled from approved activity data, ready for their review.</p></div></article></div>
 </div>
 <p class="hub-section-action"><a class="btn btn-default" href="/use-cases/index.html">View all use cases</a></p>
 </section>

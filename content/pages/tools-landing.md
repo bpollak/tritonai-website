@@ -1,9 +1,9 @@
 ---
-title: AI Tools
+title: AI Tools at UC San Diego
 path: /tools/index.html
-description: The AI services UC San Diego supports, what each one is for, and how to get access.
+description: Compare supported artificial intelligence tools at UC San Diego, what each service is for, and how the campus community gets access.
 eyebrow: Supported services and capabilities
-lastReviewed: 2026-08-04
+lastReviewed: 2026-08-12
 audiences: [students, faculty, staff, researchers]
 source: UC San Diego public AI service pages
 canonicalUrl: /tools/index.html
@@ -15,7 +15,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="tools-intro-heading">
-<div class="row hub-split"><div class="col-md-7 hub-split-copy"><p class="home-kicker">Choose by need</p><h2 id="tools-intro-heading">Start with the task and the data it touches</h2><p class="hub-lede">UC San Diego supports several AI services. Which one you should reach for depends on what you are doing, what data is involved, where the work already happens, and how closely the result needs to be reviewed.</p></div><div class="col-md-5"><figure class="triton-graphic triton-choice-lens" aria-describedby="tool-choice-caption"><p class="triton-graphic-label">Four signals guide the choice</p><ul><li><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><strong>Task</strong><small>What needs to happen?</small></li><li><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><strong>Data</strong><small>What information is involved?</small></li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><strong>Workspace</strong><small>Where does the work already happen?</small></li><li><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><strong>Review</strong><small>Who needs to check the result?</small></li></ul><div class="triton-choice-result"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><strong>Supported service</strong><small>Compare the service guidance below.</small></div><figcaption id="tool-choice-caption">The choice starts with the work and its boundaries. The service list below explains capabilities and access without ranking vendors.</figcaption></figure></div></div>
+<div class="row hub-split"><div class="col-md-7 hub-split-copy"><p class="home-kicker">Choose by need</p><h2 id="tools-intro-heading">Start with the task and the data it touches</h2><p class="hub-lede">UC San Diego supports several artificial intelligence services, including generative AI tools for chat, documents, meetings, and campus workflows. The right service depends on the task, the data involved, where the work happens, and who reviews the result.</p></div><div class="col-md-5"><figure class="triton-graphic triton-choice-lens" aria-describedby="tool-choice-caption"><p class="triton-graphic-label">Four signals guide the choice</p><ul><li><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><strong>Task</strong><small>What needs to happen?</small></li><li><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><strong>Data</strong><small>What information is involved?</small></li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><strong>Workspace</strong><small>Where does the work already happen?</small></li><li><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><strong>Review</strong><small>Who needs to check the result?</small></li></ul><div class="triton-choice-result"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><strong>Supported service</strong><small>Compare the service guidance below.</small></div><figcaption id="tool-choice-caption">The choice starts with the work and its boundaries. The service list below explains capabilities and access without ranking vendors.</figcaption></figure></div></div>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="supported-tools-heading">

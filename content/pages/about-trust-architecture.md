@@ -1,9 +1,9 @@
 ---
-title: Trust, Privacy and Hosting
+title: Responsible AI, Privacy and Hosting
 path: /about/trust-architecture.html
-description: Where campus AI services run, how they reach models, what data they can use, and who is responsible.
+description: How UC San Diego governs artificial intelligence services across privacy, hosting, data access, and human responsibility.
 eyebrow: Trust, privacy and hosting
-lastReviewed: 2026-07-27
+lastReviewed: 2026-08-12
 audiences: [staff, faculty, students, developers, leaders]
 source: TritonAI architecture and memory presentations, plus public developer documentation
 canonicalUrl: /about/trust-architecture.html

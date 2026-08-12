@@ -4,8 +4,46 @@
   "defaultSocialImageAlt": "Blue and gold TritonAI pattern",
   "routes": {
     "/": {
-      "title": "AI Tools and Support at UC San Diego",
-      "lastModified": "2026-07-29"
+      "title": "UC San Diego AI Tools, Training and Support",
+      "description": "Find artificial intelligence tools, generative AI training, TritonGPT support, and developer services for the UC San Diego community.",
+      "schemaAbout": [
+        "Artificial intelligence",
+        "Generative artificial intelligence",
+        "AI tools",
+        "AI training"
+      ],
+      "lastModified": "2026-08-12"
+    },
+    "/about/index.html": {
+      "title": "Campus Artificial Intelligence at UC San Diego",
+      "description": "Learn how TritonAI supports artificial intelligence services, ownership, measurement, training, and responsible use across UC San Diego.",
+      "schemaAbout": [
+        "Artificial intelligence",
+        "Campus AI services",
+        "Responsible AI"
+      ],
+      "lastModified": "2026-08-12"
+    },
+    "/about/strategy.html": {
+      "title": "UC San Diego AI Strategy and Governance",
+      "description": "Explore UC San Diego's strategy for artificial intelligence, shared campus services, responsible AI governance, and supervised workflows.",
+      "schemaAbout": [
+        "Artificial intelligence strategy",
+        "Responsible AI governance",
+        "AI services in higher education"
+      ],
+      "lastModified": "2026-08-12"
+    },
+    "/about/trust-architecture.html": {
+      "title": "Responsible AI, Privacy and Hosting at UC San Diego",
+      "description": "Learn how UC San Diego governs AI privacy, data access, hosting, model routing, human review, and service ownership through TritonAI.",
+      "schemaAbout": [
+        "Responsible artificial intelligence",
+        "AI privacy",
+        "AI governance",
+        "AI hosting"
+      ],
+      "lastModified": "2026-08-12"
     },
     "/about/ai-updates.html": {
       "description": "Read weekly updates on supported AI tools, TritonAI services, and upcoming UC San Diego training and workshops.",
@@ -19,6 +57,17 @@
       "title": "Developer APIs and Resources FAQ",
       "description": "Find answers about TritonAI API access, supported development paths, account setup, security, and help for UC San Diego builders.",
       "lastModified": "2026-07-29"
+    },
+    "/developer-apis/index.html": {
+      "title": "Build AI Services at UC San Diego",
+      "description": "Build generative AI applications and workflows with TritonAI APIs, campus skills, approved model access, and supported hosting.",
+      "schemaAbout": [
+        "Artificial intelligence development",
+        "Generative AI applications",
+        "AI APIs",
+        "AI agents"
+      ],
+      "lastModified": "2026-08-12"
     },
     "/presentations/managing-the-tritonai-website.html": {
       "title": "Editing and Publishing the TritonAI Website",
@@ -38,13 +87,25 @@
       "lastModified": "2026-07-29"
     },
     "/training-resources/index.html": {
-      "title": "AI Training and Resources",
-      "lastModified": "2026-07-29"
+      "title": "Generative AI Training at UC San Diego",
+      "description": "Find generative AI training, prompting guides, webinars, and role-based learning paths for the UC San Diego community.",
+      "schemaAbout": [
+        "Generative AI training",
+        "AI literacy",
+        "AI prompting",
+        "Responsible AI use"
+      ],
+      "lastModified": "2026-08-12"
     },
     "/training-resources/prompting/index.html": {
-      "title": "AI Prompting Guide",
+      "title": "Generative AI Prompting Guide",
       "description": "Use the START framework to write clearer AI prompts, add useful context, and review the result before using it.",
-      "lastModified": "2026-07-29"
+      "schemaAbout": [
+        "Generative AI prompting",
+        "Prompt writing",
+        "AI output verification"
+      ],
+      "lastModified": "2026-08-12"
     },
     "/training-resources/prompting/prompt-library.html": {
       "title": "UC San Diego AI Prompt Library",
@@ -63,6 +124,17 @@
     "/tritongpt/chatbot-widget.html": {
       "description": "Learn how UC San Diego websites use the TritonGPT chatbot widget to answer campus questions and connect visitors with relevant resources.",
       "lastModified": "2026-07-29"
+    },
+    "/tritongpt/index.html": {
+      "title": "TritonGPT: UC San Diego AI Assistant",
+      "description": "Use TritonGPT, UC San Diego's generative AI platform, to chat with approved models, work with documents, and open campus assistants.",
+      "schemaAbout": [
+        "Generative artificial intelligence",
+        "AI assistant",
+        "Large language models",
+        "Campus AI"
+      ],
+      "lastModified": "2026-08-12"
     },
     "/tritongpt/instruction.html": {
       "title": "Instructional AI Program",
@@ -104,6 +176,26 @@
     "/use-cases/instructional-ai.html": {
       "title": "Instructional AI Use Case",
       "lastModified": "2026-07-29"
+    },
+    "/use-cases/index.html": {
+      "title": "Artificial Intelligence Use Cases at UC San Diego",
+      "description": "Explore supervised artificial intelligence use cases for teaching, research, accessibility, administration, and campus services at UC San Diego.",
+      "schemaAbout": [
+        "Artificial intelligence use cases",
+        "AI in higher education",
+        "Supervised AI workflows"
+      ],
+      "lastModified": "2026-08-12"
+    },
+    "/tools/index.html": {
+      "title": "Approved AI Tools at UC San Diego",
+      "description": "Compare supported artificial intelligence tools at UC San Diego, what each service is for, and how the campus community gets access.",
+      "schemaAbout": [
+        "AI tools",
+        "Generative AI tools",
+        "Approved AI services"
+      ],
+      "lastModified": "2026-08-12"
     }
   }
 }

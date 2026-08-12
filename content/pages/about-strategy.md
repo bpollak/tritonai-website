@@ -1,9 +1,9 @@
 ---
-title: TritonAI Strategy
+title: UC San Diego AI Strategy
 path: /about/strategy.html
-description: UC San Diego's plan for campus AI. Shared services anyone can use, plus supervised workflows built for specific jobs.
+description: UC San Diego's strategy for artificial intelligence, including shared campus services, responsible AI governance, and supervised workflows.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-30
+lastReviewed: 2026-08-12
 audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI strategy presentation
 canonicalUrl: /about/strategy.html

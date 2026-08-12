@@ -12,6 +12,7 @@
       "description": "TritonGPT is the assistant most people start with. Sign in with your campus account.",
       "image": "/_images/homepage/TritonAI_Hero_2500.png",
       "optimizedImage": "/_images/homepage/TritonAI_Hero_2500.webp",
+      "mobileImage": "/_images/homepage/TritonAI_Hero_828.webp",
       "imageAlt": "Colorful blue and gold grit pattern",
       "link": "/tritongpt/index.html",
       "linkLabel": "Start with TritonGPT"
