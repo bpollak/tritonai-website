@@ -15,7 +15,9 @@ const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
 const SEO_FILE = path.join(CONTENT_DIR, "seo.json");
 const PRESENTATION_DIR = path.resolve("presentations");
-const OUTPUT_DIR = path.resolve("dist");
+// Overridable so a test can build into a scratch directory instead of clobbering
+// dist/. Everything else about the build is identical.
+const OUTPUT_DIR = path.resolve(process.env.OUTPUT_DIR || "dist");
 const AGENT_SITE_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/agent-site.css")))
   .digest("hex")
@@ -26,6 +28,10 @@ const LANDING_HUBS_CSS_VERSION = createHash("sha256")
   .slice(0, 12);
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
+// Cascade serves the site at a domain root, so a production build carries no
+// base path. Anything with one is the playground on GitHub Pages, which must
+// not be indexed — it would compete with tritonai.ucsd.edu for its own content.
+const IS_PRODUCTION_BUILD = SITE_BASE_PATH === "";
 const UNLISTED_ROUTES = new Set([
   "/presentations/managing-the-tritonai-website.html",
 ]);
@@ -977,6 +983,13 @@ function transformHtml(html, relativePath, context) {
   upsertMeta($, "meta[name='twitter:image:alt']", { name: "twitter:image:alt", content: socialImageAlt });
   upsertMeta($, "meta[name='robots']", { name: "robots", content: seo.robots || "index,follow" });
   if (relativePath === "404.html") upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,follow" });
+  // The playground build is served from a public GitHub Pages URL. Without this
+  // it competes with tritonai.ucsd.edu for the same queries. The canonical tag
+  // below points at production, but a canonical is a hint a search engine may
+  // ignore; noindex is a directive. Applied last so nothing above re-enables it.
+  if (!IS_PRODUCTION_BUILD) {
+    upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,nofollow" });
+  }
   $("link[rel='canonical']").remove();
   $("head").append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
   if (generated?.redirectTo) {
@@ -1296,7 +1309,19 @@ await writeFile(
   )}\n`,
 );
 await writeFile(path.join(OUTPUT_DIR, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries}</urlset>\n`);
-await writeFile(path.join(OUTPUT_DIR, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${OFFICIAL_ORIGIN}/sitemap.xml\n`);
+// Production advertises its sitemap. The playground deliberately still allows
+// crawling: `Disallow: /` would stop a crawler fetching the pages, and a page it
+// cannot fetch is a page whose noindex it cannot read — which is how disallowed
+// URLs end up listed anyway, as a bare link with no description. Letting the
+// crawler in to be told noindex is what actually keeps it out of the index. It
+// also must not point at production's sitemap, which would invite crawling of
+// the very URLs this build is trying to keep separate.
+await writeFile(
+  path.join(OUTPUT_DIR, "robots.txt"),
+  IS_PRODUCTION_BUILD
+    ? `User-agent: *\nAllow: /\nSitemap: ${OFFICIAL_ORIGIN}/sitemap.xml\n`
+    : `# Playground build. Every page carries <meta name="robots" content="noindex,nofollow">.\n# Crawling stays allowed so that directive can be read.\nUser-agent: *\nAllow: /\n`,
+);
 await writeFile(path.join(OUTPUT_DIR, ".nojekyll"), "");
 
 process.stdout.write(`Built ${htmlFiles.length} HTML files, ${useCases.length} structured use cases, ${skills.skills.length} public skills, and ${newsletters.length} newsletters for base path ${SITE_BASE_PATH || "/"}.\n`);
