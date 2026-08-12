@@ -166,72 +166,20 @@
   }
 }
 
-@media (max-width: 767px) {
-  .agent-page #mobile-navigation .msearch .search-content {
-    display: block;
-    min-height: 49px;
-  }
-}
+/* The mobile drawer, its search form, and the drawer navigation list are
+   Decorator chrome. Their presentation belongs to base.min.css, which styles
+   the drawer search through `.offcanvas > ul.nav.navbar-nav.navbar-right
+   #search` once base.min.js has renamed `#search-m` to `#search` below 768px.
+   Nothing in this stylesheet may target them: an override here does not follow
+   the Decorator across that breakpoint, so the drawer stops matching campus
+   presentation as soon as the viewport is resized. See
+   src/site/_resources/js/site-navigation.js for the id handling. */
 
-/* Mobile drawer: the build renders every section open, so give the list a
-   readable hierarchy — navy search block, bold section rows, indented
-   children — and drop the carets that imply the sections can collapse. */
-.agent-page #mobile-navigation {
-  background: #fff;
-}
-.agent-page #mobile-navigation .msearch {
-  margin: 0;
-  padding: 12px 16px 14px;
-  background: #182b49;
-}
-.agent-page #mobile-navigation .msearch .search-toggle {
-  display: none;
-}
-.agent-page #mobile-navigation .msearch form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-/* The decorator's screen-reader Close Nav button is a floated 20px box;
-   absolute positioning takes it out of flow so it stops indenting the
-   first menu row's line box (it stays clipped and focusable). */
+/* The screen-reader Close Nav button is a floated 20px box, so it indents the
+   first menu row's line box. Absolute positioning takes it out of flow and
+   leaves it clipped and focusable. This is layout repair, not restyling. */
 .agent-page #mobile-navigation .navbar-toggle[data-tritonai-mobile-close] {
   position: absolute;
-}
-.agent-page #mobile-navigation .msearch .search-scope,
-.agent-page #mobile-navigation .msearch .search-term {
-  width: 100%;
-  max-width: 100%;
-  min-height: 42px;
-  border: 1px solid #c7ccd1;
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 16px;
-  background: #fff;
-  color: #182b49;
-}
-.agent-page #mobile-navigation .msearch .input-group {
-  display: block;
-  width: 100%;
-}
-.agent-page #mobile-navigation .navmenu-nav > li > a {
-  padding: 13px 16px;
-  font-size: 15px;
-  font-weight: 700;
-  color: #182b49;
-  background: #eef1f4;
-  border-top: 1px solid #d5d9de;
-}
-.agent-page #mobile-navigation .navmenu-nav > li > a .caret {
-  display: none;
-}
-.agent-page #mobile-navigation .dropdown-menu.navmenu-nav a {
-  padding: 10px 16px 10px 30px;
-  font-size: 15px;
-  font-weight: 400;
-  color: #00629b;
-  background: #fff;
-  border-top: 1px solid #eceff2;
 }
 
 .agent-page .btn-primary {
@@ -3151,36 +3099,11 @@
   }
 }
 
-/* Keep the externally supplied TritonGPT launcher compact on small screens. */
+/* The TritonGPT launcher (#chat-bubble) is rendered by the campus widget that
+   tgpt-loader.js injects. It is an embedded campus widget: it ships its own
+   responsive presentation and this site takes what the loader renders. Do not
+   add rules for it here. */
 @media (max-width: 767px) {
-  #chat-bubble {
-    border-radius: 50% !important;
-    bottom: max(12px, env(safe-area-inset-bottom)) !important;
-    height: 52px !important;
-    min-height: 52px !important;
-    min-width: 52px !important;
-    padding: 8px !important;
-    right: max(12px, env(safe-area-inset-right)) !important;
-    width: 52px !important;
-  }
-
-  #chat-bubble p {
-    clip: rect(0 0 0 0) !important;
-    clip-path: inset(50%) !important;
-    height: 1px !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    width: 1px !important;
-  }
-
-  #chat-bubble svg {
-    height: 32px !important;
-    margin: 0 !important;
-    width: 32px !important;
-  }
-
   .public-fact-meta {
     grid-template-columns: 1fr;
   }

@@ -56,21 +56,16 @@
     return document.querySelector("nav.navbar .search");
   }
 
-  function removeDuplicateSearchIds() {
-    var search = desktopSearch();
-    if (!search) return;
-    var desktopPanel = search.querySelector(".search-content[id]");
-    if (!desktopPanel) return;
-    Array.prototype.forEach.call(document.querySelectorAll(".search-content[id]"), function (panel) {
-      if (panel !== desktopPanel && panel.id === desktopPanel.id) panel.removeAttribute("id");
-    });
-  }
-
   function syncSearch() {
     var search = desktopSearch();
     if (!search) return;
     var toggle = search.querySelector("[data-tritonai-search-toggle]");
-    var panel = toggle && document.getElementById(toggle.getAttribute("aria-controls"));
+    // Resolve the panel inside the navbar rather than by getElementById. Below
+    // 768px the Decorator's toggleIdsAndClassesBasedOnScreenWidth() renames the
+    // drawer panel from #search-m to #search — that duplicate is what its own
+    // mobile stylesheet keys on — and the drawer precedes nav.navbar in the
+    // document, so a lookup by id would resolve to the drawer's panel here.
+    var panel = search.querySelector(".search-content");
     if (!toggle || !panel) return;
     var expanded = search.classList.contains("open") || visible(panel);
     toggle.setAttribute("aria-expanded", String(expanded));
@@ -131,7 +126,6 @@
 
   function syncAll() {
     removeClonedNavigationIds();
-    removeDuplicateSearchIds();
     desktopDropdowns().forEach(syncDropdown);
     syncSearch();
     syncMobileNavigation();
