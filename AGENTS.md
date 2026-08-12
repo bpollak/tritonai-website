@@ -258,6 +258,7 @@ with an address taken from conversation context is how that happens.
 
 ### Agent-owned (agents may edit freely)
 - `content/newsletters/*.md` — weekly AI newsletter content
+- `content/updates/*.json` — verified TritonAI program updates and deployed TritonGPT feature updates
 - `content/media/articles.json` — media article archive (the sync job re-renders `content/pages/about-media-articles.md` from this)
 - `src/site/tritongpt/release-notes/*.html` — release notes
 - Metrics and usage statistics on any page (clearly marked sections)

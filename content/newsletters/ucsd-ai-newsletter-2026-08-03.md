@@ -8,7 +8,7 @@ items: 8
 
 ### TritonGPT
 
--   **[AI Contract Reviewer and Transcript Matcher now in production](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** — Two new human-supervised workflows are live. Contract Review compares contract language with approved UC San Diego positions and prepares redlines for a reviewer. Transcript Matching compares incoming transcript documents with student records and routes uncertain cases to staff, with 99.86% accuracy across 3,700+ records in its validation sample.
+-   **[AI Contract Reviewer and Transcript Matcher now in production](https://tritonai.ucsd.edu/about/tritonai-updates.html)** — Two new human-supervised workflows are live. Contract Review compares contract language with approved UC San Diego positions and prepares redlines for a reviewer. Transcript Matching compares incoming transcript documents with student records and routes uncertain cases to staff, with 99.86% accuracy across 3,700+ records in its validation sample.
 
 ### Zoom AI Companion
 

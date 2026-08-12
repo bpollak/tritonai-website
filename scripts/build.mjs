@@ -14,6 +14,7 @@ const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
 const SEO_FILE = path.join(CONTENT_DIR, "seo.json");
+const TRITONAI_UPDATES_FILE = path.join(CONTENT_DIR, "updates/tritonai-updates.json");
 const PRESENTATION_DIR = path.resolve("presentations");
 // Overridable so a test can build into a scratch directory instead of clobbering
 // dist/. Everything else about the build is identical.
@@ -160,6 +161,51 @@ function renderNewsletter(newsletter) {
   const plural = newsletter.items === 1 ? "item" : "items";
   const dateId = newsletter.date.toISOString().slice(0, 10);
   return `<article class="panel panel-default agent-newsletter" id="${dateId}"><div class="panel-heading"><h2>${escapeHtml(newsletter.title)}</h2><p>${newsletter.items} ${plural}</p></div><div class="panel-body">${newsletter.html}</div></article>`;
+}
+
+function renderDeliveryPathway(current) {
+  const steps = [
+    { id: "roadmap", label: "Roadmap", href: "/about/roadmap.html", description: "Approved direction and delivery status" },
+    { id: "updates", label: "TritonAI Updates", href: "/about/tritonai-updates.html", description: "Verified program launches and milestones" },
+    { id: "features", label: "TritonGPT Feature Updates", href: "/tritongpt/release-notes/index.html", description: "Deployed product changes for users" },
+  ];
+  const items = steps
+    .map((step, index) => `<li${step.id === current ? ' class="delivery-pathway-current"' : ""}><a href="${step.href}"${step.id === current ? ' aria-current="page"' : ""}><span class="delivery-pathway-number" aria-hidden="true">${index + 1}</span><span><strong>${escapeHtml(step.label)}</strong><small>${escapeHtml(step.description)}</small></span></a></li>`)
+    .join("");
+  return `<nav class="delivery-pathway" aria-labelledby="delivery-pathway-heading"><div class="delivery-pathway-heading"><p class="home-kicker">From direction to delivery</p><h2 id="delivery-pathway-heading">Follow the work at each stage</h2><p>The roadmap shows approved work. Program updates record delivery. Feature updates explain changes available in TritonGPT.</p></div><ol>${items}</ol></nav>`;
+}
+
+function renderTritonAiUpdates(feed, streamId) {
+  const stream = feed.streams.find((entry) => entry.id === streamId);
+  if (!stream) throw new Error(`Unknown TritonAI update stream: ${streamId}`);
+  const updates = feed.updates.filter((update) => update.stream === streamId);
+  const areaById = new Map(feed.areas.map((area) => [area.id, area]));
+  const representedAreas = new Set(updates.map((update) => update.area));
+  const areas = feed.areas.filter((area) => representedAreas.has(area.id));
+  const years = [...new Set(updates.map((update) => update.date.slice(0, 4)))];
+  const areaCards = areas
+    .map((area) => `<li><span class="glyphicon glyphicon-${escapeHtml(area.icon)}" aria-hidden="true"></span><span>${escapeHtml(area.label)}</span></li>`)
+    .join("");
+  const yearOptions = years.map((year) => `<option value="${escapeHtml(year)}">${escapeHtml(year)}</option>`).join("");
+  const areaOptions = areas
+    .map((area) => `<option value="${escapeHtml(area.id)}">${escapeHtml(area.label)}</option>`)
+    .join("");
+  const groups = years
+    .map((year) => {
+      const items = updates
+        .filter((update) => update.date.startsWith(year))
+        .map((update) => {
+          const area = areaById.get(update.area);
+          const searchText = load(`<div>${update.title}${update.details}</div>`).text().replace(/\s+/g, " ").trim().toLowerCase();
+          return `<li class="triton-update-item" data-update-card data-update-area="${escapeHtml(update.area)}" data-update-search="${escapeHtml(searchText)}"><article id="${escapeHtml(update.id)}" class="triton-update-card"><div class="triton-update-date"><time datetime="${escapeHtml(update.date)}">${escapeHtml(update.displayDate)}</time></div><div class="triton-update-body"><p class="triton-update-area"><span class="glyphicon glyphicon-${escapeHtml(area.icon)}" aria-hidden="true"></span>${escapeHtml(area.label)}</p><h3>${escapeHtml(update.title)}</h3>${update.details}</div></article></li>`;
+        })
+        .join("");
+      return `<section class="triton-update-year" aria-labelledby="updates-${escapeHtml(year)}" data-update-year-group data-update-year="${escapeHtml(year)}"><div class="triton-update-year-heading"><h2 id="updates-${escapeHtml(year)}">${escapeHtml(year)}</h2><span aria-hidden="true"></span></div><ol class="triton-update-list">${items}</ol></section>`;
+    })
+    .join("");
+
+  const pathwayCurrent = streamId === "program" ? "updates" : "features";
+  return `<div class="triton-updates-experience" data-update-stream="${escapeHtml(streamId)}">${renderDeliveryPathway(pathwayCurrent)}<section class="triton-updates-intro" aria-labelledby="triton-updates-intro-heading"><div class="container"><div class="triton-updates-intro-grid"><div><p class="home-kicker">${escapeHtml(stream.introKicker)}</p><h2 id="triton-updates-intro-heading">${escapeHtml(stream.introHeading)}</h2><p class="hub-lede">${escapeHtml(stream.introDescription)}</p></div><ul class="triton-updates-area-key" aria-label="Update areas">${areaCards}</ul></div></div></section><section class="triton-updates-feed" aria-labelledby="triton-updates-feed-heading"><div class="container"><div class="triton-updates-heading"><div><p class="home-kicker">${escapeHtml(stream.feedKicker)}</p><h2 id="triton-updates-feed-heading">${escapeHtml(stream.feedHeading)}</h2></div><p>${escapeHtml(stream.feedDescription)}</p></div><form class="triton-updates-filter" role="search" aria-label="Filter ${escapeHtml(stream.title)}" data-updates-filter><div class="triton-updates-filter-grid"><div><label for="updates-search">Search updates</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="updates-search" type="search" autocomplete="off" placeholder="${escapeHtml(stream.searchPlaceholder)}" data-updates-search></div></div><div><label for="updates-year">Year</label><select class="form-control" id="updates-year" data-updates-year><option value="">All years</option>${yearOptions}</select></div><div><label for="updates-area">Area</label><select class="form-control" id="updates-area" data-updates-area><option value="">All areas</option>${areaOptions}</select></div><div class="triton-updates-filter-action"><button class="btn btn-default" type="reset" data-updates-reset>Clear filters</button></div></div><p class="triton-updates-status" data-updates-status aria-live="polite"></p></form><div data-updates-results>${groups}<div class="triton-updates-empty alert alert-info" data-updates-empty hidden><h2 class="h3">No updates match those filters</h2><p>Try a broader search, another year, or all areas.</p></div></div></div></section></div>`;
 }
 
 function findFirstNewsletterStory($newsletter, firstStoryHeading) {
@@ -381,9 +427,9 @@ function renderRoadmap(roadmap) {
   }).join("");
   const historyHtml = historyItems.map((item, index) => {
     const headingId = `roadmap-history-${index + 1}`;
-    return `<article class="agent-roadmap-item agent-roadmap-item-history" aria-labelledby="${headingId}"><div><p class="roadmap-period">${escapeHtml(item.period)}</p>${renderStatus(item.status)}</div><h3 id="${headingId}">${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><p class="roadmap-item-meta"><strong>Owner</strong> ${escapeHtml(item.owner)}</p></article>`;
+    return `<article class="agent-roadmap-item agent-roadmap-item-history" aria-labelledby="${headingId}"><div><p class="roadmap-period">${escapeHtml(item.period)}</p>${renderStatus(item.status)}</div><h3 id="${headingId}">${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p>${renderLinks(item.links)}<p class="roadmap-item-meta"><strong>Owner</strong> ${escapeHtml(item.owner)}</p></article>`;
   }).join("");
-  return `<p class="lead roadmap-lead">${escapeHtml(roadmap.description)}</p><section class="roadmap-status-key" aria-labelledby="roadmap-status-heading"><div><p class="home-kicker">How to read this page</p><h2 id="roadmap-status-heading">What each status means</h2></div><ul><li>${renderStatus("Shipped")}<span>Publicly available</span></li><li>${renderStatus("Pilot")}<span>Bounded testing with oversight</span></li><li>${renderStatus("In development")}<span>Active work without a committed launch date</span></li><li>${renderStatus("Exploring")}<span>Discovery only; no delivery commitment</span></li></ul></section><section class="roadmap-current" aria-labelledby="roadmap-current-heading"><div class="roadmap-section-heading"><p class="home-kicker">Current horizon</p><h2 id="roadmap-current-heading">2026 delivery detail</h2><p>Each quarter groups supervised solutions, the reusable pieces underneath them, and the work of getting prototypes to supported services. A quarter's status covers the group as a whole, so an individual service linked below may be further along.</p></div><div class="roadmap-current-list">${currentHtml}</div></section><section class="roadmap-history" aria-labelledby="roadmap-history-heading"><div class="roadmap-section-heading"><p class="home-kicker">Foundation</p><h2 id="roadmap-history-heading">How we got here</h2><p>Earlier milestones, from opening up broad access to building the shared infrastructure and the first focused campus workflows.</p></div><div class="roadmap-history-grid">${historyHtml}</div></section><nav class="roadmap-actions" aria-label="Roadmap next steps"><a class="btn btn-primary" href="/use-cases/index.html">Explore current use cases</a><a class="btn btn-default" href="/about/get-involved.html">Bring a campus workflow</a></nav>`;
+  return `<p class="lead roadmap-lead">${escapeHtml(roadmap.description)}</p>${renderDeliveryPathway("roadmap")}<section class="roadmap-status-key" aria-labelledby="roadmap-status-heading"><div><p class="home-kicker">How to read this page</p><h2 id="roadmap-status-heading">What each status means</h2></div><ul><li>${renderStatus("Shipped")}<span>Publicly available</span></li><li>${renderStatus("Pilot")}<span>Bounded testing with oversight</span></li><li>${renderStatus("In development")}<span>Active work without a committed launch date</span></li><li>${renderStatus("Exploring")}<span>Discovery only; no delivery commitment</span></li></ul></section><section class="roadmap-current" aria-labelledby="roadmap-current-heading"><div class="roadmap-section-heading"><p class="home-kicker">Current horizon</p><h2 id="roadmap-current-heading">2026 delivery detail</h2><p>Each quarter groups supervised solutions, the reusable pieces underneath them, and the work of getting prototypes to supported services. A quarter's status covers the group as a whole, so an individual service linked below may be further along.</p></div><div class="roadmap-current-list">${currentHtml}</div></section><section class="roadmap-history" aria-labelledby="roadmap-history-heading"><div class="roadmap-section-heading"><p class="home-kicker">Foundation</p><h2 id="roadmap-history-heading">How we got here</h2><p>Earlier milestones, from opening up broad access to building the shared infrastructure and the first focused campus workflows.</p></div><div class="roadmap-history-grid">${historyHtml}</div></section><nav class="roadmap-actions" aria-label="Roadmap next steps"><a class="btn btn-primary" href="/about/tritonai-updates.html">View delivered updates</a><a class="btn btn-default" href="/use-cases/index.html">Explore current use cases</a><a class="btn btn-default" href="/about/get-involved.html">Bring a campus workflow</a></nav>`;
 }
 
 function renderPublicFacts(facts) {
@@ -721,6 +767,7 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
         ? `<div class="jumbotron jumbotron-fluid intro-banner landing-hub-hero${bannerClass}" style="background-image:url('${escapeHtml(bannerImage)}');background-position:${escapeHtml(bannerPosition)};"><div class="container"><div class="cr-item-container"><div class="row"><div class="col-sm-12"><div class="landing-hub-title animated fadeInUp">${page.eyebrow ? `<p>${escapeHtml(page.eyebrow)}</p>` : ""}<h1 class="intro-banner-heading">${escapeHtml(page.title)}</h1></div></div></div></div></div></div><div class="container landing-hub-breadcrumbs"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div></div><section aria-label="Main Content" class="col-xs-12 main-section landing-hub-content">${bodyHtml}</section>${renderLandingMobileSectionNav(site.navigation, page.path)}`
       : `${subpageHero}<div class="container"><div class="row"><ol aria-label="Breadcrumb" class="breadcrumb breadcrumbs-list">${breadcrumbFor(page)}</ol></div><div class="row${subpageLayoutClass}">${mobileAboutNav}<section aria-label="Main Content" class="col-xs-9 main-section pull-right">${bodyHtml}</section>${renderSidebar(site.navigation, page.path)}</div></div>`;
   $("main#main-content").html(mainContent);
+  if (!$("#datatable-ns").length) $("script[src*='datatables']").remove();
   return $.html();
 }
 
@@ -1076,6 +1123,10 @@ function transformHtml(html, relativePath, context) {
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
   $("[data-gateway-usage='true']").html(renderGatewayUsage(context.gatewayUsage));
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
+  $("[data-tritonai-updates]").each((_, element) => {
+    const target = $(element);
+    target.html(renderTritonAiUpdates(context.tritonAiUpdates, target.attr("data-tritonai-updates")));
+  });
 
   $("video").each((_, element) => {
     const video = $(element);
@@ -1114,6 +1165,9 @@ function transformHtml(html, relativePath, context) {
   }
   if (relativePath === "index.html" && $("[data-today-news]").length && !$("script[src$='today-news.js']").length) {
     $("body").append('<script defer src="/_resources/js/today-news.js"></script>');
+  }
+  if ($("[data-updates-results]").length && !$("script[src$='tritonai-updates.js']").length) {
+    $("body").append('<script defer src="/_resources/js/tritonai-updates.js"></script>');
   }
   if (!$("script[src$='site-performance.js']").length) $("body").append('<script defer src="/_resources/js/site-performance.js"></script>');
 
@@ -1199,6 +1253,7 @@ const skills = await readJson(SKILLS_FILE);
 const homeHero = await readJson(HOME_HERO_FILE);
 const gatewayUsage = await readJson(GATEWAY_USAGE_FILE);
 const seo = await readJson(SEO_FILE);
+const tritonAiUpdates = await readJson(TRITONAI_UPDATES_FILE);
 requireFields(roadmap, ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"], "content/roadmap/milestones.json");
 roadmap.lastReviewed = isoDate(roadmap.lastReviewed);
 for (const [index, item] of roadmap.items.entries()) {
@@ -1226,6 +1281,33 @@ requireFields(seo, ["schemaVersion", "defaultSocialImage", "defaultSocialImageAl
 for (const [route, entry] of Object.entries(seo.routes)) {
   if (!route.startsWith("/")) throw new Error(`content/seo.json route must start with /: ${route}`);
   if (entry.lastModified) entry.lastModified = isoDate(entry.lastModified);
+}
+requireFields(tritonAiUpdates, ["schemaVersion", "title", "description", "owner", "source", "lastReviewed", "streams", "areas", "updates"], "content/updates/tritonai-updates.json");
+tritonAiUpdates.lastReviewed = isoDate(tritonAiUpdates.lastReviewed);
+const updateStreamIds = new Set();
+for (const [index, stream] of tritonAiUpdates.streams.entries()) {
+  requireFields(stream, ["id", "title", "introKicker", "introHeading", "introDescription", "feedKicker", "feedHeading", "feedDescription", "searchPlaceholder"], `TritonAI update stream ${index + 1}`);
+  if (updateStreamIds.has(stream.id)) throw new Error(`Duplicate TritonAI update stream: ${stream.id}`);
+  updateStreamIds.add(stream.id);
+}
+const updateAreaIds = new Set();
+for (const [index, area] of tritonAiUpdates.areas.entries()) {
+  requireFields(area, ["id", "label", "icon"], `TritonAI update area ${index + 1}`);
+  if (updateAreaIds.has(area.id)) throw new Error(`Duplicate TritonAI update area: ${area.id}`);
+  updateAreaIds.add(area.id);
+}
+const updateIds = new Set();
+let previousUpdateDate = "9999-99-99";
+for (const [index, update] of tritonAiUpdates.updates.entries()) {
+  requireFields(update, ["id", "stream", "date", "displayDate", "area", "title", "details"], `TritonAI update ${index + 1}`);
+  if (!/^\d{4}-\d{2}(?:-\d{2})?$/.test(update.date)) throw new Error(`Invalid TritonAI update date: ${update.date}`);
+  if (update.date > previousUpdateDate) throw new Error(`TritonAI updates must be newest first: ${update.id}`);
+  previousUpdateDate = update.date;
+  if (updateIds.has(update.id)) throw new Error(`Duplicate TritonAI update id: ${update.id}`);
+  updateIds.add(update.id);
+  if (!updateStreamIds.has(update.stream)) throw new Error(`Unknown TritonAI update stream for ${update.id}: ${update.stream}`);
+  if (!updateAreaIds.has(update.area)) throw new Error(`Unknown TritonAI update area for ${update.id}: ${update.area}`);
+  if (/<\/?(?:script|style|iframe|object|embed|form)\b/i.test(update.details)) throw new Error(`Disallowed HTML in TritonAI update: ${update.id}`);
 }
 for (const [index, metric] of gatewayUsage.metrics.entries()) {
   requireFields(metric, ["id", "displayValue", "label", "definition", "value"], `gateway usage metric ${index + 1}`);
@@ -1293,7 +1375,7 @@ const optimizedImages = new Set(
     .filter((file) => file.endsWith(".webp"))
     .map((file) => `/_images/${file.replaceAll(path.sep, "/")}`),
 );
-const context = { site, newsletters, useCases, facts, gatewayUsage, skills, seo, generatedByPath, optimizedImages };
+const context = { site, newsletters, useCases, facts, gatewayUsage, skills, seo, tritonAiUpdates, generatedByPath, optimizedImages };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));
@@ -1331,6 +1413,7 @@ await writeFile(
       useCases: useCases.map(({ html, body, filename, ...entry }) => entry),
       skillsLibrary: skills,
       homeHero,
+      tritonAiUpdates,
     },
     null,
     2,
@@ -1352,4 +1435,4 @@ await writeFile(
 );
 await writeFile(path.join(OUTPUT_DIR, ".nojekyll"), "");
 
-process.stdout.write(`Built ${htmlFiles.length} HTML files, ${useCases.length} structured use cases, ${skills.skills.length} public skills, and ${newsletters.length} newsletters for base path ${SITE_BASE_PATH || "/"}.\n`);
+process.stdout.write(`Built ${htmlFiles.length} HTML files, ${useCases.length} structured use cases, ${skills.skills.length} public skills, ${tritonAiUpdates.updates.length} TritonAI updates, and ${newsletters.length} newsletters for base path ${SITE_BASE_PATH || "/"}.\n`);

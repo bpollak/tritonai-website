@@ -43,7 +43,7 @@
       "status": "public",
       "owner": "Enrollment Management service owner and TritonAI solutions team",
       "lastReviewed": "2026-07-24",
-      "source": "/tritongpt/release-notes/index.html",
+      "source": "/about/tritonai-updates.html",
       "measurementPeriod": "Production validation sample",
       "dataClassification": "Public aggregate; no student records",
       "canonicalUrl": "/use-cases/transcript-matching.html",

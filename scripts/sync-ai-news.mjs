@@ -35,7 +35,7 @@ function safeUrl(value, baseUrl) {
       parsed.hostname === "tritonai.ucsd.edu" &&
       parsed.pathname === "/tritongpt/release-notes/5-1-2026-release.html"
     ) {
-      parsed.pathname = "/tritongpt/release-notes/index.html";
+      parsed.pathname = "/about/tritonai-updates.html";
     }
     return parsed.href;
   } catch {

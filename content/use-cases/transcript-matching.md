@@ -6,7 +6,7 @@ status: Production
 owner: TritonAI solutions team and the sponsoring student-services owner
 lastReviewed: 2026-07-25
 audiences: [staff, leaders]
-source: TritonGPT release notes and TritonAI strategy presentation
+source: TritonAI updates and strategy presentation
 measurementPeriod: Production service; accuracy result from the published validation sample of 3,700+ transcript records
 dataClassification: Public description; student records require approved protected-data controls
 canonicalUrl: /use-cases/transcript-matching.html
@@ -38,4 +38,4 @@ The workflow extracts candidate identifiers, compares the evidence, and assigns 
 
 In production for UC San Diego enrollment management. The workflow ingests incoming transcripts, extracts candidate identifiers via OCR, compares each transcript with the appropriate student record, assigns confidence scores, and routes uncertain matches to staff for review. The published validation result reported 99.86% accuracy across more than 3,700 records, with five errors; staff review remains part of the service.
 
-<p><a class="btn btn-default" href="/tritongpt/release-notes/index.html">Read the published validation note</a></p>
+<p><a class="btn btn-default" href="/about/tritonai-updates.html#2026-07-19-production-workflows">Read the published validation note</a></p>

@@ -3108,3 +3108,574 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Roadmap, program delivery, and product-release pathway */
+.delivery-pathway {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-top: 5px solid var(--triton-gold);
+  box-shadow: 0 10px 26px rgba(24, 43, 73, .08);
+  margin: 32px auto 44px;
+  max-width: 1170px;
+  padding: 26px;
+}
+
+.delivery-pathway-heading {
+  align-items: end;
+  display: grid;
+  gap: 8px 32px;
+  grid-template-columns: minmax(240px, .8fr) minmax(340px, 1.2fr);
+  margin-bottom: 22px;
+}
+
+.delivery-pathway-heading .home-kicker {
+  grid-column: 1;
+  margin-bottom: 0;
+}
+
+.delivery-pathway-heading h2 {
+  color: var(--triton-navy);
+  font-size: 27px;
+  grid-column: 1;
+  margin: 0;
+}
+
+.delivery-pathway-heading > p:last-child {
+  color: #52616b;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.delivery-pathway ol {
+  counter-reset: none;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.delivery-pathway li {
+  min-width: 0;
+  position: relative;
+}
+
+.delivery-pathway li:not(:last-child)::after {
+  color: #84929d;
+  content: "\2192";
+  font-size: 22px;
+  position: absolute;
+  right: -13px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.delivery-pathway a {
+  align-items: flex-start;
+  background: #f5f7f8;
+  border: 2px solid transparent;
+  color: var(--triton-navy);
+  display: flex;
+  gap: 12px;
+  height: 100%;
+  padding: 17px;
+  text-decoration: none;
+}
+
+.delivery-pathway a:hover,
+.delivery-pathway a:focus {
+  background: #fff;
+  border-color: var(--triton-bright-blue);
+  text-decoration: none;
+}
+
+.delivery-pathway-current a {
+  background: var(--triton-navy);
+  border-color: var(--triton-navy);
+  color: #fff;
+}
+
+.delivery-pathway-number {
+  align-items: center;
+  background: var(--triton-gold);
+  border-radius: 50%;
+  color: var(--triton-navy);
+  display: inline-flex;
+  flex: 0 0 30px;
+  font-size: 14px;
+  font-weight: 700;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.delivery-pathway strong,
+.delivery-pathway small {
+  display: block;
+}
+
+.delivery-pathway strong {
+  font-size: 16px;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+.delivery-pathway small {
+  color: #52616b;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.delivery-pathway-current small {
+  color: #dceaf0;
+}
+
+/* TritonAI program and TritonGPT product update histories */
+.triton-updates-intro {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(0, 198, 215, .24), transparent 30%),
+    linear-gradient(135deg, #101f3a 0%, var(--triton-navy) 55%, #063d5f 100%);
+  border-top: 6px solid var(--triton-gold);
+  color: #fff;
+  overflow: hidden;
+  padding: 52px 0 48px;
+}
+
+[data-update-stream="product"] .triton-updates-intro {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 205, 0, .2), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(0, 198, 215, .24), transparent 30%),
+    linear-gradient(135deg, #101f3a 0%, #123f66 58%, #00629b 100%);
+}
+
+[data-update-stream="product"] .triton-update-date {
+  background: #123f66;
+  border-bottom-color: var(--triton-bright-blue);
+}
+
+.triton-updates-intro-grid {
+  align-items: center;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+}
+
+.triton-updates-intro .home-kicker {
+  color: var(--triton-gold);
+}
+
+.triton-updates-intro h2 {
+  color: #fff;
+  font-size: 38px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.triton-updates-intro .hub-lede {
+  color: #e6f5f7;
+  font-size: 20px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 680px;
+}
+
+.triton-updates-area-key {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.triton-updates-area-key li {
+  align-items: center;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .18);
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 11px;
+  min-height: 52px;
+  padding: 11px 14px;
+}
+
+.triton-updates-area-key li:last-child {
+  grid-column: 1 / -1;
+}
+
+.triton-updates-area-key .glyphicon {
+  color: var(--triton-gold);
+  font-size: 17px;
+}
+
+.triton-updates-feed {
+  background: #f5f7f8;
+  padding: 56px 0 72px;
+}
+
+.triton-updates-heading {
+  align-items: end;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.triton-updates-heading h2 {
+  color: var(--triton-navy);
+  font-size: 34px;
+  margin: 0;
+}
+
+.triton-updates-heading > p {
+  color: #52616b;
+  margin: 0 0 4px;
+}
+
+.triton-updates-filter {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-top: 5px solid var(--triton-bright-blue);
+  box-shadow: 0 12px 28px rgba(24, 43, 73, .08);
+  margin-bottom: 48px;
+  padding: 24px 26px 18px;
+}
+
+.triton-updates-filter-grid {
+  align-items: end;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(280px, 2fr) minmax(130px, .75fr) minmax(180px, 1fr) auto;
+}
+
+.triton-updates-filter label {
+  color: var(--triton-navy);
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.triton-updates-filter input,
+.triton-updates-filter select {
+  min-height: 44px;
+}
+
+.triton-updates-filter-action {
+  display: flex;
+}
+
+.triton-updates-filter-action button {
+  min-width: 112px;
+}
+
+.triton-updates-status {
+  color: #52616b;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 14px 0 0;
+}
+
+.triton-update-year {
+  margin-bottom: 46px;
+}
+
+.triton-update-year-heading {
+  align-items: center;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: auto 1fr;
+  margin-bottom: 18px;
+}
+
+.triton-update-year-heading h2 {
+  color: var(--triton-navy);
+  font-size: 34px;
+  margin: 0;
+}
+
+.triton-update-year-heading > span {
+  background: linear-gradient(90deg, var(--triton-gold), rgba(255, 205, 0, 0));
+  display: block;
+  height: 4px;
+}
+
+.triton-update-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 28px;
+  position: relative;
+}
+
+.triton-update-list::before {
+  background: #c8d2da;
+  bottom: 20px;
+  content: "";
+  left: 6px;
+  position: absolute;
+  top: 18px;
+  width: 3px;
+}
+
+.triton-update-item {
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.triton-update-item::before {
+  background: var(--triton-gold);
+  border: 4px solid #f5f7f8;
+  border-radius: 50%;
+  content: "";
+  height: 17px;
+  left: -29px;
+  position: absolute;
+  top: 28px;
+  width: 17px;
+  z-index: 1;
+}
+
+.triton-update-card {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  box-shadow: 0 7px 18px rgba(24, 43, 73, .055);
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.triton-update-card:hover,
+.triton-update-card:focus-within {
+  border-color: #9aa7b2;
+  box-shadow: 0 14px 30px rgba(24, 43, 73, .11);
+  transform: translateY(-2px);
+}
+
+.triton-update-date {
+  align-items: center;
+  background: var(--triton-navy);
+  border-bottom: 5px solid var(--triton-gold);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.triton-update-date time {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.triton-update-body {
+  border-left: 5px solid var(--triton-bright-blue);
+  padding: 23px 26px 20px;
+}
+
+.triton-update-body h3 {
+  color: var(--triton-navy);
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 4px 0 10px;
+}
+
+.triton-update-body p {
+  line-height: 1.62;
+  margin-bottom: 10px;
+}
+
+.triton-update-body p:last-child {
+  margin-bottom: 0;
+}
+
+.triton-update-area {
+  color: var(--triton-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+
+.triton-update-area .glyphicon {
+  margin-right: 7px;
+}
+
+[data-update-area="services"] .triton-update-body {
+  border-left-color: #ffcd00;
+}
+
+[data-update-area="assistants"] .triton-update-body {
+  border-left-color: #00c6d7;
+}
+
+[data-update-area="developer"] .triton-update-body {
+  border-left-color: #6e963b;
+}
+
+[data-update-area="platform"] .triton-update-body {
+  border-left-color: #b6b1a9;
+}
+
+[data-update-area="tritongpt"] .triton-update-body {
+  border-left-color: #00629b;
+}
+
+.triton-updates-empty {
+  border-left: 5px solid var(--triton-bright-blue);
+  margin: 24px 0 0;
+  padding: 24px;
+}
+
+.triton-updates-empty h2 {
+  margin-top: 0;
+}
+
+.no-js .triton-updates-filter {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .delivery-pathway-heading {
+    display: block;
+  }
+
+  .delivery-pathway-heading h2 {
+    margin-bottom: 10px;
+  }
+
+  .triton-updates-intro-grid {
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+
+  .triton-updates-area-key {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .triton-updates-area-key li:last-child {
+    grid-column: auto;
+  }
+
+  .triton-updates-filter-grid {
+    grid-template-columns: minmax(240px, 1.5fr) minmax(130px, .7fr) minmax(170px, 1fr);
+  }
+
+  .triton-updates-filter-action {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .delivery-pathway {
+    margin: 24px auto 34px;
+    padding: 21px 18px;
+  }
+
+  .delivery-pathway-heading h2 {
+    font-size: 24px;
+  }
+
+  .delivery-pathway ol {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-pathway li:not(:last-child)::after {
+    bottom: -20px;
+    content: "\2193";
+    left: 50%;
+    right: auto;
+    top: auto;
+    transform: translateX(-50%);
+  }
+
+  .triton-updates-intro {
+    padding: 38px 0 36px;
+  }
+
+  .triton-updates-intro h2 {
+    font-size: 31px;
+  }
+
+  .triton-updates-intro .hub-lede {
+    font-size: 18px;
+  }
+
+  .triton-updates-area-key {
+    grid-template-columns: 1fr;
+  }
+
+  .triton-updates-feed {
+    padding: 42px 0 54px;
+  }
+
+  .triton-updates-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .triton-updates-heading h2,
+  .triton-update-year-heading h2 {
+    font-size: 29px;
+  }
+
+  .triton-updates-filter {
+    margin-bottom: 38px;
+    padding: 21px 18px 17px;
+  }
+
+  .triton-updates-filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .triton-updates-filter-action {
+    grid-column: auto;
+  }
+
+  .triton-updates-filter-action button {
+    width: 100%;
+  }
+
+  .triton-update-list {
+    padding-left: 20px;
+  }
+
+  .triton-update-list::before {
+    left: 4px;
+  }
+
+  .triton-update-item::before {
+    left: -23px;
+  }
+
+  .triton-update-card {
+    grid-template-columns: 1fr;
+  }
+
+  .triton-update-date {
+    justify-content: flex-start;
+    padding: 14px 20px;
+    text-align: left;
+  }
+
+  .triton-update-body {
+    border-left-width: 4px;
+    padding: 21px 20px 19px;
+  }
+
+  .triton-update-body h3 {
+    font-size: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .triton-update-card {
+    transition: none;
+  }
+}

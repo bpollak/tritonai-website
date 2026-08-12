@@ -73,12 +73,12 @@ bannerMode: abstract
 
 <section class="landing-section" aria-labelledby="tritongpt-resources-heading">
 <div class="container">
-<div class="landing-section-heading"><p class="home-kicker">Guides and policies</p><h2 id="tritongpt-resources-heading">Guides, release notes, and terms</h2><p>How to use it, what changed recently, and what the service does with your data.</p></div>
+<div class="landing-section-heading"><p class="home-kicker">Guides and policies</p><h2 id="tritongpt-resources-heading">Guides, updates, and terms</h2><p>How to use it, what changed recently, and what the service does with your data.</p></div>
 <div class="row cms-tile-grid tritongpt-resource-grid">
 <div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><h3><a href="/training-resources/tritongpt/index.html">TritonGPT guides</a></h3><p>Getting around the interface, picking a model, and working with your documents.</p></article></div>
 <div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><h3><a href="/tritongpt/instruction.html">Instructional AI</a></h3><p>The course pilot, and how instructors set what students can ask for.</p></article></div>
 <div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><h3><a href="/tritongpt/chatbot-widget.html">Website widget</a></h3><p>How to put an assistant on your site that answers from your public pages.</p></article></div>
-<div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span><h3><a href="/tritongpt/release-notes/index.html">Release notes</a></h3><p>What has changed in the platform, release by release.</p></article></div>
+<div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span><h3><a href="/tritongpt/release-notes/index.html">Feature updates</a></h3><p>Onyx-powered features and other capabilities deployed in TritonGPT.</p></article></div>
 <div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><h3><a href="/tritongpt/privacy.html">Privacy statement</a></h3><p>What the service records and who can see it.</p></article></div>
 <div class="col-sm-6 col-md-4"><article class="cms-link-tile"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><h3><a href="/tritongpt/terms.html">Terms of use</a></h3><p>The conditions you agree to when you sign in.</p></article></div>
 </div>

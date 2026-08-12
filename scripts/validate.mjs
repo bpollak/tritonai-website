@@ -224,6 +224,7 @@ const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/l
 const homeHeroContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "home/hero.json"), "utf8"));
 const siteContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "site.json"), "utf8"));
 const seoContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "seo.json"), "utf8"));
+const tritonAiUpdatesContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "updates/tritonai-updates.json"), "utf8"));
 for (const [route, settings] of Object.entries(seoContent.routes || {})) {
   if (settings.schemaAbout !== undefined && (!Array.isArray(settings.schemaAbout) || !settings.schemaAbout.length || settings.schemaAbout.some((name) => typeof name !== "string" || !name.trim()))) {
     contentFindings.push({ source: `seo.json#${route}`, issue: "schemaAbout must contain one or more non-empty topic names" });
@@ -242,6 +243,37 @@ const gatewayMissing = missingFields(gatewayUsageContent, gatewayRequired);
 if (gatewayMissing.length) contentFindings.push({ source: "facts/gateway-usage.json", issue: `Missing fields: ${gatewayMissing.join(", ")}` });
 const gatewayPeriodMissing = missingFields(gatewayUsageContent.measurementPeriod || {}, ["start", "end", "label"]);
 if (gatewayPeriodMissing.length) contentFindings.push({ source: "facts/gateway-usage.json#measurementPeriod", issue: `Missing fields: ${gatewayPeriodMissing.join(", ")}` });
+const updateFeedRequired = ["schemaVersion", "title", "description", "owner", "source", "lastReviewed", "streams", "areas", "updates"];
+const updateFeedMissing = missingFields(tritonAiUpdatesContent, updateFeedRequired);
+if (updateFeedMissing.length) contentFindings.push({ source: "updates/tritonai-updates.json", issue: `Missing fields: ${updateFeedMissing.join(", ")}` });
+const updateStreamIds = new Set();
+for (const [index, stream] of (tritonAiUpdatesContent.streams || []).entries()) {
+  const streamMissing = missingFields(stream, ["id", "title", "introKicker", "introHeading", "introDescription", "feedKicker", "feedHeading", "feedDescription", "searchPlaceholder"]);
+  if (streamMissing.length) contentFindings.push({ source: `updates/tritonai-updates.json#stream-${index + 1}`, issue: `Missing fields: ${streamMissing.join(", ")}` });
+  if (updateStreamIds.has(stream.id)) contentFindings.push({ source: `updates/tritonai-updates.json#stream-${index + 1}`, issue: `Duplicate stream id: ${stream.id}` });
+  updateStreamIds.add(stream.id);
+}
+const updateAreaIds = new Set();
+for (const [index, area] of (tritonAiUpdatesContent.areas || []).entries()) {
+  const areaMissing = missingFields(area, ["id", "label", "icon"]);
+  if (areaMissing.length) contentFindings.push({ source: `updates/tritonai-updates.json#area-${index + 1}`, issue: `Missing fields: ${areaMissing.join(", ")}` });
+  if (updateAreaIds.has(area.id)) contentFindings.push({ source: `updates/tritonai-updates.json#area-${index + 1}`, issue: `Duplicate area id: ${area.id}` });
+  updateAreaIds.add(area.id);
+}
+const updateIds = new Set();
+let previousUpdateDate = "9999-99-99";
+for (const [index, update] of (tritonAiUpdatesContent.updates || []).entries()) {
+  const updateMissing = missingFields(update, ["id", "stream", "date", "displayDate", "area", "title", "details"]);
+  if (updateMissing.length) contentFindings.push({ source: `updates/tritonai-updates.json#update-${index + 1}`, issue: `Missing fields: ${updateMissing.join(", ")}` });
+  if (updateIds.has(update.id)) contentFindings.push({ source: `updates/tritonai-updates.json#${update.id}`, issue: "Duplicate update id" });
+  updateIds.add(update.id);
+  if (!/^\d{4}-\d{2}(?:-\d{2})?$/.test(update.date || "")) contentFindings.push({ source: `updates/tritonai-updates.json#${update.id || index + 1}`, issue: `Invalid date: ${update.date}` });
+  if ((update.date || "") > previousUpdateDate) contentFindings.push({ source: `updates/tritonai-updates.json#${update.id || index + 1}`, issue: "Updates are not sorted newest first" });
+  previousUpdateDate = update.date || previousUpdateDate;
+  if (!updateStreamIds.has(update.stream)) contentFindings.push({ source: `updates/tritonai-updates.json#${update.id || index + 1}`, issue: `Unknown stream: ${update.stream}` });
+  if (!updateAreaIds.has(update.area)) contentFindings.push({ source: `updates/tritonai-updates.json#${update.id || index + 1}`, issue: `Unknown area: ${update.area}` });
+  if (/<\/?(?:script|style|iframe|object|embed|form)\b/i.test(update.details || "")) contentFindings.push({ source: `updates/tritonai-updates.json#${update.id || index + 1}`, issue: "Disallowed HTML in update details" });
+}
 for (const [index, metric] of (gatewayUsageContent.metrics || []).entries()) {
   const metricMissing = missingFields(metric, ["id", "displayValue", "label", "definition", "value"]);
   if (metricMissing.length) contentFindings.push({ source: `facts/gateway-usage.json#metric-${index + 1}`, issue: `Missing fields: ${metricMissing.join(", ")}` });
@@ -393,6 +425,7 @@ const freshnessEntries = [
   ...(factsContent.facts || []).map((fact, index) => ({ filename: `facts/public-facts.json#${fact.id || index + 1}`, lastReviewed: isoDate(fact.lastReviewed) })),
   { filename: "facts/gateway-usage.json", lastReviewed: isoDate(gatewayUsageContent.lastReviewed) },
   { filename: "home/hero.json", lastReviewed: isoDate(homeHeroContent.lastReviewed) },
+  { filename: "updates/tritonai-updates.json", lastReviewed: isoDate(tritonAiUpdatesContent.lastReviewed) },
 ];
 for (const entry of freshnessEntries) {
   if (!entry.lastReviewed) {
@@ -1024,7 +1057,7 @@ for (const page of htmlFiles) {
     const currentItems = (roadmapContent.items || []).filter((item) => /2026/.test(item.period));
     const historyItems = (roadmapContent.items || []).filter((item) => !/2026/.test(item.period));
     const expectedDetails = currentItems.reduce((total, item) => total + (item.details || []).length, 0);
-    const expectedLinks = currentItems.reduce((total, item) => total + (item.links || []).length, 0);
+    const expectedLinks = (roadmapContent.items || []).reduce((total, item) => total + (item.links || []).length, 0);
     if ($(".roadmap-status-key").length !== 1 || $(".roadmap-status-key li").length !== 4) {
       accessibility.push({ page: route, issue: "Roadmap status guidance is incomplete" });
     }
@@ -1036,6 +1069,31 @@ for (const page of htmlFiles) {
     }
     if ($(".roadmap-current h2, .roadmap-history h2").length !== 2 || $(".agent-roadmap-item h3").length !== (roadmapContent.items || []).length) {
       accessibility.push({ page: route, issue: "Roadmap section and milestone heading hierarchy is incomplete" });
+    }
+  }
+  const updateStreamId = route === "/about/tritonai-updates.html"
+    ? "program"
+    : route === "/tritongpt/release-notes/index.html"
+      ? "product"
+      : null;
+  if (updateStreamId) {
+    const expectedUpdates = (tritonAiUpdatesContent.updates || []).filter((update) => update.stream === updateStreamId);
+    if ($(`[data-update-stream='${updateStreamId}']`).length !== 1 || $("[data-update-card]").length !== expectedUpdates.length) {
+      contentFindings.push({ source: route, issue: `Rendered ${updateStreamId} update count does not match structured content` });
+    }
+    if ($("[data-update-year-group]").length !== new Set(expectedUpdates.map((update) => update.date.slice(0, 4))).size) {
+      contentFindings.push({ source: route, issue: `Rendered ${updateStreamId} update years do not match structured content` });
+    }
+    if ($("[data-updates-search]").length !== 1 || $("[data-updates-year]").length !== 1 || $("[data-updates-area]").length !== 1) {
+      accessibility.push({ page: route, issue: "TritonAI update filters are missing" });
+    }
+    if ($("[data-update-card] article[id]").length !== expectedUpdates.length) {
+      accessibility.push({ page: route, issue: `${updateStreamId} updates need unique fragment targets` });
+    }
+  }
+  if (["/about/roadmap.html", "/about/tritonai-updates.html", "/tritongpt/release-notes/index.html"].includes(route)) {
+    if ($(".delivery-pathway a").length !== 3 || $(".delivery-pathway a[aria-current='page']").length !== 1) {
+      accessibility.push({ page: route, issue: "Delivery pathway links or current-page context are incomplete" });
     }
   }
   if (route === "/skills/index.html") {
@@ -1226,6 +1284,7 @@ const report = {
     files: files.length,
     htmlFiles: htmlFiles.length,
     newsletters: newsletterCount,
+    tritonAiUpdates: (tritonAiUpdatesContent.updates || []).length,
     skills: (skillsContent.skills || []).length,
     missingInternalTargets: missing.length,
     inheritedProductionFailures: inherited.length,

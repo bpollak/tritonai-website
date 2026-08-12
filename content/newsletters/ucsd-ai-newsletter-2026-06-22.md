@@ -12,7 +12,7 @@ June 22, 2026
 
 ### TritonGPT
 
--   **[UC San Diego Assistant launches in the UC San Diego mobile app](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** — The TritonGPT-powered UC San Diego Assistant is now available directly in the campus mobile app. Ask questions about campus resources, policies, and services on the go without opening a separate browser tab. Great for quick answers between meetings or while walking across campus.
+-   **[UC San Diego Assistant launches in the UC San Diego mobile app](https://tritonai.ucsd.edu/about/tritonai-updates.html)** — The TritonGPT-powered UC San Diego Assistant is now available directly in the campus mobile app. Ask questions about campus resources, policies, and services on the go without opening a separate browser tab. Great for quick answers between meetings or while walking across campus.
 
 ### Zoom AI Companion
 

@@ -8,8 +8,8 @@ items: 8
 
 ### TritonGPT
 
--   **[UC San Diego Assistant launches in the UC San Diego mobile app](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** — Access AI-powered campus info (parking, dining, library) on iOS and Android.
--   **[Platform update: Onyx 3.3](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** — Improved document search, retrieval, and system observability.
+-   **[UC San Diego Assistant launches in the UC San Diego mobile app](https://tritonai.ucsd.edu/about/tritonai-updates.html)** — Access AI-powered campus info (parking, dining, library) on iOS and Android.
+-   **[Platform update: Onyx 3.3](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html#2026-05-28-onyx-3-3)** — Improved document search, retrieval, and system observability.
 
 ### Microsoft Copilot with Data Protection
 

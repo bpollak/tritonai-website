@@ -43,7 +43,7 @@ test("syncs validated newsletter markup and sanitizes links", async () => {
     const output = await readFile(path.join(outputDir, "ucsd-ai-newsletter-2026-07-27.md"), "utf8");
     assert.match(output, /date: 2026-07-27/);
     assert.match(output, /\[A campus update\]\(https:\/\/brettcpollak\.com\/ucsd-ai-news\)/);
-    assert.match(output, /\[Release notes\]\(https:\/\/tritonai\.ucsd\.edu\/tritongpt\/release-notes\/index\.html\)/);
+    assert.match(output, /\[Release notes\]\(https:\/\/tritonai\.ucsd\.edu\/about\/tritonai-updates\.html\)/);
     assert.match(output, /\[tritonai@ucsd\.edu\]\(mailto:tritonai@ucsd\.edu\)/);
     assert.doesNotMatch(output, /unsafe|script/i);
 

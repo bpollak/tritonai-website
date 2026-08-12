@@ -36,5 +36,5 @@ Use the workflow's **Run workflow** action when an edition publishes after the M
 - Required newsletter sections must be present.
 - Editions reporting zero items are rejected and require review before publication.
 - Scripts, forms, frames, event handlers, and unsafe URL schemes are removed.
-- Known retired TritonAI release-note targets are mapped to the current release-notes index.
+- Known retired TritonAI release-note targets are mapped to the current TritonAI Updates page.
 - The workflow creates a pull request. It does not merge or deploy source changes without review.

@@ -8,7 +8,7 @@ items: 9
 
 ### TritonGPT
 
--   **[TritonGPT Widget updates and live campus data (May 1 2026)](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** – The AI widget now shows live parking availability and Geisel Library busyness, plus a redesigned response view that makes it easier to follow how the assistant generated its answer.
+-   **[TritonGPT Widget updates and live campus data (May 1 2026)](https://tritonai.ucsd.edu/about/tritonai-updates.html)** – The AI widget now shows live parking availability and Geisel Library busyness, plus a redesigned response view that makes it easier to follow how the assistant generated its answer.
 
 ### Zoom AI Companion
 

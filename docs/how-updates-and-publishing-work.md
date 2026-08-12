@@ -64,7 +64,7 @@ a one-off override. Started that way against `main`, it asks for **confirm
 production** first, because a manual production run is the case where someone
 may not have meant to. A push to `main` is already that decision.
 
-Some pages are owned by people and need their agreement before moving up a rung — for example, the strategic narrative, roadmap, and sustainability policy. Others, like newsletters and release notes, agents may edit and publish freely. The `AGENTS.md` file in the repository lists who owns what.
+Some pages are owned by people and need their agreement before moving up a rung. Examples include the strategic narrative, roadmap, and sustainability policy. Agents may edit newsletters and the TritonAI update history. The `AGENTS.md` file in the repository lists who owns what.
 
 ## How multiple contributors work together
 
@@ -87,7 +87,7 @@ and it is the fastest way to see a real rendered page.
 
 Not every file is fair game for every contributor. `AGENTS.md` defines the tiers:
 
-- **Agent-owned** — newsletters, the media article archive (`content/media/articles.json`), release notes, and clearly marked metrics sections. Agents may edit and publish these without asking.
+- **Agent-owned** — newsletters, the media article archive (`content/media/articles.json`), TritonAI update history, historical TritonGPT release details, and clearly marked metrics sections. Agents may edit and publish these without asking.
 - **Human-owned** — the strategic narrative (`src/site/about/index.html`), roadmap (`src/site/about/roadmap.html`), and sustainability policy (`src/site/about/sustainability.html`). An agent may draft a change on `playground`, but the owner decides whether it moves up.
 - **Shared** — the homepage, TritonGPT landing, tools listing, and developer page. The content owner sees the rendered page before it reaches `preview` or `main`.
 - **Machine-owned** — the pinned Decorator copy and the chrome contract files. Written by scripts, never by hand.
@@ -119,7 +119,7 @@ A human editing the same file can safely change anything outside the markers. Th
 
 | File or area | Who can edit | Who decides it goes up |
 | --- | --- | --- |
-| Newsletters, release notes, media archive, metrics | Agents and people | Any maintainer |
+| Newsletters, verified TritonAI program updates, deployed TritonGPT feature updates, historical release details, media archive, metrics | Agents and people | Any maintainer |
 | Strategic narrative, roadmap, sustainability | Agents may draft on `playground` | Content owner |
 | Homepage, TritonGPT landing, tools, developer page | Agents and people | Content owner |
 | Pinned Decorator copy, chrome contract files | Scripts only | Not hand-edited |

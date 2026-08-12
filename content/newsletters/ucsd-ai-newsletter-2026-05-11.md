@@ -10,7 +10,7 @@ _Week of May 11, 2026 — your roundup of what's new with UC San Diego's support
 
 ### TritonGPT
 
--   **[TGPT Widget updates with live campus data (May 1)](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)**: The TritonGPT widget on Blink now shows live parking availability and real-time busyness levels at Geisel Library. The interface has also been redesigned to make it easier to trace how the AI generates responses. Behind-the-scenes work improved system performance and reliability.
+-   **[TGPT Widget updates with live campus data (May 1)](https://tritonai.ucsd.edu/about/tritonai-updates.html)**: The TritonGPT widget on Blink now shows live parking availability and real-time busyness levels at Geisel Library. The interface has also been redesigned to make it easier to trace how the AI generates responses. Behind-the-scenes work improved system performance and reliability.
 
 ### Zoom AI Companion
 

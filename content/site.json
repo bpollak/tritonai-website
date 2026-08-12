@@ -2,7 +2,7 @@
   "name": "TritonAI",
   "origin": "https://tritonai.ucsd.edu",
   "description": "UC San Diego's trusted ecosystem for using, building, and learning with artificial intelligence.",
-  "lastReviewed": "2026-07-27",
+  "lastReviewed": "2026-08-12",
   "navigation": [
     {
       "label": "About",
@@ -10,11 +10,12 @@
       "items": [
         { "label": "Strategy", "href": "/about/strategy.html" },
         { "label": "Roadmap", "href": "/about/roadmap.html" },
+        { "label": "TritonAI Updates", "href": "/about/tritonai-updates.html" },
         { "label": "Trust, Privacy & Hosting", "href": "/about/trust-architecture.html" },
         { "label": "Team & Responsibilities", "href": "/about/team.html" },
         { "label": "Sustainability", "href": "/about/sustainability.html" },
         { "label": "Get Involved", "href": "/about/get-involved.html" },
-        { "label": "AI Updates", "href": "/about/ai-updates.html" },
+        { "label": "Weekly AI News", "href": "/about/ai-updates.html" },
         { "label": "Media & Recognition", "href": "/about/media.html" },
         { "label": "Articles & Coverage", "href": "/about/media-articles.html" }
       ]
@@ -28,7 +29,7 @@
         { "label": "Guides", "href": "/training-resources/tritongpt/index.html" },
         { "label": "Instructional AI Pilot", "href": "/tritongpt/instruction.html" },
         { "label": "Chatbot Widget", "href": "/tritongpt/chatbot-widget.html" },
-        { "label": "Release Notes", "href": "/tritongpt/release-notes/index.html" },
+        { "label": "Feature Updates", "href": "/tritongpt/release-notes/index.html" },
         { "label": "Terms of Use", "href": "/tritongpt/terms.html" },
         { "label": "Privacy Statement", "href": "/tritongpt/privacy.html" }
       ]

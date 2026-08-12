@@ -12,11 +12,11 @@ Welcome to this week’s roundup of AI updates and tools—what’s new, what it
 
 ### TritonGPT
 
--   **[UC San Diego Assistant launches in the UC San Diego mobile app (May 27)](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)**: The UC San Diego Assistant is now available in the official UC San Diego mobile app on iOS and Android. Students, faculty, and staff can ask questions about campus resources, parking availability, dining options, library information, and more — directly from their phone.
+-   **[UC San Diego Assistant launches in the UC San Diego mobile app (May 27)](https://tritonai.ucsd.edu/about/tritonai-updates.html)**: The UC San Diego Assistant is now available in the official UC San Diego mobile app on iOS and Android. Students, faculty, and staff can ask questions about campus resources, parking availability, dining options, library information, and more — directly from their phone.
 
--   **[Platform update: Onyx 3.3 (May 28)](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)**: Upgraded to Onyx v3.3, bringing significant improvements to the platform that powers the UC San Diego Assistant's document search and retrieval capabilities. Key new features include tabular file indexing (spreadsheets and CSVs are now indexed as structured data), smoother chat streaming with live LaTeX rendering, queued messaging, image extraction from PDFs, and connector improvements for Gong, HubSpot, Confluence, and Google Drive.
+-   **[Platform update: Onyx 3.3 (May 28)](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html#2026-05-28-onyx-3-3)**: Upgraded to Onyx v3.3, bringing significant improvements to the platform that powers the UC San Diego Assistant's document search and retrieval capabilities. Key new features include tabular file indexing (spreadsheets and CSVs are now indexed as structured data), smoother chat streaming with live LaTeX rendering, queued messaging, image extraction from PDFs, and connector improvements for Gong, HubSpot, Confluence, and Google Drive.
 
--   **[TGPT Widget now shows live parking and busyness data](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)**: The TritonGPT widget (available on Blink) now displays real-time parking availability and current busyness levels at Geisel Library. The interface has also been redesigned for clearer AI response tracking.
+-   **[TGPT Widget now shows live parking and busyness data](https://tritonai.ucsd.edu/about/tritonai-updates.html)**: The TritonGPT widget (available on Blink) now displays real-time parking availability and current busyness levels at Geisel Library. The interface has also been redesigned for clearer AI response tracking.
 
 ### Zoom AI Companion
 

@@ -8,6 +8,7 @@ This repository is a static, agent-maintainable source for the public website at
 - `content/pages/` contains high-change pages, including the homepage, strategy, impact, integrations, hosting, and learning pathways.
 - `content/use-cases/`, `content/roadmap/`, and `content/facts/` contain structured, public-safe portfolio content. The build validates their ownership, source, review, audience, status, and data-boundary fields.
 - `content/newsletters/` contains the weekly-update source as Markdown. The three newest entries are rendered on the homepage; all entries are rendered on `/about/ai-updates.html`.
+- `content/updates/tritonai-updates.json` contains two verified histories: program delivery at `/about/tritonai-updates.html` and deployed TritonGPT features at `/tritongpt/release-notes/index.html`. Dated historical release pages remain under `/tritongpt/release-notes/`.
 - `content/home/hero.json` controls the homepage hero rotator, including slide copy, images, links, review date, and rotation interval.
 - `content/skills/library.json` is the build-safe snapshot of the public [UCSD Skills Library](https://github.com/dbalders/UCSD-Skills-Library). GitHub Actions refreshes it before every build and on an hourly schedule.
 - UC San Diego Decorator styles and scripts continue to load from `cdn.ucsd.edu`, so supported upstream Decorator changes flow through without being vendored here.
@@ -58,6 +59,7 @@ Newsletter files are sorted by `date`, so agents do not need to edit the homepag
 ## Publishing site content
 
 - Add or revise a high-change page in `content/pages/`.
+- Add approved program, service, platform, or TritonGPT changes to `content/updates/tritonai-updates.json`.
 - Add a use case in `content/use-cases/` with an approved status: `Production`, `Shipped`, `Pilot`, `In development`, or `Exploring`.
 - Update `content/roadmap/milestones.json` when delivery status changes.
 - Put reusable public claims in `content/facts/public-facts.json`; do not copy a quantitative claim out of a presentation without its definition, owner, source, measurement period, and review date.

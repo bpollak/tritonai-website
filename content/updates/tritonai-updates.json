@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "title": "TritonAI Updates",
+  "description": "Changes across TritonGPT, campus AI services, developer tools, models, and shared infrastructure.",
+  "owner": "TritonAI program",
+  "source": "Published TritonGPT release notes and approved TritonAI service updates",
+  "lastReviewed": "2026-08-12",
+  "streams": [
+    {
+      "id": "program",
+      "title": "TritonAI Updates",
+      "introKicker": "Program delivery",
+      "introHeading": "Follow changes across TritonAI",
+      "introDescription": "See when UC San Diego launches an AI service, expands access, adds developer capabilities, or changes the shared platform.",
+      "feedKicker": "Delivery history",
+      "feedHeading": "Browse program updates",
+      "feedDescription": "Search verified launches and milestones by year and area.",
+      "searchPlaceholder": "Try Class Planner, mobile app, or developer"
+    },
+    {
+      "id": "product",
+      "title": "TritonGPT Feature Updates",
+      "introKicker": "Product releases",
+      "introHeading": "See what changed in TritonGPT",
+      "introDescription": "Explore Onyx-powered features and other TritonGPT capabilities after UC San Diego deploys and verifies them.",
+      "feedKicker": "Feature history",
+      "feedHeading": "Browse TritonGPT features",
+      "feedDescription": "Search deployed product changes by year and feature area.",
+      "searchPlaceholder": "Try documents, assistants, search, or models"
+    }
+  ],
+  "areas": [
+    { "id": "services", "label": "AI services", "icon": "tasks" },
+    { "id": "assistants", "label": "Campus assistants", "icon": "comment" },
+    { "id": "developer", "label": "Developer platform", "icon": "console" },
+    { "id": "platform", "label": "Platform and models", "icon": "cog" },
+    { "id": "tritongpt", "label": "TritonGPT", "icon": "flash" }
+  ],
+  "updates": [
+    {
+      "id": "2026-07-19-production-workflows",
+      "stream": "program",
+      "date": "2026-07-19",
+      "displayDate": "July 19, 2026",
+      "area": "services",
+      "title": "AI Contract Reviewer and Transcript Matcher in production",
+      "details": "<p>Two human-supervised TritonAI workflows are in production. <strong>Contract Review</strong> compares relevant language with approved positions and prepares findings and proposed redlines for a qualified reviewer. <strong>Transcript Matching</strong> compares incoming transcript documents with student records and routes uncertain cases to staff. Its published validation sample reported 99.86% accuracy across more than 3,700 records, with five errors. Data handling and model routes follow the controls approved for each production service.</p>"
+    },
+    {
+      "id": "2026-07-09-class-planner",
+      "stream": "program",
+      "date": "2026-07-09",
+      "displayDate": "July 9, 2026",
+      "area": "services",
+      "title": "Class Planner in production",
+      "details": "<p>Class Planner is in production, helping students generate and compare schedule alternatives from course meeting information, preferences, and unavailable times. Students remain responsible for checking current course details and availability before enrollment.</p>"
+    },
+    {
+      "id": "2026-06-26-harness-pilot",
+      "stream": "program",
+      "date": "2026-06-26",
+      "displayDate": "June 26, 2026",
+      "area": "developer",
+      "title": "TritonAI Harness pilot advances",
+      "details": "<p>The TritonAI Harness pilot advanced its support for bounded, tool-using workflows through the common model gateway and reusable skills. Availability and supported capabilities are confirmed through the developer-access process.</p>"
+    },
+    {
+      "id": "2026-06-17-developer-pilot",
+      "stream": "program",
+      "date": "2026-06-17",
+      "displayDate": "June 17, 2026",
+      "area": "developer",
+      "title": "Developer pilot and model catalog updates",
+      "details": "<p>The developer pilot added workflow capabilities and expanded the models evaluated through the gateway. Because the catalog and rates change, use the <a href=\"https://tritonai-api.ucsd.edu/ui/model_hub_table/\">Model Hub</a> for current availability, capabilities, and published rates.</p>"
+    },
+    {
+      "id": "2026-06-16-reliability",
+      "stream": "program",
+      "date": "2026-06-16",
+      "displayDate": "June 16, 2026",
+      "area": "platform",
+      "title": "Platform reliability work",
+      "details": "<p>Platform reliability, integration quality, and operational monitoring work continued across TritonGPT and its instructional pilot.</p>"
+    },
+    {
+      "id": "2026-05-28-onyx-3-3",
+      "stream": "product",
+      "date": "2026-05-28",
+      "displayDate": "May 28, 2026",
+      "area": "platform",
+      "title": "Platform update: Onyx 3.3",
+      "details": "<p>TritonGPT upgrades to Onyx v3.3. Deployed features include structured indexing for spreadsheets and CSV files, smoother chat streaming with live LaTeX rendering, queued messages, image extraction from PDFs, and connector improvements. System hardening and observability work also improved performance and reliability.</p>"
+    },
+    {
+      "id": "2026-05-27-mobile-assistant",
+      "stream": "program",
+      "date": "2026-05-27",
+      "displayDate": "May 27, 2026",
+      "area": "assistants",
+      "title": "UC San Diego Assistant launches in the mobile app",
+      "details": "<p>The UC San Diego Assistant is available in the official UC San Diego mobile app on iOS and Android. Students, faculty, and staff can ask about campus resources, parking availability, dining options, library information, and more from their phone. Powered by TritonGPT, the assistant delivers the same campus knowledge available on Blink and the TritonGPT web interface in a mobile experience.</p>"
+    },
+    {
+      "id": "2026-05-01-widget-live-data",
+      "stream": "program",
+      "date": "2026-05-01",
+      "displayDate": "May 1, 2026",
+      "area": "assistants",
+      "title": "TritonGPT widget adds live campus data",
+      "details": "<p>The TritonGPT widget now provides live parking availability and current busyness levels at Geisel Library. The redesigned interface makes it easier to follow how the AI generates responses. System updates also improved performance and reliability.</p>"
+    },
+    {
+      "id": "2026-04-14-models-tools-search",
+      "stream": "product",
+      "date": "2026-04-14",
+      "displayDate": "April 14, 2026",
+      "area": "tritongpt",
+      "title": "New models, campus tools, and search improvements",
+      "details": "<p>Adds GPT 5.4, Gemini 3.1 Pro and Flash, Gemma 4 26b, and Claude Sonnet 4.6, and retires the OpenAI 4 Series. The UC San Diego Assistant gains Parking and Busyness tools, the Internet Search Assistant moves to a more reliable web search, and answer quality and safety have been improved across the platform. <a href=\"/tritongpt/release-notes/4-14-2026-release.html\">Read the April 14 release details</a>.</p>"
+    },
+    {
+      "id": "2025-11-24-ui-personalization-research",
+      "stream": "product",
+      "date": "2025-11-24",
+      "displayDate": "November 24, 2025",
+      "area": "tritongpt",
+      "title": "New interface, personalization, and Deep Research",
+      "details": "<p>This release refreshes the chat interface and organizes Documents and Chat Folders into Projects. It also adds GPT-5.1, Gemini 3 Pro, Deep Research, and personalization options. <a href=\"/tritongpt/release-notes/11-24-2025-release.html\">Read the November 24 release details</a>.</p>"
+    },
+    {
+      "id": "2025-10-22-gpt-5",
+      "stream": "product",
+      "date": "2025-10-22",
+      "displayDate": "October 22, 2025",
+      "area": "platform",
+      "title": "GPT-5 becomes available",
+      "details": "<p>OpenAI's GPT-5 model is available for all AI Assistants.</p>"
+    },
+    {
+      "id": "2025-10-13-blink-search",
+      "stream": "program",
+      "date": "2025-10-13",
+      "displayDate": "October 13, 2025",
+      "area": "assistants",
+      "title": "TritonGPT powers AI overviews in Blink search",
+      "details": "<p>Blink search results now feature an AI overview powered by the TritonGPT UC San Diego Assistant.</p>"
+    },
+    {
+      "id": "2025-10-03-default-model-assistants",
+      "stream": "product",
+      "date": "2025-10-03",
+      "displayDate": "October 3, 2025",
+      "area": "platform",
+      "title": "New default model and assistants",
+      "details": "<p>GPT OSS, OpenAI's open-weight model, now powers TritonGPT by default. Models are served through a centralized API service for consistent management. The new Data Dictionary Assistant helps report developers navigate data available in the Activity Hubs.</p>"
+    },
+    {
+      "id": "2025-09-12-backend",
+      "stream": "product",
+      "date": "2025-09-12",
+      "displayDate": "September 12, 2025",
+      "area": "platform",
+      "title": "Embedding and model-routing updates",
+      "details": "<p>An improved embedding model increases response accuracy. All models are now served through LiteLLM for more efficient and scalable model management.</p><p>Users can also change their default model in User Settings.</p>"
+    },
+    {
+      "id": "2025-08-28-expert-notetaker",
+      "stream": "product",
+      "date": "2025-08-28",
+      "displayDate": "August 28, 2025",
+      "area": "tritongpt",
+      "title": "Expert Notetaker",
+      "details": "<p>Paste a meeting transcript to generate a detailed summary with action items.</p>"
+    },
+    {
+      "id": "2025-07-07-chatbot-widget",
+      "stream": "program",
+      "date": "2025-07-07",
+      "displayDate": "July 7, 2025",
+      "area": "assistants",
+      "title": "AI chatbot widget launches on Blink",
+      "details": "<p>The UC San Diego Assistant is available as a chatbot widget on Blink. <a href=\"/tritongpt/chatbot-widget.html\">Learn about the TritonGPT chatbot widget</a>.</p>"
+    },
+    {
+      "id": "2025-06-16-student-access",
+      "stream": "program",
+      "date": "2025-06-16",
+      "displayDate": "June 16, 2025",
+      "area": "tritongpt",
+      "title": "TritonGPT becomes available to students",
+      "details": "<p>Students now have access to TritonGPT. <a href=\"https://students.ucsd.edu/campus-services/technology/tritongpt/index.html\">Read the TritonLink access information</a>.</p>"
+    },
+    {
+      "id": "2025-06-13-gpt-4-1",
+      "stream": "product",
+      "date": "2025-06-13",
+      "displayDate": "June 13, 2025",
+      "area": "platform",
+      "title": "GPT-4.1 becomes available",
+      "details": "<p><a href=\"/tritongpt/release-notes/models.html\">GPT-4.1</a> is available for all AI Assistants. It supports text and image inputs and brings updated coding, reasoning, and instruction-following capabilities. This release also includes fixes for My Documents.</p>"
+    },
+    {
+      "id": "2025-05-23-default-llama",
+      "stream": "product",
+      "date": "2025-05-23",
+      "displayDate": "May 23, 2025",
+      "area": "platform",
+      "title": "Llama 4 Scout becomes the default model",
+      "details": "<p>Llama 4 Scout replaces Llama 3.3 as the default model.</p>"
+    },
+    {
+      "id": "2025-05-09-my-documents",
+      "stream": "product",
+      "date": "2025-05-09",
+      "displayDate": "May 9, 2025",
+      "area": "tritongpt",
+      "title": "My Documents",
+      "details": "<p>Users can <a href=\"https://blink.ucsd.edu/technology/_images/ai/Documents TGPT.gif\">create folders and upload documents</a> to organize source material and generate new content from multiple files.</p>"
+    },
+    {
+      "id": "2025-04-25-context-routing",
+      "stream": "product",
+      "date": "2025-04-25",
+      "displayDate": "April 25, 2025",
+      "area": "assistants",
+      "title": "UC San Diego Assistant context routing",
+      "details": "<p>The UC San Diego Assistant now evaluates prompts to determine when UC San Diego context applies. The change reduces irrelevant campus context when the General AI Assistant is a better fit.</p>"
+    },
+    {
+      "id": "2025-04-02-ui-models-context",
+      "stream": "product",
+      "date": "2025-04-02",
+      "displayDate": "April 2, 2025",
+      "area": "tritongpt",
+      "title": "New navigation, model selection, and expanded context",
+      "details": "<p>TritonGPT introduces grouped chat history, assistant-specific threads, and an Explore Assistants panel. Users can choose between GPT-4o and Llama 3.3 70B. Backend upgrades expand the context window to 128,000 tokens. User Settings adds theme selection, auto-scroll, keyboard shortcuts, and full chat deletion. <a href=\"/tritongpt/release-notes/4-2-2025-release.html\">Read the April 2 release details</a>.</p>"
+    },
+    {
+      "id": "2025-02-14-related-questions",
+      "stream": "product",
+      "date": "2025-02-14",
+      "displayDate": "February 14, 2025",
+      "area": "tritongpt",
+      "title": "Related Questions improvements",
+      "details": "<p>TritonGPT upgrades to a newer Onyx release and improves Related Questions. Users can select a related question to add it to the prompt window.</p>"
+    },
+    {
+      "id": "2025-01-14-onyx-llama",
+      "stream": "product",
+      "date": "2025-01-14",
+      "displayDate": "January 14, 2025",
+      "area": "platform",
+      "title": "Onyx, Llama 3.3, and expanded campus sources",
+      "details": "<p>TritonGPT upgrades to Onyx, formerly Danswer, which brings chat and search together. The release also adds Llama 3.3 and expands the number of indexed websites to 63.</p>"
+    },
+    {
+      "id": "2024-12-13-jd-helper-search",
+      "stream": "product",
+      "date": "2024-12-13",
+      "displayDate": "December 13, 2024",
+      "area": "tritongpt",
+      "title": "JD Helper, Internet Search, and Related Questions",
+      "details": "<p>JD Helper adds support for creating job postings and interview questions from a Position Overview. Internet Search provides current web information. Related Questions suggests follow-up topics in the Fund Manager Coach, UC San Diego, and Internet Search assistants.</p>"
+    },
+    {
+      "id": "2024-11-26-assistant-switching",
+      "stream": "product",
+      "date": "2024-11-26",
+      "displayDate": "November 26, 2024",
+      "area": "tritongpt",
+      "title": "Assistant switching improvements",
+      "details": "<p>A cleaner interface makes it easier to move between AI Assistants.</p>"
+    },
+    {
+      "id": "2024-11-08-phishing-analyzer",
+      "stream": "product",
+      "date": "2024-11-08",
+      "displayDate": "November 8, 2024",
+      "area": "tritongpt",
+      "title": "Email Phishing Analyzer",
+      "details": "<p>Users can upload or paste an email for analysis. The assistant returns a risk rating and explains the factors behind it.</p>"
+    },
+    {
+      "id": "2024-08-13-files-chats-assistants",
+      "stream": "product",
+      "date": "2024-08-13",
+      "displayDate": "August 13, 2024",
+      "area": "tritongpt",
+      "title": "File uploads, saved chats, and assistant switching",
+      "details": "<p>TritonGPT adds saved chats, file uploads, document search, assistant switching, a Prompt Gallery, shared chats, and source interaction. Fund Manager Coach also becomes available. <a href=\"/tritongpt/release-notes/8-13-24-release.html\">Read the August 13 release details</a>.</p>"
+    },
+    {
+      "id": "2024-05-14-campus-rollout",
+      "stream": "program",
+      "date": "2024-05-14",
+      "displayDate": "May 14, 2024",
+      "area": "tritongpt",
+      "title": "Campus rollout completes",
+      "details": "<p>TritonGPT becomes available to employees in campus and Health Sciences units, reaching close to 37,000 faculty, staff, and student staff. People who have trouble accessing the service can <a href=\"https://blink.ucsd.edu/technology/help-desk/index.html\">contact the Service Desk</a>.</p>"
+    },
+    {
+      "id": "2024-04-29-llama-3-vllm",
+      "stream": "product",
+      "date": "2024-04-29",
+      "displayDate": "April 29, 2024",
+      "area": "platform",
+      "title": "Llama 3 and vLLM updates",
+      "details": "<p>TritonGPT adds Llama 3 for the UC San Diego Assistant and General AI Assistant. The vLLM environment also receives an upgrade to serve models more efficiently.</p>"
+    },
+    {
+      "id": "2024-04-15-sso",
+      "stream": "program",
+      "date": "2024-04-15",
+      "displayDate": "April 15, 2024",
+      "area": "tritongpt",
+      "title": "Campus single sign-on",
+      "details": "<p>TritonGPT adopts campus single sign-on and receives several interface improvements.</p>"
+    },
+    {
+      "id": "2024-03-28-jd-helper",
+      "stream": "product",
+      "date": "2024-03-28",
+      "displayDate": "March 28, 2024",
+      "area": "tritongpt",
+      "title": "JD Helper improvements",
+      "details": "<p>JD Helper receives fixes and clearer instructions for retrieving job cards. Its system prompt also changes to produce more consistent output.</p>"
+    },
+    {
+      "id": "2024-03-20-production-candidate",
+      "stream": "program",
+      "date": "2024-03-20",
+      "displayDate": "March 20, 2024",
+      "area": "tritongpt",
+      "title": "Production candidate launches",
+      "details": "<p>TritonGPT launches a production candidate for employees in campus and Health Sciences units, with a Danswer enterprise code base, a larger embedding model, and interface improvements.</p>"
+    },
+    {
+      "id": "2024-02-hardware",
+      "stream": "program",
+      "date": "2024-02",
+      "displayDate": "February 2024",
+      "area": "platform",
+      "title": "Hardware capacity expands",
+      "details": "<p>Additional hardware expands capacity ahead of the campus launch.</p>"
+    },
+    {
+      "id": "2023-10-proof-of-concept",
+      "stream": "program",
+      "date": "2023-10",
+      "displayDate": "October 2023",
+      "area": "tritongpt",
+      "title": "TritonGPT proof of concept",
+      "details": "<p>The initial proof of concept launches for more than 400 pilot users.</p>"
+    }
+  ]
+}

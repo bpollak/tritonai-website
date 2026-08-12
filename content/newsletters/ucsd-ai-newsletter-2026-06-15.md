@@ -12,8 +12,8 @@ _June 15, 2026_
 
 ### TritonGPT
 
--   **[UC San Diego Assistant launches in the UC San Diego mobile app](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** – Now available in the official UC San Diego mobile app (iOS/Android), delivering AI-powered campus knowledge about resources, parking, dining, and library info.
--   **[Platform update: Onyx 3.3](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html)** – Upgraded to Onyx v3.3, improving document search and retrieval for the UC San Diego Assistant, with behind-the-scenes hardening and observability improvements.
+-   **[UC San Diego Assistant launches in the UC San Diego mobile app](https://tritonai.ucsd.edu/about/tritonai-updates.html)** – Now available in the official UC San Diego mobile app (iOS/Android), delivering AI-powered campus knowledge about resources, parking, dining, and library info.
+-   **[Platform update: Onyx 3.3](https://tritonai.ucsd.edu/tritongpt/release-notes/index.html#2026-05-28-onyx-3-3)** – Upgraded to Onyx v3.3, improving document search and retrieval for the UC San Diego Assistant, with behind-the-scenes hardening and observability improvements.
 
 ### Zoom AI Companion
 

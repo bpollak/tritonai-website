@@ -1,8 +1,8 @@
 {
   "title": "TritonAI Roadmap",
-  "description": "A public, status-based view of the TritonAI ecosystem from the 2023 chatbot launch through the 2026 governed builder path. The platform now serves 73,000+ students, faculty, and staff. Recent milestones include initiative-level detail drawn from the public TritonAI Ecosystem Timeline and 2026 quarterly roadmap.",
+  "description": "A public, status-based view of approved TritonAI work from the 2023 chatbot launch through the 2026 governed builder path. The platform now serves 73,000+ students, faculty, and staff. Completed work links to verified program updates when a corresponding public update is available.",
   "owner": "TritonAI program",
-  "lastReviewed": "2026-08-10",
+  "lastReviewed": "2026-08-12",
   "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 Q1-Q3 (presentation-test/ucsd-presentation, public-safe excerpts) and public product pages",
   "canonicalUrl": "/about/roadmap.html",
   "audiences": ["students", "faculty", "staff", "developers", "leaders"],
@@ -12,6 +12,9 @@
       "title": "Beta & Training",
       "status": "Shipped",
       "summary": "Secured Chancellor's Office funding, invited 400+ staff to the campus beta, and launched AI Essentials I in the UC Learning Center.",
+      "links": [
+        { "label": "View the proof-of-concept update", "href": "/about/tritonai-updates.html#2023-10-proof-of-concept" }
+      ],
       "owner": "TritonAI program",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
@@ -22,6 +25,9 @@
       "title": "Early Launch",
       "status": "Shipped",
       "summary": "Began the phased rollout and launched the UC San Diego Assistant and Job Description Helper.",
+      "links": [
+        { "label": "View the production-candidate update", "href": "/about/tritonai-updates.html#2024-03-20-production-candidate" }
+      ],
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
@@ -32,6 +38,9 @@
       "title": "Campus-Wide",
       "status": "Shipped",
       "summary": "Opened campus-wide availability for ~37K employees, upgraded to Llama 3 with campus SSO, and refreshed the UI with file upload.",
+      "links": [
+        { "label": "View the campus-rollout update", "href": "/about/tritonai-updates.html#2024-05-14-campus-rollout" }
+      ],
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and TritonGPT release notes",
@@ -62,6 +71,10 @@
       "title": "Universal Access",
       "status": "Shipped",
       "summary": "Onboarded 45K students, made GPT-4o and Llama 4 Scout the default models, and launched the 128K context window with My Documents.",
+      "links": [
+        { "label": "View the student-access update", "href": "/about/tritonai-updates.html#2025-06-16-student-access" },
+        { "label": "View related TritonGPT features", "href": "/tritongpt/release-notes/index.html#2025-05-09-my-documents" }
+      ],
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and public release notes",
@@ -72,6 +85,9 @@
       "title": "Widget & Infra",
       "status": "Shipped",
       "summary": "Deployed the Blink AI widget without a login requirement and integrated LiteLLM to enable model choice.",
+      "links": [
+        { "label": "View the Blink widget update", "href": "/about/tritonai-updates.html#2025-07-07-chatbot-widget" }
+      ],
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
@@ -82,6 +98,10 @@
       "title": "Advanced Tools",
       "status": "Shipped",
       "summary": "Launched AI-powered search and the Blink AI overview, expanded model choice for higher-value use cases, and began the Deep Research and chat UI refresh.",
+      "links": [
+        { "label": "View the Blink search update", "href": "/about/tritonai-updates.html#2025-10-13-blink-search" },
+        { "label": "View related TritonGPT features", "href": "/tritongpt/release-notes/index.html#2025-11-24-ui-personalization-research" }
+      ],
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and public release notes",
@@ -125,7 +145,8 @@
         { "label": "Contract review", "href": "/use-cases/contract-review.html" },
         { "label": "BioBib formatter", "href": "/use-cases/biobib.html" },
         { "label": "Class Planner App", "href": "/use-cases/class-planner-app.html" },
-        { "label": "AI tools", "href": "/tools/index.html" }
+        { "label": "AI tools", "href": "/tools/index.html" },
+        { "label": "View delivered updates", "href": "/about/tritonai-updates.html#2026-05-27-mobile-assistant" }
       ],
       "owner": "TritonAI solutions team",
       "lastReviewed": "2026-08-10",
@@ -172,7 +193,8 @@
         { "label": "Skills library", "href": "/skills/index.html" },
         { "label": "TritonGPT Class Planner", "href": "/use-cases/class-planner.html" },
         { "label": "Build with TritonAI", "href": "/developer-apis/index.html" },
-        { "label": "Trust and architecture", "href": "/about/trust-architecture.html" }
+        { "label": "Trust and architecture", "href": "/about/trust-architecture.html" },
+        { "label": "View the Harness pilot update", "href": "/about/tritonai-updates.html#2026-06-26-harness-pilot" }
       ],
       "owner": "TritonAI platform and solutions teams",
       "lastReviewed": "2026-08-10",
