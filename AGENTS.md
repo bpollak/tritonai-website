@@ -175,22 +175,33 @@ with an address taken from conversation context is how that happens.
 - `config/chrome-contract.json` — written by `npm run chrome:accept`
 - `config/chrome-selectors.json` — written by `npm run sync:decorator -- --derive`
 
-### Human-owned (agents must PR, never direct commit)
+### Human-owned (ask before editing, and never publish unasked)
 - `src/site/about/index.html` — strategic narrative
 - `src/site/about/roadmap.html` — roadmap commitments
 - `src/site/about/sustainability.html` — policy content
 
-### Shared (PR required, review by content owner)
+### Shared (the content owner sees it before it reaches `preview` or `main`)
 - `src/site/index.html` — homepage
 - `src/site/tritongpt/index.html` — TritonGPT landing
 - `src/site/tools/index.html` — tools listing
 - `src/site/developer-apis/index.html` — developer page
 
+Ownership survives the move to branch-driven publishing; only the mechanism
+changed. There is no pull request to gate on, so the gate is the branch: put the
+work on `playground`, show the owner the rendered page, and move it up when they
+agree. Open a pull request when someone specifically wants a diff to read.
+
 ## Conflict Prevention
 
-- Always work on a feature branch: `content/update-{page}-{date}`
-- Never edit the same section a human is editing (check open PRs first)
+- Work on `playground` for anything exploratory. It is the rung that exists to be
+  broken, and pushing there costs nothing.
+- Check what is already in flight before starting — open pull requests, and
+  recent commits on `playground` and `preview`. Someone else's unpublished work
+  lives on those branches now, not only in pull requests.
+- Never edit the same section a human is editing.
 - Use HTML comment markers to identify editable blocks:
   `<!-- AGENT_SECTION: metrics -->` ... `<!-- END_AGENT_SECTION -->`
-- Run `npm test` and `npm run validate` before every PR
-- Keep generated `dist/` files out of commits; GitHub Actions builds them
+- Run `npm test` before pushing if the tooling is available. Where it is not,
+  push to `playground` and read the workflow result — the same checks run there,
+  and a failure publishes nothing.
+- Keep generated `dist/` files out of commits; GitHub Actions builds them.
