@@ -1,21 +1,34 @@
 name: Publish to Cascade
 
-# Manual only. Repository pushes and pull-request merges never upload or publish.
-# Run this workflow from main for Production or preview for Stage.
+# Branch-driven. A push publishes; nobody has to start anything by hand.
+#
+#   preview -> Cascade Stage
+#   main    -> Cascade Production (tritonai.ucsd.edu)
 #
 # Both branches upload to the SAME content tree in Cascade. Only the publish
 # destination differs. See the note in the config job.
+#
+# Nothing reaches either destination unless the build job passes, and that job
+# runs the full validation suite including the chrome integrity gate. A failed
+# check leaves the previous published site in place.
+#
+# GitHub Pages is a separate rung and does not belong here: it publishes from
+# the playground branch. See .github/workflows/pages.yml.
 on:
+  push:
+    branches:
+      - main
+      - preview
   workflow_dispatch:
     inputs:
       target:
-        description: 'Which destination to publish to (must match the selected branch)'
-        required: true
+        description: 'Destination (must match the selected branch). Blank uses the branch.'
+        required: false
         type: choice
-        options: ['preview', 'main']
-        default: 'preview'
+        options: ['', 'preview', 'main']
+        default: ''
       confirm_production:
-        description: 'Required confirmation when target is main (Production)'
+        description: 'Required confirmation for a manual run against main (Production)'
         required: false
         type: boolean
         default: false
@@ -69,13 +82,24 @@ jobs:
           IN_PUBLISH: ${{ inputs.publish_id }}
           IN_DEST: ${{ inputs.destination_id }}
         run: |
-          target="$IN_TARGET"
+          # On a push the branch is the target, so there is nothing to choose and
+          # nothing to get wrong. The manual dispatch still accepts an explicit
+          # target, and it must agree with the branch it was started from —
+          # picking Production while sitting on preview is always a mistake.
+          if [ -z "$IN_TARGET" ]; then
+            target="${{ github.ref_name }}"
+          else
+            target="$IN_TARGET"
+          fi
           confirm_production="$IN_CONFIRM_PRODUCTION"
 
           case "$target:${{ github.ref }}" in
             main:refs/heads/main)
-              if [ "$confirm_production" != "true" ]; then
-                echo "::error::Production publishing requires confirm_production=true"
+              # A manual Production run still asks for confirmation, because
+              # starting one by hand is the case where the operator may not have
+              # meant Production. A push to main is itself the decision.
+              if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "$confirm_production" != "true" ]; then
+                echo "::error::Manual production publishing requires confirm_production=true"
                 exit 1
               fi
               ;;

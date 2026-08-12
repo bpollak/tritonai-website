@@ -4,7 +4,7 @@ This guide explains, in plain language, how changes move from an idea to the liv
 
 ## The short version
 
-You write or edit content in the repository. An automated build turns it into finished web pages. A pull request lets someone review the change. Merging the request updates source control, but it does not publish to Cascade. Review previews and production publishing are separate workflows. An authorized maintainer starts production publishing after approval. Some updates — newsletters, media coverage, and the skills catalog — can also be found and proposed by scheduled jobs.
+You write or edit content in the repository and push it to a branch. An automated build turns it into finished web pages, checks them, and publishes them — to the playground site, to the Cascade staging site, or to the live site, depending on which branch you pushed to. Nothing is published if a check fails. There is no button to press and no approval queue; the decision is which branch you push to. Some updates — newsletters, media coverage, and the skills catalog — are also found and proposed by scheduled jobs.
 
 ## Where content lives
 
@@ -23,31 +23,48 @@ If a file lives under `content/`, you edit the source. The build writes the fina
 2. **The build runs.** `scripts/build.mjs` reads every content file, applies the shared Decorator shell, injects the Google Analytics tag, and writes finished HTML, a sitemap, and a robots file into `dist/`. You never commit `dist/` — GitHub builds it fresh each time.
 3. **The validator checks the result.** `scripts/validate.mjs` confirms that every route exists, internal links resolve, metadata is present, analytics tags are correct, and pages are not stale (it warns after 120 days without review and fails after 365).
 4. **Accessibility and language checks run.** An axe-based scan tests every page at mobile and desktop widths. A language check flags booster words, manufactured contrasts, and heading problems.
-5. **You open a pull request.** A reviewer sees what changed before it goes live.
-6. **Merge to `main` prepares the source.** GitHub Pages review publishing and Cascade production publishing remain separate actions.
+5. **The page chrome is checked.** The UC San Diego header, navigation, search forms, footer, and TritonGPT widget must still match the published Decorator. This is what stops a shared element from being quietly reshaped to fit one page.
+6. **It publishes, or it does not.** Every check above runs on the branch you pushed to. All green, and the site updates. Anything red, and nothing is uploaded — whatever was already published stays exactly as it was.
 
 ## The pull request workflow
 
-Every change goes through a pull request (PR). This keeps a record of who changed what and gives a human a chance to review before publishing.
+The branch you push to is the site you publish to. There are three, and each one
+is a rehearsal for the next.
 
-- Work on a branch named for what you are doing, such as `content/update-strategy-2026-07-30`.
-- Open the PR against `main`.
-- The same build, validate, accessibility, and language checks that run locally also run in GitHub Actions on the PR. They must pass before merge.
-- A merge never starts Cascade. Use the prototype preview workflow for shareable review and the manual Cascade workflow for an approved release.
+| Branch | Goes live at | What it is for |
+|---|---|---|
+| `playground` | the GitHub Pages site | Trying something. Break it freely; nobody outside the team sees it. |
+| `preview` | Cascade **Stage** | The real CMS. Check how the page actually renders. |
+| `main` | **tritonai.ucsd.edu** | The public site. |
+
+Pushing is all it takes. There is no button to press and no approval to wait
+for.
+
+A pull request is not required. Reviewing a diff is not how this site gets
+checked — what matters is how the finished page looks, so the useful review
+happens on `playground` or `preview`, not in a code comparison. Open a PR when
+two people are working on the same page and need to avoid overwriting each
+other.
+
 - Keep generated `dist/` files out of commits. GitHub builds them.
+- Move work up a rung only when the page reads correctly on the rung below.
 
-### Publishing to Cascade
+### What stops a bad change
 
-Production and Stage releases are manual-only:
+Every push runs the full check suite: the build, link and metadata validation,
+the page chrome gate, an accessibility scan, and the voice guide. **If any of it
+fails, nothing is uploaded** and the site that is already live stays exactly as
+it was.
 
-1. Open the **Publish to Cascade** workflow in GitHub Actions.
-2. Select `main` with target `main` for Production, or `preview` with target `preview` for Stage.
-3. For Production, select **confirm production**. The workflow fails closed without it.
-4. Review the workflow result and Cascade publish queue before reporting the release as live.
+The failure does not undo the commit, so that branch stays unpublishable until
+someone fixes it. Fix it on the same branch rather than leaving it broken.
 
-Selecting a mismatched branch and target fails before build, upload, or publish. Repository pushes and pull-request merges do not start this workflow.
+The **Publish to Cascade** workflow can still be started by hand for a re-run or
+a one-off override. Started that way against `main`, it asks for **confirm
+production** first, because a manual production run is the case where someone
+may not have meant to. A push to `main` is already that decision.
 
-Some pages are owned by people and require their review before merge — for example, the strategic narrative, roadmap, and sustainability policy. Others, like newsletters and release notes, agents may edit freely. The `AGENTS.md` file in the repository lists who owns what.
+Some pages are owned by people and need their agreement before moving up a rung — for example, the strategic narrative, roadmap, and sustainability policy. Others, like newsletters and release notes, agents may edit and publish freely. The `AGENTS.md` file in the repository lists who owns what.
 
 ## How multiple contributors work together
 
@@ -55,23 +72,29 @@ The site is built for more than one person or agent editing at the same time. Th
 
 ### Branching
 
-Every contributor — human or agent — works on their own feature branch, never directly on `main`. The branch name describes the work:
+`playground`, `preview`, and `main` are the three published rungs. Work that is
+not ready for any of them goes on its own branch, named for what it is:
 
 - `content/update-strategy-2026-07-30` for a page edit
 - `content/newsletter-2026-07-27` for a weekly update
-- `automation/sync-ai-news` for an automated job's PR
+- `automation/sync-ai-news` for an automated job
 
-This means two people can edit different parts of the site at the same time without overwriting each other. Each branch becomes a PR, and `main` only receives changes through a merge.
+Two people can then edit different parts of the site at once without overwriting
+each other. Use `playground` for anything exploratory — it exists to be broken,
+and it is the fastest way to see a real rendered page.
 
 ### Edit ownership
 
-Not every file is fair game for every contributor. `AGENTS.md` defines three tiers:
+Not every file is fair game for every contributor. `AGENTS.md` defines the tiers:
 
-- **Agent-owned** — newsletters, the media article archive (`content/media/articles.json`), release notes, and clearly marked metrics sections. Agents may edit these freely and open PRs without a content owner's sign-off.
-- **Human-owned** — the strategic narrative (`src/site/about/index.html`), roadmap (`src/site/about/roadmap.html`), and sustainability policy (`src/site/about/sustainability.html`). Agents must open a PR but never direct-commit; the content owner reviews before merge.
-- **Shared** — the homepage, TritonGPT landing, tools listing, and developer page. A PR is required and the content owner reviews.
+- **Agent-owned** — newsletters, the media article archive (`content/media/articles.json`), release notes, and clearly marked metrics sections. Agents may edit and publish these without asking.
+- **Human-owned** — the strategic narrative (`src/site/about/index.html`), roadmap (`src/site/about/roadmap.html`), and sustainability policy (`src/site/about/sustainability.html`). An agent may draft a change on `playground`, but the owner decides whether it moves up.
+- **Shared** — the homepage, TritonGPT landing, tools listing, and developer page. The content owner sees the rendered page before it reaches `preview` or `main`.
+- **Machine-owned** — the pinned Decorator copy and the chrome contract files. Written by scripts, never by hand.
 
-When a human and an agent are both editing the site, the agent checks open PRs first and avoids editing the same section a human is already changing.
+Ownership is about who decides, not about which mechanism records the decision. There is no pull request in the routine path, so the decision point is promotion: showing the owner the page on `playground` and moving it up once they agree.
+
+When a human and an agent are both editing, the agent checks recent commits on the shared branches as well as open pull requests, and avoids the section someone else is already changing.
 
 ### Section markers
 
@@ -87,19 +110,20 @@ A human editing the same file can safely change anything outside the markers. Th
 
 ### Avoiding conflicts
 
-- **Check open PRs before starting.** If someone already has a PR open that touches the same file or section, coordinate before branching.
-- **Keep PRs focused.** One PR per page or per task. A PR that changes one newsletter is easy to review and merge; a PR that changes ten files across four sections is not.
-- **Pull `main` before merging.** If `main` has moved since the branch was created, rebase or merge `main` into the branch and re-run `npm test` so the checks run against the latest state.
-- **Stage only the files you intended.** In a worktree with unrelated edits, stage only the files your PR is about. Leave stray files alone.
+- **Look at what is already in flight.** Open pull requests, and recent commits on `playground` and `preview`. Unpublished work now lives on branches, not only in pull requests.
+- **Keep a change to one page or one task.** A change touching ten files across four sections is hard for anyone to judge from the rendered result.
+- **Bring `main` in before promoting.** If `main` moved since the branch was created, merge it in so the checks run against the current state.
+- **Stage only the files you intended.** In a worktree with unrelated edits, leave stray files alone.
 
-### Who reviews what
+### Who decides what
 
-| File or area | Who can edit | Who reviews before merge |
+| File or area | Who can edit | Who decides it goes up |
 | --- | --- | --- |
 | Newsletters, release notes, media archive, metrics | Agents and people | Any maintainer |
-| Strategic narrative, roadmap, sustainability | PR only, never direct commit | Content owner |
-| Homepage, TritonGPT landing, tools, developer page | PR required | Content owner |
-| Automated job PRs (`automation/sync-*`) | The job opens the PR | A person merges |
+| Strategic narrative, roadmap, sustainability | Agents may draft on `playground` | Content owner |
+| Homepage, TritonGPT landing, tools, developer page | Agents and people | Content owner |
+| Pinned Decorator copy, chrome contract files | Scripts only | Not hand-edited |
+| Automated job branches (`automation/sync-*`) | The job | A person promotes |
 
 ### How an automated job and a person overlap
 

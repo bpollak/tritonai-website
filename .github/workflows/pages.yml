@@ -1,10 +1,21 @@
 name: Validate and deploy GitHub Pages
 
+# GitHub Pages is the playground: the lowest rung, safe to break, not campus
+# facing. It publishes from the `playground` branch only.
+#
+# It deliberately does NOT publish from main. Deploying main here is how changes
+# reached a live URL without anyone choosing to release them. The Cascade
+# workflow owns the real destinations: preview -> Stage, main -> Production.
+#
+# The hourly run stays, but validates without deploying. Scheduled workflows can
+# only ever run on the default branch, so a scheduled deploy would overwrite the
+# playground with main's content within the hour — the exact behaviour being
+# removed. It still catches a dead CDN dependency or content going stale on main.
 on:
   pull_request:
   push:
     branches:
-      - main
+      - playground
   schedule:
     - cron: "17 * * * *"
   repository_dispatch:
@@ -70,18 +81,22 @@ jobs:
           retention-days: 30
           if-no-files-found: error
 
+      # Match the deploy job's condition. The scheduled run validates only, so
+      # building it an artifact nothing consumes is wasted work.
       - name: Configure GitHub Pages
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
-    if: github.event_name != 'pull_request'
+    # Only a playground push deploys. Pull requests validate, and the schedule
+    # validates main without republishing over the playground.
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     environment:
