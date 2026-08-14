@@ -4,45 +4,84 @@ This page gets you working. The rules live in [AGENTS.md](AGENTS.md), which is t
 contract for this repository. Read it before you touch anything outside page
 content.
 
-## Set up
+## First time from GitHub
+
+Six steps. Steps 1 through 3 give you the guardrails. Step 4 gives you the
+guidance for staying inside them.
+
+### 1. Clone and install
 
 ```bash
 git clone https://github.com/bpollak/tritonai-website.git
 cd tritonai-website
 npm install
 npx playwright install chromium
-npm test
 ```
 
 Node 22 or newer.
 
-`npx playwright install chromium` is a separate step because npm blocks the
-install script that downloads the browser. Skip it and `npm run test:a11y` fails.
+`npx playwright install chromium` is its own step because npm blocks the install
+script that downloads the browser. Skip it and `npm run test:a11y` is the step
+that fails.
 
-`npm test` runs the same suite CI runs: build, validation, the chrome integrity
-gate, accessibility at mobile and desktop widths, and the language check. It takes
-a few minutes and needs network access, because validation checks the UC San Diego
-CDN. A change that passes here passes on the branch.
-
-Preview the built site:
+### 2. Confirm the guardrails run
 
 ```bash
+npm test
+```
+
+This runs the same suite CI runs: build, validation, the chrome integrity gate,
+accessibility at mobile and desktop widths, and the language check. Expect a few
+minutes and a clean exit. It needs network access, because validation checks the
+UC San Diego CDN.
+
+A green run here means a green run on the branch. This is the whole enforcement
+system, and it is plain Node and Playwright, so it applies whatever editor or
+assistant you work in.
+
+### 3. Look at the site
+
+```bash
+npm run build
 python3 -m http.server 4173 -d dist
 ```
 
-## Install the Decorator skill
+Open `http://127.0.0.1:4173/`.
 
-Cloning the repository gives you every guardrail that rejects a bad change. It
-does not give you the guidance for working inside them, because `.claude/` is
-git-ignored and the skill lives in another repository.
+### 4. Get the Decorator rules for your tool
 
-Install the `ucsd-decorator` skill from
-[decorator-kit](https://github.com/UCSD/decorator-kit) as a Claude Code plugin, or
-copy `skills/ucsd-decorator/` into your own `.claude/skills/`.
+Cloning gives you every guardrail that rejects a bad change. It does not give you
+the guidance for working inside them, because that lives in
+[decorator-kit](https://github.com/UCSD/decorator-kit). One canonical rule set is
+compiled there into a file per tool:
 
-Without it, a chrome violation shows up as a failed build with a rule name and no
-explanation of what to do about it. That is when people reach for the config that
-generated the rule, which is the one repair that makes the problem permanent.
+| Your tool | Take from `decorator-kit` |
+|---|---|
+| Claude Code | the `ucsd-decorator` plugin, or copy `skills/ucsd-decorator/` into `.claude/skills/` |
+| Cursor | `.cursorrules` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Codex, Zed, other agents | `AGENTS.md`, read in place. See the warning below. |
+| No assistant | `rules/*.md`, written for people |
+
+**Do not copy decorator-kit's `AGENTS.md` into this repository.** Both files carry
+that name and they are different documents. This repository's `AGENTS.md` is the
+project contract and is the more important of the two. Keep `decorator-kit`
+checked out beside this project and read its copy there.
+
+Without any of this, a chrome violation arrives as a failed build with a rule name
+and no explanation. That is when people reach for the config that generated the
+rule, which is the one repair that makes the problem permanent.
+
+### 5. Read the contract
+
+[AGENTS.md](AGENTS.md) in this repository. It covers the writable canvas, the
+protected chrome, edit ownership, voice, and publishing. Read it before touching
+anything outside page content.
+
+### 6. Know where a push goes
+
+See [Know which branch you are on](#know-which-branch-you-are-on) below. Do this
+before your first push, not after.
 
 ## Know which branch you are on
 
