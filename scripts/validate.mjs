@@ -25,6 +25,7 @@ const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const inheritedProductionFailures = new Set();
 const standaloneRoutes = new Set([
   "/presentations/managing-the-tritonai-website.html",
+  "/tritongpt/bgpt-chat-generator/index.html",
 ]);
 const renderedProvenancePatterns = [
   { pattern: /\bSource:\s*[^<\n]*\.md\b/i, label: "internal content filename" },
@@ -523,22 +524,28 @@ for (const page of htmlFiles) {
     }
   }
 
-  const primaryNav = $("#navbar > .navbar-nav-list").first();
-  if (!primaryNav.length && !standalone) {
-    navigation.push({ page: route, issue: "Primary navigation is missing" });
-  } else {
-    const primaryItems = primaryNav.children("li").toArray();
-    const activeItems = primaryItems.filter((item) => $(item).hasClass("active"));
-    const expectedOwner = navigationOwner(siteContent.navigation || [], route);
-    if (!expectedOwner && activeItems.length) {
-      navigation.push({ page: route, issue: "Primary navigation should not have an active item" });
-    }
-    if (expectedOwner) {
-      const expectedItem = primaryItems.find(
-        (item) => normalizeRoute(toLocalPath($(item).children("a").attr("href"), page) || "") === normalizeRoute(expectedOwner.href),
-      );
-      if (!expectedItem || activeItems.length !== 1 || activeItems[0] !== expectedItem) {
-        navigation.push({ page: route, issue: `Incorrect active primary navigation; expected ${expectedOwner.label}` });
+  // A standalone page renders no Decorator navigation, so it has no active state
+  // to assert. The whole block is skipped rather than just the missing-navbar
+  // check: an absent navbar otherwise reads as one missing its active item, which
+  // fires for any standalone route that sits under a section in the nav tree.
+  if (!standalone) {
+    const primaryNav = $("#navbar > .navbar-nav-list").first();
+    if (!primaryNav.length) {
+      navigation.push({ page: route, issue: "Primary navigation is missing" });
+    } else {
+      const primaryItems = primaryNav.children("li").toArray();
+      const activeItems = primaryItems.filter((item) => $(item).hasClass("active"));
+      const expectedOwner = navigationOwner(siteContent.navigation || [], route);
+      if (!expectedOwner && activeItems.length) {
+        navigation.push({ page: route, issue: "Primary navigation should not have an active item" });
+      }
+      if (expectedOwner) {
+        const expectedItem = primaryItems.find(
+          (item) => normalizeRoute(toLocalPath($(item).children("a").attr("href"), page) || "") === normalizeRoute(expectedOwner.href),
+        );
+        if (!expectedItem || activeItems.length !== 1 || activeItems[0] !== expectedItem) {
+          navigation.push({ page: route, issue: `Incorrect active primary navigation; expected ${expectedOwner.label}` });
+        }
       }
     }
   }
