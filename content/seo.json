@@ -132,6 +132,12 @@
       "description": "Watch recorded UC San Diego sessions on TritonGPT, prompting, workflow improvement, and responsible use of AI at work.",
       "lastModified": "2026-07-29"
     },
+    "/tritongpt/bgpt-chat-generator/index.html": {
+      "title": "BearGPT Widget Configurator",
+      "description": "Internal tool that builds a configured BearGPT chat widget script tag.",
+      "robots": "noindex,nofollow",
+      "lastModified": "2026-08-14"
+    },
     "/tritongpt/chatbot-widget.html": {
       "description": "Learn how UC San Diego websites use the TritonGPT chatbot widget to answer campus questions and connect visitors with relevant resources.",
       "lastModified": "2026-07-29"
