@@ -83,6 +83,45 @@ anything outside page content.
 See [Know which branch you are on](#know-which-branch-you-are-on) below. Do this
 before your first push, not after.
 
+## Already have a clone
+
+```bash
+git checkout main
+git pull
+npm install
+npx playwright install chromium
+npm test
+```
+
+Run `npm install` even when nothing looks different, because dependencies move
+with the lockfile. `npx playwright install chromium` is once per machine, and it
+is the step people skip, so run it if you have never run it here.
+
+See what you are sitting on before you start:
+
+```bash
+git status -sb          # uncommitted work, and the branch you track
+git log --oneline -3
+```
+
+Then pick up at [step 4](#4-get-the-decorator-rules-for-your-tool) for the
+Decorator rules, which live outside this repository and do not arrive with a pull.
+
+## A failure you did not cause
+
+The mobile drawer search check reads ids that the Decorator's `base.min.js`
+renames at 768px, and that script loads from `cdn.ucsd.edu` while the page runs.
+When the CDN is slow, the check samples the page before the rename lands and
+reports a route you never touched:
+
+```
+- /some/route.html at 390px: mobile navigation search check failed
+```
+
+Run `npm run test:a11y` again. A real regression names the same route every time.
+This one moves between routes and clears on a rerun. Treat a repeat on the same
+route as real.
+
 ## Know which branch you are on
 
 The branch is the destination. A push to `main` publishes to
