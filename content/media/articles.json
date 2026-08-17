@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-07-30",
+  "lastReviewed": "2026-08-17",
   "owner": "TritonAI program",
   "source": "Curated archive plus automated web search via scripts/sync-media-coverage.mjs",
   "queries": [
@@ -15,6 +15,24 @@
       "heading": "Current program perspective",
       "description": "Recent writing about adoption and the choices behind shared institutional AI.",
       "articles": [
+        {
+          "date": "2026-08-17",
+          "source": "tritonai.org",
+          "title": "Our Mission - Triton AI | TritonAI",
+          "url": "https://tritonai.org/about/mission",
+          "kind": "Coverage",
+          "discoveredAt": "2026-08-17T19:06:54.487Z",
+          "discoveredVia": "duckduckgo"
+        },
+        {
+          "date": "2026-08-17",
+          "source": "zonca.dev",
+          "title": "Configure opencode to use TritonAI Developer API at UC San Diego",
+          "url": "https://www.zonca.dev/posts/2026-08-05-configure-opencode-tritonai-ucsd",
+          "kind": "Coverage",
+          "discoveredAt": "2026-08-17T19:06:54.948Z",
+          "discoveredVia": "duckduckgo"
+        },
         {
           "date": "2026-07-13",
           "source": "Higher Ed AI Playbook",
