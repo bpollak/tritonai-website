@@ -528,8 +528,28 @@
 
 <img src="../_images/tritonai-architecture-public.svg" alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
 
-<h3>TritonAI Harness pilot</h3>
-<p>The TritonAI Harness is being piloted as a workspace for bounded, tool-using AI workflows. It can coordinate model requests, approved tools, reusable skills, and multi-step work. Availability and supported capabilities are confirmed during project review.</p>
+<h3>TritonAI Harness</h3>
+<p>The TritonAI Harness is UC San Diego's supported desktop workspace for building and running AI agents. It coordinates model requests through the shared gateway, connects to approved tools and campus skills, and supports multi-step workflows across files, browsers, and productivity tools. The Harness is in active pilot and changes quickly.</p>
+
+<h4>What the Harness includes</h4>
+<ul>
+<li><strong>One installer for Mac and Windows:</strong> bundles the required runtime, packages, skills library, configurations, and the campus-selected Harness version.</li>
+<li><strong>UC San Diego model access:</strong> routes requests through the shared gateway to available UC-hosted and approved frontier models.</li>
+<li><strong>Campus skills built in:</strong> official skills ship with it, plus a reviewed way to pick up community ones from the <a href="../skills/index.html">Skills Library</a>.</li>
+<li><strong>Managed Microsoft 365 connections:</strong> the Harness plugin makes structured calls and keeps connection tokens outside the agent context. Users choose the permissions they grant.</li>
+<li><strong>Adjustable supervision:</strong> approve every step, auto-accept, or hand over full access. Set it to whatever the task and your comfort level allow.</li>
+<li><strong>Desktop work in one place:</strong> chat, files, images, voice input, and a built-in browser, all on the same approved model route.</li>
+</ul>
+
+<h4>Download and install</h4>
+<p>The current release is <strong>version 0.3.2</strong>, available for macOS (Apple Silicon) and Windows (x64). The macOS build is Developer ID signed, Apple notarized, and stapled. The installer bundles Codex CLI 0.144.3, the Microsoft 365 plugin 1.0.2, and the managed secure skills bundle.</p>
+<p><a class="btn btn-primary" href="https://github.com/dbalders/TritonAI-Installer/releases/tag/v0.3.2">Download the TritonAI Harness <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
+
+<h4>Supported alternatives</h4>
+<p>If you already prefer a different environment, Claude Code and the Codex desktop app are also supported. The Harness is the recommended starting point because it comes pre-configured for campus.</p>
+
+<h4>How the Harness fits with n8n</h4>
+<p>The Harness supports interactive agent work across files, browsers, and connected tools. <a href="https://n8n.tritonai.ucsd.edu/">n8n</a> supports processes that begin from a known trigger and follow a repeatable path. Projects can use the Harness for interactive work and n8n for recurring execution.</p>
 
 <h3>Shared responsibility</h3>
 <div class="row">
