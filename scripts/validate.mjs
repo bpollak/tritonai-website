@@ -1128,7 +1128,7 @@ for (const page of htmlFiles) {
       requestLink.length !== 1 ||
       requestLink.text().replace(/\s+/g, " ").trim() !== "Request TritonAI Gateway access" ||
       setupText.includes("Gateway access comes first") === false ||
-      setupText.includes("Your TritonAI access key connects compatible clients to the models approved for your work") === false ||
+      setupText.includes("Your key connects compatible clients to approved models") === false ||
       /managed runtime|model routing|model route|API token|LLM Gateway|SHA-256/.test(setupText)
     ) {
       contentFindings.push({ source: route, issue: "Gateway access and Harness setup page must preserve both phases and the six-step onboarding path" });
@@ -1167,7 +1167,7 @@ for (const page of htmlFiles) {
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
     }
-    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "Who can use the TritonAI Gateway", "Eligible for Gateway access", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "The TritonAI Gateway and Harness are not the supported paths", "other health system use cases", "supported AI services on Pulse", "The access key is not tied to Harness", "TritonAI Harness (recommended)", "primary supported client for using the Gateway", "Claude Code and Codex are also supported", "compatible client", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
+    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "Who can use the TritonAI Gateway", "Eligible for Gateway access", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "The TritonAI Gateway and Harness are not the supported paths", "other health system use cases", "supported AI services on Pulse", "The access key is not tied to Harness", "TritonAI Harness (recommended)", "primary supported Gateway client", "Claude Code and Codex are also supported", "compatible client", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
       if (setupText.includes(requiredTerm) === false) {
         contentFindings.push({ source: route, issue: `Harness setup intake guidance is missing: ${requiredTerm}` });
       }

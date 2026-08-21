@@ -530,14 +530,14 @@
     
 
 <div class="developer-start-intro">
-<p class="home-kicker">Gateway access and Harness setup</p>
-<h2>Start with Gateway access, then set up TritonAI Harness</h2>
-<p class="lead">TritonAI Harness is UC San Diego's primary supported client for using the Gateway and the recommended path on this page. Claude Code and Codex are also supported. Request Gateway access below, then continue to the Harness installer or configure another supported client. For the service overview and shared development path, see <a href="index.html">TritonAI Developer APIs</a>.</p>
-<div class="developer-start-prerequisite"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><strong>Gateway access comes first.</strong><p>Your TritonAI access key connects compatible clients to the models approved for your work. Your approval response also states the funding and billing treatment for the key. You can download the Harness installer while your request is pending, but you need the key to finish Harness setup.</p></div></div>
+<p class="home-kicker">Gateway and Harness</p>
+<h2>Get Gateway access and set up Harness</h2>
+<p class="lead">Harness is UC San Diego's primary supported Gateway client. Claude Code and Codex are also supported. Request access, then set up a compatible client. Shared services use <a href="index.html">TritonAI Developer APIs</a>.</p>
+<div class="developer-start-prerequisite"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><strong>Gateway access comes first.</strong><p>Your key connects compatible clients to approved models. Approval lists billing and limits. You need the key to finish Harness setup.</p></div></div>
 <ol class="developer-start-summary" aria-label="Gateway access and client setup overview">
-<li><span>1</span><strong>Request Gateway access</strong></li>
-<li><span>2</span><strong>Receive your key</strong></li>
-<li><span>3</span><strong>Choose a client</strong></li>
+<li><span>1</span><strong>Request access</strong></li>
+<li><span>2</span><strong>Receive key</strong></li>
+<li><span>3</span><strong>Choose client</strong></li>
 <li><span>4</span><strong>Set up Harness</strong></li>
 </ol>
 </div>
@@ -545,7 +545,7 @@
 <section class="developer-start-phase" aria-labelledby="developer-start-phase-one">
 <p class="home-kicker">Phase 1</p>
 <h2 id="developer-start-phase-one">Get TritonAI Gateway access</h2>
-<p>Submit the intake and receive your key, approved models, billing treatment, limits, and data controls.</p>
+<p>Request your key and approved access.</p>
 </section>
 
 <div class="developer-start-flow">
@@ -557,40 +557,40 @@
 <h2 id="developer-start-step-one">Request access to the TritonAI Gateway</h2>
 </div>
 </header>
-<p>The request opens the UC San Diego sign-in page. The intake classifies access by the purpose and funding source for the work. Department and Health Sciences affiliation provide context, while the intended use determines the review and funding path.</p>
+<p>Purpose and funding set access, review, and charges.</p>
 <ul class="developer-start-checklist">
-<li><strong>Purpose:</strong> campus administration, instruction, sponsored research, non-sponsored research or faculty exploration, clinical or patient-care operations, or external partner work</li>
-<li><strong>Affiliation and funding:</strong> sponsored-project status, campus or Health Sciences affiliation, sponsor, and external organization when applicable</li>
-<li><strong>Requested access:</strong> on-premises-only or cloud-enabled. Cloud access requires a chartstring, named budget owner, and spend limit</li>
-<li><strong>Project details:</strong> task, outcome, owner, audience, information, systems, and expected usage</li>
+<li><strong>Purpose:</strong> campus administrative work, instruction, sponsored or non-sponsored research, faculty exploration, patient-care operations, or external partner work</li>
+<li><strong>Funding:</strong> sponsored-project status, Campus or Health Sciences affiliation, sponsor, and outside organization when applicable</li>
+<li><strong>Access:</strong> on-premises-only or cloud-enabled. Cloud access requires a chartstring, named budget owner, and spend limit</li>
+<li><strong>Project:</strong> task, owner, users, information, systems, and expected use</li>
 </ul>
-<div class="developer-start-security-note"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span><div><h3>How charges work</h3><p>For campus administrative work, on-premises token use is covered and not recharged. Cloud use is charged from the first token at the current market rate published in the Model Hub. Research projects charge both on-premises and cloud model use to a grant or approved research project chartstring. Other UC campuses may use the Gateway through an inter-campus recharge agreement and are recharged for both on-premises and cloud model use.</p></div></div>
+<div class="developer-start-security-note"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span><div><h3>How charges work</h3><p>For campus administrative work, on-premises use is not recharged. Cloud use is charged from the first token at the current market rate published in the Model Hub. Research projects charge both on-premises and cloud model use to a grant or approved research project chartstring. Other UC campuses need an inter-campus recharge agreement and are recharged for both on-premises and cloud model use.</p></div></div>
 <div class="developer-start-security-note developer-start-eligibility-note"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><div>
 <h3>Who can use the TritonAI Gateway</h3>
-<p class="developer-start-eligibility-intro">Access depends on your affiliation and whether the work is administrative, research, or clinical.</p>
+<p class="developer-start-eligibility-intro">Eligibility depends on affiliation and use.</p>
 <section class="developer-start-eligibility-group" aria-labelledby="gateway-eligible-heading">
 <h4 id="gateway-eligible-heading">Eligible for Gateway access</h4>
 <ul>
-<li><strong>UC San Diego faculty and staff:</strong> Campus and Health Sciences faculty and staff may use the Gateway for administrative work. For UC San Diego administrative work, on-premises model use is not recharged. Monthly caps apply, and unusually high individual or agent activity may be reviewed to keep usage within supported limits. Cloud model use is charged at the current rate published in the Model Hub.</li>
+<li><strong>UC San Diego faculty and staff:</strong> Campus and Health Sciences faculty and staff may use the Gateway for administrative work. Monthly caps apply; unusually high individual or agent activity may be reviewed.</li>
 </ul>
 </section>
 <section class="developer-start-eligibility-group" aria-labelledby="gateway-arrangement-heading">
 <h4 id="gateway-arrangement-heading">Access by arrangement</h4>
 <ul>
-<li><strong>Other UC campuses:</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> to discuss participation. Other UC campuses may use the Gateway through an inter-campus recharge agreement and are recharged for both on-premises and cloud model use.</li>
-<li><strong>Other non-UC San Diego participants:</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> to ask whether a supported access and funding path is available.</li>
+<li><strong>Other UC campuses:</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> about an inter-campus recharge agreement.</li>
+<li><strong>Other non-UC San Diego participants:</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> to ask about access and funding.</li>
 </ul>
 </section>
 <section class="developer-start-eligibility-group" aria-labelledby="gateway-medical-center-heading">
 <h4 id="gateway-medical-center-heading">Use Medical Center services</h4>
-<p><strong>Medical Center clinical and patient-care operations:</strong> The TritonAI Gateway and Harness are not the supported paths for clinical, patient-care, or other health system use cases. Use Medical Center platforms and review the <a href="https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx">supported AI services on Pulse</a>.</p>
+<p><strong>Medical Center clinical and patient-care operations:</strong> The TritonAI Gateway and Harness are not the supported paths for patient-care operations or other health system use cases. Use Medical Center platforms and the <a href="https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx">supported AI services on Pulse</a>.</p>
 </section>
 <p class="developer-start-eligibility-data"><strong>Data:</strong> TritonAI can consider P1 through P3 data within an approved setup; P4 data is not approved.</p>
 </div></div>
 <div class="developer-start-request">
 <div>
 <h3>Submit the access request</h3>
-<p>Complete funding and ownership details help the team assign the correct access, controls, and approval path.</p>
+<p>Provide funding and ownership details so the team can assign access and controls.</p>
 </div>
 <a class="btn btn-primary" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request TritonAI Gateway access</a>
 </div>
@@ -604,14 +604,14 @@
 <h2 id="developer-start-step-two">Receive and protect your Gateway key</h2>
 </div>
 </header>
-<p>If your request is approved, you will receive a key and setup instructions. The response identifies your approved on-premises or cloud access, billing treatment, and any spending or review limits. Cloud access requires the approved chartstring, named budget owner, and spend limit. ITS cloud requests also follow the TritonAI budget-manager approval path. Most people receive one key. If you receive two and choose Harness, the Installer can save both.</p>
-<div class="developer-start-security-note"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span><div><h3>Keep the key private</h3><p>Treat it like a password. Use it only with an approved client or the TritonAI Installer. Do not put it in prompts, email, chat, screenshots, or work files. Support will never ask for the full key.</p></div></div>
+<p>Approval includes your key, access, billing treatment, and limits. Cloud access requires a chartstring, named budget owner, and spend limit; ITS requests also need budget-manager approval. Harness can save a second key.</p>
+<div class="developer-start-security-note"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span><div><h3>Keep the key private</h3><p>Treat it like a password. Use it only with an approved client or the TritonAI Installer. Keep it out of prompts, messages, screenshots, and work files. Support will never ask for the full key.</p></div></div>
 </section>
 
 <section class="developer-start-client-choice" aria-labelledby="developer-start-client-choice-heading">
 <p class="home-kicker">Choose your workspace</p>
 <h2 id="developer-start-client-choice-heading">Choose how to use the Gateway</h2>
-<p>Use the client listed in your setup instructions. The access key is not tied to Harness.</p>
+<p>Use the client in your approval. The access key is not tied to Harness.</p>
 <div class="developer-start-paths">
 <article>
 <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
@@ -630,7 +630,7 @@
 <section class="developer-start-phase developer-start-phase-harness" aria-labelledby="developer-start-phase-two">
 <p class="home-kicker">Phase 2</p>
 <h2 id="developer-start-phase-two">Set up TritonAI Harness</h2>
-<p>Download the installer, add your key, and verify your approved model access.</p>
+<p>Install Harness and add your key.</p>
 </section>
 
 <section aria-labelledby="developer-start-step-three" class="developer-start-step" id="download-installer">
@@ -641,19 +641,19 @@
 <h2 id="developer-start-step-three">Download the TritonAI Harness installer</h2>
 </div>
 </header>
-<p>Select the supported package for your computer. These buttons download the installer file directly.</p>
+<p>Choose the installer for your computer.</p>
 <div class="developer-start-platforms">
 <article>
 <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
 <h3>Mac</h3>
-<p>For Mac computers with an Apple M1 chip or newer. Choose <strong>Apple menu → About This Mac</strong> to check. Intel Macs are not supported.</p>
+<p>Requires Apple M1 or newer. Check <strong>Apple menu → About This Mac</strong>. Intel Macs are not supported.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="mac" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Mac</span><small data-harness-download-detail>Current Apple Silicon DMG</small></a>
 <p class="developer-platform-trust"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Signed by the developer and checked by Apple.</p>
 </article>
 <article>
 <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
 <h3>Windows</h3>
-<p>For Windows computers with an x64 processor. Check <strong>Settings → System → About → System type</strong> if you are unsure.</p>
+<p>Requires an x64 processor. Check <strong>Settings → System → About → System type</strong>.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="windows" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Windows</span><small data-harness-download-detail>Current x64 Setup EXE</small></a>
 <p class="developer-platform-warning"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> The current Windows installer is not signed. Windows may show a Microsoft Defender SmartScreen warning.</p>
 </article>
@@ -674,8 +674,7 @@
 <h3><span class="glyphicon glyphicon-apple" aria-hidden="true"></span> Install on Mac</h3>
 <ol>
 <li>Open <strong>Downloads</strong> and double-click <code data-harness-filename="mac">the TritonAI Installer DMG</code>.</li>
-<li>In the window that opens, double-click <strong>TritonAI Installer</strong>.</li>
-<li>If macOS asks for confirmation, select <strong>Open</strong>.</li>
+<li>Double-click <strong>TritonAI Installer</strong>. Select <strong>Open</strong> if asked.</li>
 <li>Continue to the access-key screen.</li>
 </ol>
 </article>
@@ -683,8 +682,7 @@
 <h3><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Install on Windows</h3>
 <ol>
 <li>Open <strong>Downloads</strong> and double-click <code data-harness-filename="windows">the TritonAI Installer Setup EXE</code>.</li>
-<li>If SmartScreen appears, confirm the filename came from the download button on this page.</li>
-<li>If your department allows this installer, select <strong>More info</strong>, then <strong>Run anyway</strong>. Contact local IT if Windows blocks it.</li>
+<li>If Microsoft Defender SmartScreen appears, confirm the filename, then select <strong>More info</strong> and <strong>Run anyway</strong>. Contact local IT if blocked.</li>
 <li>Continue to the access-key screen.</li>
 </ol>
 </article>
@@ -700,9 +698,9 @@
 </div>
 </header>
 <ol class="developer-start-actions">
-<li><span>1</span><div><strong>Enter the access key</strong><p>Paste the key into the box labeled <strong>TritonAI access key</strong>. If you received two keys, select <strong>I have another access key</strong>.</p></div></li>
-<li><span>2</span><div><strong>Check access and install</strong><p>Select <strong>Check access &amp; install</strong>. The Installer checks which models you can use and sets them up.</p></div></li>
-<li><span>3</span><div><strong>Keep the Installer open</strong><p>Leave the Installer open until you see <strong>Installation complete</strong>. It installs the Harness and the campus tools it needs.</p></div></li>
+<li><span>1</span><div><strong>Enter the access key</strong><p>Paste it into <strong>TritonAI access key</strong>. For a second key, select <strong>I have another access key</strong>.</p></div></li>
+<li><span>2</span><div><strong>Check access and install</strong><p>Select <strong>Check access &amp; install</strong>. The Installer verifies your models and sets up Harness.</p></div></li>
+<li><span>3</span><div><strong>Keep the Installer open</strong><p>Wait for <strong>Installation complete</strong>.</p></div></li>
 </ol>
 </section>
 
@@ -714,27 +712,27 @@
 <h2 id="developer-start-step-six">Open Harness and verify access</h2>
 </div>
 </header>
-<p>When you see <strong>Installation complete</strong>, select <strong>Open TritonAI Harness</strong>. You can open it later from Applications on Mac or the desktop shortcut on Windows.</p>
+<p>Select <strong>Open TritonAI Harness</strong>. Reopen it later from Applications on Mac or the Windows desktop shortcut.</p>
 <ul class="developer-start-checklist">
 <li>Choose a model shown in Harness.</li>
-<li>Try a small, low-risk task using information you are allowed to use.</li>
-<li>Check the sources, results, and proposed actions before doing more.</li>
+<li>Try a low-risk task with approved information.</li>
+<li>Check sources, results, and proposed actions.</li>
 </ul>
-<p class="developer-start-note">The <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a> lists current models and published rates. The models, limits, and billing treatment you receive depend on the access approved for your key.</p>
+<p class="developer-start-note">The <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a> lists models and rates. Your approval sets models, limits, and billing treatment.</p>
 <div class="developer-start-help">
 <h3>Setup help</h3>
 <dl>
-<div><dt>The key is not accepted</dt><dd>Copy it again without leading or trailing spaces. If it still fails, contact support without including the key.</dd></div>
-<div><dt>No models appear</dt><dd>Your key may not be active for any models. Contact support and describe the request you submitted.</dd></div>
-<div><dt>The installer will not open</dt><dd>Confirm that your computer matches a supported platform and that you downloaded the installer from this page.</dd></div>
+<div><dt>The key is not accepted</dt><dd>Remove extra spaces. Contact support without sending the key.</dd></div>
+<div><dt>No models appear</dt><dd>The key may not be active. Contact support.</dd></div>
+<div><dt>The installer will not open</dt><dd>Confirm your computer is supported, then download it again.</dd></div>
 </dl>
-<p><strong>Need help?</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> with your operating system and a screenshot of the error. Remove or cover any access key before sending the screenshot.</p>
+<p><strong>Need help?</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> with your operating system and an error screenshot. Hide any access key.</p>
 </div>
 </section>
 </div>
 
 <aside class="developer-start-shared-service" aria-labelledby="developer-start-shared-heading">
-<div><p class="home-kicker">Building something for others?</p><h2 id="developer-start-shared-heading">Plan for a shared service</h2><p>If other people will rely on what you build, you also need a place to run it, someone to own it, accessibility, and a support plan.</p></div>
+<div><p class="home-kicker">Building something for others?</p><h2 id="developer-start-shared-heading">Plan for a shared service</h2><p>Plan hosting, ownership, accessibility, and support for anything others rely on.</p></div>
 <a class="btn btn-default" href="/developer-apis/index.html#api-gateway">See how to build a shared service</a>
 </aside>
                     </section>
