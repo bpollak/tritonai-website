@@ -81,8 +81,8 @@
       "lastModified": "2026-08-21"
     },
     "/developer-apis/start.html": {
-      "title": "Get TritonAI Access and Install Harness",
-      "description": "Complete the TritonAI use-case and funding intake, request approved model access, and install Harness for Mac or Windows.",
+      "title": "Get TritonAI LLM Access via API",
+      "description": "Request access to the TritonAI Gateway, then use TritonAI Harness, UC San Diego's primary supported client, or configure Claude Code or Codex.",
       "schemaAbout": [
         "TritonAI Harness",
         "TritonAI LLM Gateway",

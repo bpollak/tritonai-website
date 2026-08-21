@@ -2777,6 +2777,39 @@
   max-width: 820px;
 }
 
+.developer-start-phase {
+  background: #f4f7f8;
+  border-top: 5px solid var(--triton-blue);
+  margin: 0 0 30px;
+  padding: 22px 24px;
+}
+
+.developer-start-phase h2,
+.developer-start-client-choice h2 {
+  color: var(--triton-navy);
+  margin: 0 0 9px;
+}
+
+.developer-start-phase p:last-child,
+.developer-start-client-choice > p:last-of-type {
+  margin-bottom: 0;
+}
+
+.developer-start-client-choice {
+  border-top: 1px solid var(--triton-border);
+  margin-top: 42px;
+  padding-top: 38px;
+}
+
+.developer-start-client-choice .developer-start-paths {
+  margin-bottom: 0;
+}
+
+.developer-start-phase-harness {
+  border-top-color: var(--triton-bright-blue);
+  margin-top: 42px;
+}
+
 .developer-start-step {
   border-top: 1px solid var(--triton-border);
   margin-top: 42px;
