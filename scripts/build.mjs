@@ -13,6 +13,7 @@ const NEWSLETTER_DIR = path.join(CONTENT_DIR, "newsletters");
 const SKILLS_FILE = path.join(CONTENT_DIR, "skills/library.json");
 const HOME_HERO_FILE = path.join(CONTENT_DIR, "home/hero.json");
 const GATEWAY_USAGE_FILE = path.join(CONTENT_DIR, "facts/gateway-usage.json");
+const HARNESS_INSTALLER_FILE = path.join(CONTENT_DIR, "harness/installer.json");
 const SEO_FILE = path.join(CONTENT_DIR, "seo.json");
 const TRITONAI_UPDATES_FILE = path.join(CONTENT_DIR, "updates/tritonai-updates.json");
 const PRESENTATION_DIR = path.resolve("presentations");
@@ -1002,6 +1003,25 @@ function normalizeNavigationMarkup($) {
   }
 }
 
+function applyHarnessInstallerMetadata($, installer) {
+  for (const [platformId, platform] of Object.entries(installer.platforms)) {
+    const download = $(`[data-harness-download='${platformId}']`).first();
+    if (!download.length) continue;
+    download.attr({
+      href: platform.downloadUrl,
+      "aria-label": `${platform.label}, ${platform.architecture}, ${platform.format}, ${platform.displaySize}`,
+    });
+    download.find("[data-harness-download-label]").text(platform.label);
+    download
+      .find("[data-harness-download-detail]")
+      .text(`Version ${installer.version} · ${platform.architecture} · ${platform.format} · ${platform.displaySize}`);
+    $(`[data-harness-filename='${platformId}']`).text(platform.filename);
+  }
+  $("[data-harness-release]").attr("href", installer.releaseUrl);
+  $("[data-harness-checksums]").attr("href", installer.checksumsUrl);
+  $("[data-harness-version]").text(`Version ${installer.version}`);
+}
+
 function transformHtml(html, relativePath, context) {
   const $ = load(html, { decodeEntities: false });
   const route = routeForRelativePath(relativePath);
@@ -1124,6 +1144,7 @@ function transformHtml(html, relativePath, context) {
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
   $("[data-gateway-usage='true']").html(renderGatewayUsage(context.gatewayUsage));
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
+  if (route === "/developer-apis/start.html") applyHarnessInstallerMetadata($, context.harnessInstaller);
   $("[data-tritonai-updates]").each((_, element) => {
     const target = $(element);
     target.html(renderTritonAiUpdates(context.tritonAiUpdates, target.attr("data-tritonai-updates")));
@@ -1253,6 +1274,7 @@ const facts = await readJson(path.join(CONTENT_DIR, "facts/public-facts.json"));
 const skills = await readJson(SKILLS_FILE);
 const homeHero = await readJson(HOME_HERO_FILE);
 const gatewayUsage = await readJson(GATEWAY_USAGE_FILE);
+const harnessInstaller = await readJson(HARNESS_INSTALLER_FILE);
 const seo = await readJson(SEO_FILE);
 const tritonAiUpdates = await readJson(TRITONAI_UPDATES_FILE);
 requireFields(roadmap, ["title", "description", "owner", "lastReviewed", "source", "canonicalUrl", "items"], "content/roadmap/milestones.json");
@@ -1285,6 +1307,11 @@ for (const [route, entry] of Object.entries(seo.routes)) {
 }
 requireFields(tritonAiUpdates, ["schemaVersion", "title", "description", "owner", "source", "lastReviewed", "streams", "areas", "updates"], "content/updates/tritonai-updates.json");
 tritonAiUpdates.lastReviewed = isoDate(tritonAiUpdates.lastReviewed);
+requireFields(harnessInstaller, ["schemaVersion", "product", "version", "publishedAt", "owner", "source", "lastReviewed", "dataClassification", "canonicalUrl", "releaseUrl", "checksumsUrl", "platforms"], "content/harness/installer.json");
+harnessInstaller.lastReviewed = isoDate(harnessInstaller.lastReviewed);
+for (const platformId of ["mac", "windows"]) {
+  requireFields(harnessInstaller.platforms[platformId] || {}, ["label", "architecture", "format", "filename", "displaySize", "sizeBytes", "sha256", "downloadUrl", "signing"], `Harness installer platform ${platformId}`);
+}
 const updateStreamIds = new Set();
 for (const [index, stream] of tritonAiUpdates.streams.entries()) {
   requireFields(stream, ["id", "title", "introKicker", "introHeading", "introDescription", "feedKicker", "feedHeading", "feedDescription", "searchPlaceholder"], `TritonAI update stream ${index + 1}`);
@@ -1376,7 +1403,7 @@ const optimizedImages = new Set(
     .filter((file) => file.endsWith(".webp"))
     .map((file) => `/_images/${file.replaceAll(path.sep, "/")}`),
 );
-const context = { site, newsletters, useCases, facts, gatewayUsage, skills, seo, tritonAiUpdates, generatedByPath, optimizedImages };
+const context = { site, newsletters, useCases, facts, gatewayUsage, harnessInstaller, skills, seo, tritonAiUpdates, generatedByPath, optimizedImages };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));
@@ -1410,6 +1437,7 @@ await writeFile(
       lastReviewed: site.lastReviewed,
       facts: facts.facts.filter((fact) => fact.status === "public"),
       gatewayUsage,
+      harnessInstaller,
       roadmap,
       useCases: useCases.map(({ html, body, filename, ...entry }) => entry),
       skillsLibrary: skills,

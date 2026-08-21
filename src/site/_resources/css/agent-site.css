@@ -3099,6 +3099,355 @@
   }
 }
 
+.developer-start-prerequisite {
+  align-items: start;
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  margin-top: 24px;
+  padding: 18px 20px;
+}
+
+.developer-start-prerequisite > .glyphicon {
+  color: var(--triton-blue);
+  font-size: 23px;
+  margin-top: 2px;
+}
+
+.developer-start-prerequisite strong {
+  color: var(--triton-navy);
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.developer-start-prerequisite p {
+  line-height: 1.55;
+  margin: 0;
+}
+
+.developer-start-summary {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.developer-start-summary li {
+  align-items: center;
+  color: var(--triton-navy);
+  display: flex;
+  font-size: 14px;
+  gap: 9px;
+  min-width: 0;
+}
+
+.developer-start-summary span,
+.developer-start-actions li > span {
+  align-items: center;
+  background: var(--triton-blue);
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 700;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.developer-start-checklist {
+  columns: 2;
+  column-gap: 42px;
+  margin: 22px 0 26px;
+  padding-left: 22px;
+}
+
+.developer-start-checklist li {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.developer-start-security-note {
+  align-items: start;
+  background: #f4f7f8;
+  border-left: 5px solid var(--triton-gold);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 32px minmax(0, 1fr);
+  margin-top: 22px;
+  padding: 22px 24px;
+}
+
+.developer-start-security-note > .glyphicon {
+  color: var(--triton-blue);
+  font-size: 27px;
+}
+
+.developer-start-security-note h3 {
+  color: var(--triton-navy);
+  margin: 0 0 7px;
+}
+
+.developer-start-security-note p {
+  margin: 0;
+}
+
+.developer-start-platforms,
+.developer-start-install-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 26px 0 20px;
+}
+
+.developer-start-platforms article,
+.developer-start-install-grid article {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-top: 5px solid var(--triton-bright-blue);
+  box-shadow: 0 8px 20px rgba(24, 43, 73, .06);
+  min-width: 0;
+  padding: 24px;
+}
+
+.developer-start-platforms article:nth-child(2),
+.developer-start-install-grid article:nth-child(2) {
+  border-top-color: var(--triton-blue);
+}
+
+.developer-start-platforms article > .glyphicon {
+  color: var(--triton-blue);
+  font-size: 28px;
+}
+
+.developer-start-platforms h3,
+.developer-start-install-grid h3 {
+  color: var(--triton-navy);
+  margin: 12px 0 10px;
+}
+
+.developer-start-install-grid h3 .glyphicon {
+  color: var(--triton-blue);
+  margin-right: 6px;
+}
+
+.developer-start-install-grid ol {
+  margin-bottom: 0;
+  padding-left: 22px;
+}
+
+.developer-start-install-grid li {
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.developer-start-install-grid li:last-child {
+  margin-bottom: 0;
+}
+
+a.developer-download-button,
+a.developer-download-button:visited {
+  align-items: flex-start;
+  color: #fff !important;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 16px;
+  padding: 13px 16px;
+  text-align: left;
+  width: 100%;
+  white-space: normal;
+}
+
+.developer-download-button > span,
+.developer-download-button > small {
+  display: block;
+}
+
+.developer-download-button > span {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.developer-download-button > small {
+  font-size: 13px;
+  margin-top: 3px;
+  opacity: .9;
+}
+
+.developer-platform-trust,
+.developer-platform-warning {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.developer-platform-trust .glyphicon {
+  color: #4c7f2a;
+}
+
+.developer-platform-warning .glyphicon {
+  color: #a45b00;
+}
+
+.developer-start-release-links {
+  font-size: 14px;
+  margin: 18px 0 0;
+}
+
+.developer-start-actions {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+}
+
+.developer-start-actions li {
+  align-items: start;
+  border-bottom: 1px solid var(--triton-border);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 34px minmax(0, 1fr);
+  padding: 0 0 18px;
+}
+
+.developer-start-actions li + li {
+  padding-top: 18px;
+}
+
+.developer-start-actions li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.developer-start-actions strong {
+  color: var(--triton-navy);
+  display: block;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.developer-start-actions p {
+  margin: 0;
+}
+
+.developer-start-help {
+  background: var(--triton-sand);
+  border-top: 5px solid var(--triton-gold);
+  margin-top: 28px;
+  padding: 24px;
+}
+
+.developer-start-help > h3 {
+  color: var(--triton-navy);
+  margin: 0 0 18px;
+}
+
+.developer-start-help dl {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.developer-start-help dl > div {
+  background: #fff;
+  padding: 17px;
+}
+
+.developer-start-help dt {
+  color: var(--triton-navy);
+  margin-bottom: 5px;
+}
+
+.developer-start-help dd {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.developer-start-help > p {
+  margin: 0;
+}
+
+.developer-start-shared-service {
+  align-items: center;
+  background: var(--triton-navy);
+  border-bottom: 5px solid var(--triton-bright-blue);
+  color: #fff;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  margin-top: 44px;
+  padding: 27px 30px;
+}
+
+.developer-start-shared-service .home-kicker,
+.developer-start-shared-service h2 {
+  color: #fff;
+}
+
+.developer-start-shared-service h2 {
+  margin: 0 0 8px;
+}
+
+.developer-start-shared-service p:last-child {
+  margin: 0;
+  max-width: 680px;
+}
+
+.developer-start-shared-service .btn,
+.developer-start-shared-service .btn:visited {
+  background: #fff;
+  border-color: #fff;
+  color: var(--triton-navy) !important;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 991px) {
+  .developer-start-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .developer-start-help dl {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .developer-start-summary,
+  .developer-start-platforms,
+  .developer-start-install-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .developer-start-checklist {
+    columns: 1;
+  }
+
+  .developer-start-security-note {
+    padding: 20px;
+  }
+
+  .developer-start-platforms article,
+  .developer-start-install-grid article {
+    padding: 21px 19px;
+  }
+
+  .developer-start-shared-service {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 24px 20px;
+  }
+
+  .developer-start-shared-service .btn {
+    width: 100%;
+  }
+}
+
 /* The TritonGPT launcher (#chat-bubble) is rendered by the campus widget that
    tgpt-loader.js injects. It is an embedded campus widget: it ships its own
    responsive presentation and this site takes what the loader renders. Do not
