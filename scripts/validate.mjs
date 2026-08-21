@@ -1039,10 +1039,17 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "TritonAI Harness access guidance must appear before the model catalog" });
     }
     const harnessText = harnessSection.text();
+    const harnessInstallerLink = harnessSection.find(`a[href='https://github.com/dbalders/TritonAI-Installer/releases/latest']`);
+    const harnessInstallSteps = harnessSection.find("ol.harness-install-steps > li");
     if (
-      harnessSection.find(`a[href='https://github.com/dbalders/TritonAI-Installer/releases/latest']`).length !== 1 ||
+      harnessInstallerLink.length !== 1 ||
+      harnessInstallerLink.text().replace(/\s+/g, " ").trim() !== "Download the TritonAI Harness installer" ||
       harnessSection.find(`a[href$='/developer-apis/start.html']`).length !== 1 ||
       harnessText.includes("Installation and access are separate steps") === false ||
+      harnessText.includes("An active TritonAI API key is a prerequisite for using the Harness") === false ||
+      harnessText.includes("Check access & install") === false ||
+      harnessText.includes("Open TritonAI Harness") === false ||
+      harnessInstallSteps.length !== 4 ||
       harnessText.includes("cloud model routes") === false ||
       harnessText.includes("on-prem model routes") === false ||
       harnessText.includes("Windows packages are unsigned") === false ||
