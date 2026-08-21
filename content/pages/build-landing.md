@@ -5,7 +5,7 @@ description: Use TritonAI Harness, campus skills, approved models, connections, 
 eyebrow: Developer tools and resources
 lastReviewed: 2026-08-21
 audiences: [developers, researchers, staff, leaders]
-source: TritonAI developer documentation, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, ITS-TritonAI n8n service documentation, and TritonAI Installer release information reviewed August 21, 2026
+source: TritonAI developer documentation, API access intake and funding guidance, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, ITS-TritonAI n8n service documentation, and TritonAI Installer release information reviewed August 21, 2026
 canonicalUrl: /developer-apis/index.html
 relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert, harness-memory-architecture]
 landingHub: true
@@ -32,14 +32,14 @@ bannerMode: abstract
 <section class="hub-section hub-section-dark hub-full-bleed" id="builder-entry-points" aria-labelledby="builder-routes-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Start here</p><h2 id="builder-routes-heading">Choose the resource you need</h2></div>
 <div class="row hub-number-grid">
-<div class="col-md-4"><article><span>01</span><h3>Get the Harness</h3><p>Request an access key and install UC San Diego's primary supported desktop workspace.</p><a href="/developer-apis/start.html">Get access and install Harness</a></article></div>
+<div class="col-md-4"><article><span>01</span><h3>Get the Harness</h3><p>Complete the access intake, receive approved model access, and install UC San Diego's primary supported desktop workspace.</p><a href="/developer-apis/start.html">Get access and install Harness</a></article></div>
 <div class="col-md-4"><article><span>02</span><h3>Browse models</h3><p>Review current model hosting, capabilities, context lengths, and published rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
 <div class="col-md-4"><article><span>03</span><h3>Reuse a capability</h3><p>Check whether another campus team has already written the skill you need.</p><a href="/skills/index.html">Browse the Skills Library</a></article></div>
 </div></div>
 </section>
 
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Use TritonAI Harness for desktop agent work</h2><p>The Harness is UC San Diego's primary supported desktop workspace for building and running AI agents. The installer sets up the managed runtime and campus skills. Your approved service path determines the cloud or on-prem model routes, plugins, connections, and data you may use. Claude Code and the Codex desktop app remain supported alternatives for people who prefer those interfaces.</p></div>
+<div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Use TritonAI Harness for desktop agent work</h2><p>The Harness is UC San Diego's primary supported desktop workspace for building and running AI agents. The access intake records why access is needed and how the work is funded. It also identifies affiliation, ownership, data, and audience. On-premises and cloud access are approved separately. For campus administrative work, on-premises token use is covered and not recharged. Cloud use is charged from the first token at the current market rate published in the Model Hub. Research projects charge both on-premises and cloud model use to a grant or approved research project chartstring. Cloud access requires a chartstring, named budget owner, and spend limit. Your approval response confirms the models, limits, connections, and billing treatment for your key. Claude Code and the Codex desktop app remain supported alternatives for people who prefer those interfaces.</p></div>
 <div class="build-tool-grid">
 <article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Primary supported workspace</p><h3>TritonAI Harness</h3><p>A managed desktop workspace with campus skills and approved model routes and connections configured for your task.</p></article>
 <article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Claude Code</h3><p>A command-line alternative for established terminal workflows. Available models, plugins, skills, and credentials may differ.</p></article>
@@ -47,13 +47,13 @@ bannerMode: abstract
 </div>
 <div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why we point people at the Harness first</h3><ul class="build-harness-benefits">
 <li><strong>Managed installer</strong><span>Sets up the Harness, its runtime, campus configuration, and secure skills.</span></li>
-<li><strong>Approved models and connections</strong><span>Your access key enables the routes, plugins, and data permissions approved for your task.</span></li>
+<li><strong>Approved access and limits</strong><span>Your access key enables the models, plugins, data permissions, and spending controls approved for your task.</span></li>
 <li><strong>Reviewed skills and context</strong><span>Campus skills and approved context sources are available in the same workspace.</span></li>
 <li><strong>Supervised desktop work</strong><span>Work across files, browser tasks, and connected tools with supervision set for the task.</span></li>
 </ul>
-</div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">Your first Harness workflow</p><ol class="build-harness-flow" aria-label="TritonAI Harness access and first-use workflow"><li><span>01</span><strong>Request access</strong><small>Describe the task, data, owner, and audience</small></li><li class="build-harness-core"><span>02</span><strong>Install the Harness</strong><small>Use the current package for your supported platform</small></li><li><span>03</span><strong>Configure approved access</strong><small>Choose your model route, plugins, and permissions</small></li><li><span>04</span><strong>Run in supervised mode</strong><small>Inspect sources, results, and proposed actions</small></li></ol></div></div></div>
-<aside class="build-harness-access" aria-labelledby="harness-access-heading"><div><p class="home-kicker">Harness setup</p><h3 id="harness-access-heading">Get access and install</h3><p>Request your access key, download the installer for your supported platform, and follow the setup steps.</p></div><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Go to access and install</a></aside>
-<p class="build-harness-source">The Harness is an early pilot and changes quickly. Available capabilities depend on your approved service path.</p>
+</div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">Your first Harness workflow</p><ol class="build-harness-flow" aria-label="TritonAI Harness access and first-use workflow"><li><span>01</span><strong>Request access</strong><small>Classify the purpose and funding; name the owner and data</small></li><li class="build-harness-core"><span>02</span><strong>Install the Harness</strong><small>Use the current package for your supported platform</small></li><li><span>03</span><strong>Configure approved access</strong><small>Use the models, connections, and limits in your response</small></li><li><span>04</span><strong>Run in supervised mode</strong><small>Inspect sources, results, and proposed actions</small></li></ol></div></div></div>
+<aside class="build-harness-access" aria-labelledby="harness-access-heading"><div><p class="home-kicker">Harness setup</p><h3 id="harness-access-heading">Get access and install</h3><p>Request your access key, provide the funding details required for your model choice, and follow the download and setup steps.</p></div><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Go to access and install</a></aside>
+<p class="build-harness-source">The Harness is an early pilot and changes quickly. The approval response for your key is the source for current access, funding, and billing terms.</p>
 </section>
 
 <!-- AGENT_SECTION: model-catalog -->
@@ -119,7 +119,7 @@ bannerMode: abstract
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" id="api-gateway" aria-labelledby="api-gateway-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">Use the model route approved for your work</h2><p>Supported environments connect through the TritonAI LLM Gateway. In Harness, cloud and on-prem routes use separate approved credentials. Choose models from the route assigned to your task.</p></div>
+<div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">Use the model route approved for your work</h2><p>Supported environments connect through the TritonAI LLM Gateway. In Harness, cloud and on-premises access use separate approved credentials. For campus administrative work, on-premises token use is not recharged. Cloud use is charged from the first token at the current market rate published in the Model Hub and requires a chartstring, named budget owner, and spend limit. Research projects charge both on-premises and cloud model use to a grant or approved research project chartstring.</p></div>
 <figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
 <div class="api-gateway-map">
 <div class="api-gateway-source-cluster">
@@ -146,7 +146,7 @@ bannerMode: abstract
 <section class="api-gateway-capabilities" aria-labelledby="api-gateway-capabilities-heading"><p class="api-gateway-lane-label">Capabilities vary by model</p><h3 id="api-gateway-capabilities-heading">Available capabilities</h3><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></section>
 </div>
 </div>
-<figcaption id="api-gateway-caption">Gateway access covers approved model routes. Your application remains responsible for its data permissions, testing, accessibility, support, and human review.</figcaption>
+<figcaption id="api-gateway-caption">Gateway access covers approved models and records the funding treatment and limits for the key. Your application remains responsible for its data permissions, testing, accessibility, support, and human review.</figcaption>
 </figure>
 </div>
 </section>
@@ -211,4 +211,4 @@ bannerMode: abstract
 
 <nav class="hub-section hub-link-panel" id="builder-resources" aria-labelledby="build-resources-heading"><div class="hub-heading"><p class="home-kicker">Builder resources</p><h2 id="build-resources-heading">Where to go next</h2></div><div class="row hub-link-columns"><div class="col-sm-6 col-md-4"><a href="#tritonai-harness"><strong>TritonAI Harness</strong><span>Agentic development workspace</span></a></div><div class="col-sm-6 col-md-4"><a href="/developer-apis/start.html"><strong>Harness setup</strong><span>Access, download, and installation</span></a></div><div class="col-sm-6 col-md-4"><a href="/developer-apis/faq.html"><strong>Developer FAQ</strong><span>Common implementation questions</span></a></div><div class="col-sm-6 col-md-4"><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/"><strong>Model Hub</strong><span>Capabilities and rates</span></a></div><div class="col-sm-6 col-md-4"><a href="/skills/index.html"><strong>Skills Library</strong><span>Reusable capability packages</span></a></div><div class="col-sm-6 col-md-4"><a href="/about/trust-architecture.html"><strong>Trust and architecture</strong><span>Hosting and oversight</span></a></div></div></nav>
 
-<section class="hub-section hub-subscribe" id="build-start" aria-labelledby="prototype-heading"><div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Before you email us</p><h2 id="prototype-heading">Bring a narrow, measurable problem</h2><p>Work out who it is for and what data it may use. Name the review point and a result you can measure. Then choose the model.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Get access and install Harness</a></div></div></section>
+<section class="hub-section hub-subscribe" id="build-start" aria-labelledby="prototype-heading"><div class="row hub-split hub-split-align-center"><div class="col-md-8"><p class="home-kicker">Before you submit</p><h2 id="prototype-heading">Prepare the purpose and funding details</h2><p>Name the task and who it serves. Identify the owner, data, and funding source. Decide whether on-premises-only access can meet the need. A cloud request also needs a chartstring, named budget owner, and spend limit. Research requests need a grant or approved research project chartstring for both on-premises and cloud use.</p></div><div class="col-md-4 hub-subscribe-action"><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Get access and install Harness</a></div></div></section>

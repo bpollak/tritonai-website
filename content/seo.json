@@ -66,8 +66,8 @@
     },
     "/developer-apis/faq.html": {
       "title": "Developer APIs and Resources FAQ",
-      "description": "Find answers about TritonAI API access, supported development paths, account setup, security, and help for UC San Diego builders.",
-      "lastModified": "2026-07-29"
+      "description": "Find answers about TritonAI access, use-case and funding intake, cloud requirements, data boundaries, security, and support.",
+      "lastModified": "2026-08-21"
     },
     "/developer-apis/index.html": {
       "title": "Build AI Services at UC San Diego",
@@ -82,7 +82,7 @@
     },
     "/developer-apis/start.html": {
       "title": "Get TritonAI Access and Install Harness",
-      "description": "Request a TritonAI access key, download the Harness installer for Mac or Windows, and complete guided setup.",
+      "description": "Complete the TritonAI use-case and funding intake, request approved model access, and install Harness for Mac or Windows.",
       "schemaAbout": [
         "TritonAI Harness",
         "TritonAI LLM Gateway",

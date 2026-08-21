@@ -1075,6 +1075,12 @@ for (const page of htmlFiles) {
     ) {
       contentFindings.push({ source: route, issue: "Build page must keep Harness benefits concise and hand access and installation off to one setup module" });
     }
+    const accessGuidance = `${harnessSection.text()} ${$("#api-gateway").text()} ${$("#build-start").text()}`.replace(/\s+/g, " ");
+    for (const requiredTerm of ["campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "approval response"]) {
+      if (accessGuidance.includes(requiredTerm) === false) {
+        contentFindings.push({ source: route, issue: `Build page access guidance is missing: ${requiredTerm}` });
+      }
+    }
     if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
     }
@@ -1153,6 +1159,19 @@ for (const page of htmlFiles) {
       setupText.includes("Support will never ask for the full key") === false
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
+    }
+    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
+      if (setupText.includes(requiredTerm) === false) {
+        contentFindings.push({ source: route, issue: `Harness setup intake guidance is missing: ${requiredTerm}` });
+      }
+    }
+  }
+  if (route === "/developer-apis/faq.html") {
+    const faqText = $("main#main-content").text().replace(/\s+/g, " ").trim();
+    for (const requiredTerm of ["campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P4 data is not approved", "patient-care operations", "approval response"]) {
+      if (faqText.includes(requiredTerm) === false) {
+        contentFindings.push({ source: route, issue: `Developer FAQ access guidance is missing: ${requiredTerm}` });
+      }
     }
   }
   if (route === "/about/roadmap.html") {
