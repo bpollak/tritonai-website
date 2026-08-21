@@ -78,7 +78,18 @@
         "AI APIs",
         "AI agents"
       ],
-      "lastModified": "2026-08-12"
+      "lastModified": "2026-08-21"
+    },
+    "/developer-apis/start.html": {
+      "title": "Get TritonAI Access and Install Harness",
+      "description": "Request a TritonAI access key, download the Harness installer for Mac or Windows, and complete guided setup.",
+      "schemaAbout": [
+        "TritonAI Harness",
+        "TritonAI LLM Gateway",
+        "AI access keys",
+        "Desktop application installation"
+      ],
+      "lastModified": "2026-08-21"
     },
     "/presentations/managing-the-tritonai-website.html": {
       "title": "Editing and Publishing the TritonAI Website",

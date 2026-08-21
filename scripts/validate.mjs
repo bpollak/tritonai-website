@@ -221,6 +221,7 @@ for (const asset of files.filter((file) => file.endsWith(".svg"))) {
 const roadmapContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "roadmap/milestones.json"), "utf8"));
 const factsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/public-facts.json"), "utf8"));
 const gatewayUsageContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "facts/gateway-usage.json"), "utf8"));
+const harnessInstallerContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "harness/installer.json"), "utf8"));
 const skillsContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "skills/library.json"), "utf8"));
 const homeHeroContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "home/hero.json"), "utf8"));
 const siteContent = JSON.parse(await readFile(path.join(CONTENT_DIR, "site.json"), "utf8"));
@@ -244,6 +245,23 @@ const gatewayMissing = missingFields(gatewayUsageContent, gatewayRequired);
 if (gatewayMissing.length) contentFindings.push({ source: "facts/gateway-usage.json", issue: `Missing fields: ${gatewayMissing.join(", ")}` });
 const gatewayPeriodMissing = missingFields(gatewayUsageContent.measurementPeriod || {}, ["start", "end", "label"]);
 if (gatewayPeriodMissing.length) contentFindings.push({ source: "facts/gateway-usage.json#measurementPeriod", issue: `Missing fields: ${gatewayPeriodMissing.join(", ")}` });
+const harnessInstallerMissing = missingFields(harnessInstallerContent, ["schemaVersion", "product", "version", "publishedAt", "owner", "source", "lastReviewed", "dataClassification", "canonicalUrl", "releaseUrl", "checksumsUrl", "platforms"]);
+if (harnessInstallerMissing.length) contentFindings.push({ source: "harness/installer.json", issue: `Missing fields: ${harnessInstallerMissing.join(", ")}` });
+for (const platformId of ["mac", "windows"]) {
+  const platform = harnessInstallerContent.platforms?.[platformId] || {};
+  const platformMissing = missingFields(platform, ["label", "architecture", "format", "filename", "displaySize", "sizeBytes", "sha256", "downloadUrl", "signing"]);
+  if (platformMissing.length) contentFindings.push({ source: `harness/installer.json#${platformId}`, issue: `Missing fields: ${platformMissing.join(", ")}` });
+  if (!Number.isInteger(platform.sizeBytes) || platform.sizeBytes <= 0 || !/^[a-f0-9]{64}$/.test(platform.sha256 || "")) {
+    contentFindings.push({ source: `harness/installer.json#${platformId}`, issue: "Installer size and SHA-256 must identify the published artifact" });
+  }
+  if (
+    !platform.filename?.includes(harnessInstallerContent.version) ||
+    !platform.downloadUrl?.endsWith(`/${platform.filename}`) ||
+    platform.downloadUrl?.includes("portable")
+  ) {
+    contentFindings.push({ source: `harness/installer.json#${platformId}`, issue: "Installer filename, version, and direct download URL do not match" });
+  }
+}
 const updateFeedRequired = ["schemaVersion", "title", "description", "owner", "source", "lastReviewed", "streams", "areas", "updates"];
 const updateFeedMissing = missingFields(tritonAiUpdatesContent, updateFeedRequired);
 if (updateFeedMissing.length) contentFindings.push({ source: "updates/tritonai-updates.json", issue: `Missing fields: ${updateFeedMissing.join(", ")}` });
@@ -425,6 +443,7 @@ const freshnessEntries = [
   ...(roadmapContent.items || []).map((item, index) => ({ filename: `roadmap/milestones.json#${index + 1}`, lastReviewed: isoDate(item.lastReviewed) })),
   ...(factsContent.facts || []).map((fact, index) => ({ filename: `facts/public-facts.json#${fact.id || index + 1}`, lastReviewed: isoDate(fact.lastReviewed) })),
   { filename: "facts/gateway-usage.json", lastReviewed: isoDate(gatewayUsageContent.lastReviewed) },
+  { filename: "harness/installer.json", lastReviewed: isoDate(harnessInstallerContent.lastReviewed) },
   { filename: "home/hero.json", lastReviewed: isoDate(homeHeroContent.lastReviewed) },
   { filename: "updates/tritonai-updates.json", lastReviewed: isoDate(tritonAiUpdatesContent.lastReviewed) },
 ];
@@ -1039,23 +1058,19 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "TritonAI Harness access guidance must appear before the model catalog" });
     }
     const harnessText = harnessSection.text();
-    const harnessInstallerLink = harnessSection.find(`a[href='https://github.com/dbalders/TritonAI-Installer/releases/latest']`);
-    const harnessInstallSteps = harnessSection.find("ol.harness-install-steps > li");
+    const harnessSetupLinks = harnessSection.find("a[href*='/developer-apis/start.html']");
+    const harnessSetupCta = harnessSetupLinks.filter((_, element) => $(element).text().replace(/\s+/g, " ").trim() === "Get access and install Harness");
     if (
-      harnessInstallerLink.length !== 1 ||
-      harnessInstallerLink.text().replace(/\s+/g, " ").trim() !== "Download the TritonAI Harness installer" ||
-      harnessSection.find(`a[href$='/developer-apis/start.html']`).length !== 1 ||
-      harnessText.includes("Installation and access are separate steps") === false ||
-      harnessText.includes("An active TritonAI API key is a prerequisite for using the Harness") === false ||
-      harnessText.includes("Check access & install") === false ||
-      harnessText.includes("Open TritonAI Harness") === false ||
-      harnessInstallSteps.length !== 4 ||
+      harnessSetupLinks.length < 2 ||
+      harnessSetupCta.length !== 1 ||
+      harnessText.includes("An active TritonAI access key is a prerequisite for using the Harness") === false ||
       harnessText.includes("cloud model routes") === false ||
       harnessText.includes("on-prem model routes") === false ||
-      harnessText.includes("Windows packages are unsigned") === false ||
-      /releases\/tag\/v\d|hand over full access|whatever the task and your nerves/.test(harnessSection.html() || "")
+      harnessSection.find("ol.harness-install-steps").length !== 0 ||
+      harnessSection.find("a[href*='github.com/dbalders/TritonAI-Installer']").length !== 0 ||
+      /Check access & install|Open TritonAI Harness|releases\/tag\/v\d|hand over full access|whatever the task and your nerves/.test(harnessSection.html() || "")
     ) {
-      contentFindings.push({ source: route, issue: "TritonAI Harness access, route, installer, or supervision guidance has regressed" });
+      contentFindings.push({ source: route, issue: "Build page must summarize Harness access and hand installation off to the setup page" });
     }
     if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
@@ -1082,6 +1097,57 @@ for (const page of htmlFiles) {
     }
     if (gatewayUsage.find(".gateway-usage-month").length !== gatewayMonths.length || gatewayUsage.find("tbody tr").length !== gatewayMonths.length) {
       contentFindings.push({ source: route, issue: "Gateway usage chart or table does not match structured monthly data" });
+    }
+  }
+  if (route === "/developer-apis/start.html") {
+    const setupPage = $(".developer-start-page");
+    const setupText = setupPage.text().replace(/\s+/g, " ").trim();
+    const setupSteps = setupPage.find(".developer-start-flow > .developer-start-step");
+    const requestLink = setupPage.find("a[href='https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run']");
+    const macDownload = setupPage.find("a[data-harness-download='mac']");
+    const windowsDownload = setupPage.find("a[data-harness-download='windows']");
+    if (
+      $("main#main-content h1").first().text().trim() !== "Get TritonAI Access and Install Harness" ||
+      setupSteps.length !== 6 ||
+      setupPage.find(".developer-start-summary > li").length !== 4 ||
+      requestLink.length !== 1 ||
+      requestLink.text().replace(/\s+/g, " ").trim() !== "Request a TritonAI access key" ||
+      setupText.includes("An active TritonAI access key is required") === false ||
+      setupText.includes("API token Harness uses to connect to models through the TritonAI LLM Gateway") === false
+    ) {
+      contentFindings.push({ source: route, issue: "Harness setup page must begin with the access-key prerequisite and six-step onboarding path" });
+    }
+    if (
+      macDownload.length !== 1 ||
+      windowsDownload.length !== 1 ||
+      macDownload.attr("href") !== harnessInstallerContent.platforms.mac.downloadUrl ||
+      windowsDownload.attr("href") !== harnessInstallerContent.platforms.windows.downloadUrl ||
+      macDownload.attr("href") === harnessInstallerContent.releaseUrl ||
+      windowsDownload.attr("href") === harnessInstallerContent.releaseUrl ||
+      setupPage.find("[data-harness-release]").attr("href") !== harnessInstallerContent.releaseUrl ||
+      setupPage.find("[data-harness-checksums]").attr("href") !== harnessInstallerContent.checksumsUrl
+    ) {
+      contentFindings.push({ source: route, issue: "Harness setup downloads must match the versioned Mac and Windows release metadata" });
+    }
+    if (
+      setupText.includes(harnessInstallerContent.platforms.mac.filename) === false ||
+      setupText.includes(harnessInstallerContent.platforms.windows.filename) === false ||
+      setupText.includes("Check access & install") === false ||
+      setupText.includes("Open TritonAI Harness") === false ||
+      setupText.includes("Microsoft Defender SmartScreen") === false ||
+      setupText.includes("More info") === false ||
+      setupText.includes("Run anyway") === false
+    ) {
+      contentFindings.push({ source: route, issue: "Harness setup page is missing platform or guided Installer instructions" });
+    }
+    if (
+      setupPage.find("a[href='mailto:tritonai@ucsd.edu']").length !== 1 ||
+      setupPage.find("a[href='https://tritonai-api.ucsd.edu/ui/model_hub_table/']").length !== 1 ||
+      setupPage.find(".developer-start-shared-service a[href*='/developer-apis/index.html#api-gateway']").length !== 1 ||
+      setupText.includes("Keep the key private") === false ||
+      setupText.includes("Support staff will never need the full key") === false
+    ) {
+      contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
     }
   }
   if (route === "/about/roadmap.html") {
