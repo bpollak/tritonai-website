@@ -46,22 +46,13 @@ bannerMode: abstract
 <article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Codex desktop app</h3><p>A desktop alternative for repository work and parallel agent tasks. Available models, plugins, skills, and credentials may differ.</p></article>
 </div>
 <div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why we point people at the Harness first</h3><ul class="build-harness-benefits">
-<li><strong>Managed installer</strong><span>Sets up the selected Harness release, its managed runtime, campus configuration, and secure skills.</span></li>
-<li><strong>Approved model routes</strong><span>Cloud and on-prem access are granted separately for the reviewed task. The Model Hub remains the source for hosting and capabilities.</span></li>
-<li><strong>Reviewed skills and plugins</strong><span>The current release includes managed GitHub, Google Workspace, and Microsoft 365 providers alongside secure campus skills.</span></li>
-<li><strong>Permission boundaries</strong><span>Connection tokens remain outside the agent context, and you choose the permissions granted to each connection.</span></li>
-<li><strong>Configured context</strong><span>When an approved context source is available, Harness can load relevant material while you work. Access follows the source permissions, and changes to shared memory require review.</span></li>
-<li><strong>Supervised execution</strong><span>Start new workflows in supervised mode. Increase autonomy only for bounded, reversible work with approved permissions.</span></li>
-<li><strong>Desktop work in one place</strong><span>Use chat, files, images, voice input, diffs, and a built-in browser from the same workspace.</span></li>
+<li><strong>Managed installer</strong><span>Sets up the Harness, its runtime, campus configuration, and secure skills.</span></li>
+<li><strong>Approved models and connections</strong><span>Your access key enables the routes, plugins, and data permissions approved for your task.</span></li>
+<li><strong>Reviewed skills and context</strong><span>Campus skills and approved context sources are available in the same workspace.</span></li>
+<li><strong>Supervised desktop work</strong><span>Work across files, browser tasks, and connected tools with supervision set for the task.</span></li>
 </ul>
-<h3>Get access and install</h3>
-<p><strong>Access key required:</strong> An active TritonAI access key is a prerequisite for using the Harness. The access key is the API token Harness uses to connect to models through the TritonAI LLM Gateway.</p>
-<p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Get access and install Harness</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p>
-<h3>Start with one reviewable workflow</h3>
-<p>For example, use selected calendar, email, and chat context to create a source-linked daily briefing. Reuse that context to draft a document or local dashboard, then review the result before any consequential action.</p>
 </div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">Your first Harness workflow</p><ol class="build-harness-flow" aria-label="TritonAI Harness access and first-use workflow"><li><span>01</span><strong>Request access</strong><small>Describe the task, data, owner, and audience</small></li><li class="build-harness-core"><span>02</span><strong>Install the Harness</strong><small>Use the current package for your supported platform</small></li><li><span>03</span><strong>Configure approved access</strong><small>Choose your model route, plugins, and permissions</small></li><li><span>04</span><strong>Run in supervised mode</strong><small>Inspect sources, results, and proposed actions</small></li></ol></div></div></div>
-<p class="build-harness-source"><strong>Supported packages:</strong> Apple Silicon Macs and Windows x64 computers. The <a href="/developer-apis/start.html#download-installer">Harness setup page</a> provides direct downloads and platform instructions.</p>
-<p class="build-harness-source"><strong>Access:</strong> Harness eligibility, cloud model routes, on-prem model routes, plugins, and campus data permissions are approved for the intended work. Enter access keys through the managed setup and keep them out of prompts and project files. A model shown in the Model Hub may fall outside the routes approved for your key.</p>
+<aside class="build-harness-access" aria-labelledby="harness-access-heading"><div><p class="home-kicker">Harness setup</p><h3 id="harness-access-heading">Get access and install</h3><p>Request your access key, download the installer for your supported platform, and follow the setup steps.</p></div><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Go to access and install</a></aside>
 <p class="build-harness-source">The Harness is an early pilot and changes quickly. Available capabilities depend on your approved service path.</p>
 </section>
 

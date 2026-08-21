@@ -529,11 +529,11 @@
         
     
 
-                            <div class="developer-start-intro">
+<div class="developer-start-intro">
 <p class="home-kicker">TritonAI Harness setup</p>
 <h2>Get access, install, and open the Harness</h2>
-<p class="lead">TritonAI Harness is UC San Diego's primary supported desktop workspace for AI agent work. The guided installer handles the managed runtime, campus skills, and model routing for your approved access.</p>
-<div class="developer-start-prerequisite"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><strong>An active TritonAI access key is required.</strong><p>The access key is the API token Harness uses to connect to models through the TritonAI LLM Gateway. You can download the installer while your request is pending, but setup cannot finish without an active key.</p></div></div>
+<p class="lead">TritonAI Harness is UC San Diego's main desktop app for working with AI agents. The installer sets up the app, campus tools, and the models you are allowed to use.</p>
+<div class="developer-start-prerequisite"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><strong>An active TritonAI access key is required.</strong><p>The key lets the Harness connect to the AI models approved for your work. You can download the installer while your request is pending, but you need the key to finish setup.</p></div></div>
 <ol class="developer-start-summary" aria-label="Harness setup overview">
 <li><span>1</span><strong>Request access</strong></li>
 <li><span>2</span><strong>Download</strong></li>
@@ -547,21 +547,21 @@
 <header class="developer-start-step-header">
 <span aria-hidden="true">01</span>
 <div>
-<p class="home-kicker">Gateway access</p>
+<p class="home-kicker">Request access</p>
 <h2 id="developer-start-step-one">Request a TritonAI access key</h2>
 </div>
 </header>
-<p>The request opens UC San Diego Single Sign-On. Be ready to describe the work so the service team can review the appropriate model route and data handling requirements.</p>
+<p>The request opens the UC San Diego sign-in page. Tell us what you want to do, who will use the result, and what information or systems are involved. This helps the team decide which models and access you need.</p>
 <ul class="developer-start-checklist">
-<li>Your UC San Diego identity and department or sponsor</li>
+<li>Your UC San Diego login and department or sponsor</li>
 <li>The task and intended outcome</li>
-<li>The people who will use or review the result</li>
-<li>The data and systems the work requires</li>
+<li>Who will use or review the work</li>
+<li>The information and systems it needs</li>
 </ul>
 <div class="developer-start-request">
 <div>
 <h3>Submit the access request</h3>
-<p>Review timing depends on the use case and any privacy, security, accessibility, or service-owner review.</p>
+<p>Some requests take longer if they need extra privacy, security, accessibility, or support review.</p>
 </div>
 <a class="btn btn-primary" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request a TritonAI access key</a>
 </div>
@@ -575,8 +575,8 @@
 <h2 id="developer-start-step-two">Receive and protect the key</h2>
 </div>
 </header>
-<p>When your request is approved, use the access key and model-route guidance provided with the approval. Most people receive one key. If your approved work uses separate routes and you receive another key, the Installer can store both.</p>
-<div class="developer-start-security-note"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span><div><h3>Keep the key private</h3><p>Treat the key like a password. Enter it only in the TritonAI Installer. Keep it out of prompts, email, chat, screenshots, project files, and source code. Support staff will never need the full key to troubleshoot setup.</p></div></div>
+<p>If your request is approved, you will receive a key and setup instructions. Most people receive one key. If you receive two, the Installer can save both.</p>
+<div class="developer-start-security-note"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span><div><h3>Keep the key private</h3><p>Treat it like a password. Enter it only in the TritonAI Installer. Do not put it in prompts, email, chat, screenshots, or work files. Support will never ask for the full key.</p></div></div>
 </section>
 
 <section aria-labelledby="developer-start-step-three" class="developer-start-step" id="download-installer">
@@ -592,19 +592,19 @@
 <article>
 <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
 <h3>Mac</h3>
-<p>For Macs with Apple Silicon. Choose <strong>Apple menu → About This Mac</strong>; the Chip field must show Apple M1 or newer. Intel Macs are not supported.</p>
+<p>For Mac computers with an Apple M1 chip or newer. Choose <strong>Apple menu → About This Mac</strong> to check. Intel Macs are not supported.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="mac" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Mac</span><small data-harness-download-detail>Current Apple Silicon DMG</small></a>
-<p class="developer-platform-trust"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Developer ID signed, Apple notarized, and stapled.</p>
+<p class="developer-platform-trust"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Signed by the developer and checked by Apple.</p>
 </article>
 <article>
 <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
 <h3>Windows</h3>
-<p>For Windows computers with an x64-based processor. Check <strong>Settings → System → About → System type</strong> if you are unsure.</p>
+<p>For Windows computers with an x64 processor. Check <strong>Settings → System → About → System type</strong> if you are unsure.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="windows" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Windows</span><small data-harness-download-detail>Current x64 Setup EXE</small></a>
-<p class="developer-platform-warning"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> The current Windows installer is unsigned, so Microsoft Defender SmartScreen may appear.</p>
+<p class="developer-platform-warning"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> The current Windows installer is not signed. Windows may show a Microsoft Defender SmartScreen warning.</p>
 </article>
 </div>
-<p class="developer-start-release-links"><span data-harness-version>Current version</span>. <a data-harness-release href="https://github.com/dbalders/TritonAI-Installer/releases/latest">Read the release notes</a> or <a data-harness-checksums href="https://github.com/dbalders/TritonAI-Installer/releases/latest">verify the SHA-256 checksums</a>.</p>
+<p class="developer-start-release-links"><span data-harness-version>Current version</span>. <a data-harness-release href="https://github.com/dbalders/TritonAI-Installer/releases/latest">Read the release notes</a> or <a data-harness-checksums href="https://github.com/dbalders/TritonAI-Installer/releases/latest">view the file checks</a>.</p>
 </section>
 
 <section aria-labelledby="developer-start-step-four" class="developer-start-step">
@@ -630,7 +630,7 @@
 <ol>
 <li>Open <strong>Downloads</strong> and double-click <code data-harness-filename="windows">the TritonAI Installer Setup EXE</code>.</li>
 <li>If SmartScreen appears, confirm the filename came from the download button on this page.</li>
-<li>If your department permits the unsigned package, select <strong>More info</strong>, then <strong>Run anyway</strong>. Contact local IT if your policy blocks it.</li>
+<li>If your department allows this installer, select <strong>More info</strong>, then <strong>Run anyway</strong>. Contact local IT if Windows blocks it.</li>
 <li>Continue to the access-key screen.</li>
 </ol>
 </article>
@@ -646,9 +646,9 @@
 </div>
 </header>
 <ol class="developer-start-actions">
-<li><span>1</span><div><strong>Enter the access key</strong><p>Paste the approved key into <strong>TritonAI access key</strong>. Select <strong>I have another access key</strong> only if the approval included a second key.</p></div></li>
-<li><span>2</span><div><strong>Check access and install</strong><p>Select <strong>Check access &amp; install</strong>. The Installer checks which models the key can use and configures the correct routing automatically.</p></div></li>
-<li><span>3</span><div><strong>Keep the Installer open</strong><p>Setup installs the managed runtime, campus skills, and Harness application. Wait for <strong>Installation complete</strong>.</p></div></li>
+<li><span>1</span><div><strong>Enter the access key</strong><p>Paste the key into the box labeled <strong>TritonAI access key</strong>. If you received two keys, select <strong>I have another access key</strong>.</p></div></li>
+<li><span>2</span><div><strong>Check access and install</strong><p>Select <strong>Check access &amp; install</strong>. The Installer checks which models you can use and sets them up.</p></div></li>
+<li><span>3</span><div><strong>Keep the Installer open</strong><p>Leave the Installer open until you see <strong>Installation complete</strong>. It installs the Harness and the campus tools it needs.</p></div></li>
 </ol>
 </section>
 
@@ -660,18 +660,18 @@
 <h2 id="developer-start-step-six">Open Harness and verify access</h2>
 </div>
 </header>
-<p>Select <strong>Open TritonAI Harness</strong> when installation finishes. You can open it later from Applications on macOS or the desktop shortcut on Windows.</p>
+<p>When you see <strong>Installation complete</strong>, select <strong>Open TritonAI Harness</strong>. You can open it later from Applications on Mac or the desktop shortcut on Windows.</p>
 <ul class="developer-start-checklist">
-<li>Choose a model shown as available in Harness.</li>
-<li>Start with a low-risk task and information you are approved to use.</li>
-<li>Review sources, results, and proposed actions before expanding the workflow.</li>
+<li>Choose a model shown in Harness.</li>
+<li>Try a small, low-risk task using information you are allowed to use.</li>
+<li>Check the sources, results, and proposed actions before doing more.</li>
 </ul>
-<p class="developer-start-note">The <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a> lists current models and hosting. The models available in Harness depend on the routes approved for your key.</p>
+<p class="developer-start-note">The <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a> lists current models. The models you see in Harness depend on the access approved for your key.</p>
 <div class="developer-start-help">
 <h3>Setup help</h3>
 <dl>
 <div><dt>The key is not accepted</dt><dd>Copy it again without leading or trailing spaces. If it still fails, contact support without including the key.</dd></div>
-<div><dt>No models appear</dt><dd>The key may not include an active model route. Contact support and describe the request you submitted.</dd></div>
+<div><dt>No models appear</dt><dd>Your key may not be active for any models. Contact support and describe the request you submitted.</dd></div>
 <div><dt>The installer will not open</dt><dd>Confirm that your computer matches a supported platform and that you downloaded the installer from this page.</dd></div>
 </dl>
 <p><strong>Need help?</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> with your operating system and a screenshot of the error. Remove or cover any access key before sending the screenshot.</p>
@@ -680,8 +680,8 @@
 </div>
 
 <aside class="developer-start-shared-service" aria-labelledby="developer-start-shared-heading">
-<div><p class="home-kicker">Building for other people?</p><h2 id="developer-start-shared-heading">Use the shared-service path</h2><p>Applications, integrations, and workflows that other people rely on also need API access, hosting, service ownership, accessibility, and a support plan.</p></div>
-<a class="btn btn-default" href="/developer-apis/index.html#api-gateway">Review the shared-service path</a>
+<div><p class="home-kicker">Building something for others?</p><h2 id="developer-start-shared-heading">Plan for a shared service</h2><p>If other people will rely on what you build, you also need a place to run it, someone to own it, accessibility, and a support plan.</p></div>
+<a class="btn btn-default" href="/developer-apis/index.html#api-gateway">See how to build a shared service</a>
 </aside>
                     </section>
 				    

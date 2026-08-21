@@ -1058,19 +1058,22 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "TritonAI Harness access guidance must appear before the model catalog" });
     }
     const harnessText = harnessSection.text();
+    const harnessBenefits = harnessSection.find(".build-harness-benefits > li");
+    const harnessAccessModule = harnessSection.find(".build-harness-access");
     const harnessSetupLinks = harnessSection.find("a[href*='/developer-apis/start.html']");
-    const harnessSetupCta = harnessSetupLinks.filter((_, element) => $(element).text().replace(/\s+/g, " ").trim() === "Get access and install Harness");
+    const harnessSetupCta = harnessSetupLinks.filter((_, element) => $(element).text().replace(/\s+/g, " ").trim() === "Go to access and install");
     if (
-      harnessSetupLinks.length < 2 ||
+      harnessBenefits.length !== 4 ||
+      harnessAccessModule.length !== 1 ||
+      harnessSetupLinks.length !== 1 ||
       harnessSetupCta.length !== 1 ||
-      harnessText.includes("An active TritonAI access key is a prerequisite for using the Harness") === false ||
-      harnessText.includes("cloud model routes") === false ||
-      harnessText.includes("on-prem model routes") === false ||
+      harnessAccessModule.find("#harness-access-heading").text().replace(/\s+/g, " ").trim() !== "Get access and install" ||
+      harnessAccessModule.text().includes("Request your access key") === false ||
       harnessSection.find("ol.harness-install-steps").length !== 0 ||
       harnessSection.find("a[href*='github.com/dbalders/TritonAI-Installer']").length !== 0 ||
-      /Check access & install|Open TritonAI Harness|releases\/tag\/v\d|hand over full access|whatever the task and your nerves/.test(harnessSection.html() || "")
+      /An active TritonAI access key is a prerequisite|Supported packages:|Check access & install|Open TritonAI Harness|releases\/tag\/v\d|hand over full access|whatever the task and your nerves/.test(harnessText)
     ) {
-      contentFindings.push({ source: route, issue: "Build page must summarize Harness access and hand installation off to the setup page" });
+      contentFindings.push({ source: route, issue: "Build page must keep Harness benefits concise and hand access and installation off to one setup module" });
     }
     if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
@@ -1113,7 +1116,8 @@ for (const page of htmlFiles) {
       requestLink.length !== 1 ||
       requestLink.text().replace(/\s+/g, " ").trim() !== "Request a TritonAI access key" ||
       setupText.includes("An active TritonAI access key is required") === false ||
-      setupText.includes("API token Harness uses to connect to models through the TritonAI LLM Gateway") === false
+      setupText.includes("The key lets the Harness connect to the AI models approved for your work") === false ||
+      /managed runtime|model routing|model route|API token|LLM Gateway|SHA-256/.test(setupText)
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page must begin with the access-key prerequisite and six-step onboarding path" });
     }
@@ -1144,8 +1148,9 @@ for (const page of htmlFiles) {
       setupPage.find("a[href='mailto:tritonai@ucsd.edu']").length !== 1 ||
       setupPage.find("a[href='https://tritonai-api.ucsd.edu/ui/model_hub_table/']").length !== 1 ||
       setupPage.find(".developer-start-shared-service a[href*='/developer-apis/index.html#api-gateway']").length !== 1 ||
+      setupPage.find(".developer-start-shared-service a").text().replace(/\s+/g, " ").trim() !== "See how to build a shared service" ||
       setupText.includes("Keep the key private") === false ||
-      setupText.includes("Support staff will never need the full key") === false
+      setupText.includes("Support will never ask for the full key") === false
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
     }

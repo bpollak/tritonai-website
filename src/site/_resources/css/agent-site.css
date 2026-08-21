@@ -3323,7 +3323,7 @@ a.developer-download-button:visited {
   padding-bottom: 0;
 }
 
-.developer-start-actions strong {
+.developer-start-actions li > div > strong {
   color: var(--triton-navy);
   display: block;
   font-size: 17px;
@@ -3401,10 +3401,17 @@ a.developer-download-button:visited {
 
 .developer-start-shared-service .btn,
 .developer-start-shared-service .btn:visited {
-  background: #fff;
-  border-color: #fff;
+  background-color: #fff !important;
+  border-color: #fff !important;
   color: var(--triton-navy) !important;
   flex: 0 0 auto;
+}
+
+.developer-start-shared-service .btn:hover,
+.developer-start-shared-service .btn:focus {
+  background-color: var(--triton-gold) !important;
+  border-color: var(--triton-gold) !important;
+  color: var(--triton-navy) !important;
 }
 
 @media (max-width: 991px) {
