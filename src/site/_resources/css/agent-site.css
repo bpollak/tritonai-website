@@ -3197,6 +3197,33 @@
   margin: 0;
 }
 
+.developer-start-eligibility-note h4 {
+  color: var(--triton-navy);
+  font-size: 18px;
+  margin: 0 0 7px;
+}
+
+.developer-start-eligibility-group {
+  border-top: 1px solid var(--triton-border);
+  margin-top: 18px;
+  padding-top: 16px;
+}
+
+.developer-start-eligibility-group ul {
+  margin: 0;
+  padding-left: 21px;
+}
+
+.developer-start-eligibility-group li + li {
+  margin-top: 10px;
+}
+
+.developer-start-security-note .developer-start-eligibility-data {
+  border-top: 1px solid var(--triton-border);
+  margin-top: 18px;
+  padding-top: 16px;
+}
+
 .developer-start-platforms,
 .developer-start-install-grid {
   display: grid;

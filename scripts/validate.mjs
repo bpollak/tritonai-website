@@ -1151,8 +1151,9 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing platform or guided Installer instructions" });
     }
     if (
-      setupPage.find("a[href='mailto:tritonai@ucsd.edu']").length !== 1 ||
+      setupPage.find("a[href='mailto:tritonai@ucsd.edu']").length !== 3 ||
       setupPage.find("a[href='https://tritonai-api.ucsd.edu/ui/model_hub_table/']").length !== 1 ||
+      setupPage.find("a[href='https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx']").length !== 1 ||
       setupPage.find(".developer-start-shared-service a[href*='/developer-apis/index.html#api-gateway']").length !== 1 ||
       setupPage.find(".developer-start-shared-service a").text().replace(/\s+/g, " ").trim() !== "See how to build a shared service" ||
       setupText.includes("Keep the key private") === false ||
@@ -1160,7 +1161,7 @@ for (const page of htmlFiles) {
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
     }
-    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
+    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "TritonAI Harness is not the supported path", "other health system use cases", "supported AI services on Pulse", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
       if (setupText.includes(requiredTerm) === false) {
         contentFindings.push({ source: route, issue: `Harness setup intake guidance is missing: ${requiredTerm}` });
       }
