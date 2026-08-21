@@ -3,7 +3,7 @@ title: Media and recognition
 path: /about/media.html
 description: Media coverage and public appearances about TritonAI and TritonGPT.
 eyebrow: TritonAI in public
-lastReviewed: 2026-07-30
+lastReviewed: 2026-08-21
 audiences: [students, faculty, staff, developers, leaders, media]
 source: https://brettcpollak.com/media and linked original publications
 canonicalUrl: /about/media.html
@@ -48,6 +48,7 @@ bannerMode: abstract
 <div class="container">
 <div class="landing-section-heading"><p class="home-kicker">Watch and listen</p><h2 id="media-appearances-heading">Interviews, talks, and demonstrations</h2><p>Sessions that explain the operating model, show the platform, or place the work in a wider higher-education context.</p></div>
 <div class="media-entry-grid">
+<a class="media-entry" href="https://calearninglab.org/myrobotteacher/ep-17/" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><div><span class="media-entry-meta">My Robot Teacher · August 20, 2026</span><h3>Why UC San Diego Runs Its Own AI: Chancellor Pradeep Khosla on Higher Education's Future</h3><p>Podcast interview</p></div></a>
 <a class="media-entry" href="https://www.nacubo.org/Events/2026/NACUBO-2026-Annual-Meeting" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span><div><span class="media-entry-meta">NACUBO · July 20, 2026</span><h3>The AI Investment Decision: Build, Buy, or Shared Services?</h3><p>Conference session</p></div></a>
 <a class="media-entry" href="https://techtalksummits.com/" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span><div><span class="media-entry-meta">TechTalk Summits · June 4, 2026</span><h3>From AI Pilots to Enterprise Platforms</h3><p>Conference session</p></div></a>
 <a class="media-entry" href="https://events.educause.edu/webinar/2025/business-centric-ai-from-problem-definition-to-adoption" rel="noopener noreferrer" target="_blank"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span><div><span class="media-entry-meta">EDUCAUSE · September 10, 2025</span><h3>Business-Centric AI: From Problem Definition to Adoption</h3><p>Webinar</p></div></a>
