@@ -529,21 +529,22 @@
 <img src="../_images/tritonai-architecture-public.svg" alt="Public TritonAI architecture showing a campus need moving through an approved gateway to models, knowledge, tools, and human review" class="img-responsive" style="width: 100%; margin: 20px 0;"/>
 
 <h3>TritonAI Harness</h3>
-<p>The TritonAI Harness is UC San Diego's supported desktop workspace for building and running AI agents. It coordinates model requests through the shared gateway, connects to approved tools and campus skills, and supports multi-step workflows across files, browsers, and productivity tools. The Harness is in active pilot and changes quickly.</p>
+<p>The TritonAI Harness is UC San Diego's primary supported desktop workspace for building and running AI agents. The installer sets up the managed runtime and campus skills. Your approved service path determines the cloud or on-prem model routes, plugins, connections, and data you may use. The Harness is in active pilot and changes quickly.</p>
 
 <h4>What the Harness includes</h4>
 <ul>
-<li><strong>One installer for Mac and Windows:</strong> bundles the required runtime, packages, skills library, configurations, and the campus-selected Harness version.</li>
-<li><strong>UC San Diego model access:</strong> routes requests through the shared gateway to available UC-hosted and approved frontier models.</li>
-<li><strong>Campus skills built in:</strong> official skills ship with it, plus a reviewed way to pick up community ones from the <a href="../skills/index.html">Skills Library</a>.</li>
-<li><strong>Managed Microsoft 365 connections:</strong> the Harness plugin makes structured calls and keeps connection tokens outside the agent context. Users choose the permissions they grant.</li>
-<li><strong>Adjustable supervision:</strong> approve every step, auto-accept, or hand over full access. Set it to whatever the task and your comfort level allow.</li>
-<li><strong>Desktop work in one place:</strong> chat, files, images, voice input, and a built-in browser, all on the same approved model route.</li>
+<li><strong>Managed installer:</strong> sets up the selected Harness release, its managed runtime, campus configuration, and secure skills.</li>
+<li><strong>Approved model routes:</strong> cloud and on-prem access are granted separately for the reviewed task. The Model Hub remains the source for hosting and capabilities.</li>
+<li><strong>Reviewed skills and plugins:</strong> the current release includes managed GitHub, Google Workspace, and Microsoft 365 providers alongside secure campus skills.</li>
+<li><strong>Permission boundaries:</strong> connection tokens remain outside the agent context, and users choose the permissions granted to each connection.</li>
+<li><strong>Supervised execution:</strong> start new workflows in supervised mode. Increase autonomy only for bounded, reversible work with approved permissions.</li>
+<li><strong>Desktop work in one place:</strong> use chat, files, images, voice input, diffs, and a built-in browser from the same workspace.</li>
 </ul>
 
 <h4>Download and install</h4>
-<p>The current release is <strong>version 0.3.2</strong>, available for macOS (Apple Silicon) and Windows (x64). The macOS build is Developer ID signed, Apple notarized, and stapled. The installer bundles Codex CLI 0.144.3, the Microsoft 365 plugin 1.0.2, and the managed secure skills bundle.</p>
-<p><a class="btn btn-primary" href="https://github.com/dbalders/TritonAI-Installer/releases/tag/v0.3.2">Download the TritonAI Harness <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
+<p>Supported packages cover macOS for Apple Silicon and Windows for x64. The macOS package is Developer ID signed, Apple notarized, and stapled. The current Windows packages are unsigned and may trigger Microsoft Defender SmartScreen. Linux and Intel Mac packages are unavailable. The release page provides the current version, verification notes, and SHA-256 checksums.</p>
+<p>Installation and access are separate steps. Harness eligibility, cloud model routes, on-prem model routes, plugins, and campus data permissions are approved for the intended work. Enter access keys through the managed setup and keep them out of prompts and project files.</p>
+<p><a class="btn btn-primary" href="../developer-apis/start.html">Request Harness access</a> <a class="btn btn-default" href="https://github.com/dbalders/TritonAI-Installer/releases/latest">Download the current installer <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
 
 <h4>Supported alternatives</h4>
 <p>If you already prefer a different environment, Claude Code and the Codex desktop app are also supported. The Harness is the recommended starting point because it comes pre-configured for campus.</p>

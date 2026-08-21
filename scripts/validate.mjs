@@ -1033,6 +1033,23 @@ for (const page of htmlFiles) {
     if (harnessSection.length !== 1 || harnessFlow.length !== 4) {
       contentFindings.push({ source: route, issue: "Build landing page must include the four-step TritonAI Harness overview" });
     }
+    const harnessPosition = narrativeOrder.indexOf("tritonai-harness");
+    const modelCatalogPosition = narrativeOrder.indexOf("model-catalog");
+    if (harnessPosition === -1 || modelCatalogPosition === -1 || harnessPosition >= modelCatalogPosition) {
+      contentFindings.push({ source: route, issue: "TritonAI Harness access guidance must appear before the model catalog" });
+    }
+    const harnessText = harnessSection.text();
+    if (
+      harnessSection.find(`a[href='https://github.com/dbalders/TritonAI-Installer/releases/latest']`).length !== 1 ||
+      harnessSection.find(`a[href$='/developer-apis/start.html']`).length !== 1 ||
+      harnessText.includes("Installation and access are separate steps") === false ||
+      harnessText.includes("cloud model routes") === false ||
+      harnessText.includes("on-prem model routes") === false ||
+      harnessText.includes("Windows packages are unsigned") === false ||
+      /releases\/tag\/v\d|hand over full access|whatever the task and your nerves/.test(harnessSection.html() || "")
+    ) {
+      contentFindings.push({ source: route, issue: "TritonAI Harness access, route, installer, or supervision guidance has regressed" });
+    }
     if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
     }

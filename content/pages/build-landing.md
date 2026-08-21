@@ -1,11 +1,11 @@
 ---
 title: Build AI Services at UC San Diego
 path: /developer-apis/index.html
-description: Build generative AI applications and workflows with TritonAI APIs, campus skills, approved model access, and supported hosting.
+description: Use TritonAI Harness, campus skills, approved models, connections, APIs, and supported hosting for personal work, workflows, and services.
 eyebrow: Developer tools and resources
-lastReviewed: 2026-08-12
+lastReviewed: 2026-08-20
 audiences: [developers, researchers, staff, leaders]
-source: TritonAI developer documentation, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, and ITS-TritonAI n8n service documentation reviewed July 30, 2026
+source: TritonAI developer documentation, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, ITS-TritonAI n8n service documentation, and TritonAI Installer release information reviewed August 20, 2026
 canonicalUrl: /developer-apis/index.html
 relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert, harness-memory-architecture]
 landingHub: true
@@ -15,7 +15,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Personal productivity, automation and building</p><h2 id="build-intro-heading">Use AI for your own work or build a service</h2><p class="hub-lede">For personal productivity, the TritonAI Harness can work across files, browser tasks, and the productivity tools you choose to connect, using reusable skills and memory sources available through the Harness within the permissions you grant. For recurring processes, n8n can connect applications and APIs around a defined trigger. For application building, you can use the Harness and shared APIs to create an integration, then move it into a secure hosting environment supported by IT Services when other people need to rely on it.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Personal productivity, automation and building</p><h2 id="build-intro-heading">Use AI for your own work or build a service</h2><p class="hub-lede">For personal productivity, the TritonAI Harness can work across files, browser tasks, connected productivity tools, and approved context sources configured for you. Reusable skills help you apply the same reviewed process when a task returns. For recurring processes, n8n can connect applications and APIs around a defined trigger. For application building, use the Harness and shared APIs to create an integration, then move it into a supported hosting environment when other people need to rely on it.</p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
 <p class="build-architecture-label">The TritonAI service model</p>
 <ol class="build-architecture-flow">
@@ -32,10 +32,34 @@ bannerMode: abstract
 <section class="hub-section hub-section-dark hub-full-bleed" id="builder-entry-points" aria-labelledby="builder-routes-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Start here</p><h2 id="builder-routes-heading">Choose the resource you need</h2></div>
 <div class="row hub-number-grid">
-<div class="col-md-4"><article><span>01</span><h3>Browse models</h3><p>Review available models, how much information each can handle, and current rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
-<div class="col-md-4"><article><span>02</span><h3>Request access</h3><p>Get your credentials, agree to the responsible-use terms, and name who owns the project.</p><a href="/developer-apis/start.html">Get started</a></article></div>
+<div class="col-md-4"><article><span>01</span><h3>Get the Harness</h3><p>Check eligibility, request access, and install UC San Diego's primary supported desktop workspace.</p><a href="#tritonai-harness">Start with the Harness</a></article></div>
+<div class="col-md-4"><article><span>02</span><h3>Browse models</h3><p>Review current model hosting, capabilities, context lengths, and published rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
 <div class="col-md-4"><article><span>03</span><h3>Reuse a capability</h3><p>Check whether another campus team has already written the skill you need.</p><a href="/skills/index.html">Browse the Skills Library</a></article></div>
 </div></div>
+</section>
+
+<section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
+<div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Use TritonAI Harness for desktop agent work</h2><p>The Harness is UC San Diego's primary supported desktop workspace for building and running AI agents. The installer sets up the managed runtime and campus skills. Your approved service path determines the cloud or on-prem model routes, plugins, connections, and data you may use. Claude Code and the Codex desktop app remain supported alternatives for people who prefer those interfaces.</p></div>
+<div class="build-tool-grid">
+<article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Primary supported workspace</p><h3>TritonAI Harness</h3><p>A managed desktop workspace with campus skills and approved model routes and connections configured for your task.</p></article>
+<article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Claude Code</h3><p>A command-line alternative for established terminal workflows. Available models, plugins, skills, and credentials may differ.</p></article>
+<article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Codex desktop app</h3><p>A desktop alternative for repository work and parallel agent tasks. Available models, plugins, skills, and credentials may differ.</p></article>
+</div>
+<div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why we point people at the Harness first</h3><ul class="build-harness-benefits">
+<li><strong>Managed installer</strong><span>Sets up the selected Harness release, its managed runtime, campus configuration, and secure skills.</span></li>
+<li><strong>Approved model routes</strong><span>Cloud and on-prem access are granted separately for the reviewed task. The Model Hub remains the source for hosting and capabilities.</span></li>
+<li><strong>Reviewed skills and plugins</strong><span>The current release includes managed GitHub, Google Workspace, and Microsoft 365 providers alongside secure campus skills.</span></li>
+<li><strong>Permission boundaries</strong><span>Connection tokens remain outside the agent context, and you choose the permissions granted to each connection.</span></li>
+<li><strong>Configured context</strong><span>When an approved context source is available, Harness can load relevant material while you work. Access follows the source permissions, and changes to shared memory require review.</span></li>
+<li><strong>Supervised execution</strong><span>Start new workflows in supervised mode. Increase autonomy only for bounded, reversible work with approved permissions.</span></li>
+<li><strong>Desktop work in one place</strong><span>Use chat, files, images, voice input, diffs, and a built-in browser from the same workspace.</span></li>
+</ul>
+<h3>Start with one reviewable workflow</h3>
+<p>For example, use selected calendar, email, and chat context to create a source-linked daily briefing. Reuse that context to draft a document or local dashboard, then review the result before any consequential action.</p>
+<p class="build-harness-actions"><a class="btn btn-primary" href="/developer-apis/start.html">Request Harness access</a><a class="btn btn-default" href="https://github.com/dbalders/TritonAI-Installer/releases/latest">Download the current installer <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">Your first Harness workflow</p><ol class="build-harness-flow" aria-label="TritonAI Harness access and first-use workflow"><li><span>01</span><strong>Request access</strong><small>Describe the task, data, owner, and audience</small></li><li class="build-harness-core"><span>02</span><strong>Install the Harness</strong><small>Use the current package for your supported platform</small></li><li><span>03</span><strong>Configure approved access</strong><small>Choose your model route, plugins, and permissions</small></li><li><span>04</span><strong>Run in supervised mode</strong><small>Inspect sources, results, and proposed actions</small></li></ol></div></div></div>
+<p class="build-harness-source"><strong>Supported packages:</strong> macOS for Apple Silicon and Windows for x64. The macOS package is Developer ID signed, Apple notarized, and stapled. The current Windows packages are unsigned and may trigger Microsoft Defender SmartScreen. Linux and Intel Mac packages are unavailable. The release page provides the current version, verification notes, and SHA-256 checksums.</p>
+<p class="build-harness-source"><strong>Access:</strong> Installation and access are separate steps. Harness eligibility, cloud model routes, on-prem model routes, plugins, and campus data permissions are approved for the intended work. Enter access keys through the managed setup and keep them out of prompts and project files. A model shown in the Model Hub may fall outside the routes approved for your key.</p>
+<p class="build-harness-source">The Harness is an early pilot and changes quickly. Available capabilities depend on your approved service path.</p>
 </section>
 
 <!-- AGENT_SECTION: model-catalog -->
@@ -79,24 +103,6 @@ bannerMode: abstract
 </section>
 <!-- END_AGENT_SECTION -->
 
-<section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="hub-heading"><p class="home-kicker">Primary supported workspace</p><h2 id="harness-heading">Use TritonAI Harness for desktop agent work</h2><p>The Harness is UC San Diego’s main supported desktop workspace for building and running AI agents. Installation, model access, campus skills, and permissions all come set up together, so you are not assembling them yourself. Claude Code and the Codex desktop app are also supported if you already prefer one of those.</p></div>
-<div class="build-tool-grid">
-<article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Primary supported workspace</p><h3>TritonAI Harness</h3><p>A desktop workspace set up for campus, so approved models, skills, and permissions are already wired together.</p></article>
-<article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Claude Code</h3><p>A command-line environment, if you would rather work directly with Anthropic models from a terminal.</p></article>
-<article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><p class="build-tool-label">Supported</p><h3>Codex desktop app</h3><p>OpenAI's desktop app, for builders already juggling repositories and parallel agent tasks.</p></article>
-</div>
-<div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why we point people at the Harness first</h3><ul class="build-harness-benefits">
-<li><strong>One installer for Mac and Windows</strong><span>Bundles the required runtime, packages, skills library, configurations, and the campus-selected Harness version.</span></li>
-<li><strong>UC San Diego model access</strong><span>Routes requests through the shared gateway to available UC-hosted and approved frontier models.</span></li>
-<li><strong>Campus skills built in</strong><span>Official skills ship with it, plus a reviewed way to pick up community ones. You do not assemble a toolchain.</span></li>
-<li><strong>Managed Microsoft 365 connections</strong><span>The Harness plugin makes structured calls and keeps connection tokens outside the agent context; users choose the permissions they grant.</span></li>
-<li><strong>Adjustable supervision</strong><span>Approve every step, auto-accept, or hand over full access. Set it to whatever the task and your nerves can take.</span></li>
-<li><strong>Desktop work in one place</strong><span>Chat, files, images, voice input, and a built-in browser, all on the same approved model route.</span></li>
-</ul><p class="build-harness-actions"><a class="btn btn-primary" href="https://github.com/dbalders/TritonAI-Installer/releases/tag/v0.3.2">Download the Harness <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a><a class="btn btn-default" href="/developer-apis/start.html">Request developer access</a><a class="build-harness-text-link" href="/skills/index.html">Browse compatible skills <span aria-hidden="true">→</span></a></p></div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">A shared execution path</p><ol class="build-harness-flow" aria-label="TritonAI Harness workflow"><li><span>01</span><strong>Install once</strong><small>Campus setup and skills are bundled</small></li><li class="build-harness-core"><span>02</span><strong>Connect deliberately</strong><small>Pick your models, plugins, and permissions</small></li><li><span>03</span><strong>Work with context</strong><small>Approved tools and campus patterns</small></li><li><span>04</span><strong>Review the result</strong><small>You still answer for the decision</small></li></ol></div></div></div>
-<p class="build-harness-source">The current release is version 0.3.2, available for macOS (Apple Silicon) and Windows (x64). The macOS build is Developer ID signed, Apple notarized, and stapled. The installer bundles Codex CLI 0.144.3, the Microsoft 365 plugin 1.0.2, and the managed secure skills bundle. The Harness is an early pilot and changes quickly. What you can access depends on your approved service path.</p>
-</section>
-
 <section class="hub-section hub-section-dark hub-full-bleed" id="workflow-automation" aria-labelledby="workflow-automation-heading">
 <div class="container"><div class="row hub-split hub-split-align-center"><div class="col-md-7 hub-split-copy">
 <p class="home-kicker">Workflow automation</p>
@@ -119,7 +125,7 @@ bannerMode: abstract
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" id="api-gateway" aria-labelledby="api-gateway-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">Everything goes through one gateway</h2><p>You build in a supported environment and send model requests to the TritonAI LLM Gateway. One endpoint handles routing to approved cloud or UC-hosted models.</p></div>
+<div class="hub-heading"><p class="home-kicker">The shared API path</p><h2 id="api-gateway-heading">Use the model route approved for your work</h2><p>Supported environments connect through the TritonAI LLM Gateway. In Harness, cloud and on-prem routes use separate approved credentials. Choose models from the route assigned to your task.</p></div>
 <figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
 <div class="api-gateway-map">
 <div class="api-gateway-source-cluster">
@@ -146,7 +152,7 @@ bannerMode: abstract
 <section class="api-gateway-capabilities" aria-labelledby="api-gateway-capabilities-heading"><p class="api-gateway-lane-label">Capabilities vary by model</p><h3 id="api-gateway-capabilities-heading">Available capabilities</h3><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></section>
 </div>
 </div>
-<figcaption id="api-gateway-caption">Getting gateway access does not give your application permission to use new data. Your application is still responsible for approved data, testing, accessibility, support, and human review.</figcaption>
+<figcaption id="api-gateway-caption">Gateway access covers approved model routes. Your application remains responsible for its data permissions, testing, accessibility, support, and human review.</figcaption>
 </figure>
 </div>
 </section>
