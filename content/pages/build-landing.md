@@ -3,7 +3,7 @@ title: Build with TritonAI APIs
 path: /developer-apis/index.html
 description: Request TritonAI API access, choose an approved model route, and connect from TritonAI Harness or another compatible client.
 eyebrow: Developer APIs and resources
-lastReviewed: 2026-08-21
+lastReviewed: 2026-08-22
 audiences: [developers, researchers, staff, leaders]
 source: TritonAI developer documentation, API access intake and funding guidance, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, ITS-TritonAI n8n service documentation, and TritonAI Installer release information reviewed August 21, 2026
 canonicalUrl: /developer-apis/index.html
@@ -15,7 +15,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">TritonAI Developer APIs</p><h2 id="build-intro-heading">Connect your tools to approved AI models</h2><p class="hub-lede">The TritonAI LLM Gateway gives campus builders one OpenAI-compatible API for approved enterprise cloud and UC-hosted models. Request access, choose a model route, and connect from TritonAI Harness or another compatible client. When other people rely on what you build, move it into hosting and support sized to its users, data, and impact.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">TritonAI Developer APIs</p><h2 id="build-intro-heading">Connect your tools to approved AI models</h2><p class="hub-lede">The TritonAI LLM Gateway gives campus builders one API for approved enterprise cloud and UC-hosted models. OpenAI-compatible describes the common request and response format shared across many AI clients and model platforms. Request access, choose a model route, and connect from TritonAI Harness or another compatible client. When other people rely on what you build, move it into hosting and support sized to its users, data, and impact.</p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
 <p class="build-architecture-label">From API access to a supported service</p>
 <ol class="build-architecture-flow">
@@ -40,7 +40,7 @@ bannerMode: abstract
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" id="api-gateway" aria-labelledby="api-gateway-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">One API for approved models</p><h2 id="api-gateway-heading">Connect through the TritonAI LLM Gateway</h2><p>The Gateway exposes an OpenAI-compatible API and routes each approved key to its available models. Your approval defines access, limits, and funding treatment. The <a href="/developer-apis/start.html">access page</a> covers those details and client setup.</p></div>
+<div class="hub-heading"><p class="home-kicker">One API for approved models</p><h2 id="api-gateway-heading">Connect through the TritonAI LLM Gateway</h2><p>OpenAI-compatible describes the API format clients use to connect. The Gateway routes each approved key to models in the TritonAI catalog. Your approval defines access, limits, and funding treatment. The <a href="/developer-apis/start.html">access page</a> covers those details and client setup.</p></div>
 <figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
 <div class="api-gateway-map">
 <div class="api-gateway-source-cluster">
@@ -56,7 +56,7 @@ bannerMode: abstract
 </section>
 </div>
 <div class="api-gateway-connector api-gateway-connector-in" aria-hidden="true"><span>Send requests through</span><i></i></div>
-<section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>OpenAI-compatible API</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3></div></section>
+<section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>Common API format</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3></div></section>
 <div class="api-gateway-connector api-gateway-connector-out" aria-hidden="true"><span>Access</span><i></i></div>
 <div class="api-gateway-target-cluster">
 <section class="api-gateway-lane api-gateway-routes" aria-labelledby="api-gateway-routes-heading">
