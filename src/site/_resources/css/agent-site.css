@@ -585,6 +585,26 @@
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  .agent-page #heroslider .item > .first-slide,
+  .agent-page #heroslider .item > .home-hero-media {
+    aspect-ratio: 125 / 46;
+  }
+
+  .agent-page #heroslider .item > .first-slide,
+  .agent-page #heroslider .item > .home-hero-media .first-slide {
+    object-fit: cover;
+  }
+
+  .agent-page #heroslider .item > .home-hero-media {
+    overflow: hidden;
+  }
+
+  .agent-page #heroslider .item > .home-hero-media .first-slide {
+    height: 100%;
+  }
+}
+
 .home-section {
   padding: 44px 0 20px;
 }
