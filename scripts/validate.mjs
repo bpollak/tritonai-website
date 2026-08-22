@@ -1014,8 +1014,11 @@ for (const page of htmlFiles) {
     const narrativeOrder = $(".landing-hub-content").children("section, nav").map((_, element) => $(element).attr("id")).get().filter(Boolean);
     const expectedNarrativeOrder = [
       "builder-entry-points",
-      "tritonai-harness",
       "api-gateway",
+      "model-catalog",
+      "tritonai-harness",
+      "workflow-automation",
+      "shared-compute",
       "gateway-usage",
       "service-lifecycle",
       "hosting-lanes",
@@ -1025,7 +1028,7 @@ for (const page of htmlFiles) {
     ];
     const narrativePositions = expectedNarrativeOrder.map((id) => narrativeOrder.indexOf(id));
     if (narrativePositions.some((position) => position === -1) || narrativePositions.some((position, index) => index > 0 && position <= narrativePositions[index - 1])) {
-      contentFindings.push({ source: route, issue: "Build landing page sections must follow the intended overview, entry point, workspace, platform, lifecycle, hosting, ownership, and resource narrative" });
+      contentFindings.push({ source: route, issue: "Build landing page sections must follow the intended API access, model, client, workflow, platform, lifecycle, hosting, ownership, and resource narrative" });
     }
     const gatewayMap = $(".api-gateway-map");
     if (
@@ -1039,7 +1042,7 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "API gateway diagram is missing a builder, workspace, gateway, route, or capability group" });
     }
     if (gatewayMap.find(".api-gateway-node-preferred").text().trim().includes("TritonAI Harness") === false) {
-      contentFindings.push({ source: route, issue: "API gateway diagram must identify TritonAI Harness as the preferred campus workspace" });
+      contentFindings.push({ source: route, issue: "API gateway diagram must identify TritonAI Harness as the primary supported client" });
     }
     if (
       gatewayMap.find(".api-gateway-core ul").length !== 0 ||
@@ -1049,37 +1052,41 @@ for (const page of htmlFiles) {
     }
     const harnessSection = $("#tritonai-harness");
     const harnessFlow = harnessSection.find(".build-harness-flow > li");
-    if (harnessSection.length !== 1 || harnessFlow.length !== 4) {
-      contentFindings.push({ source: route, issue: "Build landing page must include the four-step TritonAI Harness overview" });
+    if (harnessSection.length !== 1 || harnessFlow.length !== 3) {
+      contentFindings.push({ source: route, issue: "Build landing page must include the three-part API client overview" });
     }
+    const gatewayPosition = narrativeOrder.indexOf("api-gateway");
     const harnessPosition = narrativeOrder.indexOf("tritonai-harness");
     const modelCatalogPosition = narrativeOrder.indexOf("model-catalog");
-    if (harnessPosition === -1 || modelCatalogPosition === -1 || harnessPosition >= modelCatalogPosition) {
-      contentFindings.push({ source: route, issue: "TritonAI Harness access guidance must appear before the model catalog" });
+    if (gatewayPosition === -1 || modelCatalogPosition === -1 || harnessPosition === -1 || gatewayPosition >= modelCatalogPosition || modelCatalogPosition >= harnessPosition) {
+      contentFindings.push({ source: route, issue: "Gateway and model information must lead into the API client comparison" });
     }
     const harnessText = harnessSection.text();
     const harnessBenefits = harnessSection.find(".build-harness-benefits > li");
     const harnessAccessModule = harnessSection.find(".build-harness-access");
     const harnessSetupLinks = harnessSection.find("a[href*='/developer-apis/start.html']");
-    const harnessSetupCta = harnessSetupLinks.filter((_, element) => $(element).text().replace(/\s+/g, " ").trim() === "Go to access and install");
+    const harnessSetupCta = harnessSetupLinks.filter((_, element) => $(element).text().replace(/\s+/g, " ").trim() === "Get API access");
     if (
       harnessBenefits.length !== 4 ||
       harnessAccessModule.length !== 1 ||
       harnessSetupLinks.length !== 1 ||
       harnessSetupCta.length !== 1 ||
-      harnessAccessModule.find("#harness-access-heading").text().replace(/\s+/g, " ").trim() !== "Get access and install" ||
-      harnessAccessModule.text().includes("Request your access key") === false ||
+      harnessAccessModule.find("#harness-access-heading").text().replace(/\s+/g, " ").trim() !== "Request access, then choose a client" ||
+      harnessAccessModule.text().includes("The access page covers eligibility") === false ||
       harnessSection.find("ol.harness-install-steps").length !== 0 ||
       harnessSection.find("a[href*='github.com/dbalders/TritonAI-Installer']").length !== 0 ||
       /An active TritonAI access key is a prerequisite|Supported packages:|Check access & install|Open TritonAI Harness|releases\/tag\/v\d|hand over full access|whatever the task and your nerves/.test(harnessText)
     ) {
-      contentFindings.push({ source: route, issue: "Build page must keep Harness benefits concise and hand access and installation off to one setup module" });
+      contentFindings.push({ source: route, issue: "Build page must compare API clients and hand detailed access and installation guidance to the setup page" });
     }
-    const accessGuidance = `${harnessSection.text()} ${$("#api-gateway").text()} ${$("#build-start").text()}`.replace(/\s+/g, " ");
-    for (const requiredTerm of ["campus administrative work", "not recharged", "current Model Hub rates", "Research projects charge all model use", "grant or approved research project chartstring", "inter-campus recharge", "pay for both on-premises and cloud use", "chartstring", "budget owner", "spending limit", "approval response"]) {
-      if (accessGuidance.includes(requiredTerm) === false) {
-        contentFindings.push({ source: route, issue: `Build page access guidance is missing: ${requiredTerm}` });
+    const apiClientGuidance = `${$(".hub-section-intro").text()} ${$("#api-gateway").text()} ${harnessSection.text()} ${$("#build-start").text()}`.replace(/\s+/g, " ");
+    for (const requiredTerm of ["OpenAI-compatible API", "primary supported client", "Claude Code and Codex", "Hermes, OpenCode", "Any harness", "Request access, then choose a client"]) {
+      if (apiClientGuidance.includes(requiredTerm) === false) {
+        contentFindings.push({ source: route, issue: `Build page API client guidance is missing: ${requiredTerm}` });
       }
+    }
+    if (/campus administrative work|not recharged|current Model Hub rates|Research projects charge|grant or approved research project chartstring|inter-campus recharge|chartstring|budget owner|spending limit/.test(apiClientGuidance)) {
+      contentFindings.push({ source: route, issue: "Build page must leave detailed eligibility, funding, and billing guidance on the access page" });
     }
     if ($(`.hub-link-columns a[href='#tritonai-harness']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to the TritonAI Harness overview" });
@@ -1167,7 +1174,7 @@ for (const page of htmlFiles) {
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
     }
-    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "Who can use the TritonAI Gateway", "Eligible for Gateway access", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "The TritonAI Gateway and TritonAI Harness are not the supported paths", "other health system use cases", "supported AI services on Pulse", "The access key is not tied to TritonAI Harness", "TritonAI Harness (recommended)", "primary supported Gateway client", "Claude Code and Codex are also supported", "Hermes and other open-source or commercial clients", "Gateway's OpenAI-compatible API", "compatible client", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
+    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "Who can use the TritonAI Gateway", "Eligible for Gateway access", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "The TritonAI Gateway and TritonAI Harness are not the supported paths", "other health system use cases", "supported AI services on Pulse", "The access key is not tied to TritonAI Harness", "TritonAI Harness (primary supported)", "primary supported Gateway client", "Claude Code and Codex are also supported", "Hermes, OpenCode, and other open-source or commercial clients", "Gateway's OpenAI-compatible API", "compatible client", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
       if (setupText.includes(requiredTerm) === false) {
         contentFindings.push({ source: route, issue: `Harness setup intake guidance is missing: ${requiredTerm}` });
       }

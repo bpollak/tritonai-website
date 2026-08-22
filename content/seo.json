@@ -70,26 +70,26 @@
       "lastModified": "2026-08-21"
     },
     "/developer-apis/index.html": {
-      "title": "Build AI Services at UC San Diego",
-      "description": "Build generative AI applications and workflows with TritonAI APIs, campus skills, approved model access, and supported hosting.",
+      "title": "Build with TritonAI APIs",
+      "description": "Request TritonAI API access, choose an approved model route, and connect from TritonAI Harness or another compatible client.",
       "schemaAbout": [
         "Artificial intelligence development",
         "Generative AI applications",
         "AI APIs",
         "AI agents"
       ],
-      "lastModified": "2026-08-21"
+      "lastModified": "2026-08-22"
     },
     "/developer-apis/start.html": {
       "title": "Get TritonAI LLM Access via API",
-      "description": "Request access to the TritonAI Gateway, then use TritonAI Harness, UC San Diego's primary supported client, or configure Claude Code or Codex.",
+      "description": "Request access to the TritonAI Gateway, then use TritonAI Harness, UC San Diego's primary supported client, or connect another compatible client.",
       "schemaAbout": [
         "TritonAI Harness",
         "TritonAI LLM Gateway",
         "AI access keys",
         "Desktop application installation"
       ],
-      "lastModified": "2026-08-21"
+      "lastModified": "2026-08-22"
     },
     "/presentations/managing-the-tritonai-website.html": {
       "title": "Editing and Publishing the TritonAI Website",
