@@ -1080,10 +1080,13 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "Build page must compare API clients and hand detailed access and installation guidance to the setup page" });
     }
     const apiClientGuidance = `${$(".hub-section-intro").text()} ${$("#api-gateway").text()} ${harnessSection.text()} ${$("#build-start").text()}`.replace(/\s+/g, " ");
-    for (const requiredTerm of ["OpenAI-compatible describes the common request and response format", "models in the TritonAI catalog", "primary supported client", "Claude Code and Codex", "Hermes, OpenCode", "Any harness", "Request access, then choose a client"]) {
+    for (const requiredTerm of ["models in the TritonAI catalog", "Shared API endpoint", "primary supported client", "Claude Code and Codex", "Hermes, OpenCode", "Gateway endpoint and key", "Request access, then choose a client"]) {
       if (apiClientGuidance.includes(requiredTerm) === false) {
         contentFindings.push({ source: route, issue: `Build page API client guidance is missing: ${requiredTerm}` });
       }
+    }
+    if (/OpenAI[- ]compatible/i.test(apiClientGuidance)) {
+      contentFindings.push({ source: route, issue: "Build page must leave OpenAI-compatible setup details on the access page" });
     }
     if (/campus administrative work|not recharged|current Model Hub rates|Research projects charge|grant or approved research project chartstring|inter-campus recharge|chartstring|budget owner|spending limit/.test(apiClientGuidance)) {
       contentFindings.push({ source: route, issue: "Build page must leave detailed eligibility, funding, and billing guidance on the access page" });
