@@ -15,7 +15,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">TritonAI Developer APIs</p><h2 id="build-intro-heading">Connect your tools to approved AI models</h2><p class="hub-lede">The TritonAI LLM Gateway gives campus builders one API for approved enterprise cloud and UC-hosted models. OpenAI-compatible describes the common request and response format shared across many AI clients and model platforms. Request access, choose a model route, and connect from TritonAI Harness or another compatible client. When other people rely on what you build, move it into hosting and support sized to its users, data, and impact.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">TritonAI Developer APIs</p><h2 id="build-intro-heading">Connect your tools to approved AI models</h2><p class="hub-lede">The TritonAI LLM Gateway gives campus builders one API for approved enterprise cloud and UC-hosted models. Request access, choose a model route, and connect from TritonAI Harness or another compatible client. When other people rely on what you build, move it into hosting and support sized to its users, data, and impact.</p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
 <p class="build-architecture-label">From API access to a supported service</p>
 <ol class="build-architecture-flow">
@@ -34,13 +34,13 @@ bannerMode: abstract
 <div class="row hub-number-grid">
 <div class="col-md-4"><article><span>01</span><h3>Request API access</h3><p>Get a Gateway key and the model route approved for your work.</p><a href="/developer-apis/start.html">Request access and choose a client</a></article></div>
 <div class="col-md-4"><article><span>02</span><h3>Browse models</h3><p>Review current model hosting, capabilities, context lengths, and published rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Choose a client</h3><p>Use TritonAI Harness or connect another harness through the OpenAI-compatible API.</p><a href="#tritonai-harness">Compare client paths</a></article></div>
+<div class="col-md-4"><article><span>03</span><h3>Choose a client</h3><p>Use TritonAI Harness or connect another compatible harness to the same Gateway.</p><a href="#tritonai-harness">Compare client paths</a></article></div>
 </div></div>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" id="api-gateway" aria-labelledby="api-gateway-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">One API for approved models</p><h2 id="api-gateway-heading">Connect through the TritonAI LLM Gateway</h2><p>OpenAI-compatible describes the API format clients use to connect. The Gateway routes each approved key to models in the TritonAI catalog. Your approval defines access, limits, and funding treatment. The <a href="/developer-apis/start.html">access page</a> covers those details and client setup.</p></div>
+<div class="hub-heading"><p class="home-kicker">One API for approved models</p><h2 id="api-gateway-heading">Connect through the TritonAI LLM Gateway</h2><p>The Gateway routes each approved key to models in the TritonAI catalog. Your approval defines access, limits, and funding treatment. The <a href="/developer-apis/start.html">access page</a> covers those details and client setup.</p></div>
 <figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
 <div class="api-gateway-map">
 <div class="api-gateway-source-cluster">
@@ -56,7 +56,7 @@ bannerMode: abstract
 </section>
 </div>
 <div class="api-gateway-connector api-gateway-connector-in" aria-hidden="true"><span>Send requests through</span><i></i></div>
-<section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>Common API format</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3></div></section>
+<section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>Shared API endpoint</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3></div></section>
 <div class="api-gateway-connector api-gateway-connector-out" aria-hidden="true"><span>Access</span><i></i></div>
 <div class="api-gateway-target-cluster">
 <section class="api-gateway-lane api-gateway-routes" aria-labelledby="api-gateway-routes-heading">
@@ -114,11 +114,11 @@ bannerMode: abstract
 <!-- END_AGENT_SECTION -->
 
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="hub-heading"><p class="home-kicker">Choose an API client</p><h2 id="harness-heading">Use TritonAI Harness or another compatible harness</h2><p>Any harness that accepts a custom OpenAI-compatible endpoint and API key can use the TritonAI APIs. TritonAI Harness is UC San Diego's primary supported client. Claude Code and Codex are supported alternatives. Hermes, OpenCode, and other compatible clients can connect to the same Gateway, though their features and configuration differ.</p></div>
+<div class="hub-heading"><p class="home-kicker">Choose an API client</p><h2 id="harness-heading">Use TritonAI Harness or another compatible harness</h2><p>TritonAI Harness is UC San Diego's primary supported client. Claude Code and Codex are supported alternatives. Hermes, OpenCode, and other compatible clients can connect to the same Gateway, though their features and configuration differ. The access page covers connection requirements and setup.</p></div>
 <div class="build-tool-grid">
 <article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Primary supported client</p><h3>TritonAI Harness</h3><p>A managed desktop workspace with campus configuration, skills, and supported connections.</p></article>
 <article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported alternatives</p><h3>Claude Code and Codex</h3><p>Use an established terminal or desktop workflow with the model routes approved for your key.</p></article>
-<article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><p class="build-tool-label">Compatible clients</p><h3>Hermes, OpenCode, and others</h3><p>Connect a client that supports a custom OpenAI-compatible endpoint and API key.</p></article>
+<article><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><p class="build-tool-label">Compatible clients</p><h3>Hermes, OpenCode, and others</h3><p>Connect another client using the Gateway endpoint and key from your approval.</p></article>
 </div>
 <div class="row hub-split build-harness-detail"><div class="col-md-7 hub-split-copy"><h3>Why TritonAI Harness is the primary client</h3><ul class="build-harness-benefits">
 <li><strong>Campus configuration</strong><span>The Gateway connection and campus defaults are set up for UC San Diego use.</span></li>
@@ -126,9 +126,9 @@ bannerMode: abstract
 <li><strong>Campus skills and context</strong><span>Reviewed skills and approved context sources can live in the same workspace.</span></li>
 <li><strong>Supported connections</strong><span>Available productivity and browser connections are configured for supervised work.</span></li>
 </ul>
-</div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">What the Gateway supplies</p><ol class="build-harness-flow" aria-label="What an API client receives from the TritonAI Gateway"><li><span>01</span><strong>One endpoint</strong><small>An OpenAI-compatible API for approved clients and applications</small></li><li class="build-harness-core"><span>02</span><strong>Approved model routes</strong><small>The cloud and UC-hosted models available to your key</small></li><li><span>03</span><strong>Access and limits</strong><small>The funding treatment and usage controls in your approval</small></li></ol></div></div></div>
+</div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">What the Gateway supplies</p><ol class="build-harness-flow" aria-label="What an API client receives from the TritonAI Gateway"><li><span>01</span><strong>One endpoint</strong><small>A shared API for approved clients and applications</small></li><li class="build-harness-core"><span>02</span><strong>Approved model routes</strong><small>The cloud and UC-hosted models available to your key</small></li><li><span>03</span><strong>Access and limits</strong><small>The funding treatment and usage controls in your approval</small></li></ol></div></div></div>
 <aside class="build-harness-access" aria-labelledby="harness-access-heading"><div><p class="home-kicker">API access and client setup</p><h3 id="harness-access-heading">Request access, then choose a client</h3><p>The access page covers eligibility, funding, key protection, client choice, and TritonAI Harness installation.</p></div><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Get API access</a></aside>
-<p class="build-harness-source">TritonAI Harness is the primary supported client. Other clients must support a custom OpenAI-compatible endpoint, and their features, extensions, and setup may differ.</p>
+<p class="build-harness-source">TritonAI Harness is the primary supported client. Other compatible clients use the Gateway endpoint and key from their approval, and their features, extensions, and setup may differ.</p>
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed" id="workflow-automation" aria-labelledby="workflow-automation-heading">
