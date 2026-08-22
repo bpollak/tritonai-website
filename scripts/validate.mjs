@@ -1076,7 +1076,7 @@ for (const page of htmlFiles) {
       contentFindings.push({ source: route, issue: "Build page must keep Harness benefits concise and hand access and installation off to one setup module" });
     }
     const accessGuidance = `${harnessSection.text()} ${$("#api-gateway").text()} ${$("#build-start").text()}`.replace(/\s+/g, " ");
-    for (const requiredTerm of ["campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "chartstring", "named budget owner", "spend limit", "approval response"]) {
+    for (const requiredTerm of ["campus administrative work", "not recharged", "current Model Hub rates", "Research projects charge all model use", "grant or approved research project chartstring", "inter-campus recharge", "pay for both on-premises and cloud use", "chartstring", "budget owner", "spending limit", "approval response"]) {
       if (accessGuidance.includes(requiredTerm) === false) {
         contentFindings.push({ source: route, issue: `Build page access guidance is missing: ${requiredTerm}` });
       }
