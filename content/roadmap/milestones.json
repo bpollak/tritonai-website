@@ -18,7 +18,8 @@
       "owner": "TritonAI program",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "education"
     },
     {
       "period": "Q1 2024 — Rollout",
@@ -31,7 +32,8 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "user"
     },
     {
       "period": "Q2 2024 — Live",
@@ -44,7 +46,8 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and TritonGPT release notes",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "globe"
     },
     {
       "period": "Q3–Q4 2024 — Growth",
@@ -54,7 +57,8 @@
       "owner": "TritonAI solutions team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "signal"
     },
     {
       "period": "Q1 2025 — Build",
@@ -64,7 +68,8 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "cog"
     },
     {
       "period": "Q2 2025 — Students",
@@ -78,7 +83,8 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and public release notes",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "thumbs-up"
     },
     {
       "period": "Q3 2025 — Integrate",
@@ -91,7 +97,8 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "star"
     },
     {
       "period": "Q4 2025 — Next-Gen",
@@ -105,7 +112,8 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-07-21",
       "source": "TritonAI Ecosystem Timeline and public release notes",
-      "relatedSlides": ["TritonGPT Initiative"]
+      "relatedSlides": ["TritonGPT Initiative"],
+      "icon": "wrench"
     },
     {
       "period": "Q1 2026 — Agents",
@@ -127,7 +135,13 @@
       "owner": "TritonAI solutions team and sponsoring units",
       "lastReviewed": "2026-07-27",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 1",
-      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 1", "Use Cases"]
+      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 1", "Use Cases"],
+      "icon": "search",
+      "highlights": [
+        { "value": "OnBase path", "label": "Transcript matching" },
+        { "value": "8 courses", "label": "Instructional AI" },
+        { "value": "API access", "label": "Campus builders" }
+      ]
     },
     {
       "period": "Q2 2026 — Refine",
@@ -151,7 +165,13 @@
       "owner": "TritonAI solutions team",
       "lastReviewed": "2026-08-10",
       "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 2",
-      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 2", "Use Cases"]
+      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 2", "Use Cases"],
+      "icon": "flash",
+      "highlights": [
+        { "value": "Campus mobile", "label": "TritonGPT" },
+        { "value": "Canvas", "label": "Instructional assistant" },
+        { "value": "Production", "label": "Transcript and contract workflows" }
+      ]
     },
     {
       "period": "Q2–Q3 2026 — Expand",
@@ -173,7 +193,13 @@
       "owner": "TritonAI platform team",
       "lastReviewed": "2026-08-10",
       "source": "TritonAI about page, UC Berkeley AI Hub partner announcement, and UC ANR services agreement renewal",
-      "relatedSlides": ["TritonGPT Initiative", "Multi-Tenant"]
+      "relatedSlides": ["TritonGPT Initiative", "Multi-Tenant"],
+      "icon": "globe",
+      "highlights": [
+        { "value": "Live", "label": "UC Berkeley, UC ANR, and FDU" },
+        { "value": "Deploying", "label": "UC Merced" },
+        { "value": "Shared", "label": "Platform and governance" }
+      ]
     },
     {
       "period": "Q3 2026 — Ecosystem",
@@ -199,7 +225,13 @@
       "owner": "TritonAI platform and solutions teams",
       "lastReviewed": "2026-08-10",
       "source": "TritonAI Ecosystem Timeline, AI Roadmap 2026 — Quarter 3, and TritonAI memory architecture presentation",
-      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting", "harness-memory-architecture", "harness-memory-scale-ucsd"]
+      "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting", "harness-memory-architecture", "harness-memory-scale-ucsd"],
+      "icon": "wrench",
+      "highlights": [
+        { "value": "Pilot", "label": "Citizen Developer" },
+        { "value": "Reusable", "label": "Skills and connectors" },
+        { "value": "Proofs of concept", "label": "Hosted apps" }
+      ]
     },
     {
       "period": "Beyond Q3 2026",
@@ -220,7 +252,8 @@
       "owner": "TritonAI program and campus governance partners",
       "lastReviewed": "2026-07-27",
       "source": "TritonAI strategy presentation and From Chat to Agents",
-      "relatedSlides": ["From Chat to Agents", "Strategy"]
+      "relatedSlides": ["From Chat to Agents", "Strategy"],
+      "icon": "lock"
     }
   ]
 }
