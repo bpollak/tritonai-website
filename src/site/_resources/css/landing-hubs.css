@@ -1865,12 +1865,18 @@
 
 .shared-compute-bridge {
   background:
-    radial-gradient(circle at 88% 12%, rgba(0, 198, 215, .2), transparent 30%),
-    linear-gradient(120deg, rgba(24, 43, 73, .98), rgba(0, 98, 155, .9));
+    radial-gradient(circle at 88% 12%, rgba(0, 152, 169, .18), transparent 32%),
+    linear-gradient(120deg, var(--triton-sand), #fff4d0);
+  border-bottom: 1px solid #e2dacb;
+  border-top: 1px solid #e2dacb;
 }
 
 .shared-compute-bridge .hub-split-copy p {
-  color: #fff;
+  color: #334e5a;
+}
+
+.shared-compute-bridge .shared-compute-mini {
+  box-shadow: 0 18px 42px rgba(24, 43, 73, .14);
 }
 
 .shared-compute-mini {
@@ -3653,8 +3659,21 @@
   border-top: 1px solid #e7eaed;
 }
 
+.hub-link-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 16px;
+}
+
+.hub-link-columns::before,
+.hub-link-columns::after {
+  display: none;
+}
+
 .hub-link-columns > div {
-  margin-bottom: 16px;
+  float: none;
+  margin-bottom: 0;
+  width: auto;
 }
 
 .hub-link-columns a {
@@ -3663,6 +3682,7 @@
   border-left: 4px solid var(--triton-blue);
   display: flex;
   flex-direction: column;
+  height: 100%;
   min-height: 104px;
   padding: 20px 22px;
   text-decoration: none;
@@ -4861,6 +4881,10 @@
 .cms-link-tile h3 { color: var(--triton-navy); font-size: 23px; margin: 15px 0 9px; }
 
 @media (max-width: 991px) {
+  .hub-link-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .about-subpage-layout > .main-section {
     float: none !important;
     width: 100%;
@@ -5129,6 +5153,10 @@
 }
 
 @media (max-width: 767px) {
+  .hub-link-columns {
+    grid-template-columns: 1fr;
+  }
+
   .about-subpage .about-subpage-hero {
     min-height: 220px;
   }

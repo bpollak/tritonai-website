@@ -1086,7 +1086,7 @@ for (const page of htmlFiles) {
       }
     }
     if (/OpenAI[- ]compatible/i.test(apiClientGuidance)) {
-      contentFindings.push({ source: route, issue: "Build page must leave OpenAI-compatible setup details on the access page" });
+      contentFindings.push({ source: route, issue: "Build page must not describe the Gateway as OpenAI-compatible" });
     }
     if (/campus administrative work|not recharged|current Model Hub rates|Research projects charge|grant or approved research project chartstring|inter-campus recharge|chartstring|budget owner|spending limit/.test(apiClientGuidance)) {
       contentFindings.push({ source: route, issue: "Build page must leave detailed eligibility, funding, and billing guidance on the access page" });
@@ -1177,10 +1177,13 @@ for (const page of htmlFiles) {
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
     }
-    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "Who can use the TritonAI Gateway", "Eligible for Gateway access", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "The TritonAI Gateway and TritonAI Harness are not the supported paths", "other health system use cases", "supported AI services on Pulse", "The access key is not tied to TritonAI Harness", "TritonAI Harness (primary supported)", "primary supported Gateway client", "Claude Code and Codex are also supported", "Hermes, OpenCode, and other open-source or commercial clients", "same Gateway API", "OpenAI-compatible describes the common request and response format", "models approved for each key", "compatible client", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
+    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "Who can use the TritonAI Gateway", "Eligible for Gateway access", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "The TritonAI Gateway and TritonAI Harness are not the supported paths", "other health system use cases", "supported AI services on Pulse", "The access key is not tied to TritonAI Harness", "TritonAI Harness (primary supported)", "primary supported Gateway client", "Claude Code and Codex are also supported", "Hermes, OpenCode, and other open-source or commercial clients", "same Gateway API", "models approved for each key", "compatible client", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
       if (setupText.includes(requiredTerm) === false) {
         contentFindings.push({ source: route, issue: `Harness setup intake guidance is missing: ${requiredTerm}` });
       }
+    }
+    if (/OpenAI[- ]compatible/i.test(setupText)) {
+      contentFindings.push({ source: route, issue: "Harness setup page must not describe the Gateway as OpenAI-compatible" });
     }
     if (/(?<!TritonAI )\bHarness\b/.test(setupText)) {
       contentFindings.push({ source: route, issue: "Get Started page must use the full TritonAI Harness name" });
