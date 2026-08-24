@@ -2515,7 +2515,7 @@
   align-items: center;
   display: grid;
   gap: 20px;
-  grid-template-columns: minmax(0, 1.65fr) 86px 220px 86px minmax(0, 1.35fr);
+  grid-template-columns: minmax(0, 1.65fr) 146px 220px 86px minmax(0, 1.35fr);
 }
 
 .api-gateway-source-cluster,
@@ -2767,6 +2767,22 @@
   line-height: 1.55;
   margin-top: 24px;
   padding-left: 16px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .api-gateway-map { grid-template-columns: 1fr; }
+  .api-gateway-connector { min-height: 60px; }
+  .api-gateway-connector span { width: auto; }
+  .api-gateway-connector i { height: 36px; margin-top: -1px; width: 4px; }
+  .api-gateway-connector i::after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid var(--triton-bright-blue);
+    bottom: -1px;
+    left: -6px;
+    right: auto;
+    top: auto;
+  }
 }
 
 .hosting-lanes-section {
@@ -5048,9 +5064,9 @@
   .hub-subscribe-action { margin-top: 22px; text-align: left; }
   .hub-lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .api-gateway-map { grid-template-columns: 1fr; }
-  .api-gateway-connector { min-height: 74px; }
+  .api-gateway-connector { min-height: 60px; }
   .api-gateway-connector span { width: auto; }
-  .api-gateway-connector i { height: 58px; margin-top: -1px; width: 4px; }
+  .api-gateway-connector i { height: 36px; margin-top: -1px; width: 4px; }
   .api-gateway-connector i::after {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
