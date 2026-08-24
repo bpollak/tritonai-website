@@ -10,7 +10,7 @@ This repository is a static, agent-maintainable source for the public website at
 - `content/newsletters/` contains the weekly-update source as Markdown. The three newest entries are rendered on the homepage; all entries are rendered on `/about/ai-updates.html`.
 - `content/updates/tritonai-updates.json` contains two verified histories: program delivery at `/about/tritonai-updates.html` and deployed TritonGPT features at `/tritongpt/release-notes/index.html`. Dated historical release pages remain under `/tritongpt/release-notes/`.
 - `content/home/hero.json` controls the homepage hero rotator, including slide copy, images, links, review date, and rotation interval.
-- `content/skills/library.json` is the build-safe snapshot of the public [UCSD Skills Library](https://github.com/dbalders/UCSD-Skills-Library). GitHub Actions refreshes it before every build and on an hourly schedule.
+- `content/skills/library.json` is the build-safe snapshot of the public [TritonAI Skills Library](https://github.com/UCSD/UCSD-Skills-Library/tree/main/tritonai). GitHub Actions refreshes it before every build and on an hourly schedule.
 - UC San Diego Decorator styles and scripts continue to load from `cdn.ucsd.edu`, so supported upstream Decorator changes flow through without being vendored here.
 - TritonAI-owned images and small site-specific assets are stored locally so the site can eventually move away from the current domain.
 - External services—including emergency messaging, UCSD search, Today@UCSD news, Google Analytics, and the TritonGPT widget—remain linked to their existing hosted implementations.

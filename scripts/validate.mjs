@@ -1258,8 +1258,11 @@ for (const page of htmlFiles) {
         accessibility.push({ page: route, issue: `${skillName} is missing instructions or usage details` });
       }
     });
-    if ($("[data-skills-search]").length !== 1 || $("[data-skills-collection]").length !== 1) {
-      accessibility.push({ page: route, issue: "Skills filters are missing" });
+    if ($("[data-skills-search]").length !== 1) {
+      accessibility.push({ page: route, issue: "Skills search is missing" });
+    }
+    if ($("[data-skills-collection]").length !== 0) {
+      contentFindings.push({ source: route, issue: "TritonAI-only catalog should not render a collection filter" });
     }
   }
   if (route === "/training-resources/pathways.html") {
