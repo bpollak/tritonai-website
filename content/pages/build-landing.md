@@ -55,7 +55,7 @@ bannerMode: abstract
 <ul class="api-gateway-node-list"><li class="api-gateway-node-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span><strong>TritonAI Harness</strong><small>Primary supported client</small></span></li><li><span class="glyphicon glyphicon-console" aria-hidden="true"></span><span><strong>Supported alternatives</strong><small>Claude Code and Codex</small></span></li><li><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><span><strong>Compatible harnesses</strong><small>Hermes, OpenCode, and others</small></span></li></ul>
 </section>
 </div>
-<div class="api-gateway-connector api-gateway-connector-in" aria-hidden="true"><span>Send requests through</span><i></i></div>
+<div class="api-gateway-connector api-gateway-connector-in" aria-hidden="true"><i></i></div>
 <section class="api-gateway-core" aria-labelledby="api-gateway-core-heading"><div><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p>Shared API endpoint</p><h3 id="api-gateway-core-heading">TritonAI<br>LLM Gateway</h3></div></section>
 <div class="api-gateway-connector api-gateway-connector-out" aria-hidden="true"><span>Access</span><i></i></div>
 <div class="api-gateway-target-cluster">

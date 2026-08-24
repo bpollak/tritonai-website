@@ -2515,7 +2515,7 @@
   align-items: center;
   display: grid;
   gap: 20px;
-  grid-template-columns: minmax(0, 1.65fr) 146px 220px 86px minmax(0, 1.35fr);
+  grid-template-columns: minmax(0, 1.65fr) 86px 220px 86px minmax(0, 1.35fr);
 }
 
 .api-gateway-source-cluster,
@@ -2525,7 +2525,7 @@
 }
 
 .api-gateway-source-cluster {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
 }
 
 .api-gateway-target-cluster {
@@ -2680,6 +2680,13 @@
   top: -6px;
 }
 
+@media (min-width: 1200px) {
+  .api-gateway-connector-in i {
+    margin-top: 0;
+    width: calc(100% + 40px);
+  }
+}
+
 .api-gateway-core {
   align-items: center;
   display: flex;
@@ -2772,16 +2779,22 @@
 @media (min-width: 992px) and (max-width: 1199px) {
   .api-gateway-map { grid-template-columns: 1fr; }
   .api-gateway-connector { min-height: 60px; }
+  .api-gateway-connector-in { min-height: 36px; }
   .api-gateway-connector span { width: auto; }
-  .api-gateway-connector i { height: 36px; margin-top: -1px; width: 4px; }
+  .api-gateway-connector i {
+    background: linear-gradient(var(--triton-bright-blue), var(--triton-bright-blue)) center top / 4px 24px no-repeat;
+    height: 36px;
+    margin-top: -1px;
+    width: 4px;
+  }
   .api-gateway-connector i::after {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 12px solid var(--triton-bright-blue);
-    bottom: -1px;
+    bottom: auto;
     left: -6px;
     right: auto;
-    top: auto;
+    top: 24px;
   }
 }
 
@@ -5065,16 +5078,22 @@
   .hub-lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .api-gateway-map { grid-template-columns: 1fr; }
   .api-gateway-connector { min-height: 60px; }
+  .api-gateway-connector-in { min-height: 36px; }
   .api-gateway-connector span { width: auto; }
-  .api-gateway-connector i { height: 36px; margin-top: -1px; width: 4px; }
+  .api-gateway-connector i {
+    background: linear-gradient(var(--triton-bright-blue), var(--triton-bright-blue)) center top / 4px 24px no-repeat;
+    height: 36px;
+    margin-top: -1px;
+    width: 4px;
+  }
   .api-gateway-connector i::after {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 12px solid var(--triton-bright-blue);
-    bottom: -1px;
+    bottom: auto;
     left: -6px;
     right: auto;
-    top: auto;
+    top: 24px;
   }
   .hosting-lane {
     grid-template-columns: repeat(2, minmax(0, 1fr));
