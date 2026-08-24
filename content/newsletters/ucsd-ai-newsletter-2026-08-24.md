@@ -4,8 +4,6 @@ date: 2026-08-24
 source: "ucsd-ai-newsletter-2026-08-24.md"
 items: 7
 ---
-\_Week of August 24, 2026 — your roundup of what's new with UC San Diego's supported AI services.\_
-
 ## What's New in Your AI Tools
 
 ### Zoom AI Companion
