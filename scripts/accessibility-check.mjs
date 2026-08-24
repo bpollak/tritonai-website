@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 import { ROOT, listDistRoutes } from "./ux-agent/lib.mjs";
-import { axeResults, interactionChecks, startDistServer, visit } from "./ux-agent/browser.mjs";
+import { axeResults, interactionChecks, interactionChecksWithRetry, startDistServer, visit } from "./ux-agent/browser.mjs";
 
 const VIEWPORTS = [390, 1440];
 const reportFile = path.join(ROOT, "reports", "accessibility.json");
@@ -24,8 +24,9 @@ try {
     for (const width of VIEWPORTS) {
       await page.setViewportSize({ width, height: 1000 });
       try {
-        await visit(page, `${server.origin}${route}`, { settleMs: 150 });
-        result.viewports.push({
+        const url = `${server.origin}${route}`;
+        await visit(page, url, { settleMs: 150 });
+        const viewportResult = {
           width,
           horizontalOverflow: await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1),
           collapsedHubMedia: width <= 991
@@ -93,7 +94,16 @@ try {
             return findings;
           }),
           axe: await axeResults(page),
-          interactions: await interactionChecks(page, width),
+        };
+        const interactionResult = await interactionChecksWithRetry(
+          () => interactionChecks(page, width),
+          () => visit(page, url),
+        );
+        result.viewports.push({
+          ...viewportResult,
+          interactions: interactionResult.interactions,
+          interactionAttempts: interactionResult.attempts,
+          initialInteractionFailures: interactionResult.initialFailures,
         });
       } catch (error) {
         result.viewports.push({ width, error: error.message });
