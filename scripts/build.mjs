@@ -389,6 +389,9 @@ function renderUseCaseNarrative(html, slug) {
 
 function renderUseCasePage(useCase) {
   const useCaseIcon = USE_CASE_ICON_MAP[useCase.slug] || "star";
+  const primaryGuidanceHtml = useCase.primaryGuidance
+    ? `<section class="use-case-primary-guidance" aria-labelledby="${escapeHtml(useCase.slug)}-primary-guidance-heading"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><div><p class="home-kicker">${escapeHtml(useCase.primaryGuidance.kicker)}</p><h2 id="${escapeHtml(useCase.slug)}-primary-guidance-heading">${escapeHtml(useCase.primaryGuidance.title)}</h2><p>${escapeHtml(useCase.primaryGuidance.description)}</p><nav aria-label="${escapeHtml(useCase.primaryGuidance.title)} resources">${useCase.primaryGuidance.links.map((link, index) => `<a class="btn ${index === 0 ? "btn-primary" : "btn-default"}" href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join("")}</nav></div></section>`
+    : "";
   const statsHtml = useCase.stats && useCase.stats.length
     ? `<ul class="use-case-stats" aria-label="${escapeHtml(useCase.title)} impact at a glance">${useCase.stats.map((stat) => `<li><strong class="use-case-stat-value">${escapeHtml(stat.value)}</strong><span class="use-case-stat-label">${escapeHtml(stat.label)}</span>${stat.sub ? `<span class="use-case-stat-sub">${escapeHtml(stat.sub)}</span>` : ""}</li>`).join("")}</ul>`
     : "";
@@ -411,7 +414,7 @@ function renderUseCasePage(useCase) {
     ? `<section class="use-case-evidence" aria-labelledby="${escapeHtml(useCase.slug)}-demo-heading"><div class="use-case-section-heading"><p class="home-kicker">${mediaHtml ? "Product media" : resourcesHtml ? "Related service" : "Workflow elements"}</p><h2 id="${escapeHtml(useCase.slug)}-demo-heading">${mediaHtml ? "See the workflow in action" : resourcesHtml ? "Where to read more" : "What the workflow uses"}</h2></div>${mediaHtml}${toolsHtml}${resourcesHtml}</section>`
     : "";
   const actionsHtml = `<nav class="use-case-actions" aria-label="Use case next steps"><a href="/use-cases/index.html"><span aria-hidden="true">←</span> Explore all use cases</a><a href="/about/get-involved.html">Start a use-case conversation <span aria-hidden="true">→</span></a></nav>`;
-  return `${overviewHtml}${governanceHtml}${evidenceHtml}${renderUseCaseNarrative(useCase.html, useCase.slug)}${actionsHtml}`;
+  return `${primaryGuidanceHtml}${overviewHtml}${governanceHtml}${evidenceHtml}${renderUseCaseNarrative(useCase.html, useCase.slug)}${actionsHtml}`;
 }
 
 function renderRoadmap(roadmap) {
@@ -1341,6 +1344,16 @@ for (const [index, month] of gatewayUsage.monthly.entries()) {
 
 const pages = await loadMarkdownDirectory(PAGE_DIR, ["title", "path", "description", "lastReviewed", "audiences", "source", "canonicalUrl", "relatedSlides"]);
 const useCases = await loadMarkdownDirectory(USE_CASE_DIR, ["title", "slug", "summary", "status", "owner", "lastReviewed", "audiences", "source", "measurementPeriod", "dataClassification", "canonicalUrl", "relatedSlides", "humanOversight", "measurableOutcome"]);
+for (const useCase of useCases) {
+  if (!useCase.primaryGuidance) continue;
+  requireFields(useCase.primaryGuidance, ["kicker", "title", "description", "links"], `primary guidance for ${useCase.slug}`);
+  if (!Array.isArray(useCase.primaryGuidance.links) || !useCase.primaryGuidance.links.length) {
+    throw new Error(`primary guidance for ${useCase.slug} needs at least one resource link`);
+  }
+  for (const [index, link] of useCase.primaryGuidance.links.entries()) {
+    requireFields(link, ["label", "href"], `primary guidance link ${index + 1} for ${useCase.slug}`);
+  }
+}
 const newsletters = await loadNewsletters();
 const shellHtml = await readFile(path.join(SOURCE_DIR, "about/index.html"), "utf8");
 const homeShellHtml = await readFile(path.join(SOURCE_DIR, "index.html"), "utf8");
