@@ -1,12 +1,12 @@
 ---
 title: PDF Remediator
 slug: pdf-remediation
-summary: Finds the document-accessibility problems software can catch reliably, and hands a qualified remediator the evidence for the rest.
+summary: Faculty teaching courses use Canvas-integrated YuJa Panorama as the preferred method for remediating course PDFs.
 status: Pilot
 owner: TritonAI solutions team and campus accessibility partners
-lastReviewed: 2026-07-24
+lastReviewed: 2026-08-25
 audiences: [staff, faculty, developers]
-source: TritonAI strategy presentation
+source: TritonAI strategy presentation and UC San Diego EdTech updates
 measurementPeriod: 2026 pilot
 dataClassification: Public description; document handling depends on source data
 canonicalUrl: /use-cases/pdf-remediation.html
@@ -27,6 +27,8 @@ featured: false
 ---
 
 ## Problem
+
+For faculty teaching official courses, YuJa Panorama is the preferred method for remediating course PDFs. Panorama is integrated into Canvas. [Read the EdTech update and ask about the pilot](https://edtech.ucsd.edu/resources/updates/index.html#spring-2026).
 
 Some of PDF accessibility work is mechanical and checkable. The rest depends on visual and semantic judgments software cannot safely make on its own.
 
