@@ -1,12 +1,12 @@
 ---
 title: PDF Remediator
 slug: pdf-remediation
-summary: Faculty teaching courses use Canvas-integrated YuJa Panorama as the preferred method for remediating course PDFs.
+summary: Finds the document-accessibility problems software can catch reliably, and hands a qualified remediator the evidence for the rest.
 status: Pilot
 owner: TritonAI solutions team and campus accessibility partners
 lastReviewed: 2026-08-25
 audiences: [staff, faculty, developers]
-source: TritonAI strategy presentation and UC San Diego EdTech updates
+source: TritonAI strategy presentation, UC San Diego accessibility FAQ, and EdTech updates
 measurementPeriod: 2026 pilot
 dataClassification: Public description; document handling depends on source data
 canonicalUrl: /use-cases/pdf-remediation.html
@@ -19,6 +19,15 @@ stats:
   - { value: "Human", label: "Final review", sub: "Required for every document" }
   - { value: "Reviewable", label: "Evidence package", sub: "Findings and remaining work" }
 toolHighlights: ["veraPDF Validation", "PDF/UA Standard", "Evidence Packs"]
+primaryGuidance:
+  kicker: For faculty
+  title: Use YuJa Panorama in Canvas
+  description: Faculty teaching official courses should use YuJa Panorama as the preferred method for remediating course PDFs. Panorama is integrated into Canvas and can scan course files, guide fixes, and provide alternative formats.
+  links:
+    - label: Read the faculty accessibility guidance
+      href: https://accessibility.ucsd.edu/resources/frequently-asked-questions.html
+    - label: Get Canvas support
+      href: https://edtech.ucsd.edu/get-help/index.html
 
 relatedSlides: [the-flywheel-in-action-pdf-remediator]
 humanOversight: A qualified human validates reading order, semantics, alternatives, and the final accessible document.
@@ -27,8 +36,6 @@ featured: false
 ---
 
 ## Problem
-
-For faculty teaching official courses, YuJa Panorama is the preferred method for remediating course PDFs. Panorama is integrated into Canvas. [Read the EdTech update and ask about the pilot](https://edtech.ucsd.edu/resources/updates/index.html#spring-2026).
 
 Some of PDF accessibility work is mechanical and checkable. The rest depends on visual and semantic judgments software cannot safely make on its own.
 

@@ -1801,6 +1801,55 @@
 }
 
 /* Use-case detail pages */
+.use-case-primary-guidance {
+  align-items: flex-start;
+  background: #fff8dd;
+  border: 1px solid #ead58d;
+  border-left: 8px solid var(--triton-gold);
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 58px minmax(0, 1fr);
+  margin-bottom: 26px;
+  padding: 28px 30px;
+}
+
+.use-case-primary-guidance > .glyphicon {
+  align-items: center;
+  background: var(--triton-navy);
+  color: var(--triton-gold);
+  display: flex;
+  font-size: 26px;
+  height: 58px;
+  justify-content: center;
+  width: 58px;
+}
+
+.use-case-primary-guidance .home-kicker {
+  color: var(--triton-blue);
+  margin-bottom: 5px;
+}
+
+.use-case-primary-guidance h2 {
+  color: var(--triton-navy);
+  font-size: 32px;
+  margin: 0 0 10px;
+}
+
+.use-case-primary-guidance p:not(.home-kicker) {
+  color: var(--triton-slate);
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 850px;
+}
+
+.use-case-primary-guidance nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
 .use-case-overview {
   background: linear-gradient(110deg, var(--triton-navy), #064c78);
   border-bottom: 6px solid var(--triton-bright-blue);
@@ -2130,6 +2179,31 @@
 }
 
 @media (max-width: 767px) {
+  .use-case-primary-guidance {
+    display: block;
+    padding: 23px 19px;
+  }
+
+  .use-case-primary-guidance > .glyphicon {
+    height: 50px;
+    margin-bottom: 16px;
+    width: 50px;
+  }
+
+  .use-case-primary-guidance h2 {
+    font-size: 27px;
+  }
+
+  .use-case-primary-guidance nav,
+  .use-case-primary-guidance nav .btn {
+    display: block;
+    width: 100%;
+  }
+
+  .use-case-primary-guidance nav .btn + .btn {
+    margin-top: 10px;
+  }
+
   .use-case-card-icon {
     font-size: 22px;
   }

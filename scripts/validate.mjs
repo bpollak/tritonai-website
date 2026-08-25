@@ -937,6 +937,24 @@ for (const page of htmlFiles) {
     for (const selector of requiredSections) {
       if ($(selector).length !== 1) accessibility.push({ page: route, issue: `Expected one ${selector.slice(1)} section` });
     }
+    const expectedPrimaryGuidance = useCase.primaryGuidance ? 1 : 0;
+    const primaryGuidance = $(".use-case-primary-guidance");
+    if (primaryGuidance.length !== expectedPrimaryGuidance) {
+      contentFindings.push({ source: route, issue: "Rendered primary guidance does not match use-case content" });
+    }
+    if (useCase.primaryGuidance && primaryGuidance.length === 1) {
+      if (primaryGuidance.find("h2").text().trim() !== useCase.primaryGuidance.title) {
+        contentFindings.push({ source: route, issue: "Primary guidance heading does not match use-case content" });
+      }
+      const renderedResourceHrefs = primaryGuidance.find("nav a[href]").map((_, element) => $(element).attr("href")).get();
+      const expectedResourceHrefs = useCase.primaryGuidance.links.map((link) => link.href);
+      if (JSON.stringify(renderedResourceHrefs) !== JSON.stringify(expectedResourceHrefs)) {
+        contentFindings.push({ source: route, issue: "Primary guidance resources do not match use-case content" });
+      }
+      if (primaryGuidance.next(".use-case-overview").length !== 1) {
+        contentFindings.push({ source: route, issue: "Primary guidance must appear before the use-case overview" });
+      }
+    }
     if ($(".use-case-governance-grid > div").length !== 4) {
       contentFindings.push({ source: route, issue: "Use-case accountability summary must contain four fields" });
     }
