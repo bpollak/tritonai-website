@@ -1,6 +1,6 @@
 {
-  "lastSynced": "2026-08-20T21:34:30.141Z",
-  "source": "tritonai-api.ucsd.edu /v1/models",
+  "lastSynced": "2026-08-26T18:30:11.204Z",
+  "source": "https://tritonai-api.ucsd.edu/public/model_hub",
   "models": [
     {
       "id": "claude-opus-5",
@@ -162,13 +162,6 @@
       "type": "Embeddings",
       "hosting": "Approved enterprise cloud",
       "maxInputTokens": 32768
-    },
-    {
-      "id": "tgpt-embeddings",
-      "displayName": "Tgpt Embeddings",
-      "type": "Embeddings",
-      "hosting": "Approved enterprise cloud",
-      "maxInputTokens": null
     },
     {
       "id": "api-deepseek-v4-flash",
