@@ -11,7 +11,7 @@ source: AI training video production plan, August 2026
 dataClassification: Public description
 canonicalUrl: /training-resources/videos/zoom-ai-overview.html
 relatedSlides: []
-videoSrc: /presentations/_resources/tritonai-harness-editing-publishing-demo.mp4
+videoSrc: /presentations/_resources/tritonai-harness-editing-publishing-demo-v2.mp4
 videoPoster: /presentations/_resources/tritonai-harness-editing-demo-poster.jpg
 videoCaptionsSrc: /presentations/_resources/tritonai-harness-editing-publishing-demo.vtt
 videoDescription: Placeholder footage while this video is in production.

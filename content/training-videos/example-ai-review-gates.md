@@ -34,7 +34,7 @@ discussionPoints:
   - "What would need to be true before your team relied on AI for this, and who would review the results?"
   - "Pick one workflow from this discussion to try within two weeks, and name who owns the follow-up."
 durationMinutes: 2
-videoSrc: /presentations/_resources/tritonai-harness-editing-publishing-demo.mp4
+videoSrc: /presentations/_resources/tritonai-harness-editing-publishing-demo-v2.mp4
 videoPoster: /presentations/_resources/tritonai-harness-editing-demo-poster.jpg
 videoCaptionsSrc: /presentations/_resources/tritonai-harness-editing-publishing-demo.vtt
 videoLabel: Recorded demonstration of review gates on an AI-assisted website change
