@@ -29,6 +29,10 @@ const LANDING_HUBS_CSS_VERSION = createHash("sha256")
   .update(await readFile(path.join(SOURCE_DIR, "_resources/css/landing-hubs.css")))
   .digest("hex")
   .slice(0, 12);
+const VIDEO_PROGRESS_JS_VERSION = createHash("sha256")
+  .update(await readFile(path.join(SOURCE_DIR, "_resources/js/video-progress.js")))
+  .digest("hex")
+  .slice(0, 12);
 const OFFICIAL_ORIGIN = "https://tritonai.ucsd.edu";
 const SITE_BASE_PATH = normalizeBasePath(process.env.SITE_BASE_PATH || "");
 // Cascade serves the site at a domain root, so a production build carries no
@@ -1369,8 +1373,8 @@ function transformHtml(html, relativePath, context) {
     $("body").append('<script defer src="/_resources/js/tritonai-updates.js"></script>');
   }
   if (!$("script[src$='site-performance.js']").length) $("body").append('<script defer src="/_resources/js/site-performance.js"></script>');
-  if ($("[data-video-progress]").length && !$("script[src$='video-progress.js']").length) {
-    $("body").append('<script defer src="/_resources/js/video-progress.js"></script>');
+  if ($("[data-video-progress]").length && !$("script[src*='/video-progress.js']").length) {
+    $("body").append(`<script defer src="/_resources/js/video-progress.js?v=${VIDEO_PROGRESS_JS_VERSION}"></script>`);
   }
   if ($("[data-video-quiz]").length && !$("script[src$='video-quiz.js']").length) {
     $("body").append('<script defer src="/_resources/js/video-quiz.js"></script>');

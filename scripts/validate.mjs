@@ -742,6 +742,9 @@ for (const page of htmlFiles) {
       accessibility.push({ page: route, issue: "Video needs captions or an identified silent-demo description" });
     }
   });
+  if ($("video[data-progress-slug]").length && !$("script[src*='/video-progress.js?v=']").length) {
+    accessibility.push({ page: route, issue: "Training video playback script must use a content version" });
+  }
 
   $("iframe[data-src*='youtube.com/embed']").each((_, element) => {
     const iframe = $(element);
