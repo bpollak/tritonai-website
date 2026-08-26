@@ -3,9 +3,9 @@ title: Responsible AI, Privacy and Hosting
 path: /about/trust-architecture.html
 description: How UC San Diego governs artificial intelligence services across privacy, hosting, data access, and human responsibility.
 eyebrow: Trust, privacy and hosting
-lastReviewed: 2026-08-12
+lastReviewed: 2026-08-25
 audiences: [staff, faculty, students, developers, leaders]
-source: TritonAI architecture and memory presentations, plus public developer documentation
+source: TritonAI architecture and memory presentations, public developer documentation, and UC Protection Level Classification
 canonicalUrl: /about/trust-architecture.html
 relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-comparison, the-agentic-ai-stack, harness-memory-architecture, harness-memory-scale-ucsd]
 ---
@@ -32,6 +32,20 @@ relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-com
 <figcaption class="sr-only" id="trust-service-map-caption">A campus service with a named owner connects through the TritonAI LLM Gateway to approved enterprise cloud or SDSC-hosted models, can use approved information sources and tools, and retains human review for consequential results and actions.</figcaption>
 </figure>
 </div>
+</div>
+</section>
+
+<section class="hub-section hub-section-sand hub-full-bleed" id="protection-levels" aria-labelledby="protection-levels-heading">
+<div class="container">
+<div class="hub-heading"><p class="home-kicker">UC data classification</p><h2 id="protection-levels-heading">What the Protection Levels mean</h2><p>UC assigns Institutional Information and IT Resources one of four Protection Levels based on the potential impact of unauthorized disclosure or modification. UC San Diego has approved TritonGPT and TritonAI Harness for use with information up to P3 when the use is within an approved service or setup. P4 data is not approved.</p></div>
+<div class="row hub-number-grid hub-number-grid-light">
+<div class="col-sm-6 col-md-3"><article><span>P1</span><h3>Minimal</h3><p>Public information or information intended for public access. Protecting its integrity is the primary concern.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>P2</span><h3>Low</h3><p>Internal information that is generally not public. Unauthorized use or loss could cause minor harm, financial loss, or privacy impact.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>P3</span><h3>Moderate</h3><p>Information whose compromise could cause moderate harm, privacy impact, financial loss, or legal action. Examples include student education records, UC personnel records, and some personally identifiable information.</p></article></div>
+<div class="col-sm-6 col-md-3"><article><span>P4</span><h3>High</h3><p>Information whose compromise could cause significant harm, regulatory action, or civil or criminal penalties. Examples include protected health information, payment-card data, Social Security numbers, and controlled government information.</p></article></div>
+</div>
+<p class="hub-section-action"><a class="btn btn-default" href="https://security.ucop.edu/policies/institutional-information-and-it-resource-classification.html" rel="noopener noreferrer" target="_blank">Read the UCOP classification page</a> <a class="btn btn-default" href="https://security.ucop.edu/files/documents/uc-protection-level-classification-guide.pdf" rel="noopener noreferrer" target="_blank">Open the UC classification guide (PDF)</a></p>
+<p>Approval up to P3 does not grant access to information or approve every use case. The person or office responsible for the information still determines its classification, permitted use, access, and any additional controls.</p>
 </div>
 </section>
 

@@ -3,9 +3,9 @@ title: Build with TritonAI APIs
 path: /developer-apis/index.html
 description: Request TritonAI API access, choose an approved model route, and connect from TritonAI Harness or another compatible client.
 eyebrow: Developer APIs and resources
-lastReviewed: 2026-08-22
+lastReviewed: 2026-08-25
 audiences: [developers, researchers, staff, leaders]
-source: TritonAI developer documentation, API access intake and funding guidance, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, ITS-TritonAI n8n service documentation, and TritonAI Installer release information reviewed August 21, 2026
+source: TritonAI developer documentation, API access intake and funding guidance, UC Protection Level Classification, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, ITS-TritonAI n8n service documentation, and TritonAI Installer release information reviewed August 21, 2026
 canonicalUrl: /developer-apis/index.html
 relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert, harness-memory-architecture]
 landingHub: true
@@ -114,7 +114,7 @@ bannerMode: abstract
 <!-- END_AGENT_SECTION -->
 
 <section class="hub-section build-harness" id="tritonai-harness" aria-labelledby="harness-heading">
-<div class="hub-heading"><p class="home-kicker">Choose an API client</p><h2 id="harness-heading">Use TritonAI Harness or another compatible harness</h2><p>TritonAI Harness is UC San Diego's primary supported client. Claude Code and Codex are supported alternatives. Hermes, OpenCode, and other compatible clients can connect to the same Gateway, though their features and configuration differ. The access page covers connection requirements and setup.</p></div>
+<div class="hub-heading"><p class="home-kicker">Choose an API client</p><h2 id="harness-heading">Use TritonAI Harness or another compatible harness</h2><p>TritonAI Harness is UC San Diego's primary supported client. UC San Diego has approved it for use with UC information classified up to Protection Level 3 (P3) when the work is within an approved setup; P4 data is not approved. <a href="https://security.ucop.edu/policies/institutional-information-and-it-resource-classification.html" rel="noopener noreferrer" target="_blank">Review the UC Protection Levels</a>. Claude Code and Codex are supported alternatives. Hermes, OpenCode, and other compatible clients can connect to the same Gateway, though their features and configuration differ. The access page covers connection requirements and setup.</p></div>
 <div class="build-tool-grid">
 <article class="build-tool-preferred"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="build-tool-label">Primary supported client</p><h3>TritonAI Harness</h3><p>A managed desktop workspace with campus configuration, skills, and supported connections.</p></article>
 <article><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Supported alternatives</p><h3>Claude Code and Codex</h3><p>Use an established terminal or desktop workflow with the model routes approved for your key.</p></article>
