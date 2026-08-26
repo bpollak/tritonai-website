@@ -20,6 +20,14 @@ export function isPublicModel(id) {
   return !/^(?:onyx-|dev-|templ|test-)/.test(id) && !id.includes("-test-");
 }
 
+export function isVisiblePublicModel(model) {
+  return (
+    model?.is_public_model_group === true &&
+    model?.visible === true &&
+    isPublicModel(model.model_group)
+  );
+}
+
 const CLOUD_PROVIDERS = new Set(["azure", "azure_ai", "bedrock", "vertex_ai", "gemini", "anthropic"]);
 
 // Keep publishers in a stable, reviewable order. A model can be served by a
@@ -185,7 +193,7 @@ export async function fetchCatalog() {
   }
   const payload = await response.json();
   const models = (Array.isArray(payload) ? payload : [])
-    .filter((model) => isPublicModel(model.model_group))
+    .filter(isVisiblePublicModel)
     .map((model) => ({
       id: model.model_group,
       displayName: deriveDisplayName(model.model_group),
