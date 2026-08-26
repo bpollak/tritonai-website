@@ -37,6 +37,31 @@
   document.querySelectorAll("video[data-progress-slug]").forEach((video) => {
     const slug = video.dataset.progressSlug;
     const saved = read()[slug];
+    const playButton = video.parentElement.querySelector("[data-video-play]");
+    const playLabel = playButton && playButton.querySelector("[data-video-play-label]");
+    const updatePlayButton = () => {
+      if (!playButton) return;
+      playButton.hidden = !video.paused;
+      if (playLabel) {
+        playLabel.textContent = video.ended ? "Replay video" : video.currentTime > 0 ? "Resume video" : "Play video";
+      }
+    };
+    if (playButton) {
+      playButton.hidden = false;
+      playButton.addEventListener("click", () => {
+        if (video.ended) video.currentTime = 0;
+        const played = video.play();
+        if (played && played.catch) {
+          played.catch(() => {
+            updatePlayButton();
+            video.focus();
+          });
+        }
+      });
+      video.addEventListener("play", updatePlayButton);
+      video.addEventListener("pause", updatePlayButton);
+      video.addEventListener("ended", updatePlayButton);
+    }
     const revealPostVideo = ({ scroll = false } = {}) => {
       document.querySelectorAll("[data-post-video]").forEach((section) => {
         section.hidden = false;

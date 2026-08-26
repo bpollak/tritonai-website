@@ -728,6 +728,7 @@ for (const page of htmlFiles) {
       if (video.attr("data-autoplay-when-visible") === "true") accessibility.push({ page: route, issue: "Training video must not autoplay" });
       if (!video.find("track[kind='captions']").length) accessibility.push({ page: route, issue: "Training video missing captions track" });
       if (video.find("track[kind='captions'][default]").length) accessibility.push({ page: route, issue: "Training video captions must be opt-in" });
+      if (!video.siblings("[data-video-play]").length) accessibility.push({ page: route, issue: "Training video missing explicit play control" });
       return;
     }
     if (video.attr("data-autoplay-when-visible") !== "true") accessibility.push({ page: route, issue: "Video must autoplay when visible" });
