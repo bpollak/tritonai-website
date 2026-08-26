@@ -4560,6 +4560,8 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
 /* Transcript details in the theater context */
 .video-theater .training-video-follow-details {
   margin-top: 16px;
+  background: transparent;
+  border: 0;
 }
 .video-theater .training-video-follow-details > summary {
   list-style: none;
@@ -4581,10 +4583,11 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
   display: none;
 }
 .video-theater .training-video-follow-details > summary:hover,
-.video-theater .training-video-follow-details > summary:focus {
+.video-theater .training-video-follow-details > summary:focus-visible {
   background: #355a8c;
   border-color: #00c6d7;
-  outline: none;
+  outline: 3px solid #ffcd00;
+  outline-offset: 2px;
 }
 .video-theater .training-video-follow-details > summary::before {
   content: "\25B8";
@@ -4596,6 +4599,21 @@ a.video-theater-nav-next.is-suggested .video-theater-nav-next-label {
 }
 .training-video-follow-details .training-video-follow-wrap {
   margin-top: 12px;
+  max-width: 880px;
+}
+.video-theater .training-video-follow-details .training-video-follow {
+  max-height: none;
+  overflow-y: visible;
+  background: #f7f8f9;
+  border: 1px solid #d5d9de;
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.video-theater .training-video-follow-details .training-video-sentence:hover {
+  background: transparent;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 /* Presenter photo bubble on cards */

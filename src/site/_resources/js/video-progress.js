@@ -23,6 +23,16 @@
     if (typeof window.gtag === "function") window.gtag("event", name, params);
   };
 
+  document.querySelectorAll(".training-video-follow-details").forEach((details) => {
+    const summary = details.querySelector("summary");
+    if (!summary) return;
+    const updateLabel = () => {
+      summary.textContent = details.open ? "Hide transcript" : "Show transcript";
+    };
+    updateLabel();
+    details.addEventListener("toggle", updateLabel);
+  });
+
   // --- Detail page: resume, progress saving, transcript seeking ---
   document.querySelectorAll("video[data-progress-slug]").forEach((video) => {
     const slug = video.dataset.progressSlug;
