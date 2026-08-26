@@ -40,6 +40,7 @@
       "href": "/training-resources/index.html",
       "items": [
         { "label": "Learning Paths", "href": "/training-resources/pathways.html" },
+        { "label": "Learning Videos", "href": "/training-resources/videos/index.html" },
         { "label": "TritonGPT Guides", "href": "/training-resources/tritongpt/index.html" },
         { "label": "Prompting", "href": "/training-resources/prompting/index.html" },
         { "label": "AI Webinars", "href": "/training-resources/webinars.html" },

@@ -719,10 +719,18 @@ for (const page of htmlFiles) {
   $("video").each((_, element) => {
     const video = $(element);
     if (video.attr("controls") === undefined) accessibility.push({ page: route, issue: "Video missing controls" });
-    if (video.attr("data-autoplay-when-visible") !== "true") accessibility.push({ page: route, issue: "Video must autoplay when visible" });
-    if (video.attr("muted") === undefined) accessibility.push({ page: route, issue: "Autoplay video must be muted" });
     if (video.attr("playsinline") === undefined) accessibility.push({ page: route, issue: "Autoplay video must play inline" });
     if (video.attr("autoplay") !== undefined) performance.push({ page: route, issue: "Video must not load through eager autoplay" });
+    if (video.attr("data-progress-slug") !== undefined) {
+      // Training-video players: user-initiated playback with sound. They must
+      // never autoplay, must keep captions, and may preload metadata.
+      if (video.attr("muted") !== undefined) accessibility.push({ page: route, issue: "Training video must not be muted by default" });
+      if (video.attr("data-autoplay-when-visible") === "true") accessibility.push({ page: route, issue: "Training video must not autoplay" });
+      if (!video.find("track[kind='captions']").length) accessibility.push({ page: route, issue: "Training video missing captions track" });
+      return;
+    }
+    if (video.attr("data-autoplay-when-visible") !== "true") accessibility.push({ page: route, issue: "Video must autoplay when visible" });
+    if (video.attr("muted") === undefined) accessibility.push({ page: route, issue: "Autoplay video must be muted" });
     if (video.attr("preload") !== "none") performance.push({ page: route, issue: "Deferred video must use preload=none" });
     if (video.attr("src") || video.find("source[src]").length) performance.push({ page: route, issue: "Video source must be deferred to data-src" });
     const descriptionId = video.attr("aria-describedby");
