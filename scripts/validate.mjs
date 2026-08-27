@@ -173,6 +173,7 @@ const performance = [];
 const navigation = [];
 const decorator = [];
 const analytics = [];
+const webMcp = [];
 
 // Page chrome integrity. `decorator` holds stylistic conformance findings;
 // these are shaped differently (rule, diff, markup, remedy) and pin the shared
@@ -777,6 +778,8 @@ for (const page of htmlFiles) {
   }
   const performanceRuntime = $("script[src$='/_resources/js/site-performance.js'][defer]");
   if (performanceRuntime.length !== 1) performance.push({ page: route, issue: "Performance runtime is missing or not deferred" });
+  const webMcpRuntime = $("script[src$='/_resources/js/webmcp.js'][defer]");
+  if (webMcpRuntime.length !== 1) webMcp.push({ page: route, issue: "WebMCP runtime is missing or not deferred" });
   if ($("body").hasClass("agent-page")) {
     const agentStylesheet = $("link[href*='/agent-site.css']").attr("href") || "";
     if (!/[?&]v=[a-f0-9]{12}(?:$|&)/.test(agentStylesheet)) {
@@ -1390,6 +1393,11 @@ for (const behavior of ["IntersectionObserver", "requestIdleCallback", "data-aft
   if (!performanceRuntimeSource.includes(behavior)) performance.push({ page: "/_resources/js/site-performance.js", issue: `Missing runtime behavior: ${behavior}` });
 }
 
+const webMcpRuntimeSource = await readFile(path.join(DIST_DIR, "_resources/js/webmcp.js"), "utf8").catch(() => "");
+for (const behavior of ["document.modelContext", "registerTool", "get-tritonai-page", "list-tritonai-page-links", "readOnlyHint", "untrustedContentHint"]) {
+  if (!webMcpRuntimeSource.includes(behavior)) webMcp.push({ page: "/_resources/js/webmcp.js", issue: `Missing WebMCP behavior: ${behavior}` });
+}
+
 let routeManifest = null;
 try {
   routeManifest = JSON.parse(await readFile(path.join(DIST_DIR, "_data/routes.json"), "utf8"));
@@ -1465,6 +1473,7 @@ const report = {
     decoratorFailures: decorator.length,
     chromeFailures: chrome.length,
     analyticsFailures: analytics.length,
+    webMcpFailures: webMcp.length,
   },
   missing,
   inherited,
@@ -1480,6 +1489,7 @@ const report = {
   decorator,
   chrome,
   analytics,
+  webMcp,
 };
 await mkdir(REPORT_DIR, { recursive: true });
 await writeFile(path.join(REPORT_DIR, "validation.json"), `${JSON.stringify(report, null, 2)}\n`);
@@ -1505,7 +1515,8 @@ if (
   performance.length ||
   decorator.length ||
   chrome.length ||
-  analytics.length
+  analytics.length ||
+  webMcp.length
 ) {
   // Chrome findings carry the markup and the source of truth, so print them in
   // full rather than making the reader open the JSON report to self-correct.

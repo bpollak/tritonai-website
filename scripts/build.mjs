@@ -1189,6 +1189,7 @@ function transformHtml(html, relativePath, context) {
   if ($("[data-updates-results]").length && !$("script[src$='tritonai-updates.js']").length) {
     $("body").append('<script defer src="/_resources/js/tritonai-updates.js"></script>');
   }
+  if (!$("script[src$='webmcp.js']").length) $("body").append('<script defer src="/_resources/js/webmcp.js"></script>');
   if (!$("script[src$='site-performance.js']").length) $("body").append('<script defer src="/_resources/js/site-performance.js"></script>');
 
   $("a[href^='/cdn-cgi/l/email-protection#']").each((_, element) => {
