@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-08-26T18:30:11.204Z",
+  "lastSynced": "2026-08-29T21:20:18.735Z",
   "source": "https://tritonai-api.ucsd.edu/public/model_hub",
   "models": [
     {
@@ -78,6 +78,13 @@
       "type": "Chat and reasoning",
       "hosting": "UC-hosted",
       "maxInputTokens": 256000
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "displayName": "Gemini 3.7 Flash",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1048576
     },
     {
       "id": "gpt-5.6-luna",
