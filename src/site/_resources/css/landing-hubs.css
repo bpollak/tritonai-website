@@ -3230,6 +3230,15 @@
   margin-bottom: 7px;
 }
 
+.citizen-note-card > span,
+.citizen-training-card > p {
+  color: #344c5a;
+}
+
+.citizen-note-card > span {
+  display: block;
+}
+
 .hub-action-grid,
 .hub-story-grid,
 .hub-number-grid,

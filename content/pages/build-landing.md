@@ -32,9 +32,10 @@ bannerMode: abstract
 <section class="hub-section hub-section-dark hub-full-bleed" id="builder-entry-points" aria-labelledby="builder-routes-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Start here</p><h2 id="builder-routes-heading">Choose the resource you need</h2></div>
 <div class="row hub-number-grid">
-<div class="col-md-4"><article><span>01</span><h3>Request API access</h3><p>Get a Gateway key and the model route approved for your work.</p><a href="/developer-apis/start.html">Request access and choose a client</a></article></div>
-<div class="col-md-4"><article><span>02</span><h3>Browse models</h3><p>Review current model hosting, capabilities, context lengths, and published rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
-<div class="col-md-4"><article><span>03</span><h3>Choose a client</h3><p>Use TritonAI Harness or connect another compatible harness to the same Gateway.</p><a href="#tritonai-harness">Compare client paths</a></article></div>
+<div class="col-sm-6 col-md-3"><article><span>01</span><h3>Frame a project</h3><p>Find a recurring task, classify the build, and set its data and review boundaries.</p><a href="/developer-apis/citizen-developer.html">Use the Citizen Developer Guide</a></article></div>
+<div class="col-sm-6 col-md-3"><article><span>02</span><h3>Request API access</h3><p>Get a Gateway key and the model route approved for your work.</p><a href="/developer-apis/start.html">Request access and choose a client</a></article></div>
+<div class="col-sm-6 col-md-3"><article><span>03</span><h3>Browse models</h3><p>Review current model hosting, capabilities, context lengths, and published rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
+<div class="col-sm-6 col-md-3"><article><span>04</span><h3>Choose a client</h3><p>Use TritonAI Harness or connect another compatible harness to the same Gateway.</p><a href="#tritonai-harness">Compare client paths</a></article></div>
 </div></div>
 </section>
 
