@@ -3,9 +3,9 @@ title: Responsible AI, Privacy and Hosting
 path: /about/trust-architecture.html
 description: How UC San Diego governs artificial intelligence services across privacy, hosting, data access, and human responsibility.
 eyebrow: Trust, privacy and hosting
-lastReviewed: 2026-08-25
+lastReviewed: 2026-08-30
 audiences: [staff, faculty, students, developers, leaders]
-source: TritonAI architecture and memory presentations, public developer documentation, and UC Protection Level Classification
+source: TritonAI architecture and memory presentations, public developer documentation, UC Protection Level Classification, and the UC San Diego Council of Data Stewards
 canonicalUrl: /about/trust-architecture.html
 relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-comparison, the-agentic-ai-stack, harness-memory-architecture, harness-memory-scale-ucsd]
 ---
@@ -45,7 +45,7 @@ relatedSlides: [tritongpt-secure-scalable-ai-platform, tritongpt-to-tritonai-com
 <div class="col-sm-6 col-md-3"><article><span>P4</span><h3>High</h3><p>Information whose compromise could cause significant harm, regulatory action, or civil or criminal penalties. Examples include protected health information, payment-card data, Social Security numbers, and controlled government information.</p></article></div>
 </div>
 <p class="hub-section-action"><a class="btn btn-default" href="https://security.ucop.edu/policies/institutional-information-and-it-resource-classification.html" rel="noopener noreferrer" target="_blank">Read the UCOP classification page</a> <a class="btn btn-default" href="https://security.ucop.edu/files/documents/uc-protection-level-classification-guide.pdf" rel="noopener noreferrer" target="_blank">Open the UC classification guide (PDF)</a></p>
-<p>Approval up to P3 does not grant access to information or approve every use case. The person or office responsible for the information still determines its classification, permitted use, access, and any additional controls.</p>
+<p>Approval up to P3 does not grant access to information or approve every use case. The person or office responsible for the information still determines its classification, permitted use, access, and any additional controls. For institutional data, the <a href="https://blink.ucsd.edu/technology/bi/governance/council.html" rel="noopener noreferrer" target="_blank">Council of Data Stewards</a> reviews access practices and novel or cross-domain requests.</p>
 </div>
 </section>
 

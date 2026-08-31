@@ -3,7 +3,7 @@ title: Build with TritonAI APIs
 path: /developer-apis/index.html
 description: Request TritonAI API access, choose an approved model route, and connect from TritonAI Harness or another compatible client.
 eyebrow: Developer APIs and resources
-lastReviewed: 2026-08-25
+lastReviewed: 2026-08-30
 audiences: [developers, researchers, staff, leaders]
 source: TritonAI developer documentation, API access intake and funding guidance, UC Protection Level Classification, public architecture and memory presentations, July 24 AI Use Case Office Hours demonstration, ITS-TritonAI n8n service documentation, and TritonAI Installer release information reviewed August 21, 2026
 canonicalUrl: /developer-apis/index.html
@@ -91,6 +91,7 @@ bannerMode: abstract
 <tr><td><strong>Gemini 3.5 Flash</strong><br><code class="model-catalog-request-id">gemini-3.5-flash</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
 <tr><td><strong>Gemini 3.5 Flash Lite</strong><br><code class="model-catalog-request-id">gemini-3.5-flash-lite</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
 <tr><td><strong>Gemma 4 31B</strong><br><code class="model-catalog-request-id">api-gemma-4-31b</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>256K tokens</td></tr>
+<tr><td><strong>Gemini 3.7 Flash</strong><br><code class="model-catalog-request-id">gemini-3.7-flash</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.048576M tokens</td></tr>
 <tr><td><strong>GPT-5.6 Luna</strong><br><code class="model-catalog-request-id">gpt-5.6-luna</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
 <tr><td><strong>GPT-5.6 Sol</strong><br><code class="model-catalog-request-id">gpt-5.6-sol</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
 <tr><td><strong>GPT-5.6 Terra</strong><br><code class="model-catalog-request-id">gpt-5.6-terra</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1.05M tokens</td></tr>
@@ -109,7 +110,7 @@ bannerMode: abstract
 <tr><td><strong>Cohere Transcribe</strong><br><code class="model-catalog-request-id">api-cohere-transcribe</code></td><td>UC-hosted</td><td>Speech to text</td><td>See Model Hub</td></tr>
 </tbody>
 </table></div>
-<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-08-26. Test registrations and TritonGPT-internal serving entries are excluded.</p>
+<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-08-30. Test registrations and TritonGPT-internal serving entries are excluded.</p>
 </section>
 <!-- END_AGENT_SECTION -->
 

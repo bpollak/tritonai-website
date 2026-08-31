@@ -43,7 +43,7 @@
         "AI governance",
         "AI hosting"
       ],
-      "lastModified": "2026-08-12"
+      "lastModified": "2026-08-30"
     },
     "/about/ai-updates.html": {
       "description": "Read weekly updates on supported AI tools, TritonAI services, and upcoming UC San Diego training and workshops.",
@@ -58,7 +58,7 @@
         "TritonGPT",
         "AI applications"
       ],
-      "lastModified": "2026-08-12"
+      "lastModified": "2026-08-30"
     },
     "/about/roadmap.html": {
       "description": "See the status of TritonAI services and campus AI work from the first chatbot launch through the current governed builder program.",
@@ -78,7 +78,7 @@
         "AI APIs",
         "AI agents"
       ],
-      "lastModified": "2026-08-22"
+      "lastModified": "2026-08-30"
     },
     "/developer-apis/start.html": {
       "title": "Get TritonAI LLM Access via API",
@@ -162,7 +162,7 @@
         "Large language models",
         "Campus AI"
       ],
-      "lastModified": "2026-08-12"
+      "lastModified": "2026-08-25"
     },
     "/tritongpt/instruction.html": {
       "title": "Instructional AI Program",
