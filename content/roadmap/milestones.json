@@ -146,8 +146,8 @@
     {
       "period": "Q2 2026 — Refine",
       "title": "Process Automation",
-      "status": "Pilot",
-      "summary": "The builder path expanded, and TritonGPT moved into the campus mobile app. A Canvas-integrated instructional assistant shipped. Teams also advanced pilots in finance, transcript processing, and contract review. Research, BioBib, and observability pilots moved ahead as well.",
+      "status": "Shipped",
+      "summary": "The builder path expanded, and TritonGPT moved into the campus mobile app. A Canvas-integrated instructional assistant shipped. Transcript matching and contract review reached production, and finance pilots advanced. Research, BioBib, and observability pilots moved ahead as well.",
       "details": [
         "Developer API access and N8N Agent Builder broadened the path from model access to supervised workflow orchestration.",
         "TritonGPT extended into the campus mobile experience and began surfacing live campus signals with stronger response traceability.",
@@ -163,8 +163,8 @@
         { "label": "View delivered updates", "href": "/about/tritonai-updates.html#2026-05-27-mobile-assistant" }
       ],
       "owner": "TritonAI solutions team",
-      "lastReviewed": "2026-08-10",
-      "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 2",
+      "lastReviewed": "2026-09-01",
+      "source": "TritonAI Ecosystem Timeline and AI Roadmap 2026 — Quarter 2, delivered program updates, and public use-case pages",
       "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 2", "Use Cases"],
       "icon": "flash",
       "highlights": [
