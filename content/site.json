@@ -52,6 +52,7 @@
       "href": "/developer-apis/index.html",
       "items": [
         { "label": "Build Overview", "href": "/developer-apis/index.html" },
+        { "label": "Citizen Developer Guide", "href": "/developer-apis/citizen-developer.html" },
         { "label": "DSMLP & DataHub", "href": "/developer-apis/dsmlp-datahub.html" },
         { "label": "Skills Library", "href": "/skills/index.html" },
         { "label": "Get Started", "href": "/developer-apis/start.html" },
