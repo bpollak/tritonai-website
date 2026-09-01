@@ -105,12 +105,12 @@ bannerMode: abstract
 <tr><td><strong>Amazon Nova Premier</strong><br><code class="model-catalog-request-id">us.amazon.nova-premier-v1:0</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>TritonGPT Embeddings</strong><br><code class="model-catalog-request-id">api-tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>33K tokens</td></tr>
 <tr><td><strong>DeepSeek V4 Flash</strong><br><code class="model-catalog-request-id">api-deepseek-v4-flash</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><strong>Glm 5.3</strong><br><code class="model-catalog-request-id">api-glm-5.3</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>320K tokens</td></tr>
+<tr><td><strong>GLM 5.3</strong><br><code class="model-catalog-request-id">api-glm-5.3</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>320K tokens</td></tr>
 <tr><td><strong>LightOn OCR 1B</strong><br><code class="model-catalog-request-id">api-lightonocr-1b</code></td><td>UC-hosted</td><td>Document OCR</td><td>8K tokens</td></tr>
 <tr><td><strong>Cohere Transcribe</strong><br><code class="model-catalog-request-id">api-cohere-transcribe</code></td><td>UC-hosted</td><td>Speech to text</td><td>See Model Hub</td></tr>
 </tbody>
 </table></div>
-<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-08-31. Test registrations and TritonGPT-internal serving entries are excluded.</p>
+<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-09-01. Test registrations and TritonGPT-internal serving entries are excluded.</p>
 </section>
 <!-- END_AGENT_SECTION -->
 

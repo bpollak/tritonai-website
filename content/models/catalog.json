@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-08-31T21:23:28.507Z",
+  "lastSynced": "2026-09-01T14:55:15.678Z",
   "source": "https://tritonai-api.ucsd.edu/public/model_hub",
   "models": [
     {
@@ -179,7 +179,7 @@
     },
     {
       "id": "api-glm-5.3",
-      "displayName": "Glm 5.3",
+      "displayName": "GLM 5.3",
       "type": "Chat and reasoning",
       "hosting": "UC-hosted",
       "maxInputTokens": 320000
