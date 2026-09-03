@@ -52,13 +52,13 @@
       "href": "/developer-apis/index.html",
       "items": [
         { "label": "Build Overview", "href": "/developer-apis/index.html" },
-        { "label": "TritonAI Harness", "href": "/developer-apis/harness.html" },
+        { "label": "Get Started", "href": "/developer-apis/start.html" },
         { "label": "Citizen Developer Guide", "href": "/developer-apis/citizen-developer.html" },
+        { "label": "TritonAI Harness", "href": "/developer-apis/harness.html" },
         { "label": "DSMLP & DataHub", "href": "/developer-apis/dsmlp-datahub.html" },
         { "label": "Skills Library", "href": "/skills/index.html" },
-        { "label": "Get Started", "href": "/developer-apis/start.html" },
-        { "label": "Harness Privacy Statement", "href": "/developer-apis/harness-privacy.html" },
-        { "label": "Developer FAQs", "href": "/developer-apis/faq.html" }
+        { "label": "Developer FAQs", "href": "/developer-apis/faq.html" },
+        { "label": "Harness Privacy Statement", "href": "/developer-apis/harness-privacy.html" }
       ]
     },
     { "label": "AI Tools", "href": "/tools/index.html", "items": [] }
