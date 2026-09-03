@@ -131,6 +131,7 @@ const DISPLAY_NAMES = {
   "us.amazon.nova-2-lite-v1:0": "Amazon Nova 2 Lite",
   "us.amazon.nova-premier-v1:0": "Amazon Nova Premier",
   "api-glm-5.2": "GLM 5.2",
+  "api-glm-5.3": "GLM 5.3",
   "api-deepseek-v4-flash": "DeepSeek V4 Flash",
   "api-gemma-4-26b": "Gemma 4 26B",
   "api-gemma-4-31b": "Gemma 4 31B",
