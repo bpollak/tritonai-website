@@ -3545,7 +3545,7 @@
 }
 
 .build-tool-preferred .build-tool-label {
-  color: var(--triton-gold);
+  color: #ffd100;
 }
 
 .build-tool-grid h3 {

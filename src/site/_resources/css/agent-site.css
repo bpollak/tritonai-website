@@ -4690,6 +4690,10 @@ a.developer-download-button:visited {
   color: var(--triton-gold, #ffd100) !important;
 }
 
+.build-tool-grid .build-tool-preferred .build-tool-label {
+  color: #ffd100 !important;
+}
+
 /* Shrink vertical whitespace before text in service-lifecycle */
 #service-lifecycle {
   padding-top: 28px !important;
