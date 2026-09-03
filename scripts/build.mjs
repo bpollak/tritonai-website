@@ -1142,7 +1142,9 @@ function transformHtml(html, relativePath, context) {
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
   $("[data-gateway-usage='true']").html(renderGatewayUsage(context.gatewayUsage));
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));
-  if (route === "/developer-apis/start.html") applyHarnessInstallerMetadata($, context.harnessInstaller);
+  if (route === "/developer-apis/start.html" || route === "/tools/harness.html" || route === "/developer-apis/harness.html") {
+    applyHarnessInstallerMetadata($, context.harnessInstaller);
+  }
   $("[data-tritonai-updates]").each((_, element) => {
     const target = $(element);
     target.html(renderTritonAiUpdates(context.tritonAiUpdates, target.attr("data-tritonai-updates")));

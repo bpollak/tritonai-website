@@ -4275,3 +4275,466 @@ a.developer-download-button:visited {
     transition: none;
   }
 }
+
+/* Side-by-side product comparison deck */
+.comparison-deck {
+  margin: 28px -10px 32px;
+}
+
+.comparison-card {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(24, 43, 73, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.comparison-card:hover {
+  box-shadow: 0 8px 24px rgba(24, 43, 73, 0.12);
+  transform: translateY(-2px);
+}
+
+.comparison-card-tritongpt {
+  border-top: 5px solid #64748b;
+}
+
+.comparison-card-harness {
+  border-top: 5px solid var(--triton-blue, #006a96);
+}
+
+.comparison-card-header {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 24px 24px 20px;
+}
+
+.comparison-badge {
+  background: #f1f5f9;
+  border-radius: 4px;
+  color: #475569;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+.comparison-badge-preferred {
+  background: rgba(0, 106, 150, 0.1);
+  color: var(--triton-blue, #006a96);
+}
+
+.comparison-card-header h3 {
+  color: var(--triton-navy, #182b49);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.comparison-tagline {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.comparison-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px 24px 24px;
+}
+
+.comparison-features {
+  flex-grow: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comparison-features li {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 14px 0;
+}
+
+.comparison-features li:last-child {
+  border-bottom: none;
+}
+
+.comparison-features .feature-label {
+  color: #64748b;
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.comparison-features strong {
+  color: var(--triton-navy, #182b49);
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+
+.comparison-features small {
+  color: #475569;
+  display: block;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.comparison-card-action {
+  margin-top: 20px;
+  padding-top: 16px;
+}
+
+.plugin-logo {
+  display: block;
+  height: 36px;
+  width: 36px;
+  margin-bottom: 16px;
+}
+
+/* High-contrast product comparison table */
+.comparison-table-wrapper {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(24, 43, 73, 0.08);
+  margin: 28px 0 32px;
+  overflow: hidden;
+}
+
+.comparison-table {
+  background: #ffffff;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.comparison-table > thead > tr > th {
+  border: none !important;
+  color: #ffffff;
+  padding: 18px 20px;
+  vertical-align: middle;
+}
+
+.comparison-table > thead > tr > th.col-feature {
+  background: #0f766e;
+  border-right: 1px solid #0d635d !important;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  width: 24%;
+}
+
+.comparison-table > thead > tr > th.col-tritongpt {
+  background: #1e293b;
+  width: 38%;
+}
+
+.comparison-table > thead > tr > th.col-harness {
+  background: var(--triton-blue, #006a96);
+  width: 38%;
+}
+
+.comparison-table-product {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comparison-table-product strong {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.comparison-table-badge {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.comparison-table-badge-gold {
+  background: #ffd100;
+  color: #182b49;
+}
+
+.comparison-table > tbody > tr > th,
+.comparison-table > tbody > tr > td {
+  border-color: #e2e8f0 !important;
+  padding: 16px 20px;
+  vertical-align: top;
+}
+
+.comparison-table > tbody > tr:nth-of-type(even) {
+  background-color: #f8fafc;
+}
+
+.comparison-table > tbody > tr > th {
+  color: var(--triton-navy, #182b49);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.comparison-table > tbody > tr > th .glyphicon {
+  color: var(--triton-blue, #006a96);
+  font-size: 16px;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+
+.comparison-table-val strong {
+  color: var(--triton-navy, #182b49);
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.comparison-table-val small {
+  color: #475569;
+  display: block;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.comparison-table-action-row td {
+  background: #f1f5f9;
+  padding: 16px 20px !important;
+}
+
+/* Clean Workbench Styles for start.html */
+.developer-start-workbench {
+  margin: 0 auto 48px;
+  max-width: 960px;
+}
+
+.workbench-step {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(24, 43, 73, 0.04);
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.workbench-step-header {
+  align-items: center;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.workbench-step-num {
+  align-items: center;
+  background: var(--triton-blue, #006a96);
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  font-size: 15px;
+  font-weight: 700;
+  height: 36px;
+  justify-content: center;
+  min-width: 36px;
+  width: 36px;
+}
+
+.workbench-step-header h3 {
+  color: var(--triton-navy, #182b49);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.workbench-step-header p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.workbench-step-body {
+  padding: 24px;
+}
+
+.workbench-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.workbench-card-primary {
+  border-left: 4px solid var(--triton-blue, #006a96);
+}
+
+.workbench-card-header h4 {
+  color: var(--triton-navy, #182b49);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 8px 0 6px;
+}
+
+.workbench-details {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 18px;
+  padding-top: 14px;
+}
+
+.workbench-details summary {
+  color: var(--triton-blue, #006a96);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.workbench-details-content {
+  background: #f8fafc;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 12px 16px;
+}
+
+/* Fix text contrast in action cards placed within dark sections */
+.hub-action-card {
+  color: #334155;
+}
+
+.hub-action-card p,
+.hub-action-card small,
+.hub-action-card li {
+  color: #334155;
+}
+
+.hub-action-card h3 {
+  color: var(--triton-navy, #182b49);
+}
+
+.hub-action-card-footer {
+  margin-top: auto;
+  padding-top: 18px;
+  width: 100%;
+}
+
+.hub-action-card-footer .btn {
+  margin-bottom: 8px;
+}
+
+.hub-action-card-footer a:not(.btn) {
+  color: var(--triton-blue, #006a96);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hub-action-card-footer a:not(.btn):hover {
+  color: #004b6e;
+  text-decoration: underline;
+}
+
+/* WCAG AAA Link Contrast in dark sections */
+.hub-section-dark a:not(.btn) {
+  color: #ffd100;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.hub-section-dark a:not(.btn):hover,
+.hub-section-dark a:not(.btn):focus {
+  color: #ffe066;
+  text-decoration: underline;
+}
+
+/* Ensure links inside cards placed in dark sections have proper contrast on light backgrounds */
+.hub-section-dark .hub-quote-card a:not(.btn),
+.hub-section-dark .hub-note-card a:not(.btn),
+.hub-section-dark .hub-action-card a:not(.btn) {
+  color: var(--triton-blue, #006a96);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hub-section-dark .hub-quote-card a:not(.btn):hover,
+.hub-section-dark .hub-note-card a:not(.btn):hover,
+.hub-section-dark .hub-action-card a:not(.btn):hover {
+  color: #004b6e;
+  text-decoration: underline;
+}
+
+/* Build tool preferred link contrast (citizen-developer.html) */
+.build-tool-grid .build-tool-preferred h3 a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+.build-tool-grid .build-tool-preferred h3 a:hover,
+.build-tool-grid .build-tool-preferred h3 a:focus {
+  color: var(--triton-gold, #ffd100) !important;
+}
+
+/* Shrink vertical whitespace before text in service-lifecycle */
+#service-lifecycle {
+  padding-top: 28px !important;
+}
+
+.gateway-usage-section {
+  padding-bottom: 16px !important;
+}
+
+/* Cool Slate Section & Deletion Quote Card */
+.hub-section-slate {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.hub-section-slate .hub-quote-card,
+.deletion-quote-card {
+  background: #ffffff !important;
+  border: 1px solid #d0d7de !important;
+  border-left: 5px solid var(--triton-blue, #006a96) !important;
+  box-shadow: 0 4px 14px rgba(24, 43, 73, 0.05);
+}
+
+.hub-section-slate .hub-quote-card .glyphicon,
+.deletion-quote-card .glyphicon {
+  color: var(--triton-blue, #006a96);
+  font-size: 28px;
+}
+
+.hub-section-slate .hub-quote-card h3,
+.deletion-quote-card h3 {
+  color: var(--triton-navy, #182b49);
+  font-size: 24px;
+  margin: 12px 0 8px;
+}
+
+.hub-section-slate .hub-quote-card p,
+.deletion-quote-card p {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+
+
+

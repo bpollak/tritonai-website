@@ -231,6 +231,27 @@
         "Approved AI services"
       ],
       "lastModified": "2026-08-12"
+    },
+    "/developer-apis/harness.html": {
+      "title": "TritonAI Harness at UC San Diego",
+      "description": "Download and configure TritonAI Harness, UC San Diego's primary supported agent workspace for code, files, and campus workflows.",
+      "schemaAbout": [
+        "TritonAI Harness",
+        "AI agents",
+        "Developer tools",
+        "Campus AI workspace"
+      ],
+      "lastModified": "2026-09-03"
+    },
+    "/developer-apis/harness-privacy.html": {
+      "title": "TritonAI Harness Privacy Statement",
+      "description": "Review data residency, on-premises transit, credential protection, and UC Protection Levels for TritonAI Harness.",
+      "schemaAbout": [
+        "TritonAI Harness privacy",
+        "AI data protection",
+        "UC IS-3 compliance"
+      ],
+      "lastModified": "2026-09-03"
     }
   }
 }
