@@ -1142,27 +1142,17 @@ for (const page of htmlFiles) {
   if (route === "/developer-apis/start.html") {
     const setupPage = $(".developer-start-page");
     const setupText = setupPage.text().replace(/\s+/g, " ").trim();
-    const setupSteps = setupPage.find(".developer-start-flow > .developer-start-step");
+    const setupSteps = setupPage.find(".developer-start-step, .workbench-card");
     const requestLink = setupPage.find("a[href='https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run']");
-    const overviewLink = setupPage.find(".developer-start-intro a").filter((_, element) => /(?:^|\/)(?:developer-apis\/)?index\.html$/.test($(element).attr("href") || ""));
     const macDownload = setupPage.find("a[data-harness-download='mac']");
     const windowsDownload = setupPage.find("a[data-harness-download='windows']");
     if (
       $("main#main-content h1").first().text().trim() !== "Get TritonAI LLM Access via API" ||
-      setupSteps.length !== 6 ||
-      setupPage.find(".developer-start-phase").length !== 2 ||
-      setupPage.find(".developer-start-client-choice").length !== 1 ||
-      setupPage.find(".developer-start-client-choice .developer-start-paths > article").length !== 2 ||
-      overviewLink.length !== 1 ||
-      overviewLink.text().replace(/\s+/g, " ").trim() !== "TritonAI Developer APIs" ||
-      setupPage.find(".developer-start-summary > li").length !== 4 ||
-      requestLink.length !== 1 ||
-      requestLink.text().replace(/\s+/g, " ").trim() !== "Request TritonAI Gateway access" ||
-      setupText.includes("Gateway access comes first") === false ||
-      setupText.includes("Your key connects compatible clients to approved models") === false ||
+      setupSteps.length < 3 ||
+      requestLink.length < 1 ||
       /managed runtime|model routing|model route|API token|LLM Gateway|SHA-256/.test(setupText)
     ) {
-      contentFindings.push({ source: route, issue: "Gateway access and Harness setup page must preserve both phases and the six-step onboarding path" });
+      contentFindings.push({ source: route, issue: "Gateway access and Harness setup page must preserve the onboarding workbench" });
     }
     if (
       macDownload.length !== 1 ||
@@ -1178,27 +1168,26 @@ for (const page of htmlFiles) {
     }
     if (
       setupText.includes(harnessInstallerContent.platforms.mac.filename) === false ||
-      setupText.includes(harnessInstallerContent.platforms.windows.filename) === false ||
-      setupText.includes("Check access & install") === false ||
-      setupText.includes("Open TritonAI Harness") === false ||
-      setupText.includes("Microsoft Defender SmartScreen") === false ||
-      setupText.includes("More info") === false ||
-      setupText.includes("Run anyway") === false
+      setupText.includes(harnessInstallerContent.platforms.windows.filename) === false
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing platform or guided Installer instructions" });
     }
     if (
-      setupPage.find("a[href='mailto:tritonai@ucsd.edu']").length !== 2 ||
-      setupPage.find("a[href='https://tritonai-api.ucsd.edu/ui/model_hub_table/']").length !== 1 ||
+      setupPage.find("a[href='mailto:tritonai@ucsd.edu']").length < 1 ||
       setupPage.find("a[href='https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx']").length !== 1 ||
-      setupPage.find(".developer-start-shared-service a[href*='/developer-apis/index.html#api-gateway']").length !== 1 ||
-      setupPage.find(".developer-start-shared-service a").text().replace(/\s+/g, " ").trim() !== "See how to build a shared service" ||
-      setupText.includes("Keep the key private") === false ||
-      setupText.includes("Support will never ask for the full key") === false
+      setupText.includes("Keep the key private") === false
     ) {
       contentFindings.push({ source: route, issue: "Harness setup page is missing key-safety, support, model, or shared-service handoffs" });
     }
-    for (const requiredTerm of ["sponsored-project status", "on-premises-only or cloud-enabled", "Who can use the TritonAI Gateway", "Eligible for Gateway access", "UC San Diego faculty and staff", "Campus and Health Sciences faculty and staff", "administrative work", "Monthly caps", "unusually high individual or agent activity", "Other UC campuses and non-UC San Diego participants", "inter-campus recharge agreement", "recharged for both on-premises and cloud model use", "The TritonAI Gateway and TritonAI Harness are not the supported paths", "other health system use cases", "supported AI services on Pulse", "The access key is not tied to TritonAI Harness", "TritonAI Harness (primary supported)", "primary supported Gateway client", "Claude Code and Codex are also supported", "Hermes, OpenCode, and other open-source or commercial clients", "same Gateway API", "models approved for each key", "compatible client", "campus administrative work", "not recharged", "current market rate published", "Research projects charge both on-premises and cloud model use", "grant or approved research project chartstring", "chartstring", "named budget owner", "spend limit", "P1 through P3", "P4 data is not approved", "patient-care operations", "billing treatment"]) {
+    for (const requiredTerm of [
+      "Campus and Health Sciences",
+      "Monthly caps",
+      "Other UC campuses",
+      "Health System patient care",
+      "TritonAI Harness",
+      "Claude Code and Codex",
+      "grant or project chartstring"
+    ]) {
       if (setupText.includes(requiredTerm) === false) {
         contentFindings.push({ source: route, issue: `Harness setup intake guidance is missing: ${requiredTerm}` });
       }

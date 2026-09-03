@@ -1070,7 +1070,9 @@ function transformHtml(html, relativePath, context) {
     $("head").append(`<meta http-equiv="refresh" content="0; url=${escapeHtml(redirectTarget)}">`);
     upsertMeta($, "meta[name='robots']", { name: "robots", content: "noindex,follow" });
   }
-  if (!$("link[rel~='icon']").length) $("head").append('<link rel="icon" href="https://www.ucsd.edu/favicon.ico">');
+  $("link[href*='agent-site.css']").each((_, element) => {
+    $(element).attr("href", `/_resources/css/agent-site.css?v=${AGENT_SITE_CSS_VERSION}`);
+  });
   if (!$("link[href*='/agent-site.css']").length) {
     $("head").append(`<link rel="stylesheet" href="/_resources/css/agent-site.css?v=${AGENT_SITE_CSS_VERSION}">`);
   }

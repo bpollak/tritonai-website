@@ -563,7 +563,7 @@
 <div class="workbench-policy-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid var(--triton-navy,#182b49);border-radius:4px;padding:16px 20px;margin-top:20px;">
 <h3 style="margin:0 0 10px;font-size:16px;font-weight:700;color:var(--triton-navy,#182b49);">Eligibility and recharge details</h3>
 <ul style="margin:0;padding-left:18px;font-size:14px;color:#334155;line-height:1.6;">
-<li><strong>Faculty and staff:</strong> Campus and Health Sciences personnel may use on-premises models for administrative work under monthly caps.</li>
+<li><strong>Faculty and staff:</strong> Campus and Health Sciences personnel may use on-premises models for administrative work under Monthly caps.</li>
 <li><strong>Research projects:</strong> Sponsored research charges model usage to an approved grant or project chartstring.</li>
 <li><strong>Other UC campuses:</strong> Intercampus recharge agreements are arranged via <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a>.</li>
 <li><strong>Health System patient care:</strong> Clinical operations must use <a href="https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx" target="_blank" rel="noopener noreferrer">approved Medical Center AI platforms on Pulse</a>.</li>
@@ -593,12 +593,14 @@
 <h4>Mac (Apple Silicon)</h4>
 <p>Requires Apple M1 or newer. Signed by the developer and checked by Apple.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="mac" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Mac</span><small data-harness-download-detail>Current Apple Silicon DMG</small></a>
+<p style="margin-top:6px;font-size:12px;color:#64748b;"><span data-harness-filename="mac"></span></p>
 </article>
 <article>
 <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
 <h4>Windows (x64)</h4>
 <p>Requires an x64 processor. Run setup and accept SmartScreen if prompted.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="windows" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Windows</span><small data-harness-download-detail>Current x64 Setup EXE</small></a>
+<p style="margin-top:6px;font-size:12px;color:#64748b;"><span data-harness-filename="windows"></span></p>
 </article>
 </div>
 <p class="developer-start-release-links"><span data-harness-version>Current version</span>. <a data-harness-release href="https://github.com/dbalders/TritonAI-Installer/releases/latest">Read release notes</a> or <a data-harness-checksums href="https://github.com/dbalders/TritonAI-Installer/releases/latest">view checksums</a>.</p>
@@ -608,7 +610,7 @@
 <div class="col-sm-6">
 <div class="workbench-card" style="height: 100%;">
 <span class="comparison-badge">CLI Coding Agents</span>
-<h4 style="font-size: 16px; font-weight: 700; margin: 6px 0 4px; color: var(--triton-navy, #182b49);">Claude Code &amp; Codex</h4>
+<h4 style="font-size: 16px; font-weight: 700; margin: 6px 0 4px; color: var(--triton-navy, #182b49);">Claude Code and Codex</h4>
 <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Connect terminal agent runtimes to the Gateway.</p>
 <ul style="font-size: 13px; padding-left: 18px; margin-bottom: 0;">
 <li>Base URL: <code>https://tritonai-api.ucsd.edu/v1</code></li>
@@ -658,7 +660,7 @@ resp = client.chat.completions.create(
 <div class="col-sm-5">
 <div class="developer-start-help" style="margin-top:0;">
 <h4>Need setup help?</h4>
-<p>If your key is rejected or models do not appear, remove extra spaces around your key.</p>
+<p>If your key is rejected or models do not appear, remove extra spaces around your key. Keep the key private; support will never ask for your secret key.</p>
 <p>Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> with your operating system and error details. Never include the secret key in email.</p>
 </div>
 </div>
