@@ -52,8 +52,8 @@
 
 
 <!-- Site-specific CSS files -->
-    
-    
+<link href="/_resources/css/agent-site.css" rel="stylesheet"/>
+<link href="/_resources/css/landing-hubs.css" rel="stylesheet"/>
     
 <!-- Other CSS files -->
 <!--[if lt IE 9]>
@@ -85,7 +85,7 @@
 
 
 	</head>
-	<body>
+	<body class="developer-start-page">
 	    
 
 
@@ -530,217 +530,142 @@
     
 
 <div class="developer-start-intro">
-<p class="home-kicker">Gateway and TritonAI Harness</p>
-<h2>Get Gateway access and set up TritonAI Harness</h2>
-<p class="lead">TritonAI Harness is UC San Diego's primary supported Gateway client. Claude Code and Codex are also supported. Hermes, OpenCode, and other compatible clients can connect through the same Gateway API. TritonAI routes requests to the models approved for each key. Request access, then set up a client. Shared services use <a href="index.html">TritonAI Developer APIs</a>.</p>
-<div class="developer-start-prerequisite"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><strong>Gateway access comes first.</strong><p>Your key connects compatible clients to approved models. Approval lists billing and limits. You need the key to finish TritonAI Harness setup.</p></div></div>
-<ol class="developer-start-summary" aria-label="Gateway access and client setup overview">
-<li><span>1</span><strong>Request access</strong></li>
-<li><span>2</span><strong>Receive key</strong></li>
-<li><span>3</span><strong>Choose client</strong></li>
-<li><span>4</span><strong>Set up TritonAI Harness</strong></li>
-</ol>
+<p class="home-kicker">Developer Onboarding</p>
+<h2>Get started with the TritonAI Gateway</h2>
+<p class="lead">Follow three steps to request approved API access, choose your client, and start building with campus AI models.</p>
 </div>
 
-<section class="developer-start-phase" aria-labelledby="developer-start-phase-one">
-<p class="home-kicker">Phase 1</p>
-<h2 id="developer-start-phase-one">Get TritonAI Gateway access</h2>
-<p>Request your key and approved access.</p>
-</section>
-
 <div class="developer-start-flow">
+
 <section aria-labelledby="developer-start-step-one" class="developer-start-step" id="request-access">
 <header class="developer-start-step-header">
 <span aria-hidden="true">01</span>
 <div>
-<p class="home-kicker">Gateway access</p>
-<h2 id="developer-start-step-one">Request access to the TritonAI Gateway</h2>
+<p class="home-kicker">Step 1</p>
+<h2 id="developer-start-step-one">Request Gateway access</h2>
 </div>
 </header>
-<p>Purpose and funding set access, review, and charges.</p>
-<ul class="developer-start-checklist">
-<li><strong>Purpose:</strong> campus administrative work, instruction, sponsored or non-sponsored research, faculty exploration, patient-care operations, or external partner work</li>
-<li><strong>Funding:</strong> sponsored-project status, Campus or Health Sciences affiliation, sponsor, and outside organization when applicable</li>
-<li><strong>Access:</strong> on-premises-only or cloud-enabled. Cloud access requires a chartstring, named budget owner, and spend limit</li>
-<li><strong>Project:</strong> task, owner, users, information, systems, and expected use</li>
-</ul>
-<div class="developer-start-security-note"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span><div><h3>How charges work</h3><p>For campus administrative work, on-premises use is not recharged. Cloud use is charged from the first token at the current market rate published in the Model Hub. Research projects charge both on-premises and cloud model use to a grant or approved research project chartstring. Other UC campuses need an inter-campus recharge agreement and are recharged for both on-premises and cloud model use.</p></div></div>
-<div class="developer-start-security-note developer-start-eligibility-note"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><div>
-<h3>Who can use the TritonAI Gateway</h3>
-<p class="developer-start-eligibility-intro">Eligibility depends on affiliation and use.</p>
-<section class="developer-start-eligibility-group" aria-labelledby="gateway-eligible-heading">
-<h4 id="gateway-eligible-heading">Eligible for Gateway access</h4>
-<ul>
-<li><strong>UC San Diego faculty and staff:</strong> Campus and Health Sciences faculty and staff may use the Gateway for administrative work. Monthly caps apply; unusually high individual or agent activity may be reviewed.</li>
-</ul>
-</section>
-<section class="developer-start-eligibility-group" aria-labelledby="gateway-arrangement-heading">
-<h4 id="gateway-arrangement-heading">Access by arrangement</h4>
-<ul>
-<li><strong>Other UC campuses and non-UC San Diego participants:</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> about access and funding. Other UC campuses must provide a financial contact and chartstring for intercampus recharge.</li>
-</ul>
-</section>
-<section class="developer-start-eligibility-group" aria-labelledby="gateway-medical-center-heading">
-<h4 id="gateway-medical-center-heading">Use Medical Center services</h4>
-<p><strong>Medical Center clinical and patient-care operations:</strong> The TritonAI Gateway and TritonAI Harness are not the supported paths for patient-care operations or other health system use cases. Use Medical Center platforms and the <a href="https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx">supported AI services on Pulse</a>.</p>
-</section>
-<p class="developer-start-eligibility-data"><strong>Data:</strong> UC San Diego has approved TritonAI Harness for use with UC information classified from Protection Level 1 through Protection Level 3 (P1 through P3) when the work is within an approved setup. P4 data is not approved. <a href="https://security.ucop.edu/policies/institutional-information-and-it-resource-classification.html" rel="noopener noreferrer" target="_blank">Review the UC Protection Levels</a>.</p>
-</div></div>
-<div class="developer-start-request">
-<div>
-<h3>Submit the access request</h3>
-<p>Provide funding and ownership details so the team can assign access and controls.</p>
+<p>Submit the universal intake form to receive your approved API key and model allocations.</p>
+
+<div class="row" style="margin-top: 16px;">
+<div class="col-sm-7">
+<p>On-premises model access has <strong>$0 recharge</strong> for campus administrative work. Cloud models or grant-funded research require a departmental chartstring.</p>
+<p><a class="btn btn-primary" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request Gateway access (Kuali Build) <span aria-hidden="true">→</span></a></p>
 </div>
-<a class="btn btn-primary" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request TritonAI Gateway access</a>
+<div class="col-sm-5">
+<aside class="hub-note-card" style="margin-top:0;">
+<strong>Approved data levels</strong>
+<span>Approved for UC Protection Levels 1 through 3 (P1 through P3). Protection Level 4 (P4) is prohibited.</span>
+</aside>
+</div>
+</div>
+
+<div class="workbench-policy-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid var(--triton-navy,#182b49);border-radius:4px;padding:16px 20px;margin-top:20px;">
+<h3 style="margin:0 0 10px;font-size:16px;font-weight:700;color:var(--triton-navy,#182b49);">Eligibility and recharge details</h3>
+<ul style="margin:0;padding-left:18px;font-size:14px;color:#334155;line-height:1.6;">
+<li><strong>Faculty and staff:</strong> Campus and Health Sciences personnel may use on-premises models for administrative work under monthly caps.</li>
+<li><strong>Research projects:</strong> Sponsored research charges model usage to an approved grant or project chartstring.</li>
+<li><strong>Other UC campuses:</strong> Intercampus recharge agreements are arranged via <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a>.</li>
+<li><strong>Health System patient care:</strong> Clinical operations must use <a href="https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx" target="_blank" rel="noopener noreferrer">approved Medical Center AI platforms on Pulse</a>.</li>
+</ul>
 </div>
 </section>
 
-<section aria-labelledby="developer-start-step-two" class="developer-start-step">
+<section aria-labelledby="developer-start-step-two" class="developer-start-step" id="harness">
 <header class="developer-start-step-header">
 <span aria-hidden="true">02</span>
 <div>
-<p class="home-kicker">Gateway approval</p>
-<h2 id="developer-start-step-two">Receive and protect your Gateway key</h2>
+<p class="home-kicker">Step 2</p>
+<h2 id="developer-start-step-two">Choose your client or integration</h2>
 </div>
 </header>
-<p>Approval includes your key, access, billing treatment, and limits. Cloud access requires a chartstring, named budget owner, and spend limit; ITS requests also need budget-manager approval. TritonAI Harness can save a second key.</p>
-<div class="developer-start-security-note"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span><div><h3>Keep the key private</h3><p>Treat it like a password. Use it only with an approved client or the TritonAI Installer. Keep it out of prompts, messages, screenshots, and work files. Support will never ask for the full key.</p></div></div>
-</section>
+<p>Connect your approved key to TritonAI Harness, a terminal agent, or direct code.</p>
 
-<section class="developer-start-client-choice" aria-labelledby="developer-start-client-choice-heading">
-<p class="home-kicker">Choose your workspace</p>
-<h2 id="developer-start-client-choice-heading">Choose how to use the Gateway</h2>
-<p>Use the client in your approval. The access key is not tied to TritonAI Harness.</p>
-<div class="developer-start-paths">
-<article>
-<span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
-<h3>TritonAI Harness (primary supported)</h3>
-<p>Continue below to download the installer and finish TritonAI Harness setup.</p>
-<p><a class="btn btn-primary" href="#download-installer">Continue to TritonAI Harness setup</a></p>
-</article>
-<article>
-<span class="glyphicon glyphicon-console" aria-hidden="true"></span>
-<h3>Other compatible clients</h3>
-<p>Claude Code and Codex are supported. Hermes, OpenCode, and other open-source or commercial clients can connect through the same Gateway API.</p>
-<p>Claude Code and Codex use custom model-provider settings. Setup uses the Gateway address, an approved model name, and your key.</p>
-<ul>
-<li>Ask the client to prepare the non-secret provider settings.</li>
-<li>Enter the key yourself using the client's protected local credential method.</li>
-<li>Try a low-risk request to confirm the connection.</li>
-</ul>
-<p><strong>Keep the key out of chat.</strong> Do not put it in a prompt, source file, repository, screenshot, or shared configuration.</p>
-</article>
+<div class="workbench-card workbench-card-primary" id="download-installer" style="margin-bottom: 20px;">
+<div class="workbench-card-header">
+<span class="comparison-badge comparison-badge-preferred">Primary Supported Client</span>
+<h3 style="font-size: 20px; font-weight: 700; margin: 6px 0 4px; color: var(--triton-navy, #182b49);">TritonAI Harness</h3>
+<p style="color: #64748b; font-size: 14px; margin-bottom: 16px;">Native desktop app for local coding, file editing, terminal execution, and M365 integrations.</p>
 </div>
-</section>
-
-<section class="developer-start-phase developer-start-phase-harness" aria-labelledby="developer-start-phase-two">
-<p class="home-kicker">Phase 2</p>
-<h2 id="developer-start-phase-two">Set up TritonAI Harness</h2>
-<p>Install TritonAI Harness and add your key.</p>
-</section>
-
-<section aria-labelledby="developer-start-step-three" class="developer-start-step" id="download-installer">
-<header class="developer-start-step-header">
-<span aria-hidden="true">03</span>
-<div>
-<p class="home-kicker">Primary supported client</p>
-<h2 id="developer-start-step-three">Download the TritonAI Harness installer</h2>
-</div>
-</header>
-<p>Choose the installer for your computer.</p>
 <div class="developer-start-platforms">
 <article>
 <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-<h3>Mac</h3>
-<p>Requires Apple M1 or newer. Check <strong>Apple menu → About This Mac</strong>. Intel Macs are not supported.</p>
+<h4>Mac (Apple Silicon)</h4>
+<p>Requires Apple M1 or newer. Signed by the developer and checked by Apple.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="mac" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Mac</span><small data-harness-download-detail>Current Apple Silicon DMG</small></a>
-<p class="developer-platform-trust"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Signed by the developer and checked by Apple.</p>
 </article>
 <article>
 <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
-<h3>Windows</h3>
-<p>Requires an x64 processor. Check <strong>Settings → System → About → System type</strong>.</p>
+<h4>Windows (x64)</h4>
+<p>Requires an x64 processor. Run setup and accept SmartScreen if prompted.</p>
 <a class="btn btn-primary developer-download-button" data-harness-download="windows" href="https://github.com/dbalders/TritonAI-Installer/releases/latest"><span data-harness-download-label>Download for Windows</span><small data-harness-download-detail>Current x64 Setup EXE</small></a>
-<p class="developer-platform-warning"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> The current Windows installer is not signed. Windows may show a Microsoft Defender SmartScreen warning.</p>
 </article>
 </div>
-<p class="developer-start-release-links"><span data-harness-version>Current version</span>. <a data-harness-release href="https://github.com/dbalders/TritonAI-Installer/releases/latest">Read the release notes</a> or <a data-harness-checksums href="https://github.com/dbalders/TritonAI-Installer/releases/latest">view the file checks</a>.</p>
-</section>
+<p class="developer-start-release-links"><span data-harness-version>Current version</span>. <a data-harness-release href="https://github.com/dbalders/TritonAI-Installer/releases/latest">Read release notes</a> or <a data-harness-checksums href="https://github.com/dbalders/TritonAI-Installer/releases/latest">view checksums</a>.</p>
+</div>
 
-<section aria-labelledby="developer-start-step-four" class="developer-start-step">
-<header class="developer-start-step-header">
-<span aria-hidden="true">04</span>
-<div>
-<p class="home-kicker">Platform instructions</p>
-<h2 id="developer-start-step-four">Install on your computer</h2>
-</div>
-</header>
-<div class="developer-start-install-grid">
-<article>
-<h3><span class="glyphicon glyphicon-apple" aria-hidden="true"></span> Install on Mac</h3>
-<ol>
-<li>Open <strong>Downloads</strong> and double-click <code data-harness-filename="mac">the TritonAI Installer DMG</code>.</li>
-<li>Double-click <strong>TritonAI Installer</strong>. Select <strong>Open</strong> if asked.</li>
-<li>Continue to the access-key screen.</li>
-</ol>
-</article>
-<article>
-<h3><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Install on Windows</h3>
-<ol>
-<li>Open <strong>Downloads</strong> and double-click <code data-harness-filename="windows">the TritonAI Installer Setup EXE</code>.</li>
-<li>If Microsoft Defender SmartScreen appears, confirm the filename, then select <strong>More info</strong> and <strong>Run anyway</strong>. Contact local IT if blocked.</li>
-<li>Continue to the access-key screen.</li>
-</ol>
-</article>
-</div>
-</section>
-
-<section aria-labelledby="developer-start-step-five" class="developer-start-step">
-<header class="developer-start-step-header">
-<span aria-hidden="true">05</span>
-<div>
-<p class="home-kicker">Guided setup</p>
-<h2 id="developer-start-step-five">Enter the key and finish setup</h2>
-</div>
-</header>
-<ol class="developer-start-actions">
-<li><span>1</span><div><strong>Enter the access key</strong><p>Paste it into <strong>TritonAI access key</strong>. For a second key, select <strong>I have another access key</strong>.</p></div></li>
-<li><span>2</span><div><strong>Check access and install</strong><p>Select <strong>Check access &amp; install</strong>. The Installer verifies your models and sets up TritonAI Harness.</p></div></li>
-<li><span>3</span><div><strong>Keep the Installer open</strong><p>Wait for <strong>Installation complete</strong>.</p></div></li>
-</ol>
-</section>
-
-<section aria-labelledby="developer-start-step-six" class="developer-start-step">
-<header class="developer-start-step-header">
-<span aria-hidden="true">06</span>
-<div>
-<p class="home-kicker">First launch</p>
-<h2 id="developer-start-step-six">Open TritonAI Harness and verify access</h2>
-</div>
-</header>
-<p>Select <strong>Open TritonAI Harness</strong>. Reopen it later from Applications on Mac or the Windows desktop shortcut.</p>
-<ul class="developer-start-checklist">
-<li>Choose a model shown in TritonAI Harness.</li>
-<li>Try a low-risk task with approved information.</li>
-<li>Check sources, results, and proposed actions.</li>
+<div class="row">
+<div class="col-sm-6">
+<div class="workbench-card" style="height: 100%;">
+<span class="comparison-badge">CLI Coding Agents</span>
+<h4 style="font-size: 16px; font-weight: 700; margin: 6px 0 4px; color: var(--triton-navy, #182b49);">Claude Code &amp; Codex</h4>
+<p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Connect terminal agent runtimes to the Gateway.</p>
+<ul style="font-size: 13px; padding-left: 18px; margin-bottom: 0;">
+<li>Base URL: <code>https://tritonai-api.ucsd.edu/v1</code></li>
+<li>Default Model: <code>api-glm-5.2</code></li>
+<li>Store your API key in your shell profile.</li>
 </ul>
-<p class="developer-start-note">The <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a> lists models and rates. Your approval sets models, limits, and billing treatment.</p>
-<div class="developer-start-help">
-<h3>Setup help</h3>
-<dl>
-<div><dt>The key is not accepted</dt><dd>Remove extra spaces. Contact support without sending the key.</dd></div>
-<div><dt>No models appear</dt><dd>The key may not be active. Contact support.</dd></div>
-<div><dt>The installer will not open</dt><dd>Confirm your computer is supported, then download it again.</dd></div>
-</dl>
-<p><strong>Need help?</strong> Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> with your operating system and an error screenshot. Hide any access key.</p>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="workbench-card" style="height: 100%;">
+<span class="comparison-badge">API &amp; Pipelines</span>
+<h4 style="font-size: 16px; font-weight: 700; margin: 6px 0 4px; color: var(--triton-navy, #182b49);">Direct Code Integration</h4>
+<p style="font-size: 13px; color: #64748b; margin-bottom: 8px;">Use the OpenAI Python SDK.</p>
+<pre style="background:#0f172a;color:#f8fafc;padding:10px 12px;border-radius:4px;font-size:12px;line-height:1.35;margin-bottom:6px;"><code>from openai import OpenAI
+client = OpenAI(
+  base_url="https://tritonai-api.ucsd.edu/v1",
+  api_key="YOUR_KEY"
+)
+resp = client.chat.completions.create(
+  model="api-glm-5.2",
+  messages=[{"role":"user","content":"Hi"}]
+)</code></pre>
+<small style="color: #64748b;">See <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/" target="_blank" rel="noopener noreferrer">Model Hub</a> for available routes.</small>
+</div>
+</div>
 </div>
 </section>
-</div>
 
-<aside class="developer-start-shared-service" aria-labelledby="developer-start-shared-heading">
-<div><p class="home-kicker">Building something for others?</p><h2 id="developer-start-shared-heading">Plan for a shared service</h2><p>Plan hosting, ownership, accessibility, and support for anything others rely on.</p></div>
-<a class="btn btn-default" href="/developer-apis/index.html#api-gateway">See how to build a shared service</a>
-</aside>
+<section aria-labelledby="developer-start-step-three" class="developer-start-step" id="verify">
+<header class="developer-start-step-header">
+<span aria-hidden="true">03</span>
+<div>
+<p class="home-kicker">Step 3</p>
+<h2 id="developer-start-step-three">Launch and verify</h2>
+</div>
+</header>
+<p>Enter your key and verify your connection with a low-risk test prompt.</p>
+
+<div class="row">
+<div class="col-sm-7">
+<ol class="developer-start-actions">
+<li><span>1</span><div><strong>Enter your key</strong><p>Paste the approved key into your client settings.</p></div></li>
+<li><span>2</span><div><strong>Choose an approved model</strong><p>Select <code>api-glm-5.2</code> (on-premises, 320K context) or an approved cloud route.</p></div></li>
+<li><span>3</span><div><strong>Run a test request</strong><p>Confirm the model responds and check results.</p></div></li>
+</ol>
+</div>
+<div class="col-sm-5">
+<div class="developer-start-help" style="margin-top:0;">
+<h4>Need setup help?</h4>
+<p>If your key is rejected or models do not appear, remove extra spaces around your key.</p>
+<p>Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> with your operating system and error details. Never include the secret key in email.</p>
+</div>
+</div>
+</div>
+</section>
+
+</div>
                     </section>
 				    
 

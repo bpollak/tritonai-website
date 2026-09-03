@@ -30,12 +30,41 @@ bannerMode: abstract
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed" id="builder-entry-points" aria-labelledby="builder-routes-heading">
-<div class="container"><div class="hub-heading"><p class="home-kicker">Start here</p><h2 id="builder-routes-heading">Choose the resource you need</h2></div>
-<div class="row hub-number-grid">
-<div class="col-sm-6 col-md-3"><article><span>01</span><h3>Frame a project</h3><p>Find a recurring task, classify the build, and set its data and review boundaries.</p><a href="/developer-apis/citizen-developer.html">Use the Citizen Developer Guide</a></article></div>
-<div class="col-sm-6 col-md-3"><article><span>02</span><h3>Request API access</h3><p>Get a Gateway key and the model route approved for your work.</p><a href="/developer-apis/start.html">Request access and choose a client</a></article></div>
-<div class="col-sm-6 col-md-3"><article><span>03</span><h3>Browse models</h3><p>Review current model hosting, capabilities, context lengths, and published rates.</p><a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Open the Model Hub</a></article></div>
-<div class="col-sm-6 col-md-3"><article><span>04</span><h3>Choose a client</h3><p>Use TritonAI Harness or connect another compatible harness to the same Gateway.</p><a href="#tritonai-harness">Compare client paths</a></article></div>
+<div class="container"><div class="hub-heading"><p class="home-kicker">Choose your track</p><h2 id="builder-routes-heading">How do you want to build?</h2><p>Select the path that matches your technical role, project scope, and data requirements.</p></div>
+<div class="row hub-action-grid hub-action-grid-three">
+<div class="col-md-4">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+<h3>Desktop AI Agents</h3>
+<p>Work directly with local files, spreadsheets, code, and Microsoft 365. TritonAI Harness is the primary supported agent workspace for staff and developers.</p>
+<div class="hub-action-card-footer">
+<p><a class="btn btn-primary btn-block" href="/developer-apis/harness.html">Explore TritonAI Harness <span aria-hidden="true">→</span></a></p>
+<p style="margin:8px 0 0;text-align:center;"><small>Planning a workflow? <a href="/developer-apis/citizen-developer.html">Citizen Developer Guide</a></small></p>
+</div>
+</article>
+</div>
+<div class="col-md-4">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+<h3>Developer APIs &amp; Gateway</h3>
+<p>Integrate models into applications, scripts, or automated n8n pipelines through one OpenAI-compatible endpoint with approved cloud and on-premises routes.</p>
+<div class="hub-action-card-footer">
+<p><a class="btn btn-primary btn-block" href="/developer-apis/start.html">Request API access <span aria-hidden="true">→</span></a></p>
+<p style="margin:8px 0 0;text-align:center;"><small>Review routes and rates in the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a></small></p>
+</div>
+</article>
+</div>
+<div class="col-md-4">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+<h3>Academic &amp; Research Compute</h3>
+<p>Access high-performance GPU capacity, course containers, and interactive DataHub Jupyter notebooks for academic and research computing.</p>
+<div class="hub-action-card-footer">
+<p><a class="btn btn-primary btn-block" href="/developer-apis/dsmlp-datahub.html">Explore DSMLP &amp; DataHub <span aria-hidden="true">→</span></a></p>
+<p style="margin:8px 0 0;text-align:center;"><small>Package shared abilities in the <a href="/skills/index.html">Skills Library</a></small></p>
+</div>
+</article>
+</div>
 </div></div>
 </section>
 
@@ -63,7 +92,7 @@ bannerMode: abstract
 <section class="api-gateway-lane api-gateway-routes" aria-labelledby="api-gateway-routes-heading">
 <p class="api-gateway-lane-label">Choose an approved route</p>
 <h3 id="api-gateway-routes-heading">Model routes</h3>
-<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><span><strong>Enterprise cloud</strong><small>AWS, Microsoft Azure, and Google Cloud Vertex AI</small></span></li><li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span><strong>SDSC-hosted</strong><small>Locally hosted at the San Diego Supercomputer Center</small></span></li></ul>
+<ul class="api-gateway-node-list"><li><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><span><strong>Enterprise cloud</strong><small>AWS, Microsoft Azure, and Google Cloud Vertex AI</small></span></li><li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span><strong>On-premises hosted</strong><small>Locally hosted on campus compute infrastructure</small></span></li></ul>
 </section>
 <section class="api-gateway-capabilities" aria-labelledby="api-gateway-capabilities-heading"><p class="api-gateway-lane-label">Capabilities vary by model</p><h3 id="api-gateway-capabilities-heading">Available capabilities</h3><ul><li>Chat</li><li>Reasoning</li><li>Vision</li><li>Image generation</li><li>OCR</li><li>Coding</li></ul></section>
 </div>
@@ -128,7 +157,7 @@ bannerMode: abstract
 <li><strong>Supported connections</strong><span>Available productivity and browser connections are configured for supervised work.</span></li>
 </ul>
 </div><div class="col-md-5 hub-split-media"><div class="build-harness-card"><p class="build-harness-card-label">What the Gateway supplies</p><ol class="build-harness-flow" aria-label="What an API client receives from the TritonAI Gateway"><li><span>01</span><strong>One endpoint</strong><small>A shared API for approved clients and applications</small></li><li class="build-harness-core"><span>02</span><strong>Approved model routes</strong><small>The cloud and UC-hosted models available to your key</small></li><li><span>03</span><strong>Access and limits</strong><small>The funding treatment and usage controls in your approval</small></li></ol></div></div></div>
-<aside class="build-harness-access" aria-labelledby="harness-access-heading"><div><p class="home-kicker">API access and client setup</p><h3 id="harness-access-heading">Request access, then choose a client</h3><p>The access page covers eligibility, funding, key protection, client choice, and TritonAI Harness installation.</p></div><a class="btn btn-primary btn-lg" href="/developer-apis/start.html">Get API access</a></aside>
+<aside class="build-harness-access" aria-labelledby="harness-access-heading"><div><p class="home-kicker">Interactive agent workspace</p><h3 id="harness-access-heading">Learn more about TritonAI Harness</h3><p>Review the application architecture, comparison with TritonGPT, bundled skills, and Microsoft 365 plugin safeguards.</p></div><a class="btn btn-primary btn-lg" href="/developer-apis/harness.html">Explore TritonAI Harness</a></aside>
 <p class="build-harness-source">TritonAI Harness is the primary supported client. Other compatible clients use the Gateway endpoint and key from their approval, and their features, extensions, and setup may differ.</p>
 </section>
 

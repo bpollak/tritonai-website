@@ -65,11 +65,11 @@ bannerMode: abstract
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="campus-path-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">TritonAI ecosystem</p><h2 id="campus-path-heading">Choose a path that fits the work</h2><p>Begin with the simplest supported option that can meet the need. A workflow may move to a different path as its audience, data, or support requirements change.</p></div>
 <div class="build-tool-grid">
-<article class="build-tool-preferred"><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Interactive agent work</p><h3>TritonAI Harness</h3><p>Explore a bounded task across files, browser work, and supported connections. Keep approval points visible while you learn what should become repeatable.</p></article>
+<article class="build-tool-preferred"><span class="glyphicon glyphicon-console" aria-hidden="true"></span><p class="build-tool-label">Interactive agent work</p><h3><a href="/developer-apis/harness.html">TritonAI Harness</a></h3><p>Explore a bounded task across files, browser work, and supported connections. Keep approval points visible while you learn what should become repeatable.</p></article>
 <article><span class="glyphicon glyphicon-random" aria-hidden="true"></span><p class="build-tool-label">Repeatable workflow</p><h3>n8n</h3><p>Run defined steps from a schedule, message, webhook, or file event when the process and its exceptions are understood.</p></article>
 <article><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><p class="build-tool-label">Application or shared capability</p><h3>APIs and skills</h3><p>Add approved model access to software you operate, or package instructions and reference material so a reviewed capability can be reused.</p></article>
 </div>
-<p class="hub-section-action"><a class="btn btn-primary" href="/developer-apis/index.html">Compare TritonAI build paths</a> <a class="btn btn-default" href="/skills/index.html">Browse the Skills Library</a></p>
+<p class="hub-section-action"><a class="btn btn-primary" href="/developer-apis/harness.html">Get TritonAI Harness</a> <a class="btn btn-default" href="/developer-apis/index.html">Compare build paths</a> <a class="btn btn-default" href="/skills/index.html">Browse the Skills Library</a></p>
 </div>
 </section>
 
