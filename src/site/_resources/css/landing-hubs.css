@@ -5931,3 +5931,208 @@
   .media-feature-card:hover,
   .media-feature-card:focus { transform: none; }
 }
+
+/* --- TritonAI Harness page: "what a harness adds" comparison (from the deck) --- */
+.harness-compare { border-top: 1px solid #d9e2e6; }
+.harness-compare-grid { display: flex; flex-wrap: wrap; }
+.harness-compare-grid::before, .harness-compare-grid::after { display: none; }
+.harness-compare-grid > [class*="col-"] { display: flex; margin-bottom: 24px; }
+.harness-compare-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: #f3f8fa;
+  border: 1px solid #cfdde2;
+  border-radius: 7px;
+  box-shadow: 0 1px 0 rgba(23, 24, 20, .03);
+  height: 100%;
+  padding: 28px;
+}
+.harness-compare-card-harness { background: #fff8f2; border-color: #e7d9c4; }
+.harness-compare-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.harness-compare-title {
+  color: var(--triton-blue);
+  font-family: Teko-SemiBold, sans-serif;
+  font-size: 40px;
+  letter-spacing: .04em;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+.harness-compare-sub { color: #52616b; font-size: 20px; font-style: italic; margin: 8px 0 0; }
+.harness-compare-pills { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-top: 6px; }
+.harness-pill {
+  background: #fff;
+  border: 1px solid #b9d3dc;
+  border-radius: 999px;
+  color: var(--triton-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+.harness-pill-square { border-radius: 5px; background: #e7f3f8; }
+.harness-pill-arrow { color: #6f8fa0; }
+.harness-compare-flow {
+  align-items: center;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 76px 1fr;
+  margin-top: 24px;
+}
+.harness-node {
+  background: #fff;
+  border: 1px solid #b9d3dc;
+  border-radius: 7px;
+  color: var(--triton-blue);
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 10px;
+  text-align: center;
+}
+.harness-node-tint { background: #e7f3f8; }
+.harness-model {
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid var(--triton-blue);
+  border-radius: 50%;
+  color: var(--triton-blue);
+  display: flex;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 500;
+  height: 76px;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  width: 76px;
+}
+.harness-compare-track { display: block; height: 18px; margin-top: 14px; width: 100%; }
+.harness-compare-loop {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e7d9c4;
+  border-radius: 9px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 120px 1fr;
+  margin-top: 24px;
+  padding: 16px 20px;
+}
+.harness-stack { list-style: none; margin: 0; padding: 0; }
+.harness-stack li {
+  border: 1px solid var(--triton-border);
+  border-radius: 5px;
+  color: #52616b;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 10px;
+  text-align: center;
+}
+.harness-stack li + li { margin-top: 10px; }
+.harness-stack-out li { border-color: #b9d3dc; color: var(--triton-blue); }
+.harness-model-ring {
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 120px;
+}
+.harness-model-ring svg { height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+.harness-model-gold { border-color: #c69214; font-size: 48px; height: 88px; width: 88px; z-index: 1; }
+.harness-model-gold small {
+  background: #c69214;
+  border-radius: 999px;
+  bottom: -6px;
+  color: #fff;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1;
+  padding: 4px 7px;
+  position: absolute;
+  right: -8px;
+}
+.harness-compare-result {
+  margin-top: auto;
+  align-items: center;
+  border-top: 1px solid #d9e2e6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+.harness-compare-label {
+  color: #52616b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.harness-chip {
+  background: #fff;
+  border: 1px solid #b9d3dc;
+  border-radius: 5px;
+  color: var(--triton-blue);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 10px;
+}
+.harness-chip .glyphicon { font-size: 12px; margin-right: 6px; top: 1px; }
+.harness-chip-quote { border-radius: 14px; font-weight: 400; }
+.harness-compare-end { color: #52616b; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.harness-compare-note { color: #52616b; font-size: 17px; line-height: 1.4; margin: auto 0 0; padding-top: 20px; }
+
+/* --- TritonAI Harness page: sub-agents figure (from the deck) --- */
+.harness-subagents-figure { margin: 0; }
+.harness-subagents-figure svg { display: block; height: auto; max-width: 1100px; margin: 0 auto; width: 100%; }
+.harness-subagents-figure text { font-family: Roboto, Arial, sans-serif; }
+.harness-subagents-figure figcaption { color: #52616b; font-size: 15px; margin-top: 18px; text-align: center; }
+.harness-subagents-legend { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+.harness-subagents-legend li { border-left: 4px solid; padding-left: 14px; }
+.harness-subagents-legend li:nth-child(1) { border-color: #2f6f8f; }
+.harness-subagents-legend li:nth-child(2) { border-color: #b4562a; }
+.harness-subagents-legend li:nth-child(3) { border-color: #557a2e; }
+.harness-subagents-legend strong { color: var(--triton-navy); display: block; font-size: 17px; }
+.harness-subagents-legend span { color: #52616b; display: block; font-size: 15px; margin-top: 4px; }
+
+@media (max-width: 767px) {
+  .harness-compare-title { font-size: 32px; }
+  .harness-compare-flow, .harness-compare-loop { grid-template-columns: 1fr; }
+  .harness-model, .harness-model-ring { margin: 6px auto; }
+  .harness-subagents-legend { grid-template-columns: 1fr; }
+}
+
+/* --- Harness page motion (mirrors the deck; disabled for reduced-motion users) --- */
+@keyframes harness-chat-dot {
+  0% { transform: translateX(0); opacity: 1; }
+  78% { transform: translateX(382px); opacity: 1; }
+  82% { transform: translateX(382px); opacity: 0; }
+  97% { transform: translateX(382px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes harness-arc { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -89; } }
+@keyframes harness-orbit { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+@keyframes harness-dash { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -9; } }
+@keyframes harness-dash-rev { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 9; } }
+.harness-anim-chat-dot { animation: harness-chat-dot 8s linear infinite; }
+.harness-anim-arc { animation: harness-arc 8s linear infinite; }
+.harness-anim-orbit {
+  animation: harness-orbit 8s linear infinite;
+  offset-path: path("M 60 5 A 55 55 0 1 1 60 115 A 55 55 0 1 1 60 5");
+  offset-rotate: 0deg;
+}
+@supports not (offset-path: path("M 0 0 L 1 1")) { .harness-anim-orbit { display: none; } }
+.harness-anim-dash { animation: harness-dash 1.4s linear infinite; }
+.harness-anim-dash-rev { animation: harness-dash-rev 1.4s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .harness-anim-chat-dot, .harness-anim-arc, .harness-anim-orbit, .harness-anim-dash, .harness-anim-dash-rev { animation: none; }
+  .harness-anim-chat-dot, .harness-anim-orbit { display: none; }
+}
