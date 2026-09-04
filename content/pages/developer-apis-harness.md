@@ -1,7 +1,7 @@
 ---
 title: TritonAI Harness
 path: /developer-apis/harness.html
-description: A local-first agent control surface for desktop and web that connects campus builders to approved models, local files, and UC San Diego systems under human supervision.
+description: A local-first agent control surface connecting campus builders to approved models, local files, and UC San Diego systems under human supervision.
 eyebrow: Build with TritonAI
 lastReviewed: 2026-09-03
 audiences: [staff, faculty, researchers, developers]
@@ -49,18 +49,18 @@ bannerMode: abstract
 <h2 id="comparison-heading">Comparing TritonGPT and TritonAI Harness</h2>
 <p>Both services use UC San Diego AI infrastructure, but they serve different tasks and handle data differently.</p>
 </div>
-<div class="table-responsive comparison-table-wrapper">
-<table class="table comparison-table">
-<thead>
-<tr>
-<th class="col-feature" scope="col">Capabilities</th>
-<th class="col-tritongpt" scope="col">
+<div class="comparison-table-wrapper">
+<table class="table comparison-table" role="table" aria-labelledby="comparison-heading">
+<thead role="rowgroup">
+<tr role="row">
+<th class="col-feature" scope="col" role="columnheader">Capabilities</th>
+<th class="col-tritongpt" scope="col" role="columnheader">
 <div class="comparison-table-product">
 <strong>TritonGPT</strong>
 <span class="comparison-table-badge">Web Platform</span>
 </div>
 </th>
-<th class="col-harness" scope="col">
+<th class="col-harness" scope="col" role="columnheader">
 <div class="comparison-table-product">
 <strong>TritonAI Harness</strong>
 <span class="comparison-table-badge comparison-table-badge-gold">Agent Workspace</span>
@@ -68,109 +68,121 @@ bannerMode: abstract
 </th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<th scope="row"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> Where it runs</th>
-<td>
+<tbody role="rowgroup">
+<tr role="row">
+<th scope="row" role="rowheader"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> Where it runs</th>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonGPT</span>
 <div class="comparison-table-val">
 <strong>Campus web servers</strong>
 <small>Access directly in any browser. No local installation or setup required.</small>
 </div>
 </td>
-<td>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonAI Harness</span>
 <div class="comparison-table-val">
 <strong>Local workstation</strong>
 <small>Native desktop app installed on your Mac (M1+) or Windows x64 computer.</small>
 </div>
 </td>
 </tr>
-<tr>
-<th scope="row"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> System access</th>
-<td>
+<tr role="row">
+<th scope="row" role="rowheader"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> System access</th>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonGPT</span>
 <div class="comparison-table-val">
 <strong>Session uploads</strong>
 <small>Reads documents and spreadsheets uploaded into active chat conversations.</small>
 </div>
 </td>
-<td>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonAI Harness</span>
 <div class="comparison-table-val">
 <strong>Local folders, terminal, &amp; git</strong>
 <small>Reads project directories, edits local code, and runs shell commands with your approval.</small>
 </div>
 </td>
 </tr>
-<tr>
-<th scope="row"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Data storage</th>
-<td>
+<tr role="row">
+<th scope="row" role="rowheader"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Data storage</th>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonGPT</span>
 <div class="comparison-table-val">
 <strong>Campus server retention (90 days)</strong>
 <small>Chat conversations reside on campus servers and purge automatically after 90 days.</small>
 </div>
 </td>
-<td>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonAI Harness</span>
 <div class="comparison-table-val">
 <strong>100% local residency (~/.tritonai-harness)</strong>
 <small>Transcripts, code, and memory vaults remain on your device with instant user deletion.</small>
 </div>
 </td>
 </tr>
-<tr>
-<th scope="row"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Host plugins</th>
-<td>
+<tr role="row">
+<th scope="row" role="rowheader"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Host plugins</th>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonGPT</span>
 <div class="comparison-table-val">
 <strong>Web widgets &amp; directory</strong>
 <small>Connects to university websites, departmental knowledge bases, and directory lookups.</small>
 </div>
 </td>
-<td>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonAI Harness</span>
 <div class="comparison-table-val">
 <strong>GitHub, Google Workspace, &amp; Microsoft 365</strong>
 <small>Host-managed OAuth plugins with draft-first safeguards for email and calendar.</small>
 </div>
 </td>
 </tr>
-<tr>
-<th scope="row"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Human oversight</th>
-<td>
+<tr role="row">
+<th scope="row" role="rowheader"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Human oversight</th>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonGPT</span>
 <div class="comparison-table-val">
 <strong>Chat window interaction</strong>
 <small>You evaluate text responses directly in the browser interface.</small>
 </div>
 </td>
-<td>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonAI Harness</span>
 <div class="comparison-table-val">
 <strong>Human-in-the-loop review</strong>
 <small>Explicit human approval required for every file modification, shell command, or write action.</small>
 </div>
 </td>
 </tr>
-<tr>
-<th scope="row">
+<tr role="row">
+<th scope="row" role="rowheader">
 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:8px;fill:none;stroke:var(--triton-blue,#006A96);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;">
 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
 <path d="M9 12l2 2 4-4"/>
 </svg>
 Data classification
 </th>
-<td>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonGPT</span>
 <div class="comparison-table-val">
 <strong><span class="glyphicon glyphicon-ok-circle" style="color:#00853E;margin-right:4px;" aria-hidden="true"></span> P1 through P3 Approved</strong>
 <small>Approved for institutional campus records. Protection Level 4 (P4) is prohibited.</small>
 </div>
 </td>
-<td>
+<td role="cell">
+<span class="comparison-mobile-label" aria-hidden="true">TritonAI Harness</span>
 <div class="comparison-table-val">
 <strong><span class="glyphicon glyphicon-ok-circle" style="color:#00853E;margin-right:4px;" aria-hidden="true"></span> P1 through P3 Approved</strong>
 <small>Approved for administrative and research work in approved setups. P4 prohibited.</small>
 </div>
 </td>
 </tr>
-<tr class="comparison-table-action-row">
-<td></td>
-<td>
+<tr class="comparison-table-action-row" role="row">
+<td role="cell"></td>
+<td role="cell">
 <a class="btn btn-default btn-block" href="/tritongpt/index.html">Open TritonGPT Web</a>
 </td>
-<td>
+<td role="cell">
 <a class="btn btn-primary btn-block" href="/developer-apis/start.html#harness">Get TritonAI Harness</a>
 </td>
 </tr>
@@ -362,14 +374,14 @@ Data classification
 <div class="col-md-4">
 <article class="panel panel-default hub-action-card">
 <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-<h3>1. Verify requirements</h3>
+<h3>Step 1: Verify requirements</h3>
 <p>Mac requires Apple Silicon (M1 or newer). Windows requires an x64 processor. Workstations must maintain active disk encryption (FileVault or BitLocker) for P2 and P3 data.</p>
 </article>
 </div>
 <div class="col-md-4">
 <article class="panel panel-default hub-action-card">
 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-<h3>2. Request Gateway key</h3>
+<h3>Step 2: Request Gateway key</h3>
 <p>Submit an access request through Kuali Build. Campus administrative work using on-premises models is non-recharged.</p>
 <p><a class="btn btn-default" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Submit access request</a></p>
 </article>
@@ -377,7 +389,7 @@ Data classification
 <div class="col-md-4">
 <article class="panel panel-default hub-action-card">
 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
-<h3>3. Download and set up</h3>
+<h3>Step 3: Download and set up</h3>
 <p>Visit the Get Started page for current macOS (Apple Silicon DMG) and Windows (x64 Setup EXE) installers, release notes, and configuration steps.</p>
 <p><a class="btn btn-primary" href="/developer-apis/start.html#harness">Go to Download &amp; Setup <span aria-hidden="true">→</span></a></p>
 </article>

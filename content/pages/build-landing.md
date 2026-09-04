@@ -15,53 +15,85 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">TritonAI Developer APIs</p><h2 id="build-intro-heading">Connect your tools to approved AI models</h2><p class="hub-lede">The TritonAI LLM Gateway gives campus builders one API for approved enterprise cloud and UC-hosted models. Request access, choose a model route, and connect from TritonAI Harness or another compatible client. When other people rely on what you build, move it into hosting and support sized to its users, data, and impact.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">TritonAI Developer APIs</p><h2 id="build-intro-heading">Connect your tools to approved AI models</h2><p class="hub-lede">The TritonAI LLM Gateway gives campus builders one API for approved enterprise cloud and UC-hosted models. Hooking up to the Gateway via the API is foundational to using the platform's other tools and services: desktop agent workspaces like TritonAI Harness, automated workflows in n8n, and custom applications all rely on this shared endpoint. Request access, choose an approved model route, and connect. When other people rely on what you build, move it into hosting and support sized to its users, data, and impact.</p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
-<p class="build-architecture-label">From API access to a supported service</p>
+<p class="build-architecture-label">How to explore and get started</p>
 <ol class="build-architecture-flow">
-<li><span>01</span><div><strong>Campus need</strong><small>A real person, a real task, data you are allowed to use.</small></div></li>
-<li><span>02</span><div><strong>Gateway access</strong><small>An approved API key, model route, and usage limits.</small></div></li>
-<li><span>03</span><div><strong>Client or application</strong><small>TritonAI Harness, another compatible harness, or software you build.</small></div></li>
-<li><span>04</span><div><strong>Owned service</strong><small>Hosting, support, and review sized to what breaks if it fails.</small></div></li>
+<li><span>01</span><div><strong>Choose your track</strong><small>Citizen automation, desktop agents, APIs, or research compute.</small></div></li>
+<li><span>02</span><div><strong>Browse models &amp; skills</strong><small>Explore approved cloud and UC-hosted routes in Model Hub.</small></div></li>
+<li><span>03</span><div><strong>Check data &amp; recharge</strong><small>Confirm P1 to P3 compliance and recharge or cap rules.</small></div></li>
+<li><span>04</span><div><strong>Connect &amp; build</strong><small>Hook up to the Gateway API to power Harness, n8n, or code.</small></div></li>
 </ol>
-<figcaption class="sr-only" id="build-architecture-caption">A campus need moves through Gateway access and a compatible client or application into an owned service.</figcaption>
+<figcaption class="sr-only" id="build-architecture-caption">A four-stage evaluation journey: choose a track, browse models and skills, check data and recharge, and connect an approved client.</figcaption>
 </figure>
 </div></div>
 </section>
 
 <section class="hub-section hub-section-dark hub-full-bleed" id="builder-entry-points" aria-labelledby="builder-routes-heading">
-<div class="container"><div class="hub-heading"><p class="home-kicker">Choose your track</p><h2 id="builder-routes-heading">How do you want to build?</h2><p>Select the path that matches your technical role, project scope, and data requirements.</p></div>
+<div class="container"><div class="hub-heading"><p class="home-kicker">Choose your track</p><h2 id="builder-routes-heading">How do you want to build?</h2><p>Connecting to the TritonAI LLM Gateway via the API is foundational to using all campus AI tools and services. Select your starting track below, jump directly to sections on this page, or open the full guide.</p></div>
 <div class="row hub-action-grid hub-action-grid-three">
 <div class="col-md-4">
-<article class="panel panel-default hub-action-card">
+<article class="panel panel-default hub-action-card builder-track-card">
+<div class="builder-track-header">
 <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+<span class="builder-track-pill">Staff &amp; Analysts</span>
+</div>
 <h3>Desktop AI Agents</h3>
-<p>Work directly with local files, spreadsheets, code, and Microsoft 365. TritonAI Harness is the primary supported agent workspace for staff and developers.</p>
-<div class="hub-action-card-footer">
+<p class="builder-track-summary">Connect TritonAI Harness to the LLM Gateway to work with local files, spreadsheets, code, and Microsoft 365 in a supervised desktop workspace. Approved up to Protection Level 3 (P3).</p>
+<div class="builder-track-waypoints">
+<p class="builder-track-waypoint-label">On this page:</p>
+<ul class="builder-track-links">
+<li><a href="#tritonai-harness"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> TritonAI Harness overview</a></li>
+<li><a href="#workflow-automation"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> n8n workflow automation</a></li>
+</ul>
+</div>
+<div class="hub-action-card-footer builder-track-footer">
 <p><a class="btn btn-primary btn-block" href="/developer-apis/harness.html">Explore TritonAI Harness <span aria-hidden="true">→</span></a></p>
-<p style="margin:8px 0 0;text-align:center;"><small>Planning a workflow? <a href="/developer-apis/citizen-developer.html">Citizen Developer Guide</a></small></p>
+<p class="builder-track-sublink"><small>Planning a workflow? <a href="/developer-apis/citizen-developer.html">Citizen Developer Guide</a></small></p>
 </div>
 </article>
 </div>
 <div class="col-md-4">
-<article class="panel panel-default hub-action-card">
+<article class="panel panel-default hub-action-card builder-track-card">
+<div class="builder-track-header">
 <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+<span class="builder-track-pill">Developers &amp; Engineers</span>
+</div>
 <h3>Developer APIs &amp; Gateway</h3>
-<p>Integrate models into applications, scripts, or automated n8n pipelines through one OpenAI-compatible endpoint with approved cloud and on-premises routes.</p>
-<div class="hub-action-card-footer">
+<p class="builder-track-summary">Direct API access to the LLM Gateway. Connect applications, automated pipelines, or scripts to approved cloud and UC-hosted models through a single shared campus endpoint.</p>
+<div class="builder-track-waypoints">
+<p class="builder-track-waypoint-label">On this page:</p>
+<ul class="builder-track-links">
+<li><a href="#api-gateway"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Gateway connection map</a></li>
+<li><a href="#model-catalog"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Current model catalog</a></li>
+<li><a href="#hosting-lanes"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Hosting lanes 0–3 &amp; lifecycle</a></li>
+</ul>
+</div>
+<div class="hub-action-card-footer builder-track-footer">
 <p><a class="btn btn-primary btn-block" href="/developer-apis/start.html">Request API access <span aria-hidden="true">→</span></a></p>
-<p style="margin:8px 0 0;text-align:center;"><small>Review routes and rates in the <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a></small></p>
+<p class="builder-track-sublink"><small>Live rates and limits in <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/">Model Hub</a></small></p>
 </div>
 </article>
 </div>
 <div class="col-md-4">
-<article class="panel panel-default hub-action-card">
+<article class="panel panel-default hub-action-card builder-track-card">
+<div class="builder-track-header">
 <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+<span class="builder-track-pill">Faculty &amp; Researchers</span>
+</div>
 <h3>Academic &amp; Research Compute</h3>
-<p>Access high-performance GPU capacity, course containers, and interactive DataHub Jupyter notebooks for academic and research computing.</p>
-<div class="hub-action-card-footer">
+<p class="builder-track-summary">Access shared GPU clusters, pre-configured course containers, and interactive DataHub Jupyter notebooks for teaching, research, and Gateway-connected workloads.</p>
+<div class="builder-track-waypoints">
+<p class="builder-track-waypoint-label">On this page:</p>
+<ul class="builder-track-links">
+<li><a href="#shared-compute"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Shared compute &amp; DSMLP overview</a></li>
+<li><a href="/skills/index.html"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Reusable Skills Library</a></li>
+<li><a href="#gateway-usage"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Gateway usage &amp; platform scale</a></li>
+</ul>
+</div>
+<div class="hub-action-card-footer builder-track-footer">
 <p><a class="btn btn-primary btn-block" href="/developer-apis/dsmlp-datahub.html">Explore DSMLP &amp; DataHub <span aria-hidden="true">→</span></a></p>
-<p style="margin:8px 0 0;text-align:center;"><small>Package shared abilities in the <a href="/skills/index.html">Skills Library</a></small></p>
+<p class="builder-track-sublink"><small>Launch notebooks directly on <a href="https://datahub.ucsd.edu">DataHub</a></small></p>
 </div>
 </article>
 </div>
@@ -70,7 +102,7 @@ bannerMode: abstract
 
 <section class="hub-section hub-section-sand hub-full-bleed api-gateway-section" id="api-gateway" aria-labelledby="api-gateway-heading">
 <div class="container">
-<div class="hub-heading"><p class="home-kicker">One API for approved models</p><h2 id="api-gateway-heading">Connect through the TritonAI LLM Gateway</h2><p>The Gateway routes each approved key to models in the TritonAI catalog. Your approval defines access, limits, and funding treatment. The <a href="/developer-apis/start.html">access page</a> covers those details and client setup.</p></div>
+<div class="hub-heading"><p class="home-kicker">One API for approved models</p><h2 id="api-gateway-heading">Connect through the TritonAI LLM Gateway</h2><p>Hooking up to the TritonAI LLM Gateway via the API is foundational to using the other tools and services. Whether you run desktop agents in TritonAI Harness, orchestrate multi-step automations in n8n, or build custom apps, every request routes through this single endpoint. The Gateway routes each approved key to models in the TritonAI catalog. Your approval defines access, limits, and funding treatment. The <a href="/developer-apis/start.html">access page</a> covers those details and client setup.</p></div>
 <figure class="api-gateway-workflow" aria-describedby="api-gateway-caption">
 <div class="api-gateway-map">
 <div class="api-gateway-source-cluster">
@@ -167,7 +199,7 @@ bannerMode: abstract
 <h2 id="workflow-automation-heading">Build repeatable workflows with n8n</h2>
 <p>UC San Diego hosts n8n, a visual workflow-automation platform that connects applications and APIs with little or no code. A workflow can start from a schedule, webhook, email, or file event and then run a defined series of steps. Workflows can also include AI-assisted steps and pause for human review before selected actions.</p>
 <h3>Use TritonAI APIs in repeatable workflows</h3>
-<p>n8n can send model requests through the Gateway inside a defined workflow. For interactive agent work, connect TritonAI Harness or another compatible client to the same APIs.</p>
+<p>Connecting to the LLM Gateway via the API is foundational here as well: n8n sends model requests through the Gateway inside a defined workflow. For interactive agent work, connect TritonAI Harness or another compatible client to the same APIs.</p>
 <p><a class="btn btn-primary" href="https://support.ucsd.edu/">Request n8n access</a> <a class="btn btn-default" href="https://n8n.tritonai.ucsd.edu/">Open n8n</a></p>
 </div><div class="col-md-5 hub-split-media">
 <aside class="shared-compute-mini" aria-labelledby="n8n-access-heading">
@@ -190,8 +222,8 @@ bannerMode: abstract
 </section>
 
 <section class="hub-section" id="service-lifecycle" aria-labelledby="build-lifecycle-heading">
-<div class="hub-heading"><p class="home-kicker">From request to service</p><h2 id="build-lifecycle-heading">What a prototype needs before it becomes a service</h2><p>The more people rely on it and the worse the failure, the more of this you have to have in place.</p></div>
-<ol class="hub-lifecycle"><li><span>Request</span><p>Name the user, the task, the data you may use, and how you will know it worked.</p></li><li><span>Prototype</span><p>Keep the data bounded and put a person in the loop on purpose.</p></li><li><span>Evaluate</span><p>Test quality, accessibility, security, and what it costs to run.</p></li><li><span>Operate</span><p>Name an owner, write down the controls, support your users, and watch it.</p></li></ol>
+<div class="hub-heading"><p class="home-kicker">Service lifecycle</p><h2 id="build-lifecycle-heading">How a prototype moves to production</h2><p>Projects evolve from bounded desktop experiments into shared campus services through four stages.</p></div>
+<ol class="hub-lifecycle"><li><span>Request</span><p>Define the audience, task, approved data, and success metrics.</p></li><li><span>Prototype</span><p>Run a bounded test with a person actively reviewing results.</p></li><li><span>Evaluate</span><p>Audit quality, accessibility, security, and recharge impact.</p></li><li><span>Operate</span><p>Establish named ownership, uptime monitoring, and user support.</p></li></ol>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed hosting-lanes-section" id="hosting-lanes" aria-labelledby="hosting-lanes-heading">

@@ -4418,6 +4418,7 @@ a.developer-download-button:visited {
 .comparison-table {
   background: #ffffff;
   margin-bottom: 0;
+  table-layout: fixed;
   width: 100%;
 }
 
@@ -4451,6 +4452,8 @@ a.developer-download-button:visited {
 .comparison-table-product {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
 }
 
@@ -4489,7 +4492,7 @@ a.developer-download-button:visited {
   color: var(--triton-navy, #182b49);
   font-size: 14px;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .comparison-table > tbody > tr > th .glyphicon {
@@ -4517,6 +4520,68 @@ a.developer-download-button:visited {
 .comparison-table-action-row td {
   background: #f1f5f9;
   padding: 16px 20px !important;
+}
+
+.comparison-mobile-label {
+  display: none;
+}
+
+.comparison-table-val,
+.comparison-table .btn {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* Keep the same table and reading order, with paired values below each
+   capability on narrow screens. Explicit HTML roles preserve table semantics. */
+@media (max-width: 991px) {
+  main#main-content .comparison-table,
+  main#main-content .comparison-table > tbody,
+  main#main-content .comparison-table > tbody > tr,
+  main#main-content .comparison-table > tbody > tr > th,
+  main#main-content .comparison-table > tbody > tr > td {
+    display: block;
+    width: 100%;
+  }
+
+  main#main-content .comparison-table > thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  main#main-content .comparison-table > tbody > tr > th {
+    background: #e6f2f1;
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  main#main-content .comparison-table > tbody > tr > td {
+    padding: 16px;
+  }
+
+  main#main-content .comparison-mobile-label {
+    color: #006a96;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  main#main-content .comparison-table-val small {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  main#main-content .comparison-table-action-row > td:empty {
+    display: none;
+  }
 }
 
 /* Clean Workbench Styles for start.html */
@@ -4738,7 +4803,6 @@ a.developer-download-button:visited {
   line-height: 1.55;
   margin-bottom: 0;
 }
-
 
 
 

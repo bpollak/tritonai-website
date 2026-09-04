@@ -3300,6 +3300,99 @@
   padding-top: 14px;
 }
 
+/* Builder Track Cards & Waypoint Navigation */
+.builder-track-card {
+  padding: 24px 22px 20px;
+}
+
+.builder-track-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.builder-track-pill {
+  background: rgba(24, 43, 73, .08);
+  border-radius: 12px;
+  color: var(--triton-navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  padding: 3px 10px;
+  text-transform: uppercase;
+}
+
+.builder-track-summary {
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.builder-track-waypoints {
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  margin: 0 0 18px;
+  padding: 12px 14px;
+}
+
+.builder-track-waypoint-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.builder-track-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.builder-track-links li {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.builder-track-links li:last-child {
+  margin-bottom: 0;
+}
+
+.builder-track-links a {
+  color: var(--triton-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  padding-top: 0;
+  text-decoration: none;
+}
+
+.builder-track-links a:hover,
+.builder-track-links a:focus {
+  color: var(--triton-navy);
+  text-decoration: underline;
+}
+
+.builder-track-links .glyphicon {
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.builder-track-footer {
+  margin-top: auto;
+}
+
+.builder-track-sublink {
+  margin: 8px 0 0;
+  text-align: center;
+}
+
 .hub-path-list {
   counter-reset: path;
   list-style: none;
