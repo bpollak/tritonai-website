@@ -2,6 +2,7 @@
 title: PDF Remediator
 slug: pdf-remediation
 summary: Finds the document-accessibility problems software can catch reliably, and hands a qualified remediator the evidence for the rest.
+buildPath: TritonAI solutions team build
 status: Pilot
 owner: TritonAI solutions team and campus accessibility partners
 lastReviewed: 2026-08-25

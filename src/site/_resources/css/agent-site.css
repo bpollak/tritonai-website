@@ -4728,6 +4728,21 @@ a.developer-download-button:visited {
   text-decoration: underline;
 }
 
+/* Light asides inside a dark band keep the light-band link color so the
+   contrast holds against their white background. */
+.hub-section-dark .shared-compute-mini a:not(.btn),
+.hub-section-dark .hub-note-card a:not(.btn) {
+  color: var(--triton-blue);
+  text-decoration: underline;
+}
+
+.hub-section-dark .shared-compute-mini a:not(.btn):hover,
+.hub-section-dark .shared-compute-mini a:not(.btn):focus,
+.hub-section-dark .hub-note-card a:not(.btn):hover,
+.hub-section-dark .hub-note-card a:not(.btn):focus {
+  color: var(--triton-navy);
+}
+
 /* Ensure links inside cards placed in dark sections have proper contrast on light backgrounds */
 .hub-section-dark .hub-quote-card a:not(.btn),
 .hub-section-dark .hub-note-card a:not(.btn),

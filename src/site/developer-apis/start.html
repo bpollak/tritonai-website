@@ -14,7 +14,7 @@
     <meta content="initial-scale=1.0" name="viewport"/>
     <meta content="7MiYjX2ZghMOWvtKRWlar--c6mD2ose5EcbQFQ6szFA" name="google-site-verification"/>
     
-    <title>Get TritonAI LLM Access via API</title>
+    <title>Get Started with TritonAI</title>
     <meta content="University of California San Diego" name="ORGANIZATION"/>
     <meta content="index,follow,noarchive" name="robots"/>
     <meta content="TritonAI" name="SITE"/>
@@ -470,7 +470,7 @@
                     <div class="text-indent text-indent-h1 animated fadeInUp">
                        
                                               
-                                                     <h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">Get TritonAI LLM Access via API</h1>
+                                                     <h1 class="intro-banner-heading" style="  text-align:left !important; float: left; margin-left: 0 !important;">Get Started</h1>
                                             
                                         
                     </div>
@@ -530,9 +530,9 @@
     
 
 <div class="developer-start-intro">
-<p class="home-kicker">Developer Onboarding</p>
+<p class="home-kicker">Build with TritonAI</p>
 <h2>Get started with the TritonAI Gateway</h2>
-<p class="lead">Follow three steps to request approved API access, choose your client, and start building with campus AI models.</p>
+<p class="lead">Request a Gateway key, connect a client, and run a first test. n8n access is a separate request, covered at the end of this page.</p>
 </div>
 
 <div class="developer-start-flow">
@@ -545,11 +545,11 @@
 <h2 id="developer-start-step-one">Request Gateway access</h2>
 </div>
 </header>
-<p>Submit the universal intake form to receive your approved API key and model allocations.</p>
+<p>Submit the access form to receive your approved Gateway key and the models available to it. The approval records the access, limits, and billing treatment for the key.</p>
 
 <div class="row" style="margin-top: 16px;">
 <div class="col-sm-7">
-<p>On-premises model access has <strong>$0 recharge</strong> for campus administrative work. Cloud models or grant-funded research require a departmental chartstring.</p>
+<p>UC-hosted models carry <strong>no recharge</strong> for campus administrative work. Cloud models and sponsored research require a departmental or project chartstring. Recharge is the campus term for internal billing to a chartstring.</p>
 <p><a class="btn btn-primary" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request Gateway access (Kuali Build) <span aria-hidden="true">→</span></a></p>
 </div>
 <div class="col-sm-5">
@@ -563,7 +563,7 @@
 <div class="workbench-policy-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid var(--triton-navy,#182b49);border-radius:4px;padding:16px 20px;margin-top:20px;">
 <h3 style="margin:0 0 10px;font-size:16px;font-weight:700;color:var(--triton-navy,#182b49);">Eligibility and recharge details</h3>
 <ul style="margin:0;padding-left:18px;font-size:14px;color:#334155;line-height:1.6;">
-<li><strong>Faculty and staff:</strong> Campus and Health Sciences personnel may use on-premises models for administrative work under Monthly caps.</li>
+<li><strong>Faculty and staff:</strong> Campus and Health Sciences personnel may use UC-hosted models for administrative work under monthly caps.</li>
 <li><strong>Research projects:</strong> Sponsored research charges model usage to an approved grant or project chartstring.</li>
 <li><strong>Other UC campuses:</strong> Intercampus recharge agreements are arranged via <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a>.</li>
 <li><strong>Health System patient care:</strong> Clinical operations must use <a href="https://pulse.ucsd.edu/departments/is/AI/Pages/default.aspx" target="_blank" rel="noopener noreferrer">approved Medical Center AI platforms on Pulse</a>.</li>
@@ -585,7 +585,7 @@
 <div class="workbench-card-header">
 <span class="comparison-badge comparison-badge-preferred">Primary Supported Client</span>
 <h3 style="font-size: 20px; font-weight: 700; margin: 6px 0 4px; color: var(--triton-navy, #182b49);">TritonAI Harness</h3>
-<p style="color: #64748b; font-size: 14px; margin-bottom: 16px;">Native desktop app for local coding, file editing, terminal execution, and M365 integrations.</p>
+<p style="color: #64748b; font-size: 14px; margin-bottom: 16px;">Native desktop app for local coding, file editing, terminal execution, and Microsoft 365 connections. In pilot for Mac (Apple Silicon) and Windows. Anyone with a Gateway key can request it.</p>
 </div>
 <div class="developer-start-platforms">
 <article>
@@ -614,7 +614,7 @@
 <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Connect terminal agent runtimes to the Gateway.</p>
 <ul style="font-size: 13px; padding-left: 18px; margin-bottom: 0;">
 <li>Base URL: <code>https://tritonai-api.ucsd.edu/v1</code></li>
-<li>Default Model: <code>api-glm-5.2</code></li>
+<li>Default Model: <code>api-glm-5.3</code></li>
 <li>Store your API key in your shell profile.</li>
 </ul>
 </div>
@@ -630,7 +630,7 @@ client = OpenAI(
   api_key="YOUR_KEY"
 )
 resp = client.chat.completions.create(
-  model="api-glm-5.2",
+  model="api-glm-5.3",
   messages=[{"role":"user","content":"Hi"}]
 )</code></pre>
 <small style="color: #64748b;">See <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/" target="_blank" rel="noopener noreferrer">Model Hub</a> for available routes.</small>
@@ -653,7 +653,7 @@ resp = client.chat.completions.create(
 <div class="col-sm-7">
 <ol class="developer-start-actions">
 <li><span>1</span><div><strong>Enter your key</strong><p>Paste the approved key into your client settings.</p></div></li>
-<li><span>2</span><div><strong>Choose an approved model</strong><p>Select <code>api-glm-5.2</code> (on-premises, 320K context) or an approved cloud route.</p></div></li>
+<li><span>2</span><div><strong>Choose an approved model</strong><p>Select <code>api-glm-5.3</code> (UC-hosted, 320K context) or an approved cloud route.</p></div></li>
 <li><span>3</span><div><strong>Run a test request</strong><p>Confirm the model responds and check results.</p></div></li>
 </ol>
 </div>
@@ -662,6 +662,33 @@ resp = client.chat.completions.create(
 <h4>Need setup help?</h4>
 <p>If your key is rejected or models do not appear, remove extra spaces around your key. Keep the key private; support will never ask for your secret key.</p>
 <p>Email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a> with your operating system and error details. Never include the secret key in email.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="developer-start-step-n8n" class="developer-start-step" id="n8n">
+<header class="developer-start-step-header">
+<span aria-hidden="true">04</span>
+<div>
+<p class="home-kicker">Separate request</p>
+<h2 id="developer-start-step-n8n">Request n8n access</h2>
+</div>
+</header>
+<p>n8n is the campus-hosted workflow platform. Access is granted separately from a Gateway key, and workflows that call a model use your key through the Gateway.</p>
+<div class="row">
+<div class="col-sm-7">
+<ol class="developer-start-actions">
+<li><span>1</span><div><strong>Submit a support request</strong><p>Ask the ITS-TritonAI team for access to the n8n platform.</p></div></li>
+<li><span>2</span><div><strong>Describe the intended workflow</strong><p>Include your AD username, department, intended use case, and whether you need a testing environment.</p></div></li>
+<li><span>3</span><div><strong>Sign in after approval</strong><p>Use your UC San Diego SSO credentials at n8n.tritonai.ucsd.edu.</p></div></li>
+</ol>
+<p><a class="btn btn-primary" href="https://support.ucsd.edu/">Request n8n access</a> <a class="btn btn-default" href="https://n8n.tritonai.ucsd.edu/">Open n8n</a></p>
+</div>
+<div class="col-sm-5">
+<div class="developer-start-help" style="margin-top:0;">
+<h4>When n8n fits</h4>
+<p>You know the process and how it should handle exceptions. It runs on a schedule or when a message, file, or request arrives. For work that changes shape every time, start in TritonAI Harness instead.</p>
 </div>
 </div>
 </div>

@@ -340,8 +340,8 @@ function renderUseCaseCards(useCases) {
 
 const FEATURED_USE_CASE_SLUGS = ["contract-review", "transcript-matching", "instructional-ai"];
 
-function featuredUseCases(useCases) {
-  return FEATURED_USE_CASE_SLUGS.map((slug) => useCases.find((entry) => entry.slug === slug)).filter(Boolean);
+function featuredUseCases(useCases, slugs = FEATURED_USE_CASE_SLUGS) {
+  return slugs.map((slug) => useCases.find((entry) => entry.slug === slug)).filter(Boolean);
 }
 
 function useCaseCardSource(source) {
@@ -407,7 +407,7 @@ function renderUseCasePage(useCase) {
   const resourcesHtml = useCase.resourceLinks && useCase.resourceLinks.length
     ? `<div class="row agent-card-grid">${useCase.resourceLinks.map((resource) => `<div class="col-sm-6"><article class="panel panel-default agent-card"><div class="panel-body"><h3 class="h4"><a href="${escapeHtml(resource.href)}">${escapeHtml(resource.label)}</a></h3>${resource.description ? `<p>${escapeHtml(resource.description)}</p>` : ""}</div></article></div>`).join("")}</div>`
     : "";
-  const governanceHtml = `<section class="use-case-governance" aria-labelledby="${escapeHtml(useCase.slug)}-governance-heading"><div class="use-case-section-heading"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><p class="home-kicker">Accountability</p><h2 id="${escapeHtml(useCase.slug)}-governance-heading">How this use case is governed</h2></div></div><dl class="use-case-governance-grid"><div><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd></div><div><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd></div><div><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd></div><div><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd></div></dl><p class="use-case-governance-meta"><span><strong>Measurement period</strong> ${escapeHtml(useCase.measurementPeriod)}</span><span><strong>Last reviewed</strong> ${escapeHtml(useCase.lastReviewed)}</span></p></section>`;
+  const governanceHtml = `<section class="use-case-governance" aria-labelledby="${escapeHtml(useCase.slug)}-governance-heading"><div class="use-case-section-heading"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span><div><p class="home-kicker">Accountability</p><h2 id="${escapeHtml(useCase.slug)}-governance-heading">How this use case is governed</h2></div></div><dl class="use-case-governance-grid"><div><dt>Service owner</dt><dd>${escapeHtml(useCase.owner)}</dd></div><div><dt>Human oversight</dt><dd>${escapeHtml(useCase.humanOversight)}</dd></div><div><dt>Measurement plan</dt><dd>${escapeHtml(useCase.measurableOutcome)}</dd></div><div><dt>Data boundary</dt><dd>${escapeHtml(useCase.dataClassification)}</dd></div></dl><p class="use-case-governance-meta">${useCase.buildPath ? `<span><strong>Built as</strong> ${escapeHtml(useCase.buildPath)}</span>` : ""}<span><strong>Measurement period</strong> ${escapeHtml(useCase.measurementPeriod)}</span><span><strong>Last reviewed</strong> ${escapeHtml(useCase.lastReviewed)}</span></p></section>`;
   const overviewHtml = `<section class="use-case-overview" aria-label="${escapeHtml(useCase.title)} overview"><div class="use-case-overview-copy"><span class="glyphicon glyphicon-${escapeHtml(useCaseIcon)}" aria-hidden="true"></span><div><p class="home-kicker">Campus AI workflow</p>${renderStatus(useCase.status)}<p class="lead">${escapeHtml(useCase.summary)}</p></div></div>${statsHtml}</section>`;
   const mediaHtml = `${videoHtml}${screenshotsHtml}`;
   const evidenceHtml = mediaHtml || resourcesHtml || toolsHtml
@@ -610,11 +610,13 @@ cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>R
 }
 
 function navigationOwner(items, route) {
+  // The navigation data decides which section a page belongs to. The URL
+  // prefix is only a fallback for pages that no menu lists.
+  const listed = items.find((item) => item.href === route || item.items?.some((child) => child.href === route));
+  if (listed) return listed;
   const section = route.split("/").filter(Boolean)[0] || "";
   if (!section) return null;
-  const sectionOwner = items.find((item) => (item.href.split("/").filter(Boolean)[0] || "") === section);
-  if (sectionOwner) return sectionOwner;
-  return items.find((item) => item.items?.some((child) => child.href === route)) || null;
+  return items.find((item) => (item.href.split("/").filter(Boolean)[0] || "") === section) || null;
 }
 
 function renderNavigation(items, route, mobile = false) {
@@ -744,8 +746,10 @@ function breadcrumbFor(page) {
     "use-cases": "Use Cases",
     skills: "Skills Library",
   };
-  const sectionHref = section === "use-cases" ? "/use-cases/index.html" : `/${section}/index.html`;
-  return `<li><a href="/">TritonAI</a></li><li><a href="${sectionHref}">${escapeHtml(sectionLabels[section] || section)}</a></li><li aria-current="page">${escapeHtml(page.title)}</li>`;
+  const owner = navigationOwner(site.navigation || [], page.path);
+  const sectionHref = owner?.href || (section === "use-cases" ? "/use-cases/index.html" : `/${section}/index.html`);
+  const sectionLabel = owner?.label || sectionLabels[section] || section;
+  return `<li><a href="/">TritonAI</a></li><li><a href="${sectionHref}">${escapeHtml(sectionLabel)}</a></li><li aria-current="page">${escapeHtml(page.title)}</li>`;
 }
 
 function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
@@ -1143,7 +1147,14 @@ function transformHtml(html, relativePath, context) {
   $("[data-newsletters='all']").html(context.newsletters.map(renderNewsletter).join(""));
   const legacyNewsletterContainer = $(".space-y-12.md\\:space-y-14").first();
   if (legacyNewsletterContainer.length) legacyNewsletterContainer.html(context.newsletters.map(renderNewsletter).join(""));
-  $("[data-featured-use-cases='true']").html(renderUseCaseCards(featuredUseCases(context.useCases)));
+  // data-featured-use-cases="true" renders the site-wide featured trio; a
+  // comma-separated slug list renders that page's own selection.
+  $("[data-featured-use-cases]").each((_, element) => {
+    const target = $(element);
+    const value = (target.attr("data-featured-use-cases") || "").trim();
+    const slugs = value && value !== "true" ? value.split(",").map((slug) => slug.trim()).filter(Boolean) : FEATURED_USE_CASE_SLUGS;
+    target.html(renderUseCaseCards(featuredUseCases(context.useCases, slugs)));
+  });
   $("[data-public-facts='true']").html(renderPublicFacts(context.facts.facts));
   $("[data-gateway-usage='true']").html(renderGatewayUsage(context.gatewayUsage));
   $("[data-skills-library='true']").html(renderSkillsLibrary(context.skills));

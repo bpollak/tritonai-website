@@ -70,8 +70,8 @@
       "lastModified": "2026-08-21"
     },
     "/developer-apis/index.html": {
-      "title": "Build with TritonAI APIs",
-      "description": "Request TritonAI API access, choose an approved model route, and connect from TritonAI Harness or another compatible client.",
+      "title": "Build with TritonAI",
+      "description": "Get one Gateway key to approved AI models, then build with TritonAI Harness, n8n, or your own code and move what works into supported hosting.",
       "schemaAbout": [
         "Artificial intelligence development",
         "Generative AI applications",
@@ -81,8 +81,8 @@
       "lastModified": "2026-08-30"
     },
     "/developer-apis/start.html": {
-      "title": "Get TritonAI LLM Access via API",
-      "description": "Request access to the TritonAI Gateway, then use TritonAI Harness, UC San Diego's primary supported client, or connect another compatible client.",
+      "title": "Get Started with TritonAI",
+      "description": "Request a Gateway key, connect TritonAI Harness or another client, run a first test, and request n8n access separately.",
       "schemaAbout": [
         "TritonAI Harness",
         "TritonAI LLM Gateway",

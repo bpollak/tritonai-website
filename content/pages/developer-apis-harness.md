@@ -20,7 +20,7 @@ bannerMode: abstract
 <div class="col-md-7 hub-split-copy">
 <p class="home-kicker">Agent control surface</p>
 <h2 id="harness-intro-heading">Work directly with your code, files, and systems</h2>
-<p class="hub-lede">TritonAI Harness is UC San Diego's primary supported agent workspace. It runs on your computer. It connects to campus models, local files, and approved campus tools under your supervision.</p>
+<p class="hub-lede">TritonAI Harness is UC San Diego's primary supported agent workspace. It runs on your computer and connects to campus models, local files, and approved campus tools under your supervision. It is in pilot on Mac (Apple Silicon) and Windows, and anyone with a Gateway key can request it.</p>
 <p>Unlike browser chat tools that only answer questions, the Harness works alongside you. It reads project files, drafts code changes, and runs terminal commands. You approve each action before it takes effect.</p>
 <p class="hub-section-action">
 <a class="btn btn-primary" href="/developer-apis/start.html#harness">Download installer</a>
@@ -33,7 +33,7 @@ bannerMode: abstract
 <p class="build-architecture-label">Governed agent execution</p>
 <ol class="build-architecture-flow">
 <li><span>01</span><div><strong>Local workspace</strong><small>Files, transcripts, and code remain on your workstation.</small></div></li>
-<li><span>02</span><div><strong>Campus gateway</strong><small>Zero-retention on-premises models on UC San Diego infrastructure.</small></div></li>
+<li><span>02</span><div><strong>Campus gateway</strong><small>Zero-retention UC-hosted models on UC San Diego infrastructure.</small></div></li>
 <li><span>03</span><div><strong>Supervised execution</strong><small>You approve file edits, commands, and external actions.</small></div></li>
 </ol>
 <figcaption id="harness-architecture-caption">TritonAI Harness isolates credentials and runs within your local workspace under your supervision.</figcaption>
@@ -215,16 +215,17 @@ Data classification
 <article class="panel panel-default hub-action-card">
 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 <h3>Software developers</h3>
-<p>Orchestrate multi-file edits, automate test suites, and review pull requests across local git repositories.</p>
-<p><a href="/developer-apis/index.html">Developer APIs <span aria-hidden="true">→</span></a></p>
+<p>Build and host applications. Work across a repository with multi-file edits, test runs, and pull-request review, then move the result onto a supported campus hosting path. Start from the Skills Library and the development patterns TritonAI supports.</p>
+<p><a href="/developer-apis/index.html#service-ladder">Host what you build <span aria-hidden="true">→</span></a></p>
+<p><a href="/skills/index.html">Skills and supported patterns <span aria-hidden="true">→</span></a></p>
 </article>
 </div>
 <div class="col-md-4">
 <article class="panel panel-default hub-action-card">
 <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
 <h3>Faculty and researchers</h3>
-<p>Query local datasets and run prompt pipelines against zero-retention on-premises models under strict grant privacy controls.</p>
-<p><a href="/developer-apis/dsmlp-datahub.html">DSMLP and DataHub <span aria-hidden="true">→</span></a></p>
+<p>Query local datasets and run prompt pipelines against zero-retention UC-hosted models under strict grant privacy controls.</p>
+<p><a href="/developer-apis/index.html#api-gateway">Models and routes <span aria-hidden="true">→</span></a></p>
 </article>
 </div>
 </div>
@@ -248,8 +249,8 @@ Data classification
 <div class="col-sm-6 col-md-3">
 <article>
 <span>02</span>
-<h3>On-premises models</h3>
-<p>Connect to campus-hosted open-weight models on UC San Diego infrastructure, including GLM 5.2 with 320K context, with zero data retention and zero recharge costs for administrative work.</p>
+<h3>UC-hosted models</h3>
+<p>Connect to campus-hosted open-weight models on UC San Diego infrastructure, including GLM 5.3 with 320K context, with zero data retention and zero recharge costs for administrative work.</p>
 </article>
 </div>
 <div class="col-sm-6 col-md-3">
@@ -362,43 +363,6 @@ Data classification
 <a class="btn btn-default" href="https://github.com/UCSD/UCSD-Skills-Library" target="_blank" rel="noopener noreferrer">View repository on GitHub</a>
 </p>
 </div>
-</section>
-
-<section class="hub-section" id="download-installer" aria-labelledby="install-heading">
-<div class="hub-heading">
-<p class="home-kicker">Onboarding</p>
-<h2 id="install-heading">Get started with TritonAI Harness</h2>
-<p>Follow three steps to verify eligibility, request your key, and install the desktop application.</p>
-</div>
-<div class="row hub-action-grid">
-<div class="col-md-4">
-<article class="panel panel-default hub-action-card">
-<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-<h3>Step 1: Verify requirements</h3>
-<p>Mac requires Apple Silicon (M1 or newer). Windows requires an x64 processor. Workstations must maintain active disk encryption (FileVault or BitLocker) for P2 and P3 data.</p>
-</article>
-</div>
-<div class="col-md-4">
-<article class="panel panel-default hub-action-card">
-<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-<h3>Step 2: Request Gateway key</h3>
-<p>Submit an access request through Kuali Build. Campus administrative work using on-premises models is non-recharged.</p>
-<p><a class="btn btn-default" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Submit access request</a></p>
-</article>
-</div>
-<div class="col-md-4">
-<article class="panel panel-default hub-action-card">
-<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
-<h3>Step 3: Download and set up</h3>
-<p>Visit the Get Started page for current macOS (Apple Silicon DMG) and Windows (x64 Setup EXE) installers, release notes, and configuration steps.</p>
-<p><a class="btn btn-primary" href="/developer-apis/start.html#harness">Go to Download &amp; Setup <span aria-hidden="true">→</span></a></p>
-</article>
-</div>
-</div>
-<aside class="hub-note-card">
-<strong>Need help choosing a setup path?</strong>
-<span>Review our guided onboarding on the <a href="/developer-apis/start.html">Get Started page</a> or email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a>.</span>
-</aside>
 </section>
 
 <section class="hub-section hub-subscribe" aria-labelledby="privacy-callout-heading">
