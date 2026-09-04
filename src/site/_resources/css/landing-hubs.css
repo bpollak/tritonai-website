@@ -5936,7 +5936,8 @@
 .harness-compare { border-top: 1px solid #d9e2e6; }
 .harness-compare-grid { display: flex; flex-wrap: wrap; }
 .harness-compare-grid::before, .harness-compare-grid::after { display: none; }
-.harness-compare-grid > [class*="col-"] { display: flex; margin-bottom: 24px; }
+.harness-compare-grid > [class*="col-"] { display: flex; margin-bottom: 24px; width: 100%; }
+@media (min-width: 992px) { .harness-compare-grid > [class*="col-"] { width: 50%; } }
 .harness-compare-card {
   display: flex;
   flex: 1 1 auto;
