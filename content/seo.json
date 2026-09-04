@@ -71,7 +71,7 @@
     },
     "/developer-apis/index.html": {
       "title": "Build with TritonAI",
-      "description": "Get one Gateway key to approved AI models, then build with TritonAI Harness, n8n, or your own code and move what works into supported hosting.",
+      "description": "Get one Gateway key to approved AI models, then build with TritonAI Harness, another compatible client, n8n, or your own code.",
       "schemaAbout": [
         "Artificial intelligence development",
         "Generative AI applications",

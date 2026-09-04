@@ -1,7 +1,7 @@
 ---
 title: Build with TritonAI
 path: /developer-apis/index.html
-description: Get one Gateway key to approved AI models, then build with TritonAI Harness, n8n, or your own code and move what works into supported hosting.
+description: Get one Gateway key to approved AI models, then build with TritonAI Harness, another compatible client, n8n, or your own code.
 eyebrow: Build a service
 lastReviewed: 2026-09-04
 audiences: [developers, researchers, staff, leaders]
@@ -15,7 +15,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="build-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">One key, approved models</p><h2 id="build-intro-heading">Build on the models the campus already approved</h2><p class="hub-lede">The TritonAI LLM Gateway gives every campus builder one key to approved cloud and UC-hosted models. Use it from TritonAI Harness, an n8n workflow, or your own code. When other people start to depend on what you built, move it into hosting and support sized to its users, data, and impact.</p><p class="hub-section-action"><a class="btn btn-primary" href="/developer-apis/start.html">Get a Gateway key</a> <a class="btn btn-default" href="/developer-apis/citizen-developer.html">Plan a first project</a></p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">One key, approved models</p><h2 id="build-intro-heading">Build on the models the campus already approved</h2><p class="hub-lede">The TritonAI LLM Gateway gives every campus builder one key to approved cloud and UC-hosted models. Use it from TritonAI Harness, Claude Code, Codex, Hermes, or any client that connects to the Gateway, from an n8n workflow, or from your own code. When other people start to depend on what you built, move it into hosting and support sized to its users, data, and impact.</p><p class="hub-section-action"><a class="btn btn-primary" href="/developer-apis/start.html">Get a Gateway key</a> <a class="btn btn-default" href="/developer-apis/citizen-developer.html">Plan a first project</a></p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="build-architecture-caption">
 <p class="build-architecture-label">What comes with the key</p>
 <ol class="build-architecture-flow">
@@ -49,7 +49,7 @@ bannerMode: abstract
 </div>
 <div class="hub-action-card-footer builder-track-footer">
 <p><a class="btn btn-primary btn-block" href="/developer-apis/harness.html">Explore TritonAI Harness <span aria-hidden="true">→</span></a></p>
-<p class="builder-track-sublink"><small>New to building? <a href="/developer-apis/citizen-developer.html">Plan a first project</a></small></p>
+<p class="builder-track-sublink"><small>Prefer Claude Code, Codex, or Hermes? <a href="#tritonai-harness">Any compatible client works</a></small></p>
 </div>
 </article>
 </div>

@@ -22,6 +22,7 @@ bannerMode: abstract
 <h2 id="harness-intro-heading">Work directly with your code, files, and systems</h2>
 <p class="hub-lede">TritonAI Harness is UC San Diego's primary supported agent workspace. It runs on your computer and connects to campus models, local files, and approved campus tools under your supervision. It is in pilot on Mac (Apple Silicon) and Windows, and anyone with a Gateway key can request it.</p>
 <p>Unlike browser chat tools that only answer questions, the Harness works alongside you. It reads project files, drafts code changes, and runs terminal commands. You approve each action before it takes effect.</p>
+<p>Prefer another client? Claude Code, Codex, Hermes, OpenCode, and other compatible clients connect to the same Gateway with the same key. <a href="/developer-apis/index.html#tritonai-harness">Compare the client options</a>.</p>
 <p class="hub-section-action">
 <a class="btn btn-primary" href="/developer-apis/start.html#harness">Download installer</a>
 <a class="btn btn-default" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request Gateway access</a>
