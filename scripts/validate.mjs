@@ -1056,9 +1056,9 @@ for (const page of htmlFiles) {
     const pathCards = $("#builder-entry-points .builder-track-card");
     if (
       pathCards.length !== 3 ||
-      pathCards.filter((_, element) => $(element).find("a[href='/developer-apis/harness.html']").length === 1).length !== 1 ||
-      pathCards.filter((_, element) => $(element).find("a[href='/developer-apis/start.html#n8n']").length === 1).length !== 1 ||
-      pathCards.filter((_, element) => $(element).find("a[href='/developer-apis/start.html']").length === 1).length !== 1
+      pathCards.filter((_, element) => $(element).find(`a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/harness.html']`).length === 1).length !== 1 ||
+      pathCards.filter((_, element) => $(element).find(`a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/start.html#n8n']`).length === 1).length !== 1 ||
+      pathCards.filter((_, element) => $(element).find(`a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/start.html']`).length === 1).length !== 1
     ) {
       contentFindings.push({ source: route, issue: "Build landing page must offer the TritonAI Harness, n8n, and API paths the homepage promises" });
     }
@@ -1101,8 +1101,8 @@ for (const page of htmlFiles) {
       harnessSection.length !== 1 ||
       harnessSection.find(".build-tool-grid > article").length !== 3 ||
       harnessSection.find(".build-tool-preferred").text().includes("TritonAI Harness") === false ||
-      harnessSection.find("a[href='/developer-apis/harness.html']").length !== 1 ||
-      harnessSection.find("a[href='/developer-apis/start.html#harness']").length !== 1 ||
+      harnessSection.find(`a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/harness.html']`).length !== 1 ||
+      harnessSection.find(`a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/start.html#harness']`).length !== 1 ||
       harnessSection.find("a[href*='github.com/dbalders/TritonAI-Installer']").length !== 0 ||
       /in pilot/i.test(harnessText) === false ||
       harnessText.includes("Mac (Apple Silicon) and Windows") === false ||
@@ -1122,19 +1122,19 @@ for (const page of htmlFiles) {
     if (/campus administrative work|not recharged|current Model Hub rates|Research projects charge|grant or approved research project chartstring|inter-campus recharge|chartstring|budget owner|spending limit/.test(apiClientGuidance)) {
       contentFindings.push({ source: route, issue: "Build page must leave detailed eligibility, funding, and billing guidance on the access page" });
     }
-    if ($("#workflow-automation a[href='/developer-apis/start.html#n8n']").length !== 1 || $("#workflow-automation a[href='https://n8n.tritonai.ucsd.edu/']").length !== 1) {
+    if ($(`#workflow-automation a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/start.html#n8n']`).length !== 1 || $("#workflow-automation a[href='https://n8n.tritonai.ucsd.edu/']").length !== 1) {
       contentFindings.push({ source: route, issue: "Workflow automation section must hand n8n access to the setup page and link the n8n workspace" });
     }
     if (
       $("#built-on-tritonai .use-case-card").length !== 3 ||
-      $("#built-on-tritonai a[href='/use-cases/class-planner-app.html']").length < 1 ||
-      $("#built-on-tritonai a[href='/use-cases/passport-app.html']").length < 1 ||
-      $("#built-on-tritonai a[href='/use-cases/ai-use-case-meeting.html']").length < 1 ||
-      $("#built-on-tritonai a[href='/use-cases/index.html']").length !== 1
+      $(`#built-on-tritonai a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/use-cases/class-planner-app.html']`).length < 1 ||
+      $(`#built-on-tritonai a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/use-cases/passport-app.html']`).length < 1 ||
+      $(`#built-on-tritonai a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/use-cases/ai-use-case-meeting.html']`).length < 1 ||
+      $(`#built-on-tritonai a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/use-cases/index.html']`).length !== 1
     ) {
       contentFindings.push({ source: route, issue: "Build landing page must show the featured use cases and link to the portfolio" });
     }
-    if ($(`.hub-link-columns a[href='/developer-apis/start.html']`).length !== 1 || $(`.hub-link-columns a[href='/developer-apis/citizen-developer.html']`).length !== 1) {
+    if ($(`.hub-link-columns a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/start.html']`).length !== 1 || $(`.hub-link-columns a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/developer-apis/citizen-developer.html']`).length !== 1) {
       accessibility.push({ page: route, issue: "Builder resources must link to Get Started and the first-project guide" });
     }
     const serviceLadder = $("#service-ladder");
@@ -1143,8 +1143,8 @@ for (const page of htmlFiles) {
       serviceLadder.find(".hosting-lanes > .hosting-lane").length !== 4 ||
       serviceLadder.find(".hosting-lane-escalation").length !== 0 ||
       serviceLadder.find(".hosting-lane-triggers li").length !== 3 ||
-      serviceLadder.find("a[href='/about/team.html']").length !== 1 ||
-      serviceLadder.find("a[href='/about/strategy.html']").length !== 1
+      serviceLadder.find(`a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/about/team.html']`).length !== 1 ||
+      serviceLadder.find(`a[href='${SITE_BASE_PATH ? `/${SITE_BASE_PATH}` : ""}/about/strategy.html']`).length !== 1
     ) {
       contentFindings.push({ source: route, issue: "Build landing page must include the four-rung service ladder, three triggers, and the ownership and lifecycle handoffs" });
     }
