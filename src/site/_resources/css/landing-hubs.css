@@ -6123,25 +6123,24 @@
 @keyframes harness-orbit { from { offset-distance: 0%; } to { offset-distance: 100%; } }
 @keyframes harness-dash { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -9; } }
 @keyframes harness-dash-rev { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 9; } }
-.harness-anim-chat-dot { animation: harness-chat-dot 8s linear infinite; }
-.harness-anim-arc { animation: harness-arc 8s linear infinite; }
+.harness-anim-chat-dot { animation: harness-chat-dot 16s linear infinite; }
+.harness-anim-arc { animation: harness-arc 16s linear infinite; }
 .harness-anim-orbit {
-  animation: harness-orbit 8s linear infinite;
+  animation: harness-orbit 16s linear infinite;
   offset-path: path("M 60 5 A 55 55 0 1 1 60 115 A 55 55 0 1 1 60 5");
   offset-rotate: 0deg;
 }
 @supports not (offset-path: path("M 0 0 L 1 1")) { .harness-anim-orbit { display: none; } }
-.harness-anim-dash { animation: harness-dash 1.4s linear infinite; }
-.harness-anim-dash-rev { animation: harness-dash-rev 1.4s linear infinite; }
+.harness-anim-dash { animation: harness-dash 2.8s linear infinite; }
+.harness-anim-dash-rev { animation: harness-dash-rev 2.8s linear infinite; }
 @media (prefers-reduced-motion: reduce) {
   .harness-anim-chat-dot, .harness-anim-arc, .harness-anim-orbit, .harness-anim-dash, .harness-anim-dash-rev { animation: none; }
   .harness-anim-chat-dot, .harness-anim-orbit { display: none; }
 }
 
 /* Harness components borrow the deck's numbered cards and layered diagrams. */
-main#main-content #how-the-harness-works { padding: 36px; border-radius: 10px; background: linear-gradient(155deg, transparent 70%, #f6eacb 70%), linear-gradient(25deg, #f4f0e7 80%, #e3efeb 80%); }
+main#main-content #how-the-harness-works { background: linear-gradient(155deg, transparent 70%, #f6eacb 70%), linear-gradient(25deg, #f4f0e7 80%, #e3efeb 80%); }
 main#main-content .harness-components-heading { display: flex; align-items: start; justify-content: space-between; gap: 20px; }
-main#main-content .harness-motion-control { flex-shrink: 0; border: 1px solid #75848b; border-radius: 5px; background: #fff; color: #182b49; padding: 8px 12px; font: inherit; font-size: 14px; }
 main#main-content .harness-component-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 main#main-content .harness-component { --component-accent: #00629b; --component-tint: #e3eef5; padding: 23px; border: 1px solid #cbd6db; border-top: 3px solid #4796b5; border-radius: 7px; background: #fffdf9; box-shadow: 0 6px 18px #182b4910; }
 main#main-content .harness-component-loop, main#main-content .harness-component-action { --component-accent: #a3472e; --component-tint: #fae9e0; }
@@ -6167,28 +6166,11 @@ main#main-content .harness-worked-example h3 { margin-top: 8px; }
 main#main-content .harness-example-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 22px 0 0; padding-left: 22px; }
 main#main-content .harness-example-steps li { padding-left: 4px; }
 main#main-content .harness-example-steps span { display: block; margin-top: 5px; }
-main#main-content .hc-signal { fill: currentColor; offset-rotate: 0deg; animation: hc-travel 6s linear infinite; animation-play-state: paused; }
-main#main-content .hc-signal-loop { offset-path: path("M44 39H256V58Q150 100 44 58Z"); }
-main#main-content .hc-signal-context { offset-path: path("M236 50H260"); }
-main#main-content .hc-signal-action { offset-path: path("M125 47L73 25M175 47L227 25M125 65L73 87M175 65L227 87"); }
-main#main-content .hc-signal-scale { offset-path: path("M150 36L49 76M150 36V76M150 36L251 76"); }
-main#main-content .hc-layer { animation: hc-context 6s ease-in-out infinite; animation-play-state: paused; }
-main#main-content .hc-layer-two { animation-delay: .5s; }
-main#main-content .hc-layer-three { animation-delay: 1s; }
-main#main-content [data-motion-visible="true"]:not([data-motion-paused="true"]) .hc-signal,
-main#main-content [data-motion-visible="true"]:not([data-motion-paused="true"]) .hc-layer { animation-play-state: running; }
-@keyframes hc-travel { 0% { offset-distance: 0%; opacity: 0; } 8%, 88% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-@keyframes hc-context { 0%, 70%, 100% { transform: translateX(0); } 30%, 45% { transform: translateX(4px); } }
-@media (prefers-reduced-motion: reduce) {
-  main#main-content .hc-signal { display: none; }
-  main#main-content .hc-layer { animation: none; }
-}
 @media (max-width: 1199px) and (min-width: 768px) {
   main#main-content .harness-component-top { grid-template-columns: 1fr; }
   main#main-content .harness-component-visual { width: 100%; max-width: 260px; margin: 12px auto 0; }
 }
 @media (max-width: 767px) {
-  main#main-content #how-the-harness-works { padding: 24px 16px; }
   main#main-content .harness-components-heading { display: block; margin-bottom: 20px; }
   main#main-content .harness-component-grid, main#main-content .harness-example-steps { grid-template-columns: minmax(0, 1fr); }
   main#main-content .harness-component { padding: 20px; }
