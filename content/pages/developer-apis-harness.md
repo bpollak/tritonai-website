@@ -43,18 +43,23 @@ bannerMode: abstract
 </div>
 </section>
 
-<section class="hub-section harness-explainer" id="what-a-harness-adds" aria-labelledby="harness-compare-heading">
-<div class="hub-heading"><p class="home-kicker">What a harness adds</p><h2 id="harness-compare-heading">From model to supervised agent</h2><p>The model reasons about your request. The Harness gives it a workspace and tools to carry out the steps, with controls over what it can access and change.</p></div>
-<figure class="harness-equation" aria-describedby="harness-equation-caption">
-<div class="harness-equation-grid">
-<div class="harness-equation-part"><span class="harness-equation-symbol" aria-hidden="true">M</span><h3>Model</h3><p>Reasons and proposes steps.</p></div>
-<span class="harness-equation-operator" aria-hidden="true">+</span>
-<div class="harness-equation-part"><span class="harness-equation-symbol" aria-hidden="true">H</span><h3>Harness</h3><p>Provides context, tools, and controls.</p></div>
-<span class="harness-equation-operator" aria-hidden="true">→</span>
-<div class="harness-equation-part harness-equation-result"><span class="harness-equation-symbol" aria-hidden="true">✓</span><h3>Supervised agent</h3><p>Produces work you can review.</p></div>
+<section class="hub-section harness-compare" id="what-a-harness-adds" aria-labelledby="harness-compare-heading">
+<div class="hub-heading"><p class="home-kicker">What a harness adds</p><h2 id="harness-compare-heading">The harness is everything around the model</h2><p>The same approved models sit inside TritonGPT and TritonAI Harness. A chat app answers a prompt. The Harness wraps the model with context, tools, permissions, and memory, and runs a loop so it can act on real work.</p></div>
+<div class="row harness-compare-grid">
+<div class="col-md-6"><article class="harness-compare-card harness-compare-card-chat" aria-labelledby="harness-compare-chat-title">
+<div class="harness-compare-head"><div><p class="harness-compare-title" id="harness-compare-chat-title">Chat app</p><p class="harness-compare-sub">A model answers.</p></div><div class="harness-compare-pills"><span class="harness-pill harness-pill-square">Prompt</span><span class="harness-pill-arrow" aria-hidden="true">→</span><span class="harness-pill">Answer</span></div></div>
+<div class="harness-compare-flow"><span class="harness-node harness-node-tint">user asks</span><span class="harness-model" aria-hidden="true">M</span><span class="harness-node">answer returns</span></div>
+<svg class="harness-compare-track" viewBox="0 0 400 18" height="18" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line x1="6" y1="9" x2="388" y2="9" stroke="#b9d3dc" stroke-width="1.4" stroke-dasharray="4 5"/><polygon points="388,9 380,4 380,14" fill="#b9d3dc"/><circle class="harness-anim-chat-dot" cx="6" cy="9" r="4.5" fill="#00629b"/></svg>
+<div class="harness-compare-result"><span class="harness-compare-label">You get</span><span class="harness-chip harness-chip-quote">“Here’s a summary…”</span><span class="harness-compare-end">End of turn</span></div>
+<p class="harness-compare-note">TritonGPT or a browser chat tool is a conversation surface: prompt in, answer back.</p>
+</article></div>
+<div class="col-md-6"><article class="harness-compare-card harness-compare-card-harness" aria-labelledby="harness-compare-harness-title">
+<div class="harness-compare-head"><div><p class="harness-compare-title" id="harness-compare-harness-title">Harness</p><p class="harness-compare-sub">A model works.</p></div><div class="harness-compare-pills"><span class="harness-pill">Context</span><span class="harness-pill">Tools</span><span class="harness-pill">Loop</span></div></div>
+<div class="harness-compare-loop"><ul class="harness-stack harness-stack-in" aria-label="What the model is given"><li>files</li><li>rules</li><li>memory</li></ul><div class="harness-model-ring"><svg viewBox="0 0 120 120" aria-hidden="true" focusable="false"><circle cx="60" cy="60" r="55" fill="none" stroke="#e7d9c4" stroke-width="1.2" stroke-dasharray="3 4"/><circle class="harness-anim-arc" cx="60" cy="60" r="55" fill="none" stroke="#c69214" stroke-width="1.6" stroke-dasharray="9 80" stroke-linecap="round"/><circle class="harness-anim-orbit" cx="0" cy="0" r="4" fill="#c69214"/></svg><span class="harness-model harness-model-gold" aria-hidden="true">M<small>↺</small></span></div><ul class="harness-stack harness-stack-out" aria-label="What the model can do"><li>read</li><li>edit</li><li>verify</li></ul></div>
+<div class="harness-compare-result"><span class="harness-compare-label">You get</span><span class="harness-chip"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>contract.docx</span><span class="harness-chip"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>routed for sign-off</span><span class="harness-chip"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>logged</span></div>
+<p class="harness-compare-note">TritonAI Harness takes the same model and gives it a workspace, bounded tools, and a person who approves each consequential step.</p>
+</article></div>
 </div>
-<figcaption id="harness-equation-caption">A model and a harness work together as an agent under your supervision. You review the result before using or sharing it.</figcaption>
-</figure>
 </section>
 
 <section class="hub-section harness-explainer" id="how-the-harness-works" aria-labelledby="harness-components-heading">
