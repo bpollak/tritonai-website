@@ -23,11 +23,12 @@ bannerMode: abstract
 <p class="hub-lede">TritonAI Harness is UC San Diego's primary supported agent workspace. It runs on your computer and connects to campus models, local files, and approved campus tools under your supervision. It is in pilot on Mac (Apple Silicon) and Windows, and anyone with a Gateway key can request it.</p>
 <p>Use it to work through a task in your project folder: read source material, prepare a draft, and check the result. You supervise the work and review consequential actions.</p>
 <p>Prefer another client? Claude Code, Codex, Hermes, OpenCode, and other compatible clients connect to the same Gateway with the same key. <a href="/developer-apis/index.html#tritonai-harness">Compare the client options</a>.</p>
+<p>You’ll need an approved TritonAI Gateway key to connect the Harness to campus models.</p>
 <p class="hub-section-action">
-<a class="btn btn-primary" href="/developer-apis/start.html#harness">Download installer</a>
-<a class="btn btn-default" href="https://ucsd.kualibuild.com/app/6979392e4f46f40289d22645/run">Request Gateway access</a>
+<a class="btn btn-primary" href="/developer-apis/start.html">Get started</a>
 <a class="btn btn-default" href="/skills/index.html">Browse Skills Library</a>
 </p>
+<p>Already have a key? <a href="/developer-apis/start.html#harness">Download and set up</a>.</p>
 </div>
 <div class="col-md-5 hub-split-media">
 <figure class="build-architecture" aria-describedby="harness-architecture-caption">
@@ -218,7 +219,7 @@ Data classification
 <a class="btn btn-default btn-block" href="/tritongpt/index.html">Open TritonGPT Web</a>
 </td>
 <td role="cell">
-<a class="btn btn-primary btn-block" href="/developer-apis/start.html#harness">Get TritonAI Harness</a>
+<a class="btn btn-primary btn-block" href="/developer-apis/start.html">Get started with TritonAI Harness</a>
 </td>
 </tr>
 </tbody>
