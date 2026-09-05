@@ -6156,8 +6156,8 @@ main#main-content .harness-component svg { display: block; width: 100%; height: 
 main#main-content .harness-component svg rect, main#main-content .harness-component svg .hc-model { fill: var(--component-tint); stroke: currentColor; stroke-width: 1.2; }
 main#main-content .harness-component svg path { fill: none; stroke: currentColor; stroke-width: 1.2; }
 main#main-content .harness-component svg .hc-track { stroke-dasharray: 3 3; }
-main#main-content .harness-component svg text { fill: currentColor; text-anchor: middle; font: 600 14px Arial, sans-serif; }
-main#main-content .harness-component svg .hc-model-letter { font: italic 24px Georgia, serif; }
+main#main-content .harness-component svg text { fill: currentColor; text-anchor: middle; font-family: Roboto, sans-serif; font-size: 14px; font-weight: 600; }
+main#main-content .harness-component svg .hc-model-letter { font-family: Roboto, sans-serif; font-size: 24px; font-style: italic; font-weight: 500; }
 main#main-content .harness-component-visual figcaption { text-align: center; color: var(--component-accent); font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .1em; text-transform: uppercase; margin-top: 8px; }
 main#main-content .harness-component-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 main#main-content .harness-component-links a { border: 1px solid currentColor; border-radius: 4px; padding: 5px 9px; color: var(--component-accent); font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
