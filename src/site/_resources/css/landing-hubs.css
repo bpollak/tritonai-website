@@ -6137,3 +6137,38 @@
   .harness-anim-chat-dot, .harness-anim-arc, .harness-anim-orbit, .harness-anim-dash, .harness-anim-dash-rev { animation: none; }
   .harness-anim-chat-dot, .harness-anim-orbit { display: none; }
 }
+
+/* Harness explanation: all presentation stays within the content canvas. */
+main#main-content .harness-equation { margin: 0; }
+main#main-content .harness-equation-grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 20px; align-items: stretch; }
+main#main-content .harness-equation-part { padding: 28px 24px; border: 1px solid #c8d9e2; border-top: 4px solid #00629b; border-radius: 6px; background: #f5f9fb; text-align: center; }
+main#main-content .harness-equation-part h3 { margin: 16px 0 10px; }
+main#main-content .harness-equation-part p { margin: 0; }
+main#main-content .harness-equation-result { background: #fff9e9; border-top-color: #c69214; }
+main#main-content .harness-equation-symbol { display: inline-flex; width: 48px; height: 48px; border: 1px solid currentColor; border-radius: 50%; align-items: center; justify-content: center; font-size: 24px; color: #00629b; }
+main#main-content .harness-equation-operator { align-self: center; font-size: 36px; color: #506774; }
+main#main-content .harness-equation figcaption { margin-top: 18px; color: #425663; }
+main#main-content .harness-component-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+main#main-content .harness-component { --component-accent: #00629b; padding: 24px; border: 1px solid #c8d9e2; border-top: 4px solid var(--component-accent); border-radius: 6px; background: #fff; }
+main#main-content .harness-component-loop, main#main-content .harness-component-action { --component-accent: #a3472e; }
+main#main-content .harness-component-scale { --component-accent: #426b3d; }
+main#main-content .harness-component-label { color: var(--component-accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+main#main-content .harness-component h3 { margin: 0 0 18px; }
+main#main-content .harness-component svg { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto 20px; color: var(--component-accent); }
+main#main-content .harness-component svg rect, main#main-content .harness-component svg circle { fill: #fff; stroke: currentColor; stroke-width: 1.4; }
+main#main-content .harness-component svg path { fill: none; stroke: currentColor; stroke-width: 1.4; }
+main#main-content .harness-component svg text { fill: currentColor; text-anchor: middle; font: 13px Arial, sans-serif; }
+main#main-content .harness-component-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 0; }
+main#main-content .harness-component-links a { text-decoration: underline; }
+main#main-content .harness-worked-example { margin-top: 32px; padding: 28px; background: #f5f0e6; border-left: 4px solid #c69214; }
+main#main-content .harness-worked-example h3 { margin-top: 8px; }
+main#main-content .harness-example-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 22px 0 0; padding-left: 22px; }
+main#main-content .harness-example-steps li { padding-left: 4px; }
+main#main-content .harness-example-steps span { display: block; margin-top: 5px; }
+@media (max-width: 767px) {
+  main#main-content .harness-equation-grid, main#main-content .harness-component-grid, main#main-content .harness-example-steps { grid-template-columns: minmax(0, 1fr); }
+  main#main-content .harness-equation-grid { gap: 12px; }
+  main#main-content .harness-equation-operator { justify-self: center; line-height: 1; }
+  main#main-content .harness-equation-operator:last-of-type { transform: rotate(90deg); }
+  main#main-content .harness-component, main#main-content .harness-worked-example { padding: 20px; }
+}

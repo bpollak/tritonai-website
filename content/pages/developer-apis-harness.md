@@ -21,7 +21,7 @@ bannerMode: abstract
 <p class="home-kicker">Agent control surface</p>
 <h2 id="harness-intro-heading">Work directly with your code, files, and systems</h2>
 <p class="hub-lede">TritonAI Harness is UC San Diego's primary supported agent workspace. It runs on your computer and connects to campus models, local files, and approved campus tools under your supervision. It is in pilot on Mac (Apple Silicon) and Windows, and anyone with a Gateway key can request it.</p>
-<p>Unlike browser chat tools that only answer questions, the Harness works alongside you. It reads project files, drafts code changes, and runs terminal commands. You approve each action before it takes effect.</p>
+<p>Use it to work through a task in your project folder: read source material, prepare a draft, and check the result. You supervise the work and review consequential actions.</p>
 <p>Prefer another client? Claude Code, Codex, Hermes, OpenCode, and other compatible clients connect to the same Gateway with the same key. <a href="/developer-apis/index.html#tritonai-harness">Compare the client options</a>.</p>
 <p class="hub-section-action">
 <a class="btn btn-primary" href="/developer-apis/start.html#harness">Download installer</a>
@@ -43,23 +43,33 @@ bannerMode: abstract
 </div>
 </section>
 
-<section class="hub-section harness-compare" id="what-a-harness-adds" aria-labelledby="harness-compare-heading">
-<div class="hub-heading"><p class="home-kicker">What a harness adds</p><h2 id="harness-compare-heading">The harness is everything around the model</h2><p>The same approved models sit inside TritonGPT and TritonAI Harness. A chat app answers a prompt. The Harness wraps the model with context, tools, permissions, and memory, and runs a loop so it can act on real work.</p></div>
-<div class="row harness-compare-grid">
-<div class="col-md-6"><article class="harness-compare-card harness-compare-card-chat" aria-labelledby="harness-compare-chat-title">
-<div class="harness-compare-head"><div><p class="harness-compare-title" id="harness-compare-chat-title">Chat app</p><p class="harness-compare-sub">A model answers.</p></div><div class="harness-compare-pills"><span class="harness-pill harness-pill-square">Prompt</span><span class="harness-pill-arrow" aria-hidden="true">→</span><span class="harness-pill">Answer</span></div></div>
-<div class="harness-compare-flow"><span class="harness-node harness-node-tint">user asks</span><span class="harness-model" aria-hidden="true">M</span><span class="harness-node">answer returns</span></div>
-<svg class="harness-compare-track" viewBox="0 0 400 18" height="18" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line x1="6" y1="9" x2="388" y2="9" stroke="#b9d3dc" stroke-width="1.4" stroke-dasharray="4 5"/><polygon points="388,9 380,4 380,14" fill="#b9d3dc"/><circle class="harness-anim-chat-dot" cx="6" cy="9" r="4.5" fill="#00629b"/></svg>
-<div class="harness-compare-result"><span class="harness-compare-label">You get</span><span class="harness-chip harness-chip-quote">“Here’s a summary…”</span><span class="harness-compare-end">End of turn</span></div>
-<p class="harness-compare-note">TritonGPT or a browser chat tool is a conversation surface: prompt in, answer back.</p>
-</article></div>
-<div class="col-md-6"><article class="harness-compare-card harness-compare-card-harness" aria-labelledby="harness-compare-harness-title">
-<div class="harness-compare-head"><div><p class="harness-compare-title" id="harness-compare-harness-title">Harness</p><p class="harness-compare-sub">A model works.</p></div><div class="harness-compare-pills"><span class="harness-pill">Context</span><span class="harness-pill">Tools</span><span class="harness-pill">Loop</span></div></div>
-<div class="harness-compare-loop"><ul class="harness-stack harness-stack-in" aria-label="What the model is given"><li>files</li><li>rules</li><li>memory</li></ul><div class="harness-model-ring"><svg viewBox="0 0 120 120" aria-hidden="true" focusable="false"><circle cx="60" cy="60" r="55" fill="none" stroke="#e7d9c4" stroke-width="1.2" stroke-dasharray="3 4"/><circle class="harness-anim-arc" cx="60" cy="60" r="55" fill="none" stroke="#c69214" stroke-width="1.6" stroke-dasharray="9 80" stroke-linecap="round"/><circle class="harness-anim-orbit" cx="0" cy="0" r="4" fill="#c69214"/></svg><span class="harness-model harness-model-gold" aria-hidden="true">M<small>↺</small></span></div><ul class="harness-stack harness-stack-out" aria-label="What the model can do"><li>read</li><li>edit</li><li>verify</li></ul></div>
-<div class="harness-compare-result"><span class="harness-compare-label">You get</span><span class="harness-chip"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>contract.docx</span><span class="harness-chip"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>routed for sign-off</span><span class="harness-chip"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>logged</span></div>
-<p class="harness-compare-note">TritonAI Harness takes the same model and gives it a workspace, bounded tools, and a person who approves each consequential step.</p>
-</article></div>
+<section class="hub-section harness-explainer" id="what-a-harness-adds" aria-labelledby="harness-compare-heading">
+<div class="hub-heading"><p class="home-kicker">What a harness adds</p><h2 id="harness-compare-heading">From model to supervised agent</h2><p>The model reasons about your request. The Harness gives it a workspace and tools to carry out the steps, with controls over what it can access and change.</p></div>
+<figure class="harness-equation" aria-describedby="harness-equation-caption">
+<div class="harness-equation-grid">
+<div class="harness-equation-part"><span class="harness-equation-symbol" aria-hidden="true">M</span><h3>Model</h3><p>Reasons and proposes steps.</p></div>
+<span class="harness-equation-operator" aria-hidden="true">+</span>
+<div class="harness-equation-part"><span class="harness-equation-symbol" aria-hidden="true">H</span><h3>Harness</h3><p>Provides context, tools, and controls.</p></div>
+<span class="harness-equation-operator" aria-hidden="true">→</span>
+<div class="harness-equation-part harness-equation-result"><span class="harness-equation-symbol" aria-hidden="true">✓</span><h3>Supervised agent</h3><p>Produces work you can review.</p></div>
 </div>
+<figcaption id="harness-equation-caption">A model and a harness work together as an agent under your supervision. You review the result before using or sharing it.</figcaption>
+</figure>
+</section>
+
+<section class="hub-section harness-explainer" id="how-the-harness-works" aria-labelledby="harness-components-heading">
+<div class="hub-heading"><h2 id="harness-components-heading">How the Harness works</h2><p>These capabilities connect your request to the work in your workspace.</p></div>
+<div class="harness-component-grid">
+<article class="harness-component harness-component-loop" aria-labelledby="harness-loop-heading"><p class="harness-component-label">Loop</p><h3 id="harness-loop-heading">How does it keep going?</h3><svg viewBox="0 0 320 108" aria-hidden="true" focusable="false"><rect x="8" y="24" width="86" height="28" rx="5"/><text x="51.0" y="43">Act</text><rect x="117" y="24" width="86" height="28" rx="5"/><text x="160.0" y="43">Check</text><rect x="226" y="24" width="86" height="28" rx="5"/><text x="269.0" y="43">Adjust</text><path d="M94 38h23m86 0h23M269 52v28H51V58"/><path d="m109 33 8 5-8 5m109-10 8 5-8 5M46 65l5-7 5 7"/></svg><p>Takes a step, checks the result, and adjusts within the task’s permissions and stopping conditions.</p></article>
+<article class="harness-component harness-component-context" aria-labelledby="harness-context-heading"><p class="harness-component-label">Context</p><h3 id="harness-context-heading">What does it work from?</h3><svg viewBox="0 0 320 108" aria-hidden="true" focusable="false"><rect x="25" y="8" width="205" height="28" rx="5"/><text x="127.5" y="27">Instructions</text><rect x="40" y="40" width="205" height="28" rx="5"/><text x="142.5" y="59">Files and memory</text><rect x="55" y="72" width="205" height="28" rx="5"/><text x="157.5" y="91">Earlier results</text><path d="M269 22h22v60h-22"/></svg><p>Brings relevant files, instructions, and earlier results into the task.</p></article>
+<article class="harness-component harness-component-action" aria-labelledby="harness-action-heading"><p class="harness-component-label">Action</p><h3 id="harness-action-heading">What can it access?</h3><svg viewBox="0 0 320 108" aria-hidden="true" focusable="false"><circle cx="160" cy="54" r="23"/><text x="160" y="59">Agent</text><path d="m139 43-47-21m89 21 47-21m-89 43-47 21m89-21 47 21"/><rect x="3" y="8" width="89" height="28" rx="5"/><text x="47.5" y="27">Files</text><rect x="228" y="8" width="89" height="28" rx="5"/><text x="272.5" y="27">Services</text><rect x="3" y="73" width="89" height="28" rx="5"/><text x="47.5" y="92">Tools</text><rect x="228" y="73" width="89" height="28" rx="5"/><text x="272.5" y="92">Permissions</text></svg><p>Uses enabled tools to work with files and connected services within granted permissions.</p><p class="harness-component-links"><a href="#integrations-heading">Explore plugins</a><a href="#skills-heading">Browse skills</a></p></article>
+<article class="harness-component harness-component-scale" aria-labelledby="harness-scale-heading"><p class="harness-component-label">Scale</p><h3 id="harness-scale-heading">How are larger tasks organized?</h3><svg viewBox="0 0 320 108" aria-hidden="true" focusable="false"><rect x="112" y="4" width="96" height="28" rx="5"/><text x="160.0" y="23">Main task</text><path d="M160 32v20H53v18m107-18v18m0-18h107v18"/><rect x="8" y="70" width="90" height="28" rx="5"/><text x="53.0" y="89">Plan</text><rect x="115" y="70" width="90" height="28" rx="5"/><text x="160.0" y="89">Build</text><rect x="222" y="70" width="90" height="28" rx="5"/><text x="267.0" y="89">Check</text></svg><p>Can divide planning, building, and checking among focused sub-agents.</p><p class="harness-component-links"><a href="#sub-agents">See how sub-agents work</a></p></article>
+</div>
+<aside class="harness-worked-example" aria-labelledby="harness-example-heading">
+<p class="home-kicker">Example task</p><h3 id="harness-example-heading">Preparing a recurring report</h3>
+<p>Give the Harness an approved spreadsheet and reporting instructions. It prepares a draft, checks the calculations, and revises issues it finds. You review the result before sharing it.</p>
+<ol class="harness-example-steps"><li><strong>Provide context</strong><span>Spreadsheet and instructions</span></li><li><strong>Draft and check</strong><span>Tools and a working loop</span></li><li><strong>Review the result</strong><span>Your approval before sharing</span></li></ol>
+</aside>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="comparison-heading">
