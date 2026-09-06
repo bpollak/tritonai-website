@@ -1,7 +1,7 @@
 ---
 title: Plan Your First Project
 path: /developer-apis/citizen-developer.html
-description: Try guided TritonAI Harness exercises with connected email and documents, then plan a first project you can check and support.
+description: Try guided TritonAI Harness exercises with skills and connected tools, then plan a first project you can check and support.
 eyebrow: Build with TritonAI
 lastReviewed: 2026-09-01
 audiences: [staff, faculty, researchers, developers, leaders]
@@ -16,7 +16,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="citizen-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Citizen development</p><h2 id="citizen-intro-heading">Start with a task you already do</h2><p class="hub-lede">A citizen developer is anyone who uses software, automation, or AI agents to improve their own work. You do not need a developer role or a coding background. A good first project starts with a task you repeat, a result you can recognize as correct, and a person who reviews what the system does.</p><p>Use this guide to try a task in TritonAI Harness, then decide how the work will change, who will rely on the result, and which supported TritonAI path fits.</p><p class="hub-section-action"><a class="btn btn-primary" href="#harness-practice">Try a Harness exercise</a> <a class="btn btn-default" href="#first-project-heading">Plan a first project</a></p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Citizen development</p><h2 id="citizen-intro-heading">Start with a task you already do</h2><p class="hub-lede">A citizen developer is anyone who uses software, automation, or AI agents to improve their own work. You do not need a developer role or a coding background. A good first project starts with a task you repeat, a result you can recognize as correct, and a person who reviews what the system does.</p><p>Use this guide to try a task in TritonAI Harness, then decide how the work will change, who will rely on the result, and which supported TritonAI path fits.</p><p class="hub-section-action"><a class="btn btn-primary" href="#harness-practice">Try connected tools</a> <a class="btn btn-default" href="#skill-practice">Try a skill exercise</a> <a class="btn btn-default" href="#first-project-heading">Plan a first project</a></p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="citizen-decision-caption">
 <p class="build-architecture-label">Answer three questions before choosing a tool</p>
 <ol class="build-architecture-flow">
@@ -37,7 +37,7 @@ bannerMode: abstract
 <li><strong>Connect the sources for your task.</strong> In Harness Settings, enable Microsoft 365 or Google Workspace and sign in with your campus account. Outlook mail and calendar reads are default Microsoft 365 capabilities. Google Drive, Docs, and Sheets access is read-only. The available tools also depend on your account permissions and enabled plugin capabilities.</li>
 <li><strong>Name the result you want.</strong> Tell the Harness the topic, relevant dates, and output format. Ask it to identify the sources it used and any information it could not read. If a connection is unavailable, you can work from files you are approved to save in your project folder.</li>
 </ol>
-<p>Plugins connect the Harness to your information. Skills guide how it carries out a task. For the onboarding exercise, ask it to use the UCSD accessibility skill to review the draft’s structure. You can explore other guidance in the <a href="/skills/index.html">Skills Library</a>.</p>
+<p>Plugins connect the Harness to your information. Skills guide how it carries out a task. For the onboarding exercise, an installed, enabled accessibility skill can guide the draft review. You can also <a href="#skill-practice">practice tasks with skills</a> below or explore the <a href="/skills/index.html">Skills Library</a>.</p>
 <nav aria-label="Harness practice exercises"><ul>
 <li><a href="#practice-meeting">Prepare a department meeting brief</a></li>
 <li><a href="#practice-feedback">Summarize workshop feedback</a></li>
@@ -75,7 +75,7 @@ bannerMode: abstract
 <ol>
 <li><strong>Locate the material.</strong> Ask: “Find our department’s onboarding documents in Google Drive. List the likely sources and their update dates, and identify any that you cannot read.” Select the documents that apply to the role.</li>
 <li><strong>Draft the guide.</strong> Continue: “Create a first-week checklist, explain how to request access to common tools, and link to the source documents. Flag conflicting instructions or missing information for me to resolve.”</li>
-<li><strong>Make it easier to use.</strong> Try: “Use the UCSD accessibility skill to review the draft’s headings, descriptive links, and reading order. Explain unfamiliar abbreviations and separate required steps from optional resources.”</li>
+<li><strong>Make it easier to use.</strong> Try: “Review the draft for accessibility, including headings, descriptive links, and reading order. Explain unfamiliar abbreviations and separate required steps from optional resources.”</li>
 </ol>
 <p><strong>Expected result:</strong> A draft guide in your workspace, with source links and a list of questions for the department owner.</p>
 <p><strong>Confirm the instructions:</strong> Ask the process owner to resolve conflicting versions, verify contacts and access-request links, and review the guide before sharing it with a new employee. Request an accessibility review of the final file format as needed.</p>
@@ -155,17 +155,84 @@ bannerMode: abstract
 <aside class="hub-note-card"><strong>Check what already exists</strong><span>Before building, check whether an approved campus service already meets the need. A team whose whole job is supporting a campus product has far more capacity to keep it working than you do with a build that is one more thing on your list. Build the missing piece when the benefit is worth owning and maintaining it.</span></aside>
 </section>
 
-<section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="starter-heading">
-<div class="container"><div class="hub-heading"><p class="home-kicker">Starter projects</p><h2 id="starter-heading">Projects adapted for campus work</h2><p>Two examples for each work pattern. Each is a starting point to adapt to your own unit, and each still needs the review steps above before it runs on real work.</p></div>
-<div class="row hub-action-grid">
-<div class="col-sm-6 col-md-4"><article class="panel panel-default hub-action-card"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span><h3>The Friday export</h3><p><em>Automate.</em> You pull the same export from a campus system and rework it by hand into the format a partner unit needs. Build a small page where you drop the raw export, preview the transformation, and download the finished file in the same format people expect.</p></article></div>
-<div class="col-sm-6 col-md-4"><article class="panel panel-default hub-action-card"><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span><h3>The document pile</h3><p><em>Automate.</em> Invoices, receipts, or forms arrive as PDFs, and someone types vendor, date, amount, and reference into a tracker. Build a watched folder that reads each document, fills the fields, flags anything it is unsure about, and routes the tracker to a person for review.</p></article></div>
-<div class="col-sm-6 col-md-4"><article class="panel panel-default hub-action-card"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span><h3>The live report</h3><p><em>Upgrade.</em> You owe a unit the same numbers on the same schedule as a PDF or deck. Build one page that refreshes from the approved source, shows when the data was last updated, and answers the most common questions without a new request each time.</p></article></div>
-<div class="col-sm-6 col-md-4"><article class="panel panel-default hub-action-card"><span class="glyphicon glyphicon-adjust" aria-hidden="true"></span><h3>The what-if slider</h3><p><em>Upgrade.</em> A planning model in a deck always ends in the same question: what if price, volume, timing, or staffing changed? Build a page that exposes the variables and lets people move them to see the results, with the assumptions written next to the outputs.</p></article></div>
-<div class="col-sm-6 col-md-4"><article class="panel panel-default hub-action-card"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><h3>The watcher</h3><p><em>Invent.</em> Some information your unit depends on changes without warning: UCOP bulletins, funding pages, regulator guidance. Build a checker that monitors approved sources, records the history, filters noise, and sends the changes that matter to a person.</p></article></div>
-<div class="col-sm-6 col-md-4"><article class="panel panel-default hub-action-card"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><h3>The pattern reader</h3><p><em>Invent.</em> A pile of text nobody has time to read: survey responses, support tickets, applications. Build an analysis tool that groups recurring themes, compares periods, and links every claim back to the exact passage a reviewer needs to check.</p></article></div>
-</div>
-<aside class="hub-note-card citizen-note-card"><strong>You cannot spot invention opportunities from the outside</strong><span>Automation and upgrade projects are visible in your calendar. Invention projects usually are not. The reliable way to find them is to start experimenting and see what your own work looks like from the inside of a build.</span></aside>
+<section class="hub-section hub-section-sand hub-full-bleed" id="skill-practice" aria-labelledby="starter-heading">
+<div class="container"><div class="hub-heading"><p class="home-kicker">Practice with skills</p><h2 id="starter-heading">Try a skill on a campus task</h2><p>Choose an exercise below and work through it in your Harness project folder. Each one connects a skill to a result you can inspect. Use the sample details provided or substitute your own approved material.</p></div>
+<p><strong>Before you begin:</strong> Check that the relevant skills are installed and enabled in your workspace. The Harness can select them from your request and conversation context; you usually do not need to name them. If it misses the intended skill, ask which skill it used or name the one linked in the exercise.</p>
+<nav aria-label="Skill practice exercises"><ul>
+<li><a href="#practice-accessibility">Improve a workshop handout</a></li>
+<li><a href="#practice-data-handling">Review a signup form before collecting data</a></li>
+<li><a href="#practice-project-memory">Save and find project decisions</a></li>
+<li><a href="#practice-harness-setup">Understand your Harness setup</a></li>
+<li><a href="#practice-support-feedback">Draft a useful problem report</a></li>
+<li><a href="#practice-code-review">Check a spreadsheet-cleanup script</a></li>
+</ul></nav>
+
+<article class="harness-worked-example" id="practice-accessibility" aria-labelledby="practice-accessibility-heading">
+<h3 id="practice-accessibility-heading">Improve a workshop handout</h3>
+<p><strong>Skill:</strong> <a href="/skills/index.html#skill-ucsd-accessibility-compliance">Check content for accessibility</a>. Start with a handout you can share with the Harness.</p>
+<ol>
+<li><strong>Ask for a review.</strong> “Review this workshop handout for accessibility. Check the headings, links, and image descriptions. Point to each issue and explain how it affects someone reading the handout.”</li>
+<li><strong>Improve the draft.</strong> “Create a revised copy with clearer headings and descriptive link text. Suggest image descriptions for me to verify. Keep the workshop instructions and facts intact.”</li>
+<li><strong>Check the result.</strong> “Summarize what changed and which checks still need a person or a different tool.” Compare the files and check the final reading order.</li>
+</ol>
+<p><strong>What you’ll get:</strong> A revised handout and a list of remaining checks. Review any image descriptions for accuracy; the exercise does not certify accessibility compliance.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-data-handling" aria-labelledby="practice-data-handling-heading">
+<h3 id="practice-data-handling-heading">Review a signup form before collecting data</h3>
+<p><strong>Skill:</strong> <a href="/skills/index.html#skill-ucsd-data-classification">Understand how to handle your data</a>. Use field names for this exercise; no completed forms are needed.</p>
+<ol>
+<li><strong>Describe the plan.</strong> “We are planning a workshop signup form with these fields: name, campus email, department, and accommodation request. Explain the likely UC Protection Levels and what additional context you need.”</li>
+<li><strong>Refine the questions.</strong> “Which fields need closer review? Suggest questions for the responsible campus owner about what we collect, who can see it, and how long we keep it.”</li>
+<li><strong>Prepare for review.</strong> “Turn this into a short checklist with the proposed fields, classification reasoning, and unresolved decisions. Include the guidance you used.”</li>
+</ol>
+<p><strong>What you’ll get:</strong> An initial data-handling review to discuss with the campus owner. Confirm the classification and the approved collection and storage approach before using the form.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-project-memory" aria-labelledby="practice-project-memory-heading">
+<h3 id="practice-project-memory-heading">Save and find project decisions</h3>
+<p><strong>Skills:</strong> <a href="/skills/index.html#skill-ucsd-memory-create">Set up project memory</a> and <a href="/skills/index.html#skill-ucsd-memory">Find and reuse saved project notes</a>. Choose a local folder for a workshop-planning exercise.</p>
+<ol>
+<li><strong>Prepare the folder.</strong> “Check whether this project already has memory. If it does not, set up a local memory folder. Show me where the notes will live and ask before enabling background updates or importing connected sources.”</li>
+<li><strong>Save a decision.</strong> “Save these sample decisions for this exercise: registration closes one week before the workshop, and the department coordinator reviews the handout. Label them as practice notes.”</li>
+<li><strong>Retrieve it later.</strong> Start a new conversation in the same project: “Find our saved workshop-planning decisions. When does registration close, and who reviews the handout? Cite the notes and flag anything that is missing.”</li>
+</ol>
+<p><strong>What you’ll get:</strong> Saved notes and a source-linked answer you can compare with them. Confirm that the new conversation can access the same memory folder.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-harness-setup" aria-labelledby="practice-harness-setup-heading">
+<h3 id="practice-harness-setup-heading">Understand your Harness setup</h3>
+<p><strong>Skill:</strong> <a href="/skills/index.html#skill-tritonai-harness-config">Understand your Harness setup</a>. Work in the Harness environment you want checked.</p>
+<ol>
+<li><strong>Ask what is active.</strong> “Check which model this Harness session is using and which skills are available. Explain what you can confirm and what you cannot inspect.”</li>
+<li><strong>Clarify the evidence.</strong> “Which findings describe this running session, and which come from saved settings? Explain any difference in plain language.”</li>
+<li><strong>Choose a next step.</strong> “If something needed for the accessibility exercise is missing, explain how I can check or enable it. Leave the settings unchanged.”</li>
+</ol>
+<p><strong>What you’ll get:</strong> An explanation of the setup the agent can inspect, with missing information identified. Compare it with Harness Settings; a project folder alone may not reveal the running app’s configuration.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-support-feedback" aria-labelledby="practice-support-feedback-heading">
+<h3 id="practice-support-feedback-heading">Draft a useful problem report</h3>
+<p><strong>Skill:</strong> <a href="/skills/index.html#skill-tritonai-feedback">Report a problem or suggest an improvement</a>. Use the sample scenario below, or describe an issue you encountered.</p>
+<ol>
+<li><strong>Explain the problem.</strong> “Help me draft feedback for the TritonAI team. This is a practice scenario: I asked for a meeting brief, but the task stopped before saving the file. Ask for the details needed to explain the problem. Do not send anything.”</li>
+<li><strong>Make it useful.</strong> “Include what I asked for, what I expected, what happened, and steps to reproduce it. Mark information I have not provided as unknown.”</li>
+<li><strong>Review the draft.</strong> “Show the subject and message. Keep it concise and identify any details I should check before sharing.”</li>
+</ol>
+<p><strong>What you’ll get:</strong> An email draft you can review. For a real report, confirm the facts and remove sensitive details before choosing whether to send it.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-code-review" aria-labelledby="practice-code-review-heading">
+<h3 id="practice-code-review-heading">Check a spreadsheet-cleanup script</h3>
+<p><strong>Skill:</strong> <a href="/skills/index.html#skill-tritonai-autoreview">Review code changes</a>. This exercise is for someone who already has a script or software project. Use a copy of the project with sample spreadsheet data.</p>
+<ol>
+<li><strong>Request a review.</strong> “Review the spreadsheet-cleanup script in this project. Check how it handles missing columns, blank cells, and duplicate rows. Run relevant tests with sample data and explain any problems.”</li>
+<li><strong>Inspect a finding.</strong> “Show a small input that demonstrates each confirmed problem, along with the expected and actual result. Separate confirmed failures from questions that need more information.”</li>
+<li><strong>Try a correction.</strong> “Suggest the smallest fix for the confirmed problem. After I choose a fix, apply it and repeat the relevant checks.”</li>
+</ol>
+<p><strong>What you’ll get:</strong> A review tied to examples and test results, with fixes or remaining issues identified. Compare the output with a manually checked sample before using the script on real work.</p>
+</article>
+<p class="hub-section-action"><a class="btn btn-default" href="/skills/index.html">Explore the Skills Library</a> <a class="btn btn-default" href="#harness-practice">Try exercises with connected tools</a></p>
 </div>
 </section>
 
