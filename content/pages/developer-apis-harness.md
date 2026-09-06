@@ -73,8 +73,28 @@ bannerMode: abstract
 </div>
 <aside class="harness-worked-example" aria-labelledby="harness-example-heading">
 <p class="home-kicker">Example task</p><h3 id="harness-example-heading">Create a department meeting brief</h3>
-<p>Preparing for a UC San Diego department meeting? With the Microsoft 365 and Google Workspace plugins connected, point the Harness to an Outlook email thread and related project documents in Google Drive that you have permission to access. It can create a meeting brief with an agenda, open questions, and proposed follow-ups. You check the source references and confirm owners and dates before sharing.</p>
-<ol class="harness-example-steps"><li><strong>Connect the sources</strong><span>Outlook messages and Google Drive project documents</span></li><li><strong>Create the brief</strong><span>Agenda, open questions, and proposed follow-ups</span></li><li><strong>Review before sharing</strong><span>Check sources and confirm owners and dates</span></li></ol>
+<p>With Microsoft 365 connected, ask the Harness: “Prepare a brief for tomorrow’s department meeting. Find the meeting in my Outlook calendar, review related email conversations from the past two weeks, and draft an agenda with open questions and proposed follow-ups. Include source references.”</p>
+<p>The plugin connects through Microsoft Graph using your signed-in account. Access is limited by your existing permissions and the capabilities enabled for the plugin. Review the brief and confirm owners and dates before sharing.</p>
+<ol class="harness-example-steps"><li><strong>Describe the meeting</strong><span>Give the department name, meeting date, and topics to cover</span></li><li><strong>Gather and draft</strong><span>The Harness finds calendar details and related email, then drafts the brief</span></li><li><strong>Review before sharing</strong><span>Check sources and confirm owners and dates</span></li></ol>
+<p><a href="/developer-apis/citizen-developer.html#practice-meeting">Practice preparing a meeting brief <span aria-hidden="true">→</span></a></p>
+</aside>
+<aside class="harness-worked-example" aria-labelledby="harness-feedback-heading">
+<p class="home-kicker">Example task</p><h3 id="harness-feedback-heading">Summarize workshop feedback</h3>
+<p>“Find the feedback spreadsheet for our latest workshop in Google Drive. Summarize the ratings and recurring themes, flag missing responses, and create a chart with a one-page summary. Suggest changes for the next session and show how you calculated the results.”</p>
+<p>The Google Workspace plugin reads the spreadsheet. The Harness can analyze the responses and create report files in your workspace for review. The plugin’s Google Sheets access is read-only.</p>
+<p><a href="/developer-apis/citizen-developer.html#practice-feedback">Practice analyzing workshop feedback <span aria-hidden="true">→</span></a></p>
+</aside>
+<aside class="harness-worked-example" aria-labelledby="harness-onboarding-heading">
+<p class="home-kicker">Example task</p><h3 id="harness-onboarding-heading">Create a new employee onboarding guide</h3>
+<p>“Use our department’s onboarding documents in Google Drive to draft a guide for a new employee. Organize it into a first-week checklist, explain how to request access to common tools, and link to the source documents. Flag conflicting instructions or missing information for me to resolve.”</p>
+<p>The Google Workspace plugin reads the documents. The Harness organizes the guide, and the UCSD accessibility skill helps with headings, descriptive links, and readable structure. You review the instructions and fill any gaps before sharing.</p>
+<p><a href="/developer-apis/citizen-developer.html#practice-onboarding">Practice creating an onboarding guide <span aria-hidden="true">→</span></a></p>
+</aside>
+<aside class="harness-worked-example" aria-labelledby="harness-discovery-heading">
+<p class="home-kicker">Example task</p><h3 id="harness-discovery-heading">Find information when you don’t know where it lives</h3>
+<p>“I’m looking for the latest instructions for requesting department software. I remember a discussion earlier this summer, but I’m not sure whether the instructions were emailed or saved in Google Drive. Search my Outlook email and Google Drive, show me the most relevant matches, and explain which appears to be current. Include source references and flag conflicting versions.”</p>
+<p>With Microsoft 365 and Google Workspace connected, the Harness can search supported sources using clues such as a topic, person, or approximate date. It compares what it finds and helps you locate the original information. Access stays within your account permissions and the enabled plugin capabilities.</p>
+<p><a href="/developer-apis/citizen-developer.html#practice-discovery">Practice finding information across sources <span aria-hidden="true">→</span></a></p>
 </aside>
 </section>
 

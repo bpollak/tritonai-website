@@ -1,7 +1,7 @@
 ---
 title: Plan Your First Project
 path: /developer-apis/citizen-developer.html
-description: Pick a task you can check, decide who will rely on the result, and choose the TritonAI path that fits before you build anything.
+description: Try guided TritonAI Harness exercises with connected email and documents, then plan a first project you can check and support.
 eyebrow: Build with TritonAI
 lastReviewed: 2026-09-01
 audiences: [staff, faculty, researchers, developers, leaders]
@@ -16,7 +16,7 @@ bannerMode: abstract
 ---
 
 <section class="hub-section hub-section-intro" aria-labelledby="citizen-intro-heading">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Citizen development</p><h2 id="citizen-intro-heading">Start with a task you already do</h2><p class="hub-lede">A citizen developer is anyone who uses software, automation, or AI agents to improve their own work. You do not need a developer role or a coding background. A good first project starts with a task you repeat, a result you can recognize as correct, and a person who reviews what the system does.</p><p>Use this guide to decide three things before you build: how the work will change, who will rely on the result, and which supported TritonAI path fits.</p></div><div class="col-md-6 hub-split-media">
+<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="home-kicker">Citizen development</p><h2 id="citizen-intro-heading">Start with a task you already do</h2><p class="hub-lede">A citizen developer is anyone who uses software, automation, or AI agents to improve their own work. You do not need a developer role or a coding background. A good first project starts with a task you repeat, a result you can recognize as correct, and a person who reviews what the system does.</p><p>Use this guide to try a task in TritonAI Harness, then decide how the work will change, who will rely on the result, and which supported TritonAI path fits.</p><p class="hub-section-action"><a class="btn btn-primary" href="#harness-practice">Try a Harness exercise</a> <a class="btn btn-default" href="#first-project-heading">Plan a first project</a></p></div><div class="col-md-6 hub-split-media">
 <figure class="build-architecture" aria-describedby="citizen-decision-caption">
 <p class="build-architecture-label">Answer three questions before choosing a tool</p>
 <ol class="build-architecture-flow">
@@ -27,6 +27,75 @@ bannerMode: abstract
 <figcaption id="citizen-decision-caption">Decide these three things before you build: how the work changes, who depends on the result, and which TritonAI path fits.</figcaption>
 </figure>
 </div></div>
+</section>
+
+<section class="hub-section" id="harness-practice" aria-labelledby="harness-practice-heading">
+<div class="hub-heading"><p class="home-kicker">Hands-on with TritonAI Harness</p><h2 id="harness-practice-heading">Try a task with your connected tools</h2><p>Start with one of the <a href="/developer-apis/harness.html#harness-example-heading">Harness examples</a> and follow the exercise below. Replace the meeting, workshop, or department details with your own. Each exercise produces something you can inspect in your workspace.</p></div>
+<h3>Set up your workspace</h3>
+<ol>
+<li><strong>Open the Harness and a project folder.</strong> If you are starting from scratch, follow <a href="/developer-apis/start.html">access and setup</a> to get a Gateway key and install the Harness. Use a folder where you can keep the draft and its supporting files.</li>
+<li><strong>Connect the sources for your task.</strong> In Harness Settings, enable Microsoft 365 or Google Workspace and sign in with your campus account. Outlook mail and calendar reads are default Microsoft 365 capabilities. Google Drive, Docs, and Sheets access is read-only. The available tools also depend on your account permissions and enabled plugin capabilities.</li>
+<li><strong>Name the result you want.</strong> Tell the Harness the topic, relevant dates, and output format. Ask it to identify the sources it used and any information it could not read. If a connection is unavailable, you can work from files you are approved to save in your project folder.</li>
+</ol>
+<p>Plugins connect the Harness to your information. Skills guide how it carries out a task. For the onboarding exercise, ask it to use the UCSD accessibility skill to review the draft’s structure. You can explore other guidance in the <a href="/skills/index.html">Skills Library</a>.</p>
+<nav aria-label="Harness practice exercises"><ul>
+<li><a href="#practice-meeting">Prepare a department meeting brief</a></li>
+<li><a href="#practice-feedback">Summarize workshop feedback</a></li>
+<li><a href="#practice-onboarding">Create an onboarding guide</a></li>
+<li><a href="#practice-discovery">Find information across connected sources</a></li>
+</ul></nav>
+
+<article class="harness-worked-example" id="practice-meeting" aria-labelledby="practice-meeting-heading">
+<h3 id="practice-meeting-heading">Prepare a department meeting brief</h3>
+<p><strong>Uses:</strong> Microsoft 365 mail and calendar reads. Have the meeting name and date ready.</p>
+<ol>
+<li><strong>Identify the meeting.</strong> Ask: “Find my department meeting tomorrow in Outlook. Show me the matching event and its time before preparing the brief.” If several events match, tell the Harness which one to use.</li>
+<li><strong>Gather the context.</strong> Continue: “Review related email conversations from the past two weeks. Draft an agenda with open questions and proposed follow-ups. Include source references and identify any gaps.”</li>
+<li><strong>Refine the draft.</strong> Try: “Keep this to one page. Separate decisions already recorded in the sources from items we still need to discuss. Mark proposed owners and dates as unconfirmed.”</li>
+</ol>
+<p><strong>Expected result:</strong> A meeting brief in your workspace with the event details, discussion topics, and references you can check.</p>
+<p><strong>Check before sharing:</strong> Confirm the meeting and time, open the cited messages, and verify that proposals are not presented as commitments. Reading the calendar and drafting the brief do not require sending invitations or email.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-feedback" aria-labelledby="practice-feedback-heading">
+<h3 id="practice-feedback-heading">Summarize workshop feedback</h3>
+<p><strong>Uses:</strong> Google Workspace spreadsheet reads and the Harness’s local file tools. Choose a workshop feedback sheet you are approved to analyze.</p>
+<ol>
+<li><strong>Find the input.</strong> Ask: “Find the feedback spreadsheet for our latest workshop in Google Drive. Show me the matching file, its tabs, and the columns you can read.” Confirm the correct workshop and tab.</li>
+<li><strong>Request the analysis.</strong> Continue: “Summarize the ratings and recurring themes, flag missing responses, and create a chart with a one-page summary. Suggest changes for the next session and show how you calculated the results.”</li>
+<li><strong>Check the calculation.</strong> Try: “State which rows you analyzed, the number of responses to each question, and how blanks were handled. Link the themes to supporting responses without including people’s names.”</li>
+</ol>
+<p><strong>Expected result:</strong> A chart and summary saved in your workspace. The connected Google Sheet stays unchanged.</p>
+<p><strong>Review the findings:</strong> Recalculate a sample of the totals, check the chart labels, and compare the themes with the responses. If only part of the sheet was read, narrow the task or provide an approved export before describing the results as a summary of the whole workshop.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-onboarding" aria-labelledby="practice-onboarding-heading">
+<h3 id="practice-onboarding-heading">Create an onboarding guide</h3>
+<p><strong>Uses:</strong> Google Workspace document reads and the UCSD accessibility skill. Identify the department and the role the guide should support.</p>
+<ol>
+<li><strong>Locate the material.</strong> Ask: “Find our department’s onboarding documents in Google Drive. List the likely sources and their update dates, and identify any that you cannot read.” Select the documents that apply to the role.</li>
+<li><strong>Draft the guide.</strong> Continue: “Create a first-week checklist, explain how to request access to common tools, and link to the source documents. Flag conflicting instructions or missing information for me to resolve.”</li>
+<li><strong>Make it easier to use.</strong> Try: “Use the UCSD accessibility skill to review the draft’s headings, descriptive links, and reading order. Explain unfamiliar abbreviations and separate required steps from optional resources.”</li>
+</ol>
+<p><strong>Expected result:</strong> A draft guide in your workspace, with source links and a list of questions for the department owner.</p>
+<p><strong>Confirm the instructions:</strong> Ask the process owner to resolve conflicting versions, verify contacts and access-request links, and review the guide before sharing it with a new employee. Request an accessibility review of the final file format as needed.</p>
+</article>
+
+<article class="harness-worked-example" id="practice-discovery" aria-labelledby="practice-discovery-heading">
+<h3 id="practice-discovery-heading">Find information across connected sources</h3>
+<p><strong>Uses:</strong> Microsoft 365 mail search and Google Workspace file search. Start with whatever you remember: a topic, person, phrase, or approximate date.</p>
+<ol>
+<li><strong>Describe the clues.</strong> Ask: “I’m looking for the latest instructions for requesting department software. I remember a discussion earlier this summer, but I’m not sure whether the instructions were emailed or saved in Google Drive. Search my Outlook email and Google Drive.”</li>
+<li><strong>Compare the matches.</strong> Continue: “Show the most relevant matches with their source, author or owner, and date when available. Explain which appears current, include source references, and flag conflicting versions.”</li>
+<li><strong>Narrow the search.</strong> If the matches miss the mark, add a colleague’s name, an alternate term, or a shorter date range. Ask: “Which sources did you search, what could you not access, and what should we try next?”</li>
+</ol>
+<p><strong>Expected result:</strong> A shortlist of messages and documents, with enough context to choose the source you need.</p>
+<p><strong>Verify the answer:</strong> Open the original material and check whether it is an approved instruction, a draft, or a discussion. A newer date alone does not establish authority. An empty result means the search found no match within the sources and limits it used.</p>
+</article>
+
+<h3>Keep a prompt that works</h3>
+<p>Once you have checked a result, ask the Harness to save the instructions in your project folder with the meeting name, dates, or source files marked as details to change next time. Include the output format and review steps. You can rerun the task yourself, or use the <a href="#first-project-heading">project-planning questions</a> below when you want to turn it into a recurring team workflow.</p>
+<p class="hub-section-action"><a class="btn btn-default" href="/developer-apis/harness.html#harness-example-heading">Back to the Harness examples</a></p>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="patterns-heading">
