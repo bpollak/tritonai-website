@@ -12,10 +12,10 @@ relatedSlides: [Citizen Developer Ecosystem, Reusable Skills and MCP]
 
 <p class="lead">A skill gives your AI assistant instructions for a particular task, such as checking a document for accessibility or finding a saved project decision. This library explains what each skill can help you do and gives you a request to try.</p>
 
-<h2>How to ask for a skill</h2>
+<h2>How skills help with your request</h2>
 <ol>
 <li><strong>Check that the skill is available.</strong> Open your AI workspace and ask, “Which skills can I use here?” Some skills need a particular app, connected service, or local setup.</li>
-<li><strong>Name the skill and describe the task.</strong> Copy a “Try asking” example below, replace the sample task with your own, and provide the file or context the agent needs. The skill name tells the agent which instructions to use.</li>
+<li><strong>Describe what you want to do.</strong> Try an example below and provide the file or context the agent needs. The Harness can select an installed, enabled skill when your request and conversation context match what it does. You can also name a skill to direct the agent, but that is usually optional.</li>
 <li><strong>Review the result.</strong> Ask which checks it completed and what still needs your attention. A skill can guide the work; it does not grant access to accounts or services.</li>
 </ol>
 

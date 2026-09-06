@@ -27,7 +27,7 @@ If synchronization or validation fails, the workflow stops before deployment and
 
 ## Source contract
 
-The public descriptions, example requests, expected results, and setup notes live in `SKILL_PRESENTATION` in `scripts/build.mjs`. These explain each skill to people using the website. Keep them grounded in the upstream skill's instructions. The synced `description` remains the agent's trigger guidance and appears under Technical details; do not rewrite `content/skills/library.json` to change website copy. Search includes both the public explanations and the upstream descriptions. Newly synced skills use a general orientation request until a reviewed example is added.
+The public descriptions, example requests, expected results, and setup notes live in `SKILL_PRESENTATION` in `scripts/build.mjs`. These explain each skill to people using the website. Example requests use ordinary task language; naming a skill is optional because available skills can be selected from the task context. Keep them grounded in the upstream skill's instructions. The synced `description` remains the agent's trigger guidance and appears under Technical details; do not rewrite `content/skills/library.json` to change website copy. Search includes both the public explanations and the upstream descriptions. Newly synced skills use a general orientation request until a reviewed example is added.
 
 - TritonAI-maintained skills must provide `name` and `description` in `SKILL.md` frontmatter.
 - Each published skill must live at `tritonai/<skill>/SKILL.md`.
