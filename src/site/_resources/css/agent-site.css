@@ -1172,6 +1172,47 @@
   max-width: 760px;
 }
 
+main#main-content .skills-example {
+  margin-top: 18px;
+}
+
+main#main-content .skills-example > p {
+  margin-bottom: 6px;
+}
+
+main#main-content .skills-example blockquote {
+  background: #f4f8fa;
+  border-left: 3px solid var(--triton-blue);
+  font-size: 16px;
+  margin: 0 0 16px;
+  overflow-wrap: anywhere;
+  padding: 12px 16px;
+}
+
+main#main-content .skills-example blockquote p {
+  margin: 0;
+}
+
+main#main-content .skills-outcome,
+main#main-content .skills-setup {
+  line-height: 1.55;
+  margin: 12px 0 0;
+}
+
+@media (max-width: 767px) {
+  main#main-content [data-skills-catalog] .skills-entry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  main#main-content [data-skills-catalog] .skills-entry-icon {
+    display: none;
+  }
+
+  main#main-content [data-skills-catalog] .skills-entry-action {
+    grid-column: 1;
+  }
+}
+
 .skills-entry-meta {
   display: flex;
   flex-wrap: wrap;
@@ -4818,6 +4859,5 @@ a.developer-download-button:visited {
   line-height: 1.55;
   margin-bottom: 0;
 }
-
 
 

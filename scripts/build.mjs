@@ -532,54 +532,88 @@ function renderHomeHero(hero) {
   return `<div class="carousel slide jumbotron jumbotron-hero hm"${carouselAttributes} id="heroslider"><div aria-label="${multipleSlides ? `Revolving Banners with ${hero.slides.length} items` : "TritonAI introduction"}" class="carousel-inner" role="region" tabindex="0">${controls}${slides}</div></div>${multipleSlides ? '<script defer src="/_resources/js/home-hero.js"></script>' : ""}`;
 }
 
+// Public-facing guidance is separate from the agent trigger descriptions synced upstream.
 const SKILL_PRESENTATION = {
   "tritonai-autoreview": {
-    title: "TritonAI Auto Review",
-    category: "Quality and review",
+    title: "Review code changes",
+    category: "Code review",
     icon: "glyphicon-check",
-    summary: "Run a second-model code review and test closeout before a commit, merge, release, or ship.",
+    summary: "Check changes to a software project for bugs and test failures before sharing them with others.",
+    example: "review the changes in this project, run the relevant tests, and explain any problems you find.",
+    outcome: "A summary of the checks, confirmed problems, and fixes made or still needed. You decide when the changes are ready to release.",
+    setup: "Open the software project you want reviewed. The skill uses the project's review tools when available, or performs a structured review.",
   },
   "tritonai-feedback": {
-    title: "TritonAI Feedback",
-    category: "Support and feedback",
+    title: "Report a problem or suggest an improvement",
+    category: "Feedback",
     icon: "glyphicon-comment",
-    summary: "Send feedback, bug reports, support requests, or improvement ideas to the TritonAI team.",
+    summary: "Turn a problem or idea into a clear message for the TritonAI team.",
+    example: "draft feedback about this issue: my task stopped before creating the file I requested. Help me explain what happened and what I expected.",
+    outcome: "A short email draft with a subject, the problem, and useful context. You review it before anything is sent.",
+    setup: "Describe what happened. If an email-sending tool is unavailable, you receive a draft you can send yourself.",
   },
   "tritonai-harness-config": {
-    title: "TritonAI Harness Configuration",
-    category: "Platform operations",
+    title: "Understand your Harness setup",
+    category: "Harness help",
     icon: "glyphicon-cog",
-    summary: "Investigate the live TritonAI Harness environment using sanitized runtime and source evidence.",
+    summary: "Get help understanding your current Harness settings and investigating setup problems.",
+    example: "check which model my Harness session is using and which skills are available. Explain what you can confirm and what you cannot check.",
+    outcome: "An explanation based on the setup it can inspect, with any missing information identified. Settings stay unchanged unless you request a change.",
+    setup: "Use this with the Harness environment you want checked. A project folder alone may not reveal the running app's settings.",
   },
   "ucsd-accessibility-compliance": {
-    title: "UC San Diego Accessibility Compliance",
+    title: "Check content for accessibility",
     category: "Accessibility",
     icon: "glyphicon-eye-open",
-    summary: "Audit and remediate UC San Diego websites, documents, media, and communications for digital accessibility.",
+    summary: "Find accessibility issues in documents, presentations, and webpages, and get help fixing them.",
+    example: "review this workshop handout for accessibility. Check its headings, links, and image descriptions, then explain what needs fixing.",
+    outcome: "Specific issues and suggested fixes, plus checks that still need a person. The review helps improve the content; it does not certify compliance.",
+    setup: "Provide the file or page you want reviewed and tell the agent who will use it.",
   },
   "ucsd-cms": {
-    title: "UC San Diego CMS",
-    category: "Content publishing",
+    title: "Get help with the campus website editor",
+    category: "Website editing",
     icon: "glyphicon-edit",
-    summary: "Author, review, and publish Cascade CMS content with the right templates, metadata, accessibility, and SEO practices.",
+    summary: "Get guidance for editing a UC San Diego website in Cascade, the campus content management system.",
+    example: "walk me through updating an existing department page in Cascade. Explain how to preview it and check headings and links before publication.",
+    outcome: "Steps grounded in UC San Diego's CMS training, with guidance on what to review before publishing.",
+    setup: "You need the appropriate CMS access to make changes. The skill provides guidance; installing it does not connect your agent to Cascade.",
   },
   "ucsd-data-classification": {
-    title: "UC San Diego Data Classification",
-    category: "Data governance",
+    title: "Understand how to handle your data",
+    category: "Data handling",
     icon: "glyphicon-lock",
-    summary: "Classify application data under UC IS-3 Protection Levels and apply the appropriate handling controls.",
+    summary: "Identify how sensitive the information in a planned project may be and which handling requirements to check.",
+    example: "review this proposed workshop signup form using only its field names. Explain the likely UC Protection Levels and which handling questions need a campus decision.",
+    outcome: "An initial classification with reasons, relevant handling requirements, and questions for the responsible campus owner. This does not approve a storage service or use of the data.",
+    setup: "Start with a description or sample field names. You do not need to provide real personal records for this example.",
+  },
+  "ucsd-decorator": {
+    title: "Follow UC San Diego webpage standards",
+    category: "Website development",
+    icon: "glyphicon-th-large",
+    summary: "Help a website developer keep a page consistent with UC San Diego's standard layout and navigation.",
+    example: "review the department webpage source in this project. Check that it follows the UC San Diego template and identify any changes needed.",
+    outcome: "A review of the page source against the campus template, with specific corrections and checks for the developer to follow.",
+    setup: "This is for work on website source files. Provide the project and its UC San Diego template files; CMS editors can use the campus website editor skill.",
   },
   "ucsd-memory": {
-    title: "UC San Diego Memory",
-    category: "Agent memory",
+    title: "Find and reuse saved project notes",
+    category: "Project memory",
     icon: "glyphicon-book",
-    summary: "Search, use, and maintain an existing local TritonAI memory vault.",
+    summary: "Look up earlier decisions and keep useful notes for future work with your AI assistant.",
+    example: "find our saved decisions about the workshop agenda. Summarize what we agreed, cite the notes, and flag anything that may be out of date.",
+    outcome: "A summary tied to the notes it found, with gaps and uncertainty identified. You can also ask it to save or correct a specific note.",
+    setup: "Requires an existing local memory folder. It searches saved material; email and calendar access require their own connections and permission.",
   },
   "ucsd-memory-create": {
-    title: "UC San Diego Memory Setup",
-    category: "Agent memory",
+    title: "Set up project memory",
+    category: "Project memory",
     icon: "glyphicon-plus-sign",
-    summary: "Create a local TritonAI memory vault with conversation sync and maintenance workflows.",
+    summary: "Create a place on your computer to keep project notes and decisions for later conversations.",
+    example: "set up a local memory folder for my workshop planning. Show me where the notes will live and ask before enabling background updates or importing connected sources.",
+    outcome: "An organized memory folder with starter files and instructions for using it. Background updates and connected sources need your approval.",
+    setup: "Choose a local folder. If you already have project memory, ask the agent to inspect it before creating another setup.",
   },
 };
 
@@ -589,7 +623,7 @@ function defaultSkillPresentation(skill) {
     .map((part) => ({ ucsd: "UC San Diego", tritonai: "TritonAI", cms: "CMS" })[part] || `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
     .join(" ");
   const firstSentence = skill.description.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || skill.description;
-  return { title, category: "Agent capability", icon: "glyphicon-wrench", summary: firstSentence };
+  return { title, category: "Additional skill", icon: "glyphicon-wrench", summary: firstSentence, example: "explain what you can help me do and what you need from me.", outcome: "An explanation of the supported tasks and the information needed to get started.", setup: "Read the skill instructions for any required tools or setup." };
 }
 
 function renderSkillsLibrary(library) {
@@ -600,13 +634,13 @@ function renderSkillsLibrary(library) {
         .filter(([, count]) => count > 0)
         .map(([type, count]) => `${count} ${count === 1 ? type.replace(/s$/, "") : type}`);
       const resourceLabel = resourceParts.length ? resourceParts.join(" · ") : "Self-contained";
-      const searchable = `${skill.name} ${presentation.title} ${presentation.category} ${presentation.summary} ${skill.description} ${skill.collectionLabel} ${skill.maintainer || ""}`.toLowerCase();
-      return `<div class="col-xs-12" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="skills-entry"><div class="skills-entry-icon"><span class="glyphicon ${escapeHtml(presentation.icon)}" aria-hidden="true"></span></div><div class="skills-entry-main"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h3>${escapeHtml(presentation.title)}</h3><p class="skills-entry-id"><code>${escapeHtml(skill.name)}</code></p><p class="skills-entry-summary">${escapeHtml(presentation.summary)}</p><div class="skills-entry-meta"><span>${escapeHtml(presentation.category)}</span><span>${escapeHtml(resourceLabel)}</span>${skill.maintainer ? `<span>Maintained by ${escapeHtml(skill.maintainer)}</span>` : ""}</div><details class="skills-details"><summary>When to use this skill</summary><p>${escapeHtml(skill.description)}</p><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p><p><a href="${escapeHtml(skill.directoryUrl)}">Browse source files</a></p></details></div><div class="skills-entry-action"><a href="${escapeHtml(skill.sourceUrl)}" aria-label="Open instructions for ${escapeHtml(presentation.title)}">Open instructions <span aria-hidden="true">→</span></a></div></article></div>`;
+      const searchable = `${skill.name} ${presentation.title} ${presentation.category} ${presentation.summary} ${presentation.example} ${presentation.outcome} ${presentation.setup} ${skill.description} ${skill.collectionLabel} ${skill.maintainer || ""}`.toLowerCase();
+      return `<div class="col-xs-12" data-skill-card data-skill-collection="${escapeHtml(skill.collection)}" data-skill-search="${escapeHtml(searchable)}"><article class="skills-entry"><div class="skills-entry-icon"><span class="glyphicon ${escapeHtml(presentation.icon)}" aria-hidden="true"></span></div><div class="skills-entry-main"><span class="skills-collection">${escapeHtml(skill.collectionLabel)}</span><h3>${escapeHtml(presentation.title)}</h3><p class="skills-entry-summary">${escapeHtml(presentation.summary)}</p><div class="skills-example"><p><strong>Try asking</strong></p><blockquote><p>Use ${escapeHtml(skill.name)} to ${escapeHtml(presentation.example)}</p></blockquote></div><p class="skills-outcome"><strong>What you’ll get:</strong> ${escapeHtml(presentation.outcome)}</p><p class="skills-setup"><strong>Before you start:</strong> ${escapeHtml(presentation.setup)}</p><div class="skills-entry-meta"><span>${escapeHtml(presentation.category)}</span>${skill.maintainer ? `<span>Maintained by ${escapeHtml(skill.maintainer)}</span>` : ""}</div><details class="skills-details"><summary>Technical details</summary><p class="skills-entry-id"><strong>Skill name:</strong> <code>${escapeHtml(skill.name)}</code></p><p>${escapeHtml(skill.description)}</p><p>Supporting files: ${escapeHtml(resourceLabel)}</p><p class="skills-path"><code>${escapeHtml(skill.directory)}</code></p><p><a href="${escapeHtml(skill.directoryUrl)}">Browse source files</a></p></details></div><div class="skills-entry-action"><a href="${escapeHtml(skill.sourceUrl)}" aria-label="Read instructions for ${escapeHtml(presentation.title)}">Read instructions <span aria-hidden="true">→</span></a></div></article></div>`;
     })
     .join("");
-  return `<div data-skills-catalog><ul class="skills-summary" aria-label="Skills Library summary"><li><strong>${library.skills.length}</strong><span>skills ready to use</span></li><li><strong>TritonAI</strong><span>maintained</span></li><li><strong>Automated</strong><span>source refresh</span></li></ul><div class="skills-sync-notice"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><p><strong>Live from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong> Synced at commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}.</p></div><div class="skills-section-heading"><p class="home-kicker">Available now</p><h2>Find a skill for the work in front of you</h2><p>Search by outcome and open a skill when you are ready to give its instructions to an agent.</p></div><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-12"><label for="skills-search">What do you need help with?</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="skills-search" type="search" autocomplete="off" placeholder="Try accessibility, data, review, or memory" data-skills-search></div></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row skills-grid">${cards}</div><div class="panel panel-default skills-install"><div class="panel-heading"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><h2 class="panel-title">Install a skill</h2></div><div class="panel-body"><p>Clone the source repository, then copy an individual skill directory from <code>tritonai/</code> into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
+  return `<div data-skills-catalog><ul class="skills-summary" aria-label="Skills Library summary"><li><strong>${library.skills.length}</strong><span>skills to explore</span></li><li><strong>TritonAI</strong><span>maintained</span></li><li><strong>Automated</strong><span>source refresh</span></li></ul><div class="skills-sync-notice"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span><p><strong>Live from <a href="${escapeHtml(library.source.url)}">${escapeHtml(library.source.repository)}</a>.</strong> Synced at commit <a href="${escapeHtml(library.source.commitUrl)}"><code>${escapeHtml(library.source.commitSha.slice(0, 12))}</code></a>, committed ${escapeHtml(library.source.commitDate.slice(0, 10))}.</p></div><div class="skills-section-heading"><p class="home-kicker">Available now</p><h2>Find a skill for the work in front of you</h2><p>Choose a task below, then try the example request in an AI workspace where the skill is available.</p></div><form class="skills-filter" role="search" aria-label="Filter skills" onsubmit="return false"><div class="row"><div class="col-sm-12"><label for="skills-search">What do you need help with?</label><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input class="form-control" id="skills-search" type="search" autocomplete="off" placeholder="Try accessibility, data, review, or memory" data-skills-search></div></div></div><p class="skills-status" data-skills-status aria-live="polite"></p></form><div class="row skills-grid">${cards}</div><div class="panel panel-default skills-install"><div class="panel-heading"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><h2 class="panel-title">Make a skill available</h2></div><div class="panel-body"><p>First ask your agent whether the named skill is available in your current workspace. If it is missing, follow the setup instructions for your agent. TritonAI Harness users can start with <a href="/developer-apis/start.html">access and setup</a>.</p><details class="skills-details"><summary>Manual installation for other compatible agents</summary><p>Clone the source repository, then copy an individual skill directory from <code>tritonai/</code> into the skills directory used by your agent.</p><pre><code>git clone https://github.com/${escapeHtml(library.source.repository)}.git
 mkdir -p ~/.agents/skills
-cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>Review the skill and its supporting files before installation. The public library excludes restricted operational procedures and credentials.</p><p><a class="btn btn-default" href="${escapeHtml(library.source.url)}#installing-a-skill">Read the repository instructions</a></p></div></div></div>`;
+cp -R UCSD-Skills-Library/tritonai/skill-name ~/.agents/skills/</code></pre><p>Review the skill and its supporting files before installation. The public library excludes restricted operational procedures and credentials.</p><p><a class="btn btn-default" href="${escapeHtml(library.source.url)}#installing-a-skill">Read the repository instructions</a></p></details></div></div></div>`;
 }
 
 function navigationOwner(items, route) {
