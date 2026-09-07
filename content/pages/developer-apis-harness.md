@@ -48,8 +48,8 @@ bannerMode: abstract
 <div class="hub-heading">
 <h2 id="harness-walkthrough-heading">Watch the Harness walkthrough</h2>
 </div>
-<video class="img-responsive center-block" width="1920" height="1280" controls controlslist="nodownload" muted playsinline preload="metadata" poster="/_images/harness/walkthrough-2026-09-07.jpg" aria-label="TritonAI Harness walkthrough" aria-describedby="harness-walkthrough-description" aria-details="harness-walkthrough-transcript" data-silent-demo="true">
-<source src="/_files/harness/walkthrough-2026-09-07.mp4" type="video/mp4">
+<video class="img-responsive center-block" width="1920" height="1304" controls controlslist="nodownload" muted playsinline preload="metadata" poster="/_images/harness/walkthrough-2026-09-07-v2.jpg" aria-label="TritonAI Harness walkthrough" aria-describedby="harness-walkthrough-description" aria-details="harness-walkthrough-transcript" data-silent-demo="true">
+<source src="/_files/harness/walkthrough-2026-09-07-v2.mp4" type="video/mp4">
 Your browser does not support embedded video.
 </video>
 <p id="harness-walkthrough-description" class="small">The walkthrough covers the workspace, settings, plugins, and skills. Fictional examples show a request tracker built with the UC San Diego Decorator skill, a daily briefing, and meeting follow-up.</p>
@@ -59,11 +59,11 @@ Your browser does not support embedded video.
 <p>The Plugins page shows GitHub, Google Workspace, and Microsoft 365. The Microsoft 365 card expands to show available tools and individual access controls. No permissions are changed.</p>
 <p>The Skills page shows reusable instructions for deployment, review, and feedback. UC San Diego skills cover branding, content, and data classification.</p>
 <p>General settings includes project grouping, time format, assistant output, and background activity. Appearance includes theme, glass opacity, and word wrapping. The walkthrough also opens runtime settings and keyboard shortcuts.</p>
-<h3>Build a request tracker (1:14)</h3>
+<h3>Build a request tracker (0:57)</h3>
 <p>The request invokes the installed UCSD Branding skill to apply the official Decorator 5 design system to a local prototype. The app uses UC San Diego header and footer assets, CDN styles and scripts, navigation, and form components. The example records are fictional.</p>
 <p>The app opens in the Harness browser panel. Submitting an empty form produces three required-field errors and moves focus to Request title. A fictional request titled “Workshop room setup” is entered with the Room Setup category, New status, and the note “Arrange tables for the fictional workshop.”</p>
 <p>The request is added successfully. The New count becomes 1, and the New filter displays the request and its note. The task panel shows the five Decorator rebuild steps completed. The handoff identifies reviews still needed before team adoption.</p>
-<h3>Prepare a daily briefing (2:18)</h3>
+<h3>Prepare a daily briefing (1:46)</h3>
 <p>A fictional calendar file appears beside the completed briefing. This example uses a local sample file; it does not show live calendar retrieval or scheduled delivery.</p>
 <p>The briefing identifies priorities for a fictional Tuesday: finalize the pilot categories, review three help pages, and prepare a retrospective decision.</p>
 <ul>
@@ -72,7 +72,7 @@ Your browser does not support embedded video.
 <li><strong>14:00, pilot retrospective:</strong> Review the fictional totals of 12 submitted requests, 9 completed, and 3 awaiting clarification. Identify the main cause of clarification delays.</li>
 </ul>
 <p>The output lists decisions to confirm, suggests one clear decision and follow-up owner per meeting, and cites the sample calendar file.</p>
-<h3>Prepare meeting follow-up (2:41)</h3>
+<h3>Prepare meeting follow-up (2:04)</h3>
 <p>Fictional meeting notes remain visible beside the draft. The decision is to pilot the request tracker for room setup and equipment loans only.</p>
 <ul>
 <li><strong>Service coordinator:</strong> Write plain-language category descriptions by September 10.</li>
