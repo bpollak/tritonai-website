@@ -47,16 +47,13 @@ bannerMode: abstract
 <section class="hub-section" id="harness-walkthrough" aria-labelledby="harness-walkthrough-heading">
 <div class="hub-heading">
 <h2 id="harness-walkthrough-heading">Watch the Harness walkthrough</h2>
-<p>Explore the workspace, settings, plugins, and skills. Then follow a UC San Diego branded app build, a daily briefing, and a meeting follow-up using fictional sample data.</p>
 </div>
-<video class="img-responsive center-block" width="1920" height="1280" controls muted playsinline preload="metadata" poster="/_images/harness/walkthrough-2026-09-07.jpg" aria-label="TritonAI Harness walkthrough" aria-describedby="harness-walkthrough-description" data-silent-demo="true">
+<video class="img-responsive center-block" width="1920" height="1280" controls controlslist="nodownload" muted playsinline preload="metadata" poster="/_images/harness/walkthrough-2026-09-07.jpg" aria-label="TritonAI Harness walkthrough" aria-describedby="harness-walkthrough-description" aria-details="harness-walkthrough-transcript" data-silent-demo="true">
 <source src="/_files/harness/walkthrough-2026-09-07.mp4" type="video/mp4">
-Your browser does not support embedded video. <a href="/_files/harness/walkthrough-2026-09-07.mp4">Download the walkthrough</a>.
+Your browser does not support embedded video.
 </video>
-<p id="harness-walkthrough-description" class="small">Silent video, 3 minutes 1 second. The full application window stays visible, with annotations in a narrow strip below it. Recorded September 7, 2026; completed sample conversations are revisited and navigation pauses are shortened.</p>
-<p><a href="/_files/harness/walkthrough-2026-09-07.mp4" download>Download the walkthrough (MP4, 5.1 MB)</a></p>
-<details>
-<summary>Read the walkthrough transcript</summary>
+<p id="harness-walkthrough-description" class="small">The walkthrough covers the workspace, settings, plugins, and skills. Fictional examples show a request tracker built with the UC San Diego Decorator skill, a daily briefing, and meeting follow-up.</p>
+<section class="sr-only" id="harness-walkthrough-transcript" aria-label="Walkthrough text alternative">
 <h3>Workspace and settings (0:00)</h3>
 <p>The project sidebar remains visible beside the conversation. The right panel displays source files, the request tracker, and the task plan.</p>
 <p>The Plugins page shows GitHub, Google Workspace, and Microsoft 365. The Microsoft 365 card expands to show available tools and individual access controls. No permissions are changed.</p>
@@ -83,7 +80,7 @@ Your browser does not support embedded video. <a href="/_files/harness/walkthrou
 <li><strong>Project lead:</strong> Arrange the pilot review next week; the date is not confirmed.</li>
 </ul>
 <p>The review date and long-term support owner remain open questions. A draft follow-up restates the decision and actions with their owners and dates. No message is sent.</p>
-</details>
+</section>
 </section>
 
 <section class="hub-section harness-compare" id="what-a-harness-adds" aria-labelledby="harness-compare-heading">
