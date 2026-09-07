@@ -52,7 +52,7 @@ bannerMode: abstract
 <source src="/_files/harness/walkthrough-2026-09-07-v2.mp4" type="video/mp4">
 Your browser does not support embedded video.
 </video>
-<p id="harness-walkthrough-description" class="small">The walkthrough covers the workspace, settings, plugins, and skills. Fictional examples show a request tracker built with the UC San Diego Decorator skill, a daily briefing, and meeting follow-up.</p>
+<p id="harness-walkthrough-description" class="small">The walkthrough covers the workspace, settings, plugins, and skills. Examples show a request tracker built with the UC San Diego Decorator skill, a daily briefing, and meeting follow-up.</p>
 <section class="sr-only" id="harness-walkthrough-transcript" aria-label="Walkthrough text alternative">
 <h3>Workspace and settings (0:00)</h3>
 <p>The project sidebar remains visible beside the conversation. The right panel displays source files, the request tracker, and the task plan.</p>
