@@ -3,7 +3,7 @@ title: TritonAI Harness
 path: /developer-apis/harness.html
 description: A local-first agent control surface connecting campus builders to approved models, local files, and UC San Diego systems under human supervision.
 eyebrow: Build with TritonAI
-lastReviewed: 2026-09-03
+lastReviewed: 2026-09-07
 audiences: [staff, faculty, researchers, developers]
 owner: TritonAI
 source: "TritonAI Harness product documentation and UC San Diego AI service guidance"
@@ -42,6 +42,48 @@ bannerMode: abstract
 </figure>
 </div>
 </div>
+</section>
+
+<section class="hub-section" id="harness-walkthrough" aria-labelledby="harness-walkthrough-heading">
+<div class="hub-heading">
+<h2 id="harness-walkthrough-heading">Watch the Harness walkthrough</h2>
+<p>Explore the workspace, settings, plugins, and skills. Then follow a UC San Diego branded app build, a daily briefing, and a meeting follow-up using fictional sample data.</p>
+</div>
+<video class="img-responsive center-block" width="1920" height="1280" controls muted playsinline preload="metadata" poster="/_images/harness/walkthrough-2026-09-07.jpg" aria-label="TritonAI Harness walkthrough" aria-describedby="harness-walkthrough-description" data-silent-demo="true">
+<source src="/_files/harness/walkthrough-2026-09-07.mp4" type="video/mp4">
+Your browser does not support embedded video. <a href="/_files/harness/walkthrough-2026-09-07.mp4">Download the walkthrough</a>.
+</video>
+<p id="harness-walkthrough-description" class="small">Silent video, 3 minutes 1 second. The full application window stays visible, with annotations in a narrow strip below it. Recorded September 7, 2026; completed sample conversations are revisited and navigation pauses are shortened.</p>
+<p><a href="/_files/harness/walkthrough-2026-09-07.mp4" download>Download the walkthrough (MP4, 5.1 MB)</a></p>
+<details>
+<summary>Read the walkthrough transcript</summary>
+<h3>Workspace and settings (0:00)</h3>
+<p>The project sidebar remains visible beside the conversation. The right panel displays source files, the request tracker, and the task plan.</p>
+<p>The Plugins page shows GitHub, Google Workspace, and Microsoft 365. The Microsoft 365 card expands to show available tools and individual access controls. No permissions are changed.</p>
+<p>The Skills page shows reusable instructions for deployment, review, and feedback. UC San Diego skills cover branding, content, and data classification.</p>
+<p>General settings includes project grouping, time format, assistant output, and background activity. Appearance includes theme, glass opacity, and word wrapping. The walkthrough also opens runtime settings and keyboard shortcuts.</p>
+<h3>Build a request tracker (1:14)</h3>
+<p>The request invokes the installed UCSD Branding skill to apply the official Decorator 5 design system to a local prototype. The app uses UC San Diego header and footer assets, CDN styles and scripts, navigation, and form components. The example records are fictional.</p>
+<p>The app opens in the Harness browser panel. Submitting an empty form produces three required-field errors and moves focus to Request title. A fictional request titled “Workshop room setup” is entered with the Room Setup category, New status, and the note “Arrange tables for the fictional workshop.”</p>
+<p>The request is added successfully. The New count becomes 1, and the New filter displays the request and its note. The task panel shows the five Decorator rebuild steps completed. The handoff identifies reviews still needed before team adoption.</p>
+<h3>Prepare a daily briefing (2:18)</h3>
+<p>A fictional calendar file appears beside the completed briefing. This example uses a local sample file; it does not show live calendar retrieval or scheduled delivery.</p>
+<p>The briefing identifies priorities for a fictional Tuesday: finalize the pilot categories, review three help pages, and prepare a retrospective decision.</p>
+<ul>
+<li><strong>09:00, request tracker pilot:</strong> Confirm whether the pilot should cover room setup and equipment loans. Accessibility review is pending.</li>
+<li><strong>11:00, website content review:</strong> Review draft help pages for clarity, plain language, and keyboard navigation.</li>
+<li><strong>14:00, pilot retrospective:</strong> Review the fictional totals of 12 submitted requests, 9 completed, and 3 awaiting clarification. Identify the main cause of clarification delays.</li>
+</ul>
+<p>The output lists decisions to confirm, suggests one clear decision and follow-up owner per meeting, and cites the sample calendar file.</p>
+<h3>Prepare meeting follow-up (2:41)</h3>
+<p>Fictional meeting notes remain visible beside the draft. The decision is to pilot the request tracker for room setup and equipment loans only.</p>
+<ul>
+<li><strong>Service coordinator:</strong> Write plain-language category descriptions by September 10.</li>
+<li><strong>Designer:</strong> Check keyboard navigation and contrast by September 11.</li>
+<li><strong>Project lead:</strong> Arrange the pilot review next week; the date is not confirmed.</li>
+</ul>
+<p>The review date and long-term support owner remain open questions. A draft follow-up restates the decision and actions with their owners and dates. No message is sent.</p>
+</details>
 </section>
 
 <section class="hub-section harness-compare" id="what-a-harness-adds" aria-labelledby="harness-compare-heading">
