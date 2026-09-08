@@ -46,6 +46,7 @@ const MODEL_PUBLISHERS = [
   ["Z.ai", /^api-glm-/],
   ["LightOn", /^api-lighton/],
   ["Cohere", /^api-cohere-/],
+  ["Muse", /^api-muse-/],
 ];
 
 // Relative launch sequence within each publisher. These values only establish
@@ -59,6 +60,8 @@ const MODEL_RECENCY = new Map([
   ["claude-sonnet-4-6", 660],
   ["claude-opus-4-6", 650],
   ["claude-opus-4-6-v1", 640],
+  ["gemini-3.8-flash", 720],
+  ["gemini-3.7-flash", 710],
   ["gemini-3.6-flash", 700],
   ["gemini-3.5-flash", 690],
   ["gemini-3.5-flash-lite", 680],
@@ -125,6 +128,8 @@ const DISPLAY_NAMES = {
   "gemini-3.5-flash": "Gemini 3.5 Flash",
   "gemini-3.5-flash-lite": "Gemini 3.5 Flash Lite",
   "gemini-3.6-flash": "Gemini 3.6 Flash",
+  "gemini-3.7-flash": "Gemini 3.7 Flash",
+  "gemini-3.8-flash": "Gemini 3.8 Flash",
   "minimax.minimax-m2": "MiniMax M2",
   "mistral.mistral-large-3-675b-instruct": "Mistral Large 3",
   "moonshotai.kimi-k2.5": "Kimi K2.5",
@@ -139,6 +144,7 @@ const DISPLAY_NAMES = {
   "api-mistral-small-3.2-2506": "Mistral Small 3.2",
   "api-lightonocr-1b": "LightOn OCR 1B",
   "api-cohere-transcribe": "Cohere Transcribe",
+  "api-muse-glimmer-30b": "Muse Glimmer 30B",
   "api-tgpt-embeddings": "TritonGPT Embeddings",
 };
 

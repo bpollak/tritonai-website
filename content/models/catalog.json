@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-09-01T14:55:15.678Z",
+  "lastSynced": "2026-09-08T01:12:45.457Z",
   "source": "https://tritonai-api.ucsd.edu/public/model_hub",
   "models": [
     {
@@ -52,6 +52,20 @@
       "maxInputTokens": 200000
     },
     {
+      "id": "gemini-3.8-flash",
+      "displayName": "Gemini 3.8 Flash",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1048576
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "displayName": "Gemini 3.7 Flash",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1048576
+    },
+    {
       "id": "gemini-3.6-flash",
       "displayName": "Gemini 3.6 Flash",
       "type": "Chat and reasoning",
@@ -78,13 +92,6 @@
       "type": "Chat and reasoning",
       "hosting": "UC-hosted",
       "maxInputTokens": 256000
-    },
-    {
-      "id": "gemini-3.7-flash",
-      "displayName": "Gemini 3.7 Flash",
-      "type": "Chat and reasoning",
-      "hosting": "Approved enterprise cloud",
-      "maxInputTokens": 1048576
     },
     {
       "id": "gpt-5.6-luna",
@@ -197,6 +204,13 @@
       "type": "Speech to text",
       "hosting": "UC-hosted",
       "maxInputTokens": null
+    },
+    {
+      "id": "api-muse-glimmer-30b",
+      "displayName": "Muse Glimmer 30B",
+      "type": "Chat and reasoning",
+      "hosting": "UC-hosted",
+      "maxInputTokens": 262144
     }
   ]
 }
