@@ -63,8 +63,8 @@
       "date": "2026-09-08",
       "displayDate": "September 8, 2026",
       "area": "platform",
-      "title": "TritonGPT 4.6.6 reaches production",
-      "details": "<p>TritonGPT version 4.6.6 is in production, moving the default model to Muse Glimmer 30B, an open model hosted on UC San Diego infrastructure, and adding GPT-5.6 Terra, Gemini 3.7 Flash, and Claude Sonnet 5 to the catalog. Voice Mode and a coding sandbox are now part of the platform, and reasoning effort is adjustable per model. <a href=\"/tritongpt/release-notes/9-8-2026-release.html\">Read the release details</a>.</p>"
+      "title": "TritonGPT’s default model moves to UC-hosted infrastructure",
+      "details": "<p>TritonGPT’s default model now runs on UC San Diego infrastructure, keeping routine campus AI traffic on UC-controlled hardware and adding capacity for periods of peak demand such as course scheduling. Version 4.6.6 also expands the evaluated model catalog and adds new ways to work with assistants, including Voice Mode and a coding sandbox. <a href=\"/tritongpt/release-notes/9-8-2026-release.html\">Read the September 8 release details</a>.</p>"
     },
     {
       "id": "2026-09-08-tritongpt-4-6-6",
