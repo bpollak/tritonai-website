@@ -166,15 +166,42 @@ function renderNewsletter(newsletter) {
 }
 
 function renderDeliveryPathway(current) {
-  const steps = [
-    { id: "roadmap", label: "Roadmap", href: "/about/roadmap.html", description: "Approved direction and delivery status" },
-    { id: "updates", label: "TritonAI Updates", href: "/about/tritonai-updates.html", description: "Verified program launches and milestones" },
-    { id: "features", label: "TritonGPT Feature Updates", href: "/tritongpt/release-notes/index.html", description: "Deployed product changes for users" },
+  const views = [
+    {
+      id: "roadmap",
+      label: "Roadmap",
+      scope: "Strategic horizon",
+      icon: "calendar",
+      href: "/about/roadmap.html",
+      description: "Approved direction and delivery commitments across campus AI",
+    },
+    {
+      id: "updates",
+      label: "TritonAI Updates",
+      scope: "Program milestones",
+      icon: "bullhorn",
+      href: "/about/tritonai-updates.html",
+      description: "Verified launches, infrastructure, and tool updates across UC San Diego",
+    },
+    {
+      id: "features",
+      label: "TritonGPT Feature Updates",
+      scope: "Platform releases",
+      icon: "flash",
+      href: "/tritongpt/release-notes/index.html",
+      description: "Deployed capabilities, assistants, and release notes for TritonGPT",
+    },
   ];
-  const items = steps
-    .map((step, index) => `<li${step.id === current ? ' class="delivery-pathway-current"' : ""}><a href="${step.href}"${step.id === current ? ' aria-current="page"' : ""}><span class="delivery-pathway-number" aria-hidden="true">${index + 1}</span><span><strong>${escapeHtml(step.label)}</strong><small>${escapeHtml(step.description)}</small></span></a></li>`)
+  const items = views
+    .map((view) => {
+      const isCurrent = view.id === current;
+      const currentClass = isCurrent ? ' class="delivery-pathway-current"' : "";
+      const currentAttr = isCurrent ? ' aria-current="page"' : "";
+      const currentBadge = isCurrent ? '<span class="delivery-pathway-current-badge" aria-hidden="true">Current view</span>' : "";
+      return `<li${currentClass}><a href="${view.href}"${currentAttr}><div class="delivery-pathway-header"><span class="delivery-pathway-icon glyphicon glyphicon-${escapeHtml(view.icon)}" aria-hidden="true"></span><span class="delivery-pathway-scope">${escapeHtml(view.scope)}</span>${currentBadge}</div><div class="delivery-pathway-body"><strong>${escapeHtml(view.label)}</strong><p>${escapeHtml(view.description)}</p></div></a></li>`;
+    })
     .join("");
-  return `<nav class="delivery-pathway" aria-labelledby="delivery-pathway-heading"><div class="delivery-pathway-heading"><p class="home-kicker">From direction to delivery</p><h2 id="delivery-pathway-heading">Follow the work at each stage</h2><p>The roadmap shows approved work. Program updates record delivery. Feature updates explain changes available in TritonGPT.</p></div><ol>${items}</ol></nav>`;
+  return `<nav class="delivery-pathway" aria-labelledby="delivery-pathway-heading"><div class="delivery-pathway-heading"><p class="home-kicker">Updates and planning</p><h2 id="delivery-pathway-heading">Roadmap and update views</h2><p>Browse planned commitments across TritonAI, track verified campus-wide program milestones, or review release notes for TritonGPT.</p></div><ul class="delivery-pathway-grid">${items}</ul></nav>`;
 }
 
 function renderTritonAiUpdates(feed, streamId) {
