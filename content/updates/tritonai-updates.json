@@ -76,6 +76,15 @@
       "details": "<p>TritonGPT version 4.6.6 is in production. Muse Glimmer 30B, an open model hosted on UC San Diego infrastructure, is now the default model, and GPT-5.6 Terra, Gemini 3.7 Flash, and Claude Sonnet 5 join the lineup. Voice Mode lets you speak with an assistant and hear its responses, a coding sandbox runs code inside chat, and reasoning effort is adjustable per model. <a href=\"/tritongpt/release-notes/9-8-2026-release.html\">Read the September 8 release details</a>.</p>"
     },
     {
+      "id": "2026-09-03-scout-production-beta",
+      "stream": "program",
+      "date": "2026-09-03",
+      "displayDate": "September 3, 2026",
+      "area": "platform",
+      "title": "SCOUT in production beta at UC Merced",
+      "details": "<p>UC Merced’s SCOUT assistant is in production beta, serving more than 100 faculty and staff users. SCOUT runs on the shared TritonAI platform and inherits the same hosting, model choice, and governance controls as the UC San Diego deployment. The expansion extends the platform’s multi-institution footprint alongside BearGPT at UC Berkeley, ANR AI at UC Agriculture and Natural Resources, and FredGPT at Fairleigh Dickinson University.</p>"
+    },
+    {
       "id": "2026-08-30-citizen-developer-data-guidance",
       "stream": "program",
       "date": "2026-08-30",
