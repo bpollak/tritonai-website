@@ -14,57 +14,6 @@ bannerPosition: center
 bannerMode: abstract
 ---
 
-<section class="hub-section hub-section-intro" aria-labelledby="tools-intro-heading">
-<div class="row">
-  <div class="col-lg-8 col-md-10">
-    <p class="home-kicker">Choose by need</p>
-    <h2 id="tools-intro-heading">Start with the task and the data it touches</h2>
-    <p class="hub-lede">UC San Diego supports several artificial intelligence services, including generative AI tools for chat, documents, meetings, and campus workflows. The right service depends on the task, the data involved, where the work happens, and who reviews the result.</p>
-  </div>
-</div>
-
-<figure class="triton-graphic triton-choice-horizontal" aria-describedby="tool-choice-caption">
-  <div class="triton-choice-horizontal-header">
-    <p class="triton-graphic-label">Four signals guide the choice</p>
-    <figcaption id="tool-choice-caption">The choice starts with the work and its boundaries. Compare capabilities and access below without ranking vendors.</figcaption>
-  </div>
-  <ul class="row triton-choice-grid">
-    <li class="col-sm-6 col-md-3">
-      <div class="triton-choice-step">
-        <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-        <strong>Task</strong>
-        <small>What needs to happen?</small>
-      </div>
-    </li>
-    <li class="col-sm-6 col-md-3">
-      <div class="triton-choice-step">
-        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-        <strong>Data</strong>
-        <small>What information is involved?</small>
-      </div>
-    </li>
-    <li class="col-sm-6 col-md-3">
-      <div class="triton-choice-step">
-        <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
-        <strong>Workspace</strong>
-        <small>Where does the work already happen?</small>
-      </div>
-    </li>
-    <li class="col-sm-6 col-md-3">
-      <div class="triton-choice-step">
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        <strong>Review</strong>
-        <small>Who needs to check the result?</small>
-      </div>
-    </li>
-  </ul>
-  <div class="triton-choice-horizontal-footer">
-    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-    <strong>Supported campus services</strong>
-    <span>Compare guidance below</span>
-  </div>
-</figure>
-</section>
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="supported-tools-heading">
 <div class="container"><div class="hub-heading"><p class="home-kicker">Available services</p><h2 id="supported-tools-heading">Supported AI services</h2></div>
