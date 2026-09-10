@@ -3904,6 +3904,11 @@
   border-top: 5px solid var(--triton-gold);
 }
 
+.hub-subscribe.hub-task-intake {
+  background: #f0f6fa;
+  border-top: 4px solid var(--triton-blue);
+}
+
 .hub-subscribe-action {
   text-align: right;
 }
