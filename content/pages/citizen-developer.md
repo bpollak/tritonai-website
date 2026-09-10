@@ -29,8 +29,8 @@ bannerMode: abstract
 </div></div>
 </section>
 
-<section class="hub-section" id="harness-practice" aria-labelledby="harness-practice-heading">
-<div class="hub-heading"><p class="home-kicker">Hands-on with TritonAI Harness</p><h2 id="harness-practice-heading">Try a task with your connected tools</h2><p>Start with one of the <a href="/developer-apis/harness.html#harness-example-heading">Harness examples</a> and follow the exercise below. Replace the meeting, workshop, or department details with your own. Each exercise produces something you can inspect in your workspace.</p></div>
+<section class="hub-section hub-section-cool hub-full-bleed" id="harness-practice" aria-labelledby="harness-practice-heading">
+<div class="container"><div class="hub-heading"><p class="home-kicker">Hands-on with TritonAI Harness</p><h2 id="harness-practice-heading">Try a task with your connected tools</h2><p>Start with one of the <a href="/developer-apis/harness.html#harness-example-heading">Harness examples</a> and follow the exercise below. Replace the meeting, workshop, or department details with your own. Each exercise produces something you can inspect in your workspace.</p></div>
 <h3>Set up your workspace</h3>
 <ol>
 <li><strong>Open the Harness and a project folder.</strong> If you are starting from scratch, follow <a href="/developer-apis/start.html">access and setup</a> to get a Gateway key and install the Harness. Use a folder where you can keep the draft and its supporting files.</li>
@@ -96,6 +96,7 @@ bannerMode: abstract
 <h3>Keep a prompt that works</h3>
 <p>Once you have checked a result, ask the Harness to save the instructions in your project folder with the meeting name, dates, or source files marked as details to change next time. Include the output format and review steps. You can rerun the task yourself, or use the <a href="#first-project-heading">project-planning questions</a> below when you want to turn it into a recurring team workflow.</p>
 <p class="hub-section-action"><a class="btn btn-default" href="/developer-apis/harness.html#harness-example-heading">Back to the Harness examples</a></p>
+</div>
 </section>
 
 <section class="hub-section hub-section-sand hub-full-bleed" aria-labelledby="patterns-heading">

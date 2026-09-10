@@ -313,6 +313,20 @@
   background: var(--triton-sand);
 }
 
+.hub-section-cool {
+  background: #f0f6fa;
+  border-bottom: 1px solid rgba(0, 98, 155, .12);
+  border-top: 1px solid rgba(0, 98, 155, .12);
+}
+
+.hub-section-cool .harness-worked-example {
+  background: #ffffff;
+  border: 1px solid rgba(0, 98, 155, .14);
+  border-left: 4px solid #c69214;
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(24, 43, 73, .05);
+}
+
 .hub-heading {
   margin-bottom: 34px;
   max-width: 820px;
