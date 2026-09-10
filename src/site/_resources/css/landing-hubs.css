@@ -1469,6 +1469,126 @@
   margin-top: 16px;
 }
 
+.triton-choice-horizontal {
+  background: var(--triton-sand);
+  border: 1px solid rgba(0, 98, 155, .15);
+  border-top: 5px solid var(--triton-blue);
+  border-radius: 4px;
+  margin-top: 28px;
+  padding: 26px 28px 22px;
+}
+
+.triton-choice-horizontal-header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.triton-choice-horizontal-header .triton-graphic-label {
+  margin: 0;
+}
+
+.triton-choice-horizontal-header figcaption {
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 620px;
+}
+
+.triton-choice-grid {
+  list-style: none;
+  margin: 0 -8px;
+  padding: 0;
+}
+
+.triton-choice-grid > li {
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.triton-choice-step {
+  background: #fff;
+  border: 1px solid var(--triton-border);
+  border-left: 4px solid var(--triton-blue);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px 18px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.triton-choice-step:hover {
+  box-shadow: 0 6px 16px rgba(24, 43, 73, .08);
+  transform: translateY(-2px);
+}
+
+.triton-choice-grid > li:nth-child(2) .triton-choice-step {
+  border-left-color: var(--triton-gold);
+}
+
+.triton-choice-grid > li:nth-child(3) .triton-choice-step {
+  border-left-color: var(--triton-bright-blue);
+}
+
+.triton-choice-grid > li:nth-child(4) .triton-choice-step {
+  border-left-color: #6e963b;
+}
+
+.triton-choice-step .glyphicon {
+  color: var(--triton-blue);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.triton-choice-step strong {
+  color: var(--triton-navy);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.triton-choice-step small {
+  color: #52616b;
+  font-size: 13px;
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+.triton-choice-horizontal-footer {
+  align-items: center;
+  background: var(--triton-navy);
+  border-top: 3px solid var(--triton-gold);
+  border-radius: 3px;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  justify-content: center;
+  margin-top: 6px;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.triton-choice-horizontal-footer .glyphicon {
+  color: var(--triton-gold);
+  font-size: 15px;
+}
+
+.triton-choice-horizontal-footer strong {
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: .02em;
+}
+
+.triton-choice-horizontal-footer span {
+  color: #d9f2f5;
+  font-size: 13px;
+}
+
 .use-case-anatomy-section {
   background:
     radial-gradient(circle at 7% 8%, rgba(0, 198, 215, .12), transparent 30%),
