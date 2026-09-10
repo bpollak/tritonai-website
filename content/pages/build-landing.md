@@ -143,11 +143,6 @@ bannerMode: abstract
 </div>
 <figcaption id="api-gateway-caption">The Gateway key controls model access and limits. The client or application remains responsible for data permissions, testing, accessibility, support, and human review.</figcaption>
 </figure>
-<figure class="api-gateway-architecture" aria-describedby="api-gateway-architecture-caption">
-<p class="build-architecture-label">How the full service stays governed</p>
-<img src="/_images/tritonai-architecture-public.svg" alt="Public TritonAI architecture showing a campus need moving through an approved gateway to approved models, approved knowledge, and approved tools, with human review surrounding the workflow and controls covering evaluation, accessibility, and monitoring" class="img-responsive" loading="lazy" decoding="async" width="1200" height="675"/>
-<figcaption class="sr-only" id="api-gateway-architecture-caption">A campus need moves through an approved TritonAI gateway to approved models, knowledge, and tools, with human review surrounding the workflow and controls covering evaluation, accessibility, and monitoring.</figcaption>
-</figure>
 </div>
 </section>
 

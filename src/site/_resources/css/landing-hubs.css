@@ -6178,19 +6178,3 @@ main#main-content .harness-example-steps span { display: block; margin-top: 5px;
   main#main-content .harness-component-visual { width: 100%; max-width: 270px; margin: 14px auto 0; }
   main#main-content .harness-worked-example { padding: 20px; }
 }
-
-/* Governed-architecture figure under the Gateway workflow diagram. */
-.api-gateway-architecture {
-  margin: 46px 0 0;
-}
-
-.api-gateway-architecture .build-architecture-label {
-  margin: 0 0 16px;
-}
-
-.api-gateway-architecture img {
-  border: 1px solid rgba(23, 32, 27, 0.12);
-  border-radius: 6px;
-  margin: 0;
-  width: 100%;
-}
