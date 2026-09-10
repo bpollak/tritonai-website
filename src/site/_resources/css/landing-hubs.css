@@ -3328,6 +3328,9 @@
 
 /* Builder Track Cards & Waypoint Navigation */
 .builder-track-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 24px 22px 20px;
 }
 
@@ -3417,6 +3420,78 @@
 .builder-track-sublink {
   margin: 8px 0 0;
   text-align: center;
+}
+
+@media (min-width: 992px) {
+  .builder-track-card h3 {
+    min-height: 64px;
+  }
+
+  .builder-track-summary {
+    min-height: 110px;
+  }
+
+  .builder-track-waypoints {
+    min-height: 115px;
+  }
+
+  .builder-track-footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+  }
+
+  .builder-track-sublink {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    min-height: 44px;
+  }
+}
+
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 992px) {
+    .hub-action-grid-three {
+      column-gap: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto auto auto auto auto;
+      row-gap: 0;
+    }
+
+    .hub-action-grid-three::before,
+    .hub-action-grid-three::after {
+      display: none;
+    }
+
+    .hub-action-grid-three > .col-md-4 {
+      display: grid;
+      grid-row: span 6;
+      grid-template-rows: subgrid;
+      margin-bottom: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    .hub-action-grid-three .builder-track-card {
+      display: grid;
+      grid-row: span 6;
+      grid-template-rows: subgrid;
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .hub-action-grid-three .builder-track-card h3,
+    .hub-action-grid-three .builder-track-summary,
+    .hub-action-grid-three .builder-track-waypoints,
+    .hub-action-grid-three .builder-track-sublink {
+      min-height: 0;
+    }
+
+    .hub-action-grid-three .builder-track-footer {
+      display: contents;
+    }
+  }
 }
 
 .hub-path-list {
