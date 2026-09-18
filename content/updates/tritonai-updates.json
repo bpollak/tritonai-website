@@ -4,7 +4,7 @@
   "description": "Changes across TritonGPT, campus AI services, developer tools, models, and shared infrastructure.",
   "owner": "TritonAI program",
   "source": "Published TritonGPT release notes, public TritonAI builder pages, and approved TritonAI service updates",
-  "lastReviewed": "2026-09-08",
+  "lastReviewed": "2026-09-18",
   "streams": [
     {
       "id": "program",
@@ -57,6 +57,15 @@
     }
   ],
   "updates": [
+    {
+      "id": "2026-09-18-scout-public-launch",
+      "stream": "program",
+      "date": "2026-09-18",
+      "displayDate": "September 18, 2026",
+      "area": "platform",
+      "title": "SCOUT is now broadly available at UC Merced",
+      "details": "<p>UC Merced’s SCOUT assistant is now broadly available to the campus following an Early Access preview. SCOUT runs on the shared TritonAI platform and inherits the same hosting, model choice, and governance controls as the UC San Diego deployment. The expansion extends the platform’s multi-institution footprint alongside BearGPT at UC Berkeley, ANR AI at UC Agriculture and Natural Resources, and FredGPT at Fairleigh Dickinson University.</p>"
+    },
     {
       "id": "2026-09-08-tritongpt-468-platform",
       "stream": "program",
