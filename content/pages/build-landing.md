@@ -159,6 +159,7 @@ bannerMode: abstract
 <tr><td><strong>LightOn OCR 1B</strong><br><code class="model-catalog-request-id">api-lightonocr-1b</code></td><td>UC-hosted</td><td>Document OCR</td><td>8K tokens</td></tr>
 <tr><td><strong>Cohere Transcribe</strong><br><code class="model-catalog-request-id">api-cohere-transcribe</code></td><td>UC-hosted</td><td>Speech to text</td><td>See Model Hub</td></tr>
 <tr><td><strong>Muse Glimmer 30B</strong><br><code class="model-catalog-request-id">api-muse-glimmer-30b</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>262K tokens</td></tr>
+<tr><td><strong>Openai Privacy Filter</strong><br><code class="model-catalog-request-id">api-openai-privacy-filter</code></td><td>UC-hosted</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
 <tr><td><strong>Claude Opus 5</strong><br><code class="model-catalog-request-id">claude-opus-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Claude Sonnet 5</strong><br><code class="model-catalog-request-id">claude-sonnet-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Claude Opus 4.8</strong><br><code class="model-catalog-request-id">claude-opus-4-8</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
@@ -182,10 +183,10 @@ bannerMode: abstract
 <tr><td><strong>Mistral Large 3</strong><br><code class="model-catalog-request-id">mistral.mistral-large-3-675b-instruct</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>128K tokens</td></tr>
 <tr><td><strong>Amazon Nova 2 Lite</strong><br><code class="model-catalog-request-id">us.amazon.nova-2-lite-v1:0</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Amazon Nova Premier</strong><br><code class="model-catalog-request-id">us.amazon.nova-premier-v1:0</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
-<tr><td><strong>TritonGPT Embeddings</strong><br><code class="model-catalog-request-id">api-tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>33K tokens</td></tr>
+<tr><td><strong>TritonGPT Embeddings</strong><br><code class="model-catalog-request-id">api-tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>4K tokens</td></tr>
 </tbody>
 </table></div>
-<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-09-08. Test registrations and TritonGPT-internal serving entries are excluded.</p>
+<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-09-19. Test registrations and TritonGPT-internal serving entries are excluded.</p>
 </section>
 <!-- END_AGENT_SECTION -->
 
