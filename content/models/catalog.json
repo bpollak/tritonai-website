@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-09-08T01:12:45.457Z",
+  "lastSynced": "2026-09-18T21:29:35.043Z",
   "source": "https://tritonai-api.ucsd.edu/public/model_hub",
   "models": [
     {
@@ -175,7 +175,7 @@
       "displayName": "TritonGPT Embeddings",
       "type": "Embeddings",
       "hosting": "Approved enterprise cloud",
-      "maxInputTokens": 32768
+      "maxInputTokens": 4096
     },
     {
       "id": "api-deepseek-v4-flash",
@@ -211,6 +211,13 @@
       "type": "Chat and reasoning",
       "hosting": "UC-hosted",
       "maxInputTokens": 262144
+    },
+    {
+      "id": "api-openai-privacy-filter",
+      "displayName": "Openai Privacy Filter",
+      "type": "Chat and reasoning",
+      "hosting": "UC-hosted",
+      "maxInputTokens": 128000
     }
   ]
 }
