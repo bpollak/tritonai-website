@@ -3,7 +3,7 @@ title: TritonAI Harness Privacy Statement
 path: /developer-apis/harness-privacy.html
 description: How TritonAI Harness handles data residency, campus network transit, credential protection, and UC Protection Levels.
 eyebrow: Build with TritonAI
-lastReviewed: 2026-09-03
+lastReviewed: 2026-09-21
 audiences: [staff, faculty, researchers, developers]
 owner: TritonAI
 source: "UC San Diego IT Services AI governance and data protection guidance"
@@ -77,7 +77,7 @@ bannerMode: abstract
 <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
 <h3>Active prompt context &amp; zero silent fallback</h3>
 <p>When an agent turn executes, only the prompt text and specific file snippets needed for that turn travel across encrypted HTTPS to the TritonAI Gateway.</p>
-<p>UC-hosted models on campus infrastructure process requests with <strong>zero data retention</strong> and <strong>no model training</strong>. Your prompts are discarded after generating the response.</p>
+<p>UC-hosted models on campus infrastructure process requests with <strong>zero data retention</strong> and <strong>no model training</strong>. Your prompts are discarded after generating the response. Open-weight model inference stays inside the UC-managed environment and is not sent to the model provider or another third party.</p>
 <p>The Harness maintains an <strong>empty cloud fallback list</strong> by default. If a UC-hosted model is temporarily unavailable, the error is surfaced immediately. Private campus context is never silently redirected to external cloud providers.</p>
 </article>
 </div>
