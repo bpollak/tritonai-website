@@ -79,6 +79,9 @@ const MODEL_RECENCY = new Map([
   ["us.amazon.nova-premier-v1:0", 690],
   ["api-tgpt-embeddings", 700],
   ["tgpt-embeddings", 690],
+  ["api-glm-5.3-flash", 710],
+  ["api-glm-5.3", 700],
+  ["api-glm-5.2", 690],
 ]);
 
 export function modelPublisher(id) {
@@ -137,6 +140,7 @@ const DISPLAY_NAMES = {
   "us.amazon.nova-premier-v1:0": "Amazon Nova Premier",
   "api-glm-5.2": "GLM 5.2",
   "api-glm-5.3": "GLM 5.3",
+  "api-glm-5.3-flash": "GLM 5.3 Flash",
   "api-deepseek-v4-flash": "DeepSeek V4 Flash",
   "api-gemma-4-26b": "Gemma 4 26B",
   "api-gemma-4-31b": "Gemma 4 31B",
@@ -145,6 +149,7 @@ const DISPLAY_NAMES = {
   "api-lightonocr-1b": "LightOn OCR 1B",
   "api-cohere-transcribe": "Cohere Transcribe",
   "api-muse-glimmer-30b": "Muse Glimmer 30B",
+  "api-openai-privacy-filter": "OpenAI Privacy Filter",
   "api-tgpt-embeddings": "TritonGPT Embeddings",
 };
 
