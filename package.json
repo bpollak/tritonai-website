@@ -8,7 +8,7 @@
     "extract:newsletters": "node scripts/extract-newsletters.mjs",
     "sync:ai-news": "node scripts/sync-ai-news.mjs",
     "check:ai-news": "node scripts/sync-ai-news.mjs --check",
-    "check:newsletter-links": "node scripts/check-newsletter-links.mjs",
+    "check:newsletter-links": "node --use-system-ca scripts/check-newsletter-links.mjs",
     "sync:skills": "node scripts/sync-skills.mjs",
     "sync:decorator": "node scripts/sync-decorator.mjs",
     "check:decorator": "node scripts/sync-decorator.mjs --check",
