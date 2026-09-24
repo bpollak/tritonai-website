@@ -1,5 +1,5 @@
 ---
-title: AI Training and Resources
+title: TritonAI Learn
 path: /training-resources/index.html
 description: Generative AI training, prompting guides, webinars, and role-based learning paths for the UC San Diego community.
 eyebrow: Training and resources
