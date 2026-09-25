@@ -8,6 +8,7 @@ audiences: [staff, faculty, researchers, leaders]
 source: TritonAI Connect program and communications content
 canonicalUrl: /connect/index.html
 relatedSlides: []
+landingHub: true
 bannerImage: /_images/hero-abstract/about-tritonai.webp
 bannerPosition: center
 bannerMode: abstract
