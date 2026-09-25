@@ -84,7 +84,8 @@ bannerMode: abstract
     </div>
   </div>
   <div class="hub-heading">
-    <p>New to AI? Start with the <a href="/training-resources/videos/index.html">TritonAI Discovery Series</a> — short videos that build shared ground before you go deeper.</p>
+    <p>New to AI? Start with the TritonAI Discovery Series — short videos that build shared ground before you go deeper.</p>
+    <p><a class="btn btn-primary" href="/training-resources/videos/index.html">Watch the Discovery Series <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
