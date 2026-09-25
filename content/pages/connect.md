@@ -114,23 +114,22 @@ bannerMode: abstract
   </div>
 </section>
 
-<section class="hub-section hub-section-dark hub-full-bleed" aria-labelledby="connect-newsletter-heading">
+<section class="hub-section hub-section-dark hub-full-bleed" aria-label="Communications">
   <div class="container">
-    <div class="hub-heading">
-      <p class="home-kicker">STAY INFORMED</p>
-      <h2 id="connect-newsletter-heading">TritonAI Newsletter</h2>
-      <p>Get the latest AI news, trainings, and events delivered straight to your inbox. Have something you'd like to hear more about? You can suggest topics, too.</p>
-      <p><a class="btn btn-default" href="https://signup.e2ma.net/signup/2010404/1972820/">Sign up for the newsletter</a></p>
+    <div class="row hub-split hub-split-align-center">
+      <div class="col-md-6 hub-split-copy">
+        <p class="home-kicker">STAY INFORMED</p>
+        <h2 id="connect-newsletter-heading">TritonAI Newsletter</h2>
+        <p>Get the latest AI news, trainings, and events delivered straight to your inbox. Have something you'd like to hear more about? You can suggest topics, too.</p>
+        <p><a class="btn btn-default" href="https://signup.e2ma.net/signup/2010404/1972820/">Sign up for the newsletter</a></p>
+      </div>
+      <div class="col-md-6 hub-split-copy">
+        <p class="home-kicker">TECHNICAL UPDATES</p>
+        <h2 id="connect-updates-heading">TritonAI Updates</h2>
+        <p>Looking for more technical updates? See when UC San Diego launches an AI service, expands access, adds developer capabilities, or changes the shared platform.</p>
+        <p><a class="btn btn-default" href="/about/tritonai-updates.html">See TritonAI updates</a></p>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="hub-section" aria-labelledby="connect-updates-heading">
-  <div class="hub-heading">
-    <p class="home-kicker">TECHNICAL UPDATES</p>
-    <h2 id="connect-updates-heading">TritonAI Updates</h2>
-    <p>Looking for more technical updates? See when UC San Diego launches an AI service, expands access, adds developer capabilities, or changes the shared platform.</p>
-    <p><a class="btn btn-primary" href="/about/tritonai-updates.html">See TritonAI updates</a></p>
   </div>
 </section>
 
