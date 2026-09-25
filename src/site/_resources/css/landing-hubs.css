@@ -291,6 +291,18 @@
   padding-top: 66px;
 }
 
+.landing-hub-content > .connect-intro .hub-heading {
+  margin-bottom: 0;
+}
+
+.landing-hub-content > .connect-intro {
+  padding-block: 66px 24px;
+}
+
+.landing-hub-content > .connect-communities {
+  padding-block: 24px;
+}
+
 .hub-full-bleed {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);

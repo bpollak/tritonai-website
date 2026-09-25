@@ -14,14 +14,14 @@ bannerPosition: center
 bannerMode: abstract
 ---
 
-<section class="hub-section hub-section-intro" aria-labelledby="connect-intro-heading">
+<section class="hub-section hub-section-intro connect-intro" aria-labelledby="connect-intro-heading">
   <div class="hub-heading">
     <h2 id="connect-intro-heading">The best way to learn AI is by doing</h2>
     <p class="hub-lede">The best way to learn AI is by doing — and by sharing what you learn along the way. TritonAI Connect brings together the communities, communications, and updates that keep you connected to AI at UC San Diego. Join a community of practice like the TritonAI Tools Working Group or the n8n Automation Working Group or bring your questions to AI Consulting Hours. Whether you want to swap experiments, ask questions, or stay in the loop, there's a place for you here.</p>
   </div>
 </section>
 
-<section class="hub-section" aria-labelledby="connect-communities-heading">
+<section class="hub-section connect-communities" aria-labelledby="connect-communities-heading">
   <div class="hub-heading">
     <p class="home-kicker">COMMUNITIES OF PRACTICE</p>
     <h2 id="connect-communities-heading">Learn by doing, together</h2>
