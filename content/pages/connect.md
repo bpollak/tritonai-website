@@ -76,7 +76,7 @@ bannerMode: abstract
   </div>
 </section>
 
-<section class="hub-section" aria-labelledby="connect-departmental-heading">
+<section class="hub-section connect-departmental" aria-labelledby="connect-departmental-heading">
   <div class="hub-heading">
     <p class="home-kicker">BY DEPARTMENT</p>
     <h2 id="connect-departmental-heading">Departmental Use-Case Groups</h2>

@@ -3655,6 +3655,10 @@
   border-top: 1px solid #e7eaed;
 }
 
+.connect-departmental .hub-link-panel {
+  border-top: 0;
+}
+
 .hub-link-columns > div {
   margin-bottom: 16px;
 }
