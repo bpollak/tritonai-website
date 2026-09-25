@@ -347,6 +347,12 @@
   line-height: 1.58;
 }
 
+.hub-heading p.hub-body {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 .hub-section-dark h2,
 .hub-section-dark h3,
 .hub-section-dark .hub-heading > p:last-child,

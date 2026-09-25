@@ -17,7 +17,7 @@ bannerMode: abstract
 <section class="hub-section hub-section-intro connect-intro" aria-labelledby="connect-intro-heading">
   <div class="hub-heading">
     <h2 id="connect-intro-heading">The best way to learn AI is by doing</h2>
-    <p class="hub-lede">The best way to learn AI is by doing — and by sharing what you learn along the way. TritonAI Connect brings together the communities, communications, and updates that keep you connected to AI at UC San Diego. Join a community of practice like the TritonAI Tools Working Group or the n8n Automation Working Group or bring your questions to AI Consulting Hours. Whether you want to swap experiments, ask questions, or stay in the loop, there's a place for you here.</p>
+    <p class="hub-body">The best way to learn AI is by doing — and by sharing what you learn along the way. TritonAI Connect brings together the communities, communications, and updates that keep you connected to AI at UC San Diego. Join a community of practice like the TritonAI Tools Working Group or the n8n Automation Working Group or bring your questions to AI Consulting Hours. Whether you want to swap experiments, ask questions, or stay in the loop, there's a place for you here.</p>
   </div>
 </section>
 
@@ -25,7 +25,7 @@ bannerMode: abstract
   <div class="hub-heading">
     <p class="home-kicker">COMMUNITIES OF PRACTICE</p>
     <h2 id="connect-communities-heading">Learn by doing, together</h2>
-    <p>You don't have to navigate AI on your own. Communities of practice across campus bring people together to share experiments, swap best practices, and learn from real work in progress. There's a seat at the table — we encourage you to join!</p>
+    <p class="hub-body">You don't have to navigate AI on your own. Communities of practice across campus bring people together to share experiments, swap best practices, and learn from real work in progress. There's a seat at the table — we encourage you to join!</p>
   </div>
 </section>
 
@@ -112,6 +112,6 @@ bannerMode: abstract
   <div class="hub-heading">
     <p class="home-kicker">HOW EVER YOU CONNECT</p>
     <h2 id="connect-closing-heading">Connect, share, keep learning</h2>
-    <p>How ever you like to connect — by doing, by asking, or by staying informed — there's a community here for you. Get involved and grow your AI practice alongside the UC San Diego community.</p>
+    <p class="hub-body">How ever you like to connect — by doing, by asking, or by staying informed — there's a community here for you. Get involved and grow your AI practice alongside the UC San Diego community.</p>
   </div>
 </section>
