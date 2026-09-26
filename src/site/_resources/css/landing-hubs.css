@@ -364,6 +364,19 @@
   color: var(--triton-gold);
 }
 
+.hub-section-dark .hub-heading a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--triton-bright-blue);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.hub-section-dark .hub-heading a:hover,
+.hub-section-dark .hub-heading a:focus {
+  color: var(--triton-bright-blue);
+}
+
 .hub-split {
   align-items: flex-start;
   display: flex;
