@@ -3754,6 +3754,14 @@
   font-weight: 700;
 }
 
+.hub-feature-list-light strong {
+  color: var(--triton-navy);
+}
+
+.hub-feature-list-light span {
+  color: #344c5a;
+}
+
 .hub-subscribe {
   background: linear-gradient(105deg, #fff 0%, #fff 67%, var(--triton-sand) 67%, var(--triton-sand) 100%);
   border-top: 5px solid var(--triton-gold);
