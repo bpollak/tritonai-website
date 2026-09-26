@@ -1133,7 +1133,6 @@ for (const page of htmlFiles) {
   }
   if (route === "/training-resources/pathways.html") {
     const pathwayCards = $(".learning-pathway-card");
-    const programCards = $(".learning-program");
     if (pathwayCards.length !== 5) {
       contentFindings.push({ source: route, issue: `Expected 5 role pathways; found ${pathwayCards.length}` });
     }
@@ -1143,22 +1142,19 @@ for (const page of htmlFiles) {
       if (card.find("h3").length !== 1 || card.find(".learning-pathway-action").length !== 1) {
         accessibility.push({ page: route, issue: `${label} is missing a heading or next step` });
       }
-      if (card.find(".learning-pathway-steps li").length !== 3) {
-        contentFindings.push({ source: route, issue: `${label} does not contain 3 learning steps` });
+      const stepCount = card.find(".learning-pathway-steps li").length;
+      if (stepCount < 2 || stepCount > 4) {
+        contentFindings.push({ source: route, issue: `${label} does not contain 2-4 learning steps` });
+      }
+      if (card.find(".learning-pathway-action").attr("href") === "") {
+        accessibility.push({ page: route, issue: `${label} has an empty next-step destination` });
       }
     });
-    if (programCards.length !== 6) {
-      contentFindings.push({ source: route, issue: `Expected 6 training programs; found ${programCards.length}` });
+    if ($("#keep-going-heading").length !== 1 || $("#keep-going-heading").text().trim().length < 20) {
+      accessibility.push({ page: route, issue: "Closing guidance is incomplete" });
     }
-    programCards.each((_, element) => {
-      const card = $(element);
-      const label = card.find("h3").first().text().trim() || "Unnamed program";
-      if (card.find("h3").length !== 1 || card.find("a").length !== 1) {
-        accessibility.push({ page: route, issue: `${label} is missing a heading or destination` });
-      }
-    });
-    if ($(".learning-access-standard h2").length !== 1 || $(".learning-access-standard a").length !== 1) {
-      accessibility.push({ page: route, issue: "Accessible media guidance is incomplete" });
+    if ($(".learning-pathways").length !== 2) {
+      contentFindings.push({ source: route, issue: `Expected 2 pathway sections; found ${$(".learning-pathways").length}` });
     }
   }
   if (route === "/") {
