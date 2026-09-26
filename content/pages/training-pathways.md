@@ -8,13 +8,9 @@ audiences: [students, faculty, staff, developers, leaders]
 source: TritonAI training catalog and public service documentation
 canonicalUrl: /training-resources/pathways.html
 relatedSlides: [AI Essentials, Citizen Developer Ecosystem]
-landingHub: true
-bannerImage: /_images/hero-abstract/learn.webp
-bannerPosition: center
-bannerMode: abstract
+sidebar: true
 ---
 
-<div class="container">
 <p class="lead">Choose the pathway that fits your work. Each one builds from the same TritonAI foundation toward something specific you can put into practice. Whether you're new to AI or ready to build on the TritonAI Harness, there's a route for you.</p>
 
 <!-- AGENT_SECTION: ux-training-pathways -->
@@ -34,4 +30,3 @@ bannerMode: abstract
 <div class="learning-section-heading"><p class="home-kicker">Keep going</p><h2 id="keep-going-heading">You don't have to do this alone</h2><p>The fastest way to grow is alongside people working on the same problems. Join a community of practice, sign up for the newsletter, and keep learning by doing.</p></div>
 <a class="learning-pathway-action" href="/connect/index.html">Explore TritonAI Connect <span aria-hidden="true">→</span></a>
 </section>
-</div>

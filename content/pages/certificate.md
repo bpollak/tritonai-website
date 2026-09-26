@@ -8,10 +8,7 @@ audiences: [staff, leaders]
 source: UC San Diego and Digital Education Council certificate program content
 canonicalUrl: /training-resources/certificate.html
 relatedSlides: []
-landingHub: true
-bannerImage: /_images/hero-abstract/learn.webp
-bannerPosition: center
-bannerMode: abstract
+sidebar: true
 ---
 
 <section class="hub-section hub-section-intro" aria-label="Certificate overview">
