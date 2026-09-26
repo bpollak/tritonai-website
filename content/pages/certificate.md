@@ -73,15 +73,29 @@ bannerMode: abstract
     <p class="home-kicker">GETTING STARTED</p>
     <h2 id="certificate-start-heading">Choose your stream</h2>
   </div>
-  <div class="row hub-link-columns">
-    <div class="col-md-6">
-      <strong>Administration/Staff</strong>
-      <a href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/ae35c351-cc4d-4a60-9397-4138a5f02c56">Access your stream</a>
-    </div>
-    <div class="col-md-6">
-      <strong>Leaders</strong>
-      <a href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/7dcc46e4-23d8-4e5f-871f-92650a7252d5">Access your stream</a>
-    </div>
+  <div class="learning-pathway-grid">
+    <article class="learning-pathway-card">
+      <header>
+        <span class="learning-pathway-icon glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+        <div>
+          <p>Administration/Staff</p>
+          <h3>Staff stream</h3>
+          <span>Operations, services, and administration.</span>
+        </div>
+      </header>
+      <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/ae35c351-cc4d-4a60-9397-4138a5f02c56">Access your stream <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="learning-pathway-card">
+      <header>
+        <span class="learning-pathway-icon glyphicon glyphicon-user" aria-hidden="true"></span>
+        <div>
+          <p>Leaders</p>
+          <h3>Leaders stream</h3>
+          <span>Opportunities and challenges for AI adoption.</span>
+        </div>
+      </header>
+      <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/7dcc46e4-23d8-4e5f-871f-92650a7252d5">Access your stream <span aria-hidden="true">→</span></a>
+    </article>
   </div>
   <div class="hub-heading">
     <p>New to AI? Start with the TritonAI Discovery Series — short videos that build shared ground before you go deeper.</p>
