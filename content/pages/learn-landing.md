@@ -14,8 +14,15 @@ bannerPosition: center
 bannerMode: abstract
 ---
 
-<section class="hub-section hub-section-intro" aria-label="TritonAI Learn overview">
-<div class="row hub-split hub-split-align-center"><div class="col-md-6 hub-split-copy"><p class="hub-lede">Welcome to TritonAI Learn, the campus home for building your AI skills. Learn how to use AI safely and responsibly, explore the tools available at UC San Diego, find the right fit for your work, and discover pathways into building and creating with AI.</p></div><div class="col-md-6"><ul class="hub-feature-list hub-feature-list-light" aria-label="Learning pathways"><li><strong>TritonAI Discovery Series</strong><span>Start with short videos that introduce the ecosystem.</span></li><li><strong>Certificate in AI for Higher Education</strong><span>Go further with the Digital Education Council certificate.</span></li><li><strong>Hands-on trainings</strong><span>Build skills you can put to work now.</span></li><li><strong>Webinars</strong><span>See what is possible across campus.</span></li><li><strong>TritonAI Connect</strong><span>Stay connected through communities and channels.</span></li></ul></div></div>
+<section class="hub-section hub-section-intro" aria-labelledby="intro-heading">
+<div class="container"><div class="hub-heading"><p class="home-kicker">Welcome</p><h2 id="intro-heading">Build your AI skills</h2><p class="hub-lede">Welcome to TritonAI Learn, the campus home for building your AI skills. Learn how to use AI safely and responsibly, explore the tools available at UC San Diego, find the right fit for your work, and discover pathways into building and creating with AI.</p></div>
+<div class="tritongpt-capability-grid" aria-label="Learning pathways">
+<article class="tritongpt-capability-card"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span><div><h3>TritonAI Discovery Series</h3><p>Start with short videos that introduce the ecosystem.</p></div></article>
+<article class="tritongpt-capability-card"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><div><h3>Certificate in AI for Higher Education</h3><p>Go further with the Digital Education Council certificate.</p></div></article>
+<article class="tritongpt-capability-card"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span><div><h3>Hands-on trainings</h3><p>Build skills you can put to work now.</p></div></article>
+<article class="tritongpt-capability-card"><span class="glyphicon glyphicon-film" aria-hidden="true"></span><div><h3>Webinars</h3><p>See what is possible across campus.</p></div></article>
+<article class="tritongpt-capability-card"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><div><h3>TritonAI Connect</h3><p>Stay connected through communities and channels.</p></div></article>
+</div></div>
 </section>
 
 <section class="hub-section" aria-labelledby="discovery-heading">
