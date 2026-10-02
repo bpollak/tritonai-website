@@ -4,8 +4,10 @@ import path from "node:path";
 import { load } from "cheerio";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
+import { loadCatalog, renderSection } from "./lib/model-catalog.mjs";
 import { HARNESS_RELEASE_PAGE, releaseFragment, releaseSummaryIssues, guidedInstallerIssues } from "./lib/harness-releases.mjs";
 
+const modelCatalog = await loadCatalog();
 const SOURCE_DIR = path.resolve("src/site");
 const CONTENT_DIR = path.resolve("content");
 const PAGE_DIR = path.join(CONTENT_DIR, "pages");
@@ -262,7 +264,7 @@ function renderLatestNewsletters(newsletters) {
         `<div class="col-sm-6"><article class="panel panel-default home-update-card"><div class="panel-body"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><p class="home-kicker">Recent update</p><h3>${escapeHtml(newsletter.title)}</h3><p>${newsletter.items} ${newsletter.items === 1 ? "item" : "items"} on campus AI tools, training, and news.</p><a href="/about/ai-updates.html#${escapeHtml(newsletter.date.toISOString().slice(0, 10))}">Read this update <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></div></article></div>`,
     )
     .join("");
-  return `<article class="panel panel-default home-latest-update"><div class="panel-heading"><div><p class="home-kicker">This week</p><h3>${escapeHtml(latest.title)}</h3></div><span class="home-update-count">${latest.items} ${latest.items === 1 ? "item" : "items"}</span></div><div class="panel-body"><p class="home-update-topics">${topicBadges}</p><p>${escapeHtml(excerpt)}${excerptWasTruncated ? "…" : ""}</p><p><a class="btn btn-primary" href="/about/ai-updates.html#${dateId}">Read the latest update</a></p></div></article>${recentCards ? `<div class="row agent-card-grid home-recent-updates">${recentCards}</div>` : ""}`;
+  return `<article class="panel panel-default home-latest-update"><div class="panel-heading"><div><p class="home-kicker">Latest edition</p><h3>${escapeHtml(latest.title)}</h3></div><span class="home-update-count">${latest.items} ${latest.items === 1 ? "item" : "items"}</span></div><div class="panel-body"><p class="home-update-topics">${topicBadges}</p><p>${escapeHtml(excerpt)}${excerptWasTruncated ? "…" : ""}</p><p><a class="btn btn-primary" href="/about/ai-updates.html#${dateId}">Read the latest update</a></p></div></article>${recentCards ? `<div class="row agent-card-grid home-recent-updates">${recentCards}</div>` : ""}`;
 }
 
 function statusClass(status) {
@@ -1189,6 +1191,8 @@ function transformHtml(html, relativePath, context) {
     $(".about-subpage-layout").first().prepend(renderAboutMobileNav(context.site.navigation, route));
   }
   normalizeNavigationMarkup($);
+
+  if ($("main#main-content #model-catalog").length) $("#model-catalog").replaceWith(renderSection(modelCatalog));
 
   $("[data-newsletters='latest']").html(renderLatestNewsletters(context.newsletters));
   $("[data-newsletters='all']").html(context.newsletters.map(renderNewsletter).join(""));
