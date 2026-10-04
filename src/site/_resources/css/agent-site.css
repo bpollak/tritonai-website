@@ -1671,6 +1671,22 @@ main#main-content .skills-setup {
     padding-top: 0;
   }
 
+  main#main-content #heroslider [data-home-hero-id="discovery-series"] {
+    background: var(--triton-navy);
+    padding-bottom: 36px;
+  }
+
+  main#main-content #heroslider [data-home-hero-id="discovery-series"] > .home-hero-media,
+  main#main-content #heroslider [data-home-hero-id="discovery-series"] > .home-hero-media .first-slide {
+    height: 170px;
+    min-height: 0;
+    object-fit: contain;
+  }
+
+  main#main-content #heroslider [data-home-hero-id="discovery-series"] > .container {
+    grid-area: 2 / 1;
+  }
+
   .agent-page .lead {
     font-size: 19px;
   }
