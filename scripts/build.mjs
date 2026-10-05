@@ -708,7 +708,7 @@ function renderGatewayUsage(usage) {
 function renderHomeTrainingArtwork(artwork) {
   if (!artwork) return "";
   const lessons = artwork.lessons.map((lesson) => `<img alt="${escapeHtml(lesson.imageAlt)}" src="${escapeHtml(lesson.image)}" width="720" height="405" decoding="async">`).join("");
-  return `<div class="home-training-artwork" role="group" aria-label="TritonAI Discovery Series lesson artwork"><div class="home-training-brand" aria-hidden="true"><img alt="" src="${escapeHtml(artwork.logo)}" width="128" height="128"><div><span class="home-training-wordmark">TRITON<span>AI</span></span><span class="home-training-series">Discovery Series</span></div></div><div class="home-training-lessons">${lessons}</div></div>`;
+  return `<div class="home-training-artwork" role="group" aria-label="TritonAI Discovery Series lesson artwork"><div class="home-training-lessons">${lessons}</div></div>`;
 }
 
 // Hero canvas follows the source structure at https://department.ucsd.edu/.
@@ -1656,7 +1656,7 @@ homeHero.lastReviewed = isoDate(homeHero.lastReviewed);
 for (const [index, slide] of homeHero.slides.entries()) {
   requireFields(slide, ["id", "title", "description", "image", "imageAlt", "link", "linkLabel"], `homepage hero slide ${index + 1}`);
   if (slide.trainingArtwork) {
-    requireFields(slide.trainingArtwork, ["logo", "lessons"], `homepage hero artwork ${slide.id}`);
+    requireFields(slide.trainingArtwork, ["lessons"], `homepage hero artwork ${slide.id}`);
     for (const lesson of slide.trainingArtwork.lessons) {
       requireFields(lesson, ["image", "imageAlt", "source"], `homepage hero lesson ${slide.id}`);
     }
