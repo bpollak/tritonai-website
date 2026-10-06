@@ -47,6 +47,6 @@ discussionPoints:
 durationMinutes: null
 discoverySeries: true
 presenters:
-  - name: Christina Putrov
-    title: 'Assistant Director, Training, SIS Project'
+  - name: Sarah Carvalho
+    title: 'Education Specialist, Teaching and Learning Commons'
 ---

@@ -47,6 +47,6 @@ discussionPoints:
 durationMinutes: null
 discoverySeries: true
 presenters:
-  - name: Sarah Carvalho
-    title: Education Specialist, Teaching and Learning Commons
+  - name: Cherry Park
+    title: 'Lead HCM Trainer and Analyst'
 ---
