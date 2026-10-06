@@ -69,7 +69,7 @@ bannerMode: abstract
 </ul>
 </div>
 <div class="hub-action-card-footer builder-track-footer">
-<p><a class="btn btn-primary btn-block" href="https://n8n.tritonai.ucsd.edu/">Open n8n <span aria-hidden="true">→</span></a></p>
+
 
 </div>
 </article>
@@ -212,7 +212,7 @@ bannerMode: abstract
 <h2 id="workflow-automation-heading">Build repeatable workflows with n8n</h2>
 <p>UC San Diego hosts n8n, a visual workflow platform that connects applications and APIs with little or no code. A workflow starts from a schedule, webhook, email, or file event and runs a defined series of steps. Model requests inside a workflow go through the Gateway with your key, and a workflow can pause for a person before selected actions.</p>
 <p>n8n fits best once you know the process and how it should handle exceptions. For work that changes shape every time, start in TritonAI Harness.</p>
-<p><a class="btn btn-primary" href="https://n8n.tritonai.ucsd.edu/">Open n8n</a></p>
+
 </div><div class="col-md-5 hub-split-media">
 <aside class="shared-compute-mini" aria-labelledby="n8n-fits-heading">
 <p id="n8n-fits-heading">Good first workflows</p>
