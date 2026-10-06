@@ -1229,6 +1229,11 @@ function applyGoogleAnalytics($) {
   );
 }
 
+function applyFavicon($) {
+  $("link[rel~='icon'], link[rel='shortcut icon'], link[rel='apple-touch-icon']").remove();
+  $("head").prepend('<link rel="icon" href="/favicon.ico">');
+}
+
 function optimizeScriptLoading($) {
   $("script[src]").each((_, element) => {
     const script = $(element);
@@ -1450,6 +1455,7 @@ function transformHtml(html, relativePath, context) {
     .replaceAll("</script", "<\\/script");
   $("head").append(`<script type="application/ld+json" data-tritonai-schema>${schema}</script>`);
   applyGoogleAnalytics($);
+  applyFavicon($);
 
   $(".navbar-nav-list").first().html(renderNavigation(context.site.navigation, route, false));
   $("ul.nav.navmenu-nav").first().html(renderNavigation(context.site.navigation, route, true));
