@@ -6316,3 +6316,28 @@ main#main-content .harness-training-duration dd {
 .main-content-nav>ul li.active.no-indent {
   padding-left: 0;
 }
+/* Keep the overview's setup and training actions distinct at every width. */
+main#main-content .harness-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+main#main-content .harness-actions > .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 48px;
+}
+
+@media (max-width: 767px) {
+  main#main-content .harness-actions {
+    flex-direction: column;
+  }
+
+  main#main-content .harness-actions > .btn {
+    width: 100%;
+  }
+}
