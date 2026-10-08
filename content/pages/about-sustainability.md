@@ -3,9 +3,9 @@ title: Sustainable AI at UC San Diego
 path: /about/sustainability.html
 description: How TritonAI considers model fit, hosting, reuse, cost, resource use, and evidence when designing campus AI services.
 eyebrow: About TritonAI
-lastReviewed: 2026-07-30
+lastReviewed: 2026-09-01
 audiences: [students, faculty, staff, developers, leaders]
-source: TritonAI public architecture, memory architecture, service design guidance, and SDSC AI energy use practices
+source: TritonAI public architecture, memory architecture, service design guidance, SDSC AI energy use practices, and the CEC-funded SDSC power technology project
 canonicalUrl: /about/sustainability.html
 relatedSlides: [tritongpt-secure-scalable-ai-platform, uc-san-diego-ai-strategy-2026, memory-quality-is-an-operational-service]
 bannerImage: /_images/building-branch-hero.jpg
@@ -15,7 +15,7 @@ bannerPosition: center 44%
 <section class="hub-section hub-section-intro" aria-labelledby="sustainability-intro-heading">
 <div class="row hub-split">
 <div class="col-md-7 hub-split-copy"><p class="home-kicker">Service design and operations</p><h2 id="sustainability-intro-heading">Use the resources the work requires</h2><p class="hub-lede">Sustainable AI starts with choosing an appropriate model and workflow, avoiding unnecessary processing, reusing shared capabilities, and measuring quality, latency, cost, and resource use together.</p><p>No hosting choice is automatically best for every workload. TritonAI revisits the route as models, demand, evidence, and campus requirements change.</p></div>
-<div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span><h3>SDSC infrastructure practices</h3><p>At SDSC, liquid-cooled computing and rear-door heat exchangers support dense systems. Zinc-based backup batteries reduce reliance on lead and associated e-waste, while teams evaluate hardware and software combinations within available space and water. <a href="https://www.sdsc.edu/news/2025/PR20250616-AI-Summit.html" rel="noopener noreferrer" target="_blank">Read about SDSC's AI energy-use practices</a>.</p></aside></div>
+<div class="col-md-5"><aside class="hub-quote-card"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span><h3>SDSC infrastructure practices</h3><p>At SDSC, liquid-cooled computing and rear-door heat exchangers support dense systems. Zinc-based backup batteries reduce reliance on lead and associated e-waste, while teams evaluate hardware and software combinations within available space and water. <a href="https://www.sdsc.edu/news/2025/PR20250616-AI-Summit.html" rel="noopener noreferrer" target="_blank">Read about SDSC's AI energy-use practices</a>.</p><p>SDSC also serves as the testbed for a California Energy Commission-funded project testing a bidirectional solid-state transformer that feeds AI computing racks with 800-volt direct current. The project targets two megawatts of AI computing load with a smaller power equipment footprint and projected energy savings. <a href="https://today.ucsd.edu/story/uc-san-diego-to-test-innovative-power-technology-for-ai-data-centers" rel="noopener noreferrer" target="_blank">Read the campus story on the power technology project</a>.</p></aside></div>
 </div>
 </section>
 
