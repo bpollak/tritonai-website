@@ -5,8 +5,9 @@ summary: >-
   How to move from using to creating: what a harness is, why you would use one, how we know it’s safe, and the ecosystem
   it lives in.
 series: Building
-status: Coming soon
-availabilityLabel: 'Coming October 15th'
+status: Published
+videoEmbedSrc: 'https://cdnapisec.kaltura.com/p/2323111/embedPlaykitJs/uiconf_id/52706832?iframeembed=true&entry_id=1_g8x2h16d&config[provider]={"widgetId":"1_462fyowe"}'
+videoEmbedTitle: 'TritonAI Discovery Series-15-Shawn Munro'
 owner: TritonAI training program
 lastReviewed: '2026-09-29'
 audiences:

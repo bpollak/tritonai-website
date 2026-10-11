@@ -3,8 +3,9 @@ title: 'Google Gemini: An overview'
 slug: google-gemini-overview
 summary: How to create a Gem and use the specialized functions available in Gemini at UC San Diego.
 series: Using the Tools
-status: Coming soon
-availabilityLabel: 'Coming October 15th'
+status: Published
+videoEmbedSrc: 'https://cdnapisec.kaltura.com/p/2323111/embedPlaykitJs/uiconf_id/52706832?iframeembed=true&entry_id=1_sa42ut4p&config[provider]={"widgetId":"1_cxzewryd"}'
+videoEmbedTitle: 'TritonAI Discovery Series-12-Elizabeth Salaam'
 owner: TritonAI training program
 lastReviewed: '2026-09-29'
 audiences:
