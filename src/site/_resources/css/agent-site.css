@@ -6138,7 +6138,7 @@ main#main-content .discovery-presenter a.discovery-presenter-card-link img { bor
 main#main-content .discovery-presenter-name { display: block; font-size: 15px; font-weight: 700; color: #182b49; }
 main#main-content .discovery-presenter-title { display: block; font-size: 13px; line-height: 1.4; color: #44576b; }
 main#main-content .discovery-video-pending {
-  display: grid; align-content: center; justify-items: center; min-height: 300px;
+  display: grid; align-content: center; justify-items: center; aspect-ratio: 16 / 9; min-height: 0;
   padding: 32px; text-align: center; background: #edf2f6; border: 1px solid #c7d4e0; border-radius: 8px;
 }
 main#main-content .discovery-video-pending .glyphicon { font-size: 36px; color: #00629b; }
@@ -6157,7 +6157,7 @@ main#main-content .video-quiz-dialog h2 { margin-top: 0; }
 main#main-content .video-quiz-dialog p { font-size: 18px; line-height: 1.5; }
 main#main-content .video-quiz-dialog :focus-visible { outline: 3px solid #00629b; outline-offset: 4px; }
 @media (max-width: 640px) {
-  main#main-content .discovery-video-pending { min-height: 240px; padding: 24px 16px; }
+  main#main-content .discovery-video-pending { padding: 24px 16px; }
   main#main-content .video-quiz-question { padding: 14px; min-width: 0; }
   main#main-content .video-key-links-section .video-theater-about-inner,
   main#main-content .video-key-terms-section .video-theater-about-inner,
