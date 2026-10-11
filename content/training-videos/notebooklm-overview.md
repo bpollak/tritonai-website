@@ -14,6 +14,7 @@ source: 'TritonAI Discovery Series editorial feedback, September 29, 2026'
 dataClassification: Public description
 canonicalUrl: /training-resources/videos/notebooklm-overview.html
 relatedSlides: []
+linkFromIndex: true
 order: 13
 quiz:
   - question: What is NotebookLM designed to do?

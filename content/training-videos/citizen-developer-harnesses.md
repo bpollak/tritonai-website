@@ -16,6 +16,7 @@ source: 'TritonAI Discovery Series editorial feedback, September 29, 2026'
 dataClassification: Public description
 canonicalUrl: /training-resources/videos/citizen-developer-harnesses.html
 relatedSlides: []
+linkFromIndex: true
 order: 15
 quiz:
   - question: What is a harness?

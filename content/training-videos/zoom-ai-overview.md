@@ -14,6 +14,7 @@ source: 'TritonAI Discovery Series editorial feedback, September 29, 2026'
 dataClassification: Public description
 canonicalUrl: /training-resources/videos/zoom-ai-overview.html
 relatedSlides: []
+linkFromIndex: true
 order: 10
 quiz:
   - question: What kinds of tasks can Zoom AI help with?
