@@ -5,8 +5,9 @@ summary: >-
   What makes TritonGPT different from other tools, and the specialized functions built for UC San Diego — models,
   agents, memories, and projects.
 series: Using the Tools
-status: Coming soon
-availabilityLabel: 'Coming October 15th'
+status: Published
+videoEmbedSrc: 'https://cdnapisec.kaltura.com/p/2323111/embedPlaykitJs/uiconf_id/52706832?iframeembed=true&entry_id=1_vx2rdz28&config[provider]={"widgetId":"1_93yyi49m"}'
+videoEmbedTitle: 'TritonAI Discovery Series-11-Kelsey Moon'
 owner: TritonAI training program
 lastReviewed: '2026-09-29'
 audiences:
