@@ -25,6 +25,7 @@ durationMinutes: null
 presenters:
   - name: Zach Johnson
     title: 'Director, AI Strategy'
+    cardImage: /_images/training-resources/videos/zach-johnson-presenter-card.png
 quiz:
   - question: What should leadership consider before supporting an AI project?
     options:

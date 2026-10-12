@@ -61,4 +61,5 @@ discoverySeries: true
 presenters:
   - name: Shawn Munro
     title: TritonAI Service Offering Manager
+    cardImage: /_images/training-resources/videos/shawn-munro-presenter-card.png
 ---

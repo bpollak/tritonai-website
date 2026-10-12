@@ -53,4 +53,5 @@ discoverySeries: true
 presenters:
   - name: Kelsey Moon
     title: Travel Program Manager
+    cardImage: /_images/training-resources/videos/kelsey-moon-presenter-card.png
 ---

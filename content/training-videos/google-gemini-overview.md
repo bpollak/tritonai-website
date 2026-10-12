@@ -51,4 +51,5 @@ discoverySeries: true
 presenters:
   - name: Elizabeth Salaam
     title: Senior Writer
+    cardImage: /_images/training-resources/videos/elizabeth-salaam-presenter-card.png
 ---
