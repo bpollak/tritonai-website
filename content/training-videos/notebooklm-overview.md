@@ -51,4 +51,5 @@ discoverySeries: true
 presenters:
   - name: Sarah Carvalho
     title: 'Education Specialist, Teaching and Learning Commons'
+    cardImage: /_images/training-resources/videos/sarah-carvalho-presenter-card.png
 ---

@@ -51,4 +51,5 @@ discoverySeries: true
 presenters:
   - name: Cherry Park
     title: 'Lead HCM Trainer and Analyst'
+    cardImage: /_images/training-resources/videos/cherry-park-presenter-card.png
 ---
