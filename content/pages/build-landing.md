@@ -167,6 +167,7 @@ bannerMode: abstract
 <tr><td><strong>Claude Sonnet 4.6</strong><br><code class="model-catalog-request-id">claude-sonnet-4-6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Claude Opus 4.6</strong><br><code class="model-catalog-request-id">claude-opus-4-6</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Claude Opus 4.6</strong><br><code class="model-catalog-request-id">claude-opus-4-6-v1</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>200K tokens</td></tr>
+<tr><td><strong>Claude Haiku 5 5</strong><br><code class="model-catalog-request-id">claude-haiku-5-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Claude Opus 5.5</strong><br><code class="model-catalog-request-id">claude-opus-5-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Claude Sonnet 5.5</strong><br><code class="model-catalog-request-id">claude-sonnet-5-5</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
 <tr><td><strong>Gemini 3.8 Flash</strong><br><code class="model-catalog-request-id">gemini-3.8-flash</code></td><td>Approved enterprise cloud</td><td>Chat and reasoning</td><td>1M tokens</td></tr>
@@ -192,7 +193,7 @@ bannerMode: abstract
 <tr><td><strong>TritonGPT Embeddings</strong><br><code class="model-catalog-request-id">api-tgpt-embeddings</code></td><td>Approved enterprise cloud</td><td>Embeddings</td><td>4K tokens</td></tr>
 </tbody>
 </table></div>
-<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-10-02. Test registrations and TritonGPT-internal serving entries are excluded.</p>
+<p class="model-catalog-refreshed">List refreshed from the public Model Hub on 2026-10-08. Test registrations and TritonGPT-internal serving entries are excluded.</p>
 </section>
 <!-- END_AGENT_SECTION -->
 

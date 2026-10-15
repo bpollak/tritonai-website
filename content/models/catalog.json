@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-10-02T18:30:11.747Z",
+  "lastSynced": "2026-10-08T21:26:04.054Z",
   "source": "https://tritonai-api.ucsd.edu/public/model_hub",
   "models": [
     {
@@ -50,6 +50,13 @@
       "type": "Chat and reasoning",
       "hosting": "Approved enterprise cloud",
       "maxInputTokens": 200000
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "displayName": "Claude Haiku 5 5",
+      "type": "Chat and reasoning",
+      "hosting": "Approved enterprise cloud",
+      "maxInputTokens": 1000000
     },
     {
       "id": "claude-opus-5-5",
