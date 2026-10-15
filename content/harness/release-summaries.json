@@ -592,6 +592,305 @@
         "responseId": "chatcmpl-bf695988a245d7c4",
         "approved": true
       }
+    },
+    "v0.3.7": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.3.7",
+      "sourceDigest": "537f6698570bc078a9b40b6ba99b4615a469c31cfa21be3d14c83d9931849be5",
+      "lastReviewed": "2026-10-15",
+      "reviewStatus": "source-verified",
+      "highlights": [
+        "The Tableau connection is no longer included in the stable app; it is only in the separate Nightly version. If you relied on Tableau, you will need the Nightly app to keep using it.",
+        "This release adds a new Quiet Workspace theme to the app's appearance options.",
+        "The saved list of skills now appears right away when you open it, so you spend less time waiting to pick one.",
+        "When the agent asks for your approval, you now see the details of what it plans to do, helping you decide with better information.",
+        "Sending feedback now goes through the TritonAI feedback skill, so your comments reach the team through a standard route."
+      ],
+      "guidance": {
+        "setup": [
+          "Install with the latest TritonAI Installer, which sets up the desktop app, the UCSD-managed setup, and UCSD skills. Do not use the public t3 package or t3.codes scripts.",
+          "To update the app, open Settings, then About, and choose Check for Updates. A Harness update also carries UCSD-managed configuration, built-in skills, and the managed plugin composition."
+        ],
+        "faq": [
+          "Computer use is off by default. To opt in on the desktop app, open Settings, then General, and turn on Computer use.",
+          "A permission mode controls how much the agent does on its own and when it stops to ask you. New tasks start in Full access unless you pick another mode before sending."
+        ],
+        "privacy": [
+          "Memory is on by default and keeps a daily summary of your tasks as notes on each computer. Your own notes in the Notes folder are never changed by Memory.",
+          "To see every computer's notes on each of them, turn on Sync memory with OneDrive under Settings, General, Memory. Your notes stay in the same local folder and are also copied to your OneDrive."
+        ],
+        "skills": [
+          "TritonAI Commons is the public skill library in Settings, then Skills. Skills you create or add locally stay under Your Skills until you decide to publish them.",
+          "To share a local skill with UCSD, find it under Your Skills and select Share with UCSD. Only submit material that is safe to publish."
+        ],
+        "citizen": [
+          "Use Supervised mode the first time you run an unfamiliar task, so commands needing extra permissions and file changes wait for your approval.",
+          "Give the agent a task in your own words and attach the files it needs. You can also quote a previous response when the task needs more context."
+        ],
+        "models": [
+          "TritonAI Harness combines conversations, tools, and reusable skills in one application, with a managed Codex engine connected to TritonAI.",
+          "To check or change your TritonAI access key, open Settings, then Runtime, and select your connection. Settings shows the last four characters so you can identify the key without revealing it."
+        ]
+      },
+      "audience": {
+        "kind": "nontechnical-staff-and-faculty",
+        "policyVersion": 2
+      },
+      "claimEvidence": {
+        "version": "v0.3.7",
+        "highlights": [
+          {
+            "text": "The Tableau connection is no longer included in the stable app; it is only in the separate Nightly version. If you relied on Tableau, you will need the Nightly app to keep using it.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.3.7",
+                "quote": "Removes Tableau from the stable bundled plugins. Tableau and UCSD Jira remain available only in nightly builds."
+              }
+            ]
+          },
+          {
+            "text": "This release adds a new Quiet Workspace theme to the app's appearance options.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.3.7",
+                "quote": "Introduces the Quiet Workspace theme."
+              }
+            ]
+          },
+          {
+            "text": "The saved list of skills now appears right away when you open it, so you spend less time waiting to pick one.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.3.7",
+                "quote": "Displays the saved skill catalog immediately and refreshes it in the background."
+              }
+            ]
+          },
+          {
+            "text": "When the agent asks for your approval, you now see the details of what it plans to do, helping you decide with better information.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.3.7",
+                "quote": "Shows Harness tool-call arguments in approval prompts."
+              }
+            ]
+          },
+          {
+            "text": "Sending feedback now goes through the TritonAI feedback skill, so your comments reach the team through a standard route.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.3.7",
+                "quote": "Routes `/feedback` through the TritonAI feedback skill."
+              }
+            ]
+          }
+        ],
+        "guidance": {
+          "setup": [
+            {
+              "text": "Install with the latest TritonAI Installer, which sets up the desktop app, the UCSD-managed setup, and UCSD skills. Do not use the public t3 package or t3.codes scripts.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/install.md",
+                  "quote": "Install TritonAI Harness with the\n[latest TritonAI Installer release](https://github.com/dbalders/TritonAI-Installer/releases/latest)."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/install.md",
+                  "quote": "Do not use the public `t3` npm package, the `t3.codes` install scripts, or the upstream T3 Code\npackage-registry builds."
+                }
+              ]
+            },
+            {
+              "text": "To update the app, open Settings, then About, and choose Check for Updates. A Harness update also carries UCSD-managed configuration, built-in skills, and the managed plugin composition.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/updates.md",
+                  "quote": "**Harness application:** use **Settings > About > Check for Updates**. A Harness update also carries UCSD-managed configuration, built-in skills, and the managed plugin composition."
+                }
+              ]
+            }
+          ],
+          "faq": [
+            {
+              "text": "Computer use is off by default. To opt in on the desktop app, open Settings, then General, and turn on Computer use.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/computer-use.md",
+                  "quote": "Computer use is off by default. In the desktop app, open **Settings > General** and turn on **Computer use** to opt in."
+                }
+              ]
+            },
+            {
+              "text": "A permission mode controls how much the agent does on its own and when it stops to ask you. New tasks start in Full access unless you pick another mode before sending.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/permission-modes.md",
+                  "quote": "A permission mode controls how much the agent does on its own and when it stops to ask you."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/permission-modes.md",
+                  "quote": "otherwise new threads start in **Full access** unless you pick something else\nbefore sending."
+                }
+              ]
+            }
+          ],
+          "privacy": [
+            {
+              "text": "Memory is on by default and keeps a daily summary of your tasks as notes on each computer. Your own notes in the Notes folder are never changed by Memory.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/memory.md",
+                  "quote": "Memory is on by default for new and existing installations, including Nightly."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/memory.md",
+                  "quote": "`Notes/`: your own notes. Memory never changes them."
+                }
+              ]
+            },
+            {
+              "text": "To see every computer's notes on each of them, turn on Sync memory with OneDrive under Settings, General, Memory. Your notes stay in the same local folder and are also copied to your OneDrive.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/memory.md",
+                  "quote": "To see every computer's notes on each of them, turn on **Sync memory with OneDrive** under **Settings > General > Memory**."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/memory.md",
+                  "quote": "Your notes stay in the same local folder. Memory copies them to `TritonAI Harness/memory/general` in your OneDrive"
+                }
+              ]
+            }
+          ],
+          "skills": [
+            {
+              "text": "TritonAI Commons is the public skill library in Settings, then Skills. Skills you create or add locally stay under Your Skills until you decide to publish them.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/tritonai-commons.md",
+                  "quote": "TritonAI Commons is the public skill library in **Settings → Skills**. AI Team and Community skills come from Commons; skills you create or add locally stay under **Your Skills** until you decide to publish them."
+                }
+              ]
+            },
+            {
+              "text": "To share a local skill with UCSD, find it under Your Skills and select Share with UCSD. Only submit material that is safe to publish.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/tritonai-commons.md",
+                  "quote": "Find it under **Your Skills**."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/tritonai-commons.md",
+                  "quote": "Only submit material that is safe to publish."
+                }
+              ]
+            }
+          ],
+          "citizen": [
+            {
+              "text": "Use Supervised mode the first time you run an unfamiliar task, so commands needing extra permissions and file changes wait for your approval.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/permission-modes.md",
+                  "quote": "Use **Supervised** when you want commands needing additional permissions and file changes to wait\nfor approval, or the first time you run an unfamiliar task."
+                }
+              ]
+            },
+            {
+              "text": "Give the agent a task in your own words and attach the files it needs. You can also quote a previous response when the task needs more context.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/composer.md",
+                  "quote": "Give the agent a task in the composer. Add files, quote a previous response, or\ninclude a skill when the task needs more context."
+                }
+              ]
+            }
+          ],
+          "models": [
+            {
+              "text": "TritonAI Harness combines conversations, tools, and reusable skills in one application, with a managed Codex engine connected to TritonAI.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/README.md",
+                  "quote": "TritonAI Harness combines conversations, tools, and reusable skills in one application, with a managed Codex engine connected to TritonAI."
+                }
+              ]
+            },
+            {
+              "text": "To check or change your TritonAI access key, open Settings, then Runtime, and select your connection. Settings shows the last four characters so you can identify the key without revealing it.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/tritonai-access-keys.md",
+                  "quote": "Open **Settings → Runtime** and select your local on-prem or frontier connection."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/tritonai-access-keys.md",
+                  "quote": "The **Access key** status shows the last four characters of its configured key as\n**Ends in abcd**, so you can identify it without revealing the full key."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "sourceDocuments": {
+        "docs/user/install.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/install.md",
+          "sha256": "35e69563de1d9e656a0e91099eff32172f8cb31f385b70f1c9169f14fb1230a5"
+        },
+        "docs/user/updates.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/updates.md",
+          "sha256": "c1a4ead3a9a1a7e66676103653a3ac26840cdb0383797fc431cb51c99000f5b1"
+        },
+        "docs/user/ucsd-account.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/ucsd-account.md",
+          "sha256": "80429b3cd491add1f0fe8c5873dff012164dc668589c4e2a45f12b0d0ff30ed3"
+        },
+        "docs/user/computer-use.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/computer-use.md",
+          "sha256": "a3469539e97311244af264677a34bb768ae4e819648aeb42ac45220e9b0afd08"
+        },
+        "docs/user/permission-modes.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/permission-modes.md",
+          "sha256": "58a4e5b6e7a6a38a61bc6d530b121dd80cda5f1d61e51414077c2ac3659e87ea"
+        },
+        "docs/user/memory.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/memory.md",
+          "sha256": "ac5ed10f4c8c67a765463ab4d1692236e3e1cebce29858c2214e7631f63d497c"
+        },
+        "docs/user/telemetry.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/telemetry.md",
+          "sha256": "49bb48bedb378a0cb9d8c01f2ae63bfc14a0d5fb56f3edd03e29d1b1b4861906"
+        },
+        "docs/user/tritonai-commons.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/tritonai-commons.md",
+          "sha256": "a40fdb5c2df1e9b7749b335cd8c56529c694d767b8c77bd5b8ee6610902830cd"
+        },
+        "docs/user/composer.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/composer.md",
+          "sha256": "dba426f6cc9cd0ce6b0f1ccb6ff933f8ad42411b056691d123fed98bcd58ec22"
+        },
+        "README.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/README.md",
+          "sha256": "904b26d3a6c8abdc8b028533585c5f971c0cdc96e9de9008b3ed082acd04c069"
+        },
+        "docs/user/tritonai-access-keys.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.3.7/docs/user/tritonai-access-keys.md",
+          "sha256": "dd5ed69543e057ae1737c3fb940cdf5efff4c00988f5b0695f2e336c4a75baca"
+        }
+      },
+      "generatedBy": {
+        "kind": "on-premises-llm",
+        "method": "gateway-api",
+        "providerInstance": "tritonai_onprem",
+        "model": "api-glm-5.3",
+        "generatedAt": "2026-10-15T15:02:03.311Z",
+        "responseId": "chatcmpl-91c93ba8f276eaf4"
+      },
+      "sourceReview": {
+        "method": "gateway-api",
+        "model": "api-glm-5.3",
+        "responseId": "chatcmpl-96ea95a3ad2e87b3",
+        "approved": true
+      }
     }
   }
 }

@@ -4,9 +4,15 @@
   "source": "https://github.com/dbalders/TritonAI-Harness/releases",
   "canonicalUrl": "/developer-apis/harness-release-notes.html",
   "dataClassification": "Public",
-  "lastReviewed": "2026-10-08",
-  "latestTag": "v0.3.6",
+  "lastReviewed": "2026-10-15",
+  "latestTag": "v0.3.7",
   "releases": [
+    {
+      "tag": "v0.3.7",
+      "publishedAt": "2026-10-11T06:27:27Z",
+      "notesUrl": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.3.7",
+      "notesDigest": "537f6698570bc078a9b40b6ba99b4615a469c31cfa21be3d14c83d9931849be5"
+    },
     {
       "tag": "v0.3.6",
       "publishedAt": "2026-10-08T20:13:59Z",
