@@ -242,7 +242,7 @@
       "status": "In development",
       "summary": "Expanding learning and community support for faculty and staff while testing staged Harness onboarding and the path from prototypes to supported services.",
       "details": [
-        "The Discovery Series provides short learning videos, with further tool walkthroughs listed for October 15. The certificate offers staff and leadership streams, and Connect brings together campus communities of practice.",
+        "The 15-part Discovery Series is published, from AI fundamentals through tool walkthroughs and the citizen developer path. The certificate offers staff and leadership streams, and Connect brings together campus communities of practice.",
         "AI use-case office hours are sharing staff-built agent workflows and lessons from supervised development.",
         "Campus outreach focuses on faculty and staff in this launch wave. Student outreach remains a separate coordination effort with teaching and learning partners.",
         "Readiness and follow-up measures will track access, use, connected tools, and safeguards.",
@@ -257,8 +257,8 @@
         { "label": "Explore Connect", "href": "/connect/index.html" }
       ],
       "owner": "TritonAI program, platform team, and learning partners",
-      "lastReviewed": "2026-10-04",
-      "source": "Published Discovery Series, certificate, Connect, and builder pages; October 2, 2026 TritonAI launch planning review",
+      "lastReviewed": "2026-10-15",
+      "source": "Published Discovery Series, certificate, Connect, and builder pages; October 14, 2026 Discovery Series publication and the Today@UCSD feature of October 7, 2026",
       "relatedSlides": ["AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem"],
       "icon": "user",
       "highlights": [
