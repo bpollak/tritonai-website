@@ -6204,6 +6204,22 @@ main#main-content .harness-release-card .btn { margin-bottom: 8px; }
   padding: 1rem 1.25rem;
 }
 
+.tutor-guide-figure {
+  margin: 1.25rem 0;
+}
+
+.tutor-guide-figure img {
+  border: 1px solid #d5dde2;
+  border-radius: 6px;
+}
+
+.tutor-guide-figure figcaption {
+  color: #52616b;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin-top: 0.5rem;
+}
+
 .tutor-guide-examples {
   background-color: #f5f5f5;
   border-left: 4px solid #c69214;
