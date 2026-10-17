@@ -77,7 +77,10 @@
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeDrawers);
-  else initializeDrawers();
+  else {
+    initializeDrawers();
+    initializeDrawerControls();
+  }
   document.addEventListener("tritonai:decorator-ready", initializeDrawers);
   document.addEventListener("DOMContentLoaded", initializeDrawerControls);
   document.addEventListener("tritonai:decorator-ready", initializeDrawerControls);
