@@ -6204,6 +6204,10 @@ main#main-content .harness-release-card .btn { margin-bottom: 8px; }
   padding: 1rem 1.25rem;
 }
 
+.tutor-guide-steps li + li {
+  margin-top: 10px;
+}
+
 .tutor-guide-figure {
   margin: 1.25rem 0;
 }
