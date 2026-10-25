@@ -6349,6 +6349,9 @@ main#main-content .harness-training-duration dd {
 .main-content-nav>ul li.active.no-indent {
   padding-left: 0;
 }
+.main-content-nav>ul li.expanded.active.no-indent>ul li a {
+  padding-left: 1em !important;
+}
 /* Keep the overview's setup and training actions distinct at every width. */
 main#main-content .harness-actions {
   display: flex;
