@@ -951,7 +951,7 @@ function renderSidebarItems(navigation, route) {
       child.items?.length
         ? `<li class="${navigationContainsRoute(child, route) ? "expanded active no-indent" : ""}"><a href="${escapeHtml(child.href)}">${escapeHtml(child.label)}</a><ul>${childNavLinks(child)}</ul></li>`
         : child.href === route
-          ? `<li class="active no-indent">${escapeHtml(child.label)}</li>`
+          ? `<li class="active">${escapeHtml(child.label)}</li>`
           : `<li><a href="${escapeHtml(child.href)}">${escapeHtml(child.label)}</a></li>`;
     return `<li class="expanded active no-indent"><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>${(item.items || []).map(childLinks).join("")}`;
   };
