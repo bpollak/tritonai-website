@@ -444,8 +444,8 @@ Data classification
 </div>
 <div class="col-sm-6 col-md-4">
 <article class="panel panel-default hub-action-card">
-<!-- Official vendor artwork: https://n8n.io/brandguidelines/ -->
-<img class="plugin-logo plugin-logo-wordmark" src="https://n8n.io/brandguidelines/logo-dark.svg" alt="" width="140" height="36" loading="lazy">
+<!-- Official vendor artwork: https://guidelines.n8n.design/logo (n8n-logo-black-accent.svg) -->
+<img class="plugin-logo plugin-logo-wordmark" src="/_images/harness/n8n-logo.svg" alt="" width="140" height="36" loading="lazy">
 <h3>n8n</h3>
 <p>Sign in through your browser to inspect and design workflows in UC San Diego’s n8n service. Running, creating, updating, and publishing workflows depend on the abilities granted during sign-in and the chat’s approval mode.</p>
 </article>
