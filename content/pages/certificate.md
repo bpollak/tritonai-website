@@ -19,7 +19,7 @@ sidebar: true
   <div class="hub-heading">
     <p class="home-kicker">ROLE-BASED COURSES</p>
     <h2 id="certificate-streams-heading">A path suited to your role</h2>
-    <p>Choose from streams for staff and leaders, plus faculty and student courses. All are open at no cost. Log in with your SSO, then select Start Course. Once you begin, you'll have 6 months (180 days) to complete the certificate. Each stream includes 20 hours of content: 16 hours of shared, foundational material plus 4 hours of specialization.</p>
+    <p>Choose from streams for staff and leaders, plus faculty courses. All are open at no cost. Log in with your SSO, then select Start Course. Once you begin, you'll have 6 months (180 days) to complete the certificate. Each stream includes 20 hours of content: 16 hours of shared, foundational material plus 4 hours of specialization.</p>
   </div>
   <div class="learning-pathway-grid certificate-pathway-grid">
     <article class="learning-pathway-card">
