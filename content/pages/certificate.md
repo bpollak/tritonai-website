@@ -19,7 +19,7 @@ sidebar: true
   <div class="hub-heading">
     <p class="home-kicker">ROLE-BASED COURSES</p>
     <h2 id="certificate-streams-heading">A path suited to your role</h2>
-    <p>Choose from streams for staff and leaders, plus faculty and student courses. All are open at no cost. Log in with your SSO, then select Start Course.</p>
+    <p>Choose from streams for staff and leaders, plus faculty and student courses. All are open at no cost. Log in with your SSO, then select Start Course. Once you begin, you'll have 6 months (180 days) to complete the certificate. Each stream includes 20 hours of content: 16 hours of shared, foundational material plus 4 hours of specialization.</p>
   </div>
   <div class="learning-pathway-grid certificate-pathway-grid">
     <article class="learning-pathway-card">
@@ -59,7 +59,7 @@ sidebar: true
       <header>
         <span class="learning-pathway-icon glyphicon glyphicon-education" aria-hidden="true"></span>
         <div>
-          <p>Students</p>
+          <p>For All</p>
           <h3>AI Literacy for All</h3>
           <span>A foundational 4 hour course that builds on AI literacy, what is AI, how to prompt and evaluate output.</span>
         </div>
@@ -70,7 +70,7 @@ sidebar: true
       <header>
         <span class="learning-pathway-icon glyphicon glyphicon-tasks" aria-hidden="true"></span>
         <div>
-          <p>Students</p>
+          <p>For All</p>
           <h3>Applied AI Literacy for All</h3>
           <span>An intermediate 6 hour course that explores using AI as a thinking partner, working with AI agents and automation, productivity frameworks, and research ethics.</span>
         </div>
@@ -84,7 +84,6 @@ sidebar: true
   <div class="hub-heading">
     <p class="home-kicker">TWO WAYS TO TAKE IT</p>
     <h2 id="certificate-course-format-heading">On your own, or as a learning community.</h2>
-    <p>Once you begin, you'll have 6 months (180 days) to complete the certificate. Each stream includes 20 hours of content: 16 hours of shared, foundational material plus 4 hours of specialization.</p>
   </div>
   <div class="row hub-split hub-split-align-center">
     <div class="col-md-6 hub-split-copy">
@@ -95,41 +94,6 @@ sidebar: true
       <h3>Learn together</h3>
       <p>Set up a learning community with your team or a cross-functional group and meet regularly to move through the course together. Communities can appoint one lead for the whole course, or rotate the lead so a different person heads up each section of chapters. Most learning communities take about three months to complete the course.</p>
     </div>
-  </div>
-</section>
-
-<section class="hub-section" aria-labelledby="certificate-start-heading">
-  <div class="hub-heading">
-    <p class="home-kicker">GETTING STARTED</p>
-    <h2 id="certificate-start-heading">Choose your stream</h2>
-  </div>
-  <div class="learning-pathway-grid">
-    <article class="learning-pathway-card">
-      <header>
-        <span class="learning-pathway-icon glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-        <div>
-          <p>Administration/Staff</p>
-          <h3>Staff stream</h3>
-          <span>Operations, services, and administration.</span>
-        </div>
-      </header>
-      <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/ae35c351-cc4d-4a60-9397-4138a5f02c56">Access your stream <span aria-hidden="true">→</span></a>
-    </article>
-    <article class="learning-pathway-card">
-      <header>
-        <span class="learning-pathway-icon glyphicon glyphicon-user" aria-hidden="true"></span>
-        <div>
-          <p>Leaders</p>
-          <h3>Leaders stream</h3>
-          <span>Opportunities and challenges for AI adoption.</span>
-        </div>
-      </header>
-      <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/7dcc46e4-23d8-4e5f-871f-92650a7252d5">Access your stream <span aria-hidden="true">→</span></a>
-    </article>
-  </div>
-  <div class="hub-heading">
-    <p>New to AI? Start with the TritonAI Discovery Series — short videos that build shared ground before you go deeper.</p>
-    <p><a class="btn btn-primary" href="/training-resources/videos/index.html">Watch the Discovery Series <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
