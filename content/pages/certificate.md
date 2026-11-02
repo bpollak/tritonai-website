@@ -1,10 +1,10 @@
 ---
 title: Certificate in AI for Higher Education
 path: /training-resources/certificate.html
-description: The UC San Diego certificate in AI for higher education, with streams for staff and leaders.
+description: The UC San Diego certificate in AI for higher education, with role-based courses for staff, leaders, faculty, and students.
 eyebrow: GO FURTHER
-lastReviewed: 2026-09-25
-audiences: [staff, leaders]
+lastReviewed: 2026-11-02
+audiences: [staff, leaders, faculty, students]
 source: UC San Diego and Digital Education Council certificate program content
 canonicalUrl: /training-resources/certificate.html
 relatedSlides: []
@@ -17,11 +17,11 @@ sidebar: true
 
 <section class="hub-section certificate-tight" aria-labelledby="certificate-streams-heading">
   <div class="hub-heading">
-    <p class="home-kicker">TWO STREAMS</p>
+    <p class="home-kicker">ROLE-BASED COURSES</p>
     <h2 id="certificate-streams-heading">A path suited to your role</h2>
-    <p>The course is organized into two streams, one each for staff and one for leaders. Both streams are open to you at no cost. Log in with your SSO, then select Start Course.</p>
+    <p>Choose from streams for staff and leaders, plus faculty and student courses. All are open at no cost. Log in with your SSO, then select Start Course.</p>
   </div>
-  <div class="learning-pathway-grid">
+  <div class="learning-pathway-grid certificate-pathway-grid">
     <article class="learning-pathway-card">
       <header>
         <span class="learning-pathway-icon glyphicon glyphicon-briefcase" aria-hidden="true"></span>
@@ -43,6 +43,39 @@ sidebar: true
         </div>
       </header>
       <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/7dcc46e4-23d8-4e5f-871f-92650a7252d5">Link to Leaders course <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="learning-pathway-card">
+      <header>
+        <span class="learning-pathway-icon glyphicon glyphicon-book" aria-hidden="true"></span>
+        <div>
+          <p>Faculty</p>
+          <h3>AI in teaching and learning for university faculty</h3>
+          <span>Specializing in the pedagogy of AI, including personalizing learning, improving teaching outcomes, and upholding academic integrity in the AI era.</span>
+        </div>
+      </header>
+      <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/a4c59bd7-b4dc-49d7-beb6-341281bfb229">Link to faculty course <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="learning-pathway-card">
+      <header>
+        <span class="learning-pathway-icon glyphicon glyphicon-education" aria-hidden="true"></span>
+        <div>
+          <p>Students</p>
+          <h3>AI Literacy for All</h3>
+          <span>A foundational 4 hour course that builds on AI literacy, what is AI, how to prompt and evaluate output.</span>
+        </div>
+      </header>
+      <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/b9facbc2-71d5-44db-863e-3b6f76e79e43">Link to AI Literacy course <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="learning-pathway-card">
+      <header>
+        <span class="learning-pathway-icon glyphicon glyphicon-tasks" aria-hidden="true"></span>
+        <div>
+          <p>Students</p>
+          <h3>Applied AI Literacy for All</h3>
+          <span>An intermediate 6 hour course that explores using AI as a thinking partner, working with AI agents and automation, productivity frameworks, and research ethics.</span>
+        </div>
+      </header>
+      <a class="learning-pathway-action" href="https://connect.digitaleducationcouncil.com/saml/374f4b57-dbb2-4022-a197-24bc04903174/login/4fb563d7-4a3e-4c9c-baa9-ec6355c6475c">Link to Applied AI Literacy course <span aria-hidden="true">→</span></a>
     </article>
   </div>
 </section>

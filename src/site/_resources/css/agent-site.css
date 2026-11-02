@@ -1384,6 +1384,10 @@ main#main-content .skills-setup {
   margin-bottom: 48px;
 }
 
+.certificate-pathway-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .learning-pathway-card {
   background: #fff;
   border: 1px solid var(--triton-border);
