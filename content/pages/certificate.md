@@ -27,7 +27,7 @@ sidebar: true
         <span class="learning-pathway-icon glyphicon glyphicon-briefcase" aria-hidden="true"></span>
         <div>
           <p>Staff</p>
-          <h3>AI in the work of running a university</h3>
+          <h3>AI in the Work of Running a University</h3>
           <span>Operations, services, and administration, with responsible use throughout.</span>
         </div>
       </header>
@@ -49,7 +49,7 @@ sidebar: true
         <span class="learning-pathway-icon glyphicon glyphicon-book" aria-hidden="true"></span>
         <div>
           <p>Faculty</p>
-          <h3>AI in teaching and learning for university faculty</h3>
+          <h3>AI in Teaching and Learning for University Faculty</h3>
           <span>Specializing in the pedagogy of AI, including personalizing learning, improving teaching outcomes, and upholding academic integrity in the AI era.</span>
         </div>
       </header>
