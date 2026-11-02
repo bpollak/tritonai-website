@@ -1388,6 +1388,10 @@ main#main-content .skills-setup {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.certificate-pathway-grid .learning-pathway-action {
+  border-top: 0;
+}
+
 .learning-pathway-card {
   background: #fff;
   border: 1px solid var(--triton-border);
