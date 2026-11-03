@@ -3,14 +3,14 @@
   "title": "Gateway usage at a glance",
   "summary": "Aggregate TritonAI LLM Gateway activity shows the scale of shared model access across UC San Diego.",
   "owner": "TritonAI platform team",
-  "source": "TritonAI Statistics runs 20260810T112319-0700-27a039 (January-July) and 20260902T152700-0700-e87f94 (August), raw gateway usage exports and reviewed route classification with the September 2 hosting-audit correction; Dominic Feliton September export brett-sep-26.zip, recharge-september-final-2026-v4, shared in TritonAI Brain Trust on October 5, 2026; full raw gateway activity and reviewed Stage 1 hosting classification",
+  "source": "TritonAI Statistics runs 20260810T112319-0700-27a039 (January-July) and 20260902T152700-0700-e87f94 (August), raw gateway usage exports and reviewed route classification with the September 2 hosting-audit correction; Dominic Feliton September export brett-sep-26.zip, recharge-september-final-2026-v4, shared in TritonAI Brain Trust on October 5, 2026; full raw gateway activity and reviewed Stage 1 hosting classification; Dominic Feliton October export raw_data_oct.zip (complete-usage-october-2026-complete-capture-v3), shared with Brett Pollak in Teams on November 2, 2026; full raw gateway activity and Stage 1 hosting classification",
   "measurementPeriod": {
     "start": "2026-01-01",
-    "end": "2026-09-30",
-    "label": "January 1–September 30, 2026"
+    "end": "2026-10-31",
+    "label": "January 1–October 31, 2026"
   },
-  "generatedAt": "2026-10-02",
-  "lastReviewed": "2026-10-05",
+  "generatedAt": "2026-11-02",
+  "lastReviewed": "2026-11-03",
   "dataClassification": "Public aggregate; no user-level records",
   "canonicalUrl": "/developer-apis/index.html#gateway-usage",
   "relatedSlides": [
@@ -19,31 +19,31 @@
   "metrics": [
     {
       "id": "tokens-processed",
-      "displayValue": "527.0B",
+      "displayValue": "598.3B",
       "label": "tokens processed",
       "definition": "Total input and output tokens recorded by the gateway during the measurement period.",
-      "value": 527027308843
+      "value": 598326063857
     },
     {
       "id": "api-requests",
-      "displayValue": "157.0M",
+      "displayValue": "166.8M",
       "label": "API requests",
       "definition": "Gateway request records during the measurement period, including successful and failed requests.",
-      "value": 157030124
+      "value": 166831485
     },
     {
       "id": "self-hosted-share",
-      "displayValue": "90.6%",
+      "displayValue": "89.6%",
       "label": "self-hosted and internal routes",
       "definition": "Share of recorded tokens not classified as commercial cloud, including internal TritonAI routes.",
-      "value": 90.5584372437476
+      "value": 89.62314945470287
     },
     {
       "id": "latest-month",
-      "displayValue": "71.7B",
-      "label": "tokens in September",
+      "displayValue": "71.3B",
+      "label": "tokens in October",
       "definition": "Total token volume recorded in the latest complete month.",
-      "value": 71731623368
+      "value": 71298755014
     }
   ],
   "monthly": [
@@ -109,14 +109,22 @@
       "selfHostedTokens": 55691559415,
       "cloudTokens": 16040063953,
       "note": "September recorded 71.7 billion tokens, down 9.0% from August. Self-hosted and internal routes accounted for 55.7 billion tokens, while cloud usage increased to 16.0 billion tokens. The export records the change in volume but does not establish its cause."
+    },
+    {
+      "month": "2026-10",
+      "label": "October",
+      "selfHostedTokens": 58970967701,
+      "cloudTokens": 12327787313,
+      "note": "October recorded 71.3 billion tokens, about level with September (down 0.6%). Self-hosted and internal routes rose 5.9% to 59.0 billion tokens, while cloud usage fell 23.1% to 12.3 billion tokens. The export records the change in volume but does not establish its cause."
     }
   ],
   "notes": [
-    "January through July retains the reviewed V3 model-route classification. August uses the reviewed classification with the September 2 hosting-audit correction, moving 8,340,260 tokens from self-hosted to cloud. Self-hosted and internal includes all remaining recorded tokens, including internal TritonAI routes. September uses the export’s reviewed Stage 1 hosting classification. Its 143 unclassified tokens remain in the non-cloud remainder under this series’ existing definition of self-hosted and internal.",
-    "The monthly series reconciles to 527,027,308,843 tokens and 157,030,124 request records for January through September 2026.",
-    "Token totals use the gateway's recorded input plus output tokens. August and September cache-read and cache-creation fields are not added separately. The earlier January-July export did not expose those fields, so an upstream token-definition change cannot be completely ruled out.",
+    "January through July retains the reviewed V3 model-route classification. August uses the reviewed classification with the September 2 hosting-audit correction, moving 8,340,260 tokens from self-hosted to cloud. Self-hosted and internal includes all remaining recorded tokens, including internal TritonAI routes. September and October use the export’s Stage 1 hosting classification. Its 143 unclassified tokens, and October's 366, remain in the non-cloud remainder under this series’ existing definition of self-hosted and internal.",
+    "The monthly series reconciles to 598,326,063,857 tokens and 166,831,485 request records for January through October 2026.",
+    "Token totals use the gateway's recorded input plus output tokens. August through October cache-read and cache-creation fields are not added separately. The earlier January-July export did not expose those fields, so an upstream token-definition change cannot be completely ruled out.",
     "August includes all 31 days and 18,971,745 request records. Daily token and request totals reconcile exactly between the supplied normalized export and raw gateway response.",
-    "September includes all 30 days and 13,120,410 request records, including successful and failed requests. Recorded input tokens (70,210,137,458) plus output tokens (1,521,485,910) equal 71,731,623,368 total tokens. Daily totals reconcile exactly between the normalized export and raw gateway response; recharge-filtered totals are not used."
+    "September includes all 30 days and 13,120,410 request records, including successful and failed requests. Recorded input tokens (70,210,137,458) plus output tokens (1,521,485,910) equal 71,731,623,368 total tokens. Daily totals reconcile exactly between the normalized export and raw gateway response; recharge-filtered totals are not used.",
+    "October includes all 31 days and 9,801,361 request records, including successful and failed requests. Recorded input tokens (70,266,344,421) plus output tokens (1,032,410,593) equal 71,298,755,014 total tokens. Daily totals reconcile exactly between the complete paginated usage capture, its control total, and the Stage 1 hosting partition; recharge-filtered totals are not used."
   ],
   "monthlyDriversIntro": "Month-to-month changes reflect the mix of campus applications, automated services, model routing, and instructional activity using the TritonAI Gateway."
 }
