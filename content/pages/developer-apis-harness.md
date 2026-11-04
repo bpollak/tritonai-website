@@ -71,7 +71,7 @@ bannerMode: abstract
 <div class="hub-heading">
 <p class="home-kicker">What’s in the stable release</p>
 <h2 id="harness-feature-map-heading">Key Harness features</h2>
-<p>Work in your apps, automate tasks, and reuse what works. Everything on this map ships in the stable release. Your account permissions, enabled plugin abilities, and the chat’s approval mode still decide what the agent can do.</p>
+<p>Work in your apps, automate tasks, and reuse what works. Features and plugins on this map ship in the stable release. Your account permissions, enabled plugin abilities, and the chat’s approval mode still decide what the agent can do.</p>
 </div>
 <div class="hfm-grid">
 <article class="hfm-panel" aria-labelledby="hfm-features-heading">
@@ -97,7 +97,7 @@ bannerMode: abstract
 <li class="hfm-plugin hfm-plugin-lucid" data-harness-plugin="lucid"><span class="hfm-tile glyphicon glyphicon-th" aria-hidden="true"></span><span>Lucid</span></li>
 <li class="hfm-plugin hfm-plugin-ucsd" data-harness-plugin="ucsd-assistant"><span class="hfm-tile glyphicon glyphicon-search" aria-hidden="true"></span><span>UCSD Assistant</span></li>
 </ul>
-<p class="hfm-panel-note">Enable a plugin in <strong>Settings &gt; Plugins</strong>, then connect your account.</p>
+<p class="hfm-panel-note">Enable a plugin in <strong>Settings &gt; Plugins</strong>, then connect your account if it asks you to sign in.</p>
 </article>
 <article class="hfm-panel" aria-labelledby="hfm-skills-heading">
 <h3 id="hfm-skills-heading" class="hfm-panel-title"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Skills</h3>
@@ -522,7 +522,7 @@ Data classification
 <article class="panel panel-default hub-action-card">
 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 <h3>UCSD Assistant</h3>
-<p>Find campus information from public UC San Diego sources, including support articles, campus maps, walking routes, and library busyness. No sign-in is needed, and the agent cites the original pages.</p>
+<p>Find campus information from public UC San Diego sources, including support articles, campus maps, walking routes, and library busyness. No sign-in is needed, and it is built to cite the original pages.</p>
 </article>
 </div>
 </div>
