@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import { HARNESS_GITHUB, releaseSummaryIssues, guidedInstallerIssues } from "./lib/harness-releases.mjs";
+import { stableFeatureIssues, unlistedPlugins } from "./lib/harness-features.mjs";
 
 export const SUMMARY_AUDIENCE_VERSION = 2;
 export const DOCUMENTS = {
@@ -113,6 +114,7 @@ export async function maintain() {
     const read = async (name) => JSON.parse(await readFile(path.join(staging, name), "utf8"));
     const releases = await read("releases.json"), installer = await read("installer.json"), summaries = await read("release-summaries.json");
     const notes = await read("source-notes.json");
+    const features = await read("stable-features.json");
     for (const release of releases.releases) {
       const saved = summaries.releases[release.tag];
       if (release.tag !== releases.latestTag && !saved) continue;
@@ -121,9 +123,16 @@ export async function maintain() {
       if (typeof body !== "string" || createHash("sha256").update(body).digest("hex") !== release.notesDigest) throw new Error("Release notes fingerprint mismatch.");
       summaries.releases[release.tag] = await synthesize(release, body);
     }
-    const issues = [...releaseSummaryIssues(releases, summaries, installer), ...guidedInstallerIssues(installer.guided)];
+    const issues = [...releaseSummaryIssues(releases, summaries, installer), ...guidedInstallerIssues(installer.guided), ...stableFeatureIssues(features, releases)];
     if (issues.length) throw new Error(issues.join("\n"));
-    for (const [name, data] of Object.entries({ "releases.json": releases, "installer.json": installer, "release-summaries.json": summaries })) {
+    // A new stable plugin still publishes; it waits for page copy before it appears.
+    const missingCopy = unlistedPlugins(features, await readFile("content/pages/developer-apis-harness.md", "utf8"));
+    if (missingCopy.length) {
+      const note = `Stable ${releases.latestTag} plugins without Harness page copy (not shown until added): ${missingCopy.join(", ")}`;
+      console.warn(`::warning::${note}`);
+      if (process.env.GITHUB_STEP_SUMMARY) await writeFile(process.env.GITHUB_STEP_SUMMARY, `${note}\n`, { flag: "a" });
+    }
+    for (const [name, data] of Object.entries({ "releases.json": releases, "installer.json": installer, "release-summaries.json": summaries, "stable-features.json": features })) {
       await writeFile(`content/harness/${name}`, `${JSON.stringify(data, null, 2)}\n`);
     }
     console.log(JSON.stringify({ status: "source-verified", latestTag: releases.latestTag, installerVersion: installer.guided.version }));

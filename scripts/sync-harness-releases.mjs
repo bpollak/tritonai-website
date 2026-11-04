@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { HARNESS_REPOSITORY, GUIDED_INSTALLER_REPOSITORY, installerFromRelease, guidedInstallerFromRelease, releaseSnapshot, releaseSummaryIssues } from "./lib/harness-releases.mjs";
+import { STABLE_FEATURES_FILE, collectStableFeatures, stableFeatureIssues } from "./lib/harness-features.mjs";
 
 const check = process.argv.includes("--check");
 const candidateIndex = process.argv.indexOf("--candidate-dir");
@@ -15,12 +16,20 @@ async function github(endpoint, repository = HARNESS_REPOSITORY) {
   if (!response.ok) throw new Error(`Harness release API returned ${response.status}; saved notes and downloads were preserved.`);
   return response.json();
 }
+// A file at the stable tag; null only when GitHub confirms it does not exist.
+async function tagFile(tag, file) {
+  const response = await fetch(`https://api.github.com/repos/${HARNESS_REPOSITORY}/contents/${file}?ref=${encodeURIComponent(tag)}`, { headers: { ...headers, Accept: "application/vnd.github.raw" }, signal: AbortSignal.timeout(30000) });
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Harness source file request returned ${response.status}; saved features were preserved.`);
+  return response.text();
+}
 const installerFile = "content/harness/installer.json";
 const releasesFile = "content/harness/releases.json";
 const summariesFile = "content/harness/release-summaries.json";
 const installer = JSON.parse(await readFile(installerFile, "utf8"));
 const current = JSON.parse(await readFile(releasesFile, "utf8").catch((error) => { if (error.code === "ENOENT") return "null"; throw error; }));
 const summaries = JSON.parse(await readFile(summariesFile, "utf8"));
+const currentFeatures = JSON.parse(await readFile(STABLE_FEATURES_FILE, "utf8").catch((error) => { if (error.code === "ENOENT") return "null"; throw error; }));
 const releases = [];
 let complete = false;
 for (let page = 1; page <= 10; page++) {
@@ -35,27 +44,32 @@ const date = new Date().toISOString().slice(0, 10);
 const snapshot = releaseSnapshot(releases, latest.tag_name, current?.lastReviewed || date);
 const changed = JSON.stringify(current) !== JSON.stringify(snapshot);
 if (changed) snapshot.lastReviewed = date;
+const features = await collectStableFeatures(snapshot.latestTag, (file) => tagFile(snapshot.latestTag, file));
+features.lastReviewed = currentFeatures?.lastReviewed || date;
+const featuresChanged = JSON.stringify(currentFeatures) !== JSON.stringify(features);
+if (featuresChanged) features.lastReviewed = date;
 let nextInstaller = installerFromRelease(latest, installer, installer.lastReviewed);
 const guidedRelease = await github("/releases/latest", GUIDED_INSTALLER_REPOSITORY);
 nextInstaller.guided = guidedInstallerFromRelease(guidedRelease, installer.guided, installer.guided.lastReviewed);
 if (JSON.stringify(nextInstaller.guided) !== JSON.stringify(installer.guided)) nextInstaller.guided.lastReviewed = date;
 const installerChanged = JSON.stringify(installer) !== JSON.stringify(nextInstaller);
 if (installerChanged) nextInstaller.lastReviewed = date;
-const issues = releaseSummaryIssues(snapshot, summaries, nextInstaller);
+const issues = [...releaseSummaryIssues(snapshot, summaries, nextInstaller), ...stableFeatureIssues(features, snapshot)];
 if (candidateDir) {
   // The local Harness job stages candidates away from the website checkout.
   const directory = path.resolve(candidateDir);
   await mkdir(directory, { recursive: true, mode: 0o700 });
-  const files = { "releases.json": snapshot, "installer.json": nextInstaller, "release-summaries.json": summaries, "source-notes.json": releases.filter((release) => snapshot.releases.some((saved) => saved.tag === release.tag_name)).map((release) => ({ tag: release.tag_name, body: release.body || "" })) };
+  const files = { "releases.json": snapshot, "installer.json": nextInstaller, "release-summaries.json": summaries, "stable-features.json": features, "source-notes.json": releases.filter((release) => snapshot.releases.some((saved) => saved.tag === release.tag_name)).map((release) => ({ tag: release.tag_name, body: release.body || "" })) };
   for (const [filename, value] of Object.entries(files)) await writeFile(path.join(directory, filename), `${JSON.stringify(value, null, 2)}\n`, { mode: 0o600 });
-  console.log(JSON.stringify({ latestTag: snapshot.latestTag, stableReleases: snapshot.releases.length, changed, installerChanged, reviewIssues: issues }));
+  console.log(JSON.stringify({ latestTag: snapshot.latestTag, stableReleases: snapshot.releases.length, changed, installerChanged, featuresChanged, reviewIssues: issues }));
 } else if (check) {
-  console.log(JSON.stringify({ latestTag: snapshot.latestTag, stableReleases: snapshot.releases.length, changed, installerChanged, reviewIssues: issues }, null, 2));
-  if (changed || installerChanged || issues.length) process.exitCode = 1;
+  console.log(JSON.stringify({ latestTag: snapshot.latestTag, stableReleases: snapshot.releases.length, changed, installerChanged, featuresChanged, reviewIssues: issues }, null, 2));
+  if (changed || installerChanged || featuresChanged || issues.length) process.exitCode = 1;
 } else {
   // Complete source and artifact validation before writing either saved file.
   if (changed) await writeFile(releasesFile, `${JSON.stringify(snapshot, null, 2)}\n`);
   if (installerChanged) await writeFile(installerFile, `${JSON.stringify(nextInstaller, null, 2)}\n`);
+  if (featuresChanged) await writeFile(STABLE_FEATURES_FILE, `${JSON.stringify(features, null, 2)}\n`);
   console.log(`Synced ${snapshot.releases.length} stable Harness releases; latest is ${snapshot.latestTag}. Drafts and prereleases excluded.`);
   if (issues.length) {
     console.error(issues.join("\n"));

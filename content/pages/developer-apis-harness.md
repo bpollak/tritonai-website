@@ -3,7 +3,7 @@ title: TritonAI Harness
 path: /developer-apis/harness.html
 description: A local-first agent control surface connecting campus builders to approved models, local files, and UC San Diego systems under human supervision.
 eyebrow: Build with TritonAI
-lastReviewed: 2026-10-03
+lastReviewed: 2026-11-04
 audiences: [staff, faculty, researchers, developers]
 owner: TritonAI
 source: "TritonAI Harness stable release notes and tagged user documentation; packaged plugin composition; UC San Diego AI service guidance"
@@ -63,6 +63,58 @@ bannerMode: abstract
 <p class="small">Allow additional time for practice.</p>
 <p class="hub-section-action"><a class="btn btn-primary harness-training-link" href="/training/harness/">Start the full training <span aria-hidden="true">→</span></a></p>
 </div>
+</div>
+</section>
+
+<section class="hub-section hub-section-dark hub-full-bleed harness-feature-map" id="harness-feature-map" aria-labelledby="harness-feature-map-heading">
+<div class="container">
+<div class="hub-heading">
+<p class="home-kicker">What’s in the stable release</p>
+<h2 id="harness-feature-map-heading">Key Harness features</h2>
+<p>Work in your apps, automate tasks, and reuse what works. Everything on this map ships in the stable release. Your account permissions, enabled plugin abilities, and the chat’s approval mode still decide what the agent can do.</p>
+</div>
+<div class="hfm-grid">
+<article class="hfm-panel" aria-labelledby="hfm-features-heading">
+<h3 id="hfm-features-heading" class="hfm-panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Features</h3>
+<ul class="hfm-list">
+<li data-harness-feature="memory"><span class="hfm-icon glyphicon glyphicon-bookmark" aria-hidden="true"></span><span class="hfm-item"><strong>Memory</strong><span>Recall past work and decisions</span></span></li>
+<li data-harness-feature="helper-agents"><span class="hfm-icon glyphicon glyphicon-tasks" aria-hidden="true"></span><span class="hfm-item"><strong>Helper agents</strong><span>Keep several tasks moving at once</span></span></li>
+<li data-harness-feature="automations"><span class="hfm-icon glyphicon glyphicon-time" aria-hidden="true"></span><span class="hfm-item"><strong>Automations</strong><span>Run on a schedule or a trigger</span></span></li>
+<li data-harness-feature="computer-use"><span class="hfm-icon glyphicon glyphicon-hand-up" aria-hidden="true"></span><span class="hfm-item"><strong>Computer use</strong><span>Use your files, apps, and browser (off until you turn it on)</span></span></li>
+<li data-harness-feature="phone-access"><span class="hfm-icon glyphicon glyphicon-phone" aria-hidden="true"></span><span class="hfm-item"><strong>Phone access</strong><span>Start work on a connected computer</span></span></li>
+<li data-harness-feature="ideas"><span class="hfm-icon glyphicon glyphicon-flash" aria-hidden="true"></span><span class="hfm-item"><strong>Ideas</strong><span>Suggestions drawn from your recent work</span></span></li>
+</ul>
+</article>
+<article class="hfm-panel" aria-labelledby="hfm-plugins-heading">
+<h3 id="hfm-plugins-heading" class="hfm-panel-title"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Plugins</h3>
+<ul class="hfm-plugins">
+<li class="hfm-plugin hfm-plugin-microsoft" data-harness-plugin="microsoft-365"><span class="hfm-tile glyphicon glyphicon-th-large" aria-hidden="true"></span><span>Microsoft 365</span></li>
+<li class="hfm-plugin hfm-plugin-google" data-harness-plugin="google-workspace"><span class="hfm-tile glyphicon glyphicon-file" aria-hidden="true"></span><span>Google Workspace</span></li>
+<li class="hfm-plugin hfm-plugin-github" data-harness-plugin="github"><span class="hfm-tile glyphicon glyphicon-share-alt" aria-hidden="true"></span><span>GitHub</span></li>
+<li class="hfm-plugin hfm-plugin-jira" data-harness-plugin="jira-data-center"><span class="hfm-tile glyphicon glyphicon-list-alt" aria-hidden="true"></span><span>Jira</span></li>
+<li class="hfm-plugin hfm-plugin-kuali" data-harness-plugin="kuali-build"><span class="hfm-tile glyphicon glyphicon-check" aria-hidden="true"></span><span>Kuali Build</span></li>
+<li class="hfm-plugin hfm-plugin-n8n" data-harness-plugin="n8n"><span class="hfm-tile glyphicon glyphicon-random" aria-hidden="true"></span><span>n8n</span></li>
+<li class="hfm-plugin hfm-plugin-lucid" data-harness-plugin="lucid"><span class="hfm-tile glyphicon glyphicon-th" aria-hidden="true"></span><span>Lucid</span></li>
+<li class="hfm-plugin hfm-plugin-ucsd" data-harness-plugin="ucsd-assistant"><span class="hfm-tile glyphicon glyphicon-search" aria-hidden="true"></span><span>UCSD Assistant</span></li>
+</ul>
+<p class="hfm-panel-note">Enable a plugin in <strong>Settings &gt; Plugins</strong>, then connect your account.</p>
+</article>
+<article class="hfm-panel" aria-labelledby="hfm-skills-heading">
+<h3 id="hfm-skills-heading" class="hfm-panel-title"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Skills</h3>
+<ul class="hfm-list hfm-list-compact">
+<li data-harness-feature="email-calendars"><span class="hfm-icon glyphicon glyphicon-envelope" aria-hidden="true"></span><span class="hfm-item"><strong>Email and calendars</strong></span></li>
+<li data-harness-feature="documents"><span class="hfm-icon glyphicon glyphicon-folder-open" aria-hidden="true"></span><span class="hfm-item"><strong>Documents and spreadsheets</strong></span></li>
+<li data-harness-feature="hosting-readiness"><span class="hfm-icon glyphicon glyphicon-cloud-upload" aria-hidden="true"></span><span class="hfm-item"><strong>Hosting readiness</strong></span><span class="hfm-badge hfm-badge-campus">Campus skill</span></li>
+<li data-harness-feature="commons-skills"><span class="hfm-icon glyphicon glyphicon-globe" aria-hidden="true"></span><span class="hfm-item"><strong>Websites and accessibility</strong></span></li>
+<li data-harness-feature="commons-skills"><span class="hfm-icon glyphicon glyphicon-lock" aria-hidden="true"></span><span class="hfm-item"><strong>Data classification</strong></span></li>
+</ul>
+<div class="hfm-record" data-harness-feature="record-skill">
+<span class="hfm-icon glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+<p><strong>Record your own skill</strong> Demonstrate a task, then reuse it.</p>
+</div>
+</article>
+</div>
+<p class="hfm-footnote">Skill examples include skills that come with plugins, optional Commons skills from <strong>Settings &gt; Skills</strong>, and campus-provided skills such as Hosting readiness, which installs separately. Based on the stable <span data-harness-feature-version></span> release. <a href="#integrations-heading">Plugin details</a> · <a href="#skills-heading">Skills Library</a></p>
 </div>
 </section>
 
@@ -399,7 +451,7 @@ Data classification
 <p>In Settings &gt; Plugins, enable an included plugin, connect your account, and select its abilities under Access where available. Some abilities are granted during sign-in. Account permissions, enabled abilities, and the chat’s approval mode each control what the agent can do.</p>
 </div>
 <div class="row hub-action-grid">
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4" data-harness-plugin="github">
 <article class="panel panel-default hub-action-card">
 <svg class="plugin-logo" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true" fill="#182B49">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
@@ -408,7 +460,7 @@ Data classification
 <p>Connect a GitHub account with OAuth to read repositories, draft pull requests, and automate development workflows. Access follows your signed-in permissions.</p>
 </article>
 </div>
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4" data-harness-plugin="google-workspace">
 <article class="panel panel-default hub-action-card">
 <svg class="plugin-logo" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -420,7 +472,7 @@ Data classification
 <p>Read UC San Diego Drive files, including Docs, Sheets, and Slides. Gmail and Google Calendar access are also available for accounts that use them. File access is read-only; unsent Gmail drafts and calendar changes are separate opt-in abilities.</p>
 </article>
 </div>
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4" data-harness-plugin="microsoft-365">
 <article class="panel panel-default hub-action-card">
 <svg class="plugin-logo" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
 <path fill="#F25022" d="M1 1h10v10H1z"/>
@@ -434,7 +486,7 @@ Data classification
 </div>
 </div>
 <div class="row hub-action-grid">
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4" data-harness-plugin="kuali-build">
 <article class="panel panel-default hub-action-card">
 <!-- Official vendor artwork: https://www.kuali.co/ -->
 <img class="plugin-logo plugin-logo-wordmark" src="https://cdn.prod.website-files.com/6a54fa1c67a49a38a3dfceaf/6a6480d26a966372f1be7f4a_image%2079%20%5BVectorized%5D.webp" alt="" width="140" height="36" loading="lazy">
@@ -442,12 +494,35 @@ Data classification
 <p>Connect with your API key to inspect apps, forms, documents, and workflow metadata. Creating, editing, and submitting Build documents require the corresponding write abilities.</p>
 </article>
 </div>
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4" data-harness-plugin="n8n">
 <article class="panel panel-default hub-action-card">
 <!-- Official vendor artwork: https://guidelines.n8n.design/logo (n8n-logo-black-accent.svg) -->
 <img class="plugin-logo plugin-logo-wordmark" src="/_images/harness/n8n-logo.svg" alt="" width="140" height="36" loading="lazy">
 <h3>n8n</h3>
 <p>Sign in through your browser to inspect and design workflows in UC San Diego’s n8n service. Running, creating, updating, and publishing workflows depend on the abilities granted during sign-in and the chat’s approval mode.</p>
+</article>
+</div>
+<div class="col-sm-6 col-md-4" data-harness-plugin="jira-data-center">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+<h3>UC San Diego Jira</h3>
+<p>Sign in to UC San Diego Jira in your browser to search and read issues, comments, and worklogs. Changing issues, including comments and logged work, is a separate opt-in ability. Access follows your Jira permissions.</p>
+</article>
+</div>
+</div>
+<div class="row hub-action-grid">
+<div class="col-sm-6 col-md-4" data-harness-plugin="lucid">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+<h3>Lucid</h3>
+<p>Sign in to Lucid in your browser to search and read Lucidchart and Lucidspark documents. Creating, editing, and sharing documents are separate opt-in abilities, and each change waits for approval. On Team and Enterprise accounts, a Lucid admin must allow MCP access first.</p>
+</article>
+</div>
+<div class="col-sm-6 col-md-4" data-harness-plugin="ucsd-assistant">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+<h3>UCSD Assistant</h3>
+<p>Find campus information from public UC San Diego sources, including support articles, campus maps, walking routes, and library busyness. No sign-in is needed, and the agent cites the original pages.</p>
 </article>
 </div>
 </div>
