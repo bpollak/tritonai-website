@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "source": "https://github.com/dbalders/TritonAI-Harness/tree/v0.4.1",
+  "tag": "v0.4.1",
+  "plugins": [
+    "github",
+    "google-workspace",
+    "jira-data-center",
+    "kuali-build",
+    "lucid",
+    "microsoft-365",
+    "n8n",
+    "ucsd-assistant"
+  ],
+  "features": {
+    "memory": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/memory.md"
+    },
+    "helper-agents": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/providers-codex.md"
+    },
+    "automations": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/project-settings.md"
+    },
+    "computer-use": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/computer-use.md"
+    },
+    "phone-access": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/install.md"
+    },
+    "ideas": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/ideas.md"
+    },
+    "record-skill": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/record-a-skill.md"
+    },
+    "commons-skills": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.1/docs/user/tritonai-commons.md"
+    },
+    "email-calendars": {
+      "plugins": [
+        "google-workspace",
+        "microsoft-365"
+      ]
+    },
+    "documents": {
+      "plugins": [
+        "google-workspace",
+        "microsoft-365"
+      ]
+    }
+  },
+  "lastReviewed": "2026-11-04"
+}

@@ -7,6 +7,7 @@ import MarkdownIt from "markdown-it";
 import { loadCatalog, renderSection } from "./lib/model-catalog.mjs";
 import { HARNESS_RELEASE_PAGE, releaseFragment, releaseSummaryIssues, guidedInstallerIssues } from "./lib/harness-releases.mjs";
 import { applyHarnessPageMetadata } from "./lib/harness-page-metadata.mjs";
+import { STABLE_FEATURES_FILE, applyHarnessFeatureMap, stableFeatureIssues } from "./lib/harness-features.mjs";
 
 
 const modelCatalog = await loadCatalog();
@@ -1492,6 +1493,7 @@ function transformHtml(html, relativePath, context) {
   }
   $("[data-harness-release-notes]").html(renderHarnessReleases(context.harnessReleases, context.harnessReleaseSummaries, context.harnessInstaller));
   applyHarnessPageMetadata($, context.harnessReleases, context.harnessReleaseSummaries);
+  applyHarnessFeatureMap($, context.harnessFeatures);
 
   $("[data-tritonai-updates]").each((_, element) => {
     const target = $(element);
@@ -1642,7 +1644,8 @@ const gatewayUsage = await readJson(GATEWAY_USAGE_FILE);
 const harnessInstaller = await readJson(HARNESS_INSTALLER_FILE);
 const harnessReleases = await readJson(path.join(CONTENT_DIR, "harness/releases.json"));
 const harnessReleaseSummaries = await readJson(path.join(CONTENT_DIR, "harness/release-summaries.json"));
-const harnessReleaseIssues = [...releaseSummaryIssues(harnessReleases, harnessReleaseSummaries, harnessInstaller), ...guidedInstallerIssues(harnessInstaller.guided)];
+const harnessFeatures = await readJson(path.resolve(STABLE_FEATURES_FILE));
+const harnessReleaseIssues = [...releaseSummaryIssues(harnessReleases, harnessReleaseSummaries, harnessInstaller), ...guidedInstallerIssues(harnessInstaller.guided), ...stableFeatureIssues(harnessFeatures, harnessReleases)];
 
 if (harnessReleaseIssues.length) throw new Error(harnessReleaseIssues.join("\n"));
 const seo = await readJson(SEO_FILE);
@@ -1850,7 +1853,7 @@ const optimizedImages = new Set(
     .filter((file) => file.endsWith(".webp"))
     .map((file) => `/_images/${file.replaceAll(path.sep, "/")}`),
 );
-const context = { site, newsletters, useCases, facts, gatewayUsage, harnessInstaller, harnessReleases, harnessReleaseSummaries, skills, seo, tritonAiUpdates, generatedByPath, optimizedImages };
+const context = { site, newsletters, useCases, facts, gatewayUsage, harnessInstaller, harnessReleases, harnessReleaseSummaries, harnessFeatures, skills, seo, tritonAiUpdates, generatedByPath, optimizedImages };
 for (const relativePath of htmlFiles) {
   const filename = path.join(OUTPUT_DIR, relativePath);
   await writeFile(filename, transformHtml(await readFile(filename, "utf8"), relativePath, context));

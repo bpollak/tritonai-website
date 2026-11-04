@@ -87,9 +87,9 @@ jobs:
           test -n "$GH_TOKEN" || { echo '::error::Dedicated release publishing credential is missing'; exit 1; }
           git config user.name 'Cristian Horta'
           git config user.email 'chorta@ucsd.edu'
-          git add content/harness/releases.json content/harness/installer.json content/harness/release-summaries.json
+          git add content/harness/releases.json content/harness/installer.json content/harness/release-summaries.json content/harness/stable-features.json
           git diff --cached --name-only | while read -r file; do
-            case "$file" in content/harness/releases.json|content/harness/installer.json|content/harness/release-summaries.json) ;;
+            case "$file" in content/harness/releases.json|content/harness/installer.json|content/harness/release-summaries.json|content/harness/stable-features.json) ;;
               *) echo '::error::Unexpected file in release commit'; exit 1;; esac
           done
           git commit -m "Update Harness stable release and related page guidance"

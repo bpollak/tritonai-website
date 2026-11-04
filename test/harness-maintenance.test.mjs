@@ -67,3 +67,46 @@ test("release highlights reject engineering language while preserving source che
     assert.throws(() => validateSynthesis({ ...value, highlights: [{ text, evidence }, friendly, friendly] }, "v2.3.4", { [source]: quote }), /nontechnical reader/);
   }
 });
+
+test("the stable feature map follows the stable tag's plugin catalog and user guides", async () => {
+  const { collectStableFeatures, stableFeatureIssues, unlistedPlugins } = await import("../scripts/lib/harness-features.mjs");
+  const files = {
+    "config/managed-plugin-catalog.json": JSON.stringify({ packages: [{ pluginId: "github" }, { pluginId: "microsoft-365" }] }),
+    "docs/user/memory.md": "# Memory\n\nNotes.",
+    "docs/user/ideas.md": "# Something else",
+    "docs/user/providers-codex.md": "## Subagents\n",
+  };
+  const read = async (file) => files[file] ?? null;
+  const snapshot = await collectStableFeatures("v2.0.0", read);
+  assert.deepEqual(snapshot.plugins, ["github", "microsoft-365"]);
+  assert.match(snapshot.features.memory.source, /\/blob\/v2\.0\.0\/docs\/user\/memory\.md$/);
+  assert.ok(snapshot.features["helper-agents"]);
+  assert.equal(snapshot.features.ideas, undefined, "a guide without its section drops the feature");
+  assert.equal(snapshot.features["computer-use"], undefined, "a missing guide drops the feature");
+  assert.deepEqual(snapshot.features.documents.plugins, ["microsoft-365"]);
+  assert.equal(snapshot.features["hosting-readiness"], undefined, "campus skills are not app-release evidence");
+  await assert.rejects(collectStableFeatures("v2.0.0", async () => null), /no managed plugin catalog/);
+  await assert.rejects(collectStableFeatures("v2.0.0", async () => { throw new Error("API returned 502"); }), /502/);
+  await assert.rejects(collectStableFeatures("v2.0.0", async (file) => file.endsWith(".json") ? '{"packages":[{"pluginId":"Bad ID"}]}' : null), /invalid plugin IDs/);
+  const saved = { ...snapshot, lastReviewed: "2026-11-04" };
+  assert.deepEqual(stableFeatureIssues(saved, { latestTag: "v2.0.0" }), []);
+  assert.match(stableFeatureIssues(saved, { latestTag: "v2.0.1" }).join(), /reflects v2\.0\.0/);
+  assert.deepEqual(unlistedPlugins(saved, '<li data-harness-plugin="github">'), ["microsoft-365"]);
+});
+
+test("the feature map renders only stable items and leaves chrome alone", async () => {
+  const { applyHarnessFeatureMap } = await import("../scripts/lib/harness-features.mjs");
+  const $ = load('<nav><li data-harness-plugin="tableau">chrome</li></nav><main id="main-content"><li data-harness-plugin="github">GitHub</li><li data-harness-plugin="tableau">Tableau</li><li data-harness-feature="memory">Memory</li><li data-harness-feature="ideas">Ideas</li><li data-harness-feature="hosting-readiness">Hosting</li><span data-harness-feature-version></span></main>');
+  applyHarnessFeatureMap($, { tag: "v2.0.0", plugins: ["github"], features: { memory: {} } });
+  assert.deepEqual($("main li").toArray().map((element) => $(element).text()), ["GitHub", "Memory", "Hosting"]);
+  assert.equal($("nav li").length, 1);
+  assert.equal($("[data-harness-feature-version]").text(), "2.0.0");
+  assert.throws(() => applyHarnessFeatureMap(load('<main id="main-content"><li data-harness-feature="typo"></li></main>'), { tag: "v2.0.0", plugins: [], features: {} }), /Unknown Harness feature marker/);
+});
+
+test("publication rejects a stale feature map", () => {
+  const releases = { latestTag: "v0.4.1" };
+  const page = '<main id="main-content"><span data-harness-version>0.4.1</span><span data-harness-feature-version>0.4.1</span></main>';
+  assert.deepEqual(harnessPublicationIssues("/developer-apis/harness.html", page, releases, { highlights: [] }, {}), []);
+  assert.match(harnessPublicationIssues("/developer-apis/harness.html", page.replace('feature-version>0.4.1', 'feature-version>0.4.0'), releases, { highlights: [] }, {}).join(), /feature map version differs/);
+});

@@ -22,6 +22,7 @@ export function harnessPublicationIssues(route, html, releases, summary, install
     issues.push("missing current version field");
   }
   if (versions.some((element) => $(element).text().trim() !== releases.latestTag.slice(1))) issues.push("current version differs");
+  if (canvas.find("[data-harness-feature-version]").toArray().some((element) => $(element).text().trim() !== releases.latestTag.slice(1))) issues.push("feature map version differs");
   canvas.find("[data-harness-guidance]").each((_, element) => {
     const topic = $(element).attr("data-harness-guidance");
     const expected = summary.guidance?.[topic]?.map((text) => topic === "setup" ? text.replace(/(?<!TritonAI )\bHarness\b/g, "TritonAI Harness") : text);

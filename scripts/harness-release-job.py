@@ -195,7 +195,8 @@ def run(repo, state, node, force=False, hour=8):
     if synced.returncode: raise JobError('Release API or installer validation failed; the existing website was preserved')
     snapshot = read_json(staging / 'releases.json')
     installers = read_json(staging / 'installer.json')
-    digest = hashlib.sha256(json.dumps({'releases': snapshot['releases'], 'latest': snapshot['latestTag'], 'installers': {'platforms': installers['platforms'], 'guided': installers.get('guided')}}, sort_keys=True).encode()).hexdigest()[:20]
+    features = read_json(staging / 'stable-features.json')
+    digest = hashlib.sha256(json.dumps({'releases': snapshot['releases'], 'latest': snapshot['latestTag'], 'installers': {'platforms': installers['platforms'], 'guided': installers.get('guided')}, 'features': {'plugins': features['plugins'], 'features': features['features']}}, sort_keys=True).encode()).hexdigest()[:20]
     candidate = state / 'candidates' / digest
     if (candidate / 'complete.json').exists():
         result = {'status': 'unchanged', 'checkedDate': now.date().isoformat(), 'latestTag': snapshot['latestTag'], 'candidate': str(candidate)}
@@ -221,7 +222,7 @@ def run(repo, state, node, force=False, hour=8):
         summaries['releases'][tag] = generate(api, pid, release, notes[tag])
         atomic_json(candidate / 'release-summaries.json', summaries)
     candidate.mkdir(parents=True, exist_ok=True, mode=0o700)
-    for filename in ['releases.json', 'installer.json']:
+    for filename in ['releases.json', 'installer.json', 'stable-features.json']:
         atomic_json(candidate / filename, read_json(staging / filename))
     atomic_json(candidate / 'release-summaries.json', summaries)
     result = {'status': 'review-ready', 'checkedDate': now.date().isoformat(), 'latestTag': snapshot['latestTag'], 'candidate': str(candidate), 'modelSelection': MODEL, 'projectId': pid, 'generatedAt': dt.datetime.now(dt.timezone.utc).isoformat()}
