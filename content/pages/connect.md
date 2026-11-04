@@ -54,7 +54,7 @@ bannerMode: abstract
     <p class="home-kicker">FOR THE AI CURIOUS</p>
     <h2 id="connect-champions-heading">TritonAI Champions</h2>
     <p>Become part of a community of practice championing AI across campus. You don't need to be an expert — Champions are simply people who are curious about AI. Come share your latest experiments, ask questions, or learn from what others are trying. Led by AI Champions from across campus, the group focuses mainly on operational uses of AI, and sessions often include short trainings.</p>
-    <p><a class="btn btn-primary" href="mailto:tritonai@ucsd.edu?subject=Join%20TritonAI%20Champions">Join TritonAI Champions</a></p>
+    <p><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSelRa47S13lRZTGfwxbjICuI1yYpLPW32OGMLVXymesgsNMLA/viewform">Join TritonAI Champions</a></p>
   </div>
 </section>
 
