@@ -1,92 +1,144 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-hidden="true">
   <defs>
-    <linearGradient id="toolsBackground" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#16243f"/>
-      <stop offset=".55" stop-color="#1d3557"/>
-      <stop offset="1" stop-color="#0e2c3c"/>
+    <radialGradient id="toolsBackground" cx="52%" cy="40%" r="78%">
+      <stop offset="0" stop-color="#28577f"/>
+      <stop offset=".52" stop-color="#182b49"/>
+      <stop offset="1" stop-color="#0a1728"/>
+    </radialGradient>
+    <linearGradient id="toolsSteel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4fbff"/>
+      <stop offset=".45" stop-color="#b7d2e4"/>
+      <stop offset="1" stop-color="#66879b"/>
     </linearGradient>
-    <linearGradient id="toolsBlue" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#4f8fd9"/>
-      <stop offset="1" stop-color="#2b6cb0"/>
+    <linearGradient id="toolsSteelDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7e8f2"/>
+      <stop offset="1" stop-color="#5f7f94"/>
     </linearGradient>
-    <linearGradient id="toolsTeal" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#39c6c8"/>
-      <stop offset="1" stop-color="#157f83"/>
+    <linearGradient id="toolsGoldGloss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff1a1"/>
+      <stop offset=".5" stop-color="#f4c95d"/>
+      <stop offset="1" stop-color="#c78f25"/>
     </linearGradient>
-    <linearGradient id="toolsGold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f3c86d"/>
-      <stop offset="1" stop-color="#d59b2f"/>
+    <linearGradient id="toolsTealGloss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8ff0ef"/>
+      <stop offset=".5" stop-color="#25b5b6"/>
+      <stop offset="1" stop-color="#0b7479"/>
     </linearGradient>
-    <filter id="toolsShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#020814" flood-opacity=".34"/>
+    <linearGradient id="toolsBlueGloss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8dd2f5"/>
+      <stop offset=".5" stop-color="#3d93ca"/>
+      <stop offset="1" stop-color="#16658f"/>
+    </linearGradient>
+    <linearGradient id="toolsNavyGloss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#31597f"/>
+      <stop offset="1" stop-color="#132a44"/>
+    </linearGradient>
+    <filter id="toolsShadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#020814" flood-opacity=".38"/>
     </filter>
   </defs>
 
   <rect width="1600" height="1000" fill="url(#toolsBackground)"/>
-  <g fill="none" stroke="#ffffff" stroke-opacity=".08">
-    <circle cx="300" cy="190" r="215"/>
-    <circle cx="1350" cy="780" r="265"/>
-    <path d="M170 830C410 630 610 590 830 640s420 220 610 30"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity=".055">
+    <path d="M520 80v840M1080 80v840M80 500h1440"/>
   </g>
-  <g fill="#ffffff" opacity=".16">
-    <circle cx="215" cy="260" r="7"/>
-    <circle cx="390" cy="145" r="5"/>
-    <circle cx="1180" cy="215" r="6"/>
-    <circle cx="1420" cy="390" r="5"/>
-    <circle cx="285" cy="825" r="6"/>
-    <circle cx="1085" cy="870" r="5"/>
-  </g>
-
-  <g stroke="#f3c86d" stroke-width="5" stroke-dasharray="4 18" stroke-linecap="round" opacity=".8" fill="none">
-    <path d="M440 590C570 530 660 530 790 455"/>
-    <path d="M905 395C1010 355 1090 355 1185 330"/>
-    <path d="M1180 415C1130 520 960 610 790 645"/>
+  <g fill="#ffffff" opacity=".12">
+    <circle cx="225" cy="175" r="6"/>
+    <circle cx="725" cy="120" r="5"/>
+    <circle cx="1420" cy="205" r="6"/>
+    <circle cx="300" cy="865" r="5"/>
+    <circle cx="1180" cy="900" r="6"/>
   </g>
 
   <g filter="url(#toolsShadow)">
-    <rect x="230" y="450" width="300" height="255" rx="28" fill="url(#toolsBlue)"/>
-    <g fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="305" y="510" width="150" height="130" rx="12"/>
-      <path d="M335 510v-28M425 510v-28M305 555h150"/>
-      <path d="M342 605l25 18 48-38"/>
+    <ellipse cx="330" cy="430" rx="130" ry="24" fill="#04101d" opacity=".55"/>
+    <g transform="translate(205 255)">
+      <rect x="0" y="0" width="185" height="110" rx="52" fill="url(#toolsTealGloss)"/>
+      <path d="M22 12c27-10 124-10 151 0 10 5 10 22 0 27-27 10-124 10-151 0-10-5-10-22 0-27z" fill="#fff" opacity=".26"/>
+      <rect x="155" y="36" width="115" height="38" rx="9" fill="url(#toolsGoldGloss)"/>
+      <path d="M175 41v28M200 41v28M225 41v28M250 41v28M270 41v28" stroke="#7a5312" stroke-width="4" opacity=".65"/>
+      <rect x="248" y="30" width="34" height="50" rx="7" fill="url(#toolsSteel)"/>
+      <circle cx="72" cy="55" r="16" fill="#083739" opacity=".38"/>
+      <circle cx="72" cy="55" r="7" fill="#fff" opacity=".72"/>
     </g>
-    <circle cx="530" cy="470" r="35" fill="#39c6c8"/>
-    <path d="M518 470l10 10 18-20" fill="none" stroke="#0d2838" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
   <g filter="url(#toolsShadow)">
-    <rect x="680" y="330" width="300" height="255" rx="28" fill="url(#toolsTeal)"/>
-    <g fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M775 500l25-48 25 48z"/>
-      <path d="M815 495a15 15 0 1 0 15 15"/>
-      <path d="M830 452v-45M790 407h80"/>
+    <ellipse cx="800" cy="430" rx="130" ry="24" fill="#04101d" opacity=".55"/>
+    <g transform="translate(700 225)">
+      <path d="M0 0h200v92h-84v112H0z" fill="url(#toolsBlueGloss)"/>
+      <path d="M16 16h168v60h-68v104H16z" fill="#9adcf8" opacity=".28"/>
+      <path d="M38 27v38M68 27v38M98 27v38M128 27v38M158 27v38" stroke="#fff" stroke-width="5" opacity=".62"/>
+      <path d="M27 88h49M27 118h49M27 148h49" stroke="#fff" stroke-width="5" opacity=".62"/>
+      <path d="M0 0h200v18H0z" fill="#fff" opacity=".24"/>
     </g>
-    <rect x="745" y="510" width="170" height="30" rx="15" fill="#fff" opacity=".25"/>
-    <circle cx="735" cy="370" r="35" fill="#f3c86d"/>
-    <path d="M725 370h20M735 360v20" stroke="#20324d" stroke-width="10" stroke-linecap="round"/>
   </g>
 
   <g filter="url(#toolsShadow)">
-    <rect x="1090" y="230" width="300" height="255" rx="28" fill="url(#toolsGold)"/>
-    <g fill="none" stroke="#26364e" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M1155 430c25-55 45-70 80-75"/>
-      <path d="M1195 375l38 5-15 38z"/>
-      <circle cx="1290" cy="360" r="34"/>
-      <path d="M1324 425c-20 25-35 25-55 5"/>
+    <ellipse cx="1270" cy="430" rx="130" ry="24" fill="#04101d" opacity=".55"/>
+    <g transform="translate(1160 235)">
+      <g transform="rotate(-13 42 100)">
+        <rect x="24" y="45" width="36" height="145" rx="17" fill="url(#toolsSteel)"/>
+        <rect x="10" y="20" width="64" height="38" rx="13" fill="url(#toolsSteelDark)"/>
+        <path d="M27 78h30M27 108h30M27 138h30" stroke="#61798b" stroke-width="7" stroke-linecap="round"/>
+        <path d="M18 30h48" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+      </g>
+      <g transform="rotate(13 118 100)">
+        <rect x="100" y="45" width="36" height="145" rx="17" fill="url(#toolsSteel)"/>
+        <rect x="86" y="20" width="64" height="38" rx="13" fill="url(#toolsSteelDark)"/>
+        <path d="M103 78h30M103 108h30M103 138h30" stroke="#61798b" stroke-width="7" stroke-linecap="round"/>
+        <path d="M94 30h48" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+      </g>
     </g>
-    <rect x="1125" y="310" width="75" height="75" rx="18" fill="#fff" opacity=".25"/>
   </g>
 
   <g filter="url(#toolsShadow)">
-    <rect x="620" y="625" width="360" height="215" rx="32" fill="#274766"/>
-    <g fill="#fff">
-      <circle cx="710" cy="730" r="35" opacity=".85"/>
-      <circle cx="800" cy="730" r="35" opacity=".7"/>
-      <circle cx="890" cy="730" r="35" opacity=".55"/>
+    <ellipse cx="330" cy="830" rx="130" ry="24" fill="#04101d" opacity=".55"/>
+    <g transform="translate(215 610)">
+      <rect x="60" y="0" width="78" height="95" rx="32" fill="url(#toolsTealGloss)"/>
+      <path d="M75 14c12-6 36-6 48 0 7 4 7 17 0 21-12 6-36 6-48 0-7-4-7-17 0-21z" fill="#fff" opacity=".28"/>
+      <rect x="80" y="90" width="38" height="105" rx="17" fill="url(#toolsSteel)"/>
+      <path d="M90 192h18l-9 35z" fill="url(#toolsGoldGloss)"/>
+      <path d="M138 45c52 8 72 36 58 79s-68 33-88 70" fill="none" stroke="#3fd0cf" stroke-width="13" stroke-linecap="round"/>
+      <rect x="90" y="180" width="75" height="42" rx="13" fill="url(#toolsGoldGloss)"/>
+      <path d="M104 196h47M104 210h47" stroke="#7a5312" stroke-width="5" opacity=".6"/>
     </g>
-    <g fill="none" stroke="#274766" stroke-width="9" stroke-linecap="round">
-      <path d="M723 737c8 7 15 10 25 10s17-3 25-10M783 725c8 7 15 10 25 10s17-3 25-10"/>
+  </g>
+
+  <g filter="url(#toolsShadow)">
+    <ellipse cx="800" cy="830" rx="140" ry="24" fill="#04101d" opacity=".55"/>
+    <g transform="translate(690 605)">
+      <g transform="rotate(-27 55 110)">
+        <rect x="40" y="35" width="38" height="155" rx="19" fill="url(#toolsGoldGloss)"/>
+        <path d="M59 10c-28 0-50 22-50 50s22 50 50 50 50-22 50-50-22-50-50-50z" fill="url(#toolsGoldGloss)"/>
+        <path d="M59 31c-16 0-29 13-29 29s13 29 29 29 29-13 29-29-13-29-29-29z" fill="#132a44"/>
+        <path d="M47 43h24M47 68h24" stroke="#fff" stroke-width="6" opacity=".35"/>
+      </g>
+      <g transform="rotate(27 105 110)">
+        <rect x="86" y="35" width="38" height="155" rx="19" fill="url(#toolsSteel)"/>
+        <path d="M105 10c-28 0-50 22-50 50s22 50 50 50 50-22 50-50-22-50-50-50z" fill="url(#toolsSteel)"/>
+        <path d="M105 31c-16 0-29 13-29 29s13 29 29 29 29-13 29-29-13-29-29-29z" fill="#132a44"/>
+        <path d="M93 43h24M93 68h24" stroke="#fff" stroke-width="6" opacity=".35"/>
+      </g>
     </g>
-    <rect x="670" y="790" width="260" height="18" rx="9" fill="#fff" opacity=".3"/>
+  </g>
+
+  <g filter="url(#toolsShadow)">
+    <ellipse cx="1270" cy="830" rx="140" ry="24" fill="#04101d" opacity=".55"/>
+    <g transform="translate(1150 610)">
+      <rect x="0" y="72" width="220" height="105" rx="24" fill="url(#toolsBlueGloss)"/>
+      <rect x="17" y="28" width="186" height="58" rx="18" fill="url(#toolsNavyGloss)"/>
+      <path d="M70 8h80v34H70z" fill="url(#toolsGoldGloss)"/>
+      <path d="M0 72h220v20H0z" fill="#fff" opacity=".2"/>
+      <rect x="32" y="112" width="156" height="17" rx="8" fill="#0d2b44" opacity=".35"/>
+      <g transform="rotate(-16 60 45)">
+        <rect x="52" y="0" width="16" height="55" rx="8" fill="url(#toolsSteel)"/>
+        <circle cx="60" cy="0" r="12" fill="url(#toolsGoldGloss)"/>
+      </g>
+      <g transform="rotate(16 160 45)">
+        <rect x="152" y="0" width="16" height="55" rx="8" fill="url(#toolsGoldGloss)"/>
+        <circle cx="160" cy="0" r="12" fill="url(#toolsSteel)"/>
+      </g>
+    </g>
   </g>
 </svg>
