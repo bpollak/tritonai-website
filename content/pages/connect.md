@@ -62,7 +62,7 @@ bannerMode: abstract
   <div class="row hub-split hub-split-align-center">
     <div class="col-md-6 hub-split-media">
       <figure class="hub-photo-frame">
-        <img alt="Abstract illustration of monthly feedback, issue reports, roadmap input, and campus sharing" class="img-responsive" src="/_images/connect/tools-working-group-feedback.svg">
+        <img alt="Dimensional grid of a tape measure, angle ruler, screws, screwdriver, wrenches, and toolbox" class="img-responsive" src="/_images/connect/tools-working-group-feedback.svg">
       </figure>
     </div>
     <div class="col-md-6 hub-split-copy">
@@ -89,7 +89,7 @@ bannerMode: abstract
   <div class="row hub-split hub-split-align-center">
     <div class="col-md-6 hub-split-media">
       <figure class="hub-photo-frame">
-        <img alt="Abstract illustration of an AI idea moving to a scoped use case, recommendation, and shared learning" class="img-responsive" src="/_images/connect/ai-use-case-flow.svg">
+        <img alt="Presenter-led review board where an idea becomes a scoped use case and recommendation" class="img-responsive" src="/_images/connect/ai-use-case-flow.svg">
       </figure>
     </div>
     <div class="col-md-6 hub-split-copy">
