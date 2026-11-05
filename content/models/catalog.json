@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-10-15T04:12:51.114Z",
+  "lastSynced": "2026-10-28T21:22:29.259Z",
   "source": "https://docs.tritonai.ucsd.edu/api/model-catalog",
   "models": [
     {
@@ -183,6 +183,19 @@
       "logo": {
         "src": "/images/model-logos/moonshot.webp",
         "alt": "Moonshot AI"
+      }
+    },
+    {
+      "id": "azure_ai/responses/gpt-6.1-terra",
+      "displayName": "Azure Ai/responses/gpt 6.1 Terra",
+      "family": "Azure Ai/responses/gpt 6.1 Terra",
+      "hosting": "Approved enterprise cloud",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 922000,
+      "logo": {
+        "src": "/images/model-logos/openai.webp",
+        "alt": "OpenAI",
+        "darkModeBackdrop": "white-circle"
       }
     }
   ]
