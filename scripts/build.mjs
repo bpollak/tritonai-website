@@ -1759,6 +1759,24 @@ for (const video of trainingVideos) {
   }
 }
 const newsletters = await loadNewsletters();
+// Invariant: the home page's "Latest AI updates" strip must feature the true
+// newest edition. archiveOnlyNewsletterDates may keep an OLDER edition off the
+// home strip, but never the newest — otherwise the home page silently goes
+// stale while /about/ai-updates.html shows newer content. If this guard fires,
+// remove the date from content/site.json; changing this policy requires
+// editing this guard deliberately.
+const archiveOnlyNewsletterDates = (site.archiveOnlyNewsletterDates || []).map(String);
+const newestNewsletterDate = newsletters.length
+  ? newsletters[0].date.toISOString().slice(0, 10)
+  : null;
+if (newestNewsletterDate && archiveOnlyNewsletterDates.includes(newestNewsletterDate)) {
+  throw new Error(
+    `content/site.json lists the newest newsletter (${newestNewsletterDate}) in ` +
+      `archiveOnlyNewsletterDates, which would leave the home page featuring an older ` +
+      `edition. Remove ${newestNewsletterDate} from archiveOnlyNewsletterDates so the ` +
+      `home strip features the latest edition.`
+  );
+}
 // Generated pages can live at any directory depth, so parent-relative asset
 // references in the shell must be site-absolute before reuse.
 const shellHtml = (await readFile(path.join(SOURCE_DIR, "about/index.html"), "utf8")).replaceAll('src="../_resources/', 'src="/_resources/');

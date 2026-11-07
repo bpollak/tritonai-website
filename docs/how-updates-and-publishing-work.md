@@ -10,7 +10,7 @@ You write or edit content in the repository and push it to a branch. An automate
 
 - **Pages people read often** — the homepage, strategy, trust architecture, tools, and similar hubs — live as Markdown files in `content/pages/`. You edit the words here, not the final HTML.
 - **Use cases** — real campus AI workflows — live in `content/use-cases/`. Each one carries a status (Production, Shipped, Pilot, In development, or Exploring), an owner, and a review date.
-- **Weekly AI updates** live in `content/newsletters/` as one Markdown file per week.
+- **Weekly AI updates** live in `content/newsletters/` as one Markdown file per week. The home page's "Latest AI updates" strip always features the newest edition — the build fails if `archiveOnlyNewsletterDates` in `content/site.json` excludes the newest newsletter, because a home strip featuring an older edition makes the site look stale while the archive shows newer content. The archive-only list may only exclude older editions.
 - **Media coverage** lives in `content/media/articles.json`. The article archive page and the latest-coverage section on the media page are generated from this file.
 - **Roadmap, facts, and skills** live in `content/roadmap/`, `content/facts/`, and `content/skills/`.
 - **The visual shell** — the UC San Diego Decorator header, footer, styles, and scripts — lives in `src/site/` and loads from the UCSD CDN. You almost never need to touch it.
