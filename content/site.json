@@ -3,6 +3,7 @@
   "origin": "https://tritonai.ucsd.edu",
   "description": "UC San Diego's trusted ecosystem for using, building, and learning with artificial intelligence.",
   "lastReviewed": "2026-08-12",
+  "archiveOnlyNewsletterDates": ["2026-11-02"],
   "navigation": [
     {
       "label": "About",

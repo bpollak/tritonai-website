@@ -3,10 +3,10 @@ title: Plan Your First Project
 path: /developer-apis/citizen-developer.html
 description: Try guided TritonAI Harness exercises with skills and connected tools, then plan a first project you can check and support.
 eyebrow: Build with TritonAI
-lastReviewed: 2026-10-02
+lastReviewed: 2026-11-07
 audiences: [staff, faculty, researchers, developers, leaders]
 owner: TritonAI
-source: "TritonAI public build, trust, and service ownership guidance"
+source: "TritonAI public build, trust, and service ownership guidance and Harness v0.4.1 permission mode documentation"
 canonicalUrl: /developer-apis/citizen-developer.html
 relatedSlides: [Citizen Developer Ecosystem, Reusable Skills and MCP, platform-architecture]
 landingHub: true
@@ -40,7 +40,7 @@ bannerMode: abstract
 <h3>Set up your workspace</h3>
 <ol>
 <li><strong>Open the Harness and a project folder.</strong> If you are starting from scratch, follow <a href="/developer-apis/start.html">access and setup</a> to get a Gateway key and install the Harness. Use a folder where you can keep the draft and its supporting files.</li>
-<li><strong>Choose Supervised.</strong> Before sending your first request, select <strong>Supervised</strong> in the message composer. New chats otherwise default to Full access. Supervised allows safe reads and pauses file changes and write tools for approval; command handling depends on the provider.</li>
+<li><strong>Choose Supervised.</strong> Before sending your first request, select <strong>Supervised</strong> in the message composer. Harness starts with Auto when there’s no saved override or remembered choice. Supervised allows safe reads and pauses file changes and write tools for approval; command handling depends on the provider.</li>
 <li><strong>Connect the sources for your task.</strong> In Harness Settings, enable Microsoft 365 or Google Workspace and sign in with your campus account. Outlook mail and calendar reads are default Microsoft 365 capabilities. Google Drive, Docs, and Sheets access is read-only. The available tools also depend on your account permissions and enabled plugin capabilities.</li>
 <li><strong>Name the result you want.</strong> Tell the Harness the topic, relevant dates, and output format. Ask it to identify the sources it used and any information it could not read. If a connection is unavailable, you can work from files you are approved to save in your project folder.</li>
 </ol>
