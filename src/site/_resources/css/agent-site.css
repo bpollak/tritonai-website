@@ -12,6 +12,28 @@
   background-color: var(--triton-navy);
 }
 
+.home-announcement {
+  background-color: var(--triton-navy);
+  text-align: center;
+}
+
+.home-announcement p {
+  margin: 0;
+}
+
+.home-announcement a {
+  color: var(--triton-gold);
+  display: block;
+  font-weight: 700;
+  padding: 14px 16px;
+}
+
+.home-announcement a:focus,
+.home-announcement a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .home-kicker {
   color: var(--triton-blue);
   font-size: 13px;

@@ -1092,7 +1092,7 @@ function renderGeneratedPage(shellHtml, page, bodyHtml, homeHero) {
   const mobileAboutNav = aboutSubpage ? renderAboutMobileNav(site.navigation, page.path) : "";
   const mainContent =
     page.path === "/index.html"
-      ? `${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
+      ? `${homeAnnouncementHtml}${renderHomeHero(homeHero)}<div class="container home-main-content"><section aria-label="Main Content" class="col-xs-12 main-section">${bodyHtml}</section></div>`
       : videoTheater
         ? `<section aria-label="Main Content" class="col-xs-12 main-section video-theater-main">${bodyHtml}</section>`
       : landingHub
@@ -1781,6 +1781,7 @@ if (newestNewsletterDate && archiveOnlyNewsletterDates.includes(newestNewsletter
 // references in the shell must be site-absolute before reuse.
 const shellHtml = (await readFile(path.join(SOURCE_DIR, "about/index.html"), "utf8")).replaceAll('src="../_resources/', 'src="/_resources/');
 const homeShellHtml = await readFile(path.join(SOURCE_DIR, "index.html"), "utf8");
+const homeAnnouncementHtml = `<div class="home-announcement"><p><a href="https://ucsd.zoom.us/w/95299474079?tk=yf1X_fPt4q1-EOzt4-dUcPvRmjXQONOUklR8sNBgbGE.DQkAAAAWMEqSnxZ1TFpScGdKSlIxR01STVcxaG9aeWV3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&amp;uuid=WN_SbUDawQQThCEOfEysw0y1g" target="_blank" rel="noopener noreferrer">Join Today's AI Town Hall on Zoom</a></p></div>`;
 
 await rm(OUTPUT_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
 await mkdir(OUTPUT_DIR, { recursive: true });
