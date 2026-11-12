@@ -1257,8 +1257,8 @@ for (const page of htmlFiles) {
       }
     }
     const orderedSteps = setupPage.find(".developer-start-flow > .developer-start-step").slice(0, 3).map((_, element) => $(element).attr("id")).get();
-    if (orderedSteps.join(",") !== "harness,request-access,verify" || !setupText.includes("one-time link") || !setupText.includes("key itself is not in the email") || !setupPage.find("#verify").text().includes("Check access & install")) {
-      contentFindings.push({ source: route, issue: "Setup must follow download, retrieve key, and finish installation in that order" });
+    if (orderedSteps.join(",") !== "request-access,harness,verify" || !setupText.includes("one-time link") || !setupText.includes("key itself is not in the email") || !setupPage.find("#verify").text().includes("Check access & install")) {
+      contentFindings.push({ source: route, issue: "Setup must follow key request, download and open installer, and finish installation in that order" });
     }
     const catalogIds = new Set((modelCatalogContent.models || []).map((model) => model.id));
     setupPage.find("code").each((_, element) => {
