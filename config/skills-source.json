@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "note": "Single source of truth for the public TritonAI Skills Library repository and collection. scripts/sync-skills.mjs pulls from it, scripts/validate.mjs asserts the synced snapshot came from it, and scripts/skills-release-gate.mjs looks for its commit link on the live page. SKILLS_REPOSITORY_OWNER and SKILLS_REPOSITORY_NAME still override at runtime for testing against a fork.",
-  "owner": "UCSD",
+  "owner": "dbalders",
   "repository": "UCSD-Skills-Library",
   "liveUrl": "https://tritonai.ucsd.edu/skills/index.html",
   "collections": [
