@@ -3,7 +3,7 @@
   "product": "TritonAI Harness",
   "owner": "TritonAI service team",
   "source": "https://github.com/dbalders/TritonAI-Harness/releases/latest",
-  "lastReviewed": "2026-10-26",
+  "lastReviewed": "2026-11-17",
   "dataClassification": "Public",
   "canonicalUrl": "/developer-apis/start.html",
   "releaseUrl": "https://github.com/dbalders/TritonAI-Harness/releases/latest",
@@ -12,23 +12,23 @@
       "label": "Download for Mac",
       "architecture": "Apple Silicon",
       "format": "DMG",
-      "downloadUrl": "https://github.com/dbalders/TritonAI-Harness/releases/download/v0.4.1/TritonAI-Harness-0.4.1-arm64.dmg",
-      "filename": "TritonAI-Harness-0.4.1-arm64.dmg",
-      "sizeBytes": 270436306,
-      "sha256": "ccca35df2edec9672f41191e47404bc121bcd6bf095b373a866215035475cbd4"
+      "downloadUrl": "https://github.com/dbalders/TritonAI-Harness/releases/download/v0.4.2/TritonAI-Harness-0.4.2-arm64.dmg",
+      "filename": "TritonAI-Harness-0.4.2-arm64.dmg",
+      "sizeBytes": 300165779,
+      "sha256": "817dd2549498f2be0e0dae6ac43accdbcd5faf995c47de3ebc449e41891e9bba"
     },
     "windows": {
       "label": "Download for Windows",
       "architecture": "x64",
       "format": "Setup EXE",
-      "downloadUrl": "https://github.com/dbalders/TritonAI-Harness/releases/download/v0.4.1/TritonAI-Harness-0.4.1-x64.exe",
-      "filename": "TritonAI-Harness-0.4.1-x64.exe",
-      "sizeBytes": 306838152,
-      "sha256": "144906719c7288ab5d2a7a3b2449f788b2add4feafbb34fa15c1db9eed8b5270"
+      "downloadUrl": "https://github.com/dbalders/TritonAI-Harness/releases/download/v0.4.2/TritonAI-Harness-0.4.2-x64.exe",
+      "filename": "TritonAI-Harness-0.4.2-x64.exe",
+      "sizeBytes": 351542280,
+      "sha256": "1e6863d7577c21d9e9a36e094738fc1ac2d54b1d88041648ca2b308fb93d44ce"
     }
   },
-  "version": "0.4.1",
-  "publishedAt": "2026-10-26T16:16:52Z",
+  "version": "0.4.2",
+  "publishedAt": "2026-11-14T06:34:06Z",
   "guided": {
     "owner": "TritonAI service team",
     "dataClassification": "Public",
@@ -38,26 +38,26 @@
         "label": "Download for Mac",
         "architecture": "Apple Silicon",
         "format": "DMG",
-        "filename": "TritonAI-Installer-0.4.1-arm64.dmg",
-        "sizeBytes": 590485940,
-        "sha256": "5d7e7581779d9c0792ec6e62471e34017759ef5c19cef13bac94d536dfe835b7",
-        "downloadUrl": "https://github.com/dbalders/TritonAI-Installer/releases/download/v0.4.1/TritonAI-Installer-0.4.1-arm64.dmg"
+        "filename": "TritonAI-Installer-0.4.2-arm64.dmg",
+        "sizeBytes": 620144909,
+        "sha256": "70a3d9f5b33584d0a43a91ee737b29bb8773a0748d0ea3f970f996831936d9e5",
+        "downloadUrl": "https://github.com/dbalders/TritonAI-Installer/releases/download/v0.4.2/TritonAI-Installer-0.4.2-arm64.dmg"
       },
       "windows": {
         "label": "Download for Windows",
         "architecture": "x64",
         "format": "Setup EXE",
-        "filename": "TritonAI-Installer-Setup-0.4.1-x64.exe",
-        "sizeBytes": 565468272,
-        "sha256": "39f45c0dde4a66c886aebfea1615276e0658c3618ff194c97b8ee0747a71dc4a",
-        "downloadUrl": "https://github.com/dbalders/TritonAI-Installer/releases/download/v0.4.1/TritonAI-Installer-Setup-0.4.1-x64.exe"
+        "filename": "TritonAI-Installer-Setup-0.4.2-x64.exe",
+        "sizeBytes": 610178728,
+        "sha256": "4bc41895e384de69d5b912e966c3f9ebf47a51880caf5dff492b077065b7a548",
+        "downloadUrl": "https://github.com/dbalders/TritonAI-Installer/releases/download/v0.4.2/TritonAI-Installer-Setup-0.4.2-x64.exe"
       }
     },
-    "version": "0.4.1",
-    "publishedAt": "2026-10-26T16:16:54Z",
-    "lastReviewed": "2026-10-26",
+    "version": "0.4.2",
+    "publishedAt": "2026-11-14T07:35:11Z",
+    "lastReviewed": "2026-11-17",
     "product": "TritonAI Installer",
     "source": "https://github.com/dbalders/TritonAI-Installer/releases/latest",
-    "releaseUrl": "https://github.com/dbalders/TritonAI-Installer/releases/tag/v0.4.1"
+    "releaseUrl": "https://github.com/dbalders/TritonAI-Installer/releases/tag/v0.4.2"
   }
 }

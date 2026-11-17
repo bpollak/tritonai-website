@@ -1192,6 +1192,345 @@
         "responseId": "chatcmpl-bcb2c9f97600c7d1",
         "approved": true
       }
+    },
+    "v0.4.2": {
+      "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.4.2",
+      "sourceDigest": "2471166f84ec3f3ef00084030a42a5e86efd6b18362a86f6bd25a60e2b8c52b9",
+      "lastReviewed": "2026-11-17",
+      "reviewStatus": "source-verified",
+      "highlights": [
+        "A clearer Project Home and reorganized settings make project activity and next steps easier to find.",
+        "Outlook Inbox listings and individual message reads now include follow-up flags. Keyword-search results can still omit flags when Microsoft does not provide them.",
+        "Computer use requests that previously failed to send now work. Computer use is off by default; turn it on in the desktop app under Settings > General."
+      ],
+      "guidance": {
+        "setup": [
+          "Use the latest TritonAI Installer for setup; it installs the desktop app, the managed runtime, and UCSD skills. Update the app from Settings > About > Check for Updates.",
+          "UC San Diego sign-in is optional. Harness remains usable without it."
+        ],
+        "faq": [
+          "Computer use is off by default; turn it on in the desktop app under Settings > General. It works only with the Codex provider and only on the local desktop backend, so WSL, SSH, and other remote backends do not receive it.",
+          "Permission modes are set for each chat from the message composer. New chats remember the last mode you chose on that device, and a chat created inside another chat keeps that chat's mode. Until you choose, new chats use your app or project default, which starts as Auto."
+        ],
+        "privacy": [
+          "Memory is on by default. It keeps daily notes in a local memory folder; your own notes stay in Notes and Memory never changes them.",
+          "To see every computer's notes, turn on Sync memory with OneDrive. If Microsoft 365 is not connected, Memory shows a code to enter at Microsoft's sign-in page with your UC San Diego account. Notes stay in the local folder and are copied to OneDrive; the Notes folder syncs both ways."
+        ],
+        "skills": [
+          "TritonAI Commons is the public skill library in Settings → Skills. Skills you create or add locally stay under Your Skills until you decide to publish them.",
+          "To share a local skill, select Share with UCSD, then read and accept the public-share confirmation. Submission requires the GitHub integration installed, connected, and allowed to read and write repositories and create pull requests."
+        ],
+        "citizen": [
+          "Use Supervised when you want commands needing additional permissions and file changes to wait for approval, or the first time you run an unfamiliar task.",
+          "On web and desktop, choose Settings → Chat → Follow-up behavior to queue new messages for a later turn or steer the running turn immediately."
+        ],
+        "models": [
+          "In Settings → Runtime, select your local on-prem or frontier connection. The Access key status shows the last four characters of its configured key.",
+          "To change a key, select Change key, enter the replacement, and choose Check access & save."
+        ]
+      },
+      "audience": {
+        "kind": "nontechnical-staff-and-faculty",
+        "policyVersion": 2
+      },
+      "claimEvidence": {
+        "version": "v0.4.2",
+        "highlights": [
+          {
+            "text": "A clearer Project Home and reorganized settings make project activity and next steps easier to find.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.4.2",
+                "quote": "A clearer Project Home and reorganized settings make project activity and next steps easier to find."
+              }
+            ]
+          },
+          {
+            "text": "Outlook Inbox listings and individual message reads now include follow-up flags. Keyword-search results can still omit flags when Microsoft does not provide them.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.4.2",
+                "quote": "Outlook Inbox listings and individual message reads include follow-up flags. Keyword-search results can still omit flags when Microsoft does not provide them."
+              }
+            ]
+          },
+          {
+            "text": "Computer use requests that previously failed to send now work. Computer use is off by default; turn it on in the desktop app under Settings > General.",
+            "evidence": [
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/releases/tag/v0.4.2",
+                "quote": "Fixes `/computer-use` requests that previously failed to send."
+              },
+              {
+                "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/computer-use.md",
+                "quote": "Computer use is off by default. In the desktop app, open **Settings > General** and turn on **Computer use** to opt in."
+              }
+            ]
+          }
+        ],
+        "guidance": {
+          "setup": [
+            {
+              "text": "Use the latest TritonAI Installer for setup; it installs the desktop app, the managed runtime, and UCSD skills. Update the app from Settings > About > Check for Updates.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/install.md",
+                  "quote": "The Installer sets up the desktop app, the UCSD-managed Codex runtime and its Node.js runtime,"
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/updates.md",
+                  "quote": "**Harness application:** use **Settings > About > Check for Updates**."
+                }
+              ]
+            },
+            {
+              "text": "UC San Diego sign-in is optional. Harness remains usable without it.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/ucsd-account.md",
+                  "quote": "UC San Diego sign-in is optional. Harness remains usable without it."
+                }
+              ]
+            }
+          ],
+          "faq": [
+            {
+              "text": "Computer use is off by default; turn it on in the desktop app under Settings > General. It works only with the Codex provider and only on the local desktop backend, so WSL, SSH, and other remote backends do not receive it.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/computer-use.md",
+                  "quote": "Computer use is off by default. In the desktop app, open **Settings > General** and turn on **Computer use** to opt in."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/computer-use.md",
+                  "quote": "Computer use currently works with the Codex provider. Claude, Cursor, Grok, and OpenCode sessions do not receive the computer-use tools in this release."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/computer-use.md",
+                  "quote": "Computer use is available only to the local desktop backend. WSL, SSH, and other remote backends intentionally do not receive the host computer-use connection."
+                }
+              ]
+            },
+            {
+              "text": "Permission modes are set for each chat from the message composer. New chats remember the last mode you chose on that device, and a chat created inside another chat keeps that chat's mode. Until you choose, new chats use your app or project default, which starts as Auto.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "The mode is set per thread, from the mode control in the message composer."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "New threads opened in the app remember the last mode you chose in the composer"
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "A thread created from inside another thread keeps that"
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "thread's mode."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "Until you choose a mode, new threads use"
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "your app or project default, which starts as **Auto**."
+                }
+              ]
+            }
+          ],
+          "privacy": [
+            {
+              "text": "Memory is on by default. It keeps daily notes in a local memory folder; your own notes stay in Notes and Memory never changes them.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "Memory is on by default for new and existing installations, including Nightly."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "Memory lives in a `memory` folder inside the TritonAI Harness home directory, such as `~/.tritonai-harness/memory` or `~/.tritonai-harness-nightly/memory`."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "`Notes/`: your own notes. Memory never changes them."
+                }
+              ]
+            },
+            {
+              "text": "To see every computer's notes, turn on Sync memory with OneDrive. If Microsoft 365 is not connected, Memory shows a code to enter at Microsoft's sign-in page with your UC San Diego account. Notes stay in the local folder and are copied to OneDrive; the Notes folder syncs both ways.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "To see every computer's notes on each of them, turn on **Sync memory with OneDrive** under **Settings > General > Memory**."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "Otherwise Memory shows a code to enter at Microsoft's sign-in page with your UC San Diego account."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "Your notes stay in the same local folder."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "Memory copies them to `TritonAI Harness/memory/general` in your OneDrive"
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+                  "quote": "The `Notes` folder syncs both ways"
+                }
+              ]
+            }
+          ],
+          "skills": [
+            {
+              "text": "TritonAI Commons is the public skill library in Settings → Skills. Skills you create or add locally stay under Your Skills until you decide to publish them.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-commons.md",
+                  "quote": "TritonAI Commons is the public skill library in **Settings → Skills**."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-commons.md",
+                  "quote": "skills you create or add locally stay under **Your Skills** until you decide to publish them."
+                }
+              ]
+            },
+            {
+              "text": "To share a local skill, select Share with UCSD, then read and accept the public-share confirmation. Submission requires the GitHub integration installed, connected, and allowed to read and write repositories and create pull requests.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-commons.md",
+                  "quote": "Select **Share with UCSD**."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-commons.md",
+                  "quote": "Read and accept the public-share confirmation."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-commons.md",
+                  "quote": "Submission requires the GitHub integration to be installed, connected, and allowed to read and write repositories and create pull requests."
+                }
+              ]
+            }
+          ],
+          "citizen": [
+            {
+              "text": "Use Supervised when you want commands needing additional permissions and file changes to wait for approval, or the first time you run an unfamiliar task.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "Use **Supervised** when you want commands needing additional permissions and file changes to wait"
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+                  "quote": "for approval, or the first time you run an unfamiliar task."
+                }
+              ]
+            },
+            {
+              "text": "On web and desktop, choose Settings → Chat → Follow-up behavior to queue new messages for a later turn or steer the running turn immediately.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/composer.md",
+                  "quote": "On web and desktop, choose **Settings → Chat → Follow-up behavior** to queue"
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/composer.md",
+                  "quote": "new messages for a later turn or steer the running turn immediately."
+                }
+              ]
+            }
+          ],
+          "models": [
+            {
+              "text": "In Settings → Runtime, select your local on-prem or frontier connection. The Access key status shows the last four characters of its configured key.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-access-keys.md",
+                  "quote": "Open **Settings → Runtime** and select your local on-prem or frontier connection."
+                },
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-access-keys.md",
+                  "quote": "The **Access key** status shows the last four characters of its configured key as"
+                }
+              ]
+            },
+            {
+              "text": "To change a key, select Change key, enter the replacement, and choose Check access & save.",
+              "evidence": [
+                {
+                  "source": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-access-keys.md",
+                  "quote": "Select **Change key**, enter the replacement, and choose **Check access & save**."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "sourceDocuments": {
+        "docs/user/install.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/install.md",
+          "sha256": "63d6e0ab82cd6bc89d3a383ba85f027f8c7d991bf899d9a422a80cf21aa7c436"
+        },
+        "docs/user/updates.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/updates.md",
+          "sha256": "b9a2d826a1ee4518de5c49d19a2269659873b2d88dcc9041431e2dee0a2acd08"
+        },
+        "docs/user/ucsd-account.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/ucsd-account.md",
+          "sha256": "80429b3cd491add1f0fe8c5873dff012164dc668589c4e2a45f12b0d0ff30ed3"
+        },
+        "docs/user/computer-use.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/computer-use.md",
+          "sha256": "c9f024cd7069830977838d5519fc68df01e3d5103469924cb75a74bf44ce48cb"
+        },
+        "docs/user/permission-modes.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md",
+          "sha256": "e56934920f576fd4a517c6054575034d49e73a45ca1494232ca76e48a60b4bf9"
+        },
+        "docs/user/memory.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/memory.md",
+          "sha256": "7f5e50e3596703f3ac03c0165edf577a289e2d24be095d15679d547eb7ab8de0"
+        },
+        "docs/user/telemetry.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/telemetry.md",
+          "sha256": "c4f9dba1e388729781cae3519efde60d3f1aeb4cf9f3ecbe0ada8fd0d3b279e0"
+        },
+        "docs/user/tritonai-commons.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-commons.md",
+          "sha256": "a40fdb5c2df1e9b7749b335cd8c56529c694d767b8c77bd5b8ee6610902830cd"
+        },
+        "docs/user/composer.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/composer.md",
+          "sha256": "96c40431c928dceb318ae9dbd4d86f488a64180e6cfc41cf0e17e073b06c0f75"
+        },
+        "README.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/README.md",
+          "sha256": "e9c06df820c29889e5e32320cec74bc6bdbd093aca5c26e96899312b354ae37f"
+        },
+        "docs/user/tritonai-access-keys.md": {
+          "url": "https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/tritonai-access-keys.md",
+          "sha256": "dd5ed69543e057ae1737c3fb940cdf5efff4c00988f5b0695f2e336c4a75baca"
+        }
+      },
+      "generatedBy": {
+        "kind": "on-premises-llm",
+        "method": "gateway-api",
+        "providerInstance": "tritonai_onprem",
+        "model": "api-glm-5.3",
+        "generatedAt": "2026-11-17T21:10:44.055Z",
+        "responseId": "chatcmpl-a92bb00791a9d870"
+      },
+      "sourceReview": {
+        "method": "gateway-api",
+        "model": "api-glm-5.3",
+        "responseId": "chatcmpl-99c40baee17e9c04",
+        "approved": true
+      }
     }
   }
 }
