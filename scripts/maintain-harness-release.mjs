@@ -35,20 +35,45 @@ export function validateSynthesis(value, version, sources) {
   }
   return value;
 }
-async function model(messages) {
+// An unusable reply is retried; model identity and HTTP failures are not.
+export class ModelReplyError extends Error {
+  constructor(message, truncated) { super(message); this.truncated = truncated; }
+}
+// Diagnostics name the finish reason and sizes only, never reply content.
+export function parseModelReply(result) {
+  const choice = result.choices?.[0];
+  const content = choice?.message?.content;
+  const detail = `finish_reason=${choice?.finish_reason ?? "missing"}, completion_tokens=${result.usage?.completion_tokens ?? "unknown"}, content_chars=${typeof content === "string" ? content.length : "none"}`;
+  if (choice?.finish_reason === "length") throw new ModelReplyError(`UC-hosted model reply was cut off at its length limit (${detail}).`, true);
+  if (choice?.finish_reason !== "stop") throw new ModelReplyError(`UC-hosted model reply did not finish normally (${detail}).`, false);
+  if (typeof content !== "string" || !content.trim()) throw new ModelReplyError(`UC-hosted model returned an empty reply (${detail}).`, false);
+  try { return JSON.parse(content.trim().replace(/^```(?:json)?\s*/, "").replace(/\s*```$/, "")); }
+  catch { throw new ModelReplyError(`UC-hosted model returned invalid JSON (${detail}).`, false); }
+}
+async function modelOnce(messages, maxTokens) {
   if (!process.env.TRITONAI_RELEASE_API_KEY) throw new Error("UC-hosted release-summary credential is unavailable.");
   const response = await fetch("https://tritonai-api.ucsd.edu/v1/chat/completions", {
-    method: "POST", redirect: "error", signal: AbortSignal.timeout(180000),
+    method: "POST", redirect: "error", signal: AbortSignal.timeout(300000),
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.TRITONAI_RELEASE_API_KEY}` },
-    body: JSON.stringify({ model: "api-glm-5.3", messages, temperature: 0, max_tokens: 12000, reasoning_effort: "low" }),
+    body: JSON.stringify({ model: "api-glm-5.3", messages, temperature: 0, max_tokens: maxTokens, reasoning_effort: "low" }),
   });
   if (!response.ok) throw new Error(`UC-hosted summary request failed (${response.status}); no fallback was used.`);
   const result = await response.json();
   if (!result.id || !/^api-glm-5\.3$/i.test(result.model || "")) throw new Error("Unverified model identity; refusing summary.");
-  let value;
-  try { value = JSON.parse(result.choices[0].message.content.replace(/^```(?:json)?\s*/, "").replace(/\s*```$/, "")); } catch { throw new Error("UC-hosted model returned invalid JSON."); }
-  if (result.choices[0].finish_reason !== "stop") throw new Error("Summary output was truncated; saved website content was preserved.");
-  return { value, id: result.id };
+  return { value: parseModelReply(result), id: result.id };
+}
+export const MODEL_TOKEN_BUDGETS = [12000, 24000, 32000];
+export async function model(messages, request = modelOnce) {
+  let maxTokens = MODEL_TOKEN_BUDGETS[0];
+  for (let attempt = 1; ; attempt++) {
+    try { return await request(messages, maxTokens); }
+    catch (error) {
+      if (!(error instanceof ModelReplyError) || attempt >= MODEL_TOKEN_BUDGETS.length) throw error;
+      console.log(`Model reply attempt ${attempt} was unusable, retrying: ${error.message}`);
+      // A cut-off reply needs room to finish; anything else gets the same budget again.
+      if (error.truncated) maxTokens = MODEL_TOKEN_BUDGETS[attempt];
+    }
+  }
 }
 async function github(endpoint) {
   const headers = { Accept: "application/vnd.github+json", "User-Agent": "tritonai-harness-release-worker" };
