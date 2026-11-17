@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { load } from "cheerio";
 import { applyHarnessPageMetadata } from "../scripts/lib/harness-page-metadata.mjs";
-import { DOCUMENTS, validateSynthesis } from "../scripts/maintain-harness-release.mjs";
+import { DOCUMENTS, MODEL_TOKEN_BUDGETS, ModelReplyError, model, parseModelReply, validateSynthesis } from "../scripts/maintain-harness-release.mjs";
 import { readPublicPage } from "../scripts/lib/public-page-fetch.mjs";
 import { harnessPublicationIssues } from "../scripts/lib/harness-publication.mjs";
 
@@ -109,4 +109,33 @@ test("publication rejects a stale feature map", () => {
   const page = '<main id="main-content"><span data-harness-version>0.4.1</span><span data-harness-feature-version>0.4.1</span></main>';
   assert.deepEqual(harnessPublicationIssues("/developer-apis/harness.html", page, releases, { highlights: [] }, {}), []);
   assert.match(harnessPublicationIssues("/developer-apis/harness.html", page.replace('feature-version>0.4.1', 'feature-version>0.4.0'), releases, { highlights: [] }, {}).join(), /feature map version differs/);
+});
+
+test("model replies are checked for a length cutoff before they are parsed", () => {
+  const reply = (content, finish_reason = "stop") => ({ choices: [{ message: { content }, finish_reason }], usage: { completion_tokens: 12000 } });
+  assert.deepEqual(parseModelReply(reply('```json\n{"version":"v0.4.2"}\n```')), { version: "v0.4.2" });
+  assert.throws(() => parseModelReply(reply('{"version":"v0.4', "length")), (error) => error instanceof ModelReplyError && error.truncated && /cut off.*finish_reason=length, completion_tokens=12000, content_chars=16/.test(error.message));
+  assert.throws(() => parseModelReply(reply("Here is the summary.")), (error) => error instanceof ModelReplyError && !error.truncated && /invalid JSON/.test(error.message) && !/Here is/.test(error.message));
+  assert.throws(() => parseModelReply(reply("")), /empty reply/);
+  assert.throws(() => parseModelReply({ choices: [] }), /did not finish normally/);
+});
+
+test("unusable model replies are retried, with more room after a cutoff", async () => {
+  const budgets = [];
+  const cutOffTwice = async (messages, maxTokens) => {
+    budgets.push(maxTokens);
+    if (budgets.length < 3) throw new ModelReplyError("cut off", true);
+    return { value: { ok: true }, id: "reply" };
+  };
+  assert.deepEqual(await model([], cutOffTwice), { value: { ok: true }, id: "reply" });
+  assert.deepEqual(budgets, MODEL_TOKEN_BUDGETS);
+
+  budgets.length = 0;
+  const alwaysUnreadable = async (messages, maxTokens) => { budgets.push(maxTokens); throw new ModelReplyError("invalid JSON", false); };
+  await assert.rejects(model([], alwaysUnreadable), /invalid JSON/);
+  assert.deepEqual(budgets, [12000, 12000, 12000]);
+
+  let calls = 0;
+  await assert.rejects(model([], async () => { calls++; throw new Error("Unverified model identity; refusing summary."); }), /Unverified model identity/);
+  assert.equal(calls, 1);
 });
