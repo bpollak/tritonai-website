@@ -73,7 +73,7 @@ bannerMode: abstract
 <p><strong>Current stable version: <span data-harness-version></span>.</strong> Release information checked <span data-harness-reviewed></span> against the published release. Available for macOS Apple Silicon and Windows x64. Nightly builds use a separate update track.</p>
 </div>
 <ul data-harness-current-highlights></ul>
-<p>To update an existing installation, open <strong>Settings &gt; About &gt; Check for Updates</strong>. For first-time setup, use the <a href="/developer-apis/start.html#harness">stable TritonAI Installer</a>.</p>
+<p>To update an existing installation, open <strong>Settings &gt; About &gt; Check for Updates</strong>. For first-time setup, use the <a href="/developer-apis/start.html#harness">stable TritonAI Installer</a> and watch the <a href="/developer-apis/start.html#setup-video">setup walkthrough video</a>.</p>
 <p>Computer use starts off. Enable it in <strong>Settings &gt; General</strong>; on macOS, grant Accessibility and Screen Recording permissions and restart the Harness when prompted.</p>
 <p><a data-harness-release>Read the Harness <span data-harness-version></span> release notes</a> · <a data-harness-doc="docs/user/permission-modes.md">Review approval modes</a></p>
 </section>
