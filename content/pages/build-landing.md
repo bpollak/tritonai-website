@@ -143,6 +143,8 @@ bannerMode: abstract
 </div>
 <figcaption id="api-gateway-caption">The Gateway key controls model access and limits. The client or application remains responsible for data permissions, testing, accessibility, support, and human review.</figcaption>
 </figure>
+<h3>Decision models</h3>
+<p><a href="https://huggingface.co/PelaAI/KnowLine-35B-A3B-Gen1.5">KnowLine-35B-A3B-Gen1.5</a> is available through the Gateway for yes/no questions, category choices, and rubric scores. It returns a probability for each option. A workflow could use those outputs to classify an intake request before routing it for review. Check the <a href="https://docs.tritonai.ucsd.edu/llm-api/models">Gateway model details</a> for current routes and limits.</p>
 </div>
 </section>
 
