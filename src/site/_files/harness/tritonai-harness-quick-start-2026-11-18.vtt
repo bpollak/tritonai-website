@@ -1,0 +1,207 @@
+WEBVTT
+
+00:00:00.370 --> 00:00:03.470
+Here's how to get set up with
+TritonAI Harness, from your
+
+00:00:03.470 --> 00:00:05.720
+access request to your first
+response.
+
+00:00:05.730 --> 00:00:06.840
+It takes five steps.
+
+00:00:07.703 --> 00:00:08.963
+Step one.
+
+00:00:08.963 --> 00:00:12.543
+On the TritonAI website, open
+Build, then Get Started.
+
+00:00:12.543 --> 00:00:16.383
+Under Get your access key,
+select Request Gateway Access,
+
+00:00:16.383 --> 00:00:18.993
+and sign in with your UC San
+Diego account.
+
+00:00:20.203 --> 00:00:22.073
+This is the request form.
+
+00:00:22.303 --> 00:00:26.073
+The first question asks whether your
+work involves UC Health data.
+
+00:00:26.283 --> 00:00:28.593
+For campus administrative work, choose No.
+
+00:00:30.237 --> 00:00:32.577
+Next, choose your requester type.
+
+00:00:32.577 --> 00:00:36.837
+For everyday administrative work, pick
+Individual, Default Allocation.
+
+00:00:36.837 --> 00:00:39.277
+It uses the models hosted
+at UC San Diego, and
+
+00:00:39.277 --> 00:00:40.987
+there's no recharge for
+that work.
+
+00:00:42.437 --> 00:00:45.637
+If you need cloud models,
+like GPT, Claude, or
+
+00:00:45.637 --> 00:00:48.607
+Gemini, choose Extended
+Access instead.
+
+00:00:48.677 --> 00:00:52.517
+Cloud models are charged from the
+first token, so the form asks for the
+
+00:00:52.517 --> 00:00:55.467
+project and task to charge, which is
+your chartstring.
+
+00:00:55.757 --> 00:00:57.907
+Grant-funded research works differently:
+
+00:00:58.057 --> 00:01:00.777
+hosted and cloud models are both
+charged to the grant.
+
+00:01:00.777 --> 00:01:04.647
+You can check current models and rates
+in the TritonAI model catalog.
+
+00:01:04.737 --> 00:01:07.427
+For this example, we'll keep
+the default allocation.
+
+00:01:08.903 --> 00:01:11.613
+Your name and email are filled in for you.
+
+00:01:11.683 --> 00:01:12.833
+We've hidden them here.
+
+00:01:13.103 --> 00:01:15.733
+Open the Department list, and
+choose your department.
+
+00:01:17.337 --> 00:01:20.707
+Then describe what you plan to
+do, in a sentence or two.
+
+00:01:20.877 --> 00:01:22.587
+Be specific about the work.
+
+00:01:22.737 --> 00:01:23.527
+For example:
+
+00:01:23.677 --> 00:01:27.737
+Use TritonAI Harness to draft
+training guides, summarize meeting
+
+00:01:27.737 --> 00:01:30.907
+notes, and prepare reports for
+department operations.
+
+00:01:32.603 --> 00:01:35.113
+Scroll down to the data protection levels.
+
+00:01:35.363 --> 00:01:37.473
+Levels 1 through 3 are approved.
+
+00:01:37.683 --> 00:01:40.573
+Level 4, restricted or
+health data, is not.
+
+00:01:40.923 --> 00:01:42.453
+Check the box to acknowledge that.
+
+00:01:43.970 --> 00:01:46.460
+Review your answers, then select Submit.
+
+00:01:46.830 --> 00:01:50.520
+Some requests need approval, so your
+key may take a little time.
+
+00:01:52.103 --> 00:01:53.303
+Step two.
+
+00:01:53.303 --> 00:01:57.283
+When your access is ready, you'll get
+an email with a one-time link.
+
+00:01:57.283 --> 00:01:59.213
+The key itself isn't in the email.
+
+00:02:00.570 --> 00:02:03.810
+Open the link, copy your
+key, and save it somewhere
+
+00:02:03.810 --> 00:02:06.040
+secure before you leave the
+page.
+
+00:02:06.090 --> 00:02:07.140
+Treat it like a password.
+
+00:02:08.570 --> 00:02:09.870
+Step three.
+
+00:02:09.870 --> 00:02:13.630
+Back on Get Started, download
+the stable installer.
+
+00:02:13.630 --> 00:02:18.470
+On an Apple silicon Mac, open the DMG
+and launch TritonAI Installer.
+
+00:02:18.470 --> 00:02:20.340
+On Windows, run the setup file.
+
+00:02:21.670 --> 00:02:22.970
+Step four.
+
+00:02:22.970 --> 00:02:26.790
+Paste your key, then select
+Check access and install.
+
+00:02:26.790 --> 00:02:28.960
+Keep the installer open until it finishes.
+
+00:02:30.537 --> 00:02:31.777
+Step five.
+
+00:02:31.777 --> 00:02:33.637
+Open TritonAI Harness.
+
+00:02:33.637 --> 00:02:37.497
+Before you send anything, set
+the mode to Supervised, so
+
+00:02:37.497 --> 00:02:39.717
+file changes wait for your
+approval.
+
+00:02:39.717 --> 00:02:41.697
+Then type a simple request, like:
+
+00:02:41.697 --> 00:02:43.887
+Help me outline a meeting agenda.
+
+00:02:46.137 --> 00:02:48.687
+When you get a response, you're set up.
+
+00:02:48.837 --> 00:02:51.047
+Review it the way you'd review any draft.
+
+00:02:52.737 --> 00:02:57.507
+To keep going, try the Harness Essentials
+course on the TritonAI website.
+
