@@ -27,6 +27,20 @@ It is listed in the public route manifest and sitemap. Do not embed the whole
 course in an iframe; its controls, chapters, downloads, and keyboard navigation
 need their own space.
 
+## Handoff from the setup walkthrough
+
+The three-minute setup walkthrough on `/developer-apis/start.html#setup-video`
+ends where the course begins: the learner has an access key, the Harness
+installed, and a first response in Supervised mode. The walkthrough links to
+`/training/harness/#essentials`, which turns on Essentials only. The course's
+opening notes, the chapter 1 practice box, and the "Before you start" card use
+the walkthrough's five steps and wording (access key, one-time link, Build ›
+Get Started). Keep the two in step when either changes.
+
+The plugin catalog below the player (`CAT`) is generated from the plugin
+manifests pinned to the current stable release. `PLUG` draws the recorded
+chapter screens and stays as recorded until Part 4 is re-recorded.
+
 ## Standalone course contract
 
 The content owner authorized the standalone layout. Only this course is added to
