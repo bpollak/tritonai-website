@@ -38,8 +38,19 @@ the walkthrough's five steps and wording (access key, one-time link, Build ›
 Get Started). Keep the two in step when either changes.
 
 The plugin catalog below the player (`CAT`) is generated from the plugin
-manifests pinned to the current stable release. `PLUG` draws the recorded
-chapter screens and stays as recorded until Part 4 is re-recorded.
+manifests pinned to the current stable release. Since the November 2026
+re-record (the `v23` block), the plugin chapter screens draw from `CAT` too.
+
+## November 2026 re-record (stable 0.4.2)
+
+Seven narration clips were re-recorded with the same voice and settings as the
+rest of the course: 01-02, 07-02, 07-06, 08-01, 08-05, 09-04, and the new
+09-07. Each was transcribed and compared with its caption. Step timings in
+`VO_DUR` follow the new clip lengths. The working files (script lines, takes,
+cleaned clips) are in `~/harness-training-demo/v23-rerecord/` on the work Mac;
+the video kit's source page there was not updated, so rebuild from the site
+copy, not from the kit, until the two are reconciled. Real captures outside the
+plugin chapters, and the Skills chapters, are still from the earlier version.
 
 ## Standalone course contract
 
