@@ -181,10 +181,13 @@ captures in "Bigger jobs" with a real run on stable 0.4.2 (05-07 to 05-10).
   seconds and 91 computer use steps, nine of which failed.
 - 05-09: the closing summary.
 - 05-10: the saved workbook in Excel, tagged "Real capture · the saved
-  workbook": first as the agent saved it, then after a follow-up asking it to
-  polish the workbook. The polish turn reported success, but the window shows
-  the header row out of view, the averages behind the chart, and the chart
-  title cut off. The narration keeps that as the check-the-output lesson.
+  workbook": first as the agent saved it, then after follow-up requests for a
+  cleaner, formatted workbook. The agent rebuilt it through Excel's Visual
+  Basic editor and reported it done. The result has the styled header, the
+  averages table, and the titled chart, and one leftover: the CSV's own header
+  row is still in row 2. The narration keeps that as the check-the-output
+  lesson. An earlier polish attempt that hid the header and covered the
+  averages is not shown.
 
 A mode change in the composer applies from the next message, so the Full access
 part is a second turn. Excel windows were captured on their own, with no other
