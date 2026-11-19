@@ -100,6 +100,45 @@ matching entries. Progress saved in a browser is keyed by chapter position, so
 a returning learner's check marks from chapter 7 onward shift by one. Working
 files: `~/harness-training-demo/v26-rerecord/` (narration).
 
+## November 2026 skills and approval screens, and a steady stage (stable 0.4.2)
+
+The `v26` block replaces four more drawn steps with real 0.4.2 captures: the
+plugin write approval in "Connect campus tools" (08-08), and all three steps of
+"Use and share skills" (14-01 to 14-03): the Community list and Add From Link,
+Your Skills with Share with UCSD, and calling a skill from the composer with
+`$` or the slash menu. The approval is a real `n8n_update_workflow` prompt
+against the TRAINING DEMO workflow; the workflow id is replaced with an example
+value, and local paths under Your Skills are shown from `~`.
+
+Three clips were re-recorded: 08-08 (the approval now shows a change to a
+workflow, with Decline and Approve, and Always allow this session in the menu
+beside them), 10-07 (Jira, Lucid, and UCSD Assistant are described as they are,
+without calling them newer), and 14-02 (Your Skills lists every skill installed
+on the computer, including the ones that come with plugins). `VO_DUR` has the
+new lengths. The card that opens "Build an app, connect n8n" now reads Part 4,
+and the course says "preview pane" wherever it used to say "Browser surface".
+Working files: `~/harness-training-demo/v27-rerecord/` (narration) and
+`~/harness-training-demo/stable-0.4.2/rec/r3/` (captures).
+
+Still drawn, with sample data: the Google Sheet and Doc examples (09-06, 09-07),
+the calendar hold and mail draft (11-07, 11-08), the briefing (11-04, 11-05),
+and Kuali Build (11-12, 11-13). The Microsoft 365 write abilities need the
+account owner to finish a device-code sign-in before they can be captured, and
+there is no sample Drive file or Kuali Build app to show without real content.
+
+When a step replaces a drawn screen with a capture, keep running the drawn
+step's own `do` underneath (the `R` helper in `v26` does this). Later drawn
+steps rely on the window state the earlier ones leave behind.
+
+Steps with a `zoom` used to scale `#stage` itself, so its box grew past the
+16:9 screen (up to about 930 px tall at a 1440 px window, against 641 px). The
+zoom now moves a camera layer inside the stage (`#cam`), and `#stage` keeps one
+size on every step. Anything appended to the stage goes into that layer.
+The caption bar reserves room for three lines. At desktop width that keeps
+the controls under the screen in place on every step but one (01-06, whose
+caption runs to four lines). On a phone, captions still wrap to different
+heights.
+
 ## Standalone course contract
 
 The content owner authorized the standalone layout. Only this course is added to
