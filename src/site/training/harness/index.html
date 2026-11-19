@@ -2039,7 +2039,99 @@ SHOTS.v20AppAsk='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBARXhpZgAA
  const ship=SKILLS.find(g=>g.g==='Ship an app'); if(ship){ ship.g='Review your work'; ship.s=ship.s.filter(x=>x[0]!=='ucsd-dsmlp-deploy'); }
 })();
 
-const VO_DUR=[28.81, 21.48, 11.4, 14.45, 16.56, 33.35, 9.63, 12.96, 7.31, 19.29, 16.6, 15.54, 7.16, 9.04, 8.89, 8.18, 14.6, 7.3, 9.55, 9.44, 14.36, 29.54, 15.96, 16.78, 10.02, 17.82, 11.63, 9.85, 13.13, 9.69, 7.35, 12.31, 12.76, 14.98, 17.23, 15.17, 17.21, 15.76, 34.85, 8.07, 10.39, 6.79, 9.7, 7.53, 5.9, 19.76, 13.48, 17.22, 15.55, 11.07, 16.01, 14.85, 8.56, 16.7, 19.93, 12.73, 9.97, 14.38, 16.11, 11.53, 16.66, 20.94, 16.88, 10.97, 22.57, 18.06, 13.91, 26.95, 7.28, 16.76, 14.76, 10.47, 12.89, 16.97, 31.26, 17.68, 13.75, 14.85, 13.04, 9.55, 29.76, 13.54, 15.16, 16.49, 17.06, 14.85, 13.81, 12.59, 16.61, 25.23, 11.21, 13.93, 13.6, 15.37, 13.26, 15.11, 10.84, 9.17, 11.22, 24.86, 16.67, 9.22];
+/* ---------- v25: plugin chapters show the real 0.4.2 Plugins screens, and a new chapter, New in the Harness, follows Settings ---------- */
+(function(){
+ const by=t=>{ const c=CH.find(c=>c.t===t); if(!c) throw new Error('missing chapter '+t); return c; };
+ const beat=(c,prefix)=>{ const b=c.beats.find(b=>b.say.startsWith(prefix)); if(!b) throw new Error('missing beat '+prefix); return b; };
+ const TAG='Real capture · Harness 0.4.2';
+ const NEW=["Before the plugins, here's a short tour of the newer parts of the Harness. Each one is easy to find once you've seen where it lives.", "Start in the composer. Three selectors sit side by side. The first picks the model. The second sets reasoning: Low, High, or Extra High, and High is the default. The third is the mode menu you already know.", "On the right side of the composer, beside the paperclip, the microphone starts voice dictation.", "When your threads pile up, the Search box at the top of the sidebar helps you find the one you want.", "Or select a project's name to open its overview. The first section, Needs you, has the threads waiting on you, like one that needs your approval. What's next suggests next steps from the project's threads. And Latest updates shows each agent's last report.", "You met Ideas in the last chapter. Open it and you'll see two groups: New features to try, and Things to try. Each idea has an Open draft button, so you can read the request before you send it.", "Help has a box for your question, with starter questions above it, like How do I connect a plugin. It also has shortcuts to Providers, Plugins, Connections, and Diagnostics, and a Prepare feedback button.", "Next, the preview pane. Select a file the Harness made, and it opens beside the thread. That works for a summary, a deck, or a web page, so you can check the result without leaving the Harness.", "The preview can fill the window when you want a closer look. It can also float in a corner, over the chat, while you read the thread.", "You can also teach the Harness by showing it. In Settings, under Skills, select Record a New Skill, or type slash record-skill in the composer. You do a task in other apps, and the Harness turns it into a skill.", "Two settings to finish. Under Environments, select Sign in with UC San Diego to connect your account. Check connection is right beside it. And under Maintenance, Memory keeps daily summaries of your threads that agents can look back on. Sharing memory between your computers through OneDrive is a separate setting."];
+ /* seconds into the step when the next capture appears, from the narration word timings */
+ const T=[4.6, 6.5, 11.8, 7.3, 8.5, 3.5, 7.4, 10.6];
+ /* one or more captures in a row; later ones appear only while this step is still on screen */
+ const seq=(b,frames)=>function(){ S.clearNotes(); S.hl(); frames.forEach(([file,alt,o,at],i)=>{ const show=()=>S.real('shots/'+file+'.jpg',alt,TAG,o||{}); if(!i) show(); else S.later(()=>{ if(S.fast||CH[ci].beats[bi]===b) show(); },at*1000); }); };
+ const R=(b,frames,shot)=>{ b.do=seq(b,frames); b.shot='Real capture: '+shot; delete b.zoom; return b; };
+
+ /* The drawn window is switched on by the step that first shows the app. v24 replaced that step with a capture, which left every later drawn screen blank, so switch it on here. */
+ const hh=beat(by('Your first thread'),"Here's the Harness"); const hh0=hh.do; hh.do=function(){ S.showWin(); return hh0.apply(this,arguments); };
+
+ /* 1. Connect campus tools: the Plugins page and the plugin pages as they look in 0.4.2 */
+ const cc=by('Connect campus tools');
+ cc.beats[0].do=function(){ S.clearNotes(); S.hl(); S.card(partCard(4,'Plugins and skills',[['Plugins','GitHub, Google Workspace, Jira, Kuali Build, Lucid, Microsoft 365, n8n, and UCSD Assistant.'],['Skills','Nine AI Team skills, plus skills that come with each plugin.'],['Growing','New plugins and skills arrive over time, and this part is updated when they do.']])); };
+ R(beat(cc,'Open Settings, then Plugins'),[
+  ['settings-plugins-1','Settings, Plugins section: the Included plugins list, starting with GitHub, Google Workspace, Jira, Kuali Build, and Lucid.',{s0:1,s1:1.12,ox:'60%',oy:'35%',dur:6}],
+  ['settings-plugins','The Included plugins list scrolled down to Microsoft 365, n8n, and UCSD Assistant.',{s0:1.05,s1:1.2,ox:'60%',oy:'75%',dur:6},6]
+ ],'Settings, Plugins section, with the eight included plugins: GitHub, Google Workspace, Jira, Kuali Build, Lucid, Microsoft 365, n8n, and UCSD Assistant. Nothing is connected in the capture, so most of the plugin switches are off.');
+ R(beat(cc,'Open a plugin to choose what it can do'),[
+  ['plugin-microsoft-365','Microsoft 365 opened on the Plugins page: under Access, Read mail and Read calendars are switched on, and Create mail drafts and Organize mail are off.',{s0:1.1,s1:1.4,ox:'62%',oy:'88%'}]
+ ],'Microsoft 365 opened on the Plugins page. Each ability under Access has its own switch: reading is on, and Create mail drafts and Organize mail are off.');
+ R(beat(cc,'Abilities marked Write follow'),[
+  ['plugin-microsoft-365-2','The Microsoft 365 abilities. Create mail drafts, Organize mail, Create and edit calendar events, Send chat messages, and Create and edit OneDrive files each carry the label Write, follows task access.',{s0:1.25,s1:1.5,ox:'58%',oy:'22%'}]
+ ],'The Microsoft 365 abilities, with the label “Write · follows task access” on each write ability.');
+ R(beat(cc,'Kuali Build reads apps, forms'),[
+  ['plugin-kuali-build','Kuali Build opened on the Plugins page: Read UCSD Kuali Build is on, Create and edit in Kuali Build is off, and Admin: delete in Kuali Build is off.',{s0:1.1,s1:1.4,ox:'62%',oy:'92%'}]
+ ],'Kuali Build opened on the Plugins page: reading on, creating and editing off, deleting off.');
+ R(beat(cc,'n8n connects to n8n.tritonai.ucsd.edu'),[
+  ['plugin-n8n','n8n opened on the Plugins page: it connects to n8n.tritonai.ucsd.edu, and Read and Write are each marked Chosen during sign-in.',{s0:1.1,s1:1.4,ox:'62%',oy:'68%'}]
+ ],'n8n opened on the Plugins page: the Prod connection to n8n.tritonai.ucsd.edu, with Read and Write each marked “Chosen during sign-in”.');
+
+ /* 2. Plugin tour: Microsoft 365 and Google */
+ const t1=by('Plugin tour: Microsoft 365 and Google');
+ R(beat(t1,'Every limit is spelled out'),[
+  ['plugin-microsoft-365-2','The Microsoft 365 abilities, each with its limit written under it, such as Cannot send, move, or delete mail, and Cannot delete events or respond to invitations.',{s0:1.2,s1:1.45,ox:'55%',oy:'35%'}]
+ ],'The Microsoft 365 abilities, each with its limit written under it.');
+ R(beat(t1,'Reading is all it does until you say otherwise'),[
+  ['plugin-google-workspace','Google Workspace opened on the Plugins page: Read Drive files is on, and Create and edit Drive files, Move and trash Drive items, Permanently delete Drive items, and Share Drive items are each off.',{s0:1.1,s1:1.4,ox:'62%',oy:'90%'}]
+ ],'Google Workspace opened on the Plugins page: reading on; creating and editing, moving to trash, deleting, and sharing each off.');
+
+ /* 3. Plugin tour: Kuali Build writes */
+ const t2=by('Plugin tour: GitHub, Kuali Build, n8n');
+ R(beat(t2,'Writing is opt-in'),[
+  ['plugin-kuali-build','The Kuali Build write abilities: Create and edit in Kuali Build, and Admin: delete in Kuali Build, both off. Each says the change needs approval and is never automatically retried.',{s0:1.3,s1:1.55,ox:'58%',oy:'98%'}]
+ ],'The Kuali Build write abilities, both off: Create and edit in Kuali Build, and Admin: delete in Kuali Build.');
+
+ /* 4. New chapter after Settings */
+ const st=by('Settings you’ll use');
+ const nw={ part:st.part, t:'New in the Harness', s:'Composer menus, search, preview, recording a skill, sign-in, Memory',
+  learn:'Where to find the newer parts of the Harness: the composer selectors, Search and the project overview, the preview pane, skill recording, sign-in, and Memory.',
+  tryT:'Open your project overview',
+  tryP:'Select your project’s name in the sidebar to open its overview. Read Needs you and Latest updates.\n\nThen start a new thread, open the reasoning menu in the composer, and see which level is marked Default.',
+  quiz:{q:'You come back from a meeting and want to know which threads in a project are waiting on you. Where do you look?', o:['Settings › Maintenance','The project overview, under Needs you','The Usage view'], a:1, why:'Select the project’s name in the sidebar to open its overview. Needs you has the threads waiting on you, like one that needs your approval.'},
+  beats:[] };
+ const add=(say,shot,frames)=>{ const b={say,shot:'Real capture: '+shot}; b.do=seq(b,frames); nw.beats.push(b); };
+ nw.beats.push({say:NEW[0], shot:'Card: a short tour of the newer parts of the Harness.',
+  do(){ S.clearNotes(); S.hl(); S.card(`<p class="k">New in the Harness</p><h3>A short tour</h3><div class="four"><div><b>In the composer</b>Model, reasoning, and mode menus, and dictation.</div><div><b>Finding work</b>Search, the project overview, Ideas, and Help.</div><div><b>The preview pane</b>Files, decks, and pages beside the thread.</div><div><b>Skills and settings</b>Record a skill, sign in, and Memory.</div></div>`); }});
+ add(NEW[1],'the composer with its three selectors, then the model menu, the reasoning menu with Low, High (Default), and Extra High, and the mode menu.',[
+  ['composer','The composer with three selectors on the left: the model, reasoning set to High, and the mode set to Supervised.',{s0:1.3,s1:1.6,ox:'40%',oy:'55%',dur:5}],
+  ['composer-model','The model menu open under the first selector, with a Search models box.',{s0:1.2,s1:1.4,ox:'42%',oy:'62%',dur:4},T[0]],
+  ['composer-effort','The reasoning menu open under the second selector: Low, High marked Default, and Extra High.',{s0:1.2,s1:1.45,ox:'44%',oy:'64%',dur:5},T[1]],
+  ['mode-menu','The mode menu open under the third selector: Supervised, Auto-accept edits, Auto, and Full access.',{s0:1.15,s1:1.35,ox:'60%',oy:'55%',dur:4},T[2]]]);
+ add(NEW[2],'the right side of the composer: the paperclip, the microphone, and the send button.',[
+  ['composer','The right side of the composer: the paperclip, the microphone, and the send button.',{s0:1.5,s1:1.9,ox:'68%',oy:'55%',dur:6}]]);
+ add(NEW[3],'the Search box at the top of the sidebar, above the project and its threads.',[
+  ['project-home','The top of the sidebar: the Search box, above the workshop-planning project and its threads.',{s0:1.3,s1:1.75,ox:'8%',oy:'2%',dur:5}]]);
+ add(NEW[4],'the workshop-planning project overview: Needs you with one thread waiting for approval, What’s next, and Latest updates.',[
+  ['project-home','The workshop-planning project overview: Needs you with one thread that needs approval, What’s next with suggested next steps being generated, and Latest updates with each thread’s last report.',{s0:1,s1:1.22,ox:'48%',oy:'30%',dur:16}]]);
+ add(NEW[5],'the Ideas page: New features to try and Things to try, with an Open draft button on an idea.',[
+  ['ideas','The Ideas page: a New features to try group, and a Things to try group with six ideas and an Open draft button.',{s0:1.1,s1:1.4,ox:'62%',oy:'32%',dur:11}]]);
+ add(NEW[6],'the Help page: a question box, three starter questions, a Prepare feedback button, and shortcuts to Providers, Plugins, Connections, and Diagnostics.',[
+  ['help','The Help page: an Ask Help box with starter questions such as How do I connect a plugin, a Prepare feedback button, and Open settings shortcuts to Providers, Plugins, Connections, and Diagnostics.',{s0:1.05,s1:1.3,ox:'55%',oy:'32%',dur:12}]]);
+ add(NEW[7],'the preview pane beside the thread, showing a summary, then a deck, then a web page.',[
+  ['summary-preview','summary.md open in the preview pane beside the thread.',{s0:1,s1:1.08,ox:'75%',oy:'40%',dur:5}],
+  ['deck-preview','A slide deck open in the preview pane beside the thread.',{s0:1,s1:1.08,ox:'75%',oy:'50%',dur:4},T[3]],
+  ['app-preview','A web page, the workshop sign-up form, open in the preview pane beside the thread.',{s0:1,s1:1.08,ox:'78%',oy:'45%',dur:5},T[4]]]);
+ add(NEW[8],'the sign-up page at full size in the preview pane, then as a small floating preview over the chat.',[
+  ['app-preview-max','The preview pane at full size, showing the whole sign-up page.',{s0:1,s1:1.06,ox:'55%',oy:'45%',dur:4}],
+  ['preview-floating','A small floating preview of the sign-up page in the lower right corner, over the thread.',{s0:1,s1:1.3,ox:'88%',oy:'85%',dur:5},T[5]]]);
+ add(NEW[9],'Settings, Skills section, with the Record a New Skill button, then the composer with /record-skill and its description, “Do a task in other apps and turn it into a skill”.',[
+  ['settings-skills','Settings, Skills section, with the Record a New Skill button at the top right.',{s0:1.15,s1:1.6,ox:'72%',oy:'8%',dur:7}],
+  ['record-skill','The composer with /record-skill typed. The menu above it reads: Do a task in other apps and turn it into a skill.',{s0:1.25,s1:1.55,ox:'48%',oy:'46%',dur:7},T[6]]]);
+ add(NEW[10],'Settings, Environments section, with Sign in with UC San Diego and Check connection, then Settings, Maintenance section, with Memory and Sync memory with OneDrive.',[
+  ['settings-environments','Settings, Environments section: under UC San Diego account, a Sign in with UC San Diego button and a Check connection button.',{s0:1.15,s1:1.5,ox:'60%',oy:'28%',dur:8}],
+  ['settings-maintenance-2','Settings, Maintenance section: Memory, set to On, keeps daily summaries of your threads. Sync memory with OneDrive is a separate setting, set to Off.',{s0:1.15,s1:1.5,ox:'60%',oy:'24%',dur:9},T[7]]]);
+ CH.splice(CH.indexOf(st)+1,0,nw);
+})();
+
+const VO_DUR=[28.81, 21.48, 11.4, 14.45, 16.56, 33.35, 9.63, 12.96, 7.31, 19.29, 16.6, 15.54, 7.16, 9.04, 8.89, 8.18, 14.6, 7.3, 9.55, 9.44, 14.36, 29.54, 15.96, 16.78, 10.02, 17.82, 11.63, 9.85, 13.13, 9.69, 7.35, 12.31, 12.76, 14.98, 17.23, 15.17, 17.21, 15.76, 34.85, 8.07, 10.39, 6.79, 9.7, 7.53, 5.9, 19.76, 9.17, 14.83, 5.99, 5.63, 18.11, 13.36, 14.37, 12.43, 8.28, 15.53, 23.73, 13.48, 17.22, 15.55, 11.07, 16.01, 14.85, 8.56, 16.7, 19.93, 12.73, 9.97, 14.38, 16.11, 11.53, 16.66, 20.94, 16.88, 10.97, 22.57, 18.06, 13.91, 26.95, 7.28, 16.76, 14.76, 10.47, 12.89, 16.97, 31.26, 17.68, 13.75, 14.85, 13.04, 9.55, 29.76, 13.54, 15.16, 16.49, 17.06, 14.85, 13.81, 12.59, 16.61, 25.23, 11.21, 13.93, 13.6, 15.37, 13.26, 15.11, 10.84, 9.17, 11.22, 24.86, 16.67, 9.22];
 const FLAT=[]; let total=0;
 CH.forEach((c,ci)=>{ c.start=total; c.beats.forEach((b,bi)=>{ b.dur=VO_DUR[FLAT.length]||Math.max(4.5,Math.min(16,words(b.say)/2.55+1.6)); FLAT.push({ci,bi,start:total,dur:b.dur}); total+=b.dur; }); c.len=total-c.start; });
 const fmt=s=>{s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');};
