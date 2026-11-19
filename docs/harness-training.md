@@ -68,25 +68,37 @@ The computer name, local paths, and the access key tail are masked in the
 published images. Computer use, PowerPoint, Excel, and connected-plugin scenes
 still use the earlier captures.
 
-## November 2026 plugin screens and "New in the Harness" (stable 0.4.2)
+## November 2026 plugin screens, plugin runs, and "Find your way around" (stable 0.4.2)
 
-The `v25` block does two things. In the plugin chapters it replaces the drawn
-Settings screens with real 0.4.2 captures of the Plugins page and the Microsoft
-365, Google Workspace, Kuali Build, and n8n plugin pages (narration unchanged).
-Nothing was connected in the capture copy, so those pages show "Plugin off" and
-"Authorization required"; the connected-plugin threads in those chapters and in
-"Put it to work" are still drawn. It also adds chapter 7, "New in the Harness",
-after "Settings you'll use": eleven steps on the composer selectors and
-dictation, Search and the project overview, Ideas and Help, the preview pane,
-recording a skill, UC San Diego sign-in, and Memory, with a practice box and a
-knowledge check. The new chapter moved every later chapter's audio up by one
-(`07-xx` became `08-xx`, and so on); `VO_DUR` has the eleven new step lengths
-after chapter 6. The block also switches the drawn window back on in the first
-app step, because `v24` had replaced the step that did it and the remaining
-drawn screens were rendering blank. Progress saved in a browser before this
-change is keyed by chapter position, so a returning learner's check marks from
-chapter 7 onward shift by one. Working files:
-`~/harness-training-demo/v26-rerecord/` (narration).
+The `v25` block does three things.
+
+In the plugin chapters it replaces the drawn Settings screens with real 0.4.2
+captures of the Plugins page and the Microsoft 365 and n8n plugin pages, taken
+signed in. Two steps whose narration says the write switches are off (Google
+Workspace and Kuali Build) use captures taken before sign-in, cropped to the
+ability list, because the signed-in copy had those switches on or did not show
+that list. Narration in those steps is unchanged.
+
+It replaces earlier embedded screenshots with real 0.4.2 runs: a read-only
+GitHub pull request review, the n8n plugin explaining the demo workflow, and
+connecting the sign-up page to that workflow. "Put it to work" opens with a
+real Microsoft 365 run that reads one public newsletter (steps 11-02 and
+11-03), ahead of the sample-data briefing, calendar, and draft examples, and
+the use case library has a matching "Summarize one email" card. Step 12-06 was
+re-recorded to say what that run reports.
+
+It adds chapter 7, "Find your way around", after "Settings you'll use": eleven
+steps on the composer selectors and dictation, Search and the project
+overview, Ideas and Help, the preview pane, recording a skill, UC San Diego
+sign-in, and Memory, with a practice box and a knowledge check. It is written
+for someone seeing the workspace for the first time.
+
+Audio ids follow chapter and step position, so the added chapter moved every
+later chapter up by one (`07-xx` became `08-xx`, and so on) and the two added
+Microsoft 365 steps moved the rest of chapter 11 down by two. `VO_DUR` has the
+matching entries. Progress saved in a browser is keyed by chapter position, so
+a returning learner's check marks from chapter 7 onward shift by one. Working
+files: `~/harness-training-demo/v26-rerecord/` (narration).
 
 ## Standalone course contract
 
