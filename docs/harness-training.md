@@ -139,6 +139,38 @@ the controls under the screen in place on every step but one (01-06, whose
 caption runs to four lines). On a phone, captions still wrap to different
 heights.
 
+## November 2026 Microsoft 365 writes and sample-data screens (stable 0.4.2)
+
+The `v27` block replaces eleven more drawn steps with 0.4.2 screens.
+
+Real captures, tagged "Real capture · Harness 0.4.2":
+
+- 11-07 and 11-08: a calendar hold and an unsent mail draft made through the
+  Microsoft 365 plugin in Supervised mode, each shown as request, approval, and
+  result. Both carry "TRAINING DEMO" in the title, have no attendees or
+  recipients, and can be deleted from the account at any time.
+- 05-04: the Accessibility and Screen Recording rows in Settings › Maintenance.
+  The capture copy already has both permissions, so the "Needs permissions"
+  banner itself could not be produced; the narration now points at these rows.
+- 05-06: the computer use request typed in the composer.
+
+Screens tagged "Harness 0.4.2 · sample data": 06-04 (Usage), 09-06 and 09-07
+(Google Sheet and Doc), 11-04 and 11-05 (briefing and the meeting page), 11-12
+and 11-13 (Kuali Build). Each is the real 0.4.2 window after a real request,
+with the answer text replaced by the course's fictional sample content before
+the screenshot. The Usage figures are example values. The meeting page is a
+local sample file, `brief-tuesday.md`, opened in the preview pane. Nothing was
+created in Kuali Build or Google Drive. Use this tag, not "Real capture", for
+any screen whose text was swapped.
+
+Four clips were re-recorded: 05-04, 09-06, 11-07, and 11-13. Working files:
+`~/harness-training-demo/v28-rerecord/` (narration) and
+`~/harness-training-demo/stable-0.4.2/rec/r4/` (captures).
+
+Not yet on 0.4.2: the computer use run itself (05-07 drawn; 05-08 to 05-10
+earlier captures). It needs a run on a Mac where Excel has no other workbook
+open. 12-08 is an n8n screen, not a Harness screen.
+
 ## Standalone course contract
 
 The content owner authorized the standalone layout. Only this course is added to
