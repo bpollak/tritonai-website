@@ -133,30 +133,28 @@ bannerMode: abstract
 <section class="hub-section" id="harness-in-action" aria-labelledby="harness-in-action-heading">
 <div class="hub-heading">
 <h2 id="harness-in-action-heading">See the Harness in action</h2>
-<p>This narrated video runs a little over two minutes and shows results from the Harness app. It was recorded with fictional workshop files.</p>
+<p>This narrated video runs a little over two minutes and shows results from the Harness app, version 0.4.2. It was recorded with fictional workshop files.</p>
 </div>
-<video class="img-responsive center-block" width="1920" height="1080" data-playback="manual" controls controlslist="nodownload" muted playsinline preload="none" poster="/_images/harness/tritonai-harness-capabilities-2026-10-01-v2.jpg" aria-label="TritonAI Harness in action" aria-describedby="harness-in-action-description" aria-details="harness-in-action-transcript">
-<source src="/_files/harness/tritonai-harness-capabilities-2026-10-02-v4.mp4" type="video/mp4">
-<track kind="captions" src="/_files/harness/tritonai-harness-capabilities-2026-10-02-v4.vtt" srclang="en" label="English" default>
+<video class="img-responsive center-block" width="1920" height="1080" data-playback="manual" controls controlslist="nodownload" muted playsinline preload="none" poster="/_images/harness/tritonai-harness-capabilities-2026-11-19.jpg" aria-label="TritonAI Harness in action" aria-describedby="harness-in-action-description" aria-details="harness-in-action-transcript">
+<source src="/_files/harness/tritonai-harness-capabilities-2026-11-19.mp4" type="video/mp4">
+<track kind="captions" src="/_files/harness/tritonai-harness-capabilities-2026-11-19.vtt" srclang="en" label="English" default>
 Your browser does not support embedded video.
 </video>
 <p>Try these tasks yourself in the <a href="/training/harness/">full Harness training</a>.</p>
-<p class="small">Tap Play to start. If the embedded player does not work, <a href="/_files/harness/tritonai-harness-capabilities-2026-10-02-v4.mp4">open the video directly</a>.</p>
-<p id="harness-in-action-description" class="small">The video starts muted with captions. Turn on sound to hear the narration. It shows a survey summary, an Excel dashboard, a briefing deck on the UC San Diego template, the five campus plugins, an n8n workflow explained step by step, a GitHub code review, and a sign-up app built on the campus design system and wired to an n8n workflow.</p>
+<p class="small">Tap Play to start. If the embedded player does not work, <a href="/_files/harness/tritonai-harness-capabilities-2026-11-19.mp4">open the video directly</a>.</p>
+<p id="harness-in-action-description" class="small">The video starts muted with captions. Turn on sound to hear the narration. It shows a survey summary, a briefing deck on the UC San Diego template opened in the preview pane, the included plugins, an n8n workflow explained step by step, a GitHub code review, and a sign-up app built on the campus design system.</p>
 <section class="sr-only" id="harness-in-action-transcript" aria-label="Video transcript">
 <h3>Introduction (0:00)</h3>
 <p>TritonAI Harness is UC San Diego's AI workspace on your desktop. You hand it real work, and it delivers finished results, using your files and campus systems.</p>
-<h3>Summarize a survey (0:11)</h3>
-<p>Here it is, live, with a made-up project: Jordan's fall workshop pilot. Qualtrics already reports the survey, but Jordan wants the team's own questions answered, so I hand it the raw results. Fourteen seconds later: averages for every question, the top comments, the missing data flagged, and a takeaway for the planning team, saved as a file.</p>
-<h3>Build an Excel dashboard (0:35)</h3>
-<p>Department leaders want one page, so: a presentation-ready Excel dashboard. It builds the workbook, and a few quick follow-ups polish the layout. Headline numbers up top, three charts in campus colors, and a one-line insight under each.</p>
-<h3>Create a briefing deck (0:52)</h3>
-<p>Jordan has ten minutes with leaders next week, so the meeting notes and the survey become a briefing deck on the official UC San Diego template. Nine slides with live charts, an owners table, a timeline to the next session, and speaker notes, all built from the source files.</p>
-<h3>Work with campus systems (1:10)</h3>
-<p>It plugs into the campus systems you already use: Microsoft 365, Google Workspace, Kuali Build, GitHub, and n8n. Here it reads an n8n workflow, explains each step in plain language, and confirms the last run succeeded. With GitHub, it reviews a code change: what changed, which files, and whether the build passed.</p>
-<h3>Build a web app (1:39)</h3>
-<p>And it builds software. A Microsoft Form would cover a basic sign-up, but Jordan's team wants the campus look and every sign-up in its own n8n workflow. Here's that app, on the official campus design system. Coming soon: self-service hosting, so the apps you build in the Harness can go live for campus.</p>
-<h3>Campus tools first (2:01)</h3>
+<h3>Summarize a survey (0:12)</h3>
+<p>Here it is, with a made-up project: Jordan's fall workshop pilot. Qualtrics already reports the survey, but Jordan wants the team's own questions answered, so I hand it the raw results. About half a minute later: averages for every question, the top comments, and the missing data flagged, saved as a file that opens right beside the thread.</p>
+<h3>Create a briefing deck (0:34)</h3>
+<p>Jordan has ten minutes with leaders next week, so the meeting notes and the survey become a briefing deck on the official UC San Diego template. Eight slides, with charts and speaker notes, all built from the source files. You can page through it right in the Harness.</p>
+<h3>Work with campus systems (0:52)</h3>
+<p>It plugs into the campus systems you already use: GitHub, Google Workspace, Jira, Kuali Build, Lucid, Microsoft 365, and n8n, plus UCSD Assistant for public campus sources. Here it reads an n8n workflow, explains each step in plain language, and points out that the workflow is turned off. With GitHub, it reviews a code change: what changed, which files, and whether the build passed.</p>
+<h3>Build a web app (1:24)</h3>
+<p>And it builds software. A Microsoft Form would cover a basic sign-up, but Jordan's team wants the campus look, and every sign-up in its own n8n workflow. Here's that app, on the official campus design system. Coming soon: self-service hosting, so the apps you build in the Harness can go live for campus.</p>
+<h3>Campus tools first (1:48)</h3>
 <p>When a campus tool does the job, use it. When you need it your way, build it with the Harness. That's TritonAI Harness: real work, finished on your desktop, with campus tools built in.</p>
 </section>
 </section>
