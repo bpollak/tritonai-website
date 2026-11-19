@@ -605,7 +605,7 @@ td.shot{color:var(--muted)}
 
   <p><strong>Not set up yet?</strong> Watch the <a href="/developer-apis/start.html#setup-video">three-minute setup walkthrough</a> first. It covers the access request form, the email with the one-time link to your key, the installer, and a first prompt. Then come back and start with Essentials.</p>
 
-  <p><strong>Updated for Harness 0.4.2.</strong> The screens and narration were updated in November 2026 for the current stable release. Screens marked “Real capture · Harness 0.4.2” come from that version. Screens marked “Harness 0.4.2 · sample data” are that version too, with example text in place of real mail, calendar, file, and usage details. The computer use run and its Excel result still show an earlier version, so small details there may differ. New threads start in Auto until you choose another mode. <a href="https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md">Review the permission modes</a> or read the <a href="/developer-apis/harness-release-notes.html">release notes</a>.</p>
+  <p><strong>Updated for Harness 0.4.2.</strong> The screens and narration were updated in November 2026 for the current stable release. Screens marked “Real capture · Harness 0.4.2” come from that version. Screens marked “Harness 0.4.2 · sample data” are that version too, with example text in place of real mail, calendar, file, and usage details. The n8n test run in the app chapter was recorded on an earlier version. New threads start in Auto until you choose another mode. <a href="https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md">Review the permission modes</a> or read the <a href="/developer-apis/harness-release-notes.html">release notes</a>.</p>
 
   <section class="player" aria-label="Training video">
     <div class="screen" id="screen" role="group" tabindex="0" aria-label="Training video screen. Space plays or pauses, left and right arrows move between steps.">
@@ -701,7 +701,7 @@ td.shot{color:var(--muted)}
   </details>
 
   </main>
-  <footer class="foot">The screens are rebuilt from recorded runs of TritonAI Harness in September 2026, using a demo project with fictional data. Most plugin examples use sample data; the ones marked “Real capture” are real runs. The computer use and app-building scenes are real captures from those runs. The Harness keeps improving, so your screens may look slightly different. Request access or download at <a href="https://tritonai.ucsd.edu/developer-apis/start.html">tritonai.ucsd.edu/developer-apis/start.html</a>, where the <a href="https://tritonai.ucsd.edu/developer-apis/start.html#setup-video">setup walkthrough video</a> shows each step. Recorded with TritonAI Harness 0.3.5-nightly.20260926.39. Screens marked “Real capture · Harness 0.4.2” were captured November 18, 2026 from stable 0.4.2 with the same fictional project, and the narration was updated to match. Screens marked “Harness 0.4.2 · sample data” are the same version with example text swapped in. The computer use run, the Excel scenes, and the n8n test run are from the earlier version.</footer>
+  <footer class="foot">The screens are rebuilt from recorded runs of TritonAI Harness in September 2026, using a demo project with fictional data. Most plugin examples use sample data; the ones marked “Real capture” are real runs. The computer use and app-building scenes are real captures from those runs. The Harness keeps improving, so your screens may look slightly different. Request access or download at <a href="https://tritonai.ucsd.edu/developer-apis/start.html">tritonai.ucsd.edu/developer-apis/start.html</a>, where the <a href="https://tritonai.ucsd.edu/developer-apis/start.html#setup-video">setup walkthrough video</a> shows each step. Recorded with TritonAI Harness 0.3.5-nightly.20260926.39. Screens marked “Real capture · Harness 0.4.2” were captured November 18, 2026 from stable 0.4.2 with the same fictional project, and the narration was updated to match. Screens marked “Harness 0.4.2 · sample data” are the same version with example text swapped in. The dashboard in the opening montage and the n8n test run are from the earlier version.</footer>
 </div>
 
 <script>
@@ -2303,7 +2303,44 @@ SHOTS.v20AppAsk='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBARXhpZgAA
  ],'a request to start a draft room request, and the answer: a draft with the four fields given, not submitted.',SAY.kdraft);
 })();
 
-const VO_DUR=[28.81, 21.48, 11.4, 14.45, 16.56, 33.35, 9.63, 12.96, 7.31, 19.29, 16.6, 15.54, 7.16, 9.04, 8.89, 8.18, 14.6, 7.3, 9.55, 9.44, 14.36, 29.54, 15.96, 16.78, 10.02, 17.82, 11.63, 9.85, 13.13, 9.69, 7.35, 12.31, 14.58, 14.98, 17.23, 15.17, 17.21, 15.76, 34.85, 8.07, 10.39, 6.79, 9.7, 7.53, 5.9, 19.76, 7.25, 17.59, 5.99, 5.63, 18.11, 13.65, 14.37, 12.43, 8.28, 15.53, 23.73, 13.48, 17.22, 15.55, 11.07, 16.01, 14.85, 8.56, 19.74, 19.93, 12.73, 9.97, 14.38, 16.11, 10.98, 16.66, 20.94, 16.88, 10.97, 22.57, 18.06, 13.91, 23.78, 7.28, 20.27, 16.61, 16.76, 14.76, 10.47, 12.26, 16.97, 31.26, 17.68, 13.75, 14.85, 11.74, 9.55, 29.76, 13.54, 15.16, 16.49, 17.06, 15.53, 13.81, 12.59, 16.61, 25.23, 11.21, 13.93, 13.6, 15.37, 13.26, 15.11, 10.84, 11.7, 11.22, 24.86, 16.67, 9.22];
+/* ---------- v28: the computer use run, captured from stable 0.4.2: the Supervised prompts, the Full access run with its failed steps, the closing summary, and the saved workbook before and after a polish request ---------- */
+(function(){
+ const by=t=>{ const c=CH.find(c=>c.t===t); if(!c) throw new Error('missing chapter '+t); return c; };
+ const beat=(c,prefix)=>{ const b=c.beats.find(b=>b.say.startsWith(prefix)); if(!b) throw new Error('missing beat '+prefix); return b; };
+ const REAL='Real capture · Harness 0.4.2', BOOK='Real capture · the saved workbook';
+ const SAY={
+  run:"For a longer task on sample files, switch the thread to Full access and let it work. The change takes effect with your next message. This is the real run. It took about fifteen minutes. It clicked, typed, and used Excel's menus, and when a step failed, it looked at the screen again and tried another way. If it keeps looping, press stop.",
+  done:"When it's done, it says what it made and what it left alone: ratings-chart.xlsx with a bar chart of the three averages, and the CSV untouched. Notice it says it verified the chart.",
+  check:"So open the file yourself and check it against the source. The averages read 4.05, 4.43, and 2.97, which means the blanks were skipped. But a first pass is rarely ready for a meeting. The title just says Average, and nothing is formatted. So Jordan asked for a cleaner, formatted workbook, and it reported the job done. Open that one too. The styled header, the averages table, and the titled chart are all there, with one leftover: the original header row, still sitting in row 2. Check the result, not the report. Then ask for the fix, or delete the row yourself. Computer use is slower than a plugin, so save it for apps nothing else can reach."};
+ const seq=(b,frames)=>function(){ S.clearNotes(); S.hl(); frames.forEach(([file,alt,o,at,tag],i)=>{
+   const show=()=>{ if(!i||S.fast){ S.real('shots/'+file+'.jpg',alt,tag||REAL,o||{}); return; }
+     const old=[...stage.querySelectorAll('.realshot')], un=S.unreal; S.unreal=function(){}; try{ S.real('shots/'+file+'.jpg',alt,tag||REAL,o||{}); } finally { S.unreal=un; }
+     setTimeout(()=>old.forEach(e=>e.remove()),900); };
+   if(!i) show(); else S.later(()=>{ if(S.fast||CH[ci].beats[bi]===b) show(); },at*1000); }); };
+ /* as in v26 and v27: run the step's earlier screen underneath first, so later steps start from the same window state */
+ const R=(b,frames,shot,say)=>{ const drawn=b.do, cap=seq(b,frames);
+   b.do=function(){ const f=S.fast; S.fast=true; try{ drawn.apply(this,arguments); } finally { S.fast=f; } S.unpop(); S.unreal(); return cap.apply(this,arguments); };
+   b.shot='Real capture: '+shot; delete b.zoom; if(say) b.say=say; return b; };
+
+ const bj=by('Bigger jobs');
+ R(beat(bj,'In Supervised mode, computer use asks before every action'),[
+  ['computer-use-supervised','A Harness thread in Supervised mode. Computer use steps are listed as cards: Inspect desktop, bring to front, Inspect desktop, and a Click that failed. Above the composer, an App access approval asks to let the cua-driver server run the tool set_value, with Decline and Approve.',{s0:1.05,s1:1.4,ox:'46%',oy:'90%',dur:13}]
+ ],'a Supervised thread with computer use step cards, then an App access approval asking to run the cua-driver tool set_value, with Decline and Approve.');
+ R(beat(bj,'For a longer task on sample files'),[
+  ['computer-use-run-1','The same thread, now in Full access and working. Step cards for Click and Inspect desktop are marked Completed, with the agent’s short notes between them.',{s0:1.05,s1:1.25,ox:'46%',oy:'50%',dur:16}],
+  ['computer-use-run-2','Further into the run: three Type text steps in a row are marked Failed, each followed by a note on what the agent will try next.',{s0:1.1,s1:1.35,ox:'46%',oy:'62%',dur:8},16.4]
+ ],'the thread in Full access while the run is under way: completed Click and Inspect desktop steps, then three failed Type text steps, each followed by the agent’s next attempt.',SAY.run);
+ R(beat(bj,"When it's done, it says what it made"),[
+  ['computer-use-summary','The end of the run: the last step cards, ending with End session, and the summary. ratings-chart.xlsx is saved in the project folder with the three averages and the bar chart, the file was verified, and the CSV is unchanged.',{s0:1.1,s1:1.45,ox:'46%',oy:'82%',dur:13}]
+ ],'the end of the run: the last step cards and the summary saying ratings-chart.xlsx is saved with the three averages and a bar chart, verified, with the CSV unchanged.',SAY.done);
+ R(beat(bj,'So open the file yourself'),[
+  ['computer-use-excel-first','Excel with ratings-chart.xlsx as the agent first saved it: the feedback rows, a small table of Pace, Content, and Room averages shown to eight decimals, and a plain bar chart titled Average.',{s0:1.05,s1:1.45,ox:'42%',oy:'38%',dur:18},0,BOOK],
+  ['computer-use-excel-polished','The workbook after the follow-up request: a bold header row in white on dark blue, a bordered table of the three averages to two decimals, and a bar chart titled Average workshop ratings with a zero to five axis and labels of 2.97, 4.43, and 4.05.',{s0:1.02,s1:1.12,ox:'55%',oy:'25%',dur:8},23.3,BOOK],
+  ['computer-use-excel-polished','The top left of the same sheet. Row 1 is the styled header: Response, Pace, Content, Room, Comment. Row 2 still holds the original header row from the CSV file: response_id, pace, content, room, comment.',{s0:1.12,s1:1.9,ox:'6%',oy:'22%',dur:9},30.4,BOOK]
+ ],'ratings-chart.xlsx in Excel as first saved, with the three averages and a plain bar chart titled Average; then the workbook after a follow-up request, with a styled header, a bordered averages table, and a titled chart, and the original CSV header row still in row 2.',SAY.check);
+})();
+
+const VO_DUR=[28.81, 21.48, 11.4, 14.45, 16.56, 33.35, 9.63, 12.96, 7.31, 19.29, 16.6, 15.54, 7.16, 9.04, 8.89, 8.18, 14.6, 7.3, 9.55, 9.44, 14.36, 29.54, 15.96, 16.78, 10.02, 17.82, 11.63, 9.85, 13.13, 9.69, 7.35, 12.31, 14.58, 14.98, 17.23, 15.17, 24.4, 13.97, 48.05, 8.07, 10.39, 6.79, 9.7, 7.53, 5.9, 19.76, 7.25, 17.59, 5.99, 5.63, 18.11, 13.65, 14.37, 12.43, 8.28, 15.53, 23.73, 13.48, 17.22, 15.55, 11.07, 16.01, 14.85, 8.56, 19.74, 19.93, 12.73, 9.97, 14.38, 16.11, 10.98, 16.66, 20.94, 16.88, 10.97, 22.57, 18.06, 13.91, 23.78, 7.28, 20.27, 16.61, 16.76, 14.76, 10.47, 12.26, 16.97, 31.26, 17.68, 13.75, 14.85, 11.74, 9.55, 29.76, 13.54, 15.16, 16.49, 17.06, 15.53, 13.81, 12.59, 16.61, 25.23, 11.21, 13.93, 13.6, 15.37, 13.26, 15.11, 10.84, 11.7, 11.22, 24.86, 16.67, 9.22];
 const FLAT=[]; let total=0;
 CH.forEach((c,ci)=>{ c.start=total; c.beats.forEach((b,bi)=>{ b.dur=VO_DUR[FLAT.length]||Math.max(4.5,Math.min(16,words(b.say)/2.55+1.6)); FLAT.push({ci,bi,start:total,dur:b.dur}); total+=b.dur; }); c.len=total-c.start; });
 const fmt=s=>{s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');};
