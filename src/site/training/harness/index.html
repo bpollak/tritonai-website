@@ -605,7 +605,7 @@ td.shot{color:var(--muted)}
 
   <p><strong>Not set up yet?</strong> Watch the <a href="/developer-apis/start.html#setup-video">three-minute setup walkthrough</a> first. It covers the access request form, the email with the one-time link to your key, the installer, and a first prompt. Then come back and start with Essentials.</p>
 
-  <p><strong>Updated for Harness 0.4.2.</strong> The screens and narration were updated in November 2026 for the current stable release. Screens marked “Real capture · Harness 0.4.2” come from that version. A few scenes, including the computer use run and the plugin examples that use sample data, still show an earlier version, so small details there may differ. New threads start in Auto until you choose another mode. <a href="https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md">Review the permission modes</a> or read the <a href="/developer-apis/harness-release-notes.html">release notes</a>.</p>
+  <p><strong>Updated for Harness 0.4.2.</strong> The screens and narration were updated in November 2026 for the current stable release. Screens marked “Real capture · Harness 0.4.2” come from that version. Screens marked “Harness 0.4.2 · sample data” are that version too, with example text in place of real mail, calendar, file, and usage details. The computer use run and its Excel result still show an earlier version, so small details there may differ. New threads start in Auto until you choose another mode. <a href="https://github.com/dbalders/TritonAI-Harness/blob/v0.4.2/docs/user/permission-modes.md">Review the permission modes</a> or read the <a href="/developer-apis/harness-release-notes.html">release notes</a>.</p>
 
   <section class="player" aria-label="Training video">
     <div class="screen" id="screen" role="group" tabindex="0" aria-label="Training video screen. Space plays or pauses, left and right arrows move between steps.">
@@ -701,7 +701,7 @@ td.shot{color:var(--muted)}
   </details>
 
   </main>
-  <footer class="foot">The screens are rebuilt from recorded runs of TritonAI Harness in September 2026, using a demo project with fictional data. Most plugin examples use sample data; the ones marked “Real capture” are real runs. The computer use and app-building scenes are real captures from those runs. The Harness keeps improving, so your screens may look slightly different. Request access or download at <a href="https://tritonai.ucsd.edu/developer-apis/start.html">tritonai.ucsd.edu/developer-apis/start.html</a>, where the <a href="https://tritonai.ucsd.edu/developer-apis/start.html#setup-video">setup walkthrough video</a> shows each step. Recorded with TritonAI Harness 0.3.5-nightly.20260926.39. Screens marked “Real capture · Harness 0.4.2” were captured November 18, 2026 from stable 0.4.2 with the same fictional project, and the narration was updated to match. The computer use and Excel scenes, the n8n test run, and the plugin examples that use sample data are from the earlier version.</footer>
+  <footer class="foot">The screens are rebuilt from recorded runs of TritonAI Harness in September 2026, using a demo project with fictional data. Most plugin examples use sample data; the ones marked “Real capture” are real runs. The computer use and app-building scenes are real captures from those runs. The Harness keeps improving, so your screens may look slightly different. Request access or download at <a href="https://tritonai.ucsd.edu/developer-apis/start.html">tritonai.ucsd.edu/developer-apis/start.html</a>, where the <a href="https://tritonai.ucsd.edu/developer-apis/start.html#setup-video">setup walkthrough video</a> shows each step. Recorded with TritonAI Harness 0.3.5-nightly.20260926.39. Screens marked “Real capture · Harness 0.4.2” were captured November 18, 2026 from stable 0.4.2 with the same fictional project, and the narration was updated to match. Screens marked “Harness 0.4.2 · sample data” are the same version with example text swapped in. The computer use run, the Excel scenes, and the n8n test run are from the earlier version.</footer>
 </div>
 
 <script>
@@ -2231,7 +2231,79 @@ SHOTS.v20AppAsk='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBARXhpZgAA
  ],'the composer with $decorator typed and the Ucsd Decorator skill offered, then /decorator with /skill:Ucsd Decorator in the slash menu, then the request starting with a Ucsd Decorator tag.');
 })();
 
-const VO_DUR=[28.81, 21.48, 11.4, 14.45, 16.56, 33.35, 9.63, 12.96, 7.31, 19.29, 16.6, 15.54, 7.16, 9.04, 8.89, 8.18, 14.6, 7.3, 9.55, 9.44, 14.36, 29.54, 15.96, 16.78, 10.02, 17.82, 11.63, 9.85, 13.13, 9.69, 7.35, 12.31, 12.76, 14.98, 17.23, 15.17, 17.21, 15.76, 34.85, 8.07, 10.39, 6.79, 9.7, 7.53, 5.9, 19.76, 7.25, 17.59, 5.99, 5.63, 18.11, 13.65, 14.37, 12.43, 8.28, 15.53, 23.73, 13.48, 17.22, 15.55, 11.07, 16.01, 14.85, 8.56, 19.74, 19.93, 12.73, 9.97, 14.38, 16.11, 11.53, 16.66, 20.94, 16.88, 10.97, 22.57, 18.06, 13.91, 23.78, 7.28, 20.27, 16.61, 16.76, 14.76, 10.47, 12.89, 16.97, 31.26, 17.68, 13.75, 14.85, 13.04, 9.55, 29.76, 13.54, 15.16, 16.49, 17.06, 15.53, 13.81, 12.59, 16.61, 25.23, 11.21, 13.93, 13.6, 15.37, 13.26, 15.11, 10.84, 11.7, 11.22, 24.86, 16.67, 9.22];
+/* ---------- v27: Microsoft 365 calendar hold and mail draft from real 0.4.2 runs; the computer use request and readiness rows; and the Usage, Google, briefing, and Kuali Build examples as 0.4.2 screens with sample text ---------- */
+(function(){
+ const by=t=>{ const c=CH.find(c=>c.t===t); if(!c) throw new Error('missing chapter '+t); return c; };
+ const beat=(c,prefix)=>{ const b=c.beats.find(b=>b.say.startsWith(prefix)); if(!b) throw new Error('missing beat '+prefix); return b; };
+ const REAL='Real capture · Harness 0.4.2';
+ /* a real 0.4.2 screen whose text was replaced with the course's sample content before it was captured */
+ const SAMPLE='Harness 0.4.2 · sample data';
+ const SAY={
+  perm:"Settings shows whether Accessibility and Screen Recording are allowed. If either one isn't, the Harness stops before it starts and shows Needs permissions. Allow both in System Settings, then restart the Harness.",
+  sheet:"Survey results in a Sheet. Ask it to find the sheet, summarize the ratings and themes, and flag missing responses. Then open the sheet yourself and check a number or two.",
+  hold:"Put it on my calendar. Once you switch on Create and edit calendar events, a short request becomes an event. It's a write ability, so Supervised asks before anything lands on your calendar.",
+  kdraft:"With the write ability on, it can start a Kuali Build draft for you. It asks before it saves, and leaves it as a draft, so you can check every field in Kuali Build before anyone submits it."};
+ const seq=(b,frames,tag)=>function(){ S.clearNotes(); S.hl(); frames.forEach(([file,alt,o,at],i)=>{
+   const show=()=>{ if(!i||S.fast){ S.real('shots/'+file+'.jpg',alt,tag,o||{}); return; }
+     const old=[...stage.querySelectorAll('.realshot')], un=S.unreal; S.unreal=function(){}; try{ S.real('shots/'+file+'.jpg',alt,tag,o||{}); } finally { S.unreal=un; }
+     setTimeout(()=>old.forEach(e=>e.remove()),900); };
+   if(!i) show(); else S.later(()=>{ if(S.fast||CH[ci].beats[bi]===b) show(); },at*1000); }); };
+ /* as in v26: run the drawn step underneath first, so the drawn steps after it start from the same window state */
+ const R=(b,tag,frames,shot,say)=>{ const drawn=b.do, cap=seq(b,frames,tag);
+   b.do=function(){ const f=S.fast; S.fast=true; try{ drawn.apply(this,arguments); } finally { S.fast=f; } S.unpop(); return cap.apply(this,arguments); };
+   b.shot=(tag===REAL?'Real capture: ':'Harness 0.4.2 screen with sample data: ')+shot; delete b.zoom; if(say) b.say=say; return b; };
+
+ /* 1. Bigger jobs: where the two permissions show, and the computer use request */
+ const bj=by('Bigger jobs');
+ R(beat(bj,'If Accessibility or Screen Recording'),REAL,[
+  ['computer-use-permissions','Settings, Maintenance section, Computer use: Accessibility and Screen Recording each have a row that reads Allowed, with a Check again button below.',{s0:1.1,s1:1.55,ox:'62%',oy:'26%',dur:12}]
+ ],'Settings, Maintenance section, Computer use, with a row each for Accessibility and Screen Recording, both reading Allowed, and a Check again button.',SAY.perm);
+ R(beat(bj,'Jordan wants a chart of the three ratings'),REAL,[
+  ['computer-use-request','A request typed in the composer, in Supervised mode: use computer use to open workshop-feedback.csv in Excel, make a bar chart of the three average ratings, save it as ratings-chart.xlsx, and do not change the CSV.',{s0:1.15,s1:1.5,ox:'46%',oy:'48%',dur:14}]
+ ],'the computer use request typed in the composer: open workshop-feedback.csv in Excel, chart the three average ratings, save ratings-chart.xlsx, and leave the CSV alone.');
+
+ /* 2. Settings: Usage */
+ const st=by('Settings you’ll use');
+ R(beat(st,'The chart icon at the bottom of the sidebar opens Usage'),SAMPLE,[
+  ['usage-sample','The Usage view on its Limits tab, with example figures: TritonAI quota, a budget bar at 20.6 percent, and tiles for Used, Budget limit, Remaining, and Utilization.',{s0:1.05,s1:1.3,ox:'50%',oy:'28%',dur:8}]
+ ],'the Usage view with example figures: a budget bar, and tiles for Used, Budget limit, Remaining, and Utilization.');
+
+ /* 3. Plugin tour: the Google Sheet and Doc examples */
+ const t1=by('Plugin tour: Microsoft 365 and Google');
+ R(beat(t1,'Survey results in a Sheet'),SAMPLE,[
+  ['sheet-sample','A Harness thread. The request asks to find the fall workshop feedback sheet in Google Drive and summarize it. The answer gives the three average ratings, the top comments, the rows with missing ratings, and how each average was calculated.',{s0:1.1,s1:1.35,ox:'40%',oy:'22%',dur:10}]
+ ],'a thread asking for a summary of the fall workshop feedback sheet in Google Drive, and the answer: three averages, top comments, rows with missing ratings, and how each number was calculated.',SAY.sheet);
+ R(beat(t1,'Decisions buried in a Doc'),SAMPLE,[
+  ['doc-sample','A Harness thread. The request asks for the decisions and actions in the pilot review planning notes in Drive. The answer lists two decisions and three actions with owners, each with the section and line it came from.',{s0:1.1,s1:1.35,ox:'42%',oy:'26%',dur:12}]
+ ],'a thread asking for decisions and actions from planning notes in Drive, and the answer: two decisions and three actions with owners, each pointing to its line in the doc.');
+
+ /* 4. Put it to work */
+ const pw=by('Put it to work');
+ R(beat(pw,'Morning briefing, done properly'),SAMPLE,[
+  ['brief-sample','A Harness thread. The request asks for a brief on today’s meetings. The answer starts with Tuesday at a glance: themes, open loops, a heads-up, and what to prep. Then the ten o’clock meeting: what carried over, a suggested agenda, and the best outcome, with its sources.',{s0:1.1,s1:1.3,ox:'40%',oy:'40%',dur:15}]
+ ],'a thread asking for a brief on today’s meetings, and the answer: the day at a glance, then one meeting with what carried over, a suggested agenda, the best outcome, and its sources.');
+ R(beat(pw,'Then each meeting gets its own page'),SAMPLE,[
+  ['brief-page-sample','The same thread with brief-tuesday.md open in the preview pane: the ten o’clock Pilot review, with context, a table of actions carried over from last week with owner and status, a thirty-minute suggested agenda, the best outcome, prep, and sources.',{s0:1.05,s1:1.3,ox:'88%',oy:'40%',dur:13}]
+ ],'the meeting page open in the preview pane beside the thread: carried-over actions with owner and status, a suggested agenda, the best outcome, prep, and sources.');
+ R(beat(pw,'Put it on my calendar'),REAL,[
+  ['m365-hold-request','A request typed in the composer, in Supervised mode: add a 30-minute hold to the Outlook calendar at 3 PM on Thursday, December 3, called TRAINING DEMO - Pilot review, with no attendees.',{s0:1.15,s1:1.4,ox:'30%',oy:'32%',dur:7}],
+  ['m365-hold-approval','An App permission approval above the composer names the tool, microsoft365_calendar_event_create, with the subject, start, and end it will use, and Decline and Approve.',{s0:1.2,s1:1.5,ox:'48%',oy:'82%',dur:4},6.6],
+  ['m365-hold-result','The result in the thread: the hold is on the Outlook calendar, with its subject and time, no attendees, and no other events read or changed.',{s0:1.2,s1:1.4,ox:'50%',oy:'22%',dur:4},9.6]
+ ],'a request to add a 30-minute hold to the Outlook calendar, the approval that names the calendar tool with the subject and times, and the result.',SAY.hold);
+ R(beat(pw,'After the review, Jordan owes'),REAL,[
+  ['m365-draft-request','A request typed in the composer: draft a follow-up from meeting-notes.md with the decisions, owners, and dates, and save it as an unsent Outlook draft with no recipients.',{s0:1.15,s1:1.4,ox:'30%',oy:'32%',dur:9}],
+  ['m365-draft-approval','An App permission approval names the tool, microsoft365_mail_draft_create, with an empty recipient list, the subject, and the start of the message, and Decline and Approve.',{s0:1.2,s1:1.5,ox:'48%',oy:'86%',dur:5},7.2],
+  ['m365-draft-result','The result in the thread: the draft is saved in the Outlook Drafts folder, unsent, with no recipients. It lists the two decisions, the three actions with owners, and the open questions. Nothing was sent.',{s0:1.2,s1:1.4,ox:'52%',oy:'24%',dur:6},11.8]
+ ],'a request for a follow-up draft from the meeting notes, the approval that names the mail draft tool with no recipients, and the result: an unsent draft in Outlook, nothing sent.');
+ R(beat(pw,'Kuali Build check'),SAMPLE,[
+  ['kuali-read-sample','A Harness thread. The request asks which documents in a room-request Build app are In Progress and who each is waiting on. The answer lists three, each with who it is waiting on and for how long, and says nothing was changed.',{s0:1.1,s1:1.35,ox:'40%',oy:'22%',dur:13}]
+ ],'a thread asking which documents in a Build app are In Progress, and the answer: three documents, who each is waiting on, and for how long.');
+ R(beat(pw,'With the write ability on'),SAMPLE,[
+  ['kuali-draft-sample','The same thread. A second request asks to start a draft room request for the Oct 14 workshop. The answer says a draft was created with the four fields given, lists them, and says it has not been submitted.',{s0:1.1,s1:1.35,ox:'46%',oy:'70%',dur:11}]
+ ],'a request to start a draft room request, and the answer: a draft with the four fields given, not submitted.',SAY.kdraft);
+})();
+
+const VO_DUR=[28.81, 21.48, 11.4, 14.45, 16.56, 33.35, 9.63, 12.96, 7.31, 19.29, 16.6, 15.54, 7.16, 9.04, 8.89, 8.18, 14.6, 7.3, 9.55, 9.44, 14.36, 29.54, 15.96, 16.78, 10.02, 17.82, 11.63, 9.85, 13.13, 9.69, 7.35, 12.31, 14.58, 14.98, 17.23, 15.17, 17.21, 15.76, 34.85, 8.07, 10.39, 6.79, 9.7, 7.53, 5.9, 19.76, 7.25, 17.59, 5.99, 5.63, 18.11, 13.65, 14.37, 12.43, 8.28, 15.53, 23.73, 13.48, 17.22, 15.55, 11.07, 16.01, 14.85, 8.56, 19.74, 19.93, 12.73, 9.97, 14.38, 16.11, 10.98, 16.66, 20.94, 16.88, 10.97, 22.57, 18.06, 13.91, 23.78, 7.28, 20.27, 16.61, 16.76, 14.76, 10.47, 12.26, 16.97, 31.26, 17.68, 13.75, 14.85, 11.74, 9.55, 29.76, 13.54, 15.16, 16.49, 17.06, 15.53, 13.81, 12.59, 16.61, 25.23, 11.21, 13.93, 13.6, 15.37, 13.26, 15.11, 10.84, 11.7, 11.22, 24.86, 16.67, 9.22];
 const FLAT=[]; let total=0;
 CH.forEach((c,ci)=>{ c.start=total; c.beats.forEach((b,bi)=>{ b.dur=VO_DUR[FLAT.length]||Math.max(4.5,Math.min(16,words(b.say)/2.55+1.6)); FLAT.push({ci,bi,start:total,dur:b.dur}); total+=b.dur; }); c.len=total-c.start; });
 const fmt=s=>{s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');};
