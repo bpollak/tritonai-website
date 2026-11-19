@@ -1955,6 +1955,8 @@ SHOTS.v20AppAsk='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBARXhpZgAA
  /* 2. Your first thread */
  const ft=by('Your first thread');
  R(beat(ft,"Here's the Harness"),'app-thread-and-file','The Harness window: threads for the workshop-planning project on the left, the conversation in the middle, and summary.md open in the preview pane on the right.',{s0:1,s1:1.05});
+ /* the drawn app window is switched on by this step; keep doing that now that it shows a capture, or every later drawn screen stays blank */
+ { const hb=beat(ft,"Here's the Harness"), hd=hb.do; hb.do=function(){ S.showWin(); return hd.apply(this,arguments); }; }
  R(beat(ft,'Start by adding your work as a project'),'add-project','The Add project palette with three sources: New project, Local folder, and Git URL.',{s0:1.05,s1:1.3,ox:'50%',oy:'45%'},null,N['02-02']);
  R(beat(ft,'Type or browse to the folder'),'add-project-folder','The folder browser with Documents/workshop-planning typed and the Add button showing Enter.',{s0:1.05,s1:1.3,ox:'50%',oy:'45%'});
  R(beat(ft,'Before you ask for anything, look at the lock'),'mode-menu','The mode menu open in the composer, beside the model and effort selectors: Supervised, Auto-accept edits, Auto, and Full access.',{s0:1,s1:1.35,ox:'60%',oy:'55%'},null,N['02-04']);
