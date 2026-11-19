@@ -2076,17 +2076,17 @@ SHOTS.v21Skills='data:image/jpeg;base64,/9j//gAQTGF2YzYyLjExLjEwMAD/2wBDAAgICAkI
  const b0=why.beats[0], orig=b0.do;
  // seconds into the step (clip timings from word timestamps, plus the 0.35 s narration lead)
  const M=[
-  [3.9, SHOTS.v19Window,'The TritonAI Harness window: the project and thread list on the left and a conversation on the right.','Real capture · the Harness on your desktop'],
+  [3.9, 'shots/app-thread-and-file.jpg','The TritonAI Harness window: the project and thread list on the left, a conversation in the middle, and a file open in the preview pane on the right.','Real capture · Harness 0.4.2 · the Harness on your desktop'],
   [9.3, SHOTS.v20ExcelDash,'An Excel dashboard built from workshop feedback: KPI tiles and two charts.','Real capture · analyzing a spreadsheet'],
-  [11.0,SHOTS.v20Ppt3,'A slide on the UC San Diego template with a chart of average ratings and speaker notes.','Real capture · notes into a deck'],
-  [13.0,SHOTS.v20AppPage,'A workshop sign-up page on the UC San Diego Decorator design system.','Real capture · a small app'],
-  [14.7,SHOTS.v20N8nExplain,'The Harness explaining a campus n8n workflow step by step, using the n8n plugin.','Real capture · your files and campus tools'],
-  [20.7,SHOTS.v19Summary,'A finished survey summary in the Harness: averages, top comments, and missing data flagged.','Real capture · run a task'],
-  [21.8,SHOTS.v20DeckDone,'A finished nine-slide deck in the Harness, with a short follow-up asking it to fix the title slide.','Real capture · guide and check it'],
-  [22.9,SHOTS.v21M365,'The Plugins page in Settings with the Microsoft 365 plugin open and connected.','Real capture · connect Microsoft 365'],
+  [11.0,'shots/deck-max.jpg','A slide on the UC San Diego template with the survey results and speaker notes, shown in the Harness preview pane.','Real capture · Harness 0.4.2 · notes into a deck'],
+  [13.0,'shots/app-preview-max.jpg','A workshop sign-up page on the UC San Diego Decorator design system, shown in the Harness preview pane.','Real capture · Harness 0.4.2 · a small app'],
+  [14.7,'shots/summary-preview.jpg','A Harness thread beside the summary it wrote from a survey file, shown in the preview pane.','Real capture · Harness 0.4.2 · your files and campus tools'],
+  [20.7,'shots/result.jpg','A finished survey summary in the Harness: averages, top comment themes, and missing ratings.','Real capture · Harness 0.4.2 · run a task'],
+  [21.8,'shots/deck-preview.jpg','A finished eight-slide deck open in the preview pane beside the thread that built it.','Real capture · Harness 0.4.2 · guide and check it'],
+  [22.9,'shots/settings-plugins.jpg','The Plugins page in Settings, listing campus plugins including Microsoft 365.','Real capture · Harness 0.4.2 · connect tools like Microsoft 365'],
   [25.8,SHOTS.v21Skills,'The TritonAI Skills Library page at tritonai.ucsd.edu: Find a skill for the work in front of you, with a search box and a Review code changes skill card showing an example request.','TritonAI Skills Library · skills you can reuse and share']
  ];
- b0.shot='Opening: title card, then a real capture for each thing the narration names (Harness window, spreadsheet, deck, app, campus tools, a task, a follow-up, Microsoft 365, skills).';
+ b0.shot='Opening: title card, then a real capture for each thing the narration names (Harness window, spreadsheet, deck, app, campus tools, a task, a follow-up, plugins, skills). The Harness frames are from stable 0.4.2.';
  let shown=-1;
  b0.do=function(){ shown=-1; orig.apply(this,arguments); };
  // driven by the player clock, so the cuts stay with the narration through pause, seek, and speed changes
