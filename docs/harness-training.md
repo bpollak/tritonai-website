@@ -167,9 +167,34 @@ Four clips were re-recorded: 05-04, 09-06, 11-07, and 11-13. Working files:
 `~/harness-training-demo/v28-rerecord/` (narration) and
 `~/harness-training-demo/stable-0.4.2/rec/r4/` (captures).
 
-Not yet on 0.4.2: the computer use run itself (05-07 drawn; 05-08 to 05-10
-earlier captures). It needs a run on a Mac where Excel has no other workbook
-open. 12-08 is an n8n screen, not a Harness screen.
+The computer use run (05-07 to 05-10) followed in `v28`; see the next section.
+
+## November 2026 computer use run (stable 0.4.2)
+
+The `v28` block replaces the last drawn step and the earlier computer use
+captures in "Bigger jobs" with a real run on stable 0.4.2 (05-07 to 05-10).
+
+- 05-07: the Supervised turn, with step cards and an App access approval for
+  the `cua-driver` tool `set_value`.
+- 05-08: the same thread in Full access while it worked, including three failed
+  Type text steps and the retries that followed. The run took 14 minutes 39
+  seconds and 91 computer use steps, nine of which failed.
+- 05-09: the closing summary.
+- 05-10: the saved workbook in Excel, tagged "Real capture · the saved
+  workbook": first as the agent saved it, then after a follow-up asking it to
+  polish the workbook. The polish turn reported success, but the window shows
+  the header row out of view, the averages behind the chart, and the chart
+  title cut off. The narration keeps that as the check-the-output lesson.
+
+A mode change in the composer applies from the next message, so the Full access
+part is a second turn. Excel windows were captured on their own, with no other
+window, menu bar, or Dock in frame. 05-08, 05-09, and 05-10 were re-recorded.
+Working files: `~/harness-training-demo/v29-rerecord/` (narration) and
+`~/harness-training-demo/stable-0.4.2/rec/r5/` (captures, the watcher logs, and
+the step list of each turn).
+
+Still from an earlier version: the dashboard in the opening montage and the n8n
+test run (12-08). Neither is a Harness screen.
 
 ## Standalone course contract
 
