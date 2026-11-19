@@ -27,6 +27,47 @@ It is listed in the public route manifest and sitemap. Do not embed the whole
 course in an iframe; its controls, chapters, downloads, and keyboard navigation
 need their own space.
 
+## Handoff from the setup walkthrough
+
+The three-minute setup walkthrough on `/developer-apis/start.html#setup-video`
+ends where the course begins: the learner has an access key, the Harness
+installed, and a first response in Supervised mode. The walkthrough links to
+`/training/harness/#essentials`, which turns on Essentials only. The course's
+opening notes, the chapter 1 practice box, and the "Before you start" card use
+the walkthrough's five steps and wording (access key, one-time link, Build ›
+Get Started). Keep the two in step when either changes.
+
+The plugin catalog below the player (`CAT`) is generated from the plugin
+manifests pinned to the current stable release. Since the November 2026
+re-record (the `v23` block), the plugin chapter screens draw from `CAT` too.
+
+## November 2026 re-record (stable 0.4.2)
+
+Seven narration clips were re-recorded with the same voice and settings as the
+rest of the course: 01-02, 07-02, 07-06, 08-01, 08-05, 09-04, and the new
+09-07. Each was transcribed and compared with its caption. Step timings in
+`VO_DUR` follow the new clip lengths. The working files (script lines, takes,
+cleaned clips) are in `~/harness-training-demo/v23-rerecord/` on the work Mac;
+the video kit's source page there was not updated, so rebuild from the site
+copy, not from the kit, until the two are reconciled. Real captures outside the
+plugin chapters, and the Skills chapters, are still from the earlier version.
+
+## November 2026 visual update (stable 0.4.2)
+
+The `v24` block replaces the drawn screens in chapters 2 to 6 and 10 to 12 with
+real captures from stable 0.4.2 (`shots/*.jpg`, shown through `S.real`), and
+shows each run's output in the preview pane: the summary, the generated deck,
+and the sign-up page branded with the UCSD Decorator skill. Sixteen more clips
+were re-recorded where controls moved (mode menu, approval buttons, Settings
+sections, Decorator skill, nine AI Team skills), and step 06-07 on Ideas and
+Help is new. Working files: `~/harness-training-demo/v24-rerecord/` (narration)
+and `~/harness-training-demo/stable-0.4.2/rec/` (captures and `INDEX.md`).
+
+Captures were taken from an isolated copy of the app with a fictional project.
+The computer name, local paths, and the access key tail are masked in the
+published images. Computer use, PowerPoint, Excel, and connected-plugin scenes
+still use the earlier captures.
+
 ## Standalone course contract
 
 The content owner authorized the standalone layout. Only this course is added to
