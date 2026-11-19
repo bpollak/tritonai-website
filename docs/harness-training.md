@@ -52,6 +52,22 @@ the video kit's source page there was not updated, so rebuild from the site
 copy, not from the kit, until the two are reconciled. Real captures outside the
 plugin chapters, and the Skills chapters, are still from the earlier version.
 
+## November 2026 visual update (stable 0.4.2)
+
+The `v24` block replaces the drawn screens in chapters 2 to 6 and 10 to 12 with
+real captures from stable 0.4.2 (`shots/*.jpg`, shown through `S.real`), and
+shows each run's output in the preview pane: the summary, the generated deck,
+and the sign-up page branded with the UCSD Decorator skill. Sixteen more clips
+were re-recorded where controls moved (mode menu, approval buttons, Settings
+sections, Decorator skill, nine AI Team skills), and step 06-07 on Ideas and
+Help is new. Working files: `~/harness-training-demo/v24-rerecord/` (narration)
+and `~/harness-training-demo/stable-0.4.2/rec/` (captures and `INDEX.md`).
+
+Captures were taken from an isolated copy of the app with a fictional project.
+The computer name, local paths, and the access key tail are masked in the
+published images. Computer use, PowerPoint, Excel, and connected-plugin scenes
+still use the earlier captures.
+
 ## Standalone course contract
 
 The content owner authorized the standalone layout. Only this course is added to
