@@ -134,8 +134,10 @@ Steps with a `zoom` used to scale `#stage` itself, so its box grew past the
 16:9 screen (up to about 930 px tall at a 1440 px window, against 641 px). The
 zoom now moves a camera layer inside the stage (`#cam`), and `#stage` keeps one
 size on every step. Anything appended to the stage goes into that layer.
-The caption bar reserves room for three lines, so the controls under the
-screen stay put between steps with short and long captions.
+The caption bar reserves room for three lines. At desktop width that keeps
+the controls under the screen in place on every step but one (01-06, whose
+caption runs to four lines). On a phone, captions still wrap to different
+heights.
 
 ## Standalone course contract
 
