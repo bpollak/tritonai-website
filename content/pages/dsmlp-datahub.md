@@ -5,7 +5,7 @@ description: DataHub is the browser route into DSMLP, the shared computing platf
 eyebrow: Teaching and course compute
 lastReviewed: 2026-07-26
 audiences: [students, faculty, researchers, staff, developers, leaders]
-source: UC San Diego DataHub and Research Platform, Blink DSMLP guidance, IT Services DSMLP documentation, and TritonAI platform architecture
+source: UC San Diego DataHub and Research Platform, Blink DSMLP guidance, IT Services DSMLP documentation, TritonAI platform architecture, and RAIN student Gateway intake confirmed November 19, 2026
 canonicalUrl: /developer-apis/dsmlp-datahub.html
 relatedSlides: [platform-architecture, tritonai-developer-api-program]
 landingHub: true
@@ -89,6 +89,9 @@ bannerPosition: center 44%
 <figcaption id="dsmlp-tritonai-caption">DSMLP provides shared compute for selected TritonAI workloads. Model requests continue through the TritonAI LLM Gateway to approved enterprise or UC-hosted model routes.</figcaption>
 </figure>
 <div class="dsmlp-distinction"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><p><strong>Related, but not the same service:</strong> DataHub is the web interface for authorized notebook and computational work. TritonAI users work through TritonGPT, the TritonAI Harness, APIs, or department applications. <a href="/developer-apis/index.html#api-gateway">See the TritonAI gateway architecture.</a></p></div>
+<!-- AGENT_SECTION: student-gateway-access -->
+<p><strong>Need model API access for a student project?</strong> Apply through RAIN's Raindrop portal for the campus-hosted model pilot. RAIN reviews requests and issues approved Gateway keys. <a href="/developer-apis/start.html#student-access">Follow the student Gateway access steps</a>. DataHub and DSMLP computing access follows the eligibility and request process above.</p>
+<!-- END_AGENT_SECTION -->
 </div>
 </section>
 
