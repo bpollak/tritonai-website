@@ -4,8 +4,8 @@ path: /developer-apis/index.html
 description: Get one Gateway key to approved AI models, then build with TritonAI Harness, another compatible client, n8n, or your own code.
 eyebrow: Build a service
 lastReviewed: 2026-10-02
-audiences: [developers, researchers, staff, leaders]
-source: TritonAI developer documentation, API access intake and funding guidance, UC Protection Level Classification, TritonAI strategy presentation, ITS-TritonAI n8n service documentation, TritonAI Harness stable documentation, and the public Model Hub reviewed October 2, 2026
+audiences: [developers, researchers, staff, leaders, students]
+source: TritonAI developer documentation, API access intake and funding guidance, UC Protection Level Classification, TritonAI strategy presentation, ITS-TritonAI n8n service documentation, TritonAI Harness stable documentation, the public Model Hub reviewed October 2, 2026, and RAIN student Gateway intake confirmed November 19, 2026
 canonicalUrl: /developer-apis/index.html
 relatedSlides: [tritonai-developer-api-program, tritongpt-secure-scalable-ai-platform, campus-app-hosting-intake, cabinet-people-10-domain-expert, harness-memory-architecture]
 landingHub: true
@@ -109,6 +109,9 @@ bannerMode: abstract
 <div class="col-sm-6 col-md-3"><article><span>04</span><h3>Other campuses</h3><p>Other UC campuses connect through an intercampus recharge agreement arranged with the TritonAI team.</p></article></div>
 </div>
 <p>Rates and limits for every route stay in the Model Hub, and the Get Started page walks through the request. The FAQ covers sponsored research, Health Sciences, and other UC campuses in more detail.</p>
+<!-- AGENT_SECTION: student-gateway-access -->
+<p><strong>Student projects:</strong> Request access to campus-hosted models through <a href="https://rain.ucsd.edu/">RAIN (Real World AI Network)</a>. Apply in its Raindrop portal; RAIN reviews your project and issues a Gateway key after approval. <a href="/developer-apis/start.html#student-access">Follow the student access process</a>.</p>
+<!-- END_AGENT_SECTION -->
 <p class="hub-section-action"><a class="btn btn-default" href="/developer-apis/start.html">Eligibility and setup</a> <a class="btn btn-default" href="/developer-apis/faq.html">Funding questions in the FAQ</a></p>
 </section>
 

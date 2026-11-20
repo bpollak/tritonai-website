@@ -5,7 +5,7 @@ description: Use DataHub to access PARASOL, UC San Diego’s shared computing pl
 eyebrow: Teaching and course compute
 lastReviewed: 2026-11-07
 audiences: [students, faculty, researchers, staff, developers, leaders]
-source: "UC San Diego PARASOL and DataHub documentation, the November 3 UC San Diego Today announcement, and TritonAI platform architecture"
+source: "UC San Diego PARASOL and DataHub documentation, the November 3 UC San Diego Today announcement, TritonAI platform architecture, and RAIN student Gateway intake confirmed November 19, 2026"
 canonicalUrl: /developer-apis/dsmlp-datahub.html
 relatedSlides: [platform-architecture, tritonai-developer-api-program]
 landingHub: true
@@ -89,6 +89,9 @@ bannerPosition: center 44%
 <figcaption id="dsmlp-tritonai-caption">PARASOL provides shared compute for selected TritonAI workloads. Model requests continue through the TritonAI LLM Gateway to approved enterprise or UC-hosted model routes.</figcaption>
 </figure>
 <div class="dsmlp-distinction"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><p>DataHub is the web interface for authorized notebook and computational work. TritonAI users work through TritonGPT, the TritonAI Harness, APIs, or department applications. <a href="/developer-apis/index.html#api-gateway">See the TritonAI gateway architecture.</a></p></div>
+<!-- AGENT_SECTION: student-gateway-access -->
+<p><strong>Need model API access for a student project?</strong> Apply through RAIN's Raindrop portal for the campus-hosted model pilot. RAIN reviews requests and issues approved Gateway keys. <a href="/developer-apis/start.html#student-access">Follow the student Gateway access steps</a>. DataHub and PARASOL computing access follows the eligibility and request process above.</p>
+<!-- END_AGENT_SECTION -->
 </div>
 </section>
 
