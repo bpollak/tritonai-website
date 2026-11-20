@@ -1,9 +1,20 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import path from "node:path";
 import http from "node:http";
 import test, { before, after } from "node:test";
 import { chromium } from "playwright";
-import { fetchCatalog, formatContext, renderSection, MODELS_ENDPOINT, MODEL_EXPLORER_URL } from "../scripts/lib/model-catalog.mjs";
+import {
+  fetchCatalog,
+  formatContext,
+  renderAndWrite,
+  renderSection,
+  MODELS_ENDPOINT,
+  MODEL_EXPLORER_URL,
+  SECTION_END,
+  SECTION_START,
+} from "../scripts/lib/model-catalog.mjs";
 import { groupModels, renderModelCatalog } from "../src/site/_resources/js/model-catalog-view.js";
 
 const initialTime = Date.now();
@@ -174,4 +185,33 @@ test("grouped variants expand by keyboard and preserve expansion and focus on re
   await page.waitForFunction(() => document.querySelector('.model-catalog-context').textContent === "1M");
   assert.equal(await page.locator("details").evaluate((detail) => detail.open), true);
   assert.equal(await summary.evaluate((element) => element === document.activeElement), true);
+});
+
+test("renderAndWrite replaces only the model-catalog block when an earlier AGENT_SECTION exists", async () => {
+  const workDir = await mkdtemp(path.join(tmpdir(), "tritonai-model-catalog-"));
+  const pagePath = path.join(workDir, "build-landing.md");
+  const initial = [
+    "<!-- AGENT_SECTION: student-gateway-access -->",
+    "<p>Student access note</p>",
+    "<!-- END_AGENT_SECTION -->",
+    "<section id=\"middle\">Middle section</section>",
+    SECTION_START,
+    "<section id=\"model-catalog\">Old snapshot</section>",
+    SECTION_END,
+    "<section id=\"after\">After section</section>",
+  ].join("\n");
+
+  try {
+    await writeFile(pagePath, initial, "utf8");
+    await renderAndWrite(snapshot, pagePath);
+    const updated = await readFile(pagePath, "utf8");
+    assert.equal(updated.split(SECTION_START).length - 1, 1);
+    assert.equal(updated.split("Middle section").length - 1, 1);
+    assert.ok(updated.includes("Student access note"));
+    assert.ok(updated.includes("After section"));
+    assert.ok(!updated.includes("Old snapshot"));
+    assert.ok(updated.includes("api-glm-5.3"));
+  } finally {
+    await rm(workDir, { recursive: true, force: true });
+  }
 });

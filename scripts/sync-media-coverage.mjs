@@ -32,6 +32,7 @@ const SITE_ORIGIN = "https://tritonai.ucsd.edu";
 // curated by hand in content/media/articles.json instead.
 const BLOCKED_DOMAINS = [
   "tritonai.ucsd.edu",
+  "tritonai.org", // Unrelated student robotics club, not UC San Diego's TritonAI program.
   "ucsd.edu",
   "brettcpollak.com",
   "github.com",

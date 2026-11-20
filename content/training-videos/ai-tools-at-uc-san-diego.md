@@ -29,7 +29,7 @@ keyTerms:
     description: A workflow-automation platform used by UC San Diego to connect to the TritonAI Harness, used for building and running automated multi-step integrations and data pipelines.
 keyLinks:
   - label: TritonAI Harness
-    href: https://stage-tritonai.ucsd.edu/developer-apis/harness.html
+    href: /developer-apis/harness.html
 order: 3
 quiz:
   - question: What should you consider first when choosing an AI tool?

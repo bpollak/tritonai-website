@@ -6,7 +6,7 @@ eyebrow: Build with TritonAI
 lastReviewed: 2026-11-07
 audiences: [staff, faculty, researchers, developers, leaders]
 owner: TritonAI
-source: "TritonAI public build, trust, and service ownership guidance and Harness v0.4.1 permission mode documentation"
+source: "TritonAI public build, trust, and service ownership guidance and Harness v0.4.2 permission mode documentation"
 canonicalUrl: /developer-apis/citizen-developer.html
 relatedSlides: [Citizen Developer Ecosystem, Reusable Skills and MCP, platform-architecture]
 landingHub: true

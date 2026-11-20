@@ -1,19 +1,7 @@
 {
-  "lastSynced": "2026-11-07T16:05:09.531Z",
+  "lastSynced": "2026-11-20T22:27:27.435Z",
   "source": "https://docs.tritonai.ucsd.edu/api/model-catalog",
   "models": [
-    {
-      "id": "api-glm-5.3",
-      "displayName": "GLM 5.3",
-      "family": "GLM",
-      "hosting": "UC-hosted",
-      "type": "Chat and reasoning",
-      "maxInputTokens": 320000,
-      "logo": {
-        "src": "/images/model-logos/zai.webp",
-        "alt": "Z.ai"
-      }
-    },
     {
       "id": "api-glm-5.3-flash",
       "displayName": "GLM 5.3 Flash",
@@ -39,6 +27,15 @@
       }
     },
     {
+      "id": "api-deepseek-4.1-flash",
+      "displayName": "Deepseek 4.1 Flash",
+      "family": "Deepseek 4.1 Flash",
+      "hosting": "UC-hosted",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 524288,
+      "logo": null
+    },
+    {
       "id": "api-muse-glimmer-30b",
       "displayName": "Muse Glimmer 30B",
       "family": "Muse Glimmer 30B",
@@ -49,6 +46,15 @@
         "src": "/images/model-logos/meta.webp",
         "alt": "Meta"
       }
+    },
+    {
+      "id": "api-open-jev",
+      "displayName": "Open Jev",
+      "family": "Open Jev",
+      "hosting": "UC-hosted",
+      "type": "See model details",
+      "maxInputTokens": 256000,
+      "logo": null
     },
     {
       "id": "api-tgpt-embeddings",
@@ -96,18 +102,6 @@
       "logo": {
         "src": "/images/model-logos/anthropic.png",
         "alt": "Anthropic"
-      }
-    },
-    {
-      "id": "api-gemma-4-31b",
-      "displayName": "Gemma 4 31B",
-      "family": "Gemma",
-      "hosting": "Approved enterprise cloud",
-      "type": "Chat and reasoning",
-      "maxInputTokens": 256000,
-      "logo": {
-        "src": "/images/model-logos/gemma.webp",
-        "alt": "Gemma"
       }
     },
     {
@@ -174,17 +168,13 @@
       }
     },
     {
-      "id": "azure_ai/responses/gpt-6.1-terra",
-      "displayName": "Azure Ai/responses/gpt 6.1 Terra",
-      "family": "Azure Ai/responses/gpt 6.1 Terra",
+      "id": "us.zai.glm-5.3",
+      "displayName": "Us.zai.glm 5.3",
+      "family": "Us.zai.glm 5.3",
       "hosting": "Approved enterprise cloud",
       "type": "Chat and reasoning",
-      "maxInputTokens": 922000,
-      "logo": {
-        "src": "/images/model-logos/openai.webp",
-        "alt": "OpenAI",
-        "darkModeBackdrop": "white-circle"
-      }
+      "maxInputTokens": 1000000,
+      "logo": null
     }
   ]
 }

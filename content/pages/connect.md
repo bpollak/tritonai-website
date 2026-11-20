@@ -22,7 +22,7 @@ bannerMode: abstract
     </div>
     <div class="col-md-5">
       <figure class="triton-graphic triton-choice-lens hub-quote-card" aria-labelledby="connect-ways-heading">
-        <p id="connect-ways-heading" class="home-kicker">Four ways to connect</p>
+        <p id="connect-ways-heading" class="home-kicker">Ways to connect</p>
         <ul>
           <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><strong>Join a community</strong><small>Find a group that matches your work.</small></li>
           <li><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><strong>Ask a question</strong><small>Bring a problem or an idea to a session.</small></li>
@@ -116,7 +116,7 @@ bannerMode: abstract
     <h2 id="connect-departmental-heading">Departmental Use-Case Groups</h2>
     <p>Beyond the campus-wide group, several departments and cross-functional teams have started their own AI use-case groups, tackling challenges specific to their area of work. These groups are a chance to connect with colleagues doing similar work, see what's already being tried in your corner of campus, and avoid reinventing the wheel.</p>
     <div class="hub-link-panel">
-      <p><a href="https://stevenjswanson.github.io/JSOE-AI-Show-and-Tell/">Jacob School of Engineering AI Show and Tell</a> — An informal venue for sharing ideas about harnessing AI — and addressing the issues it raises — in teaching, research, and administration within the Jacobs School.</p>
+      <p><a href="https://stevenjswanson.github.io/JSOE-AI-Show-and-Tell/">Jacobs School of Engineering AI Show and Tell</a> — An informal venue for sharing ideas about harnessing AI — and addressing the issues it raises — in teaching, research, and administration within the Jacobs School.</p>
       <p>If you currently run a departmental level use case group and would like to promote on TritonAI, reach out to <a href="mailto:TritonAI@ucsd.edu">TritonAI@ucsd.edu</a>.</p>
     </div>
   </div>
@@ -143,8 +143,8 @@ bannerMode: abstract
 
 <section class="hub-section hub-section-sand" aria-labelledby="connect-closing-heading">
   <div class="hub-heading">
-    <p class="home-kicker">HOW EVER YOU CONNECT</p>
+    <p class="home-kicker">HOWEVER YOU CONNECT</p>
     <h2 id="connect-closing-heading">Connect, share, keep learning</h2>
-    <p class="hub-body">How ever you like to connect — by doing, by asking, or by staying informed — there's a community here for you. Get involved and grow your AI practice alongside the UC San Diego community.</p>
+    <p class="hub-body">However you like to connect — by doing, by asking, or by staying informed — there's a community here for you. Get involved and grow your AI practice alongside the UC San Diego community.</p>
   </div>
 </section>

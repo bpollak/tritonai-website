@@ -84,3 +84,34 @@ test("rejects a source edition that reports zero items", async () => {
     await rm(workDir, { recursive: true, force: true });
   }
 });
+
+test("decodes Cloudflare data-cfemail on anchor elements and preserves labels for mailto queries", async () => {
+  const workDir = await mkdtemp(path.join(tmpdir(), "tritonai-news-cfemail-"));
+  const archiveFile = path.join(workDir, "archive.html");
+  const editionFile = path.join(workDir, "edition.html");
+  const outputDir = path.join(workDir, "newsletters");
+
+  const cfBody = `
+  <h2>What's New in Your AI Tools</h2>
+  <ul>
+    <li>Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ddb4a9aeb8afabb4beb8ae9da8beaeb9f3b8b9a8">[email&#160;protected]</a> for the link.</li>
+    <li>Book <a href="/cdn-cgi/l/email-protection#71050318051e1f101831041202155f1415044e0204131b1412054c39141d1d1e">AI Consulting Hours</a> for help.</li>
+  </ul>
+  <h2>Coming Up: Trainings &amp; Workshops</h2>
+  <p>No upcoming events.</p>
+  <h2>TritonAI News</h2>
+  <p>No new releases.</p>`;
+
+  try {
+    await writeFile(archiveFile, archiveFixture("2026-11-16"));
+    await writeFile(editionFile, editionFixture(cfBody));
+    const result = runSync(archiveFile, editionFile, outputDir);
+    assert.equal(result.status, 0, result.stderr);
+    const output = await readFile(path.join(outputDir, "ucsd-ai-newsletter-2026-11-16.md"), "utf8");
+    assert.match(output, /\[itservices@ucsd\.edu\]\(mailto:itservices@ucsd\.edu\)/);
+    assert.match(output, /\[AI Consulting Hours\]\(mailto:tritonai@ucsd\.edu\?subject=Hello\)/);
+    assert.doesNotMatch(output, /cdn-cgi\/l\/email-protection/);
+  } finally {
+    await rm(workDir, { recursive: true, force: true });
+  }
+});

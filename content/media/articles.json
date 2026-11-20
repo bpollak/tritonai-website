@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastReviewed": "2026-08-30",
+  "lastReviewed": "2026-11-20",
   "owner": "TritonAI program",
   "source": "Curated archive plus automated web search via scripts/sync-media-coverage.mjs",
   "queries": [
@@ -15,6 +15,22 @@
       "heading": "Current program perspective",
       "description": "Recent writing about adoption and the choices behind shared institutional AI.",
       "articles": [
+        {
+          "date": "2026-11-03",
+          "source": "UC San Diego Today",
+          "title": "UC San Diego’s Halıcıoğlu School Expands AI Computing Infrastructure to Address Critical Shortages",
+          "url": "https://today.ucsd.edu/story/uc-san-diegos-halcolu-school-expands-ai-computing-infrastructure-to-address-critical-shortages",
+          "kind": "Campus story",
+          "curated": true
+        },
+        {
+          "date": "2026-10-07",
+          "source": "UC San Diego Today",
+          "title": "Learn Today, Build Tomorrow",
+          "url": "https://today.ucsd.edu/story/learn-today-build-tomorrow",
+          "kind": "Campus story",
+          "curated": true
+        },
         {
           "date": "2026-08-03",
           "source": "Higher Ed AI Playbook",

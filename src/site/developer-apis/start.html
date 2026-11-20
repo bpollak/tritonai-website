@@ -695,7 +695,7 @@ Your browser does not support embedded video.
 <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Claude Code and Codex are supported alternatives. Hermes, OpenCode, and any client that accepts a base URL and API key connect the same way.</p>
 <ul style="font-size: 13px; padding-left: 18px; margin-bottom: 0;">
 <li>Base URL: <code>https://tritonai-api.ucsd.edu/v1</code></li>
-<li>Default Model: <code>api-glm-5.3</code></li>
+<li>Default Model: <code>api-glm-5.3-flash</code></li>
 <li>Keep your API key in a secure local credential store or environment variable. Never commit it to code.</li>
 </ul>
 </div>
@@ -711,7 +711,7 @@ client = OpenAI(
   api_key="YOUR_KEY"
 )
 resp = client.chat.completions.create(
-  model="api-glm-5.3",
+  model="api-glm-5.3-flash",
   messages=[{"role":"user","content":"Hi"}]
 )</code></pre>
 <small style="color: #64748b;">See <a href="https://tritonai-api.ucsd.edu/ui/model_hub_table/" target="_blank" rel="noopener noreferrer">Model Hub</a> for available routes.</small>

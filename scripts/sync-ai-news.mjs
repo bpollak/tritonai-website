@@ -54,11 +54,15 @@ function sanitizeBody($, body, sourceUrl) {
   body.find("a").each((_, element) => {
     const link = $(element);
     const href = link.attr("href");
-    const encodedEmail = link.find("[data-cfemail]").first().attr("data-cfemail");
+    const encodedEmail = link.attr("data-cfemail") || link.find("[data-cfemail]").first().attr("data-cfemail");
     const encodedEmailFromHref = href?.match(/\/cdn-cgi\/l\/email-protection#([0-9a-f]+)/i)?.[1];
     const decodedEmail = decodeCloudflareEmail(encodedEmail || encodedEmailFromHref || "");
     if (decodedEmail) {
-      link.attr("href", `mailto:${decodedEmail}`).text(decodedEmail);
+      const existingText = link.text().trim();
+      const hasQuery = decodedEmail.includes("?");
+      const isPlaceholder = !existingText || /^\[email\s*protected\]$/i.test(existingText);
+      const label = hasQuery && !isPlaceholder ? existingText : decodedEmail.split("?")[0];
+      link.attr("href", `mailto:${decodedEmail}`).text(label);
       return;
     }
 

@@ -163,3 +163,19 @@ test("renderLatestCoverage shows the newest articles and a link to the archive",
   const olderIdx = html.indexOf("Unpacking");
   assert.ok(newestIdx < olderIdx && newestIdx > 0);
 });
+
+test("discover ignores unrelated tritonai.org robotics club pages", async () => {
+  const data = baseData();
+  const fakeSearch = async () => [
+    {
+      title: "Our Mission - Triton AI | TritonAI",
+      url: "https://tritonai.org/about/mission",
+      snippet: "Triton AI student robotics organization at UC San Diego",
+    },
+  ];
+  const added = await discover(data, ["TritonAI"], {
+    searchFn: fakeSearch,
+    fetchMeta: async () => ({ date: "2026-11-17" }),
+  });
+  assert.equal(added.length, 0);
+});

@@ -46,14 +46,14 @@ export function renderSection(catalog) {
 ${SECTION_END}`;
 }
 
-export async function renderAndWrite(catalog) {
-  const markdown = await readFile(CATALOG_MARKDOWN, "utf8");
+export async function renderAndWrite(catalog, markdownPath = CATALOG_MARKDOWN) {
+  const markdown = await readFile(markdownPath, "utf8");
   const start = markdown.indexOf(SECTION_START);
-  const end = markdown.indexOf(SECTION_END);
+  const end = start === -1 ? -1 : markdown.indexOf(SECTION_END, start);
   if (start === -1 || end === -1) {
-    throw new Error(`Model catalog markers missing from ${CATALOG_MARKDOWN}`);
+    throw new Error(`Model catalog markers missing from ${markdownPath}`);
   }
   const next =
     markdown.slice(0, start) + renderSection(catalog) + markdown.slice(end + SECTION_END.length);
-  await writeFile(CATALOG_MARKDOWN, next);
+  await writeFile(markdownPath, next);
 }
