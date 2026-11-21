@@ -35,7 +35,14 @@ bannerMode: abstract
 <div class="row hub-split">
 <div class="col-md-8 hub-split-copy">
 <h2 id="chatgpt-edu-announcement-heading">What the announcement says</h2>
-<p>The announcement describes an expanded systemwide agreement that covers OpenAI’s tools, including ChatGPT and Codex, at no cost to individuals and with guardrails. It also says UC does not require these tools, and that faculty decide whether and how AI is used in their courses.</p>
+<p>The announcement describes an expanded systemwide agreement that covers OpenAI’s tools, including ChatGPT and Codex. It says the data of people who choose to use them will be protected. Under the terms UC negotiated, that means:</p>
+<ul>
+<li>OpenAI does not use what you enter, or the responses you receive, to train or improve its models.</li>
+<li>The university, not OpenAI, owns that content.</li>
+<li>UC’s security terms apply and take priority over OpenAI’s standard terms. They include a requirement that OpenAI report a breach to UC.</li>
+</ul>
+<p>These protections apply to accounts in the university’s workspace. They do not apply to personal ChatGPT accounts, and they do not mean every kind of university data may be entered. Guidance on which data is appropriate will come with the rollout.</p>
+<p>The announcement also says UC does not require these tools, and that faculty decide whether and how AI is used in their courses.</p>
 <p>That describes what the agreement makes possible across the UC system. It does not set a date for any campus, and it does not mean every tool it names, Codex included, will be turned on here at the same time or in the same way. Which tools are offered at UC San Diego, to whom, and in what order will be set by the campus operating model, our plan for how the service will run here.</p>
 <p><strong>We are not publishing dates yet.</strong> We will share timing when we can stand behind it.</p>
 </div>
