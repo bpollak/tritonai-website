@@ -56,7 +56,7 @@ bannerMode: abstract
 <p>A systemwide agreement sets the university's contract terms with OpenAI. Each campus must design its local service model before turning accounts on.</p>
 <ul>
 <li><strong>Local operating model.</strong> UC San Diego is defining how the service will run on campus: who receives access to which capabilities, how people request them, and how the service will be supported over time.</li>
-<li><strong>One-year contract horizon.</strong> The current agreement covers one year with a limited allocation. Our model must work at UC San Diego's scale, distribute access fairly across students, faculty, and staff, and remain workable after that year ends.</li>
+<li><strong>One-year contract horizon.</strong> The current agreement covers one year with a limited allocation. The operating model must work at UC San Diego's scale, distribute access fairly across students, faculty, and staff, and remain workable after that year ends.</li>
 <li><strong>Academic Senate consultation.</strong> The operating model is still in development. The Academic Senate will be consulted on the plan, and it will be shared through campus channels before it takes effect.</li>
 </ul>
 </div>
