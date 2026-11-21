@@ -6609,3 +6609,365 @@ main#main-content .harness-feature-map .hfm-footnote a:focus { color: var(--trit
   main#main-content .hfm-grid > .hfm-panel:nth-child(2) { grid-row: auto; }
   main#main-content .hfm-grid > .hfm-panel:nth-child(2) .hfm-plugins { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ==========================================================================
+   Where TritonGPT Appears (/tritongpt/integrations.html)
+   ========================================================================== */
+
+main#main-content .integrations-overview {
+  padding-top: 56px;
+  padding-bottom: 64px;
+}
+
+main#main-content .integrations-mobile-band,
+main#main-content .integrations-widget-band,
+main#main-content .integrations-blink-band,
+main#main-content .integrations-governance-band {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+main#main-content .integrations-subheading {
+  color: var(--triton-navy, #182b49);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+}
+
+main#main-content .integrations-detail-list {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+main#main-content .integrations-detail-list li {
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #d9e1eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(24, 43, 73, 0.04);
+  display: flex;
+  gap: 14px;
+  padding: 15px 18px;
+}
+
+main#main-content .integrations-widget-band .integrations-detail-list li {
+  background: #f8fafc;
+}
+
+main#main-content .integrations-detail-icon {
+  align-items: center;
+  background: #e9f2f8;
+  border-radius: 999px;
+  color: var(--triton-blue, #00629b);
+  display: inline-flex;
+  flex: 0 0 36px;
+  font-size: 16px;
+  height: 36px;
+  justify-content: center;
+  margin-top: 2px;
+  width: 36px;
+}
+
+main#main-content .integrations-detail-list strong {
+  color: var(--triton-navy, #182b49);
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+main#main-content .integrations-detail-list p {
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+main#main-content .integrations-cta-row {
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+/* Realistic Smartphone Casing */
+main#main-content .integrations-phone-column {
+  display: flex;
+  justify-content: center;
+}
+
+main#main-content .integrations-phone-stage {
+  margin: 0 auto;
+  max-width: 320px;
+  text-align: center;
+  width: 100%;
+}
+
+main#main-content .integrations-phone-chassis {
+  background: linear-gradient(145deg, #3a404a 0%, #1d2128 38%, #101318 100%);
+  border-radius: 48px;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.24),
+    inset 0 0 0 4px #12161d,
+    0 0 0 1.5px #0b0e13,
+    0 28px 54px -18px rgba(15, 29, 52, 0.38),
+    0 12px 24px -10px rgba(15, 29, 52, 0.22);
+  margin: 0 auto;
+  max-width: 296px;
+  padding: 12px;
+  position: relative;
+}
+
+main#main-content .integrations-phone-btn {
+  background: linear-gradient(180deg, #4b525e 0%, #232730 50%, #3b414c 100%);
+  border-radius: 2px;
+  display: block;
+  position: absolute;
+  width: 3px;
+}
+
+main#main-content .integrations-phone-btn-silent {
+  height: 24px;
+  left: -3px;
+  top: 96px;
+}
+
+main#main-content .integrations-phone-btn-vol-up {
+  height: 46px;
+  left: -3px;
+  top: 138px;
+}
+
+main#main-content .integrations-phone-btn-vol-down {
+  height: 46px;
+  left: -3px;
+  top: 196px;
+}
+
+main#main-content .integrations-phone-btn-power {
+  height: 68px;
+  right: -3px;
+  top: 158px;
+}
+
+main#main-content .integrations-phone-screen {
+  aspect-ratio: 828 / 1800;
+  background: #0a0d12;
+  border-radius: 37px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+main#main-content .integrations-phone-screen video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Browser Window Frame for Website Widget Demo */
+main#main-content .integrations-browser-stage {
+  margin: 0;
+}
+
+main#main-content .integrations-browser-frame {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  box-shadow:
+    0 22px 46px -18px rgba(15, 29, 52, 0.22),
+    0 8px 18px -10px rgba(15, 29, 52, 0.12);
+  overflow: hidden;
+}
+
+main#main-content .integrations-browser-bar {
+  align-items: center;
+  background: #f1f5f9;
+  border-bottom: 1px solid #dce4ee;
+  display: flex;
+  gap: 12px;
+  padding: 10px 14px;
+}
+
+main#main-content .integrations-browser-dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+main#main-content .integrations-browser-dots i {
+  background: #cbd5e1;
+  border-radius: 999px;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+}
+
+main#main-content .integrations-browser-url {
+  background: #fff;
+  border: 1px solid #dbe2ec;
+  border-radius: 6px;
+  color: #475569;
+  flex: 1 1 auto;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 2px 12px;
+  text-align: center;
+}
+
+main#main-content .integrations-browser-screen {
+  aspect-ratio: 3040 / 2304;
+  background: #0f172a;
+}
+
+main#main-content .integrations-browser-screen video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+main#main-content .integrations-media-caption {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 14px;
+}
+
+/* Blink AI Overview Dark Band */
+main#main-content .integrations-blink-list {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+main#main-content .integrations-blink-list li {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  display: flex;
+  gap: 14px;
+  padding: 16px 18px;
+}
+
+main#main-content .integrations-blink-list .glyphicon {
+  color: var(--triton-gold, #ffcd00);
+  flex: 0 0 auto;
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+main#main-content .integrations-blink-list strong {
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+main#main-content .integrations-blink-list span {
+  color: #dce6f2;
+  display: block;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* Shared Platform Responsibilities Band */
+main#main-content .integrations-resp-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main#main-content .integrations-resp-grid > [class*="col-"] {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+main#main-content .integrations-resp-card {
+  background: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  border-top: 4px solid var(--triton-navy, #182b49);
+  box-shadow: 0 4px 14px rgba(24, 43, 73, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 26px 28px;
+  width: 100%;
+}
+
+main#main-content .integrations-resp-card-gold {
+  border-top-color: var(--triton-gold, #ffcd00);
+}
+
+main#main-content .integrations-resp-tag {
+  color: var(--triton-blue, #00629b);
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+main#main-content .integrations-resp-card h3 {
+  color: var(--triton-navy, #182b49);
+  font-size: 22px;
+  margin: 0 0 14px;
+}
+
+main#main-content .integrations-resp-card ul {
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 20px;
+}
+
+main#main-content .integrations-resp-card li + li {
+  margin-top: 6px;
+}
+
+@media (max-width: 991px) {
+  main#main-content .integrations-mobile-band,
+  main#main-content .integrations-widget-band,
+  main#main-content .integrations-blink-band,
+  main#main-content .integrations-governance-band {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  main#main-content .integrations-phone-column {
+    margin-bottom: 32px;
+  }
+
+  main#main-content .integrations-browser-column {
+    margin-top: 28px;
+  }
+
+  main#main-content .integrations-blink-list {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  main#main-content .integrations-phone-chassis {
+    border-radius: 42px;
+    max-width: 268px;
+    padding: 10px;
+  }
+
+  main#main-content .integrations-phone-screen {
+    border-radius: 32px;
+  }
+}
