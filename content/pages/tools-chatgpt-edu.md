@@ -22,12 +22,6 @@ bannerMode: abstract
 <p class="hub-lede">On November 19, the University of California announced a systemwide agreement with OpenAI for ChatGPT Edu (<a href="https://www.universityofcalifornia.edu/press-room/uc-expands-collaboration-openai-offering-free-access-students-faculty-and-staff-secure">read the UC Office of the President announcement</a>). Many of you have seen the news and are asking what it means here.</p>
 <p>As part of the UC system, UC San Diego will make ChatGPT Edu available under that agreement. It is <strong>not available here yet</strong>. <strong>Each campus is responsible for its own rollout</strong>, and we are working on ours now.</p>
 </div>
-<div class="col-md-4 hub-split-media">
-<aside class="hub-note-card">
-<strong>Not available here yet</strong>
-<span>We are not publishing dates yet. You do not need to do anything, even if you already have an account.</span>
-</aside>
-</div>
 </div>
 </section>
 
