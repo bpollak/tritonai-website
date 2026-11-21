@@ -58,7 +58,7 @@ bannerMode: abstract
 <li><strong>Everyday use that comes with an account.</strong> OpenAI’s fast general-purpose models for chat, writing, search and working with files, plus small daily amounts of features such as image generation and deep research.</li>
 <li><strong>Advanced use that draws on credits.</strong> More capable reasoning models, longer research and agent tasks, and coding tools such as Codex. Each use subtracts credits, and heavier tasks subtract more.</li>
 </ul>
-<p>Credits are bought in advance and shared by the whole campus. The supply is limited, and OpenAI sets how many credits each feature uses. Access to the credit-based features has to be planned for that reason: who can use them, how much, and what happens when a group needs more than its share.</p>
+<p>Credits are limited. The campus has a set allocation that is bought in advance and shared by everyone, and OpenAI sets how many credits each feature uses. If use goes over that allocation, the campus is charged for the difference. Access to the credit-based features has to be planned for that reason: who can use them, how much, and what happens when a group needs more than its share.</p>
 <p>How these layers will be set up at UC San Diego has not been decided. What an account includes here may differ from what OpenAI or other campuses describe.</p>
 </div>
 </div>
