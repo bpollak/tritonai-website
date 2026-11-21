@@ -3,7 +3,7 @@ title: AI Tools at UC San Diego
 path: /tools/index.html
 description: Compare supported artificial intelligence tools at UC San Diego, what each service is for, and how the campus community gets access.
 eyebrow: Supported services and capabilities
-lastReviewed: 2026-10-01
+lastReviewed: 2026-11-20
 audiences: [students, faculty, staff, researchers]
 source: UC San Diego public AI service pages
 canonicalUrl: /tools/index.html
@@ -24,6 +24,7 @@ bannerMode: abstract
 <div class="col-sm-6"><article><div class="hub-service-mark" aria-hidden="true"><img src="/_images/tools/logos/microsoft-copilot.svg" alt="" width="52" height="52"></div><div><div class="hub-service-meta"><span class="hub-service-badge">All Campus SSO</span><span class="hub-service-badge hub-service-badge--data">Commercial Protection</span></div><h3>Copilot with Data Protection</h3><p>Protected chat for drafting, summarizing, generating images, and looking things up.</p><a href="https://portal.office.com">Open Microsoft 365 <span aria-hidden="true">→</span></a></div></article></div>
 <div class="col-sm-6"><article><div class="hub-service-mark" aria-hidden="true"><img src="/_images/tools/logos/microsoft-365-copilot.svg" alt="" width="52" height="52"></div><div><div class="hub-service-meta"><span class="hub-service-badge hub-service-badge--license">License Required</span><span class="hub-service-badge hub-service-badge--data">In-App Office AI</span></div><h3>Copilot for Microsoft 365</h3><p>AI built into Word, Excel, Outlook, and the rest of the supported Microsoft 365 apps.</p><a href="https://blink.ucsd.edu/technology/computers/software-acms/available-software/microsoft-individual.html#Copilot-for-Microsoft-365">Review access details <span aria-hidden="true">→</span></a></div></article></div>
 <div class="col-sm-6"><article><div class="hub-service-mark" aria-hidden="true"><img src="/_images/tools/logos/google-gemini.svg" alt="" width="52" height="52"></div><div><div class="hub-service-meta"><span class="hub-service-badge">Google SSO</span><span class="hub-service-badge hub-service-badge--data">Source-Grounded</span></div><h3>Gemini and Gemini Notebook</h3><p>Google's tools. Gemini for general work, Gemini Notebook for research and notes tied to sources you supply.</p><a href="https://blink.ucsd.edu/technology/file-sharing/google/gemini-notebooklm.html">Review Google guidance <span aria-hidden="true">→</span></a></div></article></div>
+<div class="col-sm-6"><article><div class="hub-service-mark" aria-hidden="true"><img src="/_images/tools/logos/openai.svg" alt="" width="52" height="52"></div><div><div class="hub-service-meta"><span class="hub-service-badge hub-service-badge--notice">Not Yet Available</span><span class="hub-service-badge">UC Systemwide Agreement</span></div><h3>ChatGPT Edu from OpenAI</h3><p>UC announced a systemwide agreement with OpenAI on November 19. UC San Diego is working on its rollout.</p><a href="/tools/chatgpt-edu.html">Read the ChatGPT Edu update <span aria-hidden="true">→</span></a></div></article></div>
 </div></div>
 </section>
 
