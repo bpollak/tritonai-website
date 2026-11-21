@@ -7,13 +7,16 @@ import {
 } from "./lib/model-catalog.mjs";
 
 // Refresh the public model catalog from the TritonAI Model Hub.
-//   node scripts/sync-model-hub.mjs           fetch, update JSON, re-render page
+//   node scripts/sync-model-hub.mjs           fetch, update JSON & page when models/rates change
+//   node scripts/sync-model-hub.mjs --force   rewrite JSON & page even if unchanged
 //   node scripts/sync-model-hub.mjs --check   fetch and report drift, write nothing
 //
 // Uses the cached docs API, which excludes earlier model series and internal
-// routes. The saved snapshot is the browser fallback if that API is unavailable.
+// routes, and enriches routes with per-token rates from the public model hub.
+// The saved snapshot is the browser fallback if that API is unavailable.
 
 const checkOnly = process.argv.includes("--check");
+const force = process.argv.includes("--force");
 
 const catalog = await fetchCatalog();
 const { models } = catalog;
@@ -39,6 +42,11 @@ if (checkOnly) {
       ? `Drift: gateway lists ${models.length} public models; stored catalog has ${previous.models.length}.`
       : `Catalog is current (${models.length} public models).`,
   );
+  process.exit(0);
+}
+
+if (!changed && !force) {
+  console.log(`Catalog is current (${models.length} public models); no files written.`);
   process.exit(0);
 }
 

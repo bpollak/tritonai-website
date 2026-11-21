@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-11-20T22:27:27.435Z",
+  "lastSynced": "2026-11-21T02:39:09.145Z",
   "source": "https://docs.tritonai.ucsd.edu/api/model-catalog",
   "models": [
     {
@@ -12,7 +12,9 @@
       "logo": {
         "src": "/images/model-logos/zai.webp",
         "alt": "Z.ai"
-      }
+      },
+      "inputCostPerToken": 1.5e-7,
+      "outputCostPerToken": 5e-7
     },
     {
       "id": "api-cohere-transcribe",
@@ -24,7 +26,9 @@
       "logo": {
         "src": "/images/model-logos/cohere.webp",
         "alt": "Cohere Labs"
-      }
+      },
+      "inputCostPerToken": null,
+      "outputCostPerToken": null
     },
     {
       "id": "api-deepseek-4.1-flash",
@@ -33,7 +37,9 @@
       "hosting": "UC-hosted",
       "type": "Chat and reasoning",
       "maxInputTokens": 524288,
-      "logo": null
+      "logo": null,
+      "inputCostPerToken": 2.5e-7,
+      "outputCostPerToken": 7.5e-7
     },
     {
       "id": "api-muse-glimmer-30b",
@@ -45,7 +51,9 @@
       "logo": {
         "src": "/images/model-logos/meta.webp",
         "alt": "Meta"
-      }
+      },
+      "inputCostPerToken": 2.0000000000000002e-7,
+      "outputCostPerToken": 4.0000000000000003e-7
     },
     {
       "id": "api-open-jev",
@@ -54,7 +62,9 @@
       "hosting": "UC-hosted",
       "type": "See model details",
       "maxInputTokens": 256000,
-      "logo": null
+      "logo": null,
+      "inputCostPerToken": 6e-8,
+      "outputCostPerToken": 0
     },
     {
       "id": "api-tgpt-embeddings",
@@ -66,7 +76,9 @@
       "logo": {
         "src": "/images/model-logos/qwen.webp",
         "alt": "Qwen"
-      }
+      },
+      "inputCostPerToken": 1.5e-8,
+      "outputCostPerToken": null
     },
     {
       "id": "claude-haiku-5-5",
@@ -78,7 +90,9 @@
       "logo": {
         "src": "/images/model-logos/anthropic.png",
         "alt": "Anthropic"
-      }
+      },
+      "inputCostPerToken": 1e-7,
+      "outputCostPerToken": 5e-7
     },
     {
       "id": "claude-opus-5-5",
@@ -90,7 +104,9 @@
       "logo": {
         "src": "/images/model-logos/anthropic.png",
         "alt": "Anthropic"
-      }
+      },
+      "inputCostPerToken": 0.000004,
+      "outputCostPerToken": 0.00002
     },
     {
       "id": "claude-sonnet-5-5",
@@ -102,7 +118,9 @@
       "logo": {
         "src": "/images/model-logos/anthropic.png",
         "alt": "Anthropic"
-      }
+      },
+      "inputCostPerToken": 0.000002,
+      "outputCostPerToken": 0.00001
     },
     {
       "id": "gemini-4-argon",
@@ -114,7 +132,9 @@
       "logo": {
         "src": "/images/model-logos/google.webp",
         "alt": "Google"
-      }
+      },
+      "inputCostPerToken": 0.000002,
+      "outputCostPerToken": 0.00001
     },
     {
       "id": "gpt-6.1-sol",
@@ -127,7 +147,9 @@
         "src": "/images/model-logos/openai.webp",
         "alt": "OpenAI",
         "darkModeBackdrop": "white-circle"
-      }
+      },
+      "inputCostPerToken": 0.000002,
+      "outputCostPerToken": 0.00001
     },
     {
       "id": "gpt-6-astra",
@@ -140,7 +162,9 @@
         "src": "/images/model-logos/openai.webp",
         "alt": "OpenAI",
         "darkModeBackdrop": "white-circle"
-      }
+      },
+      "inputCostPerToken": 0.00001,
+      "outputCostPerToken": 0.00005
     },
     {
       "id": "gpt-6-luna",
@@ -153,7 +177,9 @@
         "src": "/images/model-logos/openai.webp",
         "alt": "OpenAI",
         "darkModeBackdrop": "white-circle"
-      }
+      },
+      "inputCostPerToken": 1e-7,
+      "outputCostPerToken": 5e-7
     },
     {
       "id": "kimi-k2.6",
@@ -165,7 +191,9 @@
       "logo": {
         "src": "/images/model-logos/moonshot.webp",
         "alt": "Moonshot AI"
-      }
+      },
+      "inputCostPerToken": 9.499999999999999e-7,
+      "outputCostPerToken": 0.000004
     },
     {
       "id": "us.zai.glm-5.3",
@@ -174,7 +202,9 @@
       "hosting": "Approved enterprise cloud",
       "type": "Chat and reasoning",
       "maxInputTokens": 1000000,
-      "logo": null
+      "logo": null,
+      "inputCostPerToken": 0.000001848,
+      "outputCostPerToken": 0.000005808
     }
   ]
 }

@@ -1,0 +1,88 @@
+name: Sync TritonAI Model Catalog
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-tritonai-model-catalog
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium for accessibility checks
+        run: npx playwright install --with-deps chromium
+
+      - name: Sync model catalog and pricing
+        run: npm run sync:models
+
+      - name: Detect catalog changes
+        id: changes
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain -- content/models/catalog.json content/pages/build-landing.md)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate the updated site
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          npm test
+          SITE_BASE_PATH=/tritonai-website npm run build
+          SITE_BASE_PATH=/tritonai-website npm run validate
+
+      - name: Publish the sync branch
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          BRANCH_NAME: automation/sync-model-catalog
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH_NAME"
+          git add content/models/catalog.json content/pages/build-landing.md
+          git commit -m "Sync TritonAI model catalog and pricing"
+          git push --force origin "HEAD:$BRANCH_NAME"
+
+      - name: Open or refresh the sync pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH_NAME: automation/sync-model-catalog
+        shell: bash
+        run: |
+          existing="$(gh pr list --base main --head "$BRANCH_NAME" --state open --json number --jq '.[0].number // empty')"
+          if [[ -z "$existing" ]]; then
+            gh pr create \
+              --base main \
+              --head "$BRANCH_NAME" \
+              --title "Sync TritonAI model catalog and pricing" \
+              --body "Refreshes \`content/models/catalog.json\` and the fallback table on \`/developer-apis/index.html\` from \`https://docs.tritonai.ucsd.edu/api/model-catalog\` and \`https://tritonai-api.ucsd.edu/public/model_hub\`. Build, unit tests, language, chrome, and accessibility checks passed before opening this pull request."
+          else
+            gh pr edit "$existing" \
+              --title "Sync TritonAI model catalog and pricing" \
+              --body "Refreshes \`content/models/catalog.json\` and the fallback table on \`/developer-apis/index.html\` from \`https://docs.tritonai.ucsd.edu/api/model-catalog\` and \`https://tritonai-api.ucsd.edu/public/model_hub\`. Build, unit tests, language, chrome, and accessibility checks passed before refreshing this pull request."
+          fi
