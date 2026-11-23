@@ -26,7 +26,7 @@ bannerMode: abstract
 <div class="col-md-4">
 <aside class="hub-note-card">
 <strong>What you need</strong>
-<span>TritonAI Harness installed and open on your Mac or PC, an iPhone on iOS 18 or later, and both on the same network.</span>
+<span>TritonAI Harness installed and open on your Mac or PC, and an iPhone on iOS 18 or later. On the same Wi-Fi it works as is. Anywhere else, both devices also need Tailscale.</span>
 </aside>
 </div>
 </div>
@@ -72,6 +72,36 @@ bannerMode: abstract
 </div>
 </section>
 
+<section class="hub-section" aria-labelledby="phone-away-heading">
+<div class="hub-heading">
+<p class="home-kicker">Away from your Wi-Fi</p>
+<h2 id="phone-away-heading">Use the app from anywhere</h2>
+<p>Your phone reaches your computer directly while both are on the same Wi-Fi. To use the app from another network or on cellular, add Tailscale, a private-network app, to both devices.</p>
+</div>
+<div class="row hub-action-grid">
+<div class="col-md-6">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+<h3>Set up Tailscale</h3>
+<ol>
+<li>Install Tailscale on your computer and sign in. On a university-managed computer, check with your IT group first.</li>
+<li>Install Tailscale on your iPhone, sign in with the same account, and turn it on.</li>
+<li>In TritonAI Harness on your computer, open Settings, then Sharing &amp; access. With Network access on, turn on Tailscale HTTPS.</li>
+<li>Create a new link. In the phone app, open Settings and choose Reconnect.</li>
+</ol>
+</article>
+</div>
+<div class="col-md-6">
+<article class="panel panel-default hub-action-card">
+<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+<h3>Check that it worked</h3>
+<p>In the phone app, open Settings, then Connection details. The connection type reads Tailscale. Keep Tailscale turned on for both devices.</p>
+<p>The app shows these steps under Settings, in Use it away from your Wi-Fi.</p>
+</article>
+</div>
+</div>
+</section>
+
 <section class="hub-section" aria-labelledby="phone-help-heading">
 <div class="hub-heading">
 <p class="home-kicker">Help</p>
@@ -93,7 +123,7 @@ bannerMode: abstract
 <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
 <h3>Check the connection</h3>
 <ul>
-<li>Your phone and your computer need to be on the same network.</li>
+<li>Your phone and your computer need to be on the same Wi-Fi, or both on Tailscale.</li>
 <li>Your computer has to be on and awake, with TritonAI Harness open. If it is asleep, your message waits on the phone and sends when it reconnects.</li>
 </ul>
 </article>
