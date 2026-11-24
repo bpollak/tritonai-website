@@ -207,8 +207,7 @@
       "status": "In development",
       "summary": "The TritonAI Harness now has a public access and installation path. The pilot is expanding through reusable skills, supported hosting, shared project knowledge, and governance for broader agent work.",
       "details": [
-        "The TritonAI Harness pilot now has a public Gateway request, billing, installer, and setup path. Broader adoption remains staged.",
-        "Students request Gateway keys for projects through RAIN's Raindrop portal, which reviews requests and issues approved keys for the campus-hosted model pilot.",
+        "The TritonAI Harness pilot now has a public Gateway request, billing, installer, and setup path. Students request Gateway keys for projects through RAIN's Raindrop portal, which reviews each project and issues approved keys for the campus-hosted model pilot. Broader adoption remains staged.",
         "Class Planner is in production for schedule planning. Further integration work covers campus sign-in, schedule-of-classes data, and seat counts. In-app booking, degree-audit integration, and later AI features depend on additional campus APIs and review.",
         "Fall instructional AI signup is open for instructors to request a Canvas course tutor. Self-service course activation remains in development.",
         "Campus App Hosting continues with limited-scope proof-of-concept apps and a shared-responsibility path to support.",
