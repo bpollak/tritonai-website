@@ -208,6 +208,7 @@
       "summary": "The TritonAI Harness now has a public access and installation path. The pilot is expanding through reusable skills, supported hosting, shared project knowledge, and governance for broader agent work.",
       "details": [
         "The TritonAI Harness pilot now has a public Gateway request, billing, installer, and setup path. Broader adoption remains staged.",
+        "Students request Gateway keys for projects through RAIN's Raindrop portal, which reviews requests and issues approved keys for the campus-hosted model pilot.",
         "Class Planner is in production for schedule planning. Further integration work covers campus sign-in, schedule-of-classes data, and seat counts. In-app booking, degree-audit integration, and later AI features depend on additional campus APIs and review.",
         "Fall instructional AI signup is open for instructors to request a Canvas course tutor. Self-service course activation remains in development.",
         "Campus App Hosting continues with limited-scope proof-of-concept apps and a shared-responsibility path to support.",
@@ -226,8 +227,8 @@
         { "label": "View the Harness access update", "href": "/about/tritonai-updates.html#2026-08-21-harness-builder-resources" }
       ],
       "owner": "TritonAI platform and solutions teams",
-      "lastReviewed": "2026-10-04",
-      "source": "Public builder pages and Harness stable v0.3.5 release; September 30 and October 1, 2026 TritonAI team planning review",
+      "lastReviewed": "2026-11-23",
+      "source": "Public builder pages including the Developer APIs get-started page, Harness stable v0.4.2 release, and the September 30 and October 1, 2026 TritonAI team planning review; reviewed November 23, 2026",
       "relatedSlides": ["TritonGPT Initiative", "AI Roadmap 2026 — Quarter 3", "Citizen Developer Ecosystem", "Campus App Hosting", "harness-memory-architecture", "harness-memory-scale-ucsd"],
       "icon": "wrench",
       "highlights": [
