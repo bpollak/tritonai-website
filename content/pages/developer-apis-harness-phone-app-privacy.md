@@ -3,10 +3,10 @@ title: TritonAI Harness Chat Privacy Statement
 path: /developer-apis/harness-phone-app-privacy.html
 description: How the TritonAI Harness Chat iPhone app handles your requests, what it stores on your phone, and which permissions it uses.
 eyebrow: Build with TritonAI
-lastReviewed: 2026-11-22
+lastReviewed: 2026-11-23
 audiences: [staff, faculty, researchers, developers]
 owner: TritonAI
-source: "TritonAI Harness Chat 1.0 privacy manifest and in-app permission descriptions; TritonAI Harness Privacy Statement"
+source: "TritonAI Harness Chat 1.1 privacy manifest and in-app permission descriptions; TritonAI Harness Privacy Statement"
 canonicalUrl: /developer-apis/harness-phone-app-privacy.html
 relatedSlides: [platform-architecture, Citizen Developer Ecosystem]
 landingHub: true
@@ -25,8 +25,8 @@ bannerMode: abstract
 </div>
 <div class="col-md-4">
 <aside class="hub-note-card">
-<strong>No data collected by the app</strong>
-<span>The app has no analytics, advertising, or tracking, and it sends nothing to its developer.</span>
+<strong>No analytics, advertising, or tracking</strong>
+<span>The only thing the app sends anywhere other than your own computer is a push token, and only if you allow notifications.</span>
 </aside>
 </div>
 </div>
@@ -61,6 +61,16 @@ bannerMode: abstract
 </article>
 </div>
 </div>
+</div>
+</section>
+
+<section class="hub-section" aria-labelledby="phone-privacy-notifications-heading">
+<div class="hub-heading">
+<p class="home-kicker">Notifications</p>
+<h2 id="phone-privacy-notifications-heading">What notifications share</h2>
+<p>If you allow notifications, the app sends a push token to a small relay service run for this app. A push token is a random code Apple gives the app on your phone so notifications can reach it. It is not your phone number.</p>
+<p>The relay stores the token next to a scrambled ID for your computer and uses it only to tell Apple to show a notification. A notification says that a request finished, needs your approval, or has an update. It never includes what you asked or the answer.</p>
+<p>Turning off Notifications in the app's Settings removes the token from the relay.</p>
 </div>
 </section>
 
