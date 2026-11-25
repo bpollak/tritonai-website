@@ -39,6 +39,54 @@
     } else { heroVideo.autoplay = true; heroVideo.play(); }
   }
 
+  // The character beside the hero phone looks at you, turns to watch the phone while the app in the
+  // recording is working, and turns back when each answer is in. Four short clips are stacked and
+  // shown one at a time; "turn" ends where "watch" begins and "back" ends where "wave" begins.
+  var friend = document.getElementById('heroFriend');
+  var bubble = document.getElementById('heroBubble');
+  if (friend && heroVideo && !calm) {
+    var working = [[1.5, 9.5], [19.2, 23.5], [32.6, 36.5]];           // seconds in the recording when the app is busy
+    var lines = ['Hi! Ask me anything.', 'Now tap a follow-up.', 'One more tap.', 'Done. Nothing was sent.'];
+    var clips = {}, current = null, watching = false;
+    ['wave', 'turn', 'watch', 'back'].forEach(function (name) {
+      var v = document.createElement('video');
+      v.muted = true; v.playsInline = true; v.preload = 'auto'; v.loop = name === 'wave' || name === 'watch';
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+      v.style.opacity = 0; v.src = 'assets/' + name + '.' + ext;
+      friend.appendChild(v); clips[name] = v;
+    });
+    function showClip(name) {
+      if (current === name) return;
+      var next = clips[name], prev = current && clips[current];
+      current = name;
+      try { next.currentTime = 0; } catch (e) {}
+      var started = next.play(); if (started && started.catch) started.catch(function () {});
+      var swap = function () {
+        if (current !== name) return;
+        next.style.opacity = 1;
+        var still = friend.querySelector('img'); if (still) still.style.visibility = 'hidden';
+        if (prev && prev !== next) { prev.style.opacity = 0; prev.pause(); }
+      };
+      if (next.requestVideoFrameCallback) next.requestVideoFrameCallback(swap); else setTimeout(swap, 90);
+    }
+    clips.turn.addEventListener('ended', function () { if (current === 'turn') showClip('watch'); });
+    clips.back.addEventListener('ended', function () { if (current === 'back') showClip('wave'); });
+    clips.wave.addEventListener('error', function () { friend.querySelectorAll('video').forEach(function (v) { v.remove(); }); });
+    showClip('wave');
+    var follow = function () {
+      var t = heroVideo.currentTime, busy = false, done = 0;
+      working.forEach(function (span) { if (t >= span[0] && t < span[1]) busy = true; if (t >= span[1]) done += 1; });
+      if (heroVideo.paused) busy = false;
+      if (busy !== watching) { watching = busy; showClip(busy ? 'turn' : 'back'); }
+      if (bubble) {
+        bubble.classList.toggle('quiet', busy);
+        if (!busy && bubble.textContent !== lines[done]) bubble.textContent = lines[done];
+      }
+    };
+    heroVideo.addEventListener('timeupdate', follow);
+    heroVideo.addEventListener('pause', follow);
+  }
+
   // (Earlier interactive phone; inactive when its markup is absent.)
   var answers = {
     prep: { steps: [['working', 'Reading your calendar'], ['working', 'Reading the email thread'], ['making', 'Writing your brief']],
