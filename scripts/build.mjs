@@ -7,6 +7,7 @@ import MarkdownIt from "markdown-it";
 import { loadCatalog, renderSection } from "./lib/model-catalog.mjs";
 import { HARNESS_RELEASE_PAGE, releaseFragment, releaseSummaryIssues, guidedInstallerIssues } from "./lib/harness-releases.mjs";
 import { applyHarnessPageMetadata } from "./lib/harness-page-metadata.mjs";
+import { copyMirroredSites } from "./lib/mirrored-sites.mjs";
 import { STABLE_FEATURES_FILE, applyHarnessFeatureMap, stableFeatureIssues } from "./lib/harness-features.mjs";
 
 
@@ -1935,5 +1936,9 @@ await writeFile(
     : `# Playground build. Every page carries <meta name="robots" content="noindex,nofollow">.\n# Crawling stays allowed so that directive can be read.\nUser-agent: *\nAllow: /\n`,
 );
 await writeFile(path.join(OUTPUT_DIR, ".nojekyll"), "");
+// Last, so nothing above rewrites them. See scripts/lib/mirrored-sites.mjs.
+// Not on the playground: a mirror already has its own GitHub Pages address, and a
+// second public copy there would carry no noindex.
+if (IS_PRODUCTION_BUILD) await copyMirroredSites(OUTPUT_DIR);
 
 process.stdout.write(`Built ${htmlFiles.length} HTML files, ${useCases.length} structured use cases, ${skills.skills.length} public skills, ${tritonAiUpdates.updates.length} TritonAI updates, and ${newsletters.length} newsletters for base path ${SITE_BASE_PATH || "/"}.\n`);

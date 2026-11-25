@@ -72,3 +72,22 @@ test("the production build stays indexable and advertises its sitemap", async (t
   const robots = await readFile(path.join(dir, "robots.txt"), "utf8");
   assert.match(robots, /Sitemap: https:\/\/tritonai\.ucsd\.edu\/sitemap\.xml/);
 });
+
+// A mirrored site is a separate project. The build must serve it exactly as its own
+// repository publishes it, and must not put another public copy on the playground.
+test("mirrored sites are copied unchanged into production and left out of the playground", async (t) => {
+  const production = await buildInto("");
+  const playground = await buildInto("/tritonai-website");
+  t.after(() => Promise.all([production, playground].map((dir) => rm(dir, { recursive: true, force: true }))));
+
+  const source = path.join(repoRoot, "mirrors", "harness-chat");
+  const names = (await readdir(source, { recursive: true, withFileTypes: true }))
+    .filter((entry) => entry.isFile())
+    .map((entry) => path.relative(source, path.join(entry.parentPath ?? entry.path, entry.name)));
+  assert.ok(names.includes("index.html"), "the mirror has no index.html; run npm run sync:harness-chat");
+  for (const name of names) {
+    const built = await readFile(path.join(production, "harness-chat", name));
+    assert.ok(built.equals(await readFile(path.join(source, name))), `harness-chat/${name} was changed by the build`);
+  }
+  assert.deepEqual((await htmlFiles(playground)).filter((file) => file.includes(`${path.sep}harness-chat${path.sep}`)), []);
+});

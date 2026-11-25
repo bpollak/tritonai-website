@@ -17,6 +17,7 @@ import {
   loadChromeSelectors,
   regionElements,
 } from "./lib/chrome-contract.mjs";
+import { isMirrored } from "./lib/mirrored-sites.mjs";
 import {
   collectTokens,
   deriveProtectedTokens,
@@ -70,7 +71,7 @@ async function listFiles(directory, base = directory) {
  */
 export async function collectChrome(distDir = DIST_DIR, basePath = SITE_BASE_PATH) {
   const { rules, expired } = await loadChromeSelectors();
-  const files = (await listFiles(distDir)).filter((file) => file.endsWith(".html"));
+  const files = (await listFiles(distDir)).filter((file) => file.endsWith(".html") && !isMirrored(file));
   const regionsByRoute = new Map();
   const structural = [...expired];
   const chromeTokens = new Set();

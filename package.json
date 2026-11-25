@@ -11,6 +11,7 @@
     "check:newsletter-links": "node --use-system-ca scripts/check-newsletter-links.mjs",
     "sync:skills": "node scripts/sync-skills.mjs",
     "sync:decorator": "node scripts/sync-decorator.mjs",
+    "sync:harness-chat": "node scripts/sync-harness-chat.mjs",
     "check:decorator": "node scripts/sync-decorator.mjs --check",
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TritonAI Harness Chat: use TritonAI Harness from your iPhone</title>
+<meta name="description" content="An iPhone app for UC San Diego staff. Send requests from your phone to TritonAI Harness on your Mac or PC, which carries them out using your calendar, mail and files.">
+<meta name="apple-itunes-app" content="app-id=6837802331">
+<meta property="og:title" content="TritonAI Harness Chat">
+<meta property="og:description" content="Send requests from your iPhone to TritonAI Harness on your own computer.">
+<meta property="og:image" content="assets/icon-512.png">
+<meta name="theme-color" content="#0b2a4a">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="assets/icon-512.png" alt="" width="32" height="32"><span>TritonAI Harness Chat</span></a>
+    <nav aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#examples">Examples</a>
+      <a href="#control">Control</a>
+      <a href="#connects">Connections</a>
+      <a href="#setup">Setup</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">For UC San Diego staff · iPhone</p>
+      <h1>Use TritonAI Harness from your iPhone.</h1>
+      <p class="lede">TritonAI Harness Chat connects your iPhone to TritonAI Harness on your Mac or PC. You send a request from the phone. The Harness carries it out on your computer, using the calendar, mail, files, plugins and skills you have set up there, and the result appears in the app.</p>
+      <div class="cta">
+        <a class="store" href="https://apps.apple.com/app/id6837802331" aria-label="Download on the App Store"><small>Download on the</small>App Store</a>
+        <a class="btn ghost" href="https://tritonai.ucsd.edu/developer-apis/harness-phone-app.html">Setup and support</a>
+      </div>
+      <p class="fine">Free. Requires iOS 18 or later and TritonAI Harness 0.4.2 or later on your Mac or PC.</p>
+    </div>
+
+    <div class="device-stage">
+      <div class="device" role="img" aria-label="Screen recording of the app on an iPhone. A request to summarize meeting notes is typed, the assistant reads the files on the computer, and the summary with action items appears.">
+        <div class="device-screen">
+          <video id="heroVideo" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" width="600" height="1304">
+            <source src="assets/hero.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band tint-blue" id="how">
+  <div class="wrap">
+    <p class="kicker">Works with TritonAI Harness</p>
+    <h2>The app sends requests to TritonAI Harness on your computer.</h2>
+    <p class="sub">TritonAI Harness runs on your Mac or PC with your signed-in accounts, plugins and skills. The app is a second way to use it. A request typed on the phone is sent to your computer, the Harness carries it out there, and the answer is sent back to the phone.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 960 380" role="img" aria-label="Your phone sends a request to TritonAI Harness on your computer, which works with your calendar, mail, files and other connected tools, then sends the answer back to your phone.">
+        <defs>
+          <path id="pA" d="M190 190 H410"/>
+          <path id="pB1" d="M560 190 C640 190 640 70 730 70"/>
+          <path id="pB2" d="M560 190 C640 190 650 150 730 150"/>
+          <path id="pB3" d="M560 190 C640 190 650 230 730 230"/>
+          <path id="pB4" d="M560 190 C640 190 640 310 730 310"/>
+        </defs>
+        <g class="wires">
+          <use href="#pA"/><use href="#pB1"/><use href="#pB2"/><use href="#pB3"/><use href="#pB4"/>
+        </g>
+        <g class="pulses" aria-hidden="true">
+          <circle r="6"><animateMotion dur="2.6s" repeatCount="indefinite" keyPoints="0;1;1;0" keyTimes="0;0.4;0.6;1" calcMode="linear"><mpath href="#pA"/></animateMotion></circle>
+          <circle r="5"><animateMotion dur="2.6s" begin="0.5s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pB1"/></animateMotion></circle>
+          <circle r="5"><animateMotion dur="2.6s" begin="0.8s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pB2"/></animateMotion></circle>
+          <circle r="5"><animateMotion dur="2.6s" begin="1.1s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pB3"/></animateMotion></circle>
+          <circle r="5"><animateMotion dur="2.6s" begin="1.4s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pB4"/></animateMotion></circle>
+        </g>
+        <g class="node">
+          <rect x="70" y="95" width="120" height="190" rx="22"/>
+          <rect class="screen" x="82" y="112" width="96" height="150" rx="10"/>
+          <text x="130" y="318" text-anchor="middle">Your iPhone</text>
+          <text class="small" x="130" y="340" text-anchor="middle">Sends the request</text>
+        </g>
+        <g class="node">
+          <rect x="410" y="115" width="150" height="110" rx="12"/>
+          <rect class="screen" x="422" y="127" width="126" height="78" rx="6"/>
+          <rect x="455" y="225" width="60" height="16"/>
+          <rect x="435" y="241" width="100" height="8" rx="4"/>
+          <text x="485" y="282" text-anchor="middle">Your computer</text>
+          <text class="small" x="485" y="304" text-anchor="middle">TritonAI Harness carries it out</text>
+        </g>
+        <g class="tool"><rect x="730" y="46" width="170" height="48" rx="12"/><text x="815" y="76" text-anchor="middle">Calendar</text></g>
+        <g class="tool"><rect x="730" y="126" width="170" height="48" rx="12"/><text x="815" y="156" text-anchor="middle">Mail and Teams</text></g>
+        <g class="tool"><rect x="730" y="206" width="170" height="48" rx="12"/><text x="815" y="236" text-anchor="middle">Files and documents</text></g>
+        <g class="tool"><rect x="730" y="286" width="170" height="48" rx="12"/><text x="815" y="316" text-anchor="middle">Campus tools</text></g>
+      </svg>
+    </div>
+    <div class="three">
+      <div><h3>The same plugins and skills</h3><p>The app uses the plugins and skills already installed in the Harness on your computer. Nothing is configured separately on the phone.</p></div>
+      <div><h3>A single conversation</h3><p>All requests and answers appear in one chat. The app does not ask you to choose a project, thread or model.</p></div>
+      <div><h3>Shared between phone and computer</h3><p>Requests sent from the phone also appear in the Harness on your computer. Files the Harness saves on the computer can be opened on the phone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="examples">
+  <div class="wrap">
+    <p class="kicker">Examples</p>
+    <h2>Requests that use your calendar, mail and files.</h2>
+    <p class="sub">Each example shows a request, the sources the Harness reads to answer it, and the result returned to the phone. Select an example to play it.</p>
+
+    <div class="scenes">
+      <div class="scene-list" role="tablist" aria-label="Examples">
+        <button role="tab" aria-selected="true" data-scene="prep"><strong>Meeting preparation</strong><span>Attendees, recent mail and open items</span></button>
+        <button role="tab" aria-selected="false" data-scene="inbox"><strong>Inbox triage</strong><span>Messages that need a reply, with drafts</span></button>
+        <button role="tab" aria-selected="false" data-scene="file"><strong>Find and summarize</strong><span>Locate a file and list what changed</span></button>
+        <button role="tab" aria-selected="false" data-scene="follow"><strong>Meeting follow-up</strong><span>Action items and drafted messages</span></button>
+        <button role="tab" aria-selected="false" data-scene="brief"><strong>Morning brief</strong><span>A scheduled summary of the day</span></button>
+      </div>
+      <div class="stage" id="stage" role="tabpanel" aria-live="polite">
+        <div class="ask" id="stAsk"></div>
+        <div class="sources" id="stSources"></div>
+        <div class="result" id="stResult"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band tint-gold" id="status">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Status</p>
+      <h2>The app shows each step as it happens.</h2>
+      <p class="sub">A status line at the top of the chat names the current step. Tap it during a request to see the full list of steps. After the request finishes, "See what it did" under the answer shows the same list.</p>
+      <ul class="plain">
+        <li><strong>Ready when you are</strong> when no request is running</li>
+        <li><strong>Searching your files</strong>, <strong>Reading your calendar</strong> and similar during a request</li>
+        <li><strong>I need your OK to keep going</strong> when a step requires your approval</li>
+        <li><strong>Done</strong> when the answer is in the chat</li>
+      </ul>
+    </div>
+    <div class="states">
+      <figure><div class="mascot" data-clip="ready"></div><figcaption>Ready</figcaption></figure>
+      <figure><div class="mascot" data-clip="working"></div><figcaption>Looking things up</figcaption></figure>
+      <figure><div class="mascot" data-clip="making"></div><figcaption>Writing</figcaption></figure>
+      <figure><div class="mascot" data-clip="celebrate"></div><figcaption>Done</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band dark" id="control">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Control</p>
+      <h2>The assistant asks for approval before it acts.</h2>
+      <p class="sub">Requests that only read information run without interruption. Steps that send, change or open something wait for you.</p>
+      <ul class="ticks">
+        <li><strong>Email and messages are drafts.</strong> The assistant writes them into the chat for you to review and send yourself.</li>
+        <li><strong>Actions require approval.</strong> Sending a message, changing a calendar event and opening a web page each show an approval card. A setting extends this to every step.</li>
+        <li><strong>Requests can be stopped.</strong> The stop button ends the current request immediately.</li>
+        <li><strong>Each answer has a record.</strong> The steps taken are listed under every answer.</li>
+      </ul>
+    </div>
+    <div class="approve" aria-label="An example approval request">
+      <p class="approve-head">Needs your OK</p>
+      <p class="approve-q">Send this reply to the six people on the thread?</p>
+      <div class="approve-row"><span class="yes">Yes, once</span><span class="no">No</span></div>
+      <p class="approve-foot">Waiting for your OK</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="connects">
+  <div class="wrap">
+    <p class="kicker">Connections</p>
+    <h2>Plugins available through TritonAI Harness.</h2>
+    <p class="sub">Each of these is a plugin in TritonAI Harness. After you sign in to a plugin on your computer, requests from the phone can use it.</p>
+    <div class="plugs">
+      <article><span class="tile logo" aria-hidden="true"><img src="assets/icons/microsoft.svg" alt="" width="26" height="26"></span><h3>Microsoft 365</h3><p>Outlook mail and calendar, Teams, OneDrive and SharePoint files.</p></article>
+      <article><span class="tile logo" aria-hidden="true"><img src="assets/icons/google.svg" alt="" width="26" height="26"></span><h3>Google Workspace</h3><p>Drive, Docs and Sheets.</p></article>
+      <article><span class="tile c-navy" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M12 .5a11.500 11.500 0 0 0-3.640 22.410c.580.110.790-.250.790-.550v-2.140c-3.200.700-3.880-1.360-3.880-1.360-.520-1.330-1.280-1.690-1.280-1.690-1.050-.710.080-.700.080-.700 1.160.080 1.770 1.190 1.770 1.190 1.030 1.760 2.700 1.250 3.360.960.100-.750.400-1.250.730-1.540-2.550-.290-5.240-1.280-5.240-5.680 0-1.250.450-2.280 1.180-3.080-.120-.290-.510-1.460.110-3.040 0 0 .970-.310 3.160 1.180a10.900 10.900 0 0 1 5.760 0c2.190-1.490 3.160-1.180 3.160-1.180.620 1.580.230 2.750.110 3.040.740.800 1.180 1.830 1.180 3.080 0 4.410-2.690 5.380-5.250 5.670.410.360.780 1.060.780 2.140v3.170c0 .310.210.670.800.550A11.500 11.500 0 0 0 12 .5z"/></svg></span><h3>GitHub</h3><p>Repositories, issues and pull requests.</p></article>
+      <article><span class="tile logo" aria-hidden="true"><img src="assets/icons/kuali.png" alt="" width="26" height="26"></span><h3>Kuali Build</h3><p>Campus forms and the apps built on them.</p></article>
+      <article><span class="tile logo" aria-hidden="true"><img src="assets/icons/jira.svg" alt="" width="26" height="26"></span><h3>Jira</h3><p>Your tickets and where they stand.</p></article>
+      <article><span class="tile logo" aria-hidden="true"><img src="assets/icons/lucid.svg" alt="" width="26" height="26"></span><h3>Lucid</h3><p>Your diagrams and boards.</p></article>
+      <article><span class="tile logo" aria-hidden="true"><img src="assets/icons/n8n.svg" alt="" width="26" height="26"></span><h3>n8n</h3><p>Your automated workflows.</p></article>
+      <article><span class="tile c-navy" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.500 2.500 0 0 1 6.500 3H20v15H6.500A2.500 2.500 0 0 0 4 20.500z"/><path d="M4 20.500A2.500 2.500 0 0 0 6.500 23H20"/><path d="M8.500 8h7M8.500 12h5"/></svg></span><h3>Campus knowledge</h3><p>Blink and Services &amp; Support, for the policy behind a task.</p></article>
+    </div>
+    <p class="fine dark">Availability depends on which plugins are switched on and signed in on your own computer.</p>
+  </div>
+</section>
+
+<section class="band tint-blue" id="tour">
+  <div class="wrap">
+    <p class="kicker">The app</p>
+    <h2>The app has four tabs.</h2>
+  </div>
+  <div class="shots" tabindex="0" aria-label="Screenshots of the app. Scroll sideways for more.">
+    <figure><img src="assets/shot-chat.jpg" width="540" height="1174" loading="lazy" alt="The chat, comparing two staffing plan files and listing what changed"><figcaption><strong>Chat</strong>Requests and answers</figcaption></figure>
+    <figure><img src="assets/shot-ideas.jpg" width="540" height="1174" loading="lazy" alt="The Ideas tab with suggested requests"><figcaption><strong>Ideas</strong>Requests suggested by the Harness</figcaption></figure>
+    <figure><img src="assets/shot-scheduled.jpg" width="540" height="1174" loading="lazy" alt="The Scheduled tab with a weekday request"><figcaption><strong>Scheduled</strong>Requests that run at set times</figcaption></figure>
+    <figure><img src="assets/shot-library.jpg" width="540" height="1174" loading="lazy" alt="The Library tab listing past answers"><figcaption><strong>Library</strong>Past answers, searchable</figcaption></figure>
+  </div>
+  <div class="wrap">
+    <div class="three">
+      <div><h3>Share from other apps</h3><p>In Safari, Files or Photos, tap Share and choose Harness to send a page, document or picture to the assistant with your request.</p></div>
+      <div><h3>Ready-made routines</h3><p>The Scheduled tab includes routines such as a morning brief and an end of day wrap-up. Turn one on and it runs on weekdays.</p></div>
+      <div><h3>Drafts you can use</h3><p>A drafted email appears as a card. Copy it, or open it in your mail app to review and send yourself.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="setup">
+  <div class="wrap">
+    <p class="kicker">Setup</p>
+    <h2>Setup takes about two minutes.</h2>
+    <ol class="steps">
+      <li><span>1</span><h3>Open TritonAI Harness</h3><p>On your Mac or PC, open TritonAI Harness and choose to connect a phone. It shows a code.</p></li>
+      <li><span>2</span><h3>Scan the code</h3><p>Point your iPhone at the screen. There is no account to create and nothing to sign in to.</p></li>
+      <li><span>3</span><h3>Send a request</h3><p>Keep TritonAI Harness open on your computer. On the same Wi-Fi the app connects directly. With Tailscale installed on both devices it also connects from other networks.</p></li>
+    </ol>
+    <p class="fine dark">First <a href="https://apps.apple.com/app/id6837802331">get the app from the App Store</a>. The <a href="https://tritonai.ucsd.edu/developer-apis/harness-phone-app.html">setup guide</a> has each step in detail. The app also includes a demo mode that runs without a computer.</p>
+  </div>
+</section>
+
+<section class="band tint-teal" id="privacy">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Privacy</p>
+      <h2>Your requests go only to your own computer.</h2>
+      <p class="sub">Text you type or dictate and files you attach are sent from the phone to TritonAI Harness on your computer, and to no other destination. If you allow notifications, the app also sends a push token to a relay so a notification can reach your phone. A notification never includes your request or the answer. The app has no accounts, analytics, advertising or tracking.</p>
+      <p><a class="btn solid" href="https://tritonai.ucsd.edu/developer-apis/harness-phone-app-privacy.html">Read the privacy statement</a></p>
+    </div>
+    <ul class="pills">
+      <li>No accounts</li><li>No analytics</li><li>No advertising</li><li>No tracking</li><li>No request text in notifications</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap narrow">
+    <p class="kicker">FAQ</p>
+    <h2>Frequently asked questions.</h2>
+    <details><summary>How does it relate to TritonAI Harness?</summary><p>The app is a phone client for TritonAI Harness. The Harness runs on your Mac or PC and carries out requests with your accounts, plugins and skills. The app lets you send requests, approve steps and read results when you are away from that computer.</p></details>
+    <details><summary>Which version of TritonAI Harness do I need?</summary><p>Version 0.4.2 or later, which is the current stable release. Earlier versions cannot connect to the app. To check, open TritonAI Harness on your computer and look at the version in its settings.</p></details>
+    <details><summary>Who is it for?</summary><p>UC San Diego staff who use TritonAI Harness on a Mac or PC. The app is a companion to the Harness and needs it to do real work.</p></details>
+    <details><summary>Does my computer have to be on?</summary><p>Yes. Requests are carried out on your computer, so it must be awake with TritonAI Harness open. If the computer cannot be reached, the app keeps your message and sends it when the connection returns.</p></details>
+    <details><summary>Do I have to be on the same Wi-Fi?</summary><p>By default, yes. With Tailscale installed on both the phone and the computer, the app also connects from other networks.</p></details>
+    <details><summary>Can it send email or change my calendar on its own?</summary><p>No. It writes drafts and shows an approval card before sending or changing anything. Which accounts it can use depends on the plugins turned on in TritonAI Harness on your computer.</p></details>
+    <details><summary>Can I try it without a computer?</summary><p>Yes. Choose "Try a demo first" on the opening screen. The demo runs on the phone and does not use any of your information.</p></details>
+    <details><summary>Where do I get the app?</summary><p>It is a free download from the <a href="https://apps.apple.com/app/id6837802331">App Store</a>. It requires iOS 18 or later.</p></details>
+    <details><summary>What does it cost?</summary><p>Nothing. The app is free.</p></details>
+    <details><summary>Where do I get help?</summary><p>The <a href="https://tritonai.ucsd.edu/developer-apis/harness-phone-app.html">setup and support page</a> has step-by-step instructions, or email <a href="mailto:tritonai@ucsd.edu">tritonai@ucsd.edu</a>.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Brett Pollak</span>
+    <nav aria-label="Footer">
+      <a href="https://tritonai.ucsd.edu/developer-apis/harness-phone-app.html">Support</a>
+      <a href="https://tritonai.ucsd.edu/developer-apis/harness-phone-app-privacy.html">Privacy</a>
+      <a href="https://tritonai.ucsd.edu/">TritonAI</a>
+    </nav>
+  </div>
+  <p class="wrap legal">Apple, iPhone and App Store are trademarks of Apple Inc. Other product names are trademarks of their owners.</p>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

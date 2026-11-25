@@ -18,6 +18,7 @@ import {
 import { collectTokens } from "./lib/chrome-styling.mjs";
 import { collectStyling } from "./chrome-contract.mjs";
 import { loadSkillsSource } from "./lib/skills-source.mjs";
+import { isMirrored } from "./lib/mirrored-sites.mjs";
 import { HARNESS_RELEASE_PAGE, releaseFragment, releaseSummaryIssues, guidedInstallerIssues } from "./lib/harness-releases.mjs";
 
 
@@ -170,7 +171,8 @@ async function resolveLocalTarget(pathname) {
   return false;
 }
 
-const files = await listFiles(DIST_DIR);
+// Mirrored sites are separate projects with their own checks.
+const files = (await listFiles(DIST_DIR)).filter((file) => !isMirrored(file));
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
 const missing = [];
 const inherited = [];

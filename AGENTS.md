@@ -197,6 +197,12 @@ The validator intentionally reports the inherited production links below as warn
 
 Do not add new broken internal targets.
 
+## Mirrored sites
+
+`mirrors/harness-chat/` is the TritonAI Harness Chat site, a separate project that lives in `bpollak/harness-chat` and publishes itself to GitHub Pages. A production build copies it unchanged to `/harness-chat/`, so it is also served at `tritonai.ucsd.edu/harness-chat/`. It is not a Decorator page: the build does not rewrite it, the checks for this site do not read it, and it is not in the navigation or the sitemap.
+
+Do not edit the mirror here. Change the source repository, then run `npm run sync:harness-chat` and commit the result. `scripts/lib/mirrored-sites.mjs` lists the mirrors.
+
 ## Crawl safety
 
 `npm run crawl` deletes and recreates `src/site/`. Do not run it for an ordinary content update. Use it only for an explicit whole-site refresh, review `reports/crawl.json`, and preserve intentional repository-authored changes.
