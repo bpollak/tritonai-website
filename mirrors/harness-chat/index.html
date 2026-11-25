@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -55,13 +55,11 @@
         <p class="hero-bubble">Hi! Ask me anything.</p>
         <div class="mascot" data-clip="wave"></div>
       </div>
-      <div class="device" role="img" aria-label="Screens from the app, shown one after another: the opening chat with suggested requests, an answer with its source, a request waiting for approval, a drafted email, and scheduled routines.">
-        <div class="device-screen" id="heroScreens">
-          <img class="on" src="assets/hero-1.jpg" alt="" width="600" height="1304">
-          <img src="assets/hero-2.jpg" alt="" width="600" height="1304" loading="lazy">
-          <img src="assets/hero-3.jpg" alt="" width="600" height="1304" loading="lazy">
-          <img src="assets/hero-4.jpg" alt="" width="600" height="1304" loading="lazy">
-          <img src="assets/hero-5.jpg" alt="" width="600" height="1304" loading="lazy">
+      <div class="device" role="img" aria-label="Screen recording of the app on an iPhone. A question about tomorrow's calendar is typed and the assistant answers with three meetings. Then a request for a reminder email is typed and a draft appears with buttons to copy it or open it in Mail.">
+        <div class="device-screen">
+          <video id="heroVideo" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg?v=3" width="600" height="1304">
+            <source src="assets/hero.mp4?v=3" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -212,7 +210,7 @@
     <h2>The app has four tabs.</h2>
   </div>
   <div class="shots" tabindex="0" aria-label="Screenshots of the app. Scroll sideways for more.">
-    <figure><img src="assets/shot-chat.jpg?v=2" width="540" height="1174" loading="lazy" alt="The chat, answering how to get reimbursed for a conference trip, with the source"><figcaption><strong>Chat</strong>Requests and answers</figcaption></figure>
+    <figure><img src="assets/shot-chat.jpg?v=3" width="540" height="1174" loading="lazy" alt="The chat, answering what is on the calendar tomorrow, with two suggested replies"><figcaption><strong>Chat</strong>Requests and answers</figcaption></figure>
     <figure><img src="assets/shot-ideas.jpg?v=2" width="540" height="1174" loading="lazy" alt="The Ideas tab with suggested requests"><figcaption><strong>Ideas</strong>Requests suggested by the Harness</figcaption></figure>
     <figure><img src="assets/shot-scheduled.jpg?v=2" width="540" height="1174" loading="lazy" alt="The Scheduled tab with a weekday request and routines ready to turn on"><figcaption><strong>Scheduled</strong>Requests that run at set times</figcaption></figure>
     <figure><img src="assets/shot-library.jpg?v=2" width="540" height="1174" loading="lazy" alt="The Library tab listing past answers"><figcaption><strong>Library</strong>Past answers, searchable</figcaption></figure>
@@ -299,6 +297,6 @@
   <p class="wrap legal">Apple, iPhone and App Store are trademarks of Apple Inc. Other product names are trademarks of their owners.</p>
 </footer>
 
-<script src="site.js"></script>
+<script src="site.js?v=3"></script>
 </body>
 </html>

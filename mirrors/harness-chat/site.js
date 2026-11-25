@@ -27,16 +27,16 @@
   }
   document.querySelectorAll('.mascot[data-clip]').forEach(function (el) { show(el, el.dataset.clip); });
 
-  // The phone in the hero shows current screens from the app, one after another.
-  var heroScreens = document.querySelectorAll('#heroScreens img');
-  if (heroScreens.length > 1 && !calm) {
-    var heroAt = 0;
-    setInterval(function () {
-      if (document.hidden) return;
-      heroScreens[heroAt].classList.remove('on');
-      heroAt = (heroAt + 1) % heroScreens.length;
-      heroScreens[heroAt].classList.add('on');
-    }, 3600);
+  // The phone in the hero plays a screen recording of the app. It plays only while it is on screen.
+  var heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    if (calm) { heroVideo.controls = true; }
+    else if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { var p = heroVideo.play(); if (p && p.catch) p.catch(function () { heroVideo.controls = true; }); }
+        else { heroVideo.pause(); }
+      }, { threshold: 0.25 }).observe(heroVideo);
+    } else { heroVideo.autoplay = true; heroVideo.play(); }
   }
 
   // (Earlier interactive phone; inactive when its markup is absent.)
