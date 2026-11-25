@@ -336,3 +336,5 @@ footer a { color: #fff; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-friend .mascot, .hero-bubble { animation: none; } }
 .hero .fine { max-width: 31em; }
+@media (min-width: 861px) { .three.two-up { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 861px) { .hero-copy { padding-right: 96px; } }
