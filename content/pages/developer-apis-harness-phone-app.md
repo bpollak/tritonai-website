@@ -3,7 +3,7 @@ title: TritonAI Harness Chat for iPhone
 path: /developer-apis/harness-phone-app.html
 description: Set up and get help with TritonAI Harness Chat, the iPhone companion for TritonAI Harness on your Mac or PC.
 eyebrow: Build with TritonAI
-lastReviewed: 2026-11-22
+lastReviewed: 2026-11-25
 audiences: [staff, faculty, researchers, developers]
 owner: TritonAI
 source: "TritonAI Harness Chat 1.0 in-app setup guide and TritonAI Harness Sharing and access settings"
@@ -18,10 +18,10 @@ bannerMode: abstract
 <section class="hub-section hub-section-intro" aria-labelledby="phone-intro-heading">
 <div class="row hub-split hub-split-align-center">
 <div class="col-md-8 hub-split-copy">
-<p class="home-kicker">Pilot</p>
+<p class="home-kicker">Early beta</p>
 <h2 id="phone-intro-heading">Ask your work computer from your phone</h2>
 <p class="hub-lede">TritonAI Harness Chat is an iPhone companion for <a href="/developer-apis/harness.html">TritonAI Harness</a>. You ask in your own words on your phone. The assistant on your Mac or PC does the work, and the answer appears in one conversation.</p>
-<p>The app is in pilot. The TritonAI team shares the install link with pilot participants.</p>
+<p>The app is in early beta testing, and parts of it will change. It is a free download from the <a href="https://apps.apple.com/app/id6837802331">App Store</a>. See <a href="/harness-chat/">the app’s own site</a> for an overview.</p>
 </div>
 <div class="col-md-4">
 <aside class="hub-note-card">
@@ -168,7 +168,7 @@ bannerMode: abstract
 <div class="col-md-8">
 <p class="home-kicker">Support</p>
 <h2 id="phone-contact-heading">Contact the TritonAI team</h2>
-<p>For help with setup, to report a problem, or to ask about the pilot, email the service team. See the <a href="/developer-apis/harness-phone-app-privacy.html">privacy statement for the phone app</a> for how it handles your information.</p>
+<p>For help with setup, to report a problem, or to ask about the beta, email the service team. See the <a href="/developer-apis/harness-phone-app-privacy.html">privacy statement for the phone app</a> for how it handles your information.</p>
 </div>
 <div class="col-md-4 hub-subscribe-action">
 <a class="btn btn-primary btn-lg" href="mailto:tritonai@ucsd.edu?subject=TritonAI%20Harness%20Chat%20for%20iPhone">Email TritonAI team</a>

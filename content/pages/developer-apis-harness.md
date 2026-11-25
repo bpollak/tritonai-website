@@ -29,7 +29,7 @@ bannerMode: abstract
 <a class="btn btn-primary harness-training-link" href="/training/harness/">Start training</a>
 </p>
 <p>Already have a key? <a href="/developer-apis/start.html#harness">Download and set up</a>.</p>
-<p class="small"><a href="/skills/index.html">Browse Skills Library</a> · <a href="/developer-apis/harness-release-notes.html">Release notes</a></p>
+<p class="small"><a href="/skills/index.html">Browse Skills Library</a> · <a href="/developer-apis/harness-release-notes.html">Release notes</a> · <a href="/harness-chat/">iPhone app (early beta testing)</a></p>
 </div>
 <div class="col-md-5 hub-split-media">
 <figure class="build-architecture" aria-describedby="harness-architecture-caption">
