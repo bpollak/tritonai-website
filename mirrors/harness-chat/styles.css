@@ -343,3 +343,20 @@ footer a { color: #fff; }
 .hero-friend .mascot video { transition: none; }
 .hero-bubble { transition: opacity .25s ease; }
 .hero-bubble.quiet { opacity: 0; }
+
+/* Official App Store badge, sized to sit beside the outline button. */
+.badge { display: inline-flex; border-radius: 9px; }
+.badge img { display: block; height: 54px; width: auto; }
+.badge:hover, .badge:focus-visible { opacity: .9; }
+/* The approval card shown inside a short stretch of chat. */
+.approve-stage { display: grid; gap: 12px; width: 100%; max-width: 400px; justify-self: center; align-self: center; }
+.approve-stage .approve { max-width: none; }
+.approve-ask { justify-self: end; max-width: 86%; margin: 0 0 4px; padding: 11px 16px; border-radius: 18px 18px 4px 18px; background: var(--blue); color: #fff; font-weight: 500; line-height: 1.35; }
+.approve-step { display: flex; align-items: center; gap: 8px; margin: 0; color: #c9d9e8; font-size: .92rem; }
+.approve-step::before { content: ""; width: 16px; height: 16px; border-radius: 50%; flex: none; background: #2bb3a8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; }
+.approve-note { margin: 4px 0 0; text-align: center; color: #a9bfd3; font-size: .88rem; }
+/* Phone width: fade the right edge of the section links so it is clear the row scrolls. */
+@media (max-width: 900px) {
+  .nav nav { padding-right: 36px; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 44px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 44px), transparent); }
+  .nav nav::-webkit-scrollbar { display: none; }
+}
