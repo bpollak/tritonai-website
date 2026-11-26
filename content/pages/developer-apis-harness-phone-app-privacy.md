@@ -3,7 +3,7 @@ title: TritonAI Harness Chat Privacy Statement
 path: /developer-apis/harness-phone-app-privacy.html
 description: How the TritonAI Harness Chat iPhone app handles your requests, what it stores on your phone, and which permissions it uses.
 eyebrow: Build with TritonAI
-lastReviewed: 2026-11-23
+lastReviewed: 2026-11-26
 audiences: [staff, faculty, researchers, developers]
 owner: TritonAI
 source: "TritonAI Harness Chat 1.1 privacy manifest and in-app permission descriptions; TritonAI Harness Privacy Statement"
@@ -26,7 +26,7 @@ bannerMode: abstract
 <div class="col-md-4">
 <aside class="hub-note-card">
 <strong>No analytics, advertising, or tracking</strong>
-<span>The only thing the app sends anywhere other than your own computer is a push token, and only if you allow notifications.</span>
+<span>The only thing the app sends anywhere other than your own computer is a push token, and only if you allow notifications. Notification titles are encrypted so only your phone can read them.</span>
 </aside>
 </div>
 </div>
@@ -69,7 +69,8 @@ bannerMode: abstract
 <p class="home-kicker">Notifications</p>
 <h2 id="phone-privacy-notifications-heading">What notifications share</h2>
 <p>If you allow notifications, the app sends a push token to a small relay service run for this app. A push token is a random code Apple gives the app on your phone so notifications can reach it. It is not your phone number.</p>
-<p>The relay stores the token next to a scrambled ID for your computer and uses it only to tell Apple to show a notification. A notification says that a request finished, needs your approval, or has an update. It never includes what you asked or the answer.</p>
+<p>The relay stores the token next to a scrambled ID for your computer and uses it only to tell Apple to show a notification. A notification says that a request finished, needs your approval, or has an update.</p>
+<p>Your computer can add a short title for the request, such as "Agenda for Monday's staff meeting". The title is encrypted on your computer with a key that only your computer and your phone hold, so the relay and Apple cannot read it. Your phone decrypts it and shows it in the notification. A notification never includes the answer. To stop the phone from showing the title, turn off "Show what it is about" in the app's Settings.</p>
 <p>Turning off Notifications in the app's Settings removes the token from the relay.</p>
 </div>
 </section>
