@@ -142,7 +142,7 @@ bannerMode: abstract
 <article class="panel panel-default hub-action-card">
 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 <h3>One conversation</h3>
-<p>Type or dictate what you need. There are no projects, threads, or models to choose. History lists everything you asked before.</p>
+<p>Type or dictate what you need. There are no projects or models to choose. The menu at the top left lists your chats and starts a new one.</p>
 </article>
 </div>
 <div class="col-md-4">
