@@ -54,7 +54,7 @@
   var friend = document.getElementById('heroFriend');
   var bubble = document.getElementById('heroBubble');
   if (friend && heroVideo && !calm) {
-    var working = [[3.5, 7.5], [18.7, 20.9], [31.7, 34.3]];           // seconds in the recording when the app is busy
+    var working = [[1.4, 5.1], [13.7, 18.8], [23.7, 25.7]];           // seconds in the recording when the app is busy
     var lines = ['Hi! Ask me anything.', 'Now tap a follow-up.', 'One more tap.', 'Done. Nothing was sent.'];
     var clips = {}, current = null, watching = false;
     ['wave', 'turn', 'watch', 'back', 'idle'].forEach(function (name) {
