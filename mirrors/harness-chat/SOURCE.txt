@@ -1,2 +1,2 @@
-Mirrored from https://github.com/bpollak/harness-chat at 63433f4.
+Mirrored from https://github.com/bpollak/harness-chat at 8521fdc.
 Do not edit here. Edit the source and run: npm run sync:harness-chat

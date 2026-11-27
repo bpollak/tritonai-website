@@ -11,7 +11,7 @@
     el.dataset.clip = clip;
     el.textContent = '';
     var still = document.createElement('img');
-    still.src = 'assets/' + clip + '.png';
+    still.src = 'assets/' + clip + '.png?v=2';
     still.alt = '';
     el.appendChild(still);
     if (calm) return;
@@ -20,7 +20,7 @@
     video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('aria-hidden', 'true');
     video.addEventListener('playing', function () { still.style.visibility = 'hidden'; }, { once: true });
     video.addEventListener('error', function () { still.style.visibility = ''; video.remove(); });
-    video.src = 'assets/' + clip + '.' + ext;
+    video.src = 'assets/' + clip + '.' + ext + '?v=2';
     el.appendChild(video);
     function playVisible() {
       if (!video.ended) video.play().catch(function () {});
@@ -54,7 +54,7 @@
   var friend = document.getElementById('heroFriend');
   var bubble = document.getElementById('heroBubble');
   if (friend && heroVideo && !calm) {
-    var working = [[1.5, 9.5], [19.2, 23.5], [32.6, 36.5]];           // seconds in the recording when the app is busy
+    var working = [[3.5, 7.5], [18.7, 20.9], [31.7, 34.3]];           // seconds in the recording when the app is busy
     var lines = ['Hi! Ask me anything.', 'Now tap a follow-up.', 'One more tap.', 'Done. Nothing was sent.'];
     var clips = {}, current = null, watching = false;
     ['wave', 'turn', 'watch', 'back', 'idle'].forEach(function (name) {
