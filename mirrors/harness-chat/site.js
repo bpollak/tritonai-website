@@ -206,4 +206,31 @@
       }, { threshold: 0.3 }).observe(stage);
     } else { play('prep'); }
   }
+  // Feature recording: plays while on screen, marks the part being shown, and jumps when a part is chosen.
+  var feature = document.getElementById('featureVideo');
+  var parts = [].slice.call(document.querySelectorAll('#featureParts button'));
+  if (feature) {
+    if (calm) { feature.controls = true; feature.loop = false; }
+    else if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { var p = feature.play(); if (p && p.catch) p.catch(function () { feature.controls = true; }); }
+        else { feature.pause(); }
+      }, { threshold: 0.25 }).observe(feature);
+    } else { feature.controls = true; }
+    var starts = parts.map(function (b) { return parseFloat(b.getAttribute('data-at')); });
+    var showPart = function () {
+      var now = 0;
+      for (var i = 0; i < starts.length; i++) { if (feature.currentTime >= starts[i]) now = i; }
+      parts.forEach(function (b, i) { if (i === now) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+    };
+    feature.addEventListener('timeupdate', showPart);
+    parts.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        feature.currentTime = starts[i];
+        showPart();
+        var p = feature.play(); if (p && p.catch) p.catch(function () { feature.controls = true; });
+      });
+    });
+    showPart();
+  }
 })();
