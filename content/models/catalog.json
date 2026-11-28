@@ -1,5 +1,5 @@
 {
-  "lastSynced": "2026-11-21T02:39:09.145Z",
+  "lastSynced": "2026-11-24T23:26:20.750Z",
   "source": "https://docs.tritonai.ucsd.edu/api/model-catalog",
   "models": [
     {
@@ -32,12 +32,15 @@
     },
     {
       "id": "api-deepseek-4.1-flash",
-      "displayName": "Deepseek 4.1 Flash",
-      "family": "Deepseek 4.1 Flash",
+      "displayName": "DeepSeek V4.1 Flash 1017",
+      "family": "DeepSeek V4.1 Flash 1017",
       "hosting": "UC-hosted",
       "type": "Chat and reasoning",
       "maxInputTokens": 524288,
-      "logo": null,
+      "logo": {
+        "src": "/images/model-logos/deepseek.webp",
+        "alt": "DeepSeek"
+      },
       "inputCostPerToken": 2.5e-7,
       "outputCostPerToken": 7.5e-7
     },
@@ -137,6 +140,48 @@
       "outputCostPerToken": 0.00001
     },
     {
+      "id": "gemini-4-carbon",
+      "displayName": "Gemini 4 Carbon",
+      "family": "Gemini",
+      "hosting": "Approved enterprise cloud",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 1048576,
+      "logo": {
+        "src": "/images/model-logos/google.webp",
+        "alt": "Google"
+      },
+      "inputCostPerToken": 0.000002,
+      "outputCostPerToken": 0.00001
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "displayName": "Gemini 4 Hydrogen",
+      "family": "Gemini",
+      "hosting": "Approved enterprise cloud",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 1048576,
+      "logo": {
+        "src": "/images/model-logos/google.webp",
+        "alt": "Google"
+      },
+      "inputCostPerToken": 0.0000015,
+      "outputCostPerToken": 0.0000075
+    },
+    {
+      "id": "gemini-4-neon",
+      "displayName": "Gemini 4 Neon",
+      "family": "Gemini",
+      "hosting": "Approved enterprise cloud",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 1048576,
+      "logo": {
+        "src": "/images/model-logos/google.webp",
+        "alt": "Google"
+      },
+      "inputCostPerToken": 0.000003,
+      "outputCostPerToken": 0.000015
+    },
+    {
       "id": "gpt-6.1-sol",
       "displayName": "GPT 6.1 Sol",
       "family": "GPT",
@@ -150,6 +195,21 @@
       },
       "inputCostPerToken": 0.000002,
       "outputCostPerToken": 0.00001
+    },
+    {
+      "id": "gpt-6.1-terra",
+      "displayName": "GPT 6.1 Terra",
+      "family": "GPT",
+      "hosting": "Approved enterprise cloud",
+      "type": "Chat and reasoning",
+      "maxInputTokens": 922000,
+      "logo": {
+        "src": "/images/model-logos/openai.webp",
+        "alt": "OpenAI",
+        "darkModeBackdrop": "white-circle"
+      },
+      "inputCostPerToken": 0.000001,
+      "outputCostPerToken": 0.000005
     },
     {
       "id": "gpt-6-astra",
@@ -197,12 +257,15 @@
     },
     {
       "id": "us.zai.glm-5.3",
-      "displayName": "Us.zai.glm 5.3",
-      "family": "Us.zai.glm 5.3",
+      "displayName": "GLM 5.3",
+      "family": "GLM 5.3",
       "hosting": "Approved enterprise cloud",
       "type": "Chat and reasoning",
       "maxInputTokens": 1000000,
-      "logo": null,
+      "logo": {
+        "src": "/images/model-logos/zai.webp",
+        "alt": "Z.ai"
+      },
       "inputCostPerToken": 0.000001848,
       "outputCostPerToken": 0.000005808
     }
